@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/manager.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>manager.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              union <a href="unionSplitSHWord.html" class="m-doc">SplitSHWord</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structManager.html" class="m-doc">Manager</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="aba358ebafc57f67fb3857896d466026e">
+              <span class="m-doc-wrap-bumper">enum <a href="#aba358ebafc57f67fb3857896d466026e" class="m-doc-self">Managers</a> { </span><span class="m-doc-wrap"><a href="#aba358ebafc57f67fb3857896d466026ea8749201abb61cf7f90acd3f6fdade183" class="m-doc">MANAGER_NONE</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea155508cdcc090796d004b40b12ba838d" class="m-doc">LIGHT_RAY_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eacad9d169f054874de172a1f0bc76e3ae" class="m-doc">VERTICAL_MINISH_PATH_BACKGROUND_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea0189921bda1d61671667cf52f502ca1e" class="m-doc">MINISH_PORTAL_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea18600bed8e43720a7b6ef8a0fe49907f" class="m-doc">DIGGING_CAVE_ENTRANCE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea4aecc3c016602f04fc9a3575ba7d2cec" class="m-doc">BRIDGE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eade6e27c775ce2bfcf29b419d995bb16b" class="m-doc">SPECIAL_WARP_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea5ee9f60af6a37cab04750ce0675415fe" class="m-doc">MINISH_VILLAGE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea4a0b683045406cfb51a3ca66c073f1c5" class="m-doc">HORIZONTAL_MINISH_PATH_BACKGROUND_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eac849ff6f4095c8855bda4c4723d0dd73" class="m-doc">MINISH_RAFTERS_BACKGROUND_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea7e8c9027e3680d3a7a1e9ae6652fe5cd" class="m-doc">EZLO_HINT_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea26c17540e3c441eda409bdd781989ece" class="m-doc">FIGHT_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea98f2b1be24c8e3e1d100b59ecfe9e2ac" class="m-doc">ROLLING_BARREL_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea999f2a75eb3547af52403f01ba072685" class="m-doc">TILE_CHANGE_OBSERVE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eae5428c7d2ed44a14d0e59fca5ecb919a" class="m-doc">ENTITY_SPAWN_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea29cc13167326592f23d6c92622fe513b" class="m-doc">MISC_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea6e30dc8e27732c1103b05a6a1f9e2075" class="m-doc">WEATHER_CHANGE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eac7a08447557bcd6cac372323a584db1b" class="m-doc">FLAG_AND_OPERATOR_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea34227c3dd8772cfb0651997c5b9c5008" class="m-doc">HYRULE_TOWN_TILESET_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eaa0c98db7bb557395e2c6b732f95f8344" class="m-doc">HOUSE_SIGN_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea3a781c8f258b9941f63451ce18a46bd8" class="m-doc">STEAM_OVERLAY_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea2bc7e7496702f5bc8cf641f4d54eaa9d" class="m-doc">TEMPLE_OF_DROPLETS_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea0e0fa0eaecf143ce518053f15e4f3bc4" class="m-doc">DELAYED_ENTITY_LOAD_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea6960825884ee6ad8ec13355192539114" class="m-doc">FALLING_ITEM_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eadd32f4f578b00f1ee90f183d12c03539" class="m-doc">CLOUD_OVERLAY_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea2558acf4013d47f019391f962d886bfd" class="m-doc">POW_BACKGROUND_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea58850a91988725e9c4b9be38049df9d4" class="m-doc">HOLE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea10f4d59c23bd2c2b5b4552c8c43843ff" class="m-doc">STATIC_BACKGROUND_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eab7af42918eb59524361140851323efdc" class="m-doc">RAINFALL_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eaae8811f9cf872381bb869fbb74a19de0" class="m-doc">ANIMATED_BACKGROUND_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea47099f2cf888afd41bbc5824d207dece" class="m-doc">REGION_TRIGGER_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea0f0c2b357d60d072961eb42efe89194f" class="m-doc">RAIL_INTERSECTION_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea4469d2aa9ce9869ba8b29ed40ea5e3f9" class="m-doc">MOVEABLE_OBJECT_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea189c9801606bbe0543736af36884f12a" class="m-doc">MINISH_SIZED_ENTRANCE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea7c25864151746eb9af490d78d718f213" class="m-doc">LIGHT_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea11ee4d80bff32672580d96136865585f" class="m-doc">LIGHT_LEVEL_SET_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eacf9922de554b3a7e7cc9b3eb2c922198" class="m-doc">BOMBABLE_WALL_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ead3d0069dc04af60a3f0929ccfc2557ff" class="m-doc">FLAME_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eafb9861dc289c3ea5fb06111d6ce7ad7a" class="m-doc">PUSHABLE_FURNITURE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ead548b65d228894e79dd2614de527c3aa" class="m-doc">ARMOS_INTERIOR_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea675a04d32153398f6eb60100b01d2664" class="m-doc">ENEMY_INTERACTION_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eae2e833c8795a306f4061116fe0dd93eb" class="m-doc">MANAGER_29</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ead699746c9f98650b7c4a6b6489ddbe00" class="m-doc">DESTRUCTIBLE_TILE_OBSERVE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea37ce2e66ee66739c768230da1babaec1" class="m-doc">ANGRY_STATUE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea4225975639384e5861f89eb5329ce928" class="m-doc">CLOUD_STAIRCASE_TRANSITION_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea0d1464cf878daa3fe83468e23fac9e69" class="m-doc">WATERFALL_BOTTOM_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea5bffe3e196e18df98558ae92e8f8b9e2" class="m-doc">SECRET_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea653f78ef783f059c352849985b9bcd4d" class="m-doc">VAATI3_BACKGROUND_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ead3c17bd7435e61ef1161a8adc086f070" class="m-doc">TILE_PUZZLE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea43206bae296d21517f9f65145da46173" class="m-doc">GORON_MERCHANT_SHOP_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea953ed7d1ca2a00f9150f097f0bf4c385" class="m-doc">VAATI_APPARATE_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eaec6066c36a340fa73b7d6c6a1dab9d8d" class="m-doc">HYRULE_TOWN_BELL_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea0f0a40768d802b979505400dc286cd1a" class="m-doc">VAATI3_INSIDE_ARM_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eac72a6945480fb6525fffafd6a84987ec" class="m-doc">CAMERA_TARGET_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea8a2245a416a3651ea50d0038c37ae079" class="m-doc">REPEATED_SOUND_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea4fe56cb517e62c117f5cf0032e8a9cd8" class="m-doc">VAATI3_START_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026eafd78e334b3afa1bf05ab73db56eb5e90" class="m-doc">FLOATING_PLATFORM_MANAGER</a>,
+              <a href="#aba358ebafc57f67fb3857896d466026ea9b7020b0fe9c28cf370c549ab0417e61" class="m-doc">ENTER_ROOM_TEXTBOX_MANAGER</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a8735cc945e2cadad3d4d70e89e4ecd4a">
+              <span class="m-doc-wrap-bumper">void <a href="#a8735cc945e2cadad3d4d70e89e4ecd4a" class="m-doc-self">LightRayManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01980d33aeb1eb02543022fb60a07b15">
+              <span class="m-doc-wrap-bumper">void <a href="#a01980d33aeb1eb02543022fb60a07b15" class="m-doc-self">VerticalMinishPathBackgroundManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3d9a98bfc220a997d577c0ba396d599">
+              <span class="m-doc-wrap-bumper">void <a href="#ad3d9a98bfc220a997d577c0ba396d599" class="m-doc-self">MinishPortalManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e4c35903066fe3741493ab24f5e783a">
+              <span class="m-doc-wrap-bumper">void <a href="#a1e4c35903066fe3741493ab24f5e783a" class="m-doc-self">DiggingCaveEntranceManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a797071b43586222cba24a07bf9913f3a">
+              <span class="m-doc-wrap-bumper">void <a href="#a797071b43586222cba24a07bf9913f3a" class="m-doc-self">BridgeManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32e29d8514e7aaa51cc1f05ece68ef06">
+              <span class="m-doc-wrap-bumper">void <a href="#a32e29d8514e7aaa51cc1f05ece68ef06" class="m-doc-self">SpecialWarpManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8609d22663ca62e60e4a9cc1ed76b453">
+              <span class="m-doc-wrap-bumper">void <a href="#a8609d22663ca62e60e4a9cc1ed76b453" class="m-doc-self">MinishVillageTileSetManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0defca7ce6920218c4fd6181ffc9a24e">
+              <span class="m-doc-wrap-bumper">void <a href="#a0defca7ce6920218c4fd6181ffc9a24e" class="m-doc-self">HorizontalMinishPathBackgroundManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af576add87a085e80beda20c994e21b2f">
+              <span class="m-doc-wrap-bumper">void <a href="#af576add87a085e80beda20c994e21b2f" class="m-doc-self">MinishRaftersBackgroundManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa7ab12631e81f69bb823102e36e7e797">
+              <span class="m-doc-wrap-bumper">void <a href="#aa7ab12631e81f69bb823102e36e7e797" class="m-doc-self">EzloHintManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3756588d9c1e293d0dfe27c34aeac8b3">
+              <span class="m-doc-wrap-bumper">void <a href="#a3756588d9c1e293d0dfe27c34aeac8b3" class="m-doc-self">FightManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a77534d5c929fa1991cb9559a407c3e8a">
+              <span class="m-doc-wrap-bumper">void <a href="#a77534d5c929fa1991cb9559a407c3e8a" class="m-doc-self">RollingBarrelManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d5015f71d223208ad7843d4710d0226">
+              <span class="m-doc-wrap-bumper">void <a href="#a0d5015f71d223208ad7843d4710d0226" class="m-doc-self">TileChangeObserveManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae1379668d7b10643000cbce525a991e9">
+              <span class="m-doc-wrap-bumper">void <a href="#ae1379668d7b10643000cbce525a991e9" class="m-doc-self">EntitySpawnManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7160020f512f0d345be7043e67d91af">
+              <span class="m-doc-wrap-bumper">void <a href="#ae7160020f512f0d345be7043e67d91af" class="m-doc-self">MiscManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad9fa8bb3c7771edf8836908903ade62c">
+              <span class="m-doc-wrap-bumper">void <a href="#ad9fa8bb3c7771edf8836908903ade62c" class="m-doc-self">WeatherChangeManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a31deae6789a3f2c77c4adc577c4ed9f0">
+              <span class="m-doc-wrap-bumper">void <a href="#a31deae6789a3f2c77c4adc577c4ed9f0" class="m-doc-self">FlagAndOperatorManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b160cf52e2219e734e0e21fbfd3fb6d">
+              <span class="m-doc-wrap-bumper">void <a href="#a8b160cf52e2219e734e0e21fbfd3fb6d" class="m-doc-self">HyruleTownTileSetManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5425007583a20579fe9c3166fcea3f7c">
+              <span class="m-doc-wrap-bumper">void <a href="#a5425007583a20579fe9c3166fcea3f7c" class="m-doc-self">HouseSignManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2f75e755e30c6297976a7943e58b72f">
+              <span class="m-doc-wrap-bumper">void <a href="#ad2f75e755e30c6297976a7943e58b72f" class="m-doc-self">SteamOverlayManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c5901ce0e5ef64500a310f998ed5194">
+              <span class="m-doc-wrap-bumper">void <a href="#a3c5901ce0e5ef64500a310f998ed5194" class="m-doc-self">TempleOfDropletsManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f019bf1756291f835d42761dd7f214d">
+              <span class="m-doc-wrap-bumper">void <a href="#a3f019bf1756291f835d42761dd7f214d" class="m-doc-self">DelayedEntityLoadManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a165e898f4ab06277cbb7f50b805a46b1">
+              <span class="m-doc-wrap-bumper">void <a href="#a165e898f4ab06277cbb7f50b805a46b1" class="m-doc-self">FallingItemManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6bb493181b727e4e0e5a91c5c5687723">
+              <span class="m-doc-wrap-bumper">void <a href="#a6bb493181b727e4e0e5a91c5c5687723" class="m-doc-self">CloudOverlayManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7fefe148ffffc9b3226c121c8716104b">
+              <span class="m-doc-wrap-bumper">void <a href="#a7fefe148ffffc9b3226c121c8716104b" class="m-doc-self">PowBackgroundManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a099545d9e18568f85bbddd11db588a19">
+              <span class="m-doc-wrap-bumper">void <a href="#a099545d9e18568f85bbddd11db588a19" class="m-doc-self">HoleManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a6d619046f904b854b557d360b28ee4">
+              <span class="m-doc-wrap-bumper">void <a href="#a0a6d619046f904b854b557d360b28ee4" class="m-doc-self">StaticBackgroundManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a196b9839ee5ee6745cf383aab7e0dfba">
+              <span class="m-doc-wrap-bumper">void <a href="#a196b9839ee5ee6745cf383aab7e0dfba" class="m-doc-self">RainfallManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17a1c307e0333fa98627a92d39b5b7e1">
+              <span class="m-doc-wrap-bumper">void <a href="#a17a1c307e0333fa98627a92d39b5b7e1" class="m-doc-self">AnimatedBackgroundManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5442f75adaa9ad12c5a9c6eb299619f2">
+              <span class="m-doc-wrap-bumper">void <a href="#a5442f75adaa9ad12c5a9c6eb299619f2" class="m-doc-self">RegionTriggerManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace43d452a268b96022efb0e359ea8f35">
+              <span class="m-doc-wrap-bumper">void <a href="#ace43d452a268b96022efb0e359ea8f35" class="m-doc-self">RailIntersectionManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7643a88273c0c15a85af8715665c329">
+              <span class="m-doc-wrap-bumper">void <a href="#ab7643a88273c0c15a85af8715665c329" class="m-doc-self">MoveableObjectManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f4d044d8e70198118862183de9126d5">
+              <span class="m-doc-wrap-bumper">void <a href="#a3f4d044d8e70198118862183de9126d5" class="m-doc-self">MinishSizedEntranceManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20049d6b6ccaded2a76f26da19988ae1">
+              <span class="m-doc-wrap-bumper">void <a href="#a20049d6b6ccaded2a76f26da19988ae1" class="m-doc-self">LightManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac8a9e0f84d04061b20eed7917622de50">
+              <span class="m-doc-wrap-bumper">void <a href="#ac8a9e0f84d04061b20eed7917622de50" class="m-doc-self">LightLevelSetManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a351dbc626882c82a43ce0c38c9edf897">
+              <span class="m-doc-wrap-bumper">void <a href="#a351dbc626882c82a43ce0c38c9edf897" class="m-doc-self">BombableWallManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a55d4fbda6a5cc9333daf33ae2f1af5eb">
+              <span class="m-doc-wrap-bumper">void <a href="#a55d4fbda6a5cc9333daf33ae2f1af5eb" class="m-doc-self">FlameManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8fdf0b86fa92a8f259a5fdf215fca83c">
+              <span class="m-doc-wrap-bumper">void <a href="#a8fdf0b86fa92a8f259a5fdf215fca83c" class="m-doc-self">PushableFurnitureManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0c1fc9b1b12fed79c2e9fb6e4bfd8f8c">
+              <span class="m-doc-wrap-bumper">void <a href="#a0c1fc9b1b12fed79c2e9fb6e4bfd8f8c" class="m-doc-self">ArmosInteriorManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe5ce5c6f902b5d20b79c6e6ab6cefa6">
+              <span class="m-doc-wrap-bumper">void <a href="#abe5ce5c6f902b5d20b79c6e6ab6cefa6" class="m-doc-self">EnemyInteractionManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b997766b5884164cba5c95329602377">
+              <span class="m-doc-wrap-bumper">void <a href="#a1b997766b5884164cba5c95329602377" class="m-doc-self">Manager29_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5950cefc6e4b9815a7a5703b172359f">
+              <span class="m-doc-wrap-bumper">void <a href="#aa5950cefc6e4b9815a7a5703b172359f" class="m-doc-self">DestructibleTileObserveManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af1e3699f35b6c91658a2822566758b4f">
+              <span class="m-doc-wrap-bumper">void <a href="#af1e3699f35b6c91658a2822566758b4f" class="m-doc-self">AngryStatueManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad435126ee05b8fe1d1c1d9a3aeb27751">
+              <span class="m-doc-wrap-bumper">void <a href="#ad435126ee05b8fe1d1c1d9a3aeb27751" class="m-doc-self">CloudStaircaseTransitionManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a26f35c988b2f8faa4917c2b1366ab438">
+              <span class="m-doc-wrap-bumper">void <a href="#a26f35c988b2f8faa4917c2b1366ab438" class="m-doc-self">WaterfallBottomManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae0fbf6bbd64c5654aa4dda0d7d514497">
+              <span class="m-doc-wrap-bumper">void <a href="#ae0fbf6bbd64c5654aa4dda0d7d514497" class="m-doc-self">SecretManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38a50184d5bf204b5685953e083cd4a5">
+              <span class="m-doc-wrap-bumper">void <a href="#a38a50184d5bf204b5685953e083cd4a5" class="m-doc-self">Vaati3BackgroundManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa9dda91df4efc0be9c28fcc10bb5a26a">
+              <span class="m-doc-wrap-bumper">void <a href="#aa9dda91df4efc0be9c28fcc10bb5a26a" class="m-doc-self">TilePuzzleManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2bc5247b2df06ce8eef414ae223caec7">
+              <span class="m-doc-wrap-bumper">void <a href="#a2bc5247b2df06ce8eef414ae223caec7" class="m-doc-self">GoronMerchantShopManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9ba9b39f5156ccede9e48b9e0991ba6">
+              <span class="m-doc-wrap-bumper">void <a href="#ab9ba9b39f5156ccede9e48b9e0991ba6" class="m-doc-self">VaatiAppearingManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad59fd5002a39d5d90bd8c77395290231">
+              <span class="m-doc-wrap-bumper">void <a href="#ad59fd5002a39d5d90bd8c77395290231" class="m-doc-self">HyruleTownBellManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a367b3872c34f0b982e3da5907fcce452">
+              <span class="m-doc-wrap-bumper">void <a href="#a367b3872c34f0b982e3da5907fcce452" class="m-doc-self">Vaati3InsideArmManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f4d9952fb3a26e70ec2691dbb5cc95a">
+              <span class="m-doc-wrap-bumper">void <a href="#a2f4d9952fb3a26e70ec2691dbb5cc95a" class="m-doc-self">CameraTargetManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac55694204284a0e8678a35661d582f1e">
+              <span class="m-doc-wrap-bumper">void <a href="#ac55694204284a0e8678a35661d582f1e" class="m-doc-self">RepeatedSoundManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1313ffe3f35eade90299ba09f512101e">
+              <span class="m-doc-wrap-bumper">void <a href="#a1313ffe3f35eade90299ba09f512101e" class="m-doc-self">Vaati3StartManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7656c147ead99ce3921720d102801138">
+              <span class="m-doc-wrap-bumper">void <a href="#a7656c147ead99ce3921720d102801138" class="m-doc-self">FloatingPlatformManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4f0f8aeeb27763082cb310650d19d066">
+              <span class="m-doc-wrap-bumper">void <a href="#a4f0f8aeeb27763082cb310650d19d066" class="m-doc-self">EnterRoomTextboxManager_Main</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c542546b9492eab825d34a69d47f96a">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3c542546b9492eab825d34a69d47f96a" class="m-doc-self">GetEmptyManager</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="structManager.html" class="m-doc">Manager</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3732cc9f4327dd32246d05af4a59a984">
+              <span class="m-doc-wrap-bumper">void <a href="#a3732cc9f4327dd32246d05af4a59a984" class="m-doc-self">RegisterTransitionManager</a>(</span><span class="m-doc-wrap">void* mgr,
+              void(*)() onEnter,
+              void(*)() onExit)</span>
+            </dt>
+            <dd>Set manager responsible for handling room changes.</dd>
+            <dt id="a9a15b55ffbe9ec1c18cdf9517417073e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9a15b55ffbe9ec1c18cdf9517417073e" class="m-doc-self">sub_0805ACC0</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* param_1) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e88e3904fe87c3ef2da439226318886">
+              <span class="m-doc-wrap-bumper">void <a href="#a1e88e3904fe87c3ef2da439226318886" class="m-doc-self">sub_0801855C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46cc93a69c7bd4b596c1599d8272e4c0">
+              <span class="m-doc-wrap-bumper">void <a href="#a46cc93a69c7bd4b596c1599d8272e4c0" class="m-doc-self">SetNextAreaHint</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> textId)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a1e5ca5e10cc5f5fbdf84663e6fa50599">
+              union <a href="unionSplitSHWord.html" class="m-doc">SplitSHWord</a> <a href="#a1e5ca5e10cc5f5fbdf84663e6fa50599" class="m-doc-self">PACKED</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d53b7d2ea7ad53410075a3f923b0c33">
+              void(*const <a href="#a5d53b7d2ea7ad53410075a3f923b0c33" class="m-doc-self">gMiscManagerunctions</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/peahat.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>peahat.c <span class="m-thin">file</span>
+        </h1>
+        <p>Peahat enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="aaf105ae5beaca1dee30ae54530691fce">
+              <span class="m-doc-wrap-bumper">enum <a href="#aaf105ae5beaca1dee30ae54530691fce" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#aaf105ae5beaca1dee30ae54530691fcea958b37fdde4b1e1fd9587e0c9b9bac71" class="m-doc">PeahatForm_Torso</a>,
+              <a href="#aaf105ae5beaca1dee30ae54530691fcea1b1837314ab5fb7b10fe17f375e722a4" class="m-doc">PeahatForm_Propeller</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a80155586fa275b28773c9b203f52caba">
+              <span class="m-doc-wrap-bumper">enum <a href="#a80155586fa275b28773c9b203f52caba" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#a80155586fa275b28773c9b203f52cabaa314d723c918a0cbfddf2bb3a17abc768" class="m-doc">PeahatAnimation_Flying</a>,
+              <a href="#a80155586fa275b28773c9b203f52cabaa63a1770ff5a9920756ca202d688433d6" class="m-doc">PeahatAnimation_BrokenPropeller</a>,
+              <a href="#a80155586fa275b28773c9b203f52cabaa03b902c9238c616e7f5c055d636ef19d" class="m-doc">PeahatAnimation_SlicedPropeller</a>,
+              <a href="#a80155586fa275b28773c9b203f52cabaa5af5b0aa817a1deca3e60f02884aa74b" class="m-doc">PeahatAnimation_Propeller</a>,
+              <a href="#a80155586fa275b28773c9b203f52cabaa50e9c408a356849362600111de3aaae3" class="m-doc">PeahatAnimation_NewPropeller</a>,
+              <a href="#a80155586fa275b28773c9b203f52cabaabdf74cf598fccada2f9c51dc78c06c1e" class="m-doc">PeahatAnimation_RepairPropeller</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="aca61e2c4eb47eedf0404cc4213bcb395">
+              <span class="m-doc-wrap-bumper">void <a href="#aca61e2c4eb47eedf0404cc4213bcb395" class="m-doc-self">sub_080205F8</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35f5321c54edd4182b99d2afb0b038f1">
+              <span class="m-doc-wrap-bumper">void <a href="#a35f5321c54edd4182b99d2afb0b038f1" class="m-doc-self">sub_08020604</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20bcfbd8a8612517ca1caab39f3d592f">
+              <span class="m-doc-wrap-bumper">void <a href="#a20bcfbd8a8612517ca1caab39f3d592f" class="m-doc-self">Peahat</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aef8357f144a348f6833f85b7313329c2">
+              <span class="m-doc-wrap-bumper">void <a href="#aef8357f144a348f6833f85b7313329c2" class="m-doc-self">Peahat_OnTick</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a678c3cf014f2f5bc04c592fd604b21be">
+              <span class="m-doc-wrap-bumper">void <a href="#a678c3cf014f2f5bc04c592fd604b21be" class="m-doc-self">Peahat_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3d0df15c4b6a3904fae26d9905016ca">
+              <span class="m-doc-wrap-bumper">void <a href="#ad3d0df15c4b6a3904fae26d9905016ca" class="m-doc-self">Peahat_OnGrabbed</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="addfeb2fea294d9422e6f95feaa7ebf78">
+              <span class="m-doc-wrap-bumper">void <a href="#addfeb2fea294d9422e6f95feaa7ebf78" class="m-doc-self">sub_080200B4</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12e7a05c5b27d366df922660ed620fdf">
+              <span class="m-doc-wrap-bumper">void <a href="#a12e7a05c5b27d366df922660ed620fdf" class="m-doc-self">sub_080200E4</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a161ffdfd76944f16af7539f841e27d62">
+              <span class="m-doc-wrap-bumper">void <a href="#a161ffdfd76944f16af7539f841e27d62" class="m-doc-self">sub_080200EC</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa6b894ff8d13232d788bd68bb16b307e">
+              <span class="m-doc-wrap-bumper">void <a href="#aa6b894ff8d13232d788bd68bb16b307e" class="m-doc-self">sub_080200F4</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a086046a31b4cfb003af0e89d7856bc3e">
+              <span class="m-doc-wrap-bumper">void <a href="#a086046a31b4cfb003af0e89d7856bc3e" class="m-doc-self">nullsub_5</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4f74655d4f089f123252e3b101c4fba0">
+              <span class="m-doc-wrap-bumper">void <a href="#a4f74655d4f089f123252e3b101c4fba0" class="m-doc-self">sub_08020104</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ba87bfe8dd4b0b00de59e0a0838281c">
+              <span class="m-doc-wrap-bumper">void <a href="#a6ba87bfe8dd4b0b00de59e0a0838281c" class="m-doc-self">Peahat_Initialize</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad4dfd2d63ec2b29d0ea95f16370b7354">
+              <span class="m-doc-wrap-bumper">void <a href="#ad4dfd2d63ec2b29d0ea95f16370b7354" class="m-doc-self">Peahat_Fly</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3839987b9755103e9fd3e498d1da59c5">
+              <span class="m-doc-wrap-bumper">void <a href="#a3839987b9755103e9fd3e498d1da59c5" class="m-doc-self">Peahat_ChargeStart</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afb7fc8eb7ee39edc9b406e7296920e8d">
+              <span class="m-doc-wrap-bumper">void <a href="#afb7fc8eb7ee39edc9b406e7296920e8d" class="m-doc-self">Peahat_ChargeTarget</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6fa5cb637f1e51c4b309683caebf7cd">
+              <span class="m-doc-wrap-bumper">void <a href="#ab6fa5cb637f1e51c4b309683caebf7cd" class="m-doc-self">Peahat_ChargeEnd</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a689e458212b01ea6099e5e7f0ce2e026">
+              <span class="m-doc-wrap-bumper">void <a href="#a689e458212b01ea6099e5e7f0ce2e026" class="m-doc-self">Peahat_Stunned</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aec917d24d992915cb39eb4087e3b5f60">
+              <span class="m-doc-wrap-bumper">void <a href="#aec917d24d992915cb39eb4087e3b5f60" class="m-doc-self">Peahat_RepairPropeller</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae3eb09939ea6c30ffdffb45b65698da5">
+              <span class="m-doc-wrap-bumper">void <a href="#ae3eb09939ea6c30ffdffb45b65698da5" class="m-doc-self">Peahat_Recover</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6220bf6bba1300056b66d4bae2964a4f">
+              <span class="m-doc-wrap-bumper">void <a href="#a6220bf6bba1300056b66d4bae2964a4f" class="m-doc-self">Peahat_Hop</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab893eccab5e4a1ad3e6ff38e10a75bc7">
+              <span class="m-doc-wrap-bumper">void <a href="#ab893eccab5e4a1ad3e6ff38e10a75bc7" class="m-doc-self">Peahat_Takeoff</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae502f70c9c0879b6d2e743f86da0e9c4">
+              <span class="m-doc-wrap-bumper">void <a href="#ae502f70c9c0879b6d2e743f86da0e9c4" class="m-doc-self">PeahatPropeller_Initialize</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04123a13907eb12160c906e4d874cd90">
+              <span class="m-doc-wrap-bumper">void <a href="#a04123a13907eb12160c906e4d874cd90" class="m-doc-self">PeahatPropeller_Fly</a>(</span><span class="m-doc-wrap"><a href="structPeahatEntity.html" class="m-doc">PeahatEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="adfb342d028621b3a5782b34118ec8417">
+              void(*const <a href="#adfb342d028621b3a5782b34118ec8417" class="m-doc-self">Peahat_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a087aa8dd97ab638d411ce33417f6f923">
+              void(*const <a href="#a087aa8dd97ab638d411ce33417f6f923" class="m-doc-self">gPeahatPropellerFunctions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa70985b3e1cf5c68f7688dae5b7c5d6a">
+              void(*const <a href="#aa70985b3e1cf5c68f7688dae5b7c5d6a" class="m-doc-self">gPeahatActions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85bf02f10ed990878d48e5a254d9da6f">
+              void(*const <a href="#a85bf02f10ed990878d48e5a254d9da6f" class="m-doc-self">gUnk_080CA5BC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af6498a11cd54b7327f38c46f3d6b9411">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#af6498a11cd54b7327f38c46f3d6b9411" class="m-doc-self">gPeahatFlightHeights</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a163c16b1a46edc3101d1573266402529">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a163c16b1a46edc3101d1573266402529" class="m-doc-self">gUnk_080CA5D4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29973fad274ed54593f49005d5361c34">
+              <a href="structEntity.html" class="m-doc">Entity</a>* <a href="#a29973fad274ed54593f49005d5361c34" class="m-doc-self">gUnk_020000B0</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a665390e734d124195aa8d263d475c73a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a665390e734d124195aa8d263d475c73a" class="m-doc-self">DIR_NONE</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

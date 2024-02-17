@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/transitions.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>transitions.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structTransition.html" class="m-doc">Transition</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="aa886c82392af3e2fe662a336b33f9b09">
+              <span class="m-doc-wrap-bumper">enum <a href="#aa886c82392af3e2fe662a336b33f9b09" class="m-doc-self">WarpType</a> { </span><span class="m-doc-wrap"><a href="#aa886c82392af3e2fe662a336b33f9b09ac1a76d46d03d59590ef4d14be965f408" class="m-doc">WARP_TYPE_BORDER</a>,
+              <a href="#aa886c82392af3e2fe662a336b33f9b09a930df725bbbd46e34d70e7067862fc56" class="m-doc">WARP_TYPE_AREA</a>,
+              <a href="#aa886c82392af3e2fe662a336b33f9b09ad66998e884556554e2f3bbe0a7c65c8e" class="m-doc">WARP_TYPE_END_OF_LIST</a> = -1 }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e38d9519e74e10eccdfda5c5b92b283">
+              <span class="m-doc-wrap-bumper">enum <a href="#a4e38d9519e74e10eccdfda5c5b92b283" class="m-doc-self">TransitionType</a> { </span><span class="m-doc-wrap"><a href="#a4e38d9519e74e10eccdfda5c5b92b283a957de084d71fc0df7790fdd5adaab3e1" class="m-doc">TRANSITION_TYPE_NORMAL</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283af99ce58b911ce2cd2c4423c49ed71d42" class="m-doc">TRANSITION_TYPE_INSTANT_MINISH</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283a41d5fd4481f2d93d9cf5fffab1c9834a" class="m-doc">TRANSITION_TYPE_DROP_IN</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283afdb497735f461b01e5c6aced3ee89c87" class="m-doc">TRANSITION_TYPE_INSTANT</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283ab48190a13ff2711e8e681fd855e0bce8" class="m-doc">TRANSITION_TYPE_STEP_FORWARD</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283a6304b9f3b217c5996859c5a30f0e02d3" class="m-doc">TRANSITION_TYPE_5</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283ab09539bf9c2c26f353767e5e2e4c9ed8" class="m-doc">TRANSITION_TYPE_DROP_IN_MINISH</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283a9adc194011a13f0bcd6cd4415d42f95a" class="m-doc">TRANSITION_TYPE_STAIR_EXIT</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283aab2a7dafcb29ede7392f59e8639f10b8" class="m-doc">TRANSITION_TYPE_8</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283a42c89775e2dc75823c77807bd1780820" class="m-doc">TRANSITION_TYPE_9</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283ae6f2631376384aace58f241782580417" class="m-doc">TRANSITION_TYPE_HOP_IN_FORWARD</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283ab6f9872e0f251980bc5402ea0b92a77c" class="m-doc">TRANSITION_TYPE_HOP_IN</a>,
+              <a href="#a4e38d9519e74e10eccdfda5c5b92b283a709246a5dde031c461ff13be1cb2d16a" class="m-doc">TRANSITION_TYPE_FLY_IN</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="aa81657171a75baff8338353a95e96e5e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa81657171a75baff8338353a95e96e5e" class="m-doc-self">gExitList_RoyalValley_ForestMaze</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e8fbae9b1bd73f076a15466f930dce0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4e8fbae9b1bd73f076a15466f930dce0" class="m-doc-self">gUnk_08134FBC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35ac6af9188a75607839cbdeed86d6b4">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a35ac6af9188a75607839cbdeed86d6b4" class="m-doc-self">gUnk_08135048</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a423b2859ca80fb8b58ecfb11c1364063">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a423b2859ca80fb8b58ecfb11c1364063" class="m-doc-self">gUnk_08135190</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6135606328b48f6107ade20e1c644518">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a6135606328b48f6107ade20e1c644518" class="m-doc-self">gUnk_0813A76C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afdbcee30943fd607325a0d5899c018e9">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const *const <a href="#afdbcee30943fd607325a0d5899c018e9" class="m-doc-self">gExitLists</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

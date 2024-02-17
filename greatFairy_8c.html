@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/object/greatFairy.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_bb043af75e54e1af3032f67529bb720c.html">object</a>/</span>greatFairy.c <span class="m-thin">file</span>
+        </h1>
+        <p>Great Fairy object.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="aac34dfe6c6b73b43a4656c9dce041034">
+              <span class="m-doc-wrap-bumper">enum <a href="#aac34dfe6c6b73b43a4656c9dce041034" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#aac34dfe6c6b73b43a4656c9dce041034a0eb13f6bb90744a3576e265d35bb3a8b" class="m-doc">BEHAVIORS</a>,
+              <a href="#aac34dfe6c6b73b43a4656c9dce041034ac5f9b2039b05f5eaaf2b4fa96d5bcb4c" class="m-doc">WINGS</a>,
+              <a href="#aac34dfe6c6b73b43a4656c9dce041034a669539d1110f789cf3e282be447c3e77" class="m-doc">WAKE</a>,
+              <a href="#aac34dfe6c6b73b43a4656c9dce041034aa8f07da9907c4f76b0b04a96938a8e24" class="m-doc">MINI</a>,
+              <a href="#aac34dfe6c6b73b43a4656c9dce041034af047a2cc2b4a61a6cf33f82500f46f69" class="m-doc">MINIAFFINE</a>,
+              <a href="#aac34dfe6c6b73b43a4656c9dce041034a5b2d646a62d7587c13a1eef8ea7f8006" class="m-doc">DROPLET</a>,
+              <a href="#aac34dfe6c6b73b43a4656c9dce041034a800be18020c992e464c36d795ddcec6b" class="m-doc">RIPPLE</a>,
+              <a href="#aac34dfe6c6b73b43a4656c9dce041034ae09fb66f62103fa684754b7b56958c42" class="m-doc">BIGRIPPLE</a>,
+              <a href="#aac34dfe6c6b73b43a4656c9dce041034ad1bd7ce572f877b288f9af1bcf017102" class="m-doc">FORM8</a>,
+              <a href="#aac34dfe6c6b73b43a4656c9dce041034a3c0866e005fcf2db37b6602f7a8f7577" class="m-doc">FORM9</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a6d577a1493eb0aea7048bff6cf0c37a6">
+              <span class="m-doc-wrap-bumper">void <a href="#a6d577a1493eb0aea7048bff6cf0c37a6" class="m-doc-self">GreatFairy_InitializeAnimation</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa36b28de4401193c924e49fbc6149d12">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa36b28de4401193c924e49fbc6149d12" class="m-doc-self">GreatFairy_CreateForm</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4bef9a7de0ac00afd9c1d79c535b6281">
+              <span class="m-doc-wrap-bumper">void <a href="#a4bef9a7de0ac00afd9c1d79c535b6281" class="m-doc-self">sub_080873D0</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a861155b98207f7477911d88fb6fee183">
+              <span class="m-doc-wrap-bumper">void <a href="#a861155b98207f7477911d88fb6fee183" class="m-doc-self">GreatFairy</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a40c03a25711aa9ae8ccd7daab2dfdbbb">
+              <span class="m-doc-wrap-bumper">void <a href="#a40c03a25711aa9ae8ccd7daab2dfdbbb" class="m-doc-self">GreatFairy_CallBehavior</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adbe195d19aa6f5189cf3981ce4db7db7">
+              <span class="m-doc-wrap-bumper">void <a href="#adbe195d19aa6f5189cf3981ce4db7db7" class="m-doc-self">GreatFairy_Init</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a386d9fd04b6487774f453236190dbcca">
+              <span class="m-doc-wrap-bumper">void <a href="#a386d9fd04b6487774f453236190dbcca" class="m-doc-self">GreatFairy_DormantUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ce3d39522e899fd98ff7fff2749f69f">
+              <span class="m-doc-wrap-bumper">void <a href="#a6ce3d39522e899fd98ff7fff2749f69f" class="m-doc-self">GreatFairy_CreateBigRipple</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a91da5ca7c4fce08bd880912d86a7715d">
+              <span class="m-doc-wrap-bumper">void <a href="#a91da5ca7c4fce08bd880912d86a7715d" class="m-doc-self">GreatFairy_SpawningUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5f9b2c33111c0fb62fc48a4dcb3486de">
+              <span class="m-doc-wrap-bumper">void <a href="#a5f9b2c33111c0fb62fc48a4dcb3486de" class="m-doc-self">GreatFairy_MiniUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff4a44ac11cc36c678c920ce5663c09c">
+              <span class="m-doc-wrap-bumper">void <a href="#aff4a44ac11cc36c678c920ce5663c09c" class="m-doc-self">GreatFairy_FinalUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2359eb09250178cb80266873a7efac54">
+              <span class="m-doc-wrap-bumper">void <a href="#a2359eb09250178cb80266873a7efac54" class="m-doc-self">GreatFairy_WingsCallBehavior</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8378ee39301bed483951e832cd23cf18">
+              <span class="m-doc-wrap-bumper">void <a href="#a8378ee39301bed483951e832cd23cf18" class="m-doc-self">GreatFairy_WingsInit</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9944d0b33430fe7fad263e9f8931a28e">
+              <span class="m-doc-wrap-bumper">void <a href="#a9944d0b33430fe7fad263e9f8931a28e" class="m-doc-self">GreatFairy_WingsUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0c9583d67d85766cfd2763bed95a6d31">
+              <span class="m-doc-wrap-bumper">void <a href="#a0c9583d67d85766cfd2763bed95a6d31" class="m-doc-self">nullsub_116</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae3e3b265b5b20a525dec1fa6acec3971">
+              <span class="m-doc-wrap-bumper">void <a href="#ae3e3b265b5b20a525dec1fa6acec3971" class="m-doc-self">GreatFairy_WakeCallBehavior</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa54d2d506d5d086d6f14d88a0b8ea1c2">
+              <span class="m-doc-wrap-bumper">void <a href="#aa54d2d506d5d086d6f14d88a0b8ea1c2" class="m-doc-self">GreatFairy_WakeInit</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa0447c8fd346c0c9a2a41937958f6921">
+              <span class="m-doc-wrap-bumper">void <a href="#aa0447c8fd346c0c9a2a41937958f6921" class="m-doc-self">GreatFairy_WakeUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8c6e0431c08d69dea8304bc6be5a658">
+              <span class="m-doc-wrap-bumper">void <a href="#aa8c6e0431c08d69dea8304bc6be5a658" class="m-doc-self">GreatFairy_MiniCallBehavior</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11d9773d6c511bda9f886bb2349c697d">
+              <span class="m-doc-wrap-bumper">void <a href="#a11d9773d6c511bda9f886bb2349c697d" class="m-doc-self">GreatFairy_MiniInit</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af70d8bae5a0966df93f025aabdf12d84">
+              <span class="m-doc-wrap-bumper">void <a href="#af70d8bae5a0966df93f025aabdf12d84" class="m-doc-self">GreatFairy_MiniRisingUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a51f47d7e4ff0b80de55487d1e01f2665">
+              <span class="m-doc-wrap-bumper">void <a href="#a51f47d7e4ff0b80de55487d1e01f2665" class="m-doc-self">GreatFairy_MiniRemoveMe</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd4dc9572ef84c5e7a2b9165b6ff6635">
+              <span class="m-doc-wrap-bumper">void <a href="#abd4dc9572ef84c5e7a2b9165b6ff6635" class="m-doc-self">GreatFairy_MiniAffineCallBehavior</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a606429ea5248911664d697e38006f2c5">
+              <span class="m-doc-wrap-bumper">void <a href="#a606429ea5248911664d697e38006f2c5" class="m-doc-self">GreatFairy_MiniAffineInit</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae3f242be4323e2377a9ee7549662e234">
+              <span class="m-doc-wrap-bumper">void <a href="#ae3f242be4323e2377a9ee7549662e234" class="m-doc-self">GreatFairy_MiniAffineInit2</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7801d0f9a031c853715fb1883f21ff0d">
+              <span class="m-doc-wrap-bumper">void <a href="#a7801d0f9a031c853715fb1883f21ff0d" class="m-doc-self">GreatFairy_MiniAffineUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1502d0c4ac4b26046d7af9ceaa61747">
+              <span class="m-doc-wrap-bumper">void <a href="#ac1502d0c4ac4b26046d7af9ceaa61747" class="m-doc-self">GreatFairy_DropletCallBehavior</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a160c6e78a5a681d7d05fa6b095fe1b85">
+              <span class="m-doc-wrap-bumper">void <a href="#a160c6e78a5a681d7d05fa6b095fe1b85" class="m-doc-self">GreatFairy_DropletInit</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae49c8c20e80d1a78e989ab10ca0eeeb6">
+              <span class="m-doc-wrap-bumper">void <a href="#ae49c8c20e80d1a78e989ab10ca0eeeb6" class="m-doc-self">GreatFairy_DropletUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa01be72194c43b5ecbcec163cc019c5b">
+              <span class="m-doc-wrap-bumper">void <a href="#aa01be72194c43b5ecbcec163cc019c5b" class="m-doc-self">GreatFairy_RippleCallBehavior</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46723c66974710efe0faf92bbaa6621a">
+              <span class="m-doc-wrap-bumper">void <a href="#a46723c66974710efe0faf92bbaa6621a" class="m-doc-self">GreatFairy_RippleInit</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad8222448a4cf3b311bd5a9bb079032d2">
+              <span class="m-doc-wrap-bumper">void <a href="#ad8222448a4cf3b311bd5a9bb079032d2" class="m-doc-self">GreatFairy_RippleUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d0831611746e360d8c49f1fbe784541">
+              <span class="m-doc-wrap-bumper">void <a href="#a9d0831611746e360d8c49f1fbe784541" class="m-doc-self">GreatFairy_BigRippleCallBehavior</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad0aa5c7feffa02fc628eddd065b84af9">
+              <span class="m-doc-wrap-bumper">void <a href="#ad0aa5c7feffa02fc628eddd065b84af9" class="m-doc-self">GreatFairy_BigRippleInit</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abc5d0811ff9a44dab95d81a49dc0175b">
+              <span class="m-doc-wrap-bumper">void <a href="#abc5d0811ff9a44dab95d81a49dc0175b" class="m-doc-self">GreatFairy_BigRippleUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a372a69770fed2fb1d260b136c114b1f7">
+              <span class="m-doc-wrap-bumper">void <a href="#a372a69770fed2fb1d260b136c114b1f7" class="m-doc-self">GreatFairy_EnergyCallBehavior</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a02013b3a1e4089fee8c9f1c5bd922879">
+              <span class="m-doc-wrap-bumper">void <a href="#a02013b3a1e4089fee8c9f1c5bd922879" class="m-doc-self">GreatFairy_EnergyInit</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e8d8ae027b11d780cdbbb38053e0372">
+              <span class="m-doc-wrap-bumper">void <a href="#a8e8d8ae027b11d780cdbbb38053e0372" class="m-doc-self">GreatFairy_EnergyUpdate</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4747d24e9b3381c13ff5f176f3801918">
+              <span class="m-doc-wrap-bumper">void <a href="#a4747d24e9b3381c13ff5f176f3801918" class="m-doc-self">sub_08087114</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac9e4b6a5dae3a1d323b6a617bf29b915">
+              <span class="m-doc-wrap-bumper">void <a href="#ac9e4b6a5dae3a1d323b6a617bf29b915" class="m-doc-self">sub_08087150</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d884d4450d960f81e1a803111863b06">
+              <span class="m-doc-wrap-bumper">void <a href="#a2d884d4450d960f81e1a803111863b06" class="m-doc-self">nullsub_516</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af752394c8145e8fc7f5ef36afae3f568">
+              <span class="m-doc-wrap-bumper">void <a href="#af752394c8145e8fc7f5ef36afae3f568" class="m-doc-self">sub_080871A8</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7c2e2d664feefd560e3eb894178157e4">
+              <span class="m-doc-wrap-bumper">void <a href="#a7c2e2d664feefd560e3eb894178157e4" class="m-doc-self">sub_080871D0</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9c41a9c6a22186d6468b3dc105cdc62e">
+              <span class="m-doc-wrap-bumper">void <a href="#a9c41a9c6a22186d6468b3dc105cdc62e" class="m-doc-self">sub_080871F8</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d91cd16a31d85a2ae235cfe4fc73b15">
+              <span class="m-doc-wrap-bumper">void <a href="#a3d91cd16a31d85a2ae235cfe4fc73b15" class="m-doc-self">sub_08087240</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aec1a67add7db382b047150a31756f17f">
+              <span class="m-doc-wrap-bumper">void <a href="#aec1a67add7db382b047150a31756f17f" class="m-doc-self">sub_08087264</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0962e60fa079b861ed57cc599b21ecb5">
+              <span class="m-doc-wrap-bumper">void <a href="#a0962e60fa079b861ed57cc599b21ecb5" class="m-doc-self">sub_0808727C</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3bb96a0da48168c7a4245be96032b076">
+              <span class="m-doc-wrap-bumper">void <a href="#a3bb96a0da48168c7a4245be96032b076" class="m-doc-self">sub_08087294</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10d5761c8056bc362a2eaf29dbdc34b6">
+              <span class="m-doc-wrap-bumper">void <a href="#a10d5761c8056bc362a2eaf29dbdc34b6" class="m-doc-self">sub_080872AC</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70258c7b866fe0b35ef989bd5c75e07b">
+              <span class="m-doc-wrap-bumper">void <a href="#a70258c7b866fe0b35ef989bd5c75e07b" class="m-doc-self">sub_080872F8</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3b7e85feb22528908bd303c8191419c0">
+              <span class="m-doc-wrap-bumper">void <a href="#a3b7e85feb22528908bd303c8191419c0" class="m-doc-self">sub_080873FC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff95c9a03485ae289881b86b72cf7239">
+              <span class="m-doc-wrap-bumper">void <a href="#aff95c9a03485ae289881b86b72cf7239" class="m-doc-self">sub_08087424</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46715fb64590987450907b21a62aca71">
+              <span class="m-doc-wrap-bumper">void <a href="#a46715fb64590987450907b21a62aca71" class="m-doc-self">sub_0808747C</a>(</span><span class="m-doc-wrap"><a href="structGreatFairyEntity.html" class="m-doc">GreatFairyEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a5e1ad722f4552c8ba3d556106fe04631">
+              void(*const <a href="#a5e1ad722f4552c8ba3d556106fe04631" class="m-doc-self">GreatFairy_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac6c60e08cbc18450daf9a0f0e4d2d5ce">
+              void(*const <a href="#ac6c60e08cbc18450daf9a0f0e4d2d5ce" class="m-doc-self">GreatFairy_Behaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e29d10447a6d3e7f575a28b8e2e7ce9">
+              void(*const <a href="#a2e29d10447a6d3e7f575a28b8e2e7ce9" class="m-doc-self">GreatFairy_WingsBehaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad0859c8777da8830f1107525ee429614">
+              void(*const <a href="#ad0859c8777da8830f1107525ee429614" class="m-doc-self">GreatFairy_WakeBehaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd9def7ca3ea7860cbf46c344fcac2e3">
+              void(*const <a href="#acd9def7ca3ea7860cbf46c344fcac2e3" class="m-doc-self">GreatFairy_MiniBehaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0918bbafccfad9d25a2437af0ed48322">
+              void(*const <a href="#a0918bbafccfad9d25a2437af0ed48322" class="m-doc-self">GreatFairy_MiniAffineBehaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a47f77e4cedefeb70ee1bf67a858fc8a4">
+              void(*const <a href="#a47f77e4cedefeb70ee1bf67a858fc8a4" class="m-doc-self">GreatFairy_DropletBehaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2792c55abb854c36cbe81c3113961761">
+              void(*const <a href="#a2792c55abb854c36cbe81c3113961761" class="m-doc-self">GreatFairy_RippleBehaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12e3f2d83281ab150c8a756ff5d83a2f">
+              void(*const <a href="#a12e3f2d83281ab150c8a756ff5d83a2f" class="m-doc-self">GreatFairy_BigRippleBehaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9582c824fcd514e3082e8c31f30f05ea">
+              void(*const <a href="#a9582c824fcd514e3082e8c31f30f05ea" class="m-doc-self">GreatFairy_EnergyBehaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea81c24fdf6bf4e9a629771f9241f898">
+              void(*const <a href="#aea81c24fdf6bf4e9a629771f9241f898" class="m-doc-self">GreatFairy_Form1Behaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad5747b9073315957e82fe69e23343f1e">
+              void(*const <a href="#ad5747b9073315957e82fe69e23343f1e" class="m-doc-self">GreatFairy_Form2Behaviors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0457968c8a692d163a8b803d104a91b6">
+              void(*const <a href="#a0457968c8a692d163a8b803d104a91b6" class="m-doc-self">gUnk_081207A4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac85085f8bfc33a9c07c18d2b1e056f70">
+              const <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a> <a href="#ac85085f8bfc33a9c07c18d2b1e056f70" class="m-doc-self">GreatFairy_RippleOffsets</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a38f5436bf26b667be309ad97ab4772">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a4a38f5436bf26b667be309ad97ab4772" class="m-doc-self">gUnk_0812079C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a19adbbcd4100f664a7923fd103006c07">
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a19adbbcd4100f664a7923fd103006c07" class="m-doc-self">gUnk_081207AC</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

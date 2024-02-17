@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/gameUtils.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>gameUtils.c <span class="m-thin">file</span>
+        </h1>
+        <p>Game Utils.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structPopupOption.html" class="m-doc">PopupOption</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="ab809af0ea463e8d35b37b04e4a8be51f">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab809af0ea463e8d35b37b04e4a8be51f" class="m-doc-self">StairsAreValid</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ad07ddb5ab3340e4475b384d5508910">
+              <span class="m-doc-wrap-bumper">void <a href="#a1ad07ddb5ab3340e4475b384d5508910" class="m-doc-self">ClearFlagArray</a>(</span><span class="m-doc-wrap">const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a76c7fdf7d94233d7d244f82e2d209c9d">
+              <span class="m-doc-wrap-bumper">void <a href="#a76c7fdf7d94233d7d244f82e2d209c9d" class="m-doc-self">DummyHandler</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>* a1)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c0caf749f4e570b52fb1731d2f2566a">
+              <span class="m-doc-wrap-bumper">void <a href="#a4c0caf749f4e570b52fb1731d2f2566a" class="m-doc-self">DarknutTimerHandler</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>* a1)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e5fbb8ab2894c75428918285138aeb4">
+              <span class="m-doc-wrap-bumper">void <a href="#a9e5fbb8ab2894c75428918285138aeb4" class="m-doc-self">BiggoronTimerHandler</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>* a1)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0cf39ecdc6138b3473ec5c5d86e3d3b4">
+              <span class="m-doc-wrap-bumper">void <a href="#a0cf39ecdc6138b3473ec5c5d86e3d3b4" class="m-doc-self">InitAllRoomResInfo</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6568e619c5ab8271eb1ffdc8fc3733d3">
+              <span class="m-doc-wrap-bumper">void <a href="#a6568e619c5ab8271eb1ffdc8fc3733d3" class="m-doc-self">InitRoomResInfo</a>(</span><span class="m-doc-wrap"><a href="structRoomResInfo.html" class="m-doc">RoomResInfo</a>* info,
+              RoomHeader* hdr,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a23f7eef6b61fe5017e5cffcb96516146">
+              <span class="m-doc-wrap-bumper">void <a href="#a23f7eef6b61fe5017e5cffcb96516146" class="m-doc-self">sub_080532E4</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b4cf58b8a6bae2eed21b70ae3153b36">
+              <span class="m-doc-wrap-bumper">void <a href="#a8b4cf58b8a6bae2eed21b70ae3153b36" class="m-doc-self">ResetTimerFlags</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a5b537896f2ef9a3ea2d1f30541be4044" class="m-doc">SetPopupState</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> choice_idx)</span>
+            </dt>
+            <dd>Set the dislayed popup state.</dd>
+            <dt id="ac6acfab3d8c185304b38087bb23c2a8b">
+              <span class="m-doc-wrap-bumper">void <a href="#ac6acfab3d8c185304b38087bb23c2a8b" class="m-doc-self">InitializePlayer</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ab8db684de7280be114a60043f1d370bb" class="m-doc">AreaIsOverworld</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if the current area is overworld.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ae405202d3259ae68772c36aad65a673b" class="m-doc">CheckAreaOverworld</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if an area is overworld (not dungeon or inside).</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a8782730499e361d64d3974e2d3e7eabc" class="m-doc">AreaAllowsWarp</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>This function was introduced to allow warping from indoor areas (palace of winds).</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#af29699d882e803fde78ecee6d8e6a89d" class="m-doc">AreaIsDungeon</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if the current area is a dungeon.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4047bfac9133b958669d3010b7381ef3" class="m-doc">AreaHasEnemies</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if the current area has enemies.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a822d73b42f3c19012e689a4e82f4f558" class="m-doc">AreaHasNoEnemies</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if the current area has no enemies.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a07e39c5fe1ec3bb2e6575b7d4f3d5afe" class="m-doc">AreaHasMap</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if the current area has a map.</dd>
+            <dt id="a5ede4c080d48992c358992bd67a26386">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5ede4c080d48992c358992bd67a26386" class="m-doc-self">ModHealth</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> delta) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff2c96ac17ee7fb7465dda41ee9b76d1">
+              <span class="m-doc-wrap-bumper">void <a href="#aff2c96ac17ee7fb7465dda41ee9b76d1" class="m-doc-self">ModRupees</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> delta)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aedce8518edf8c90e682c722c91e38eb8">
+              <span class="m-doc-wrap-bumper">void <a href="#aedce8518edf8c90e682c722c91e38eb8" class="m-doc-self">ModDungeonKeys</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> keys)</span>
+            </dt>
+            <dd>Modify the number of keys the player has for the current dungeon.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa46cac7581c68ffe4fa85d8099ae3432" class="m-doc">AreaHasKeys</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if current area has keys.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ad3693dc4483a7c31eafa6a55aa86d5b6" class="m-doc">HasDungeonSmallKey</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if the player has at least one small key for the current dungeon.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#afe204dea7b42ac5549682f03be3e7c8a" class="m-doc">HasDungeonBigKey</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if the player has the big key for the current dungeon.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9828cce7a4dc051f4c47918487bff887" class="m-doc">HasDungeonCompass</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if the player has the compass for the current dungeon.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a56e1c4cad8c9958e24e23bfb6e25c197" class="m-doc">HasDungeonMap</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if the player has the map for the current dungeon.</dd>
+            <dt id="a83581d7afd3bde68e11c6ffc2ab4adec">
+              <span class="m-doc-wrap-bumper">void <a href="#a83581d7afd3bde68e11c6ffc2ab4adec" class="m-doc-self">RestoreGameTask</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> loadGfx)</span>
+            </dt>
+            <dd>Restore the game task from a subtask.</dd>
+            <dt id="af9f3fc9de2982352ae9d06c007ca49d3">
+              <span class="m-doc-wrap-bumper">void <a href="#af9f3fc9de2982352ae9d06c007ca49d3" class="m-doc-self">LoadRoomBgm</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af291e1c8bbfd3802a531ff5cce525c36">
+              <span class="m-doc-wrap-bumper">void <a href="#af291e1c8bbfd3802a531ff5cce525c36" class="m-doc-self">sub_08052878</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Related to a music bug?</dd>
+            <dt id="af9e77d57a17c761eca88b7a8152a34fb">
+              <span class="m-doc-wrap-bumper">void <a href="#af9e77d57a17c761eca88b7a8152a34fb" class="m-doc-self">sub_0805289C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a108d7e84854e28323184336d4acb75d7">
+              <span class="m-doc-wrap-bumper">auto <a href="#a108d7e84854e28323184336d4acb75d7" class="m-doc-self">CheckGameOver</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e212deadc9c4b5c6bd395c686d04777">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e212deadc9c4b5c6bd395c686d04777" class="m-doc-self">RoomExitCallback</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Call the room exit callback.</dd>
+            <dt id="a7724234e199ff5c4f5f0fbbb1fd65db7">
+              <span class="m-doc-wrap-bumper">auto <a href="#a7724234e199ff5c4f5f0fbbb1fd65db7" class="m-doc-self">CheckRoomExit</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3cc4bb67947a2979eb1358b1008e142f">
+              <span class="m-doc-wrap-bumper">void <a href="#a3cc4bb67947a2979eb1358b1008e142f" class="m-doc-self">InitParachuteRoom</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Initialize a parachute room.</dd>
+            <dt id="ada5a00ce9022169c757f50a8838b5ac1">
+              <span class="m-doc-wrap-bumper">void <a href="#ada5a00ce9022169c757f50a8838b5ac1" class="m-doc-self">InitRoomTransition</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aebe825150e9b881a135086495d831a1f" class="m-doc">CanDispEzloMessage</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if an Ezlo message can be displayed.</dd>
+            <dt id="a05dee04fcc7811f8a485a7b8ea1c8f73">
+              <span class="m-doc-wrap-bumper">void <a href="#a05dee04fcc7811f8a485a7b8ea1c8f73" class="m-doc-self">DisplayEzloMessage</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Display an Ezlo message.</dd>
+            <dt id="a7c19f4fe6198936da15ac509545f6165">
+              <span class="m-doc-wrap-bumper">void <a href="#a7c19f4fe6198936da15ac509545f6165" class="m-doc-self">DecreasePortalTimer</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a049fc71dfe466976330834fff66f5dd7">
+              <span class="m-doc-wrap-bumper">void <a href="#a049fc71dfe466976330834fff66f5dd7" class="m-doc-self">UpdatePlayerMapCoords</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a307ed72f7968576e6710fe005462e1c2" class="m-doc">SetWorldMapPos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> x,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y)</span>
+            </dt>
+            <dd>Set the player&#x27;s world map position.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a271a237c5c62519eb0cf542ee037ef6f" class="m-doc">SetDungeonMapPos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> x,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y)</span>
+            </dt>
+            <dd>Set the player&#x27;s dungeon map position.</dd>
+            <dt id="a84fae4df9f0ef6ff7252465793e26b72">
+              <span class="m-doc-wrap-bumper">void <a href="#a84fae4df9f0ef6ff7252465793e26b72" class="m-doc-self">InitRoom</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Initialize a loaded room.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6d86bfb0b6165840aab585b17d2eaffe" class="m-doc">GetFlagBankOffset</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> idx) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Get flag bank offset for area.</dd>
+            <dt id="a3732cc9f4327dd32246d05af4a59a984">
+              <span class="m-doc-wrap-bumper">void <a href="#a3732cc9f4327dd32246d05af4a59a984" class="m-doc-self">RegisterTransitionManager</a>(</span><span class="m-doc-wrap">void* mgr,
+              void(*)() onEnter,
+              void(*)() onExit)</span>
+            </dt>
+            <dd>Set manager responsible for handling room changes.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a55e56729d27251bf86897ef89988e4d5" class="m-doc">GetCurrentRoomInfo</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="structRoomResInfo.html" class="m-doc">RoomResInfo</a>*</span>
+            </dt>
+            <dd>Retrieve information about the current room.</dd>
+            <dt id="aac9af9a4bf47ea1aa5df25d6e0d0b8b5">
+              <span class="m-doc-wrap-bumper">void <a href="#aac9af9a4bf47ea1aa5df25d6e0d0b8b5" class="m-doc-self">sub_08052EA0</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8fc85b05fd36e8a2834d209530e1d2ca">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8fc85b05fd36e8a2834d209530e1d2ca" class="m-doc-self">sub_08052EF4</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> idx) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa52aa33fa4d0c69ef1c84d16ea3e1ce7">
+              <span class="m-doc-wrap-bumper">void <a href="#aa52aa33fa4d0c69ef1c84d16ea3e1ce7" class="m-doc-self">UpdateFakeScroll</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>If enabled, this type of transition does not change the room and keeps all entities.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a90bdd08b4f6793a0e5a5263d04c8dcb7" class="m-doc">LoadAuxiliaryRoom</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room)</span>
+            </dt>
+            <dd>Load an auxiliary room (no player present).</dd>
+            <dt id="ab339a1567cc208acc070e2caaff2d2c3">
+              <span class="m-doc-wrap-bumper">void <a href="#ab339a1567cc208acc070e2caaff2d2c3" class="m-doc-self">sub_08052FF4</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ae6b4d71134f74d18f15662bbe6ba39ec" class="m-doc">ChangeLightLevel</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> level)</span>
+            </dt>
+            <dd>Change the light level of the room.</dd>
+            <dt id="ace33ab02b002fbb86892dd6b9bf12fec">
+              <span class="m-doc-wrap-bumper">void <a href="#ace33ab02b002fbb86892dd6b9bf12fec" class="m-doc-self">sub_080530B0</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a4d76e084a3119be6cb1c429d9b8a0e56" class="m-doc">UpdateGlobalProgress</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Update the global progress (0 - 10).</dd>
+            <dt id="a276781b915bf3372edd9044875f2da65">
+              <span class="m-doc-wrap-bumper">auto <a href="#a276781b915bf3372edd9044875f2da65" class="m-doc-self">sub_08053144</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a436b5e0deaaa50b5237fe524e77b9eb0">
+              <span class="m-doc-wrap-bumper">void <a href="#a436b5e0deaaa50b5237fe524e77b9eb0" class="m-doc-self">CheckAreaDiscovery</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6f02b22a1bd2e3ea98ab0b0135d608c8">
+              <span class="m-doc-wrap-bumper">void <a href="#a6f02b22a1bd2e3ea98ab0b0135d608c8" class="m-doc-self">UpdatePlayerRoomStatus</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae11df17dd4fdab96dc212ec5c47c377">
+              <span class="m-doc-wrap-bumper">void <a href="#aae11df17dd4fdab96dc212ec5c47c377" class="m-doc-self">sub_08053250</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a94b09c76b07964123ac019a7680f5644">
+              <span class="m-doc-wrap-bumper">void <a href="#a94b09c76b07964123ac019a7680f5644" class="m-doc-self">sub_0805329C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7482df4274a5bd5b05e79652139ca851">
+              <span class="m-doc-wrap-bumper">void <a href="#a7482df4274a5bd5b05e79652139ca851" class="m-doc-self">LoadGfxGroups</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Automatically load overworld graphics groups.</dd>
+            <dt id="ac9e0591c0553a495d3faff75bd718d44">
+              <span class="m-doc-wrap-bumper">void <a href="#ac9e0591c0553a495d3faff75bd718d44" class="m-doc-self">LoadItemGfx</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a077feab9c0ef943398f5d7ed4f8c4f04">
+              <span class="m-doc-wrap-bumper">void <a href="#a077feab9c0ef943398f5d7ed4f8c4f04" class="m-doc-self">sub_080533CC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4de639b253d6ccb643011dbb86d774ab">
+              <span class="m-doc-wrap-bumper">void <a href="#a4de639b253d6ccb643011dbb86d774ab" class="m-doc-self">UpdateTimerCallbacks</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0540b846426a051351af402af77685a6">
+              <span class="m-doc-wrap-bumper">void <a href="#a0540b846426a051351af402af77685a6" class="m-doc-self">StartDarkNutTimer</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a88f1b580aa2080e4eef9691d9014bf57">
+              <span class="m-doc-wrap-bumper">void <a href="#a88f1b580aa2080e4eef9691d9014bf57" class="m-doc-self">sub_080534AC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8897a356b56f687b5d0ed7c7482982e7">
+              <span class="m-doc-wrap-bumper">void <a href="#a8897a356b56f687b5d0ed7c7482982e7" class="m-doc-self">InitBiggoronTimer</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89263d189ba219b43d31b56fd97b4303">
+              <span class="m-doc-wrap-bumper">void <a href="#a89263d189ba219b43d31b56fd97b4303" class="m-doc-self">ResetTmpFlags</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a8bf8e2c83d9091ed8642567dc2e08453">
+              void** <a href="#a8bf8e2c83d9091ed8642567dc2e08453" class="m-doc-self">gAreaTileSets</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d06cf021ab2c41d36bef90cc1525619">
+              void** <a href="#a8d06cf021ab2c41d36bef90cc1525619" class="m-doc-self">gAreaRoomMaps</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab558a4016321daa5eebdc98fb34a95cc">
+              void* <a href="#ab558a4016321daa5eebdc98fb34a95cc" class="m-doc-self">gAreaTiles</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5dbf384e0aa834b3cf1817e76581644e">
+              void** <a href="#a5dbf384e0aa834b3cf1817e76581644e" class="m-doc-self">gAreaTable</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6bae0abeb3fefd2dac8cf6cca8ae71b2">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a6bae0abeb3fefd2dac8cf6cca8ae71b2" class="m-doc-self">gUnk_0200AF14</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a762d61f6e6ef850dd718102c431e3739">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a762d61f6e6ef850dd718102c431e3739" class="m-doc-self">gPaletteBufferBackup</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a5b537896f2ef9a3ea2d1f30541be4044"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5b537896f2ef9a3ea2d1f30541be4044" class="m-doc-self">SetPopupState</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> choice_idx)</span></span>
+            </h3>
+            <p>Set the dislayed popup state.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">type</td>
+                  <td>The popup type.</td>
+                </tr>
+                <tr>
+                  <td>choice_idx</td>
+                  <td>The choice index.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ab8db684de7280be114a60043f1d370bb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab8db684de7280be114a60043f1d370bb" class="m-doc-self">AreaIsOverworld</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if the current area is overworld.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the current area is overworld.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ae405202d3259ae68772c36aad65a673b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae405202d3259ae68772c36aad65a673b" class="m-doc-self">CheckAreaOverworld</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area)</span></span>
+            </h3>
+            <p>Check if an area is overworld (not dungeon or inside).</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">area</td>
+                  <td>The area to check.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>True if the area is overworld.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a8782730499e361d64d3974e2d3e7eabc"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8782730499e361d64d3974e2d3e7eabc" class="m-doc-self">AreaAllowsWarp</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>This function was introduced to allow warping from indoor areas (palace of winds).</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the current area allows warping.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="af29699d882e803fde78ecee6d8e6a89d"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af29699d882e803fde78ecee6d8e6a89d" class="m-doc-self">AreaIsDungeon</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if the current area is a dungeon.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the current area is a dungeon.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a4047bfac9133b958669d3010b7381ef3"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4047bfac9133b958669d3010b7381ef3" class="m-doc-self">AreaHasEnemies</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if the current area has enemies.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the current area has enemies.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a822d73b42f3c19012e689a4e82f4f558"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a822d73b42f3c19012e689a4e82f4f558" class="m-doc-self">AreaHasNoEnemies</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if the current area has no enemies.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the current area has no enemies.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a07e39c5fe1ec3bb2e6575b7d4f3d5afe"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a07e39c5fe1ec3bb2e6575b7d4f3d5afe" class="m-doc-self">AreaHasMap</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if the current area has a map.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the current area has a map.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aa46cac7581c68ffe4fa85d8099ae3432"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa46cac7581c68ffe4fa85d8099ae3432" class="m-doc-self">AreaHasKeys</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if current area has keys.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the current area has keys.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ad3693dc4483a7c31eafa6a55aa86d5b6"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ad3693dc4483a7c31eafa6a55aa86d5b6" class="m-doc-self">HasDungeonSmallKey</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if the player has at least one small key for the current dungeon.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the player has a small key.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="afe204dea7b42ac5549682f03be3e7c8a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#afe204dea7b42ac5549682f03be3e7c8a" class="m-doc-self">HasDungeonBigKey</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if the player has the big key for the current dungeon.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the player has the big key.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a9828cce7a4dc051f4c47918487bff887"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9828cce7a4dc051f4c47918487bff887" class="m-doc-self">HasDungeonCompass</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if the player has the compass for the current dungeon.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the player has the compass.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a56e1c4cad8c9958e24e23bfb6e25c197"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a56e1c4cad8c9958e24e23bfb6e25c197" class="m-doc-self">HasDungeonMap</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if the player has the map for the current dungeon.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the player has the map.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aebe825150e9b881a135086495d831a1f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aebe825150e9b881a135086495d831a1f" class="m-doc-self">CanDispEzloMessage</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Check if an Ezlo message can be displayed.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if an Ezlo message can be displayed.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a307ed72f7968576e6710fe005462e1c2"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a307ed72f7968576e6710fe005462e1c2" class="m-doc-self">SetWorldMapPos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> x,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y)</span></span>
+            </h3>
+            <p>Set the player&#x27;s world map position.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">area</td>
+                  <td><a href="structArea.html" class="m-doc">Area</a> index.</td>
+                </tr>
+                <tr>
+                  <td>room</td>
+                  <td>Room index.</td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>X position.</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>Y position.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a271a237c5c62519eb0cf542ee037ef6f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a271a237c5c62519eb0cf542ee037ef6f" class="m-doc-self">SetDungeonMapPos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> x,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y)</span></span>
+            </h3>
+            <p>Set the player&#x27;s dungeon map position.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">area</td>
+                  <td><a href="structArea.html" class="m-doc">Area</a> index.</td>
+                </tr>
+                <tr>
+                  <td>room</td>
+                  <td>Room index.</td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>X position.</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>Y position.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a6d86bfb0b6165840aab585b17d2eaffe"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6d86bfb0b6165840aab585b17d2eaffe" class="m-doc-self">GetFlagBankOffset</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> idx)</span></span>
+            </h3>
+            <p>Get flag bank offset for area.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">idx</td>
+                  <td><a href="structArea.html" class="m-doc">Area</a> index.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Flag bank offset.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a55e56729d27251bf86897ef89988e4d5"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structRoomResInfo.html" class="m-doc">RoomResInfo</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a55e56729d27251bf86897ef89988e4d5" class="m-doc-self">GetCurrentRoomInfo</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Retrieve information about the current room.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td><a href="structRoomResInfo.html" class="m-doc">RoomResInfo</a> object.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a90bdd08b4f6793a0e5a5263d04c8dcb7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a90bdd08b4f6793a0e5a5263d04c8dcb7" class="m-doc-self">LoadAuxiliaryRoom</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room)</span></span>
+            </h3>
+            <p>Load an auxiliary room (no player present).</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">area</td>
+                  <td><a href="structArea.html" class="m-doc">Area</a> index.</td>
+                </tr>
+                <tr>
+                  <td>room</td>
+                  <td>Room index.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ae6b4d71134f74d18f15662bbe6ba39ec"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae6b4d71134f74d18f15662bbe6ba39ec" class="m-doc-self">ChangeLightLevel</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> level)</span></span>
+            </h3>
+            <p>Change the light level of the room.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">level</td>
+                  <td>The new light level.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a4d76e084a3119be6cb1c429d9b8a0e56"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4d76e084a3119be6cb1c429d9b8a0e56" class="m-doc-self">UpdateGlobalProgress</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Update the global progress (0 - 10).</p>
+<p>There are 10 different indicators of game completion: 9 : Flag SEIIKI_STAINED_GLASS 8 : Flag LV5_CLEAR 7 : Flag OUBO_KAKERA 6 : Flag LV4_CLEAR 5 : Flag LV3_CLEAR 4 : Flag SOUGEN_08_TORITSUKI 2 : Flag LV1_CLEAR 1 : Default }</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

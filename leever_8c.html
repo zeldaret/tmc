@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/leever.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>leever.c <span class="m-thin">file</span>
+        </h1>
+        <p>Leever enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="adc29c2ff13d900c2f185ee95427fb06c">
+              <span class="m-doc-wrap-bumper">enum <a href="#adc29c2ff13d900c2f185ee95427fb06c" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#adc29c2ff13d900c2f185ee95427fb06cabd745182695f972c4af80bbc520fac35" class="m-doc">LeeverAnimation_DigUp</a>,
+              <a href="#adc29c2ff13d900c2f185ee95427fb06ca900f9090c39ad61739e9ef6b658b1eee" class="m-doc">LeeverAnimation_DigDown</a>,
+              <a href="#adc29c2ff13d900c2f185ee95427fb06cac1fa88bc5229e007e5fefbfc6fa9c22f" class="m-doc">LeeverAnimation_Attack</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61dadd085c1777f559549e05962b2c9e">
+              <span class="m-doc-wrap-bumper">enum <a href="#a61dadd085c1777f559549e05962b2c9e" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#a61dadd085c1777f559549e05962b2c9eab564aefd415ba9ecdf1c456e2d0c5d57" class="m-doc">LeeverForm_Red</a>,
+              <a href="#a61dadd085c1777f559549e05962b2c9eaaa71545026660a06f31c4b137f3af324" class="m-doc">LeeverForm_Blue</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a9ae47eaec43438b5ae1c257bcfaa65bf">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9ae47eaec43438b5ae1c257bcfaa65bf" class="m-doc-self">Leever_PlayerInRange</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a763574a8f9cdbdcbc5e9c8085bbf74ec">
+              <span class="m-doc-wrap-bumper">void <a href="#a763574a8f9cdbdcbc5e9c8085bbf74ec" class="m-doc-self">Leever_Move</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1dcb99880ecdf53c88036cf6b902d1e9">
+              <span class="m-doc-wrap-bumper">void <a href="#a1dcb99880ecdf53c88036cf6b902d1e9" class="m-doc-self">Leever</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6486af178dd5726914ad7c5315d936b8">
+              <span class="m-doc-wrap-bumper">void <a href="#a6486af178dd5726914ad7c5315d936b8" class="m-doc-self">Leever_OnTick</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af05d983ed23bf016323d9257311709d8">
+              <span class="m-doc-wrap-bumper">void <a href="#af05d983ed23bf016323d9257311709d8" class="m-doc-self">Leever_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20084f6c14b31fcde88c5d8b8709ce7c">
+              <span class="m-doc-wrap-bumper">void <a href="#a20084f6c14b31fcde88c5d8b8709ce7c" class="m-doc-self">Leever_OnDeath</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acca5dba9cdab03370afae0f1a2f92696">
+              <span class="m-doc-wrap-bumper">void <a href="#acca5dba9cdab03370afae0f1a2f92696" class="m-doc-self">Leever_Initialize</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abb8213747a3d9b05300359ad616251e5">
+              <span class="m-doc-wrap-bumper">void <a href="#abb8213747a3d9b05300359ad616251e5" class="m-doc-self">Leever_Idle</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afaf47ccabc5827bdf084cf78c083823b">
+              <span class="m-doc-wrap-bumper">void <a href="#afaf47ccabc5827bdf084cf78c083823b" class="m-doc-self">Leever_DigUp</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab51185064ce32c5791f92897abfc37eb">
+              <span class="m-doc-wrap-bumper">void <a href="#ab51185064ce32c5791f92897abfc37eb" class="m-doc-self">Leever_Attack</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa39e7f96c4e4a6487738baa0295c6164">
+              <span class="m-doc-wrap-bumper">void <a href="#aa39e7f96c4e4a6487738baa0295c6164" class="m-doc-self">Leever_DigDown</a>(</span><span class="m-doc-wrap"><a href="structLeeverEntity.html" class="m-doc">LeeverEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af68f890181a823011b466632713a1e33">
+              <span class="m-doc-wrap-bumper">auto <a href="#af68f890181a823011b466632713a1e33" class="m-doc-self">sub_0801FDE4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a29973fad274ed54593f49005d5361c34">
+              <a href="structEntity.html" class="m-doc">Entity</a>* <a href="#a29973fad274ed54593f49005d5361c34" class="m-doc-self">gUnk_020000B0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a81fdd94dd8ad89bf91f2602a0da52872">
+              void(*const <a href="#a81fdd94dd8ad89bf91f2602a0da52872" class="m-doc-self">Leever_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3725f27cfc5a609678635ce0005146e4">
+              void(*const <a href="#a3725f27cfc5a609678635ce0005146e4" class="m-doc-self">gLeeverActions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa6fbd516e71baffa57a65060eb082fa7">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#aa6fbd516e71baffa57a65060eb082fa7" class="m-doc-self">gLeeverDrift</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa87d58b6840536265948ee5191592274">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#aa87d58b6840536265948ee5191592274" class="m-doc-self">gUnk_080CA4CA</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

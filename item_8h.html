@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/item.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>item.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a9933216bbddb97e671cd515e268dfa42">
+              <span class="m-doc-wrap-bumper">enum <a href="#a9933216bbddb97e671cd515e268dfa42" class="m-doc-self">Item</a> { </span><span class="m-doc-wrap"><a href="#a9933216bbddb97e671cd515e268dfa42ac53166781c81e2a421fed0c75e8ec042" class="m-doc">ITEM_NONE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a7257abb5a48c320afd8c81fdd424bf3b" class="m-doc">ITEM_SMITH_SWORD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a2d792f28e900b6ece2e6d11f832c5a7d" class="m-doc">ITEM_GREEN_SWORD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a266f1974f09d30ae3eaec306424c007c" class="m-doc">ITEM_RED_SWORD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42add84452137baa91e2c895e617923e60e" class="m-doc">ITEM_BLUE_SWORD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42afa070b3c6a2d506fdb140713397bf909" class="m-doc">ITEM_UNUSED_SWORD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a59a480d2c076f898ba895d34d944e5f2" class="m-doc">ITEM_FOURSWORD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a463f3e75d0ddd44c5e5ae3c22082fb68" class="m-doc">ITEM_BOMBS</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42aded2ebb8507ac0860473bc757bd4e250" class="m-doc">ITEM_REMOTE_BOMBS</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a9d88209b6a87e8856b0d61dce2174097" class="m-doc">ITEM_BOW</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a3358fed0a90cc97308bef9cb98de4b44" class="m-doc">ITEM_LIGHT_ARROW</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a5f57b8025b44c712f891eccf4692b542" class="m-doc">ITEM_BOOMERANG</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ab06dd3a346a5fa9e911a6fa1a4ca9fcd" class="m-doc">ITEM_MAGIC_BOOMERANG</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ae1f30798930dc2c672f77b988880e4ac" class="m-doc">ITEM_SHIELD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a32bfb6cce2f48b6dcc660724a83b2fc4" class="m-doc">ITEM_MIRROR_SHIELD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a167728167056bf06fb9e7f47c616e988" class="m-doc">ITEM_LANTERN_OFF</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42af4dda862a2ba1f1f1cb8913c87a9b9b3" class="m-doc">ITEM_LANTERN_ON</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a14a46bb71c995d45f4c1cd1dbe2707ea" class="m-doc">ITEM_GUST_JAR</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a06c424b23d735324c83b7a0c770a729e" class="m-doc">ITEM_PACCI_CANE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a41c98509bf73c0192f8b8006ce789e6a" class="m-doc">ITEM_MOLE_MITTS</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ab8e15c621f481e8a41746fd415dfd3ff" class="m-doc">ITEM_ROCS_CAPE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42abed99a881e68f26c1a4299f4ad88206a" class="m-doc">ITEM_PEGASUS_BOOTS</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42af985f0cfa33d3808b3d696855e570f12" class="m-doc">ITEM_FIRE_ROD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ab834af000521e1f493758037011432e1" class="m-doc">ITEM_OCARINA</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ae8673f96a6717a7751a6cdb5c8eacac0" class="m-doc">ITEM_ORB_GREEN</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a2efbd3c0a9ae5455f3a59e0a9107e445" class="m-doc">ITEM_ORB_BLUE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42aba47570a016e3950bcb120f848e99657" class="m-doc">ITEM_ORB_RED</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a1f489649d3d86383cafc7c38e941294a" class="m-doc">ITEM_TRY_PICKUP_OBJECT</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42abc88396b1f6f1aeee635978ae07663af" class="m-doc">ITEM_BOTTLE1</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a2586b6fdf0be18adbc616c928c5eb157" class="m-doc">ITEM_BOTTLE2</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a2ccf4bcd14c0b14b63f2c7a12bc5f6f8" class="m-doc">ITEM_BOTTLE3</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a8cff2f830506057128342b97b772fb35" class="m-doc">ITEM_BOTTLE4</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a67b9113c7000aca49c6e5d8ea79f895a" class="m-doc">ITEM_BOTTLE_EMPTY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a6847bbe77990219de716d68083ccb8fe" class="m-doc">ITEM_BOTTLE_BUTTER</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a45340db519e3d49964c9d6f130d36fd4" class="m-doc">ITEM_BOTTLE_MILK</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42adef80cbb438bed1758d12738c1eae8f9" class="m-doc">ITEM_BOTTLE_HALF_MILK</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a00dfb2a43b302c7a85790d863faeaa8b" class="m-doc">ITEM_BOTTLE_RED_POTION</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a8fa8c429c3139446f5282b3eb4cacd0c" class="m-doc">ITEM_BOTTLE_BLUE_POTION</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a57746b702d981a41723179ef38a6cfd0" class="m-doc">ITEM_BOTTLE_WATER</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42affe8e9b9e5a33f209bf69b26e03ce71a" class="m-doc">ITEM_BOTTLE_MINERAL_WATER</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a6fe63b7f91b3e6685188c95c7ba64f0a" class="m-doc">ITEM_BOTTLE_FAIRY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a45cbc34baba63734d3aab1590b938c35" class="m-doc">ITEM_BOTTLE_PICOLYTE_RED</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42add24cdf68709c880aad842d4061e4250" class="m-doc">ITEM_BOTTLE_PICOLYTE_ORANGE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ab5a99a626c7f3a58d29c7bae2760df0d" class="m-doc">ITEM_BOTTLE_PICOLYTE_YELLOW</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a9859d7704c0fd16eccc98d9ee8b6f9a7" class="m-doc">ITEM_BOTTLE_PICOLYTE_GREEN</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42acb2477b8ba64b9f4146829212c3b6c23" class="m-doc">ITEM_BOTTLE_PICOLYTE_BLUE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a882c3e5295d70f45ad8a1f7c6b423264" class="m-doc">ITEM_BOTTLE_PICOLYTE_WHITE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42aee1e29fc255f5985759cee404fc038cd" class="m-doc">BOTTLE_CHARM_NAYRU</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a403c8fa0a094e6b41efb094484262248" class="m-doc">BOTTLE_CHARM_FARORE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a34d693adb27631a6d7ec381439cfb4f6" class="m-doc">BOTTLE_CHARM_DIN</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a229fc337f04fa9e6162b0d01dffaf4bf" class="m-doc">ITEM_32</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a792f40009850d27088b6a98133e3dd7a" class="m-doc">ITEM_33</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a9b70fa853f9388ef17bf86311ebacf2c" class="m-doc">ITEM_QST_SWORD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42acf5cd1a05095eade18958df60106f399" class="m-doc">ITEM_QST_BROKEN_SWORD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a2918a8f727b401c1c3b66d41f5399162" class="m-doc">ITEM_QST_DOGFOOD</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a8a736c8957f0145c2acfcf02220426e8" class="m-doc">ITEM_QST_LONLON_KEY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a12086f1241490fe24e0729aaa98df004" class="m-doc">ITEM_QST_MUSHROOM</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ae49e2013668e53a74286d6e085f9cdb5" class="m-doc">ITEM_QST_BOOK1</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a3285d9c26444caf5a2536dd43178b52c" class="m-doc">ITEM_QST_BOOK2</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42aee4137410323bf29f985a8684f768ae8" class="m-doc">ITEM_QST_BOOK3</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ad6d44e163c81c9f4d0feba5482e3c164" class="m-doc">ITEM_QST_GRAVEYARD_KEY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ac3f209817b52d5e016869493ab2f8417" class="m-doc">ITEM_QST_TINGLE_TROPHY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a89b82ddc4fbc8569328fb27ba09fc47d" class="m-doc">ITEM_QST_CARLOV_MEDAL</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42acf8f5f31c632c11674c5d3933adbe95d" class="m-doc">ITEM_SHELLS</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a2e826ac154a50986ee629195b27e5ea5" class="m-doc">ITEM_EARTH_ELEMENT</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a99c54f9c67263938cf3eb5ed48ea40d3" class="m-doc">ITEM_FIRE_ELEMENT</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a9a706c2604609652c2168efbb755210c" class="m-doc">ITEM_WATER_ELEMENT</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ab301b5dad6e5e0c92da11f6dc3644e51" class="m-doc">ITEM_WIND_ELEMENT</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a8d8377ccfe6a817de99b35d8746b95cd" class="m-doc">ITEM_GRIP_RING</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a7e54a99a0602fb659b5e4b703d4ed606" class="m-doc">ITEM_POWER_BRACELETS</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42adb49ebb6b304ea59486366eb1f8d29c0" class="m-doc">ITEM_FLIPPERS</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a46948b8dea7dca8eaf864f9d33442df7" class="m-doc">ITEM_MAP</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a263f9d5a070c4375d83b2bbf2f9d0417" class="m-doc">ITEM_SKILL_SPIN_ATTACK</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42adba860ab960ddb8fbb0001100a0fb788" class="m-doc">ITEM_SKILL_ROLL_ATTACK</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a01d41820804dcb4815a0e05b37592c47" class="m-doc">ITEM_SKILL_DASH_ATTACK</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a1870f1de71e7f9e3aff85287d0e31897" class="m-doc">ITEM_SKILL_ROCK_BREAKER</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42af7349f0e3558a169b473752a043c96c4" class="m-doc">ITEM_SKILL_SWORD_BEAM</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a44200d45152db21c364629d84760c8b2" class="m-doc">ITEM_SKILL_GREAT_SPIN</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ae7e118f18d48e7494f3595c8180cfb41" class="m-doc">ITEM_SKILL_DOWN_THRUST</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42acd3587976b53dacd7af5df5016f7e198" class="m-doc">ITEM_SKILL_PERIL_BEAM</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a3e3c375ba0bca6abb98ab290aba5ffe0" class="m-doc">ITEM_DUNGEON_MAP</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a7f5d31a8f240f590570cf7a42f9e5db4" class="m-doc">ITEM_COMPASS</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a80b8385dfd1fdf518b5742b5bb5dc3fe" class="m-doc">ITEM_BIG_KEY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42aa32bf325cbefde6e9abfe5ec3f417512" class="m-doc">ITEM_SMALL_KEY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a50c8aefb82953d1be0d2323b2cef1ebb" class="m-doc">ITEM_RUPEE1</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a462a6df3752781a057248b1ad6250728" class="m-doc">ITEM_RUPEE5</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42af6bdffa1adbccc57cd227499e53b2423" class="m-doc">ITEM_RUPEE20</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a343d774e14b4f7eb79abc9d3f5e18844" class="m-doc">ITEM_RUPEE50</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a069e6f38d97696c2fa62edf12e3e1784" class="m-doc">ITEM_RUPEE100</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a420cbaf44c06f4b2bf65e9d8b6c2db9f" class="m-doc">ITEM_RUPEE200</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a4d59b527f8156a1ae9ec769ccda89dd8" class="m-doc">ITEM_5A</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42af1fe46f744feb24c03115746fbf7a9cb" class="m-doc">ITEM_JABBERNUT</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ac2c3e2b7d0c0f927c7922ffa0fe6665f" class="m-doc">ITEM_KINSTONE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ab1e980e0cb485c893ad4deed3695064f" class="m-doc">ITEM_BOMBS5</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42aeeeb6e313492a6befb9b76851f0fb4a7" class="m-doc">ITEM_ARROWS5</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a738c16130c588be854acdd8bc9a7c63b" class="m-doc">ITEM_HEART</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a096c62910b3119e4198c8d7a9df6f3e2" class="m-doc">ITEM_FAIRY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42af2e9bf96eecf052308df7747da95ac1b" class="m-doc">ITEM_SHELLS30</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a7547e088d1d807165a23c79eaa0f3ca5" class="m-doc">ITEM_HEART_CONTAINER</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a9f2f53b7a4ba4851ad48accaee7efe8d" class="m-doc">ITEM_HEART_PIECE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a7fa40167b4c627a5620777f4cd167dd6" class="m-doc">ITEM_WALLET</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a48782425af097e71f93b6b13045fdf86" class="m-doc">ITEM_BOMBBAG</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42aca98ccdadbd5a22deaeecbd3d3d49eeb" class="m-doc">ITEM_LARGE_QUIVER</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ad368ff9b89ee79a49ff4dd3a307af88d" class="m-doc">ITEM_KINSTONE_BAG</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a982085f7aa7d49608e20f3e44a8432a5" class="m-doc">ITEM_BRIOCHE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a0f6c7c3a5660166d2c1992807e88f512" class="m-doc">ITEM_CROISSANT</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42af29065696c1866031307f7f8716f3719" class="m-doc">ITEM_PIE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a3eec68c4f8424a78ffcdd3a64a0db2a6" class="m-doc">ITEM_CAKE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a51451894d0302300fd61c989eb060161" class="m-doc">ITEM_BOMBS10</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a2157a754d5f2d078027be00aaf2957ef" class="m-doc">ITEM_BOMBS30</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a049018a9796f1984a25803444ef1e66a" class="m-doc">ITEM_ARROWS10</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a9d1ae6870d09440d204bb4becb89e052" class="m-doc">ITEM_ARROWS30</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42acef96e2951483a1a4dfb8517863b3a70" class="m-doc">ITEM_ARROW_BUTTERFLY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42abfc3a817f78ebbc0b1a73acfbb60d816" class="m-doc">ITEM_DIG_BUTTERFLY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a60056f2f8c8d15a53889d98a94164b84" class="m-doc">ITEM_SWIM_BUTTERFLY</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42afe24f36435070ec04c62890a2a4cc7b0" class="m-doc">ITEM_SKILL_FAST_SPIN</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42aacd7a2257914398f342b778c46765e95" class="m-doc">ITEM_SKILL_FAST_SPLIT</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a223c97fe5876a7c32737b630a7b75b34" class="m-doc">ITEM_SKILL_LONG_SPIN</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42ac658cb4e3ada092ae5d7d507f61494fc" class="m-doc">ITEM_KINSTONE_RED</a> = 0xfc,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a9a51af1bd58d5382ebde472781d016fa" class="m-doc">ITEM_KINSTONE_BLUE</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42a3e34ed243eac7c421a7b94e4c5864ab7" class="m-doc">ITEM_KINSTONE_GREEN</a>,
+              <a href="#a9933216bbddb97e671cd515e268dfa42addadfbdbce28c685cc53f3ea9d11cdea" class="m-doc">ITEM_ENEMY_BEETLE</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0e64738dd17353d58cb9cf9b455e5ea3">
+              <span class="m-doc-wrap-bumper">enum <a href="#a0e64738dd17353d58cb9cf9b455e5ea3" class="m-doc-self">EquipSlot</a> { </span><span class="m-doc-wrap"><a href="#a0e64738dd17353d58cb9cf9b455e5ea3a4ed2f412e5a2ddd350c73a68747a0f78" class="m-doc">EQUIP_SLOT_A</a>,
+              <a href="#a0e64738dd17353d58cb9cf9b455e5ea3ae6bfac2799b38cbaaad2732dae2bd340" class="m-doc">EQUIP_SLOT_B</a>,
+              <a href="#a0e64738dd17353d58cb9cf9b455e5ea3aa04cb40334d86da617aa7423bf768b60" class="m-doc">EQUIP_SLOT_NONE</a> }</span>
+            </dt>
+            <dd>Slot that the item is equipped in.</dd>
+            <dt id="a7e43df168664f12c33c49af7e99b2f70">
+              <span class="m-doc-wrap-bumper">enum <a href="#a7e43df168664f12c33c49af7e99b2f70" class="m-doc-self">CreateItemFunc</a> { </span><span class="m-doc-wrap"><a href="#a7e43df168664f12c33c49af7e99b2f70a3d538820fbe59bd5ca6cd2c229fcf1be" class="m-doc">CREATE_ITEM_0</a>,
+              <a href="#a7e43df168664f12c33c49af7e99b2f70a064521c85dbbd06c39107dfcb5608ccb" class="m-doc">CREATE_ITEM_1</a>,
+              <a href="#a7e43df168664f12c33c49af7e99b2f70a2ff127f8aab0d97842ef2db134a903f8" class="m-doc">CREATE_ITEM_2</a>,
+              <a href="#a7e43df168664f12c33c49af7e99b2f70a1f5f3f8a453dd7923d50d4875dbf81e6" class="m-doc">CREATE_ITEM_3</a>,
+              <a href="#a7e43df168664f12c33c49af7e99b2f70a93d1b4639c3cab1150aaf379cfe66321" class="m-doc">CREATE_ITEM_4</a>,
+              <a href="#a7e43df168664f12c33c49af7e99b2f70afab2bd0298c8bb32cb06908b9a2fb682" class="m-doc">CREATE_ITEM_5</a> }</span>
+            </dt>
+            <dd>Function used to create the item.</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a522be895dbf29d16bc1390a6b5f4dc95">
+              <span class="m-doc-wrap-bumper">void <a href="#a522be895dbf29d16bc1390a6b5f4dc95" class="m-doc-self">CreateItemEntity</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> delay)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e1aa61687de8d0790fdc81c62444f60">
+              <span class="m-doc-wrap-bumper">void <a href="#a4e1aa61687de8d0790fdc81c62444f60" class="m-doc-self">ExecuteItemFunction</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abdd012c7bae6b59577243aa5a080a000">
+              <span class="m-doc-wrap-bumper">void <a href="#abdd012c7bae6b59577243aa5a080a000" class="m-doc-self">ItemDebug</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a77ec15e3baf8259b81bcb20b502852b1">
+              <span class="m-doc-wrap-bumper">void <a href="#a77ec15e3baf8259b81bcb20b502852b1" class="m-doc-self">ItemSword</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a54964fa6e65fd5c42d481e1d800ac502">
+              <span class="m-doc-wrap-bumper">void <a href="#a54964fa6e65fd5c42d481e1d800ac502" class="m-doc-self">ItemBomb</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ab53de865b4c201243b36191dbb5c76">
+              <span class="m-doc-wrap-bumper">void <a href="#a2ab53de865b4c201243b36191dbb5c76" class="m-doc-self">ItemBow</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12e3ff1c2a76a0ae705b030774124b4e">
+              <span class="m-doc-wrap-bumper">void <a href="#a12e3ff1c2a76a0ae705b030774124b4e" class="m-doc-self">ItemBoomerang</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad67fb8824eca0fa4358c3716a82030bb">
+              <span class="m-doc-wrap-bumper">void <a href="#ad67fb8824eca0fa4358c3716a82030bb" class="m-doc-self">ItemShield</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a80f4ea457c658f9442f73227eddcaf20">
+              <span class="m-doc-wrap-bumper">void <a href="#a80f4ea457c658f9442f73227eddcaf20" class="m-doc-self">ItemLantern</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af1d2ad10de4e06163c0ff2d098b1305c">
+              <span class="m-doc-wrap-bumper">void <a href="#af1d2ad10de4e06163c0ff2d098b1305c" class="m-doc-self">ItemGustJar</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae31157d632c63de198d0a6139000969f">
+              <span class="m-doc-wrap-bumper">void <a href="#ae31157d632c63de198d0a6139000969f" class="m-doc-self">ItemPacciCane</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad9cbc22cfc980cf7d673877b90a17f2e">
+              <span class="m-doc-wrap-bumper">void <a href="#ad9cbc22cfc980cf7d673877b90a17f2e" class="m-doc-self">ItemMoleMitts</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ff6c176f3beafe4f4e27cb9ddd66d4c">
+              <span class="m-doc-wrap-bumper">void <a href="#a1ff6c176f3beafe4f4e27cb9ddd66d4c" class="m-doc-self">ItemRocsCape</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac5cbd1c5e71b27a5f0c32c19cc8cf739">
+              <span class="m-doc-wrap-bumper">void <a href="#ac5cbd1c5e71b27a5f0c32c19cc8cf739" class="m-doc-self">ItemPegasusBoots</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad5531f30a3c8ea1bd261098f9a015399">
+              <span class="m-doc-wrap-bumper">void <a href="#ad5531f30a3c8ea1bd261098f9a015399" class="m-doc-self">ItemOcarina</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a74cc52807addc6bd61802e00289e199d">
+              <span class="m-doc-wrap-bumper">void <a href="#a74cc52807addc6bd61802e00289e199d" class="m-doc-self">ItemTryPickupObject</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafabf75a150fd0d3add22de41ceb9a52">
+              <span class="m-doc-wrap-bumper">void <a href="#aafabf75a150fd0d3add22de41ceb9a52" class="m-doc-self">ItemJarEmpty</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

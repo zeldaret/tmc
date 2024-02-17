@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/collision.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>collision.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a4caf8d8f829279fba122163d961608a4">
+              <span class="m-doc-wrap-bumper">enum <a href="#a4caf8d8f829279fba122163d961608a4" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#a4caf8d8f829279fba122163d961608a4a7934b44d7e609c599d9486b0384b3cad" class="m-doc">COL_LANTERN</a> = 0x7,
+              <a href="#a4caf8d8f829279fba122163d961608a4ab291b431f8d6a7f52aa114aa9c005071" class="m-doc">COL_SMALL_GUST</a> = 0x13,
+              <a href="#a4caf8d8f829279fba122163d961608a4a860e20c5612c0ccd1335e25ddcc972b3" class="m-doc">COL_BOOMERANG</a> = 0x14,
+              <a href="#a4caf8d8f829279fba122163d961608a4a7596bf51d7db97f494e5d79b12bd5e5d" class="m-doc">COL_ARROW</a> = 0x15,
+              <a href="#a4caf8d8f829279fba122163d961608a4a0c66af15c41715fa717abbee98f25176" class="m-doc">COL_BIG_GUST</a> = 0x1b,
+              <a href="#a4caf8d8f829279fba122163d961608a4a8ce643dc2315482e2bf3176b11843d9a" class="m-doc">COL_PACCI</a> = 0x1d,
+              <a href="#a4caf8d8f829279fba122163d961608a4ab0cca60f3e71791cef473151dbf36c7c" class="m-doc">COL_SWORD_BEAM</a> = 0x21 }</span>
+            </dt>
+            <dd>Collisions.</dd>
+            <dt id="ac229809d578f8efa7f10bcceb8ed23b8">
+              <span class="m-doc-wrap-bumper">enum <a href="#ac229809d578f8efa7f10bcceb8ed23b8" class="m-doc-self">Collisions</a> { </span><span class="m-doc-wrap"><a href="#ac229809d578f8efa7f10bcceb8ed23b8acb9621c166fdae19a38e24b0483c3323" class="m-doc">COL_NONE</a> = 0x0,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a1c584c8db391b55c8fd9a4d83fb53950" class="m-doc">COL_NORTH_WEST</a> = 0x2,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a25fbb2625d779dfd64af59cc6311d4af" class="m-doc">COL_NORTH_EAST</a> = 0x4,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a7f91970267bb8929600e176929f0289d" class="m-doc">COL_NORTH_FULL</a> = 0x6,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a1e565224b5ad41fdc2ea345c799760c8" class="m-doc">COL_NORTH_ANY</a> = 0xe,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8aec8d07c25212e33f3b6ed33f1b475067" class="m-doc">COL_SOUTH_WEST</a> = 0x20,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8af8db907e2bc69b8e7145d38ccb156dfc" class="m-doc">COL_SOUTH_EAST</a> = 0x40,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8aa9353bc93e8eec082347564ff6c53895" class="m-doc">COL_SOUTH_FULL</a> = 0x60,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a4fbc1998f522ee7c7b68188ade01912a" class="m-doc">COL_SOUTH_ANY</a> = 0xe0,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a550dfd511696cf11873e809b90539029" class="m-doc">COL_WEST_SOUTH</a> = 0x200,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a14d076a37562a5fb279ab4f09784471c" class="m-doc">COL_WEST_NORTH</a> = 0x400,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8adc4fbffd3b1524068d4df29ce4d305cb" class="m-doc">COL_WEST_FULL</a> = 0x600,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a62f09e845fbed7422c9994501630232d" class="m-doc">COL_WEST_ANY</a> = 0xe00,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a939f2301b16d1e522cd8b99bf78ad001" class="m-doc">COL_EAST_SOUTH</a> = 0x2000,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a8eb1694be13c62e8f13d01ff0a11ccda" class="m-doc">COL_EAST_NORTH</a> = 0x4000,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a698be568fc9f9ec433639004397fada8" class="m-doc">COL_EAST_FULL</a> = 0x6000,
+              <a href="#ac229809d578f8efa7f10bcceb8ed23b8a211f7841ba0aa470141c153d807f56d1" class="m-doc">COL_EAST_ANY</a> = 0xe000 }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa53873975943a015e3dbe1683696ac4">
+              <span class="m-doc-wrap-bumper">enum <a href="#afa53873975943a015e3dbe1683696ac4" class="m-doc-self">CollisionResult</a> { </span><span class="m-doc-wrap"><a href="#afa53873975943a015e3dbe1683696ac4a3be7adeb38f569265507948f6eb4deaf" class="m-doc">RESULT_NO_COLLISION</a> = 0,
+              <a href="#afa53873975943a015e3dbe1683696ac4aaf31b6fde2adb5836fd6442fa5ce3963" class="m-doc">RESULT_COLLISION</a> = 1,
+              <a href="#afa53873975943a015e3dbe1683696ac4a4208add05bc323801a7ee4220f53e4e8" class="m-doc">RESULT_COLLISION_WITHOUT_SET</a> = 2 }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#af5e64523d795dc57e320c3017b0c2bad" class="m-doc">IsTileCollision</a>(</span><span class="m-doc-wrap">const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* collisionData,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a27859cfd58471a5f692506cdf0574d72">
+              <span class="m-doc-wrap-bumper">auto <a href="#a27859cfd58471a5f692506cdf0574d72" class="m-doc-self">IsColliding</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="structEntity.html" class="m-doc">Entity</a>* that) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abcf8ad6a33af7eac61edde4dbdb926b2">
+              <span class="m-doc-wrap-bumper">auto <a href="#abcf8ad6a33af7eac61edde4dbdb926b2" class="m-doc-self">IsCollidingPlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a00a25645f4f3cfea11b239a062d5ffbf" class="m-doc">CalculateEntityTileCollisions</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType)</span>
+            </dt>
+            <dd>Calculates the collisions with the tiles around the entity and stores the result in <a href="structEntity.html#a09217c06e669a56e4df092efd6076522" class="m-doc">Entity.collisions</a>.</dd>
+            <dt id="ac3903c162fe902330de491d41ff658b2">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac3903c162fe902330de491d41ff658b2" class="m-doc-self">ProcessMovementInternal</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> radius,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acbcff78d9735a3c1b3604efdc52680e8">
+              <span class="m-doc-wrap-bumper">auto <a href="#acbcff78d9735a3c1b3604efdc52680e8" class="m-doc-self">sub_080176E4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="abe5e29ea960bd25af4f3df7cea5d1324">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#abe5e29ea960bd25af4f3df7cea5d1324" class="m-doc-self">gMapTileTypeToActTile</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="af5e64523d795dc57e320c3017b0c2bad"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af5e64523d795dc57e320c3017b0c2bad" class="m-doc-self">IsTileCollision</a>(</span><span class="m-doc-wrap">const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* collisionData,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">collisionData</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>x world coordinate</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>y world coordinate</td>
+                </tr>
+                <tr>
+                  <td>collisionType</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>bool32</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="movement_8c.html#aa884075f403706dceea29a61771a0d44" class="m-doc">CollisionType</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a00a25645f4f3cfea11b239a062d5ffbf"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a00a25645f4f3cfea11b239a062d5ffbf" class="m-doc-self">CalculateEntityTileCollisions</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType)</span></span>
+            </h3>
+            <p>Calculates the collisions with the tiles around the entity and stores the result in <a href="structEntity.html#a09217c06e669a56e4df092efd6076522" class="m-doc">Entity.collisions</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">this</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>direction</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>collisionType</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="movement_8c.html#aa884075f403706dceea29a61771a0d44" class="m-doc">CollisionType</a></p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

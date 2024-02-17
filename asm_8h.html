@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/asm.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>asm.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a4790f45dcc812c1b00184a2edccdddf5">
+              <span class="m-doc-wrap-bumper">enum <a href="#a4790f45dcc812c1b00184a2edccdddf5" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#a4790f45dcc812c1b00184a2edccdddf5a77d50c5070e4b86de8ecd406a017e07a" class="m-doc">BOUNCE_DONE_ALL</a>,
+              <a href="#a4790f45dcc812c1b00184a2edccdddf5a567ec6cd198b1b26bcfb67e02cbb29f2" class="m-doc">BOUNCE_INIT_NEXT</a>,
+              <a href="#a4790f45dcc812c1b00184a2edccdddf5a8bbb4c672997358ea4248c449716c3fa" class="m-doc">BOUNCE_AIRBORNE</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a2733962f0dcb522927407d45eb3874f7">
+              <span class="m-doc-wrap-bumper">auto <a href="#a2733962f0dcb522927407d45eb3874f7" class="m-doc-self">Random</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e7d1fa9d7803f896b210a473217589d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a6e7d1fa9d7803f896b210a473217589d" class="m-doc-self">GetRandomByWeight</a>(</span><span class="m-doc-wrap">const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4301426a60de274aafc567354bd8b99">
+              <span class="m-doc-wrap-bumper">void <a href="#af4301426a60de274aafc567354bd8b99" class="m-doc-self">CloneTile</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af78152cab69a394cf0a181a9d0779e05">
+              <span class="m-doc-wrap-bumper">void <a href="#af78152cab69a394cf0a181a9d0779e05" class="m-doc-self">SetTile</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tileIndex,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tilePos,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6aae39086b6499592b69460380ae17da">
+              <span class="m-doc-wrap-bumper">void <a href="#a6aae39086b6499592b69460380ae17da" class="m-doc-self">UpdateScrollVram</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5dd6e30fad46153a83421bd227ad8a86">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5dd6e30fad46153a83421bd227ad8a86" class="m-doc-self">sub_080B1BA4</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7bcd491148e9e8be806a35c7b47447e6">
+              <span class="m-doc-wrap-bumper">void <a href="#a7bcd491148e9e8be806a35c7b47447e6" class="m-doc-self">LoadResourceAsync</a>(</span><span class="m-doc-wrap">const void* src,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a09aa45f972e08d71a1ddfae028ab1546">
+              <span class="m-doc-wrap-bumper">void <a href="#a09aa45f972e08d71a1ddfae028ab1546" class="m-doc-self">GenericConfused</a>(</span><span class="m-doc-wrap">struct Entity_*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae3def7a810cf3eacaaaba32bc0bbb111">
+              <span class="m-doc-wrap-bumper">void <a href="#ae3def7a810cf3eacaaaba32bc0bbb111" class="m-doc-self">sub_08001290</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7f4b31c5b7b590b6da3fccb26e10806">
+              <span class="m-doc-wrap-bumper">void <a href="#ae7f4b31c5b7b590b6da3fccb26e10806" class="m-doc-self">GenericKnockback</a>(</span><span class="m-doc-wrap">struct Entity_*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d6dfb873ea6479d45ef52b9f5eaa968">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3d6dfb873ea6479d45ef52b9f5eaa968" class="m-doc-self">GetFuserId</a>(</span><span class="m-doc-wrap">struct Entity_*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a95b948275cb59f3004939c18e854c0d1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a95b948275cb59f3004939c18e854c0d1" class="m-doc-self">CheckPlayerInRegion</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> centerX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> centerY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> radiusX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> radiusY) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab89ab0ff10e388b6c9694c862bfe9205">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab89ab0ff10e388b6c9694c862bfe9205" class="m-doc-self">GravityUpdate</a>(</span><span class="m-doc-wrap">struct Entity_* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> gravity) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab18b38721e05c9c710639fa557360fdf">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab18b38721e05c9c710639fa557360fdf" class="m-doc-self">BounceUpdate</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> acceleration) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad83249591619c97f03bc339449c9bae8">
+              <span class="m-doc-wrap-bumper">auto <a href="#ad83249591619c97f03bc339449c9bae8" class="m-doc-self">CheckOnScreen</a>(</span><span class="m-doc-wrap">struct Entity_*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8efd52c2b0a997295e47a81a1d966dfe">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8efd52c2b0a997295e47a81a1d966dfe" class="m-doc-self">EntityInRectRadius</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              struct Entity_*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a9499c1c95d7103b12a352c48c117ca">
+              <span class="m-doc-wrap-bumper">void <a href="#a0a9499c1c95d7103b12a352c48c117ca" class="m-doc-self">UpdateAnimationVariableFrames</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6dd00a1b4676e271cc663d9714f9eb1">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab6dd00a1b4676e271cc663d9714f9eb1" class="m-doc-self">GetTileHazardType</a>(</span><span class="m-doc-wrap">struct Entity_*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a3bb3bbf7cdfdc39cd88d88d64ac65bec" class="m-doc">CalcCollisionStaticEntity</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              struct Entity_*)</span>
+            </dt>
+            <dd>Basic collision, only used between player and dazed enemies.</dd>
+            <dt id="aa5fa5d8e99cd78d4fe0560b7231d27c2">
+              <span class="m-doc-wrap-bumper">void <a href="#aa5fa5d8e99cd78d4fe0560b7231d27c2" class="m-doc-self">ResetCollisionLayer</a>(</span><span class="m-doc-wrap">struct Entity_*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64bdc2bfaf6d8055d264ddcb6fd9e32f">
+              <span class="m-doc-wrap-bumper">void <a href="#a64bdc2bfaf6d8055d264ddcb6fd9e32f" class="m-doc-self">sub_08004596</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad13efe391e42522096e8597dfd4e0ffa">
+              <span class="m-doc-wrap-bumper">auto <a href="#ad13efe391e42522096e8597dfd4e0ffa" class="m-doc-self">sub_080045B4</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a754a10660eb15aa3c5c0d25f3e0f2d51">
+              <span class="m-doc-wrap-bumper">auto <a href="#a754a10660eb15aa3c5c0d25f3e0f2d51" class="m-doc-self">CalculateDirectionTo</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a848bc7c74470a7f97c45d2f22ce5209f">
+              <span class="m-doc-wrap-bumper">auto <a href="#a848bc7c74470a7f97c45d2f22ce5209f" class="m-doc-self">CalculateDirectionFromOffsets</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e611d77b8f7fa856ecac2193b2de3bb">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1e611d77b8f7fa856ecac2193b2de3bb" class="m-doc-self">sub_080086B4</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1771169984b0a6152c3ed873a09fc1f7">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1771169984b0a6152c3ed873a09fc1f7" class="m-doc-self">ResolveCollisionLayer</a>(</span><span class="m-doc-wrap">struct Entity_*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63a6cb7b5f09cf8c9f2f2ab934a2867b">
+              <span class="m-doc-wrap-bumper">void <a href="#a63a6cb7b5f09cf8c9f2f2ab934a2867b" class="m-doc-self">sub_0800417E</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c2bcf650cef661d1be14c9641d84cbb">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3c2bcf650cef661d1be14c9641d84cbb" class="m-doc-self">sub_0800442E</a>(</span><span class="m-doc-wrap">struct Entity_*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa8cb75200de6350dda41d7bd413b024">
+              <span class="m-doc-wrap-bumper">void <a href="#afa8cb75200de6350dda41d7bd413b024" class="m-doc-self">SoundReqClipped</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a690984c3d784fb511a4713b72d9e6a4c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a690984c3d784fb511a4713b72d9e6a4c" class="m-doc-self">sub_0800132C</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              struct Entity_*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13f8f67db2022a7002c2a8bd5f30484e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a13f8f67db2022a7002c2a8bd5f30484e" class="m-doc-self">sub_0800445C</a>(</span><span class="m-doc-wrap">struct Entity_*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2b430a783589f9a230a47bf76d0049d">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab2b430a783589f9a230a47bf76d0049d" class="m-doc-self">CheckRectOnScreen</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a719e3254e095a1d7359f434e6beb5278">
+              <span class="m-doc-wrap-bumper">auto <a href="#a719e3254e095a1d7359f434e6beb5278" class="m-doc-self">GetTileTypeRelativeToEntity</a>(</span><span class="m-doc-wrap">struct Entity_* entity,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> xOffset,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> yOffset) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a79c90d89d92ba710831039192254af9c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a79c90d89d92ba710831039192254af9c" class="m-doc-self">GetTileTypeAtEntity</a>(</span><span class="m-doc-wrap">struct Entity_* entity) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a052ed79e4ef1c190ee339198a53b0ec3">
+              <span class="m-doc-wrap-bumper">auto <a href="#a052ed79e4ef1c190ee339198a53b0ec3" class="m-doc-self">GetTileTypeAtWorldCoords</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> worldX,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> worldY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d745590f8e2327988ca54d177b1b862">
+              <span class="m-doc-wrap-bumper">auto <a href="#a4d745590f8e2327988ca54d177b1b862" class="m-doc-self">GetTileTypeAtRoomCoords</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa2f1ad8e4d935d9608f11857d0dd07d8">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa2f1ad8e4d935d9608f11857d0dd07d8" class="m-doc-self">GetTileTypeAtTilePos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tilePos,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa10c1b0caae1c5397ddda154d6af05f1">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa10c1b0caae1c5397ddda154d6af05f1" class="m-doc-self">GetActTileRelativeToEntity</a>(</span><span class="m-doc-wrap">struct Entity_* entity,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> xOffset,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> yOffset) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7540857741cea000b2c6d7a7cac2647a">
+              <span class="m-doc-wrap-bumper">auto <a href="#a7540857741cea000b2c6d7a7cac2647a" class="m-doc-self">GetActTileAtEntity</a>(</span><span class="m-doc-wrap">struct Entity_* entity) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a408261dc57891ce9be3d55e2c9fb8585">
+              <span class="m-doc-wrap-bumper">auto <a href="#a408261dc57891ce9be3d55e2c9fb8585" class="m-doc-self">GetActTileAtWorldCoords</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> worldX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> worldY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0e1196c1ab3ea552fd6d55e6d0d58ed5">
+              <span class="m-doc-wrap-bumper">auto <a href="#a0e1196c1ab3ea552fd6d55e6d0d58ed5" class="m-doc-self">GetActTileAtRoomCoords</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e8ba2dbb0f111e2d65233364b7423f9">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1e8ba2dbb0f111e2d65233364b7423f9" class="m-doc-self">GetActTileAtRoomTile</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomTileX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomTileY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9aa1893b59d71826d00c2b7fad32c503">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9aa1893b59d71826d00c2b7fad32c503" class="m-doc-self">GetActTileAtTilePos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> tilePos,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5befcb7a31406940f87fe0576936c361">
+              <span class="m-doc-wrap-bumper">void <a href="#a5befcb7a31406940f87fe0576936c361" class="m-doc-self">SetActTileAtTilePos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> actTile,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tilePos,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span>
+            </dt>
+            <dd>Sets actTile for a tilePos.</dd>
+            <dt id="ab41d91dcd6a7af1142501f2532172ac7">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab41d91dcd6a7af1142501f2532172ac7" class="m-doc-self">GetCollisionDataRelativeTo</a>(</span><span class="m-doc-wrap">struct Entity_* entity,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> xOffset,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> yOffset) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe6b8100afe1546394b2697de896cf14">
+              <span class="m-doc-wrap-bumper">auto <a href="#abe6b8100afe1546394b2697de896cf14" class="m-doc-self">GetCollisionDataAtEntity</a>(</span><span class="m-doc-wrap">struct Entity_* entity) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a98d1a941ad3448e2c44119c55444c3f8" class="m-doc">GetCollisionDataAtWorldCoords</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> worldX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> worldY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Returns the collision data for one tile.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a269eddc5eb3f4584248a62f9222a7fe1" class="m-doc">GetCollisionDataAtRoomCoords</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Returns the collision data for one tile.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a77103868ecbf36331921a130cd300a26" class="m-doc">GetCollisionDataAtRoomTile</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomTileX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomTileY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Returns the collision data for one tile.</dd>
+            <dt id="aea9de5afe073c4140b47d8a96c50c262">
+              <span class="m-doc-wrap-bumper">auto <a href="#aea9de5afe073c4140b47d8a96c50c262" class="m-doc-self">GetCollisionDataAtTilePos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tilePos,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Returns the collision data for one tile.</dd>
+            <dt id="a7a611af79aeb2cfb65e1bd98f3e62a4c">
+              <span class="m-doc-wrap-bumper">void <a href="#a7a611af79aeb2cfb65e1bd98f3e62a4c" class="m-doc-self">SetCollisionData</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionData,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tilePos,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span>
+            </dt>
+            <dd>Sets the collision data for one tile.</dd>
+            <dt id="ab2373d28092ca98702200d564396c7e2">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab2373d28092ca98702200d564396c7e2" class="m-doc-self">GetActTileForTileType</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tileType) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a41ebeef5c7702a1711a24476dd51b32e" class="m-doc">FindValueForKey</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> key,
+              const <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a>* keyValuePairList) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Searches for a <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a> with the key in the keyValuePairList and returns its value.</dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="ab29827eba9f786309d47a524ea240b48">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab29827eba9f786309d47a524ea240b48" class="m-doc-self">GetFuserIdAndFuserTextId</a>(</span><span class="m-doc-wrap">ent)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a3bb3bbf7cdfdc39cd88d88d64ac65bec"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3bb3bbf7cdfdc39cd88d88d64ac65bec" class="m-doc-self">CalcCollisionStaticEntity</a>(</span><span class="m-doc-wrap">struct Entity_*,
+              struct Entity_*)</span></span>
+            </h3>
+            <p>Basic collision, only used between player and dazed enemies.</p>
+<p>(Probablity leftover from Four Swords)</p>
+          </div></section>
+          <section class="m-doc-details" id="a98d1a941ad3448e2c44119c55444c3f8"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a98d1a941ad3448e2c44119c55444c3f8" class="m-doc-self">GetCollisionDataAtWorldCoords</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> worldX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> worldY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span></span>
+            </h3>
+            <p>Returns the collision data for one tile.</p>
+<p>(x, y in pixels relative to the world)</p>
+          </div></section>
+          <section class="m-doc-details" id="a269eddc5eb3f4584248a62f9222a7fe1"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a269eddc5eb3f4584248a62f9222a7fe1" class="m-doc-self">GetCollisionDataAtRoomCoords</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span></span>
+            </h3>
+            <p>Returns the collision data for one tile.</p>
+<p>(x, y in pixels relative to the room)</p>
+          </div></section>
+          <section class="m-doc-details" id="a77103868ecbf36331921a130cd300a26"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a77103868ecbf36331921a130cd300a26" class="m-doc-self">GetCollisionDataAtRoomTile</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomTileX,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> roomTileY,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span></span>
+            </h3>
+            <p>Returns the collision data for one tile.</p>
+<p>(x, y in tiles relative to the room)</p>
+          </div></section>
+          <section class="m-doc-details" id="a41ebeef5c7702a1711a24476dd51b32e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a41ebeef5c7702a1711a24476dd51b32e" class="m-doc-self">FindValueForKey</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> key,
+              const <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a>* keyValuePairList)</span></span>
+            </h3>
+            <p>Searches for a <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a> with the key in the keyValuePairList and returns its value.</p>
+<p>Returns 0 if the key is not found.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

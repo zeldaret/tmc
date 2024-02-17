@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/projectile.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>projectile.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="ade7b79b8b6788010eb8b6a9fd994ada4">
+              <span class="m-doc-wrap-bumper">enum <a href="#ade7b79b8b6788010eb8b6a9fd994ada4" class="m-doc-self">Projectile</a> { </span><span class="m-doc-wrap"><a href="#ade7b79b8b6788010eb8b6a9fd994ada4ac281be2408903ac9162f9a19e41d842f" class="m-doc">DARK_NUT_SWORD_SLASH</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a57ea2d57e815400751854d3c273c63f3" class="m-doc">ROCK_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a61367a547367db98296cf0c7ffaaf278" class="m-doc">BONE_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4acf6cf105ffb0cbaadd461e48a13355f1" class="m-doc">MOBLIN_SPEAR</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4ab1641be5c20681c075d4aff86e0e85b7" class="m-doc">DEKU_SEED_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a3597115e7741f6d3b5aa2d2ab46ffba2" class="m-doc">PROJECTILE_5</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4afb265896b4faa36a224724e9ee67eb5c" class="m-doc">DIRT_BALL_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a032b65ef441d27074a4f0e77ec26fd3d" class="m-doc">WIND_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a8e94000af7a417edbb3d563e9194ca23" class="m-doc">FIRE_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4ae575a6d304593b68b192c5e6f58496bf" class="m-doc">ICE_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a11ab0c0f6213161f9f30be9d68d79e7b" class="m-doc">GLEEROK_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4ae9dd75258120550e5d4de3f49e3c699b" class="m-doc">KEATON_DAGGER</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a9335773b8d4e093e139b8b05bc2f5ce7" class="m-doc">GUARD_LINE_OF_SIGHT</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a3080d59290b1dbc999f282cc71e79240" class="m-doc">ARROW_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4addd0364e814ab542530f3e4988952665" class="m-doc">MAZAAL_ENERGY_BEAM</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4ac3cc97f8b1d99099310f148b3f48dbe4" class="m-doc">OCTOROK_BOSS_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4aa9d0dad925589379f860a994a9b49082" class="m-doc">STALFOS_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a435589586bb297ea447000be1f61a280" class="m-doc">LAKITU_CLOUD_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4af247617b532d4aaba023e2c5d20a288f" class="m-doc">LAKITU_LIGHTNING</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a9829c443a1ad749cc52e9cd8171d5db5" class="m-doc">MANDIBLES_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a99a343a7f50142c79c2ca84e6052e761" class="m-doc">REMOVABLE_DUST</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a7301ae4625c589c26be23d5ab798868f" class="m-doc">SPIDER_WEB</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4afa50f13dbc45e2d63ede65c6cb6d578e" class="m-doc">TORCH_TRAP_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a221bb8671869bde5bedb1ad94dfb0ec2" class="m-doc">GURUGURU_BAR_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a9d8829979e9aa6cba9f72c2976f282cf" class="m-doc">V1_DARK_MAGIC_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4ade492330a943b1e143f650e5f9692d74" class="m-doc">BALL_AND_CHAIN</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4afda9a66111c2e25be9647b75011f7703" class="m-doc">V1_FIRE_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a7162829e278615b2f5d8518dbcae207e" class="m-doc">CANNONBALL_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4aaa28e90fd453f2e7ab84899b70dda957" class="m-doc">V1_EYE_LASER</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a7ecd8a8fea68b684de9f2fb87099cdfc" class="m-doc">WINDER</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4aa63512f92b412a259629fe581937befa" class="m-doc">SPIKED_ROLLERS</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a25db825d04f5f056d80bf4d3c076ef72" class="m-doc">V2_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4ad144ddd16979568c8a3f3e8702fac389" class="m-doc">V3_HAND_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4ac45efc7a3cd9b789dd27cfecbdf08549" class="m-doc">V3_ELECTRIC_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4a80386a981e414a0298ea9b4f3198a7c7" class="m-doc">GYORG_TAIL</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4acf1a834c56fac809aba66d3f624d42bb" class="m-doc">GYORG_MALE_ENERGY_PROJECTILE</a>,
+              <a href="#ade7b79b8b6788010eb8b6a9fd994ada4ac9adcb88644256a7f2ffda5d24c56a9b" class="m-doc">V3_TENNIS_BALL_PROJECTILE</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="af3c47dc9305ea8fe1b4398898349a95d">
+              <span class="m-doc-wrap-bumper">auto <a href="#af3c47dc9305ea8fe1b4398898349a95d" class="m-doc-self">CreateProjectile</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a75ba7b8d58b9d6b6879bfdb6470d3b67">
+              <span class="m-doc-wrap-bumper">auto <a href="#a75ba7b8d58b9d6b6879bfdb6470d3b67" class="m-doc-self">IsProjectileOffScreen</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d3c2f15dd7eadfd0afa75e611033972">
+              <span class="m-doc-wrap-bumper">void <a href="#a3d3c2f15dd7eadfd0afa75e611033972" class="m-doc-self">DarkNutSwordSlash</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e785ca8b7917f114ec32f8af2e49ee9">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e785ca8b7917f114ec32f8af2e49ee9" class="m-doc-self">RockProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a308825e306d50479c5d955f587af97">
+              <span class="m-doc-wrap-bumper">void <a href="#a3a308825e306d50479c5d955f587af97" class="m-doc-self">BoneProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad9306fb09a752fdc5522a0a5184f48ae">
+              <span class="m-doc-wrap-bumper">void <a href="#ad9306fb09a752fdc5522a0a5184f48ae" class="m-doc-self">MoblinSpear</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36cb859b425753bdd0a7162fd1da54b4">
+              <span class="m-doc-wrap-bumper">void <a href="#a36cb859b425753bdd0a7162fd1da54b4" class="m-doc-self">DekuSeedProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a77a30fa95cac1a863bd429cbc0c94a4c">
+              <span class="m-doc-wrap-bumper">void <a href="#a77a30fa95cac1a863bd429cbc0c94a4c" class="m-doc-self">Projectile5</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7211fd9f7ad2aeaa8d150470b695aa7">
+              <span class="m-doc-wrap-bumper">void <a href="#ad7211fd9f7ad2aeaa8d150470b695aa7" class="m-doc-self">DirtBallProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0dbf2f35b1196fa33fcd009c8262b261">
+              <span class="m-doc-wrap-bumper">void <a href="#a0dbf2f35b1196fa33fcd009c8262b261" class="m-doc-self">WindProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2aeba639b2314e622535467a196f6d31">
+              <span class="m-doc-wrap-bumper">void <a href="#a2aeba639b2314e622535467a196f6d31" class="m-doc-self">FireProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83ee70ae4ef7c01c72b391b3276fd7db">
+              <span class="m-doc-wrap-bumper">void <a href="#a83ee70ae4ef7c01c72b391b3276fd7db" class="m-doc-self">IceProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a954a43a5d58ee770557b8c7cc60f1597">
+              <span class="m-doc-wrap-bumper">void <a href="#a954a43a5d58ee770557b8c7cc60f1597" class="m-doc-self">GleerokProjectile</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f66ba5fa09b5f857e6fc94669f801eb">
+              <span class="m-doc-wrap-bumper">void <a href="#a9f66ba5fa09b5f857e6fc94669f801eb" class="m-doc-self">KeatonDagger</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa7f78e5f8d7832a90cfede1ddbdc7ffa">
+              <span class="m-doc-wrap-bumper">void <a href="#aa7f78e5f8d7832a90cfede1ddbdc7ffa" class="m-doc-self">GuardLineOfSight</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0675076b6bcc28396e1e31df3a5f78b0">
+              <span class="m-doc-wrap-bumper">void <a href="#a0675076b6bcc28396e1e31df3a5f78b0" class="m-doc-self">ArrowProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff5d1e15b808c0940dc1093766ceeed5">
+              <span class="m-doc-wrap-bumper">void <a href="#aff5d1e15b808c0940dc1093766ceeed5" class="m-doc-self">MazaalEnergyBeam</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a121ab12d7a53952f9a97cb38b9c8702d">
+              <span class="m-doc-wrap-bumper">void <a href="#a121ab12d7a53952f9a97cb38b9c8702d" class="m-doc-self">OctorokBossProjectile</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad19006707b007f646d1033a50b31a771">
+              <span class="m-doc-wrap-bumper">void <a href="#ad19006707b007f646d1033a50b31a771" class="m-doc-self">StalfosProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a76f3748a83add9d9d77542a76fa8165a">
+              <span class="m-doc-wrap-bumper">void <a href="#a76f3748a83add9d9d77542a76fa8165a" class="m-doc-self">LakituCloudProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1dcde71820f1b26ba3a5fba41dd6212e">
+              <span class="m-doc-wrap-bumper">void <a href="#a1dcde71820f1b26ba3a5fba41dd6212e" class="m-doc-self">LakituLightning</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae09bbe58253c05822f103a24ca7ed835">
+              <span class="m-doc-wrap-bumper">void <a href="#ae09bbe58253c05822f103a24ca7ed835" class="m-doc-self">MandiblesProjectile</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4da08d3d41d331f12763335852eaaa7f">
+              <span class="m-doc-wrap-bumper">void <a href="#a4da08d3d41d331f12763335852eaaa7f" class="m-doc-self">RemovableDust</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad023ebea5e770ce193844f3f79473efc">
+              <span class="m-doc-wrap-bumper">void <a href="#ad023ebea5e770ce193844f3f79473efc" class="m-doc-self">SpiderWeb</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30c2110d632c7fa216ee9fe9c2dd05fb">
+              <span class="m-doc-wrap-bumper">void <a href="#a30c2110d632c7fa216ee9fe9c2dd05fb" class="m-doc-self">TorchTrapProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee4ec64df7d56ccaaa22eb4b75b5177e">
+              <span class="m-doc-wrap-bumper">void <a href="#aee4ec64df7d56ccaaa22eb4b75b5177e" class="m-doc-self">GuruguruBarProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adcc17a84456829f4014a24e2107e3b4e">
+              <span class="m-doc-wrap-bumper">void <a href="#adcc17a84456829f4014a24e2107e3b4e" class="m-doc-self">V1DarkMagicProjectile</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3669b522ec2bb7dee44e693d94ba426">
+              <span class="m-doc-wrap-bumper">void <a href="#ab3669b522ec2bb7dee44e693d94ba426" class="m-doc-self">BallAndChain</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa01b50292394c737fc467828047d3f1">
+              <span class="m-doc-wrap-bumper">void <a href="#aaa01b50292394c737fc467828047d3f1" class="m-doc-self">V1FireProjectile</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae08f63dc534932d9a334392d7ee26d4d">
+              <span class="m-doc-wrap-bumper">void <a href="#ae08f63dc534932d9a334392d7ee26d4d" class="m-doc-self">CannonballProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71c8ef550b4e82709ec49755964439c7">
+              <span class="m-doc-wrap-bumper">void <a href="#a71c8ef550b4e82709ec49755964439c7" class="m-doc-self">V1EyeLaser</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac666f2104b00590331eca431c7c10612">
+              <span class="m-doc-wrap-bumper">void <a href="#ac666f2104b00590331eca431c7c10612" class="m-doc-self">Winder</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* thisx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab43651f10464074ba6e0f4970df049f0">
+              <span class="m-doc-wrap-bumper">void <a href="#ab43651f10464074ba6e0f4970df049f0" class="m-doc-self">SpikedRollers</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab458a5f7896949f0304f719ce9d68392">
+              <span class="m-doc-wrap-bumper">void <a href="#ab458a5f7896949f0304f719ce9d68392" class="m-doc-self">V2Projectile</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62d18b07f4454afefd3febbbebadec17">
+              <span class="m-doc-wrap-bumper">void <a href="#a62d18b07f4454afefd3febbbebadec17" class="m-doc-self">V3HandProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaff001dde907a159a4e7ea7f58dd2cd3">
+              <span class="m-doc-wrap-bumper">void <a href="#aaff001dde907a159a4e7ea7f58dd2cd3" class="m-doc-self">V3ElectricProjectile</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7ce85129531646e3e0d75391cf88cbd3">
+              <span class="m-doc-wrap-bumper">void <a href="#a7ce85129531646e3e0d75391cf88cbd3" class="m-doc-self">GyorgTail</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa2630526c1271f87e08702e9a1d0a1ca">
+              <span class="m-doc-wrap-bumper">void <a href="#aa2630526c1271f87e08702e9a1d0a1ca" class="m-doc-self">GyorgMaleEnergyProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e913c72677b0060ca6bc7c1fa46c41f">
+              <span class="m-doc-wrap-bumper">void <a href="#a3e913c72677b0060ca6bc7c1fa46c41f" class="m-doc-self">V3TennisBallProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

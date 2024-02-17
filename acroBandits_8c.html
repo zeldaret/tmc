@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/acroBandits.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>acroBandits.c <span class="m-thin">file</span>
+        </h1>
+        <p>Acro Bandits enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a46c3413d22450e7f78e0930cc107f317">
+              <span class="m-doc-wrap-bumper">static void <a href="#a46c3413d22450e7f78e0930cc107f317" class="m-doc-self">sub_08031E48</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this,
+              <a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* child)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3fc68a287f39f2d9262abbed2b2c2c79">
+              <span class="m-doc-wrap-bumper">static void <a href="#a3fc68a287f39f2d9262abbed2b2c2c79" class="m-doc-self">sub_08032290</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0536a1337675d0b15a517fb8f6c1a305">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a0536a1337675d0b15a517fb8f6c1a305" class="m-doc-self">sub_080322A4</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d76552e2de529abbd27c9109c36e620">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4d76552e2de529abbd27c9109c36e620" class="m-doc-self">sub_08032338</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a177e18a429381db8ac469541fa6c0cb0">
+              <span class="m-doc-wrap-bumper">static void <a href="#a177e18a429381db8ac469541fa6c0cb0" class="m-doc-self">sub_080322E8</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2ee117e3e56eb2110c3c28f45a56859">
+              <span class="m-doc-wrap-bumper">static auto <a href="#ad2ee117e3e56eb2110c3c28f45a56859" class="m-doc-self">sub_08031E04</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70dfcd5e72143051b13dca0b70093807">
+              <span class="m-doc-wrap-bumper">void <a href="#a70dfcd5e72143051b13dca0b70093807" class="m-doc-self">AcroBandit_OnTick</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4b56b96a137219b553aa9b56cf1a68d3">
+              <span class="m-doc-wrap-bumper">void <a href="#a4b56b96a137219b553aa9b56cf1a68d3" class="m-doc-self">AcroBandit_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aefc2f96211b5659260f209efc89a70fd">
+              <span class="m-doc-wrap-bumper">void <a href="#aefc2f96211b5659260f209efc89a70fd" class="m-doc-self">AcroBandit_OnKnockback</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46c4beede1e289c0461c987feccc8605">
+              <span class="m-doc-wrap-bumper">void <a href="#a46c4beede1e289c0461c987feccc8605" class="m-doc-self">AcroBandit_OnGrabbed</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ace297af641a3c23b6cdc47299291e7">
+              <span class="m-doc-wrap-bumper">void <a href="#a3ace297af641a3c23b6cdc47299291e7" class="m-doc-self">AcroBandit_Type0</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2c07add766060ea77da134963711dc2b">
+              <span class="m-doc-wrap-bumper">void <a href="#a2c07add766060ea77da134963711dc2b" class="m-doc-self">AcroBandit_Type1</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a90c5581a5572e2b2e8b7371185ab24b2">
+              <span class="m-doc-wrap-bumper">void <a href="#a90c5581a5572e2b2e8b7371185ab24b2" class="m-doc-self">AcroBandit_Type0Action0</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f351c5fc55aa965269f56f709e3f764">
+              <span class="m-doc-wrap-bumper">void <a href="#a9f351c5fc55aa965269f56f709e3f764" class="m-doc-self">AcroBandit_Type0Action1</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2bc8defef3f5c8ba8c9f792b8494e1db">
+              <span class="m-doc-wrap-bumper">void <a href="#a2bc8defef3f5c8ba8c9f792b8494e1db" class="m-doc-self">AcroBandit_Type0Action2</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e9a66fd076ec069bdff4908dec9357b">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e9a66fd076ec069bdff4908dec9357b" class="m-doc-self">AcroBandit_Type0Action3</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7fa50a638a39ccff698a5c88d854774">
+              <span class="m-doc-wrap-bumper">void <a href="#ad7fa50a638a39ccff698a5c88d854774" class="m-doc-self">AcroBandit_Type0Action4</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7cd5146bc433d013dc60eb742f4b546">
+              <span class="m-doc-wrap-bumper">void <a href="#ae7cd5146bc433d013dc60eb742f4b546" class="m-doc-self">AcroBandit_Type0Action5</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4f0410840967904c4122a56fcc97dbdd">
+              <span class="m-doc-wrap-bumper">void <a href="#a4f0410840967904c4122a56fcc97dbdd" class="m-doc-self">AcroBandit_Type0Action6</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4b2ace146708b6bb25fa360dfb3171f3">
+              <span class="m-doc-wrap-bumper">void <a href="#a4b2ace146708b6bb25fa360dfb3171f3" class="m-doc-self">AcroBandit_Type0Action7</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1a15f5d67730b8470765aae42561ec5d">
+              <span class="m-doc-wrap-bumper">void <a href="#a1a15f5d67730b8470765aae42561ec5d" class="m-doc-self">AcroBandit_Type0Action8</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2684e525adc47b79758c1aaa37b31275">
+              <span class="m-doc-wrap-bumper">void <a href="#a2684e525adc47b79758c1aaa37b31275" class="m-doc-self">AcroBandit_Type1Init</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35c27be852fbf3691adb1dae299a168b">
+              <span class="m-doc-wrap-bumper">void <a href="#a35c27be852fbf3691adb1dae299a168b" class="m-doc-self">AcroBandit_Type1Action1</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5e863eca46c853b332a53f2f37f588e9">
+              <span class="m-doc-wrap-bumper">void <a href="#a5e863eca46c853b332a53f2f37f588e9" class="m-doc-self">AcroBandit_Type1Action2</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc257e8e321bfb3800a649d38eff0de5">
+              <span class="m-doc-wrap-bumper">void <a href="#adc257e8e321bfb3800a649d38eff0de5" class="m-doc-self">AcroBandit_Type1Action3</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e0a576af338cd85b8b0afb412e79f73">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e0a576af338cd85b8b0afb412e79f73" class="m-doc-self">AcroBandit_Type1Action4</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00872afac858649b6058f4caa05748a1">
+              <span class="m-doc-wrap-bumper">void <a href="#a00872afac858649b6058f4caa05748a1" class="m-doc-self">AcroBandit_Type1Action5</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a19cc02e3dc385c6b972a346be5256db6">
+              <span class="m-doc-wrap-bumper">void <a href="#a19cc02e3dc385c6b972a346be5256db6" class="m-doc-self">AcroBandit_Type1Action6</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8839a9e412ef74176f9b74d5d8af2dd">
+              <span class="m-doc-wrap-bumper">void <a href="#aa8839a9e412ef74176f9b74d5d8af2dd" class="m-doc-self">AcroBandit_Type1Action7</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae0eca20fbdfd27666b82b9f02f281a57">
+              <span class="m-doc-wrap-bumper">void <a href="#ae0eca20fbdfd27666b82b9f02f281a57" class="m-doc-self">AcroBandit_Type1Action8</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e2e6fae897306b07e5e8d37977a9284">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e2e6fae897306b07e5e8d37977a9284" class="m-doc-self">AcroBandit_Type1Action9</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7b0b12b1662a2785c04d1c0bd4cc7221">
+              <span class="m-doc-wrap-bumper">void <a href="#a7b0b12b1662a2785c04d1c0bd4cc7221" class="m-doc-self">AcroBandit</a>(</span><span class="m-doc-wrap"><a href="structAcroBanditEntity.html" class="m-doc">AcroBanditEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a29973fad274ed54593f49005d5361c34">
+              <a href="structEntity.html" class="m-doc">Entity</a>* <a href="#a29973fad274ed54593f49005d5361c34" class="m-doc-self">gUnk_020000B0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb9990f63b0e00428e7b741d2a4ebfe6">
+              static void(*const <a href="#adb9990f63b0e00428e7b741d2a4ebfe6" class="m-doc-self">AcroBandit_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

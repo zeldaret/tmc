@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/message.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>message.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structWindow.html" class="m-doc">Window</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a94798fdadfbf49a7c658ace669a1d310">
+              <span class="m-doc-wrap-bumper">enum <a href="#a94798fdadfbf49a7c658ace669a1d310" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#a94798fdadfbf49a7c658ace669a1d310aeea722228d71e55ebf5b8be36def128a" class="m-doc">MSG_BORDER_CORNER</a> = 0x7B,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310a0228cd09405eb2b7e09457b1279f9968" class="m-doc">MSG_BORDER_H_CORNER</a> = 0x7C,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310a5eadca92e9bd12266e5974ae635f1ae7" class="m-doc">MSG_BORDER_H_STRAIGHT</a> = 0x7D,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310ab2c688567283f693104365cdcfe51da5" class="m-doc">MSG_BORDER_V_CORNER</a> = 0x7E,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310a56ac615667fb06ed9707b34329f5afe3" class="m-doc">MSG_BORDER_V_STRAIGHT</a> = 0x7F,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310aeee2769c4389620d43d75fb4ae4ed369" class="m-doc">MSG_CURSOR</a> = 0x80,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310acbdf66b28e4290c9366545843757368b" class="m-doc">MSG_BACKGROUND</a> = 0x81,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310ac7786f0a61f3cd97916a3573419445ab" class="m-doc">MSG_TEXT_LINE1TOP</a> = 0x82,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310a5a9532eb307526dbfd8d9a8c54271584" class="m-doc">MSG_TEXT_LINE1BOTTOM</a> = 0x83,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310a609f4e6f737913bf6726a3911c403fdd" class="m-doc">MSG_TEXT_LINE2TOP</a> = 0xb6,
+              <a href="#a94798fdadfbf49a7c658ace669a1d310a7335550bf6b593cce621b955042ad4fb" class="m-doc">MSG_TEXT_LINE2BOTTOM</a> = 0xb7 }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acb3e41b078b0fdded740e39ec143e7f3">
+              <span class="m-doc-wrap-bumper">enum <a href="#acb3e41b078b0fdded740e39ec143e7f3" class="m-doc-self">MessageStatus</a> { </span><span class="m-doc-wrap"><a href="#acb3e41b078b0fdded740e39ec143e7f3a0f0c9ed15987dbab0482acf2e50117eb" class="m-doc">MSG_IDLE</a>,
+              <a href="#acb3e41b078b0fdded740e39ec143e7f3ab631309c8d8055d6295578b9a90922a1" class="m-doc">MSG_INIT</a>,
+              <a href="#acb3e41b078b0fdded740e39ec143e7f3a194409130f5ec6183bc1180a39af4d92" class="m-doc">MSG_UPDATE</a>,
+              <a href="#acb3e41b078b0fdded740e39ec143e7f3a9169d07c19c8bb015e1e8d93335e3c17" class="m-doc">MSG_OPEN</a>,
+              <a href="#acb3e41b078b0fdded740e39ec143e7f3ae768965a2dfc34a2308ff0044c167fdb" class="m-doc">MSG_CLOSE</a>,
+              <a href="#acb3e41b078b0fdded740e39ec143e7f3ac9b00665fd37f5e562216ed3b27a7120" class="m-doc">MSG_DIE</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad9c4ccd041468da7c0c0817cd73ca486">
+              <span class="m-doc-wrap-bumper">enum <a href="#ad9c4ccd041468da7c0c0817cd73ca486" class="m-doc-self">TextRenderStatus</a> { </span><span class="m-doc-wrap"><a href="#ad9c4ccd041468da7c0c0817cd73ca486aa6ba7c54addfd8a869888120815ef638" class="m-doc">RENDER_INIT</a>,
+              <a href="#ad9c4ccd041468da7c0c0817cd73ca486ad806a7104dc10627e964fa0bd63359a7" class="m-doc">RENDER_UPDATE</a>,
+              <a href="#ad9c4ccd041468da7c0c0817cd73ca486a844f2c0f36e8a033ed56d75218db0f95" class="m-doc">RENDER_DIE</a>,
+              <a href="#ad9c4ccd041468da7c0c0817cd73ca486af9616248399ce1b75d22b35ab41b82d2" class="m-doc">RENDER_WAIT</a>,
+              <a href="#ad9c4ccd041468da7c0c0817cd73ca486a1f46204ba6a563b027076fe0e4dae4ef" class="m-doc">RENDER_ROLL</a>,
+              <a href="#ad9c4ccd041468da7c0c0817cd73ca486a59580088f60026f635c638d5183720f9" class="m-doc">RENDER_ENQUIRY</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="aaed7c33183afb437b801530e5cc08022">
+              using <a href="#aaed7c33183afb437b801530e5cc08022" class="m-doc-self">MessageFunction</a> = <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>(*)(void)
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a241038c34aeec8fa9f1eb05283631c1e">
+              using <a href="#a241038c34aeec8fa9f1eb05283631c1e" class="m-doc-self">TextRenderFunction</a> = void(*)(TextRender*)
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a83e61b46a2d8b2184541c0ed05a57e5b">
+              <span class="m-doc-wrap-bumper">void <a href="#a83e61b46a2d8b2184541c0ed05a57e5b" class="m-doc-self">WriteBit</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c692851f6a3aadb3fdba2b4c3c84c93">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1c692851f6a3aadb3fdba2b4c3c84c93" class="m-doc-self">sub_0805EF40</a>(</span><span class="m-doc-wrap"><a href="structToken.html" class="m-doc">Token</a>* tok,
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* param_2) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8b60985ec528c54b6b75719c7003496">
+              <span class="m-doc-wrap-bumper">void <a href="#aa8b60985ec528c54b6b75719c7003496" class="m-doc-self">sub_0805F918</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> idx,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> idx2,
+              void* dest)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b3d02ad751855e04b9209d4430bf244">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8b3d02ad751855e04b9209d4430bf244" class="m-doc-self">DecToHex</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaac66ed833fcc90fac6f8c4ca6d9582f">
+              <span class="m-doc-wrap-bumper">auto <a href="#aaac66ed833fcc90fac6f8c4ca6d9582f" class="m-doc-self">sub_08056FEC</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeec95a4339ea9d70f64644e953635765">
+              <span class="m-doc-wrap-bumper">auto <a href="#aeec95a4339ea9d70f64644e953635765" class="m-doc-self">GetCharacter</a>(</span><span class="m-doc-wrap"><a href="structToken.html" class="m-doc">Token</a>* tok) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2390ce92db65e9bada1038650dd35b01">
+              <span class="m-doc-wrap-bumper">void <a href="#a2390ce92db65e9bada1038650dd35b01" class="m-doc-self">sub_0805EEB4</a>(</span><span class="m-doc-wrap"><a href="structToken.html" class="m-doc">Token</a>* tok,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> textIdx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e49d5dd5b7c4bd3aabdb49cf9f73f1d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9e49d5dd5b7c4bd3aabdb49cf9f73f1d" class="m-doc-self">sub_0805F7DC</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> r0,
+              <a href="structWStruct.html" class="m-doc">WStruct</a>* r1) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32265b1c45d282b7d13bef560e5d81f1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a32265b1c45d282b7d13bef560e5d81f1" class="m-doc-self">GetFontStrWith</a>(</span><span class="m-doc-wrap"><a href="structToken.html" class="m-doc">Token</a>* param_1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_2) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a96107bd53aaf0932ad1fd86d46e54d70">
+              <span class="m-doc-wrap-bumper">static void <a href="#a96107bd53aaf0932ad1fd86d46e54d70" class="m-doc-self">StatusUpdate</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> status)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01a4022d911ddbb8719b34fc2994b291">
+              <span class="m-doc-wrap-bumper">auto <a href="#a01a4022d911ddbb8719b34fc2994b291" class="m-doc-self">RunTextCommand</a>(</span><span class="m-doc-wrap"><a href="structTextRender.html" class="m-doc">TextRender</a>* this) -&gt; <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d7ee7ce828b20e59499bebca1cc7094">
+              <span class="m-doc-wrap-bumper">void <a href="#a1d7ee7ce828b20e59499bebca1cc7094" class="m-doc-self">PaletteChange</a>(</span><span class="m-doc-wrap"><a href="structTextRender.html" class="m-doc">TextRender</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8fecbb4ca979a8f1d33bcde8344a962a">
+              <span class="m-doc-wrap-bumper">static void <a href="#a8fecbb4ca979a8f1d33bcde8344a962a" class="m-doc-self">SwitchChoice</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> to,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> from)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a083ae403b714b2a27b26034520fb266a">
+              <span class="m-doc-wrap-bumper">static void <a href="#a083ae403b714b2a27b26034520fb266a" class="m-doc-self">MsgChangeLine</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> lineNo)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee23008637db87531ae6698f9afaea39">
+              <span class="m-doc-wrap-bumper">static void <a href="#aee23008637db87531ae6698f9afaea39" class="m-doc-self">SetState</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> status)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7308555bd9506e42a6bdf88ba8d49d1c">
+              <span class="m-doc-wrap-bumper">static void <a href="#a7308555bd9506e42a6bdf88ba8d49d1c" class="m-doc-self">DeleteWindow</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac606a6bd40bef79e4abe7ed44eb87d04">
+              <span class="m-doc-wrap-bumper">static auto <a href="#ac606a6bd40bef79e4abe7ed44eb87d04" class="m-doc-self">ChangeWindowSize</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> delta) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a25514b26c6a2a2cf42869eb3742ea692">
+              <span class="m-doc-wrap-bumper">static void <a href="#a25514b26c6a2a2cf42869eb3742ea692" class="m-doc-self">CreateWindow</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static void <a href="#a0e379a3e4636777011c23df1799f792c" class="m-doc">DispString</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a536126c7262f033e911c5f36f0155bd9">
+              <span class="m-doc-wrap-bumper">static void <a href="#a536126c7262f033e911c5f36f0155bd9" class="m-doc-self">DispCursor</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d3e65c9fb78bc2afcde5c05106cdea1">
+              <span class="m-doc-wrap-bumper">static void <a href="#a7d3e65c9fb78bc2afcde5c05106cdea1" class="m-doc-self">DrawCanvasLine</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62161945dfe9a66263acbc4c2cbbd992">
+              <span class="m-doc-wrap-bumper">static void <a href="#a62161945dfe9a66263acbc4c2cbbd992" class="m-doc-self">sub_08056F88</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a94e5cc779219ba8b3da2c98d69d82de4">
+              <span class="m-doc-wrap-bumper">static void <a href="#a94e5cc779219ba8b3da2c98d69d82de4" class="m-doc-self">sub_08056FBC</a>(</span><span class="m-doc-wrap"><a href="structTextRender.html" class="m-doc">TextRender</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d366afa0ffeec774a8d50c1e4e585d4">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a4d366afa0ffeec774a8d50c1e4e585d4" class="m-doc-self">MsgIdle</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6419a236fb623bb0887e8c9abd5f9f14">
+              <span class="m-doc-wrap-bumper">auto <a href="#a6419a236fb623bb0887e8c9abd5f9f14" class="m-doc-self">MsgInit</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad8b90c658804097f7ccc143aa85f4e23">
+              <span class="m-doc-wrap-bumper">static auto <a href="#ad8b90c658804097f7ccc143aa85f4e23" class="m-doc-self">MsgUpdate</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af71d1ef3383de8150cc284624688c45a">
+              <span class="m-doc-wrap-bumper">auto <a href="#af71d1ef3383de8150cc284624688c45a" class="m-doc-self">MsgOpen</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a19c6a7e8b340d86625785a07c2bfe630">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a19c6a7e8b340d86625785a07c2bfe630" class="m-doc-self">MsgClose</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae39b424150d347ad6555a48a03b27159">
+              <span class="m-doc-wrap-bumper">static auto <a href="#ae39b424150d347ad6555a48a03b27159" class="m-doc-self">MsgDie</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adf889622123c8aafb8b4db11a016328c">
+              <span class="m-doc-wrap-bumper">static void <a href="#adf889622123c8aafb8b4db11a016328c" class="m-doc-self">TextDispInit</a>(</span><span class="m-doc-wrap"><a href="structTextRender.html" class="m-doc">TextRender</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa7d2124f3026dc14dcddbb1d85511380">
+              <span class="m-doc-wrap-bumper">static void <a href="#aa7d2124f3026dc14dcddbb1d85511380" class="m-doc-self">TextDispUpdate</a>(</span><span class="m-doc-wrap"><a href="structTextRender.html" class="m-doc">TextRender</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a76ad3a4277204c67f132c1d9930047b6">
+              <span class="m-doc-wrap-bumper">static void <a href="#a76ad3a4277204c67f132c1d9930047b6" class="m-doc-self">TextDispDie</a>(</span><span class="m-doc-wrap"><a href="structTextRender.html" class="m-doc">TextRender</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10748a9f8888b67469bb730fb63296b7">
+              <span class="m-doc-wrap-bumper">static void <a href="#a10748a9f8888b67469bb730fb63296b7" class="m-doc-self">TextDispWait</a>(</span><span class="m-doc-wrap"><a href="structTextRender.html" class="m-doc">TextRender</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1cba49bf85e765d047ef8c460a72fec">
+              <span class="m-doc-wrap-bumper">static void <a href="#ac1cba49bf85e765d047ef8c460a72fec" class="m-doc-self">TextDispRoll</a>(</span><span class="m-doc-wrap"><a href="structTextRender.html" class="m-doc">TextRender</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a064ce688dbbedb9b5601ad44930703a0">
+              <span class="m-doc-wrap-bumper">void <a href="#a064ce688dbbedb9b5601ad44930703a0" class="m-doc-self">TextDispEnquiry</a>(</span><span class="m-doc-wrap"><a href="structTextRender.html" class="m-doc">TextRender</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeaa661b3edd9928ff29dba841bc13722">
+              <span class="m-doc-wrap-bumper">auto <a href="#aeaa661b3edd9928ff29dba841bc13722" class="m-doc-self">sub_08056338</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6f99cf000d3075eedc639c753202a309">
+              <span class="m-doc-wrap-bumper">void <a href="#a6f99cf000d3075eedc639c753202a309" class="m-doc-self">MessageClose</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Close message.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#abeb0e807cf4364ecd2e4621855f85cc5" class="m-doc">MessageFromTarget</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd>Show a message that attempts not to obscure the camera target.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#acae281fb65fc0646fb78c91bf3c975c8" class="m-doc">MessageNoOverlap</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index,
+              <a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd>Show a message that attempts not to obscure the entity.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#acaf36f62ad89573fc22715449b4f91ae" class="m-doc">MessageAtHeight</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y)</span>
+            </dt>
+            <dd>Display message at y position.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#aedd892ae5337496d0e5405551b63794b" class="m-doc">MessageAtPos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> x,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y)</span>
+            </dt>
+            <dd>Show a message at screen posiiton.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a96e0a34ffa981cd693eb61a349bf61bf" class="m-doc">MessageRequest</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd>Show a message on screen.</dd>
+            <dt id="a8cc7110cb833c09c267d2063cdf63d8c">
+              <span class="m-doc-wrap-bumper">void <a href="#a8cc7110cb833c09c267d2063cdf63d8c" class="m-doc-self">MessageInitialize</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Initialize the message system.</dd>
+            <dt id="a3ce2402620619f92ce06b3ed4424e59a">
+              <span class="m-doc-wrap-bumper">void <a href="#a3ce2402620619f92ce06b3ed4424e59a" class="m-doc-self">MessageMain</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Update the message system.</dd>
+            <dt id="a98fc80550e92319caf85f65a7437a25d">
+              <span class="m-doc-wrap-bumper">static void <a href="#a98fc80550e92319caf85f65a7437a25d" class="m-doc-self">StatusUpdate</a>(</span><span class="m-doc-wrap"><a href="message_8c.html#acb3e41b078b0fdded740e39ec143e7f3" class="m-doc">MessageStatus</a> status)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac1197fbd266fe96ccec178cbd547c9d">
+              <span class="m-doc-wrap-bumper">void <a href="#aac1197fbd266fe96ccec178cbd547c9d" class="m-doc-self">DispMessageFrame</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a>* buffer,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> width,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> height,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> flags)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a848e1ccddcf2b0d61aed4fc73a6a3f39">
+              <span class="m-doc-wrap-bumper">void <a href="#a848e1ccddcf2b0d61aed4fc73a6a3f39" class="m-doc-self">sub_08057044</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a1,
+              <a href="structstruct__020227E8.html" class="m-doc">struct_<wbr />020227E8</a>* a2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a3)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="ad601f64ce8d7cea54528a41e7d9485f8">
+              <a href="structWindow.html" class="m-doc">Window</a> <a href="#ad601f64ce8d7cea54528a41e7d9485f8" class="m-doc-self">gCurrentWindow</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a530d2357c4b6cb0cd0c826aac91665a4">
+              <a href="structWindow.html" class="m-doc">Window</a> <a href="#a530d2357c4b6cb0cd0c826aac91665a4" class="m-doc-self">gNewWindow</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a88f70f1f4bbb8d58246cc346c82449">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a4a88f70f1f4bbb8d58246cc346c82449" class="m-doc-self">unk_00</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a491668a5ce81f24fd981f2ea94eadc74">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a491668a5ce81f24fd981f2ea94eadc74" class="m-doc-self">unk_01</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83068195b2b056266828b21f85da6a0d">
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a83068195b2b056266828b21f85da6a0d" class="m-doc-self">choiceCount</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad41804b651d762fbddbb25ccfebc3a19">
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#ad41804b651d762fbddbb25ccfebc3a19" class="m-doc-self">currentChoice</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0978b5b61bd03e388d5d11715d8fbbf9">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a0978b5b61bd03e388d5d11715d8fbbf9" class="m-doc-self">unk_04</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d930da55263da084159d6fdb6b9fb3f">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a2d930da55263da084159d6fdb6b9fb3f" class="m-doc-self">unk_08</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a104144a1c17b6967eb3deae218dfa74f">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a104144a1c17b6967eb3deae218dfa74f" class="m-doc-self">unk_10</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6db9652ad2bd6ceab39c2de6bd1ef624">
+              struct @25 <a href="#a6db9652ad2bd6ceab39c2de6bd1ef624" class="m-doc-self">gMessageChoices</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a56ba6a4031bfdbca021497c58e808a70">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a56ba6a4031bfdbca021497c58e808a70" class="m-doc-self">gTextGfxBuffer</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a79201cca62100ae0a9c95c6dd2f64512">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a79201cca62100ae0a9c95c6dd2f64512" class="m-doc-self">gUnk_020227DC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="addf498b8e4dbb445b0ae998ebb0b31d6">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#addf498b8e4dbb445b0ae998ebb0b31d6" class="m-doc-self">gUnk_020227E8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a31fbe806b025e3147bc0aaa8d919ab75">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a31fbe806b025e3147bc0aaa8d919ab75" class="m-doc-self">gUnk_020227F0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c79b5343455eb810bc06f6d29e8ac16">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a8c79b5343455eb810bc06f6d29e8ac16" class="m-doc-self">gUnk_020227F8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2366a9792bdd135d05a4f6906fd0581e">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a2366a9792bdd135d05a4f6906fd0581e" class="m-doc-self">gUnk_02022800</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a44ea72a470b2aeb2cf127b62eb17d482">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*const <a href="#a44ea72a470b2aeb2cf127b62eb17d482" class="m-doc-self">gUnk_08107BE0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4bb0be14618042adfbb8d8cef5d92b53">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a4bb0be14618042adfbb8d8cef5d92b53" class="m-doc-self">gUnk_08107C0F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5fead835ad378e05d591c9e83f64cb20">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a5fead835ad378e05d591c9e83f64cb20" class="m-doc-self">gUnk_08107C14</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a3faa9375df1f78fce35bef2c638a5f30">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3faa9375df1f78fce35bef2c638a5f30" class="m-doc-self">MESSAGE_ADVANCE_KEYS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20176719f70e26ae8f1d44ef681580f7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a20176719f70e26ae8f1d44ef681580f7" class="m-doc-self">MESSAGE_PRESS_ANY_ADVANCE_KEYS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e2a9c2525979ffd4c2f6f892770df87">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3e2a9c2525979ffd4c2f6f892770df87" class="m-doc-self">MESSAGE_WIDTH</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0723c78dcb60b5362d0e9153ccba2d1d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0723c78dcb60b5362d0e9153ccba2d1d" class="m-doc-self">MESSAGE_POSITION_INDEX</a>(</span><span class="m-doc-wrap">window)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1dbd4ed4d133b3019afa8c842d8e528">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad1dbd4ed4d133b3019afa8c842d8e528" class="m-doc-self">MESSAGE_PALETTE</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a0e379a3e4636777011c23df1799f792c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0e379a3e4636777011c23df1799f792c" class="m-doc-self">DispString</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p><span></span></p>
+<aside class="m-note m-danger"><h4><a href="bug.html#_bug000006" class="m-doc">Bug</a></h4><p>abnormally big width causes tile idx to overwrite other tile attributes</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="abeb0e807cf4364ecd2e4621855f85cc5"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#abeb0e807cf4364ecd2e4621855f85cc5" class="m-doc-self">MessageFromTarget</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span></span>
+            </h3>
+            <p>Show a message that attempts not to obscure the camera target.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">index</td>
+                  <td>u32 <a href="structMessage.html" class="m-doc">Message</a> index</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="acae281fb65fc0646fb78c91bf3c975c8"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#acae281fb65fc0646fb78c91bf3c975c8" class="m-doc-self">MessageNoOverlap</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index,
+              <a href="structEntity.html" class="m-doc">Entity</a>* entity)</span></span>
+            </h3>
+            <p>Show a message that attempts not to obscure the entity.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">index</td>
+                  <td>u32 <a href="structMessage.html" class="m-doc">Message</a> index</td>
+                </tr>
+                <tr>
+                  <td>entity</td>
+                  <td>Entity* Your important entity</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="acaf36f62ad89573fc22715449b4f91ae"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#acaf36f62ad89573fc22715449b4f91ae" class="m-doc-self">MessageAtHeight</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y)</span></span>
+            </h3>
+            <p>Display message at y position.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">index</td>
+                  <td>u32 <a href="structMessage.html" class="m-doc">Message</a> index</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>u32 <a href="structScreen.html" class="m-doc">Screen</a> y</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aedd892ae5337496d0e5405551b63794b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aedd892ae5337496d0e5405551b63794b" class="m-doc-self">MessageAtPos</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> x,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y)</span></span>
+            </h3>
+            <p>Show a message at screen posiiton.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">index</td>
+                  <td>u32 <a href="structMessage.html" class="m-doc">Message</a> index</td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>u32 <a href="structScreen.html" class="m-doc">Screen</a> x</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>u32 <a href="structScreen.html" class="m-doc">Screen</a> y</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a96e0a34ffa981cd693eb61a349bf61bf"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a96e0a34ffa981cd693eb61a349bf61bf" class="m-doc-self">MessageRequest</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span></span>
+            </h3>
+            <p>Show a message on screen.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">index</td>
+                  <td>u32 <a href="structMessage.html" class="m-doc">Message</a> index</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

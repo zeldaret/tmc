@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/gba/macro.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span><span class="m-breadcrumb"><a href="dir_5bf7dd0a8a52a280c5880004a0f430cd.html">gba</a>/</span>macro.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="ac8577b1e1d1bbd7012a4ba517264c0b3">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac8577b1e1d1bbd7012a4ba517264c0b3" class="m-doc-self">CPU_FILL</a>(</span><span class="m-doc-wrap">value,
+              dest,
+              size,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae93108b3ff97aa71bb6657a76ed06f8c">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae93108b3ff97aa71bb6657a76ed06f8c" class="m-doc-self">CpuFill16</a>(</span><span class="m-doc-wrap">value,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2917f838ebccdfa5a1e6cc940197e733">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2917f838ebccdfa5a1e6cc940197e733" class="m-doc-self">CpuFill32</a>(</span><span class="m-doc-wrap">value,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="add21ecab7b85db71e8b83365dc96d1fb">
+              <span class="m-doc-wrap-bumper">#define <a href="#add21ecab7b85db71e8b83365dc96d1fb" class="m-doc-self">CPU_COPY</a>(</span><span class="m-doc-wrap">src,
+              dest,
+              size,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a349408b8e95cc379e92221fc66c311cd">
+              <span class="m-doc-wrap-bumper">#define <a href="#a349408b8e95cc379e92221fc66c311cd" class="m-doc-self">CpuCopy16</a>(</span><span class="m-doc-wrap">src,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae95c32f788a050226b084f2d0700e90b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae95c32f788a050226b084f2d0700e90b" class="m-doc-self">CpuCopy32</a>(</span><span class="m-doc-wrap">src,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa42377bca3b5dd61efc57d32aa07132a">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa42377bca3b5dd61efc57d32aa07132a" class="m-doc-self">CpuFastFill</a>(</span><span class="m-doc-wrap">value,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa50cdb4bb4f5d459faa155d9594dee6">
+              <span class="m-doc-wrap-bumper">#define <a href="#aaa50cdb4bb4f5d459faa155d9594dee6" class="m-doc-self">CpuFastFill16</a>(</span><span class="m-doc-wrap">value,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf2da368a0521ce2bfcfcee3a5a5dc79">
+              <span class="m-doc-wrap-bumper">#define <a href="#acf2da368a0521ce2bfcfcee3a5a5dc79" class="m-doc-self">CpuFastFill8</a>(</span><span class="m-doc-wrap">value,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af1136cc684db6d053e5762bc95b61ef8">
+              <span class="m-doc-wrap-bumper">#define <a href="#af1136cc684db6d053e5762bc95b61ef8" class="m-doc-self">CpuFastCopy</a>(</span><span class="m-doc-wrap">src,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8614a7f086750cf31a15e660f62ed734">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8614a7f086750cf31a15e660f62ed734" class="m-doc-self">DmaSet</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              control)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0cbc1e5772237f840735d69b65f09eb1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0cbc1e5772237f840735d69b65f09eb1" class="m-doc-self">DMA_FILL</a>(</span><span class="m-doc-wrap">dmaNum,
+              value,
+              dest,
+              size,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abdefe70dfe38b50be57efd2c3d60ff73">
+              <span class="m-doc-wrap-bumper">#define <a href="#abdefe70dfe38b50be57efd2c3d60ff73" class="m-doc-self">DmaFill16</a>(</span><span class="m-doc-wrap">dmaNum,
+              value,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade454adeac6aa4448298dbd7c1d2c2d5">
+              <span class="m-doc-wrap-bumper">#define <a href="#ade454adeac6aa4448298dbd7c1d2c2d5" class="m-doc-self">DmaFill32</a>(</span><span class="m-doc-wrap">dmaNum,
+              value,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53588bc1855b8ca64b994610bd3b7d47">
+              <span class="m-doc-wrap-bumper">#define <a href="#a53588bc1855b8ca64b994610bd3b7d47" class="m-doc-self">DMA_CLEAR</a>(</span><span class="m-doc-wrap">dmaNum,
+              dest,
+              size,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa321cef66ef0e67e9a19dae7ffd44ce2">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa321cef66ef0e67e9a19dae7ffd44ce2" class="m-doc-self">DmaClear16</a>(</span><span class="m-doc-wrap">dmaNum,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9c3c878cd5aa8bec2d74c093ab8c1099">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9c3c878cd5aa8bec2d74c093ab8c1099" class="m-doc-self">DmaClear32</a>(</span><span class="m-doc-wrap">dmaNum,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acb68b21db59b6f88889c319e01e49ecd">
+              <span class="m-doc-wrap-bumper">#define <a href="#acb68b21db59b6f88889c319e01e49ecd" class="m-doc-self">DMA_COPY</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              size,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aab138294d053d33a585102d81b770e73">
+              <span class="m-doc-wrap-bumper">#define <a href="#aab138294d053d33a585102d81b770e73" class="m-doc-self">DmaCopy16</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d43e500aa26fda3c6c23eb249d8cb36">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5d43e500aa26fda3c6c23eb249d8cb36" class="m-doc-self">DmaCopy32</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e02abd37167974100717a57e77512b2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6e02abd37167974100717a57e77512b2" class="m-doc-self">DmaStop</a>(</span><span class="m-doc-wrap">dmaNum)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afaf8fca0aaaba983d174ceba2fe1e7cd">
+              <span class="m-doc-wrap-bumper">#define <a href="#afaf8fca0aaaba983d174ceba2fe1e7cd" class="m-doc-self">DmaCopyLarge</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              size,
+              block,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adba91a35fdda41127ed429824cff2820">
+              <span class="m-doc-wrap-bumper">#define <a href="#adba91a35fdda41127ed429824cff2820" class="m-doc-self">DmaClearLarge</a>(</span><span class="m-doc-wrap">dmaNum,
+              dest,
+              size,
+              block,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad40ba97a32085b21154af0e9420e33ba">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad40ba97a32085b21154af0e9420e33ba" class="m-doc-self">DmaFillLarge</a>(</span><span class="m-doc-wrap">dmaNum,
+              value,
+              dest,
+              size,
+              block,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01df1752d152e79f32b771ed2d00f1db">
+              <span class="m-doc-wrap-bumper">#define <a href="#a01df1752d152e79f32b771ed2d00f1db" class="m-doc-self">DmaCopyLarge16</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              size,
+              block)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac67d9bd57487bc95fa95cc4954022d48">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac67d9bd57487bc95fa95cc4954022d48" class="m-doc-self">DmaCopyLarge32</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              size,
+              block)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6178c9e2258d1ff9c372c073585fc8ea">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6178c9e2258d1ff9c372c073585fc8ea" class="m-doc-self">DmaFillLarge16</a>(</span><span class="m-doc-wrap">dmaNum,
+              value,
+              dest,
+              size,
+              block)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2c4340da27e7465a77ff7a4b2cbf97a">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae2c4340da27e7465a77ff7a4b2cbf97a" class="m-doc-self">DmaFillLarge32</a>(</span><span class="m-doc-wrap">dmaNum,
+              value,
+              dest,
+              size,
+              block)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22ad8847614b763ca0dd83cc9e33967a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a22ad8847614b763ca0dd83cc9e33967a" class="m-doc-self">DmaClearLarge16</a>(</span><span class="m-doc-wrap">dmaNum,
+              dest,
+              size,
+              block)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a882a5fc6f15e3338ddbabbffec8e2fb3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a882a5fc6f15e3338ddbabbffec8e2fb3" class="m-doc-self">DmaClearLarge32</a>(</span><span class="m-doc-wrap">dmaNum,
+              dest,
+              size,
+              block)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a84a7ef693bdbc01e99b1aaaa0d228c38">
+              <span class="m-doc-wrap-bumper">#define <a href="#a84a7ef693bdbc01e99b1aaaa0d228c38" class="m-doc-self">DmaCopyDefvars</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              size,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9336ab950c01f8ebbfef3cc78a8ee317">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9336ab950c01f8ebbfef3cc78a8ee317" class="m-doc-self">DmaCopy16Defvars</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a277892f48af26bc247f13baa7698fd1a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a277892f48af26bc247f13baa7698fd1a" class="m-doc-self">DmaCopy32Defvars</a>(</span><span class="m-doc-wrap">dmaNum,
+              src,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27db4221761633833574f133aa70925c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a27db4221761633833574f133aa70925c" class="m-doc-self">DmaFillDefvars</a>(</span><span class="m-doc-wrap">dmaNum,
+              value,
+              dest,
+              size,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afde79fad17c3bed9b4c2b79c413d9a6a">
+              <span class="m-doc-wrap-bumper">#define <a href="#afde79fad17c3bed9b4c2b79c413d9a6a" class="m-doc-self">DmaFill16Defvars</a>(</span><span class="m-doc-wrap">dmaNum,
+              value,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89670f793a941fb3318643c548e0d685">
+              <span class="m-doc-wrap-bumper">#define <a href="#a89670f793a941fb3318643c548e0d685" class="m-doc-self">DmaFill32Defvars</a>(</span><span class="m-doc-wrap">dmaNum,
+              value,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a711f2bbb950faf31bf68581c898747fc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a711f2bbb950faf31bf68581c898747fc" class="m-doc-self">DmaClearDefvars</a>(</span><span class="m-doc-wrap">dmaNum,
+              dest,
+              size,
+              bit)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0790381483e60a4eaf5904b0f584cb92">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0790381483e60a4eaf5904b0f584cb92" class="m-doc-self">DmaClear16Defvars</a>(</span><span class="m-doc-wrap">dmaNum,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae410a7265718eec6f5af07cbb506e869">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae410a7265718eec6f5af07cbb506e869" class="m-doc-self">DmaClear32Defvars</a>(</span><span class="m-doc-wrap">dmaNum,
+              dest,
+              size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acba0c499b358d6ccc94546d08d8d7586">
+              <span class="m-doc-wrap-bumper">#define <a href="#acba0c499b358d6ccc94546d08d8d7586" class="m-doc-self">DmaWait</a>(</span><span class="m-doc-wrap">DmaNo)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ea712636ec98e8c2a1f1acf966fcbc4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1ea712636ec98e8c2a1f1acf966fcbc4" class="m-doc-self">IntrEnable</a>(</span><span class="m-doc-wrap">flags)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

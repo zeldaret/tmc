@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/object/cutsceneMiscObject.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_bb043af75e54e1af3032f67529bb720c.html">object</a>/</span>cutsceneMiscObject.c <span class="m-thin">file</span>
+        </h1>
+        <p>Cutscene Misc object.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structHitboxCfg.html" class="m-doc">HitboxCfg</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structType15Vars.html" class="m-doc">Type15Vars</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structCutsceneMiscObjectEntityType15.html" class="m-doc">CutsceneMiscObjectEntityType15</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structType1F.html" class="m-doc">Type1F</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a11eea3016829b293baa48e9ced989b85">
+              using <a href="#a11eea3016829b293baa48e9ced989b85" class="m-doc-self">CutsceneMiscObjectTypeAction</a> = void()(CutsceneMiscObjectEntity*)
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="ab27920c32d0df452eef6dace7aae7386">
+              <span class="m-doc-wrap-bumper">void <a href="#ab27920c32d0df452eef6dace7aae7386" class="m-doc-self">sub_08095754</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adbeb1f283987727f274809faaa6cdce7">
+              <span class="m-doc-wrap-bumper">void <a href="#adbeb1f283987727f274809faaa6cdce7" class="m-doc-self">sub_080957B4</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c5d16b4d40da72272180b310c2af9f5">
+              <span class="m-doc-wrap-bumper">void <a href="#a4c5d16b4d40da72272180b310c2af9f5" class="m-doc-self">sub_08095954</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4f7361ca5cf5914843af3f966053e378">
+              <span class="m-doc-wrap-bumper">void <a href="#a4f7361ca5cf5914843af3f966053e378" class="m-doc-self">sub_08095D30</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ff20d6a67b8ee9e59a6dc758439601b">
+              <span class="m-doc-wrap-bumper">static void <a href="#a6ff20d6a67b8ee9e59a6dc758439601b" class="m-doc-self">sub_0809629C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a6ea94b91800fef6a4535976a603b40">
+              <span class="m-doc-wrap-bumper">void <a href="#a4a6ea94b91800fef6a4535976a603b40" class="m-doc-self">CutsceneMiscObject</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70ebd9fc4c3f4964c3d906f93e7c7775">
+              <span class="m-doc-wrap-bumper">void <a href="#a70ebd9fc4c3f4964c3d906f93e7c7775" class="m-doc-self">CutsceneMiscObject_Type0</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada395fc89f34c7c0ccba78f7277bdcd5">
+              <span class="m-doc-wrap-bumper">void <a href="#ada395fc89f34c7c0ccba78f7277bdcd5" class="m-doc-self">CutsceneMiscObject_Type1</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8382a15d30dd7cc18b7fbdec2b233db">
+              <span class="m-doc-wrap-bumper">void <a href="#aa8382a15d30dd7cc18b7fbdec2b233db" class="m-doc-self">sub_08094AE8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46284fefe32c2a654ba6f3c4d994d38c">
+              <span class="m-doc-wrap-bumper">void <a href="#a46284fefe32c2a654ba6f3c4d994d38c" class="m-doc-self">sub_08094B0C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab8b63426f55ee0fd70d8cace466e8e8d">
+              <span class="m-doc-wrap-bumper">void <a href="#ab8b63426f55ee0fd70d8cace466e8e8d" class="m-doc-self">sub_08094B3C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a494d7b267bb1d8b9941183ff8b9af474">
+              <span class="m-doc-wrap-bumper">void <a href="#a494d7b267bb1d8b9941183ff8b9af474" class="m-doc-self">sub_08094B6C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a031f7c820de003d75474c3ddf7f61be2">
+              <span class="m-doc-wrap-bumper">void <a href="#a031f7c820de003d75474c3ddf7f61be2" class="m-doc-self">sub_08094B80</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd5e72a72e6de9b0a00acfabdc2cc449">
+              <span class="m-doc-wrap-bumper">void <a href="#acd5e72a72e6de9b0a00acfabdc2cc449" class="m-doc-self">sub_08094B94</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="add7481ffd83af4c7de5d8ea766bb5ba5">
+              <span class="m-doc-wrap-bumper">void <a href="#add7481ffd83af4c7de5d8ea766bb5ba5" class="m-doc-self">sub_08094BE0</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82664f89f9c166d589deaa5cbd1c5a5e">
+              <span class="m-doc-wrap-bumper">void <a href="#a82664f89f9c166d589deaa5cbd1c5a5e" class="m-doc-self">CutsceneMiscObject_Type2</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab84abe2fd43ec30185aef55ff0cdd70a">
+              <span class="m-doc-wrap-bumper">void <a href="#ab84abe2fd43ec30185aef55ff0cdd70a" class="m-doc-self">CutsceneMiscObject_Type3</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59f999c39d66639f2241be82df8ab5a9">
+              <span class="m-doc-wrap-bumper">void <a href="#a59f999c39d66639f2241be82df8ab5a9" class="m-doc-self">sub_08094CDC</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1cbe862d7147426afb7ef7faf72718e">
+              <span class="m-doc-wrap-bumper">void <a href="#ab1cbe862d7147426afb7ef7faf72718e" class="m-doc-self">sub_08094D10</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab298b0be977f14a4b24210dce84461f6">
+              <span class="m-doc-wrap-bumper">void <a href="#ab298b0be977f14a4b24210dce84461f6" class="m-doc-self">sub_08094D34</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3e2411622e6e500ea4868767e2ff199">
+              <span class="m-doc-wrap-bumper">void <a href="#ac3e2411622e6e500ea4868767e2ff199" class="m-doc-self">sub_08094D70</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a66e24b98834509b40662d9ec71a50127">
+              <span class="m-doc-wrap-bumper">void <a href="#a66e24b98834509b40662d9ec71a50127" class="m-doc-self">CutsceneMiscObject_Type4</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5e05db9e69b5ea42004b8e298a071af">
+              <span class="m-doc-wrap-bumper">void <a href="#ae5e05db9e69b5ea42004b8e298a071af" class="m-doc-self">sub_08094DD8</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71169ac484cf2524cdf01813a5bf7c76">
+              <span class="m-doc-wrap-bumper">void <a href="#a71169ac484cf2524cdf01813a5bf7c76" class="m-doc-self">sub_08094E0C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a66e1d9b9f246e999c7b28c4125a5f568">
+              <span class="m-doc-wrap-bumper">void <a href="#a66e1d9b9f246e999c7b28c4125a5f568" class="m-doc-self">CutsceneMiscObject_Type5</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aebd790b0026e17411915430736e3a97c">
+              <span class="m-doc-wrap-bumper">void <a href="#aebd790b0026e17411915430736e3a97c" class="m-doc-self">sub_08094F98</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6f196814977e0034a1f79a4d613484b7">
+              <span class="m-doc-wrap-bumper">void <a href="#a6f196814977e0034a1f79a4d613484b7" class="m-doc-self">CutsceneMiscObject_Type6</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc97b6a0629f6f82dc797855a113f5a9">
+              <span class="m-doc-wrap-bumper">void <a href="#adc97b6a0629f6f82dc797855a113f5a9" class="m-doc-self">CutsceneMiscObject_Type7</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a750826a1fed0dca69b5783f10a5ddc69">
+              <span class="m-doc-wrap-bumper">void <a href="#a750826a1fed0dca69b5783f10a5ddc69" class="m-doc-self">CutsceneMiscObject_Type8</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa96b7ede4e873fd419cf01871d183f41">
+              <span class="m-doc-wrap-bumper">void <a href="#aa96b7ede4e873fd419cf01871d183f41" class="m-doc-self">sub_08095164</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a78d0ed794a63b239e7861454e6085fd3">
+              <span class="m-doc-wrap-bumper">void <a href="#a78d0ed794a63b239e7861454e6085fd3" class="m-doc-self">CutsceneMiscObject_Type9</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af090a9959ec9705dccdb48065cf2aeb8">
+              <span class="m-doc-wrap-bumper">void <a href="#af090a9959ec9705dccdb48065cf2aeb8" class="m-doc-self">CutsceneMiscObject_Type10</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaaf4425865a3acc986caf6792fa0f2e1">
+              <span class="m-doc-wrap-bumper">void <a href="#aaaf4425865a3acc986caf6792fa0f2e1" class="m-doc-self">sub_08095244</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="add9d493b3d316d695242787f8c421636">
+              <span class="m-doc-wrap-bumper">void <a href="#add9d493b3d316d695242787f8c421636" class="m-doc-self">CutsceneMiscObject_Type11</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6c5409da9602aaf33c9f9d4bd420725">
+              <span class="m-doc-wrap-bumper">void <a href="#ab6c5409da9602aaf33c9f9d4bd420725" class="m-doc-self">sub_08095330</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34dad8c7a8f2678f372ebce5830fe3bc">
+              <span class="m-doc-wrap-bumper">void <a href="#a34dad8c7a8f2678f372ebce5830fe3bc" class="m-doc-self">sub_08095364</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a775305cf49363fc2bb50283267297bbd">
+              <span class="m-doc-wrap-bumper">void <a href="#a775305cf49363fc2bb50283267297bbd" class="m-doc-self">CutsceneMiscObject_Type12</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7f13979a1bf17b38879111d904c9169">
+              <span class="m-doc-wrap-bumper">void <a href="#ae7f13979a1bf17b38879111d904c9169" class="m-doc-self">sub_08095420</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a81454afac66175fd36372d26d1b07e3d">
+              <span class="m-doc-wrap-bumper">void <a href="#a81454afac66175fd36372d26d1b07e3d" class="m-doc-self">nullsub_527</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3656ec2b30c0ca3215b3bcdf5a9434c5">
+              <span class="m-doc-wrap-bumper">void <a href="#a3656ec2b30c0ca3215b3bcdf5a9434c5" class="m-doc-self">sub_0809545C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad6c504a62a8ecaf23ef93b35bca3d734">
+              <span class="m-doc-wrap-bumper">void <a href="#ad6c504a62a8ecaf23ef93b35bca3d734" class="m-doc-self">sub_080954AC</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> arg2)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab10f0ba606b4d476a9c969981a2a84ac">
+              <span class="m-doc-wrap-bumper">void <a href="#ab10f0ba606b4d476a9c969981a2a84ac" class="m-doc-self">CutsceneMiscObject_Type14</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a124eba9f1eb295067f3be1633836fe37">
+              <span class="m-doc-wrap-bumper">void <a href="#a124eba9f1eb295067f3be1633836fe37" class="m-doc-self">sub_0809567C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6d09fa500714b4e67f48d878a6bf668e">
+              <span class="m-doc-wrap-bumper">void <a href="#a6d09fa500714b4e67f48d878a6bf668e" class="m-doc-self">CutsceneMiscObject_Type15</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a44a75d7c4051df0b1f77f0d30cdd0df8">
+              <span class="m-doc-wrap-bumper">void <a href="#a44a75d7c4051df0b1f77f0d30cdd0df8" class="m-doc-self">CutsceneMiscObject_Type16</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acfc461fa751edafd3dc8cc71449d57cb">
+              <span class="m-doc-wrap-bumper">void <a href="#acfc461fa751edafd3dc8cc71449d57cb" class="m-doc-self">CutsceneMiscObject_Type17</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab48b3726457399857cc92b4fe1ee8521">
+              <span class="m-doc-wrap-bumper">void <a href="#ab48b3726457399857cc92b4fe1ee8521" class="m-doc-self">sub_08095810</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3495877fc078d66f2fe9555a7f0bc2de">
+              <span class="m-doc-wrap-bumper">void <a href="#a3495877fc078d66f2fe9555a7f0bc2de" class="m-doc-self">CutsceneMiscObject_Type18</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a14a2137c8555ffabdb5e08a23b5d1394">
+              <span class="m-doc-wrap-bumper">void <a href="#a14a2137c8555ffabdb5e08a23b5d1394" class="m-doc-self">CutsceneMiscObject_Type19</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a103bef7b53f27fd5fd296781af8158fd">
+              <span class="m-doc-wrap-bumper">void <a href="#a103bef7b53f27fd5fd296781af8158fd" class="m-doc-self">CutsceneMiscObject_Type20</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a42bfb21cc52a3a8d1aa260db8521fe1c">
+              <span class="m-doc-wrap-bumper">void <a href="#a42bfb21cc52a3a8d1aa260db8521fe1c" class="m-doc-self">CutsceneMiscObject_Type22</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a052b36a7e12a34a5075b259234f1382f">
+              <span class="m-doc-wrap-bumper">void <a href="#a052b36a7e12a34a5075b259234f1382f" class="m-doc-self">sub_08095A1C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ba8d19b51025fbba10629ac6c64faf1">
+              <span class="m-doc-wrap-bumper">void <a href="#a6ba8d19b51025fbba10629ac6c64faf1" class="m-doc-self">sub_08095A68</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a790cca3d427d81e34b888d5f61b76d">
+              <span class="m-doc-wrap-bumper">void <a href="#a3a790cca3d427d81e34b888d5f61b76d" class="m-doc-self">CutsceneMiscObject_Type23</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7adb9037ff650920181cf56b2f0b4cc">
+              <span class="m-doc-wrap-bumper">void <a href="#ab7adb9037ff650920181cf56b2f0b4cc" class="m-doc-self">CutsceneMiscObject_Type24</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adcb56a660ab08dfc5e383bb45e0d9c2e">
+              <span class="m-doc-wrap-bumper">void <a href="#adcb56a660ab08dfc5e383bb45e0d9c2e" class="m-doc-self">sub_08095BE0</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> val)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87d7172dd2e66486f60eb3032174c788">
+              <span class="m-doc-wrap-bumper">void <a href="#a87d7172dd2e66486f60eb3032174c788" class="m-doc-self">CutsceneMiscObject_Type25</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d7bd0adc5c5c843d705a9c90fc93d09">
+              <span class="m-doc-wrap-bumper">void <a href="#a1d7bd0adc5c5c843d705a9c90fc93d09" class="m-doc-self">sub_08095C48</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00e8ba4786b752ad67acb7807045648a">
+              <span class="m-doc-wrap-bumper">void <a href="#a00e8ba4786b752ad67acb7807045648a" class="m-doc-self">CutsceneMiscObject_Type27</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac282b27387df4bc8ecf16ea4b78576bc">
+              <span class="m-doc-wrap-bumper">void <a href="#ac282b27387df4bc8ecf16ea4b78576bc" class="m-doc-self">sub_08095CB0</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae358f1d0811599b299d933f3855cd771">
+              <span class="m-doc-wrap-bumper">void <a href="#ae358f1d0811599b299d933f3855cd771" class="m-doc-self">CutsceneMiscObject_Type28</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a926f29efe71390f0ef9d220636a638e7">
+              <span class="m-doc-wrap-bumper">void <a href="#a926f29efe71390f0ef9d220636a638e7" class="m-doc-self">sub_08095D54</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a425e48cc8aba42966ee0247fcc2c6150">
+              <span class="m-doc-wrap-bumper">void <a href="#a425e48cc8aba42966ee0247fcc2c6150" class="m-doc-self">sub_08095D8C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af50394470c50a76faa834e1ec5a59111">
+              <span class="m-doc-wrap-bumper">void <a href="#af50394470c50a76faa834e1ec5a59111" class="m-doc-self">CutsceneMiscObject_Type30</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2d8310ef61aa8db5dc2bb820c9c9cf3">
+              <span class="m-doc-wrap-bumper">void <a href="#af2d8310ef61aa8db5dc2bb820c9c9cf3" class="m-doc-self">sub_08095E7C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1e8b115549f0be64ae5319c323031e1">
+              <span class="m-doc-wrap-bumper">void <a href="#ad1e8b115549f0be64ae5319c323031e1" class="m-doc-self">sub_08095EAC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae4136863b6b54f125940f84b1d11b770">
+              <span class="m-doc-wrap-bumper">void <a href="#ae4136863b6b54f125940f84b1d11b770" class="m-doc-self">CutsceneMiscObject_Type31</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af5f8d8295f9b9b3689d2707d4f13034d">
+              <span class="m-doc-wrap-bumper">void <a href="#af5f8d8295f9b9b3689d2707d4f13034d" class="m-doc-self">sub_08096028</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53e5f562b2c262db32e32769d2cea09f">
+              <span class="m-doc-wrap-bumper">void <a href="#a53e5f562b2c262db32e32769d2cea09f" class="m-doc-self">CutsceneMiscObject_Type32</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82a58e8ce81025dbc24772994a42034b">
+              <span class="m-doc-wrap-bumper">void <a href="#a82a58e8ce81025dbc24772994a42034b" class="m-doc-self">CutsceneMiscObject_Type35</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab95c237a246c6a0d985f4efd3b78c65c">
+              <span class="m-doc-wrap-bumper">void <a href="#ab95c237a246c6a0d985f4efd3b78c65c" class="m-doc-self">sub_080960C4</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d66a6929e971994ef059cf8b508e078">
+              <span class="m-doc-wrap-bumper">void <a href="#a7d66a6929e971994ef059cf8b508e078" class="m-doc-self">CutsceneMiscObject_Type37</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab22827b0adaa19f0c0e079a7fd44eb3e">
+              <span class="m-doc-wrap-bumper">void <a href="#ab22827b0adaa19f0c0e079a7fd44eb3e" class="m-doc-self">sub_080961B0</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7bff0d96e7a2e8376dc636fda5aa413d">
+              <span class="m-doc-wrap-bumper">void <a href="#a7bff0d96e7a2e8376dc636fda5aa413d" class="m-doc-self">CutsceneMiscObject_Type38</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5219cf72871002f38c82a242cd4ac58">
+              <span class="m-doc-wrap-bumper">void <a href="#ab5219cf72871002f38c82a242cd4ac58" class="m-doc-self">sub_08096208</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> x)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a707dec36a8f9fdbc328d94f79b5472d1">
+              <span class="m-doc-wrap-bumper">void <a href="#a707dec36a8f9fdbc328d94f79b5472d1" class="m-doc-self">sub_0809623C</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a713f643c5c15e0a5ff8128f1bd693de9">
+              <span class="m-doc-wrap-bumper">void <a href="#a713f643c5c15e0a5ff8128f1bd693de9" class="m-doc-self">sub_08096260</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a88943ce6ab936514de9086b4f4a62d74">
+              <span class="m-doc-wrap-bumper">void <a href="#a88943ce6ab936514de9086b4f4a62d74" class="m-doc-self">CutsceneMiscObject_Type41</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a19ad3c0d1bcc176a2c0b2c341065905e">
+              <span class="m-doc-wrap-bumper">void <a href="#a19ad3c0d1bcc176a2c0b2c341065905e" class="m-doc-self">CutsceneMiscObject_Type42</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab43802d5c61209891b7fb3394a7fc76f">
+              <span class="m-doc-wrap-bumper">void <a href="#ab43802d5c61209891b7fb3394a7fc76f" class="m-doc-self">sub_080962D8</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d465ec9eceb7e9bf702f9f2f46d7357">
+              <span class="m-doc-wrap-bumper">void <a href="#a4d465ec9eceb7e9bf702f9f2f46d7357" class="m-doc-self">sub_080962E8</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac736f934ea8dfd9770725368db14e7a5">
+              <span class="m-doc-wrap-bumper">void <a href="#ac736f934ea8dfd9770725368db14e7a5" class="m-doc-self">sub_080962F8</a>(</span><span class="m-doc-wrap"><a href="structCutsceneMiscObjectEntity.html" class="m-doc">CutsceneMiscObjectEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="aea60d9330139c2e34a30375233025908">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aea60d9330139c2e34a30375233025908" class="m-doc-self">gUnk_08122AE0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a02c7158018197bf1a33e7a98583467f6">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a02c7158018197bf1a33e7a98583467f6" class="m-doc-self">gUnk_08122AE8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a028d7ccf42808f259fb08c2c64fa5efe">
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a028d7ccf42808f259fb08c2c64fa5efe" class="m-doc-self">gUnk_08122AF8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acb67d3beca50c64f508abd2337d05f6b">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#acb67d3beca50c64f508abd2337d05f6b" class="m-doc-self">gUnk_08122B00</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12b2c09a4fdb018942ad1bc8a7f45254">
+              <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a> <a href="#a12b2c09a4fdb018942ad1bc8a7f45254" class="m-doc-self">gUnk_08122B0E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae783a7aec39981e3abe153b76ba72874">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ae783a7aec39981e3abe153b76ba72874" class="m-doc-self">gUnk_08122B1E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a112f097167b884d59223f39ace7c9ff3">
+              Coords8 <a href="#a112f097167b884d59223f39ace7c9ff3" class="m-doc-self">gUnk_08122B2E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac55ae5fb07ca29537f16199d8abe1b11">
+              <a href="structHitboxCfg.html" class="m-doc">HitboxCfg</a> <a href="#ac55ae5fb07ca29537f16199d8abe1b11" class="m-doc-self">gUnk_08122B3C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae4830bcf1937f56e428ab83c1b108d87">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ae4830bcf1937f56e428ab83c1b108d87" class="m-doc-self">gUnk_08114F30</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2e4f0d76417d096d4bb95098f8094c1">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ad2e4f0d76417d096d4bb95098f8094c1" class="m-doc-self">gUnk_08114F34</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb64697509c0bc713415ce47e4fa1c3b">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#adb64697509c0bc713415ce47e4fa1c3b" class="m-doc-self">script_CutsceneMiscObjectTheLittleHat</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af23c049b90355ef7429e85c1bac98653">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#af23c049b90355ef7429e85c1bac98653" class="m-doc-self">script_CutsceneMiscObjectSwordInChest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab94eb5c358372b853ba311ae481b7958">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ab94eb5c358372b853ba311ae481b7958" class="m-doc-self">script_08015B14</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af1141e06e299db8e1b3b5669ca4bc15f">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#af1141e06e299db8e1b3b5669ca4bc15f" class="m-doc-self">script_ZeldaMagic</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a982ce22d9776fd5fa9c8a3bd9d36ad93">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a982ce22d9776fd5fa9c8a3bd9d36ad93" class="m-doc-self">script_08012C48</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1da20dfaf461c372350908306885571a">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a1da20dfaf461c372350908306885571a" class="m-doc-self">CutsceneMiscObject_Type0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd0eef893a15a0d9401b7f100af81311">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#abd0eef893a15a0d9401b7f100af81311" class="m-doc-self">CutsceneMiscObject_Type1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad29271581dfcd12337c14aff951841b5">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#ad29271581dfcd12337c14aff951841b5" class="m-doc-self">CutsceneMiscObject_Type2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a595f428bf3ad66acc02df2f3f29df0ea">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a595f428bf3ad66acc02df2f3f29df0ea" class="m-doc-self">CutsceneMiscObject_Type3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a065399d57e8363236b389a407d4d6a8a">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a065399d57e8363236b389a407d4d6a8a" class="m-doc-self">CutsceneMiscObject_Type4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af51b363c05ad278c834007bac2f9f178">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#af51b363c05ad278c834007bac2f9f178" class="m-doc-self">CutsceneMiscObject_Type5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af34d38d7e25978afda3315f8d951110b">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#af34d38d7e25978afda3315f8d951110b" class="m-doc-self">CutsceneMiscObject_Type6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a14a8d0500cc852789e8809d898b8908b">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a14a8d0500cc852789e8809d898b8908b" class="m-doc-self">CutsceneMiscObject_Type7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11bd186a0e1eb52c2d493765d04acdc6">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a11bd186a0e1eb52c2d493765d04acdc6" class="m-doc-self">CutsceneMiscObject_Type8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4a8a2234d6a3e61feaacfb783dc8453">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#ab4a8a2234d6a3e61feaacfb783dc8453" class="m-doc-self">CutsceneMiscObject_Type9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa32c19fca71dc59c60a8da153f0bd79a">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#aa32c19fca71dc59c60a8da153f0bd79a" class="m-doc-self">CutsceneMiscObject_Type10</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad62069dd394719893107dfe206c3bc0f">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#ad62069dd394719893107dfe206c3bc0f" class="m-doc-self">CutsceneMiscObject_Type11</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a7892e70c0a9485653eb463ca75b9ec">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a4a7892e70c0a9485653eb463ca75b9ec" class="m-doc-self">CutsceneMiscObject_Type12</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a165cdf226d858aa070692d00a82ad6af">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a165cdf226d858aa070692d00a82ad6af" class="m-doc-self">CutsceneMiscObject_Type14</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61a4dd697afad36a992f12f424e45e94">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a61a4dd697afad36a992f12f424e45e94" class="m-doc-self">CutsceneMiscObject_Type15</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a354e6cca1cc145c937d8d34bafe079">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a3a354e6cca1cc145c937d8d34bafe079" class="m-doc-self">CutsceneMiscObject_Type16</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4cf6d020dbfa5b6dd4e3638a2a7b7530">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a4cf6d020dbfa5b6dd4e3638a2a7b7530" class="m-doc-self">CutsceneMiscObject_Type17</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a77675a07f1d7ced20990ea1f5176044b">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a77675a07f1d7ced20990ea1f5176044b" class="m-doc-self">CutsceneMiscObject_Type18</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abde06b1e8b054d207be541f15bbd85d0">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#abde06b1e8b054d207be541f15bbd85d0" class="m-doc-self">CutsceneMiscObject_Type19</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a45c04f02179502f6a8318a33283a116a">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a45c04f02179502f6a8318a33283a116a" class="m-doc-self">CutsceneMiscObject_Type20</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae9ba55c5f679477b5a1f50818f1d04c9">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#ae9ba55c5f679477b5a1f50818f1d04c9" class="m-doc-self">CutsceneMiscObject_Type22</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2944fbe45d3b7c878024a7205b47cf54">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a2944fbe45d3b7c878024a7205b47cf54" class="m-doc-self">CutsceneMiscObject_Type23</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ef892cf7ecfc2b197b8bbd4bf4605d5">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a2ef892cf7ecfc2b197b8bbd4bf4605d5" class="m-doc-self">CutsceneMiscObject_Type24</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a26b629d7d7f802b8c828330f67713a04">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a26b629d7d7f802b8c828330f67713a04" class="m-doc-self">CutsceneMiscObject_Type25</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a45d025b2eba7d8615918f21230de6ad2">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a45d025b2eba7d8615918f21230de6ad2" class="m-doc-self">CutsceneMiscObject_Type27</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ccb9da1681b3ca29e6d79964bb09aa9">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a1ccb9da1681b3ca29e6d79964bb09aa9" class="m-doc-self">CutsceneMiscObject_Type28</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acdd62c5d8952d8aedd78c6f405c2a274">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#acdd62c5d8952d8aedd78c6f405c2a274" class="m-doc-self">CutsceneMiscObject_Type30</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a92a31206bad7ef0db57a57f9f27df10e">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a92a31206bad7ef0db57a57f9f27df10e" class="m-doc-self">CutsceneMiscObject_Type31</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa4307ba7d57b3ebcdb88213c41345365">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#aa4307ba7d57b3ebcdb88213c41345365" class="m-doc-self">CutsceneMiscObject_Type32</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0da5e74f0ab55231d251d2aaf4db5318">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a0da5e74f0ab55231d251d2aaf4db5318" class="m-doc-self">CutsceneMiscObject_Type35</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a927a031e047adbd2d977d049da43e718">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a927a031e047adbd2d977d049da43e718" class="m-doc-self">CutsceneMiscObject_Type37</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b9cf9aeb7fe117f6bc31e6619e1b600">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a1b9cf9aeb7fe117f6bc31e6619e1b600" class="m-doc-self">CutsceneMiscObject_Type38</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b26efc075c469f6b873b3ab66cf1684">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#a6b26efc075c469f6b873b3ab66cf1684" class="m-doc-self">CutsceneMiscObject_Type41</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af1df89e2a4234eff5e2c5708705205b8">
+              <a href="cutsceneMiscObject_8c.html#a11eea3016829b293baa48e9ced989b85" class="m-doc">CutsceneMiscObjectTypeAction</a> <a href="#af1df89e2a4234eff5e2c5708705205b8" class="m-doc-self">CutsceneMiscObject_Type42</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a08023ea6765c99d60a6a3840cd07156e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a08023ea6765c99d60a6a3840cd07156e" class="m-doc-self">local</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/object/furniture.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_bb043af75e54e1af3032f67529bb720c.html">object</a>/</span>furniture.c <span class="m-thin">file</span>
+        </h1>
+        <p>Furniture object.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structFurnitureEntity.html" class="m-doc">FurnitureEntity</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a5d76b81b0ad4c19007a781d4edb8181f">
+              <span class="m-doc-wrap-bumper">enum <a href="#a5d76b81b0ad4c19007a781d4edb8181f" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#a5d76b81b0ad4c19007a781d4edb8181fa18b0c163b734702407d713f309449cc4" class="m-doc">FURNITURE_INIT</a>,
+              <a href="#a5d76b81b0ad4c19007a781d4edb8181fae5064a7726ce630045589dcd1a9adc74" class="m-doc">FURNITURE_UPDATE</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6cace5f5662950ff02a32861ae8051d7">
+              <span class="m-doc-wrap-bumper">enum <a href="#a6cace5f5662950ff02a32861ae8051d7" class="m-doc-self">FurnitureFlag</a> { </span><span class="m-doc-wrap"><a href="#a6cace5f5662950ff02a32861ae8051d7abdc64cbbe44e7cbaed05a8d7772f87d5" class="m-doc">TMP</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa06e085575735587cc1ab6389b3f2662">
+              <span class="m-doc-wrap-bumper">enum <a href="#aa06e085575735587cc1ab6389b3f2662" class="m-doc-self">FurnitureType</a> { </span><span class="m-doc-wrap"><a href="#aa06e085575735587cc1ab6389b3f2662a13b458b393e08e39a7fb6a99423f7e40" class="m-doc">BOOKSHELF</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662abd8ef7b1148faa1e6ed98ca45d059ab2" class="m-doc">CRATE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a8c836653680dbe8c105bdf37610bc1b1" class="m-doc">BULLETIN_BOARD</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a4975cea73be08b01ddd884811f79c2aa" class="m-doc">CERAMIC_SHELF1</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a642716b9e7bbac4c4422ed728662ec20" class="m-doc">FLOUR_SACK</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ab50dc6df29cba67c9cc5705bd25edd0d" class="m-doc">LOGS</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a7e5c94dc25f08ddfaf3a1bb3866dc531" class="m-doc">WATER_BARREL</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a2bfcb2410c587c1c2ca40d8803b5dcaa" class="m-doc">WEAPON_RACK</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a7eeb86c9e943321ae1e2fb7aabad642b" class="m-doc">RED_CAULDRON</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a4dbc015d6bf104d6aaba5b33f0d30f8e" class="m-doc">SMITH_FORGE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a8adb5e06b554371a093e57e593cace85" class="m-doc">LARGE_CERAMIC_SHELF</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662accbaaacafc0cf36b5e9a48ca2a8955f0" class="m-doc">LADDER</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ab6acb5cec899e3a66f6a7ac871c7283e" class="m-doc">GLOWING_PLANT</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ab907a788e3037f874a31b0615cf507c5" class="m-doc">GLOWING_SPORES</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a330f5b721fc2106616fd6800047f94bd" class="m-doc">LOG_SHELF</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a6d22ec4135d83f8087e3c2f5b4b20919" class="m-doc">KINSTONE_SHELF</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a29e38066c6f8eecf666d2bf36efafb9e" class="m-doc">BLUE_CAULDRON</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ac6f2ccb0a3e8668f5b30829f23e2c399" class="m-doc">HAY_BED</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662aa7ad6503031f15560eea5bcb9ce89258" class="m-doc">MILK_JUG</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662aa233faa9d111575d89f282ce0c9d390a" class="m-doc">HAY_BALE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a59d6dc3ce39fc4a807d02c24ec0fc15d" class="m-doc">FLOWER_BED_SMALL</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ada13b0ba11a0b81fbeaf15c47ec854ac" class="m-doc">FLOWER_BED_VERT</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ae6d04767f6417de03ae5bd84f2629dc2" class="m-doc">FLOWER_BED_HORIZ</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a1373c43b76ad0a2a87ba7d79353f1b9c" class="m-doc">CARPENTER_MACHINE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a2a4680cc20870cacb976883ba898366b" class="m-doc">SPROUT_CART</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a7fcd5526ff823d3bc94ba18e877a412d" class="m-doc">ENVELOPE_SHELF</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a8c75ec650c2b71ccd368b3e6180ee67c" class="m-doc">BREAD_SHELF</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a61f011e2e83e584dc9b3cec0d4d3581c" class="m-doc">MAYOR_DESK</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ae8e7f74ae703e2ffd685738280f22cff" class="m-doc">SHOES</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a2c46fe9265766c0bc9fd647ff5378e35" class="m-doc">REPAIRED_SHOE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a35b2b8b6f021d03459323b0b2f6ffe7c" class="m-doc">SHOE_DESK</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a2b38086ab0e8bee5d932354d670e9f47" class="m-doc">STAIRCASE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a6e40eb64788efa5112fe69be087545dd" class="m-doc">DECORATED_STONE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662aa26bf3c701672a9587c40c3715430426" class="m-doc">BIRD_STATUE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ae6e797c24ab9cd6658b3ea5e579b57eb" class="m-doc">CLOSET</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a11a6c584af3561a4ed506f80f7f1fadd" class="m-doc">DRAWERS</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a74a087b19142cfee8841adc3d77f7fc4" class="m-doc">CERAMIC_SHELF2</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a27ade68b3137f725d0c713c5a4642daf" class="m-doc">LARGE_BOOKCASE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ad8068f05dc8ac13ec66794edfcd1f5b1" class="m-doc">MINISH_BED</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ab946d0beb21c19da98c774d4d197719f" class="m-doc">MINISH_BUTTONS</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a149076c8a31111b731c5f360c840ea08" class="m-doc">MINISH_CHEESE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ad88009d220123ade1e87d34d3c7d2fc1" class="m-doc">MINISH_CHERRIES</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a4dc0c526bf380132cf17a2d4c9d1ecc0" class="m-doc">MINISH_CHESSPIECE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a75eeca9bf9da528d3ea096fedf036d02" class="m-doc">MINISH_COOKIES</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a9ec0dc11a41297ab6dd8f3e00a401d33" class="m-doc">MINISH_MUG</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662acbc4a074b3245bde6f85ebb27f23b765" class="m-doc">DR_LEFT_DESK1</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a5ba28ffdffb0d3e26bf02cb1ea655a29" class="m-doc">DR_LEFT_DESK2</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662aaedf1b35cd659d27e7d4305a81e52f22" class="m-doc">MINISH_DIE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662acfbcea9f64455b42269e328083663416" class="m-doc">MINISH_GEAR</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a8ff435be85f95767787b93a46879b097" class="m-doc">MINISH_PINCUSHION</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a293306b24eaace946535bccee226e541" class="m-doc">MINISH_THREAD</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a552478e1da2606ab1941a1ae1dcade10" class="m-doc">MINISH_MALLET</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662aa3a1294cda760ce22395eb90769aaca1" class="m-doc">MINISH_SCROLL_BOX</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ae96582801438bcaf490a5cbd59bb8345" class="m-doc">MINISH_APPLE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662aa21fe551046b9af933191cdc8189e3fc" class="m-doc">MINISH_CANDLE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a3ea05dec9c9953ee3589c6766b5c42d8" class="m-doc">MINISH_WOOD_PLANK</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ae2e2032f56109a2d203e56a5d36a95ed" class="m-doc">GBA_SCREEN</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662aa24b1451be50329f256a1ed672cd7d37" class="m-doc">PHONOGRAPH</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a9951975c9a5365e10da4c770286e2c02" class="m-doc">BAKERY_TABLE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ac247cddbed09fd4e1bd63ecaf189483b" class="m-doc">WOODEN_TABLE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662af791b32489d1fb1b568c91ea5c79757c" class="m-doc">LOW_BOOKSHELF</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ad5e64ed184d612b8f162e2e075c97bb6" class="m-doc">FIGURINE_DEVICE_STATIC</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a707766cb9602c8fe268f092654fc5527" class="m-doc">FORGE_HELPER</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662acf97e403feefcb8b8d4d9a17aadd6fa2" class="m-doc">MINISH_UNLIT_CANDLE</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a7a24ec31cff703aa458b817e65886ae4" class="m-doc">MINISH_GEARS</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a2d8a0d18bc125c827a2b808ecbbdf0b6" class="m-doc">DOUBLE_BOOKSHELF_STATIC</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a29dca959cda52cb8cdc93516e2e29156" class="m-doc">MINISH_DECOR1</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a2e3bc85f895630bca206004fa654a488" class="m-doc">MINISH_DECOR2</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a8bb079ce0b68a0fc9e53117c5e433d8d" class="m-doc">MINISH_JAM</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662ab220c73a8da21e143aa41eca07532d07" class="m-doc">MINISH_BREAD</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a7d435d53faf3eec7a5210c9c9c34596e" class="m-doc">POSTER1</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662aaa7d398997793b577db02df14a12d282" class="m-doc">POSTER2</a>,
+              <a href="#aa06e085575735587cc1ab6389b3f2662a372f704241a5279aeedd1cc946cca76d" class="m-doc">NOTE</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a3727fba25c05f2b195ae196278da0b9f">
+              using <a href="#a3727fba25c05f2b195ae196278da0b9f" class="m-doc-self">FurnitureAction</a> = void()(FurnitureEntity*)
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a9b9e2c20f76e339b1c79a557540748ec">
+              <span class="m-doc-wrap-bumper">static void <a href="#a9b9e2c20f76e339b1c79a557540748ec" class="m-doc-self">sub_08090DC4</a>(</span><span class="m-doc-wrap"><a href="structFurnitureEntity.html" class="m-doc">FurnitureEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8581cefca27c0a68ff52525f8338e0b2">
+              <span class="m-doc-wrap-bumper">static void <a href="#a8581cefca27c0a68ff52525f8338e0b2" class="m-doc-self">sub_08090E64</a>(</span><span class="m-doc-wrap"><a href="structFurnitureEntity.html" class="m-doc">FurnitureEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5d3fc91ae2236df5f0776eea4eb0a6f">
+              <span class="m-doc-wrap-bumper">static void <a href="#ab5d3fc91ae2236df5f0776eea4eb0a6f" class="m-doc-self">sub_08090B6C</a>(</span><span class="m-doc-wrap"><a href="structFurnitureEntity.html" class="m-doc">FurnitureEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a552fccfe57109bae307db071bfa4c99b">
+              <span class="m-doc-wrap-bumper">static void <a href="#a552fccfe57109bae307db071bfa4c99b" class="m-doc-self">sub_08090E4C</a>(</span><span class="m-doc-wrap"><a href="structFurnitureEntity.html" class="m-doc">FurnitureEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8747f89ae489d1d34ad4e833d2611a43">
+              <span class="m-doc-wrap-bumper">static void <a href="#a8747f89ae489d1d34ad4e833d2611a43" class="m-doc-self">sub_08090CDC</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad39c6b44b564b95ef6f87f30487d8375">
+              <span class="m-doc-wrap-bumper">void <a href="#ad39c6b44b564b95ef6f87f30487d8375" class="m-doc-self">Furniture</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aed94cd21988edfe81e07174865b3ff3b">
+              <span class="m-doc-wrap-bumper">static void <a href="#aed94cd21988edfe81e07174865b3ff3b" class="m-doc-self">FurnitureInit</a>(</span><span class="m-doc-wrap"><a href="structFurnitureEntity.html" class="m-doc">FurnitureEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a68aecb794490b29843753dde1bd8c222">
+              <span class="m-doc-wrap-bumper">static void <a href="#a68aecb794490b29843753dde1bd8c222" class="m-doc-self">FurnitureUpdate</a>(</span><span class="m-doc-wrap"><a href="structFurnitureEntity.html" class="m-doc">FurnitureEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a3e7e4482680143290fe7cc09405746b7">
+              static <a href="furniture_8c.html#a3727fba25c05f2b195ae196278da0b9f" class="m-doc">FurnitureAction</a> <a href="#a3e7e4482680143290fe7cc09405746b7" class="m-doc-self">FurnitureInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6813e20b8f117ad1b1b44657da303c09">
+              static <a href="furniture_8c.html#a3727fba25c05f2b195ae196278da0b9f" class="m-doc">FurnitureAction</a> <a href="#a6813e20b8f117ad1b1b44657da303c09" class="m-doc-self">FurnitureUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c1129698d41bf86b7fa813548f37304">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#a8c1129698d41bf86b7fa813548f37304" class="m-doc-self">gUnk_08121EF8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0c6f41c484f56947500bc33c9917636e">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#a0c6f41c484f56947500bc33c9917636e" class="m-doc-self">gUnk_08122128</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a92faf39c0e9ccd22831b9d4ff67661bd">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#a92faf39c0e9ccd22831b9d4ff67661bd" class="m-doc-self">gUnk_08122198</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e10267d71d2c87d74bbfb4321de8684">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#a6e10267d71d2c87d74bbfb4321de8684" class="m-doc-self">gUnk_081221A8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70d28adba9bd6701c4b1f1cb2ba2dd97">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#a70d28adba9bd6701c4b1f1cb2ba2dd97" class="m-doc-self">gUnk_081221B8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5c3a0f41e8c9bb537eaa85df8913b20">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#ae5c3a0f41e8c9bb537eaa85df8913b20" class="m-doc-self">gUnk_081221C8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a2d2b726ec24e442239f181f0794a32">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#a0a2d2b726ec24e442239f181f0794a32" class="m-doc-self">gUnk_081221D8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7257fd69e6e022b2fd7f77029566b01f">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#a7257fd69e6e022b2fd7f77029566b01f" class="m-doc-self">gUnk_081221E8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17a9331f3f7f3a4fc0986818e9f07362">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#a17a9331f3f7f3a4fc0986818e9f07362" class="m-doc-self">gUnk_081221F8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abc3571ff9d6a4aa877c1d9f32b80609c">
+              static const <a href="structFurnitureCfg.html" class="m-doc">FurnitureCfg</a> <a href="#abc3571ff9d6a4aa877c1d9f32b80609c" class="m-doc-self">gUnk_08122208</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

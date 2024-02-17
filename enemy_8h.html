@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/enemy.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>enemy.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structEnemy.html" class="m-doc">Enemy</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="af3520ff6d43011872bab77edd27d4de3">
+              <span class="m-doc-wrap-bumper">enum <a href="#af3520ff6d43011872bab77edd27d4de3" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#af3520ff6d43011872bab77edd27d4de3a2ea51251120b4fbab3d3765d1567bcfe" class="m-doc">OCTOROK</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3aa6b4ae64f3d87a801a157d30cf4c5596" class="m-doc">CHUCHU</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3aaa0b1aaf0b11f8ba697453a2133b0a1d" class="m-doc">LEEVER</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a68b80367cfc1ccc07c7f9d86a250d4f8" class="m-doc">PEAHAT</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ad3e42b598596888bb57f7bf19d3122a0" class="m-doc">ROLLOBITE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a0e1be45c0322a53c71860ab584a78c88" class="m-doc">DARK_NUT</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ad5876421ace0d2cdc9e83e9a733bfbe2" class="m-doc">HANGING_SEED</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a5e89c253c0be51bd1fc76dd4c45c43b2" class="m-doc">BEETLE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a3db3331054c739b737d3f16776a068dc" class="m-doc">KEESE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a33a358f07cc68b8a00e98e0e8e4ac83a" class="m-doc">DOOR_MIMIC</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a539be1a9526acddc1abe93b21dbe4f2c" class="m-doc">ROCK_CHUCHU</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a855935aebb6f71735655f820b0b2e10a" class="m-doc">SPINY_CHUCHU</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a9e60885e8c9c402424a4fe44934e16e2" class="m-doc">CUCCO_CHICK_AGGR</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a25f546ceef67b08035450321a6152478" class="m-doc">MOLDORM</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a8015bc493bc2134ff1e536bc3a1ae5ab" class="m-doc">ENEMY_E</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ac0e18528e823e953f680ceed235f777c" class="m-doc">MOLDWORM</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ac3a2e5f4ae902dae1bc4e06a786d29f0" class="m-doc">SLUGGULA</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a50f825050f87727dca34402b4879a52e" class="m-doc">PESTO</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ad45aa5e8b65b85afa87f00c24884752c" class="m-doc">PUFFSTOOL</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a96a72b954f0584760d022137102ddfc7" class="m-doc">CHUCHU_BOSS</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a7143626d3896d83209bb7965dc66591d" class="m-doc">LIKE_LIKE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a3c1f55cbe3c1ce1df0ace59bf6d970b8" class="m-doc">SPEAR_MOBLIN</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3afb8e3a471b56a2377cbda9048e2e2af5" class="m-doc">BUSINESS_SCRUB</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a6e2ca20176b4869e10d4cf779becd495" class="m-doc">RUPEE_LIKE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a8dda9b952ab01f22bddb3e5fd50767e3" class="m-doc">MADDERPILLAR</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3acffb7f0b41ebfaad4dc16895ed80f7f3" class="m-doc">WATER_DROP</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a06b419b8c7cdf0eb4980209fc511eaab" class="m-doc">WALL_MASTER</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a9b5f263e5c7c07bcb4e6b710e6c346b6" class="m-doc">BOMB_PEAHAT</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a546b68179a3468104798d66211412c15" class="m-doc">SPARK</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a609449587c3c063b242b58e69b0e9586" class="m-doc">CHASER</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a1d3639b03ef1d8431a960ac85a69a850" class="m-doc">SPIKED_BEETLE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a0611250d1bf4911261a118df345efaff" class="m-doc">SENSOR_BLADE_TRAP</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3aa9acbdd62c8fd8733ac0bab9717015cb" class="m-doc">HELMASAUR</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a9c675c89d72a6146f536f3c9edcbcd30" class="m-doc">FALLING_BOULDER</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ac2cb6e35a8a2202347bcf514f8d66e5e" class="m-doc">BOBOMB</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a5745194a8e75774ef5ccca1b373f9ec0" class="m-doc">WALL_MASTER_2</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a8e21ac434a770fe0bc937d31c4362748" class="m-doc">GLEEROK</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a4e109be59219ed88631a5ac602d22640" class="m-doc">VAATI_EYES_MACRO</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a725744647ee79194d178057fe2092210" class="m-doc">TEKTITE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a208beb9ca732785b4e56932bfaa5d795" class="m-doc">WIZZROBE_WIND</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ac234b750fed4dc626e8132b5514f9700" class="m-doc">WIZZROBE_FIRE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a1438753a9600a0255cd4ed4b65426e4f" class="m-doc">WIZZROBE_ICE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a495f41634af145301e1cc09444da0c4d" class="m-doc">ARMOS</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a7cdecfa211fef1a1269e52ed3302db76" class="m-doc">EYEGORE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a24d6f5addc374131ab07a16c222d6992" class="m-doc">ROPE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3af835c035a424d76fb9939691ad0e5c2c" class="m-doc">SMALL_PESTO</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3af20c8b05bfa247184a2a3ef2e9323ae4" class="m-doc">ACRO_BANDIT</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ae35d8d75898c02980cbd5202777b6208" class="m-doc">BLADE_TRAP</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a0531252193719ed36c7fd6a81f2830db" class="m-doc">KEATON</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a143fbbb5aa867c244f7cf6a230545002" class="m-doc">CROW</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a5917a8f0932ee2f8a56ea7c6d3ae155f" class="m-doc">MULLDOZER</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a2cd12d554cc59deeec91b73c81640af6" class="m-doc">BOMBAROSSA</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a0bc9e3f29939dbed0d1399b18b88b67d" class="m-doc">WISP</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ac499b43233a66bbe8636960504004d65" class="m-doc">SPINY_BEETLE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3aa4b58834692df13b8d739418c3f04937" class="m-doc">MAZAAL_HEAD</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a0f5fcd12e5442a2d1f468b4299d3614c" class="m-doc">MAZAAL_MACRO</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a2a43a582fa1fe1c5d689335b3e5d71e8" class="m-doc">MAZAAL_HAND</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a4ef4b40a113e656ea97c70df48568e76" class="m-doc">OCTOROK_BOSS</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a207f7361f9bc6228207feef018c78462" class="m-doc">FLYING_POT</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ab29000148de9a89497742a4ace51af1d" class="m-doc">GOBDO</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a5a2d12c18b5fd056539e878413d98a47" class="m-doc">OCTOROK_GOLDEN</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a9b8164910292171806f81cece345a54b" class="m-doc">TEKTITE_GOLDEN</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a5aba0ed64c1b5135731683e09241d6cb" class="m-doc">ROPE_GOLDEN</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a13a627f6153e4469de4f03106ef7c6cd" class="m-doc">CLOUD_PIRANHA</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a151342bb8b17fe6fdc7b883f919638ad" class="m-doc">SCISSORS_BEETLE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a00cc2e1127a3dc36552f056f3b345cef" class="m-doc">CUCCO_AGGR</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a079e6615e3428cd1f3acf218944ee48a" class="m-doc">STALFOS</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ab3e8c186bd258ee838a2dcdbe4724c0c" class="m-doc">FLYING_SKULL</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a0c074012bf683fc560158a5b07346e20" class="m-doc">MAZAAL_BRACELET</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a0ebc27d09d0217277db3a4e869873328" class="m-doc">TAKKURI</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a33c499f5545b00e01b760f676d64d312" class="m-doc">BOW_MOBLIN</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a106111321867456af1049ad8c6702451" class="m-doc">LAKITU</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3acbc8c642d781f64a82c8d571a9b4723a" class="m-doc">LAKITU_CLOUD</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ac273b251405644b2487a74cf2983a036" class="m-doc">TORCH_TRAP</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a3795c5c5b2b971277a94e5fb81000ca0" class="m-doc">VAATI_REBORN_ENEMY</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a20f3b7f2b8f7e47808e1b64d78995761" class="m-doc">VAATI_PROJECTILE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a3baff2eae411a988e0067ec2d65cab0e" class="m-doc">BALL_CHAIN_SOLIDER</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ac888263554eb718af71e5c9011e516b0" class="m-doc">ENEMY_4D</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3aece9d4e3bf84060142b271586ce4cfa2" class="m-doc">GHINI</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a47da7e803f2b880915cf6f0da4243146" class="m-doc">VAATI_TRANSFIGURED</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ac74a5e9fca6e4ca81576da7907c599d3" class="m-doc">ENEMY_50</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a47d35a63a941bd26f642167887a21410" class="m-doc">VAATI_WRATH</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a7e69b9a7af95d64e2239a594c24a5fb5" class="m-doc">VAATI_ARM</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a5456265ad77aaf26fac342cd8128290f" class="m-doc">DUST</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3acb305ea5233e902525c4b13f13af0aa1" class="m-doc">VAATI_BALL</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ab8191bd709f2a7822f1ff536d78f4623" class="m-doc">OCTOROK2</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ab186f8d866ef149ed2ea4df96b804dd5" class="m-doc">SLIME</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a032a290a67822e5bdef5312d15c89d2e" class="m-doc">MINI_SLIME</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3aa50827d0d7d821476147b43e02ba4ec9" class="m-doc">FIREBALL_GUY</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3adc25235437e620478e6a37888f05a07c" class="m-doc">MINI_FIREBALL_GUY</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a379aac001bf3176889d9a719aaa6bd2b" class="m-doc">VAATI_TRANSFIGURED_EYE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3aa6dd417127fe3ffb7eadfb41cec6d983" class="m-doc">BUSINESS_SCRUB_PROLOGUE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a98825b5e09b14475fd2735abfc6df44b" class="m-doc">GYORG_FEMALE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ac54971c771f9dfaa275d43f5faf16b0d" class="m-doc">GYORG_MALE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a4b4dae06f17a41b079dfaa55d5e23164" class="m-doc">CURTAIN</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a4844861612777f1962f677294690191c" class="m-doc">VAATI_WRATH_EYE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a4b347862e10abe0437b8dca314fb59bd" class="m-doc">GYORG_CHILD</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ab9b60fdd4c48d0447f408990bd527626" class="m-doc">GYORG_FEMALE_EYE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3adbfd4b39a230fb2a018ce469adabfd3d" class="m-doc">GYORG_MALE_EYE</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a096d138c39d9fd9aacf1e197132661d0" class="m-doc">GYORG_FEMALE_MOUTH</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3adb59b0d2f062b71b994f6fb7054687a8" class="m-doc">ENEMY_64</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3ae22a916d19085b7ee8efeafe0a64c41d" class="m-doc">TREE_ITEM</a>,
+              <a href="#af3520ff6d43011872bab77edd27d4de3a84ad0b93e4c0449d9f213779963f8097" class="m-doc">ENEMY_66</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="abcd8908888a43067a4c637598c627f02">
+              <span class="m-doc-wrap-bumper">auto <a href="#abcd8908888a43067a4c637598c627f02" class="m-doc-self">EnemyInit</a>(</span><span class="m-doc-wrap"><a href="structEnemy.html" class="m-doc">Enemy</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a26a4e9cce4495840d64513d9e2a12462">
+              <span class="m-doc-wrap-bumper">auto <a href="#a26a4e9cce4495840d64513d9e2a12462" class="m-doc-self">GetNextFunction</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>0: _OnTick 1: _OnCollision 2: _OnKnockback 3: _OnDeath 4: _OnConfused 5: _OnGrabbed</dd>
+            <dt id="a11f5a39385192120e426ad11d13f8574">
+              <span class="m-doc-wrap-bumper">void <a href="#a11f5a39385192120e426ad11d13f8574" class="m-doc-self">EnemyFunctionHandler</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="entity_8h.html#a753a07463f5fb2c75708cfa67949af45" class="m-doc">EntityActionArray</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4de952afc12d7e30fbd7a4833a418dc7">
+              <span class="m-doc-wrap-bumper">void <a href="#a4de952afc12d7e30fbd7a4833a418dc7" class="m-doc-self">EnemyFunctionHandlerAfterCollision</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              void(*[])() const fntable)</span>
+            </dt>
+            <dd>Unsets bitfield 0x80 before calling GetNextFunction, so that the enemyFunction 1 is not called.</dd>
+            <dt id="a5014b5d269761448be6e41b30a7d372c">
+              <span class="m-doc-wrap-bumper">void <a href="#a5014b5d269761448be6e41b30a7d372c" class="m-doc-self">GenericKnockback</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a06b5c6369b10eb11f01f51891d8348fe">
+              <span class="m-doc-wrap-bumper">void <a href="#a06b5c6369b10eb11f01f51891d8348fe" class="m-doc-self">EnemyCreateDeathFX</a>(</span><span class="m-doc-wrap"><a href="structEnemy.html" class="m-doc">Enemy</a>* parent,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> parentId,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> fixedItem)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afe16245a73e043f87c1cb2bbc1d52454">
+              <span class="m-doc-wrap-bumper">void <a href="#afe16245a73e043f87c1cb2bbc1d52454" class="m-doc-self">sub_0804A720</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* parent)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e9ef7eff8f268e8200e1d151fca805e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a7e9ef7eff8f268e8200e1d151fca805e" class="m-doc-self">sub_08049FDC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> arg1) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e704922f77e44f7c42a0618b2b0b96d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8e704922f77e44f7c42a0618b2b0b96d" class="m-doc-self">EnemyCreateFX</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* parent,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> fxType) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b2e402855d836e9853c84aeb8673fac">
+              <span class="m-doc-wrap-bumper">void <a href="#a2b2e402855d836e9853c84aeb8673fac" class="m-doc-self">EnemySetFXOffset</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> xOffset,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> yOffset,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> zOffset)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa78774c34548f83a3db28b326a6fb589">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa78774c34548f83a3db28b326a6fb589" class="m-doc-self">EnemyCreateProjectile</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* parent,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> projectileId,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> projectileType) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57be7e779ec3e82b4c92a785265e41bc">
+              <span class="m-doc-wrap-bumper">void <a href="#a57be7e779ec3e82b4c92a785265e41bc" class="m-doc-self">GenericDeath</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9fa91948a4c3b5709a46201a3c2189f5">
+              <span class="m-doc-wrap-bumper">void <a href="#a9fa91948a4c3b5709a46201a3c2189f5" class="m-doc-self">sub_080026C4</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b37fcc59f8f98630ddbb78b3c29d567">
+              <span class="m-doc-wrap-bumper">void <a href="#a8b37fcc59f8f98630ddbb78b3c29d567" class="m-doc-self">sub_080026F2</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              void*,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeee343fa78e87d791fd4886e8a7c7603">
+              <span class="m-doc-wrap-bumper">auto <a href="#aeee343fa78e87d791fd4886e8a7c7603" class="m-doc-self">sub_08049FA0</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2709ab3e928e5d27060d7ca659b785a">
+              <span class="m-doc-wrap-bumper">auto <a href="#ad2709ab3e928e5d27060d7ca659b785a" class="m-doc-self">sub_08049EE4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa465597e7bd3d81a1fd1439650cef555">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa465597e7bd3d81a1fd1439650cef555" class="m-doc-self">sub_08049F84</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> arg2) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b121faa1210c1e357410e9c59bd281b">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8b121faa1210c1e357410e9c59bd281b" class="m-doc-self">sub_08049DF4</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> arg0) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ae8dec59b30095a36b63e1f599bd3f019" class="m-doc">sub_0804A044</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entA,
+              <a href="structEntity.html" class="m-doc">Entity</a>* entB,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> arg2) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a386d9a3655d37a25604bcb8e580a894e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a386d9a3655d37a25604bcb8e580a894e" class="m-doc-self">sub_080012DC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a47e2a68aed80a421d133500fc45fd97b">
+              <span class="m-doc-wrap-bumper">void <a href="#a47e2a68aed80a421d133500fc45fd97b" class="m-doc-self">EnemyDetachFX</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acef00c568b090ddd073352809ac3ea03">
+              <span class="m-doc-wrap-bumper">auto <a href="#acef00c568b090ddd073352809ac3ea03" class="m-doc-self">sub_08049F1C</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entA,
+              <a href="structEntity.html" class="m-doc">Entity</a>* entB,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> maxDist) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a247657e70a3b3006f5f9d0f9552ba04d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a247657e70a3b3006f5f9d0f9552ba04d" class="m-doc-self">PlayerInRange</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> arg1,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> maxDist) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c9fdc5e4440c2955ba72d7d9e08443e">
+              <span class="m-doc-wrap-bumper">void <a href="#a1c9fdc5e4440c2955ba72d7d9e08443e" class="m-doc-self">EnemyCopyParams</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* src,
+              <a href="structEntity.html" class="m-doc">Entity</a>* dest)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a31d52d6d3c39111874be4b8fce5bd5a6">
+              <span class="m-doc-wrap-bumper">void <a href="#a31d52d6d3c39111874be4b8fce5bd5a6" class="m-doc-self">GenericKnockback2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5a358aa2102a54d702fb0e051a8d86b9">
+              <span class="m-doc-wrap-bumper">void <a href="#a5a358aa2102a54d702fb0e051a8d86b9" class="m-doc-self">Octorok</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36fdfde79134d71a34034da08c64ed76">
+              <span class="m-doc-wrap-bumper">void <a href="#a36fdfde79134d71a34034da08c64ed76" class="m-doc-self">Chuchu</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae21fd549e53f6fa7f1904c73cf02939c">
+              <span class="m-doc-wrap-bumper">void <a href="#ae21fd549e53f6fa7f1904c73cf02939c" class="m-doc-self">Leever</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af68aeadbb5ace920dde536dfa430fbfd">
+              <span class="m-doc-wrap-bumper">void <a href="#af68aeadbb5ace920dde536dfa430fbfd" class="m-doc-self">Peahat</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a143a3168d74791578c4bf19cc4af5a6c">
+              <span class="m-doc-wrap-bumper">void <a href="#a143a3168d74791578c4bf19cc4af5a6c" class="m-doc-self">Rollobite</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a976d855b1e9996ce79dc60f725a21112">
+              <span class="m-doc-wrap-bumper">void <a href="#a976d855b1e9996ce79dc60f725a21112" class="m-doc-self">DarkNut</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89d7adc79a2e1155d2be0f7b6e4b6873">
+              <span class="m-doc-wrap-bumper">void <a href="#a89d7adc79a2e1155d2be0f7b6e4b6873" class="m-doc-self">HangingSeed</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c1b92981e4c109e8991c995fba1497d">
+              <span class="m-doc-wrap-bumper">void <a href="#a4c1b92981e4c109e8991c995fba1497d" class="m-doc-self">Beetle</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a80c8d973d8253fb2e9339e9e7ee53a12">
+              <span class="m-doc-wrap-bumper">void <a href="#a80c8d973d8253fb2e9339e9e7ee53a12" class="m-doc-self">Keese</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2034dab02e8d7921a87060dddc7ae5f5">
+              <span class="m-doc-wrap-bumper">void <a href="#a2034dab02e8d7921a87060dddc7ae5f5" class="m-doc-self">DoorMimic</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4716da4686593ec464ce3c8ef8517d05">
+              <span class="m-doc-wrap-bumper">void <a href="#a4716da4686593ec464ce3c8ef8517d05" class="m-doc-self">RockChuchu</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0126a49652194ff77cd106484327c4a5">
+              <span class="m-doc-wrap-bumper">void <a href="#a0126a49652194ff77cd106484327c4a5" class="m-doc-self">SpinyChuchu</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1aed129778b940d1eee6a7527ed942c4">
+              <span class="m-doc-wrap-bumper">void <a href="#a1aed129778b940d1eee6a7527ed942c4" class="m-doc-self">CuccoChickAggr</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa0d8a719a2a217f2a8ecfe49ab77703b">
+              <span class="m-doc-wrap-bumper">void <a href="#aa0d8a719a2a217f2a8ecfe49ab77703b" class="m-doc-self">Moldorm</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9335a029f04b9fffb81d052aadd81d8d">
+              <span class="m-doc-wrap-bumper">void <a href="#a9335a029f04b9fffb81d052aadd81d8d" class="m-doc-self">EnemyE</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a914ce40f2ad3a1f9d2f97913b1cff8e4">
+              <span class="m-doc-wrap-bumper">void <a href="#a914ce40f2ad3a1f9d2f97913b1cff8e4" class="m-doc-self">Moldworm</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adcbbfcbf3a272aa3799b0e97428e577d">
+              <span class="m-doc-wrap-bumper">void <a href="#adcbbfcbf3a272aa3799b0e97428e577d" class="m-doc-self">Sluggula</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61b150753d31abb9f817c326b0ba454a">
+              <span class="m-doc-wrap-bumper">void <a href="#a61b150753d31abb9f817c326b0ba454a" class="m-doc-self">Pesto</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0c657a31dc96fdd083c07e9f02806d41">
+              <span class="m-doc-wrap-bumper">void <a href="#a0c657a31dc96fdd083c07e9f02806d41" class="m-doc-self">Puffstool</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3447a348ccf1be28eb04dd7f9eeb4744">
+              <span class="m-doc-wrap-bumper">void <a href="#a3447a348ccf1be28eb04dd7f9eeb4744" class="m-doc-self">ChuchuBoss</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae90437daf90ef73a021c23e72e5f9c18">
+              <span class="m-doc-wrap-bumper">void <a href="#ae90437daf90ef73a021c23e72e5f9c18" class="m-doc-self">LikeLike</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af8badc3fb5d95c57375be0a7f6acf8b7">
+              <span class="m-doc-wrap-bumper">void <a href="#af8badc3fb5d95c57375be0a7f6acf8b7" class="m-doc-self">SpearMoblin</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa51333d2135c540c30058b30c8aa0a1">
+              <span class="m-doc-wrap-bumper">void <a href="#aaa51333d2135c540c30058b30c8aa0a1" class="m-doc-self">BusinessScrub</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2dc4b0f21b06595f522cda160275e7d">
+              <span class="m-doc-wrap-bumper">void <a href="#af2dc4b0f21b06595f522cda160275e7d" class="m-doc-self">RupeeLike</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a419363fec588f8832e342fb6ec379f01">
+              <span class="m-doc-wrap-bumper">void <a href="#a419363fec588f8832e342fb6ec379f01" class="m-doc-self">Madderpillar</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7fdfe0d3dd45ffcdb8513475baa9da54">
+              <span class="m-doc-wrap-bumper">void <a href="#a7fdfe0d3dd45ffcdb8513475baa9da54" class="m-doc-self">WaterDrop</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb192c4dd9ac0a7a54e2d57687dccfb8">
+              <span class="m-doc-wrap-bumper">void <a href="#aeb192c4dd9ac0a7a54e2d57687dccfb8" class="m-doc-self">WallMaster</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb7f7f0f6d25347846711de96fe3df70">
+              <span class="m-doc-wrap-bumper">void <a href="#aeb7f7f0f6d25347846711de96fe3df70" class="m-doc-self">BombPeahat</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae869a3e57ccc35ac378133cfd94612c0">
+              <span class="m-doc-wrap-bumper">void <a href="#ae869a3e57ccc35ac378133cfd94612c0" class="m-doc-self">Spark</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1eaef3f11ca331fa5c8a6ca7fd843685">
+              <span class="m-doc-wrap-bumper">void <a href="#a1eaef3f11ca331fa5c8a6ca7fd843685" class="m-doc-self">Chaser</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70f36eb10ed849f7c7254051975e90ec">
+              <span class="m-doc-wrap-bumper">void <a href="#a70f36eb10ed849f7c7254051975e90ec" class="m-doc-self">SpikedBeetle</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a66f3266f71787301882c8b76227bfcf1">
+              <span class="m-doc-wrap-bumper">void <a href="#a66f3266f71787301882c8b76227bfcf1" class="m-doc-self">SensorBladeTrap</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3263ebfb2877d448cf13fbb8ca22556d">
+              <span class="m-doc-wrap-bumper">void <a href="#a3263ebfb2877d448cf13fbb8ca22556d" class="m-doc-self">Helmasaur</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a187b2f41e8f6ecd0a3d7386b70237f75">
+              <span class="m-doc-wrap-bumper">void <a href="#a187b2f41e8f6ecd0a3d7386b70237f75" class="m-doc-self">FallingBoulder</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7ab1316e31bf44005330aced36691ca2">
+              <span class="m-doc-wrap-bumper">void <a href="#a7ab1316e31bf44005330aced36691ca2" class="m-doc-self">Bobomb</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9b0252bec39394a4eeb7668a8c482f71">
+              <span class="m-doc-wrap-bumper">void <a href="#a9b0252bec39394a4eeb7668a8c482f71" class="m-doc-self">WallMaster2</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f32c955824fae93901d871ff12c8301">
+              <span class="m-doc-wrap-bumper">void <a href="#a8f32c955824fae93901d871ff12c8301" class="m-doc-self">Gleerok</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17b10abfb7a64194de86931a7495ad29">
+              <span class="m-doc-wrap-bumper">void <a href="#a17b10abfb7a64194de86931a7495ad29" class="m-doc-self">VaatiEyesMacro</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afc49bdd8e6a96ac95a0ef5a5d27d8d92">
+              <span class="m-doc-wrap-bumper">void <a href="#afc49bdd8e6a96ac95a0ef5a5d27d8d92" class="m-doc-self">Tektite</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4aedf8fc009b2ec544c7f33c2f55ceb0">
+              <span class="m-doc-wrap-bumper">void <a href="#a4aedf8fc009b2ec544c7f33c2f55ceb0" class="m-doc-self">WizzrobeWind</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5ee26f701220a8806183e4b9600ba18">
+              <span class="m-doc-wrap-bumper">void <a href="#ae5ee26f701220a8806183e4b9600ba18" class="m-doc-self">WizzrobeFire</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a960e39831baa857ad93645ec97f08c86">
+              <span class="m-doc-wrap-bumper">void <a href="#a960e39831baa857ad93645ec97f08c86" class="m-doc-self">WizzrobeIce</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67fc5ae14c386599972bc88f82e8fe27">
+              <span class="m-doc-wrap-bumper">void <a href="#a67fc5ae14c386599972bc88f82e8fe27" class="m-doc-self">Armos</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a875fed3cca26e6c5a45d003a63018d43">
+              <span class="m-doc-wrap-bumper">void <a href="#a875fed3cca26e6c5a45d003a63018d43" class="m-doc-self">Eyegore</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e9304c877ef38c4032d47d9830f87d7">
+              <span class="m-doc-wrap-bumper">void <a href="#a4e9304c877ef38c4032d47d9830f87d7" class="m-doc-self">Rope</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61cbdc974445ec5d3c34033a51de4f6d">
+              <span class="m-doc-wrap-bumper">void <a href="#a61cbdc974445ec5d3c34033a51de4f6d" class="m-doc-self">SmallPesto</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59e4064216ff6a0feab1a0fda15297b5">
+              <span class="m-doc-wrap-bumper">void <a href="#a59e4064216ff6a0feab1a0fda15297b5" class="m-doc-self">AcroBandit</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35e3001541b214bd1ae9f199cacdffef">
+              <span class="m-doc-wrap-bumper">void <a href="#a35e3001541b214bd1ae9f199cacdffef" class="m-doc-self">BladeTrap</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b5e2a80c10ec92e10776121c16c81d2">
+              <span class="m-doc-wrap-bumper">void <a href="#a5b5e2a80c10ec92e10776121c16c81d2" class="m-doc-self">Keaton</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad08b886a184e8744f6ca1690da458a59">
+              <span class="m-doc-wrap-bumper">void <a href="#ad08b886a184e8744f6ca1690da458a59" class="m-doc-self">Crow</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7c85700e14dee806827cc3147be8aa50">
+              <span class="m-doc-wrap-bumper">void <a href="#a7c85700e14dee806827cc3147be8aa50" class="m-doc-self">Mulldozer</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5e42284b3e973e1705aeefd8784b4af">
+              <span class="m-doc-wrap-bumper">void <a href="#ae5e42284b3e973e1705aeefd8784b4af" class="m-doc-self">Bombarossa</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a94fb1e4ddf367c8d02696b3cc74fa766">
+              <span class="m-doc-wrap-bumper">void <a href="#a94fb1e4ddf367c8d02696b3cc74fa766" class="m-doc-self">Wisp</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7f0b38b09a52e327c2952e222e370970">
+              <span class="m-doc-wrap-bumper">void <a href="#a7f0b38b09a52e327c2952e222e370970" class="m-doc-self">SpinyBeetle</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a053f93570fc5cc952c69bc01eb600b53">
+              <span class="m-doc-wrap-bumper">void <a href="#a053f93570fc5cc952c69bc01eb600b53" class="m-doc-self">MazaalHead</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe7861d39210782bb5a47b7a4e6ccccd">
+              <span class="m-doc-wrap-bumper">void <a href="#abe7861d39210782bb5a47b7a4e6ccccd" class="m-doc-self">MazaalMacro</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5e9ae957df1aa2ab424480706edbb07">
+              <span class="m-doc-wrap-bumper">void <a href="#aa5e9ae957df1aa2ab424480706edbb07" class="m-doc-self">MazaalHand</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d9b76d0265a9a1a97ecbeb8f6600dba">
+              <span class="m-doc-wrap-bumper">void <a href="#a0d9b76d0265a9a1a97ecbeb8f6600dba" class="m-doc-self">OctorokBoss</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aec2efb5639e8eca3c88facae73732657">
+              <span class="m-doc-wrap-bumper">void <a href="#aec2efb5639e8eca3c88facae73732657" class="m-doc-self">FlyingPot</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af24fbe5cfa121b72526db18fd19cfedf">
+              <span class="m-doc-wrap-bumper">void <a href="#af24fbe5cfa121b72526db18fd19cfedf" class="m-doc-self">Gibdo</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af0acfe1924e7514b813fad615f6c82c2">
+              <span class="m-doc-wrap-bumper">void <a href="#af0acfe1924e7514b813fad615f6c82c2" class="m-doc-self">OctorokGolden</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a50157a90194d2231a55e180db284ed06">
+              <span class="m-doc-wrap-bumper">void <a href="#a50157a90194d2231a55e180db284ed06" class="m-doc-self">TektiteGolden</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2bcfbfc6a34277848b0d8dcdb056c148">
+              <span class="m-doc-wrap-bumper">void <a href="#a2bcfbfc6a34277848b0d8dcdb056c148" class="m-doc-self">RopeGolden</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae331faf64879d6a33a233f328ca99a0a">
+              <span class="m-doc-wrap-bumper">void <a href="#ae331faf64879d6a33a233f328ca99a0a" class="m-doc-self">CloudPiranha</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3273be2920a17a6da50caf1101d64e0a">
+              <span class="m-doc-wrap-bumper">void <a href="#a3273be2920a17a6da50caf1101d64e0a" class="m-doc-self">ScissorsBeetle</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53ee44b1ba826885ce5e7dcdfd8564fb">
+              <span class="m-doc-wrap-bumper">void <a href="#a53ee44b1ba826885ce5e7dcdfd8564fb" class="m-doc-self">CuccoAggr</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa9cf86c7926af32af7e87292d7771812">
+              <span class="m-doc-wrap-bumper">void <a href="#aa9cf86c7926af32af7e87292d7771812" class="m-doc-self">Stalfos</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a065ea350efb20f5d36e7c1fe5da2b889">
+              <span class="m-doc-wrap-bumper">void <a href="#a065ea350efb20f5d36e7c1fe5da2b889" class="m-doc-self">FlyingSkull</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7af6bedf91a38fd8ea2c64e39a5a3a2">
+              <span class="m-doc-wrap-bumper">void <a href="#ad7af6bedf91a38fd8ea2c64e39a5a3a2" class="m-doc-self">MazaalBracelet</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaea487ba491d2332650716c2c4c0523c">
+              <span class="m-doc-wrap-bumper">void <a href="#aaea487ba491d2332650716c2c4c0523c" class="m-doc-self">Takkuri</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4058442387c6bbcb6bf89809b2abadaf">
+              <span class="m-doc-wrap-bumper">void <a href="#a4058442387c6bbcb6bf89809b2abadaf" class="m-doc-self">BowMoblin</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac1e91fd5b9874893723d1d1419ee13f">
+              <span class="m-doc-wrap-bumper">void <a href="#aac1e91fd5b9874893723d1d1419ee13f" class="m-doc-self">Lakitu</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7a8c73c577a49f0e4eba3892a6f99132">
+              <span class="m-doc-wrap-bumper">void <a href="#a7a8c73c577a49f0e4eba3892a6f99132" class="m-doc-self">LakituCloud</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad58c2121c255c9a2207146ef138d4737">
+              <span class="m-doc-wrap-bumper">void <a href="#ad58c2121c255c9a2207146ef138d4737" class="m-doc-self">TorchTrap</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae8ed82ce754300c988fbfee2d7583c13">
+              <span class="m-doc-wrap-bumper">void <a href="#ae8ed82ce754300c988fbfee2d7583c13" class="m-doc-self">VaatiRebornEnemy</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a81dc7271813dfb16b0f06a6822a44d9b">
+              <span class="m-doc-wrap-bumper">void <a href="#a81dc7271813dfb16b0f06a6822a44d9b" class="m-doc-self">VaatiProjectile</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac500715b21cae04569a23b588453fd07">
+              <span class="m-doc-wrap-bumper">void <a href="#ac500715b21cae04569a23b588453fd07" class="m-doc-self">BallChainSoldier</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a51f904f9fbe1019cb66ec687ffe6e01a">
+              <span class="m-doc-wrap-bumper">void <a href="#a51f904f9fbe1019cb66ec687ffe6e01a" class="m-doc-self">Enemy4D</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f972548f0bcd0a0cef9df4a0c9b92d7">
+              <span class="m-doc-wrap-bumper">void <a href="#a3f972548f0bcd0a0cef9df4a0c9b92d7" class="m-doc-self">Ghini</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d4a7f5c053b322ae2b5d8f6ee4016ee">
+              <span class="m-doc-wrap-bumper">void <a href="#a2d4a7f5c053b322ae2b5d8f6ee4016ee" class="m-doc-self">VaatiTransfigured</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3f8f7cf0fc981f8d961fff24ae06736">
+              <span class="m-doc-wrap-bumper">void <a href="#ab3f8f7cf0fc981f8d961fff24ae06736" class="m-doc-self">Enemy50</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a79f54900fe88dc50c0ac971d37e27eb0">
+              <span class="m-doc-wrap-bumper">void <a href="#a79f54900fe88dc50c0ac971d37e27eb0" class="m-doc-self">VaatiWrath</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7c8a2164a5a70145879a146b74af27e8">
+              <span class="m-doc-wrap-bumper">void <a href="#a7c8a2164a5a70145879a146b74af27e8" class="m-doc-self">VaatiArm</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6447e47db0e9ca17df5ce93c699edc95">
+              <span class="m-doc-wrap-bumper">void <a href="#a6447e47db0e9ca17df5ce93c699edc95" class="m-doc-self">Dust</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad810ed828c781cbd0b61577df838b5ec">
+              <span class="m-doc-wrap-bumper">void <a href="#ad810ed828c781cbd0b61577df838b5ec" class="m-doc-self">VaatiBall</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86b6c2774d339398de01b322de2b4020">
+              <span class="m-doc-wrap-bumper">void <a href="#a86b6c2774d339398de01b322de2b4020" class="m-doc-self">Slime</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a50f841084275664d706dc27b5cdee6c8">
+              <span class="m-doc-wrap-bumper">void <a href="#a50f841084275664d706dc27b5cdee6c8" class="m-doc-self">MiniSlime</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa7fa480a17636d20de7c19d45229ec69">
+              <span class="m-doc-wrap-bumper">void <a href="#aa7fa480a17636d20de7c19d45229ec69" class="m-doc-self">FireballGuy</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70443dd997fab3d88e9e9702b83936a6">
+              <span class="m-doc-wrap-bumper">void <a href="#a70443dd997fab3d88e9e9702b83936a6" class="m-doc-self">MiniFireballGuy</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa214a73554005046e3f13139123d331">
+              <span class="m-doc-wrap-bumper">void <a href="#afa214a73554005046e3f13139123d331" class="m-doc-self">VaatiTransfiguredEye</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a819bf64fed34572bb749bbc656f88298">
+              <span class="m-doc-wrap-bumper">void <a href="#a819bf64fed34572bb749bbc656f88298" class="m-doc-self">BusinessScrubPrologue</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac401787336b8bc62895125c64c66a3b8">
+              <span class="m-doc-wrap-bumper">void <a href="#ac401787336b8bc62895125c64c66a3b8" class="m-doc-self">GyorgFemale</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a692e87cabe391b3de4f038ed16c3fc5a">
+              <span class="m-doc-wrap-bumper">void <a href="#a692e87cabe391b3de4f038ed16c3fc5a" class="m-doc-self">GyorgMale</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a357d20a7bc0cef3581caa0c944282d02">
+              <span class="m-doc-wrap-bumper">void <a href="#a357d20a7bc0cef3581caa0c944282d02" class="m-doc-self">Curtain</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b2b0f0e5af6a2860d4bdfdc9cf235fb">
+              <span class="m-doc-wrap-bumper">void <a href="#a5b2b0f0e5af6a2860d4bdfdc9cf235fb" class="m-doc-self">VaatiWrathEye</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6f2d0e0d397f9ee0d6b10c568591e23">
+              <span class="m-doc-wrap-bumper">void <a href="#ab6f2d0e0d397f9ee0d6b10c568591e23" class="m-doc-self">GyorgChild</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d1211196751987b118151053093a000">
+              <span class="m-doc-wrap-bumper">void <a href="#a4d1211196751987b118151053093a000" class="m-doc-self">GyorgFemaleEye</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e38af771ff4d3b6382a3a2ca9ae4474">
+              <span class="m-doc-wrap-bumper">void <a href="#a8e38af771ff4d3b6382a3a2ca9ae4474" class="m-doc-self">GyorgMaleEye</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad76fe7c07222218b51cb88d4bc5dded7">
+              <span class="m-doc-wrap-bumper">void <a href="#ad76fe7c07222218b51cb88d4bc5dded7" class="m-doc-self">GyorgFemaleMouth</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a374781a72de176475cae66206a62f20f">
+              <span class="m-doc-wrap-bumper">void <a href="#a374781a72de176475cae66206a62f20f" class="m-doc-self">Enemy64</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ef8d472836eb21e802e2be9fa74a016">
+              <span class="m-doc-wrap-bumper">void <a href="#a3ef8d472836eb21e802e2be9fa74a016" class="m-doc-self">TreeItem</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abbbe868c43abc0e8535bde39d741fa89">
+              <span class="m-doc-wrap-bumper">void <a href="#abbbe868c43abc0e8535bde39d741fa89" class="m-doc-self">Enemy66</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a6b03121d5c38a28aec10dfcc9d2b08ac">
+              void(*const <a href="#a6b03121d5c38a28aec10dfcc9d2b08ac" class="m-doc-self">gUnk_080012C8</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a06d9131c64c15689a94798bfb0d03c9d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a06d9131c64c15689a94798bfb0d03c9d" class="m-doc-self">EM_FLAG_BOSS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7abd1f01c1feb518859dd5e9f0b44698">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7abd1f01c1feb518859dd5e9f0b44698" class="m-doc-self">EM_FLAG_BOSS_KILLED</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10cb88085c7b2ebb6c7306370b6c3a67">
+              <span class="m-doc-wrap-bumper">#define <a href="#a10cb88085c7b2ebb6c7306370b6c3a67" class="m-doc-self">EM_FLAG_HAS_HOME</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab97139d4f853909bc73423c3fe95109b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab97139d4f853909bc73423c3fe95109b" class="m-doc-self">EM_FLAG_NO_DEATH_FX</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4efb8a54a4752f10a38f9a207a0ae844">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4efb8a54a4752f10a38f9a207a0ae844" class="m-doc-self">EM_FLAG_SUPPORT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adebbdb1f43d5dd4dc930355c01759d69">
+              <span class="m-doc-wrap-bumper">#define <a href="#adebbdb1f43d5dd4dc930355c01759d69" class="m-doc-self">EM_FLAG_CAPTAIN</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a96ba3c01335c8b145bd06681241cadb4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a96ba3c01335c8b145bd06681241cadb4" class="m-doc-self">EM_FLAG_MONITORED</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="ae8dec59b30095a36b63e1f599bd3f019"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae8dec59b30095a36b63e1f599bd3f019" class="m-doc-self">sub_0804A044</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entA,
+              <a href="structEntity.html" class="m-doc">Entity</a>* entB,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> arg2)</span></span>
+            </h3>
+            <p><span></span></p>
+<aside class="m-note m-danger"><h4><a href="bug.html#_bug000001" class="m-doc">Bug</a></h4><p>flags &amp; 5 can never equal 0xA</p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/object/lockedDoor.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_bb043af75e54e1af3032f67529bb720c.html">object</a>/</span>lockedDoor.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structstruct__0811F680.html" class="m-doc">struct_0811F680</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structstruct__0811F730.html" class="m-doc">struct_0811F730</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="ad4f0d7f4d872f04513b4bca69674f646">
+              <span class="m-doc-wrap-bumper">void <a href="#ad4f0d7f4d872f04513b4bca69674f646" class="m-doc-self">LockedDoor_Init</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4799f449f589e10bee6acddf6836077c">
+              <span class="m-doc-wrap-bumper">void <a href="#a4799f449f589e10bee6acddf6836077c" class="m-doc-self">LockedDoor_Action1</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af88b1e650d5d53b936e465772856b9f4">
+              <span class="m-doc-wrap-bumper">void <a href="#af88b1e650d5d53b936e465772856b9f4" class="m-doc-self">LockedDoor_Action2</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1401d1bfdc4c9aca116a69d20f2a5445">
+              <span class="m-doc-wrap-bumper">void <a href="#a1401d1bfdc4c9aca116a69d20f2a5445" class="m-doc-self">LockedDoor_Action3</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b5e6d6d4a7f00a0f18caa9e5a8f4891">
+              <span class="m-doc-wrap-bumper">void <a href="#a5b5e6d6d4a7f00a0f18caa9e5a8f4891" class="m-doc-self">LockedDoor_Action4</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d4dbe3e708d0ce5ed2b60257f707459">
+              <span class="m-doc-wrap-bumper">void <a href="#a2d4dbe3e708d0ce5ed2b60257f707459" class="m-doc-self">LockedDoor_Action5</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad5bc018be2b25c5a35bfd74a8470a493">
+              <span class="m-doc-wrap-bumper">void <a href="#ad5bc018be2b25c5a35bfd74a8470a493" class="m-doc-self">LockedDoor_Action6</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a73a827acc80176dc841a424d9db0e165">
+              <span class="m-doc-wrap-bumper">void <a href="#a73a827acc80176dc841a424d9db0e165" class="m-doc-self">LockedDoor_Action7</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac0453376a2ab2f5d375bb7dfc12b0e9">
+              <span class="m-doc-wrap-bumper">void <a href="#aac0453376a2ab2f5d375bb7dfc12b0e9" class="m-doc-self">LockedDoor_Action8</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ce4f4ce7607ed13beb9715c3d803d52">
+              <span class="m-doc-wrap-bumper">void <a href="#a1ce4f4ce7607ed13beb9715c3d803d52" class="m-doc-self">sub_08083638</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01b397d7d2a56b54c15e2ae16815b113">
+              <span class="m-doc-wrap-bumper">void <a href="#a01b397d7d2a56b54c15e2ae16815b113" class="m-doc-self">sub_08083658</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae1cbe0037e04cbc09ec6c74fb9a95c14">
+              <span class="m-doc-wrap-bumper">void <a href="#ae1cbe0037e04cbc09ec6c74fb9a95c14" class="m-doc-self">sub_080836A0</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae75e8c3795b7f17a5c2503ecae9f9c44">
+              <span class="m-doc-wrap-bumper">void <a href="#ae75e8c3795b7f17a5c2503ecae9f9c44" class="m-doc-self">sub_080836DC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0e71aa8af82089d52db58523452698ea">
+              <span class="m-doc-wrap-bumper">auto <a href="#a0e71aa8af82089d52db58523452698ea" class="m-doc-self">sub_080837B0</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae94827eda1b673653062e116a3bbf392">
+              <span class="m-doc-wrap-bumper">void <a href="#ae94827eda1b673653062e116a3bbf392" class="m-doc-self">sub_08083814</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab12a9d6f59694156d1dc5b636c6b849f">
+              <span class="m-doc-wrap-bumper">void <a href="#ab12a9d6f59694156d1dc5b636c6b849f" class="m-doc-self">LockedDoor</a>(</span><span class="m-doc-wrap"><a href="structLockedDoorEntity.html" class="m-doc">LockedDoorEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1966d2abd382b76a5346f54c6d7bb1b6">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1966d2abd382b76a5346f54c6d7bb1b6" class="m-doc-self">sub_08083734</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> unk0) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a572c53151ae79aefb8f2e705723f858a">
+              void(*const <a href="#a572c53151ae79aefb8f2e705723f858a" class="m-doc-self">LockedDoor_Actions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63953113b7b7841b8cb4a43fb071f3f5">
+              const <a href="structstruct__0811F680.html" class="m-doc">struct_<wbr />0811F680</a> <a href="#a63953113b7b7841b8cb4a43fb071f3f5" class="m-doc-self">gUnk_0811F680</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8a199a503bae73001349d81bcff654b5">
+              const <a href="structstruct__0811F680.html" class="m-doc">struct_<wbr />0811F680</a> <a href="#a8a199a503bae73001349d81bcff654b5" class="m-doc-self">gUnk_0811F688</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3404b0c7891358b641938a594acb1a7b">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a3404b0c7891358b641938a594acb1a7b" class="m-doc-self">gUnk_0811F690</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad6eee8f9da47dcd275dcdf4c0d7cb037">
+              const <a href="structstruct__0811F730.html" class="m-doc">struct_<wbr />0811F730</a> <a href="#ad6eee8f9da47dcd275dcdf4c0d7cb037" class="m-doc-self">gUnk_0811F730</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4d1d5fe4e8dda73c0a5e1a1652ef55a">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ac4d1d5fe4e8dda73c0a5e1a1652ef55a" class="m-doc-self">gLockedDoorInteractDirections</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/script.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>script.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a61f165f011d4f8c3cd6e0dd49b259c54">
+              using <a href="#a61f165f011d4f8c3cd6e0dd49b259c54" class="m-doc-self">ScriptCommand</a> = void(*)(Entity*, ScriptExecutionContext*)
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a549c3341c88696627262d96d8535f218">
+              <span class="m-doc-wrap-bumper">void <a href="#a549c3341c88696627262d96d8535f218" class="m-doc-self">InitScriptExecutionContext</a>(</span><span class="m-doc-wrap"><a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context,
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a>* script)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a80a10b396812692224d221dd21985970">
+              <span class="m-doc-wrap-bumper">void <a href="#a80a10b396812692224d221dd21985970" class="m-doc-self">sub_0807DE80</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13d2473bf6652c2c24bdb30b8c732ab1">
+              <span class="m-doc-wrap-bumper">void <a href="#a13d2473bf6652c2c24bdb30b8c732ab1" class="m-doc-self">DisablePauseMenu</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a964814f608d20f7e8c6becf6e70fc5a0">
+              <span class="m-doc-wrap-bumper">void <a href="#a964814f608d20f7e8c6becf6e70fc5a0" class="m-doc-self">ScriptCommandNop</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10df577d3818e14fa2334545a2a3721a">
+              <span class="m-doc-wrap-bumper">void <a href="#a10df577d3818e14fa2334545a2a3721a" class="m-doc-self">ScriptCommand_BeginBlock</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeef97da15d63732571db07f85e90170a">
+              <span class="m-doc-wrap-bumper">void <a href="#aeef97da15d63732571db07f85e90170a" class="m-doc-self">ScriptCommand_EndBlock</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0f1331938eed0bfedb59f1f7af88917e">
+              <span class="m-doc-wrap-bumper">void <a href="#a0f1331938eed0bfedb59f1f7af88917e" class="m-doc-self">ScriptCommand_Jump</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a37ed402a836f6ffabd90958c685c8b1c">
+              <span class="m-doc-wrap-bumper">void <a href="#a37ed402a836f6ffabd90958c685c8b1c" class="m-doc-self">ScriptCommand_JumpIf</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af0ef9aa8d9fc66ff00529f3a976e072e">
+              <span class="m-doc-wrap-bumper">void <a href="#af0ef9aa8d9fc66ff00529f3a976e072e" class="m-doc-self">ScriptCommand_JumpIfNot</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aab31051aa175cc5ac7d4384bb5d2023f">
+              <span class="m-doc-wrap-bumper">void <a href="#aab31051aa175cc5ac7d4384bb5d2023f" class="m-doc-self">ScriptCommand_JumpTable</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c803fdfdb1880363e81f7bc953cd14c">
+              <span class="m-doc-wrap-bumper">void <a href="#a8c803fdfdb1880363e81f7bc953cd14c" class="m-doc-self">ScriptCommand_JumpAbsolute</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb9900a9630ae5615ecabb9b862ceb2c">
+              <span class="m-doc-wrap-bumper">void <a href="#adb9900a9630ae5615ecabb9b862ceb2c" class="m-doc-self">ScriptCommand_JumpAbsoluteIf</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a99040943a48798e395766bc18ba948d4">
+              <span class="m-doc-wrap-bumper">void <a href="#a99040943a48798e395766bc18ba948d4" class="m-doc-self">ScriptCommand_JumpAbsoluteIfNot</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9637397824ac6a995f01b434fdedcf4">
+              <span class="m-doc-wrap-bumper">void <a href="#ab9637397824ac6a995f01b434fdedcf4" class="m-doc-self">ScriptCommand_JumpAbsoluteTable</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a890a0a60968fb6b475d1028a9d86c0d7">
+              <span class="m-doc-wrap-bumper">void <a href="#a890a0a60968fb6b475d1028a9d86c0d7" class="m-doc-self">ScriptCommand_Call</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="add0c2ac70660eb2bf18849a42c411ef3">
+              <span class="m-doc-wrap-bumper">void <a href="#add0c2ac70660eb2bf18849a42c411ef3" class="m-doc-self">ScriptCommand_CallWithArg</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17bebee2a9aaf6bf95ac1fa3fde10832">
+              <span class="m-doc-wrap-bumper">void <a href="#a17bebee2a9aaf6bf95ac1fa3fde10832" class="m-doc-self">ScriptCommand_LoadRoomEntityList</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aab60ea95b97cf5d8362df7c09d187994">
+              <span class="m-doc-wrap-bumper">void <a href="#aab60ea95b97cf5d8362df7c09d187994" class="m-doc-self">ScriptCommand_CheckSyncFlagAndClear</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a97a1cf07d1e745e1e3defdb1e51227c8">
+              <span class="m-doc-wrap-bumper">void <a href="#a97a1cf07d1e745e1e3defdb1e51227c8" class="m-doc-self">ScriptCommand_CheckInventory1</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6f9edcb2243e3f0c087d13b7d792a715">
+              <span class="m-doc-wrap-bumper">void <a href="#a6f9edcb2243e3f0c087d13b7d792a715" class="m-doc-self">ScriptCommand_CheckInventory2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a88349754de1f360388a94c608f46b39f">
+              <span class="m-doc-wrap-bumper">void <a href="#a88349754de1f360388a94c608f46b39f" class="m-doc-self">ScriptCommand_CheckLocalFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac087e7e629403359e71ee51f264e24c2">
+              <span class="m-doc-wrap-bumper">void <a href="#ac087e7e629403359e71ee51f264e24c2" class="m-doc-self">ScriptCommand_CheckLocalFlagByBank</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0ab6d9d6a85dcefc649d3770083f978a">
+              <span class="m-doc-wrap-bumper">void <a href="#a0ab6d9d6a85dcefc649d3770083f978a" class="m-doc-self">ScriptCommand_CheckGlobalFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ecafef61f2a4c47102cbf5c52f39424">
+              <span class="m-doc-wrap-bumper">void <a href="#a8ecafef61f2a4c47102cbf5c52f39424" class="m-doc-self">ScriptCommand_CheckRoomFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a254b9707288597c4852c7bb488035d0b">
+              <span class="m-doc-wrap-bumper">void <a href="#a254b9707288597c4852c7bb488035d0b" class="m-doc-self">ScriptCommand_CheckPlayerInRegion</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a55d27057ed725ba53cb267ea3d90b236">
+              <span class="m-doc-wrap-bumper">void <a href="#a55d27057ed725ba53cb267ea3d90b236" class="m-doc-self">ScriptCommand_CheckPlayerInRegion2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adad6334b1dd6504e1b8b77aaffbd3fda">
+              <span class="m-doc-wrap-bumper">void <a href="#adad6334b1dd6504e1b8b77aaffbd3fda" class="m-doc-self">ScriptCommand_CheckEntityInteractType</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a51fab87e43f1c89f74fd12463d47afde">
+              <span class="m-doc-wrap-bumper">void <a href="#a51fab87e43f1c89f74fd12463d47afde" class="m-doc-self">ScriptCommand_FacePlayerAndCheckDist</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac6168f0d00c8b4696b7ce064c6fea060">
+              <span class="m-doc-wrap-bumper">void <a href="#ac6168f0d00c8b4696b7ce064c6fea060" class="m-doc-self">ScriptCommand_HasRupees</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a07dc07da5bc668ce60acc0fd1bb53f0b">
+              <span class="m-doc-wrap-bumper">void <a href="#a07dc07da5bc668ce60acc0fd1bb53f0b" class="m-doc-self">ScriptCommand_HasShells</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adf2d5354f24c53c67cb32f0002b190f6">
+              <span class="m-doc-wrap-bumper">void <a href="#adf2d5354f24c53c67cb32f0002b190f6" class="m-doc-self">ScriptCommand_CheckTextboxResult</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e293a4551f4487fc2f9c97a5907fc5f">
+              <span class="m-doc-wrap-bumper">void <a href="#a6e293a4551f4487fc2f9c97a5907fc5f" class="m-doc-self">ScriptCommand_CheckKinstoneFused</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa7d1f8e09b3baf60f92f4c10ea3d01df">
+              <span class="m-doc-wrap-bumper">void <a href="#aa7d1f8e09b3baf60f92f4c10ea3d01df" class="m-doc-self">ScriptCommand_BuyItem</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05d8e1e9f4f6ae07bc17128bd40e1ea3">
+              <span class="m-doc-wrap-bumper">void <a href="#a05d8e1e9f4f6ae07bc17128bd40e1ea3" class="m-doc-self">ScriptCommand_CheckBottleContaining</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1edb635a7450bcf04628b52f9cc05eb8">
+              <span class="m-doc-wrap-bumper">void <a href="#a1edb635a7450bcf04628b52f9cc05eb8" class="m-doc-self">ScriptCommand_HasRoomItemForSale</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aebeab483e706c1cbe2cd7381212fce8d">
+              <span class="m-doc-wrap-bumper">void <a href="#aebeab483e706c1cbe2cd7381212fce8d" class="m-doc-self">ScriptCommand_VariableBitSet</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b00f003db3bb385c6591c76b274bb7d">
+              <span class="m-doc-wrap-bumper">void <a href="#a1b00f003db3bb385c6591c76b274bb7d" class="m-doc-self">ScriptCommand_VariableOnlyBitSet</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3b94da83708daeccf376d17ee788589b">
+              <span class="m-doc-wrap-bumper">void <a href="#a3b94da83708daeccf376d17ee788589b" class="m-doc-self">ScriptCommand_VariableEqual</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7762b84c0807c15d8cf5e39d922cbb69">
+              <span class="m-doc-wrap-bumper">void <a href="#a7762b84c0807c15d8cf5e39d922cbb69" class="m-doc-self">ScriptCommand_CheckPlayerFlags</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aedd496182e2808c8288e16cdc69e4d96">
+              <span class="m-doc-wrap-bumper">void <a href="#aedd496182e2808c8288e16cdc69e4d96" class="m-doc-self">ScriptCommand_CheckPlayerMinish</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff9775615d7fa9864ec6dbf9c72fbb84">
+              <span class="m-doc-wrap-bumper">void <a href="#aff9775615d7fa9864ec6dbf9c72fbb84" class="m-doc-self">ScriptCommand_EntityHasHeight</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1e190a75edc3afe11e4ac4f46250d3b">
+              <span class="m-doc-wrap-bumper">void <a href="#ab1e190a75edc3afe11e4ac4f46250d3b" class="m-doc-self">ScriptCommand_ComparePlayerAction</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c6d635d0a16cfefe9729e926e499f90">
+              <span class="m-doc-wrap-bumper">void <a href="#a3c6d635d0a16cfefe9729e926e499f90" class="m-doc-self">ScriptCommand_ComparePlayerAnimationState</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1883ee8e63d441d6ecb96c6a73002ca0">
+              <span class="m-doc-wrap-bumper">void <a href="#a1883ee8e63d441d6ecb96c6a73002ca0" class="m-doc-self">ScriptCommand_SetSyncFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4462ed9db90dc73a3f14c9f165021052">
+              <span class="m-doc-wrap-bumper">void <a href="#a4462ed9db90dc73a3f14c9f165021052" class="m-doc-self">ScriptCommand_ClearSyncFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c7742b70339797b89eb00b2dee6462a">
+              <span class="m-doc-wrap-bumper">void <a href="#a6c7742b70339797b89eb00b2dee6462a" class="m-doc-self">ScriptCommand_SetLocalFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a65a5f3f34afb8d1f28e9d4a4e5410922">
+              <span class="m-doc-wrap-bumper">void <a href="#a65a5f3f34afb8d1f28e9d4a4e5410922" class="m-doc-self">ScriptCommand_SetLocalFlagByBank</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae740354374d0050ccd204f066aa528ac">
+              <span class="m-doc-wrap-bumper">void <a href="#ae740354374d0050ccd204f066aa528ac" class="m-doc-self">ScriptCommand_ClearLocalFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aefa78234aa16e50ed395d70b6a3ad40f">
+              <span class="m-doc-wrap-bumper">void <a href="#aefa78234aa16e50ed395d70b6a3ad40f" class="m-doc-self">ScriptCommand_SetGlobalFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd1fa53b86e3bb9d490cb5be42a7dd38">
+              <span class="m-doc-wrap-bumper">void <a href="#abd1fa53b86e3bb9d490cb5be42a7dd38" class="m-doc-self">ScriptCommand_ClearGlobalFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b21a7775c75e27d467f85caf985ccb3">
+              <span class="m-doc-wrap-bumper">void <a href="#a1b21a7775c75e27d467f85caf985ccb3" class="m-doc-self">ScriptCommand_SetRoomFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a98a8d1f4bb00ab793786db000d3a4600">
+              <span class="m-doc-wrap-bumper">void <a href="#a98a8d1f4bb00ab793786db000d3a4600" class="m-doc-self">ScriptCommand_ClearRoomFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7dafc33dcc2c7d78e2ce5a2c454f64c">
+              <span class="m-doc-wrap-bumper">void <a href="#ab7dafc33dcc2c7d78e2ce5a2c454f64c" class="m-doc-self">ScriptCommand_Wait</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abdbb020eebb7a696422316960f80f9e9">
+              <span class="m-doc-wrap-bumper">void <a href="#abdbb020eebb7a696422316960f80f9e9" class="m-doc-self">ScriptCommand_WaitForSyncFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a55b4b6df9e97a8c9b102d6b3ce85d271">
+              <span class="m-doc-wrap-bumper">void <a href="#a55b4b6df9e97a8c9b102d6b3ce85d271" class="m-doc-self">ScriptCommand_WaitForSyncFlagAndClear</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7af50d451a456ccb477dde1cbf1845e6">
+              <span class="m-doc-wrap-bumper">void <a href="#a7af50d451a456ccb477dde1cbf1845e6" class="m-doc-self">ScriptCommand_WaitPlayerGetItem</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa838cac1bf309d00ad990b9a55fba44">
+              <span class="m-doc-wrap-bumper">void <a href="#afa838cac1bf309d00ad990b9a55fba44" class="m-doc-self">ScriptCommand_WaitForPlayerEnterRoom</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a851bde26115b369260a92ccd837be724">
+              <span class="m-doc-wrap-bumper">void <a href="#a851bde26115b369260a92ccd837be724" class="m-doc-self">ScriptCommand_WaitFor_1</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67ba27bc13d75e8b63bda7330eee80a8">
+              <span class="m-doc-wrap-bumper">void <a href="#a67ba27bc13d75e8b63bda7330eee80a8" class="m-doc-self">ScriptCommand_WaitForFadeFinish</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a225c94896859392014e47e3f0105b183">
+              <span class="m-doc-wrap-bumper">void <a href="#a225c94896859392014e47e3f0105b183" class="m-doc-self">ScriptCommand_SetFadeTime</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a15ecda91603aa720fa3c477b33710f55">
+              <span class="m-doc-wrap-bumper">void <a href="#a15ecda91603aa720fa3c477b33710f55" class="m-doc-self">ScriptCommand_SetFadeMask</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab81b6a70560924bf93d11b1155faf780">
+              <span class="m-doc-wrap-bumper">void <a href="#ab81b6a70560924bf93d11b1155faf780" class="m-doc-self">ScriptCommand_FadeInvert</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac00017aa95f7a7022fd140013121509f">
+              <span class="m-doc-wrap-bumper">void <a href="#ac00017aa95f7a7022fd140013121509f" class="m-doc-self">ScriptCommandNop2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad62d794a28797ab0a0fbee60717f5980">
+              <span class="m-doc-wrap-bumper">void <a href="#ad62d794a28797ab0a0fbee60717f5980" class="m-doc-self">ScriptCommand_SetFade4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c17e298e105ad0d349a1c967e6c9bd4">
+              <span class="m-doc-wrap-bumper">void <a href="#a6c17e298e105ad0d349a1c967e6c9bd4" class="m-doc-self">ScriptCommand_SetFade5</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad64f1941ee5842f662d6331da4e2d8c9">
+              <span class="m-doc-wrap-bumper">void <a href="#ad64f1941ee5842f662d6331da4e2d8c9" class="m-doc-self">ScriptCommand_SetFade6</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2130db9bd7c72ad0e10e3a6013455eb8">
+              <span class="m-doc-wrap-bumper">void <a href="#a2130db9bd7c72ad0e10e3a6013455eb8" class="m-doc-self">ScriptCommand_SetFade7</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a551fbb8b8fb75c1ba9e67285f5b26bf3">
+              <span class="m-doc-wrap-bumper">void <a href="#a551fbb8b8fb75c1ba9e67285f5b26bf3" class="m-doc-self">ScriptCommand_SetFadeIris</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1637461ce377e7a2205dc74174dd8bcf">
+              <span class="m-doc-wrap-bumper">void <a href="#a1637461ce377e7a2205dc74174dd8bcf" class="m-doc-self">ScriptCommand_SetFadeIrisInOut</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a23240e308b8e7aa7e2060b4f0d19befc">
+              <span class="m-doc-wrap-bumper">void <a href="#a23240e308b8e7aa7e2060b4f0d19befc" class="m-doc-self">SetFadeIrisForCameraTarget</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5733253aee5aa948836d1e3b114201b5">
+              <span class="m-doc-wrap-bumper">void <a href="#a5733253aee5aa948836d1e3b114201b5" class="m-doc-self">ScriptCommand_0807E858</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2bacf97f2fd86e15137ac4050c48db3">
+              <span class="m-doc-wrap-bumper">void <a href="#af2bacf97f2fd86e15137ac4050c48db3" class="m-doc-self">ScriptCommand_SetPlayerIdle</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa219deee2187360310d722f22787aadb">
+              <span class="m-doc-wrap-bumper">void <a href="#aa219deee2187360310d722f22787aadb" class="m-doc-self">ScriptCommand_EnablePlayerControl</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a870e5cc27b93cf0214363c7c520491d5">
+              <span class="m-doc-wrap-bumper">void <a href="#a870e5cc27b93cf0214363c7c520491d5" class="m-doc-self">ScriptCommand_DisablePlayerControl</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa471eb7d16b0027a223fbb8ffe458466">
+              <span class="m-doc-wrap-bumper">void <a href="#aa471eb7d16b0027a223fbb8ffe458466" class="m-doc-self">ScriptCommand_SetPlayerAction</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace1ebe3529c0a19a13493f8c9751e5e4">
+              <span class="m-doc-wrap-bumper">void <a href="#ace1ebe3529c0a19a13493f8c9751e5e4" class="m-doc-self">ScriptCommand_StartPlayerScript</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae95b74ab2e075b82bbf1cec51bde35d6">
+              <span class="m-doc-wrap-bumper">void <a href="#ae95b74ab2e075b82bbf1cec51bde35d6" class="m-doc-self">ScriptCommand_SetPlayerAnimation</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e61f926df74935126a5abdf324921bc">
+              <span class="m-doc-wrap-bumper">void <a href="#a1e61f926df74935126a5abdf324921bc" class="m-doc-self">ScriptCommand_0807E8E4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57cca7f030b08104daddf620b1b52dc1">
+              <span class="m-doc-wrap-bumper">void <a href="#a57cca7f030b08104daddf620b1b52dc1" class="m-doc-self">ScriptCommand_SetAction</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a878fc39acb2eacb9212e27f63f3822dc">
+              <span class="m-doc-wrap-bumper">void <a href="#a878fc39acb2eacb9212e27f63f3822dc" class="m-doc-self">ScriptCommand_SetIntVariable</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae99ce581d049dd2552590ac9e016352d">
+              <span class="m-doc-wrap-bumper">void <a href="#ae99ce581d049dd2552590ac9e016352d" class="m-doc-self">ScriptCommand_SetVariableToFrame</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa32170c51f9f12c3466b52c4fe24cb2">
+              <span class="m-doc-wrap-bumper">void <a href="#afa32170c51f9f12c3466b52c4fe24cb2" class="m-doc-self">ScriptCommand_SetAnimation</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1509dc20debfa5973d521bef7749710">
+              <span class="m-doc-wrap-bumper">void <a href="#ac1509dc20debfa5973d521bef7749710" class="m-doc-self">ScriptCommand_TriggerInteract</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a760690d1c868d83781529890db92341f">
+              <span class="m-doc-wrap-bumper">void <a href="#a760690d1c868d83781529890db92341f" class="m-doc-self">ScriptCommand_0807E974</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83fe50c0c11185e178f8191a52e84044">
+              <span class="m-doc-wrap-bumper">void <a href="#a83fe50c0c11185e178f8191a52e84044" class="m-doc-self">ScriptCommand_AddInteractableWhenBigObject</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf01427ea349419f99a1d258cc9dab3b">
+              <span class="m-doc-wrap-bumper">void <a href="#abf01427ea349419f99a1d258cc9dab3b" class="m-doc-self">ScriptCommand_RemoveInteractableObject</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f448f0d5241e51b9e3648d34b501854">
+              <span class="m-doc-wrap-bumper">void <a href="#a3f448f0d5241e51b9e3648d34b501854" class="m-doc-self">ScriptCommand_AddInteractableWhenBigFuser</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1d09ce795235a646f393bc836940f5c">
+              <span class="m-doc-wrap-bumper">void <a href="#ac1d09ce795235a646f393bc836940f5c" class="m-doc-self">ScriptCommand_UpdateFusion</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9896586a8d0f39509530cbafd6d0ac05">
+              <span class="m-doc-wrap-bumper">void <a href="#a9896586a8d0f39509530cbafd6d0ac05" class="m-doc-self">ScriptCommand_0807EA4C</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac6f11b6fbae1847b0ab2628b771f2ebe">
+              <span class="m-doc-wrap-bumper">void <a href="#ac6f11b6fbae1847b0ab2628b771f2ebe" class="m-doc-self">ScriptCommand_AddInteractableFuser</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6358c688222c8712223cb35069f86ba0">
+              <span class="m-doc-wrap-bumper">void <a href="#a6358c688222c8712223cb35069f86ba0" class="m-doc-self">ScriptCommand_WaitUntilTextboxCloses</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="addd0d69e58a0a34c1d7b1c058fdb5035">
+              <span class="m-doc-wrap-bumper">void <a href="#addd0d69e58a0a34c1d7b1c058fdb5035" class="m-doc-self">ScriptCommand_MessageFromTarget</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a445a57c75dc63d0a9efd899c662c50ee">
+              <span class="m-doc-wrap-bumper">void <a href="#a445a57c75dc63d0a9efd899c662c50ee" class="m-doc-self">ScriptCommand_MessageNoOverlap</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af9761e93924d4c850b20177e510f40bc">
+              <span class="m-doc-wrap-bumper">void <a href="#af9761e93924d4c850b20177e510f40bc" class="m-doc-self">ScriptCommand_MessageFromTargetPos</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a42fbe01b9d1dc14481c3b2dccaf12ee6">
+              <span class="m-doc-wrap-bumper">void <a href="#a42fbe01b9d1dc14481c3b2dccaf12ee6" class="m-doc-self">ScriptCommand_MessageFromTargetTable</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae0dade6e0d7e07d24e661140b9ec10be">
+              <span class="m-doc-wrap-bumper">void <a href="#ae0dade6e0d7e07d24e661140b9ec10be" class="m-doc-self">ScriptCommand_MessageNoOverlapVar</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae36018f268c23fc0199f434d044f5247">
+              <span class="m-doc-wrap-bumper">void <a href="#ae36018f268c23fc0199f434d044f5247" class="m-doc-self">ScriptCommand_EzloMessage</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8421a732da52d82b7ce0919376ae5d00">
+              <span class="m-doc-wrap-bumper">void <a href="#a8421a732da52d82b7ce0919376ae5d00" class="m-doc-self">ScriptCommand_0807EB38</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa72e893ffd527cc92fd137ed45d0bc1b">
+              <span class="m-doc-wrap-bumper">void <a href="#aa72e893ffd527cc92fd137ed45d0bc1b" class="m-doc-self">ScriptCommand_SetAnimationState</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36b915dd180d63eb8091efda11b9b3b0">
+              <span class="m-doc-wrap-bumper">void <a href="#a36b915dd180d63eb8091efda11b9b3b0" class="m-doc-self">ScriptCommand_0807EB4C</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2101777c632dc935b9950b2cf0de294a">
+              <span class="m-doc-wrap-bumper">void <a href="#a2101777c632dc935b9950b2cf0de294a" class="m-doc-self">ScriptCommand_FacePlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa81f90ecdde3e448f5bd1c487e97511e">
+              <span class="m-doc-wrap-bumper">void <a href="#aa81f90ecdde3e448f5bd1c487e97511e" class="m-doc-self">ScriptCommand_FaceAwayFromPlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa347bf7b1ebde510cf199c8b0129ee3f">
+              <span class="m-doc-wrap-bumper">void <a href="#aa347bf7b1ebde510cf199c8b0129ee3f" class="m-doc-self">ScriptCommand_SetEntityDirection</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa4ad165ff4dbbc26b77e3f2e412405de">
+              <span class="m-doc-wrap-bumper">void <a href="#aa4ad165ff4dbbc26b77e3f2e412405de" class="m-doc-self">ScriptCommand_SetEntityDirectionWithAnimationState</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae50bd02bf261350a50eb95d3940d8799">
+              <span class="m-doc-wrap-bumper">void <a href="#ae50bd02bf261350a50eb95d3940d8799" class="m-doc-self">ScriptCommand_SetEntitySpeed</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e898e07dbcd6d4bf10fac2c86684347">
+              <span class="m-doc-wrap-bumper">void <a href="#a1e898e07dbcd6d4bf10fac2c86684347" class="m-doc-self">ScriptCommand_SetEntityVelocity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9a8d4b292cb6172db94a0f0038be7220">
+              <span class="m-doc-wrap-bumper">void <a href="#a9a8d4b292cb6172db94a0f0038be7220" class="m-doc-self">ScriptCommand_SetEntityPositionRelative</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a99d328eee162f277fd3e6278e21c441b">
+              <span class="m-doc-wrap-bumper">void <a href="#a99d328eee162f277fd3e6278e21c441b" class="m-doc-self">ScriptCommand_OffsetEntityPosition</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad4122185c0f08483063c25f3955193d5">
+              <span class="m-doc-wrap-bumper">void <a href="#ad4122185c0f08483063c25f3955193d5" class="m-doc-self">ScriptCommand_MoveEntityToPlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a899f40e38de60ee4d8c522b4ddabd795">
+              <span class="m-doc-wrap-bumper">void <a href="#a899f40e38de60ee4d8c522b4ddabd795" class="m-doc-self">ScriptCommandNop3</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7eccea6d08d2fbdf891451285ddef48">
+              <span class="m-doc-wrap-bumper">void <a href="#ac7eccea6d08d2fbdf891451285ddef48" class="m-doc-self">ScriptCommand_WalkForward</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6a8d5051a7f14aacf7c02a07a4537193">
+              <span class="m-doc-wrap-bumper">void <a href="#a6a8d5051a7f14aacf7c02a07a4537193" class="m-doc-self">sub_0807EC44</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd1a17f123050e990f757592f540cfc1">
+              <span class="m-doc-wrap-bumper">void <a href="#abd1a17f123050e990f757592f540cfc1" class="m-doc-self">ScriptCommand_WalkNorth</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d9e6086fbcbb60a82483ec07b5cd228">
+              <span class="m-doc-wrap-bumper">void <a href="#a7d9e6086fbcbb60a82483ec07b5cd228" class="m-doc-self">ScriptCommand_WalkEast</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c79a206a39496af932587cdbc23d4c1">
+              <span class="m-doc-wrap-bumper">void <a href="#a1c79a206a39496af932587cdbc23d4c1" class="m-doc-self">ScriptCommand_WalkSouth</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae387c8373960d13568676266079b2aa1">
+              <span class="m-doc-wrap-bumper">void <a href="#ae387c8373960d13568676266079b2aa1" class="m-doc-self">ScriptCommand_WalkWest</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9899ebdcfd4509e63c866983e1a0cce2">
+              <span class="m-doc-wrap-bumper">void <a href="#a9899ebdcfd4509e63c866983e1a0cce2" class="m-doc-self">ScriptCommand_0807ED24</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4ec6b000c39df5c1f70452aae9b50e2a">
+              <span class="m-doc-wrap-bumper">void <a href="#a4ec6b000c39df5c1f70452aae9b50e2a" class="m-doc-self">ScriptCommand_MoveTo</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c7237094bc06221a294c8b8da646245">
+              <span class="m-doc-wrap-bumper">void <a href="#a4c7237094bc06221a294c8b8da646245" class="m-doc-self">ScriptCommand_LookAt</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0457f4b0f0d89d25da9b3a6501b07f4b">
+              <span class="m-doc-wrap-bumper">void <a href="#a0457f4b0f0d89d25da9b3a6501b07f4b" class="m-doc-self">ScriptCommand_MoveTowardsTarget</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a023bae68470e7edf0bdbdb7cbd448830">
+              <span class="m-doc-wrap-bumper">void <a href="#a023bae68470e7edf0bdbdb7cbd448830" class="m-doc-self">ScriptCommand_MoveToPlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d5646ef1b98395f32c11e36a603e186">
+              <span class="m-doc-wrap-bumper">void <a href="#a9d5646ef1b98395f32c11e36a603e186" class="m-doc-self">ScriptCommand_MoveToOffset</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d9128bdfc2494091874fe6f06983642">
+              <span class="m-doc-wrap-bumper">void <a href="#a1d9128bdfc2494091874fe6f06983642" class="m-doc-self">ScriptCommand_0807EF3C</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a038bab3480e91cfeafe719f5111f1113">
+              <span class="m-doc-wrap-bumper">void <a href="#a038bab3480e91cfeafe719f5111f1113" class="m-doc-self">ScriptCommand_DoPostScriptAction</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a818d7c2c8b3c002ba78e1577ba24dea0">
+              <span class="m-doc-wrap-bumper">void <a href="#a818d7c2c8b3c002ba78e1577ba24dea0" class="m-doc-self">ScriptCommand_DoPostScriptAction2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7dd161ff49a75226f825bfad987723f6">
+              <span class="m-doc-wrap-bumper">void <a href="#a7dd161ff49a75226f825bfad987723f6" class="m-doc-self">ScriptCommand_PlaySound</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38732645a23f0643667cf231444317c8">
+              <span class="m-doc-wrap-bumper">void <a href="#a38732645a23f0643667cf231444317c8" class="m-doc-self">ScriptCommand_PlayBgm</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10c15b493994d0d89c7946498df49cfe">
+              <span class="m-doc-wrap-bumper">void <a href="#a10c15b493994d0d89c7946498df49cfe" class="m-doc-self">ScriptCommand_SoundReq</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e04e6032b61ba7804b3b3395cd931bb">
+              <span class="m-doc-wrap-bumper">void <a href="#a4e04e6032b61ba7804b3b3395cd931bb" class="m-doc-self">ScriptCommand_StopBgm</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7a1a2e3a6b8048db9b2f316dec53d962">
+              <span class="m-doc-wrap-bumper">void <a href="#a7a1a2e3a6b8048db9b2f316dec53d962" class="m-doc-self">ScriptCommand_ModRupees</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a04cd4737ccbb92861d7d1d158ca816">
+              <span class="m-doc-wrap-bumper">void <a href="#a3a04cd4737ccbb92861d7d1d158ca816" class="m-doc-self">ScriptCommand_ModHealth</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6d0fd1839eb6c1987347cc32668009df">
+              <span class="m-doc-wrap-bumper">void <a href="#a6d0fd1839eb6c1987347cc32668009df" class="m-doc-self">ScriptCommand_IncreaseMaxHealth</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c5abb1443dd04ab2d1933e17e2cc000">
+              <span class="m-doc-wrap-bumper">void <a href="#a1c5abb1443dd04ab2d1933e17e2cc000" class="m-doc-self">ScriptCommand_GivePlayerItem</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a03fc88a0fc18d9ac5781391b4f78b11b">
+              <span class="m-doc-wrap-bumper">void <a href="#a03fc88a0fc18d9ac5781391b4f78b11b" class="m-doc-self">ScriptCommand_GiveKinstone</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2edc3c73519dc852d72899b4ef05e177">
+              <span class="m-doc-wrap-bumper">void <a href="#a2edc3c73519dc852d72899b4ef05e177" class="m-doc-self">ScriptCommand_GetInventoryValue</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36f61bf65bd9ff229510cd2c79cc2ba9">
+              <span class="m-doc-wrap-bumper">void <a href="#a36f61bf65bd9ff229510cd2c79cc2ba9" class="m-doc-self">ScriptCommand_SetInventoryValue</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d292e46303dec530fa4fd3df85c3dd4">
+              <span class="m-doc-wrap-bumper">void <a href="#a9d292e46303dec530fa4fd3df85c3dd4" class="m-doc-self">ScriptCommand_InitItemGetSequence</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf0180acfb184075471eea72066fb257">
+              <span class="m-doc-wrap-bumper">void <a href="#abf0180acfb184075471eea72066fb257" class="m-doc-self">ScriptCommand_CameraTargetEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7abd615b253286cb5567c314e40e613b">
+              <span class="m-doc-wrap-bumper">void <a href="#a7abd615b253286cb5567c314e40e613b" class="m-doc-self">ScriptCommand_CameraTargetPlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abc7733da0f7c9c548cfa41d928e64ec9">
+              <span class="m-doc-wrap-bumper">void <a href="#abc7733da0f7c9c548cfa41d928e64ec9" class="m-doc-self">ScriptCommand_SetScrollSpeed</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abec0f02a57826c3ba79ab2a5290de416">
+              <span class="m-doc-wrap-bumper">void <a href="#abec0f02a57826c3ba79ab2a5290de416" class="m-doc-self">ScriptCommand_0807F0C8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89094aaa5c43073257608ca886b2386e">
+              <span class="m-doc-wrap-bumper">void <a href="#a89094aaa5c43073257608ca886b2386e" class="m-doc-self">InitScriptData</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a52a0e01a414eaddac3bc042c7cb913f9">
+              <span class="m-doc-wrap-bumper">auto <a href="#a52a0e01a414eaddac3bc042c7cb913f9" class="m-doc-self">CreateScriptExecutionContext</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac321944f95babd39e3fca610ce147770">
+              <span class="m-doc-wrap-bumper">void <a href="#ac321944f95babd39e3fca610ce147770" class="m-doc-self">DestroyScriptExecutionContext</a>(</span><span class="m-doc-wrap"><a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8be7724c25539e7904a6b2d9034a114f">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8be7724c25539e7904a6b2d9034a114f" class="m-doc-self">StartCutscene</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a>* script) -&gt; <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf5c763a32ed5a5415cb8076ce02a260">
+              <span class="m-doc-wrap-bumper">void <a href="#aaf5c763a32ed5a5415cb8076ce02a260" class="m-doc-self">InitScriptForEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context,
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a>* script)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d77c7c29af5845549eda594594e72bd">
+              <span class="m-doc-wrap-bumper">void <a href="#a2d77c7c29af5845549eda594594e72bd" class="m-doc-self">UnloadCutsceneData</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41574d509f554052ec5f856875243290">
+              <span class="m-doc-wrap-bumper">void <a href="#a41574d509f554052ec5f856875243290" class="m-doc-self">StartPlayerScript</a>(</span><span class="m-doc-wrap"><a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a>* script)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22cd66cf4c20470c337a24365142510a">
+              <span class="m-doc-wrap-bumper">auto <a href="#a22cd66cf4c20470c337a24365142510a" class="m-doc-self">StartCutscene2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a>* script) -&gt; <a href="defines_8h.html#addf5ec070e9499d36b7f2009ce736076" class="m-doc">UNUSED</a> <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a76ca89762e4eb71f6cb35944bf7a3086">
+              <span class="m-doc-wrap-bumper">void <a href="#a76ca89762e4eb71f6cb35944bf7a3086" class="m-doc-self">HandlePostScriptActions</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e2da97795eca48b7d0830c27e069d37">
+              <span class="m-doc-wrap-bumper">void <a href="#a9e2da97795eca48b7d0830c27e069d37" class="m-doc-self">InitScriptForNPC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab938bc56269269470025216c52801876">
+              <span class="m-doc-wrap-bumper">void <a href="#ab938bc56269269470025216c52801876" class="m-doc-self">sub_0807DD64</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ed73ad9cf46fa44059652b2609159a1">
+              <span class="m-doc-wrap-bumper">void <a href="#a1ed73ad9cf46fa44059652b2609159a1" class="m-doc-self">sub_0807DD80</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a>* script)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aabb2a92c483415af79f55c040b45648c">
+              <span class="m-doc-wrap-bumper">void <a href="#aabb2a92c483415af79f55c040b45648c" class="m-doc-self">ExecuteScriptAndHandleAnimation</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              void(*)(<a href="structEntity.html" class="m-doc">Entity</a>*, <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>*) postScriptCallback)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ef6da3bb8f1f3dc495bedb52171b55d">
+              <span class="m-doc-wrap-bumper">void <a href="#a8ef6da3bb8f1f3dc495bedb52171b55d" class="m-doc-self">ExecuteScriptForEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              void(*)(<a href="structEntity.html" class="m-doc">Entity</a>*, <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>*) postScriptCallback)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a483baba62666a46cc22c5638983417a0">
+              <span class="m-doc-wrap-bumper">void <a href="#a483baba62666a46cc22c5638983417a0" class="m-doc-self">HandleEntity0x82Actions</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aed934e019521dc5e1dda7d5a3015e535">
+              <span class="m-doc-wrap-bumper">void <a href="#aed934e019521dc5e1dda7d5a3015e535" class="m-doc-self">LookAt</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> x,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0e6998526a98abbaeb9b8fde01e532a8">
+              <span class="m-doc-wrap-bumper">void <a href="#a0e6998526a98abbaeb9b8fde01e532a8" class="m-doc-self">DisablePauseMenuAndPutAwayItems</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afd164679bc348aef6d9b7d03bfdf0cfe">
+              <span class="m-doc-wrap-bumper">void <a href="#afd164679bc348aef6d9b7d03bfdf0cfe" class="m-doc-self">EnablePauseMenu</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f5853fdb44d86de82ef363dad7d873d">
+              <span class="m-doc-wrap-bumper">void <a href="#a3f5853fdb44d86de82ef363dad7d873d" class="m-doc-self">ExecuteScript</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abfd2867f3f449d37aa62c85c5539b9d9">
+              <span class="m-doc-wrap-bumper">void <a href="#abfd2867f3f449d37aa62c85c5539b9d9" class="m-doc-self">CheckAnyKeyPressed</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a28e85333e4387aaa7266dce0723e0982">
+              <span class="m-doc-wrap-bumper">void <a href="#a28e85333e4387aaa7266dce0723e0982" class="m-doc-self">GetRandomInt</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10ae6a9d4009d861cbe549584072bdf9">
+              <span class="m-doc-wrap-bumper">void <a href="#a10ae6a9d4009d861cbe549584072bdf9" class="m-doc-self">sub_0807F100</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3364b0f677833b7ae068009514a98776">
+              <span class="m-doc-wrap-bumper">void <a href="#a3364b0f677833b7ae068009514a98776" class="m-doc-self">sub_0807F128</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a06da864be1a1c3722dcfe6cecb6df35c">
+              <span class="m-doc-wrap-bumper">void <a href="#a06da864be1a1c3722dcfe6cecb6df35c" class="m-doc-self">SetCollisionLayer1</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5baaf7118b295da8dfeb8b7ed64ee113">
+              <span class="m-doc-wrap-bumper">void <a href="#a5baaf7118b295da8dfeb8b7ed64ee113" class="m-doc-self">SetPlayerCollisionLayer1</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a693370ac1b46bf6b90b25fc55d653ad0">
+              <span class="m-doc-wrap-bumper">void <a href="#a693370ac1b46bf6b90b25fc55d653ad0" class="m-doc-self">SetCollisionLayer2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01c8707490c6145771e38813593467e7">
+              <span class="m-doc-wrap-bumper">void <a href="#a01c8707490c6145771e38813593467e7" class="m-doc-self">sub_0807F190</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad4400c08544b87f4e56392c510178c34">
+              <span class="m-doc-wrap-bumper">void <a href="#ad4400c08544b87f4e56392c510178c34" class="m-doc-self">sub_0807F1A0</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1a39b3d8c3e1fbd86adbd03e4471685">
+              <span class="m-doc-wrap-bumper">void <a href="#ab1a39b3d8c3e1fbd86adbd03e4471685" class="m-doc-self">sub_0807F1C4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7c34d2cf7d6d111a07e4f6c354ad2526">
+              <span class="m-doc-wrap-bumper">void <a href="#a7c34d2cf7d6d111a07e4f6c354ad2526" class="m-doc-self">sub_0807F1E8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6407e4bf78476dfbaa5bff4eda29d3b9">
+              <span class="m-doc-wrap-bumper">void <a href="#a6407e4bf78476dfbaa5bff4eda29d3b9" class="m-doc-self">sub_0807F210</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a373266f113ef980fb294c06c45253c81">
+              <span class="m-doc-wrap-bumper">void <a href="#a373266f113ef980fb294c06c45253c81" class="m-doc-self">SetPlayerAnimation2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aad3842674b68f0e09a796db735c17cad">
+              <span class="m-doc-wrap-bumper">void <a href="#aad3842674b68f0e09a796db735c17cad" class="m-doc-self">EquipItem</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a45440344a5e10fc628d2bec5127d67ce">
+              <span class="m-doc-wrap-bumper">void <a href="#a45440344a5e10fc628d2bec5127d67ce" class="m-doc-self">SetPlayerMacro</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83a80e0c4c9d99eb183234146c64bbaf">
+              <span class="m-doc-wrap-bumper">void <a href="#a83a80e0c4c9d99eb183234146c64bbaf" class="m-doc-self">WaitForPlayerMacro</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a90f4ee7da232102468e424af205cbd9b">
+              <span class="m-doc-wrap-bumper">void <a href="#a90f4ee7da232102468e424af205cbd9b" class="m-doc-self">WaitForAnimDone</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f3f6e6a81faa978df8709c44e6b6c41">
+              <span class="m-doc-wrap-bumper">void <a href="#a2f3f6e6a81faa978df8709c44e6b6c41" class="m-doc-self">WaitForPlayerAnim</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a55b97efa164b200323906d7637cc0dc5">
+              <span class="m-doc-wrap-bumper">void <a href="#a55b97efa164b200323906d7637cc0dc5" class="m-doc-self">DeleteHitbox</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1779672202527f2bc1cfbd456b95a0bc">
+              <span class="m-doc-wrap-bumper">void <a href="#a1779672202527f2bc1cfbd456b95a0bc" class="m-doc-self">SetPriorityMessage</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7df1f4b8aa94f662d6bd035a5f12d2b6">
+              <span class="m-doc-wrap-bumper">void <a href="#a7df1f4b8aa94f662d6bd035a5f12d2b6" class="m-doc-self">SetPriorityPlayerEvent</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e41e39ba405fa160f362e6238e69589">
+              <span class="m-doc-wrap-bumper">void <a href="#a8e41e39ba405fa160f362e6238e69589" class="m-doc-self">SetPriorityHighest</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83eca6b61923e327c487405b7ae85c37">
+              <span class="m-doc-wrap-bumper">void <a href="#a83eca6b61923e327c487405b7ae85c37" class="m-doc-self">sub_0807F36C</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0e9f345016aff839530ef1ac27c66557">
+              <span class="m-doc-wrap-bumper">void <a href="#a0e9f345016aff839530ef1ac27c66557" class="m-doc-self">sub_0807F3C8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afe766b436c5b6c1938019263496e750f">
+              <span class="m-doc-wrap-bumper">void <a href="#afe766b436c5b6c1938019263496e750f" class="m-doc-self">sub_0807F3D8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04a20388d12a05f6b0133793aff3aca1">
+              <span class="m-doc-wrap-bumper">void <a href="#a04a20388d12a05f6b0133793aff3aca1" class="m-doc-self">CreatePlayerExclamationMark</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7268edf7ddcce62cbd925a41552a90b6">
+              <span class="m-doc-wrap-bumper">void <a href="#a7268edf7ddcce62cbd925a41552a90b6" class="m-doc-self">CreatePlayerQuestionMark</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd14095cb17db9b44a5ef8ffdfbe407b">
+              <span class="m-doc-wrap-bumper">void <a href="#abd14095cb17db9b44a5ef8ffdfbe407b" class="m-doc-self">LoadMenu</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ce8890ff3166b1f9f6ea8bdf77059a9">
+              <span class="m-doc-wrap-bumper">void <a href="#a9ce8890ff3166b1f9f6ea8bdf77059a9" class="m-doc-self">CheckInteractType</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a214d9c6702d4aa74a885a8c856e7de20">
+              <span class="m-doc-wrap-bumper">void <a href="#a214d9c6702d4aa74a885a8c856e7de20" class="m-doc-self">sub_0807F464</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4b4ad607f659d42f80ad0af3edb7a5ba">
+              <span class="m-doc-wrap-bumper">void <a href="#a4b4ad607f659d42f80ad0af3edb7a5ba" class="m-doc-self">sub_0807F4F8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae5354ae2963237fd69d81358af164e0">
+              <span class="m-doc-wrap-bumper">void <a href="#aae5354ae2963237fd69d81358af164e0" class="m-doc-self">ReadPlayerAnimationState</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adacb8cbbcffd7942bf52de140c519e29">
+              <span class="m-doc-wrap-bumper">void <a href="#adacb8cbbcffd7942bf52de140c519e29" class="m-doc-self">WaitForPlayerIdle</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82fbf547f53263eb848e671148128461">
+              <span class="m-doc-wrap-bumper">void <a href="#a82fbf547f53263eb848e671148128461" class="m-doc-self">sub_0807F5B0</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af53c3edd74b633410b61a361eb89b8b2">
+              <span class="m-doc-wrap-bumper">void <a href="#af53c3edd74b633410b61a361eb89b8b2" class="m-doc-self">WaitForCameraTouchRoomBorder</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2f771508f3dec1bcd8c85bd59fbaee4">
+              <span class="m-doc-wrap-bumper">void <a href="#af2f771508f3dec1bcd8c85bd59fbaee4" class="m-doc-self">sub_0807F634</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad528ca92f57896772c4dcbc4a77b480a">
+              <span class="m-doc-wrap-bumper">void <a href="#ad528ca92f57896772c4dcbc4a77b480a" class="m-doc-self">sub_0807F650</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71b81547aa7a43426a83749cd0c05732">
+              <span class="m-doc-wrap-bumper">void <a href="#a71b81547aa7a43426a83749cd0c05732" class="m-doc-self">sub_0807F680</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac6d262bf16dadab82b1453df14c9fff5">
+              <span class="m-doc-wrap-bumper">void <a href="#ac6d262bf16dadab82b1453df14c9fff5" class="m-doc-self">sub_0807F6B4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acb166c0be948499cc8b75383cc38e05f">
+              <span class="m-doc-wrap-bumper">void <a href="#acb166c0be948499cc8b75383cc38e05f" class="m-doc-self">SetPlayerFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afc5bef96ae7def3f669961fb2d5d2412">
+              <span class="m-doc-wrap-bumper">void <a href="#afc5bef96ae7def3f669961fb2d5d2412" class="m-doc-self">ResetPlayerFlag</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70f351fb9497af6367ade2a0f88a37df">
+              <span class="m-doc-wrap-bumper">void <a href="#a70f351fb9497af6367ade2a0f88a37df" class="m-doc-self">ScriptCommand_ShowNPCDialogue</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4588060092d4f6fb9148d0cce1bed6a2">
+              <span class="m-doc-wrap-bumper">void <a href="#a4588060092d4f6fb9148d0cce1bed6a2" class="m-doc-self">sub_0807F714</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6d75940fcd7c2f094d632b34d8993b05">
+              <span class="m-doc-wrap-bumper">void <a href="#a6d75940fcd7c2f094d632b34d8993b05" class="m-doc-self">sub_0807F738</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a821e1497d895c9452a18b77fe7a838d0">
+              <span class="m-doc-wrap-bumper">void <a href="#a821e1497d895c9452a18b77fe7a838d0" class="m-doc-self">SetPlayerPos</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab63f1d5619fa59269a7b642c11363de9">
+              <span class="m-doc-wrap-bumper">void <a href="#ab63f1d5619fa59269a7b642c11363de9" class="m-doc-self">GetConditionSet</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a835c10293c2b0ef66aa9d6e1e0169b08">
+              <span class="m-doc-wrap-bumper">void <a href="#a835c10293c2b0ef66aa9d6e1e0169b08" class="m-doc-self">ScriptCommand_SaleItemConfirmMessage</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e351bdb5c4024161c03b4525e9f341b">
+              <span class="m-doc-wrap-bumper">void <a href="#a9e351bdb5c4024161c03b4525e9f341b" class="m-doc-self">ScriptCommand_CheckShopItemPrice</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aed33adabe32f1499c975d2e3de8cb052">
+              <span class="m-doc-wrap-bumper">void <a href="#aed33adabe32f1499c975d2e3de8cb052" class="m-doc-self">ScriptCommand_BuyShopItem</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a43db9226f924c7e5f76561547e4ccf2f">
+              <span class="m-doc-wrap-bumper">void <a href="#a43db9226f924c7e5f76561547e4ccf2f" class="m-doc-self">ScriptCommand_PlayerDropHeldObject</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8dfa27016197fb60a3fa356563ae2b90">
+              <span class="m-doc-wrap-bumper">void <a href="#a8dfa27016197fb60a3fa356563ae2b90" class="m-doc-self">sub_0807F844</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35f6ae910fe787b6003a057a32310aa2">
+              <span class="m-doc-wrap-bumper">void <a href="#a35f6ae910fe787b6003a057a32310aa2" class="m-doc-self">ScriptCommand_SetMessageValue</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8a30da79e3327044911f747cbbd46507">
+              <span class="m-doc-wrap-bumper">void <a href="#a8a30da79e3327044911f747cbbd46507" class="m-doc-self">CheckEntityOnScreen</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a51f46276f4c85c88c9d0765080d88b34">
+              <span class="m-doc-wrap-bumper">void <a href="#a51f46276f4c85c88c9d0765080d88b34" class="m-doc-self">DoGravity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a403db2e00e5b29579047e9adee4bb139">
+              <span class="m-doc-wrap-bumper">void <a href="#a403db2e00e5b29579047e9adee4bb139" class="m-doc-self">sub_0807F8E8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac694525c1dcba1a349ac97e7280c0473">
+              <span class="m-doc-wrap-bumper">void <a href="#ac694525c1dcba1a349ac97e7280c0473" class="m-doc-self">PutItemAnySlot</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a178aebb51baf0c094f916e728022c09b">
+              <span class="m-doc-wrap-bumper">void <a href="#a178aebb51baf0c094f916e728022c09b" class="m-doc-self">MakeInteractableAsMinish</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a418314f11328ede674cfc3bf5b713b39">
+              <span class="m-doc-wrap-bumper">void <a href="#a418314f11328ede674cfc3bf5b713b39" class="m-doc-self">MakePedestalInteractable</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc5bee5f9b659c26af313c1d716ada88">
+              <span class="m-doc-wrap-bumper">void <a href="#adc5bee5f9b659c26af313c1d716ada88" class="m-doc-self">MakeCheckableObjectInteractable</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a638b82d00ed36723b96e76af4e513ef3">
+              <span class="m-doc-wrap-bumper">void <a href="#a638b82d00ed36723b96e76af4e513ef3" class="m-doc-self">sub_0807F93C</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7c9d38baf38ddaf2cdefae53715e0e24">
+              <span class="m-doc-wrap-bumper">void <a href="#a7c9d38baf38ddaf2cdefae53715e0e24" class="m-doc-self">DeleteThoughtBubble</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac626a7156b56161ccb487b32a118ee25">
+              <span class="m-doc-wrap-bumper">void <a href="#ac626a7156b56161ccb487b32a118ee25" class="m-doc-self">CheckMessageEqual</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae3f924ecedb2ab23cb95554a70bf6771">
+              <span class="m-doc-wrap-bumper">void <a href="#ae3f924ecedb2ab23cb95554a70bf6771" class="m-doc-self">SetEntityHeight</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aecb85de3fd0625db0b597470aa907d00">
+              <span class="m-doc-wrap-bumper">void <a href="#aecb85de3fd0625db0b597470aa907d00" class="m-doc-self">SetSpriteOffset</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32bfa2622cd3afe3fe15481db16584f2">
+              <span class="m-doc-wrap-bumper">void <a href="#a32bfa2622cd3afe3fe15481db16584f2" class="m-doc-self">WaitForPlayerNormal</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6ebc9b4261ddd28ef547c9d9f254120">
+              <span class="m-doc-wrap-bumper">void <a href="#ab6ebc9b4261ddd28ef547c9d9f254120" class="m-doc-self">WaitForPlayerNormalOrTalkEzlo</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2c1a6900d52dbddd69c0c5522606836">
+              <span class="m-doc-wrap-bumper">void <a href="#ae2c1a6900d52dbddd69c0c5522606836" class="m-doc-self">sub_0807FADC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3135849470f74f108bf81cffe506b250">
+              <span class="m-doc-wrap-bumper">void <a href="#a3135849470f74f108bf81cffe506b250" class="m-doc-self">sub_0807FB28</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a638fbd1957684892f3843dfc6afd4312">
+              <span class="m-doc-wrap-bumper">void <a href="#a638fbd1957684892f3843dfc6afd4312" class="m-doc-self">SetPlayerIFrames</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f093b5c5fe5b9cad55f27bee42ce490">
+              <span class="m-doc-wrap-bumper">void <a href="#a3f093b5c5fe5b9cad55f27bee42ce490" class="m-doc-self">DisablePlayerSwimState</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab858d11874ed4a123d4330370121f291">
+              <span class="m-doc-wrap-bumper">void <a href="#ab858d11874ed4a123d4330370121f291" class="m-doc-self">sub_0807FB94</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a24639c383a085913bb67f17ea3c5038c">
+              <span class="m-doc-wrap-bumper">void <a href="#a24639c383a085913bb67f17ea3c5038c" class="m-doc-self">sub_0807FBA0</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a586c89f94ec4b8267e2ac2f82b83d380">
+              <span class="m-doc-wrap-bumper">void <a href="#a586c89f94ec4b8267e2ac2f82b83d380" class="m-doc-self">sub_0807FBB4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4c07de0b6403d880d8f97a7583327db">
+              <span class="m-doc-wrap-bumper">void <a href="#ab4c07de0b6403d880d8f97a7583327db" class="m-doc-self">sub_0807FBC4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5afce9c7739a9fef6331d26317fc4776">
+              <span class="m-doc-wrap-bumper">void <a href="#a5afce9c7739a9fef6331d26317fc4776" class="m-doc-self">sub_0807FBCC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af1e3ed801789941a18df8d3be6d59a09">
+              <span class="m-doc-wrap-bumper">void <a href="#af1e3ed801789941a18df8d3be6d59a09" class="m-doc-self">sub_0807FBD4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab43cf46b638994686eec971a7e034328">
+              <span class="m-doc-wrap-bumper">void <a href="#ab43cf46b638994686eec971a7e034328" class="m-doc-self">sub_0807FBFC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* context)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a9c356072bddcdd2d5888cbc042159881">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a>* <a href="#a9c356072bddcdd2d5888cbc042159881" class="m-doc-self">gUnk_08001A7C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae4830bcf1937f56e428ab83c1b108d87">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ae4830bcf1937f56e428ab83c1b108d87" class="m-doc-self">gUnk_08114F30</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2e4f0d76417d096d4bb95098f8094c1">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ad2e4f0d76417d096d4bb95098f8094c1" class="m-doc-self">gUnk_08114F34</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d30579270127fbd6662ddb53c5209fb">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a0d30579270127fbd6662ddb53c5209fb" class="m-doc-self">gUnk_08016984</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a45d930e8aec8d916975ae36da9c3f36b">
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a> <a href="#a45d930e8aec8d916975ae36da9c3f36b" class="m-doc-self">gPlayerScriptExecutionContext</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a94c0e439daf90e7689c08134e9c41d3b">
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a> <a href="#a94c0e439daf90e7689c08134e9c41d3b" class="m-doc-self">gScriptExecutionContextArray</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afd541817de9dc6681eaaedaddd998501">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#afd541817de9dc6681eaaedaddd998501" class="m-doc-self">gUnk_0811E750</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6d5f7f93c11acedd3691bea8d250346c">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a6d5f7f93c11acedd3691bea8d250346c" class="m-doc-self">gUnk_0811E758</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0ad432667fbb58215a56806d6bb43039">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a0ad432667fbb58215a56806d6bb43039" class="m-doc-self">gUnk_0811E760</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

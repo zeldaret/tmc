@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/pauseMenu.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>pauseMenu.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a3e6993084b147b6de7580a947706b684">
+              <span class="m-doc-wrap-bumper">enum <a href="#a3e6993084b147b6de7580a947706b684" class="m-doc-self">PauseMenuScreen</a> { </span><span class="m-doc-wrap"><a href="#a3e6993084b147b6de7580a947706b684aff505f0747ff0161c91db33a5393d179" class="m-doc">PauseMenuScreen_0</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a16e86dd38dcc35245e06743c815c42b1" class="m-doc">PauseMenuScreen_1</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a94d11ee55b35bd5affe01d5d9c2033e0" class="m-doc">PauseMenuScreen_2</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a994c8f01e4f5c77d6ecaa29373193ce5" class="m-doc">PauseMenuScreen_3</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684afb8ad6717592462c5a7f0d895b6d4821" class="m-doc">PauseMenuScreen_4</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684afa2b10ef1b480326ea2540bef64b7cde" class="m-doc">PauseMenuScreen_5</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684ac4d24bf859f48228124d73cebc183ae6" class="m-doc">PauseMenuScreen_6</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684ad8b5b14ebcd5141df10a87acfbed68e9" class="m-doc">PauseMenuScreen_7</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684afe8c8a68ecd32e51af36a15722935c95" class="m-doc">PauseMenuScreen_8</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a6193940c19ec5eb9930816b9fb7f7fdf" class="m-doc">PauseMenuScreen_9</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684aa848f9c103bb0e9e8e48a24d1af3ceab" class="m-doc">PauseMenuScreen_10</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684af0b66aa8dae258ef092690678ffc876d" class="m-doc">PauseMenuScreen_11</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a1a6aaf3af293572f315f9ef7ea9dd0eb" class="m-doc">PauseMenuScreen_12</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a20199df5a582002dd25eb0d03a9dc2b1" class="m-doc">PauseMenuScreen_13</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a52835e18f81b136b7ff4b5ccf3913b56" class="m-doc">PauseMenuScreen_14</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a82d67c091411673f543cf27a95904322" class="m-doc">PauseMenuScreen_15</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a9789a9278bdcb5fb74927df6a6e8af74" class="m-doc">PauseMenuScreen_16</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a3d076758e225037b111cfc8160458b00" class="m-doc">PauseMenuScreen_17</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a3d7e25116fd48b2ac17b802646499094" class="m-doc">PauseMenuScreen_18</a>,
+              <a href="#a3e6993084b147b6de7580a947706b684a392ece5a5451cef041f894e1046311ab" class="m-doc">PauseMenuScreen_19</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a365e1d508af847341dbea5ece31576ce">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#a365e1d508af847341dbea5ece31576ce" class="m-doc-self">PauseMenu_Variant0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29900238e35d69b7f9300678cde6a5b9">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#a29900238e35d69b7f9300678cde6a5b9" class="m-doc-self">PauseMenu_Variant1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7aeb53a87550cbdcafe6070b532d385c">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#a7aeb53a87550cbdcafe6070b532d385c" class="m-doc-self">PauseMenu_Variant2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada3f4396a993d221a2a4dce274464a74">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#ada3f4396a993d221a2a4dce274464a74" class="m-doc-self">PauseMenu_Variant3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46a892469c59deadb7d2b5f33c5dce44">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#a46a892469c59deadb7d2b5f33c5dce44" class="m-doc-self">PauseMenu_Variant4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a674d46ec3733649150e50a23d6d36a64">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#a674d46ec3733649150e50a23d6d36a64" class="m-doc-self">PauseMenu_Variant5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab268ff42fb7ce5a23f9f776e2d810872">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#ab268ff42fb7ce5a23f9f776e2d810872" class="m-doc-self">PauseMenu_ItemMenu</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a16747b1f60df0be6b0ae0024fe3a2328">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#a16747b1f60df0be6b0ae0024fe3a2328" class="m-doc-self">PauseMenu_ItemMenu_Draw</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad9afd54b71b625f3bed70c55ecd86c10">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#ad9afd54b71b625f3bed70c55ecd86c10" class="m-doc-self">PauseMenu_ItemMenu_Init</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acda4eb73fa40690e5c9d453f452a39ee">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#acda4eb73fa40690e5c9d453f452a39ee" class="m-doc-self">PauseMenu_ItemMenu_Update</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac91cfa968095e4c73305786bc77a4640">
+              <a href="subtask_8h.html#a41045ea01d9ee8754ef2fae411d2e668" class="m-doc">Subtask</a> <a href="#ac91cfa968095e4c73305786bc77a4640" class="m-doc-self">PauseMenu2</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

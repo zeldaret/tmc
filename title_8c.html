@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/title.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>title.c <span class="m-thin">file</span>
+        </h1>
+        <p>Title task.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structIntroState.html" class="m-doc">IntroState</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a0944a4353780132eeab7b06e3e42291d">
+              <span class="m-doc-wrap-bumper">enum <a href="#a0944a4353780132eeab7b06e3e42291d" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#a0944a4353780132eeab7b06e3e42291dac2d8fc23f46a4e72b6f512b5b94ab200" class="m-doc">ADVANCE_NONE</a>,
+              <a href="#a0944a4353780132eeab7b06e3e42291da2d6857ac3a3f21386a30f357200aad5e" class="m-doc">ADVANCE_TIMER_EXPIRED</a>,
+              <a href="#a0944a4353780132eeab7b06e3e42291da978f3b8293fa053b8d3c734d152227fd" class="m-doc">ADVANCE_KEY_PRESSED</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="ad768a5951c288b482e0736ee98e88cbd">
+              <span class="m-doc-wrap-bumper">static void <a href="#ad768a5951c288b482e0736ee98e88cbd" class="m-doc-self">HandleNintendoCapcomLogos</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4729e5cb942a3d3446b5802a890959de">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4729e5cb942a3d3446b5802a890959de" class="m-doc-self">HandleTitlescreen</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad22a587713527bca85d5f5b4654c9a47">
+              <span class="m-doc-wrap-bumper">static void <a href="#ad22a587713527bca85d5f5b4654c9a47" class="m-doc-self">UpdateSwordBgAffineData</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6bd419efa4d918ee0160ac66c5151bc5">
+              <span class="m-doc-wrap-bumper">static void <a href="#a6bd419efa4d918ee0160ac66c5151bc5" class="m-doc-self">ExitTitlescreen</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adfd74a474ce15ee78fa53ee29ec5d6ad">
+              <span class="m-doc-wrap-bumper">static void <a href="#adfd74a474ce15ee78fa53ee29ec5d6ad" class="m-doc-self">HandleJapaneseTitlescreenAnimationIntro</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5a75df251722d77af754be7a8eea4632">
+              <span class="m-doc-wrap-bumper">static void <a href="#a5a75df251722d77af754be7a8eea4632" class="m-doc-self">HandleTitlescreenAnimationIntro</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a47f39a57bfbe5fdf1c11879d1027cf6d">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a47f39a57bfbe5fdf1c11879d1027cf6d" class="m-doc-self">GetAdvanceState</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa811b41567a43e3d00fa69de89faf290">
+              <span class="m-doc-wrap-bumper">static void <a href="#aa811b41567a43e3d00fa69de89faf290" class="m-doc-self">UpdateLightRays</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a426c37a12229ef4ced2619203424e9bb">
+              <span class="m-doc-wrap-bumper">static void <a href="#a426c37a12229ef4ced2619203424e9bb" class="m-doc-self">UpdatePressStartIcon</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a21dc58cb298f2d229f8f148f07609dc9">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a21dc58cb298f2d229f8f148f07609dc9" class="m-doc-self">AdvanceIntroSequence</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> transition) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5acf6fd2b22609d2b382f370c30cc5fa">
+              <span class="m-doc-wrap-bumper">void <a href="#a5acf6fd2b22609d2b382f370c30cc5fa" class="m-doc-self">TitleTask</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Task entrypoint.</dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="adbdac2ba70888e79f0a94ef8d0a9c59a">
+              <a href="structIntroState.html" class="m-doc">IntroState</a> <a href="#adbdac2ba70888e79f0a94ef8d0a9c59a" class="m-doc-self">gIntroState</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afdc146f56aa86037cca68d480a48a25e">
+              static void(*const <a href="#afdc146f56aa86037cca68d480a48a25e" class="m-doc-self">sIntroSequenceHandlers</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a65f044e98da63fcbab251a811e52a4e4">
+              static const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a65f044e98da63fcbab251a811e52a4e4" class="m-doc-self">sLightRaysAlphaBlends</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="add69ae57c8d20a69d8a9827541b8a028">
+              <span class="m-doc-wrap-bumper">#define <a href="#add69ae57c8d20a69d8a9827541b8a028" class="m-doc-self">FLAG_BYTE</a>(</span><span class="m-doc-wrap">bank,
+              flag)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a566de491c8c5d43c52beaa2acc63bef2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a566de491c8c5d43c52beaa2acc63bef2" class="m-doc-self">FLAG_X</a>(</span><span class="m-doc-wrap">flag)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

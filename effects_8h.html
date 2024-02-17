@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/effects.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>effects.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="acd9c2a1cf576f0fd9da232d337d9720c">
+              <span class="m-doc-wrap-bumper">enum <a href="#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc-self">Effect</a> { </span><span class="m-doc-wrap"><a href="#acd9c2a1cf576f0fd9da232d337d9720ca510b277dba8622b470b60ffafc69de27" class="m-doc">FX_FALL_DOWN</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caa02bb79e33fbd5cebd44b07ad7542506" class="m-doc">FX_EXPLOSION</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca70d0585a16d7c31cd98a570e83b8ca03" class="m-doc">FX_DEATH</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cac7795681c020410897f49d9618774b4c" class="m-doc">FX_BUSH</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cac92f1a7d822c3427171812c5047b955b" class="m-doc">FX_ROCK</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca89213776dd01edf33e3efe19e2f1604c" class="m-doc">FX_POT_SHATTER</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca61ed556a9b8c11e7956cff00b69da748" class="m-doc">FX_6</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca76dd1f5b076a86618500ba85a85bc627" class="m-doc">FX_SPARKLE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca80dc79f23be7d404d0642baa32e02668" class="m-doc">FX_8</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caed03cbfb3668842afb3210ae4d6dd7da" class="m-doc">FX_9</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca6e801c2246bf281b908c9ae8b1364612" class="m-doc">FX_A</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca324ed92065901187042178887c47b594" class="m-doc">FX_WATER_SPLASH</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caef111e0d4ef2a8d6d861b39cab8eed04" class="m-doc">FX_LAVA_SPLASH</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cae24852589d0788bc3af8cfb45e2ccd58" class="m-doc">FX_ICE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca5154df22a4e0557b415c210642e9429a" class="m-doc">FX_ROCK_HUGE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca722efa75a2a8d916925a4c59f59916e4" class="m-doc">FX_ROCK_SMALL</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca185cf333d9c2e74d2a9882cb2af866cd" class="m-doc">FX_REFLECT</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca89517a804e34fcfe5090a2335fd3d9e3" class="m-doc">FX_DASH</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca7353afd210002d4a1258c7a5a7cd85ae" class="m-doc">FX_BLUE_SPARKLE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cafac2a3ab157b30bc74cd095913c89c36" class="m-doc">FX_RED_BUSH</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca4941ec503fe9515b3544657d865d7740" class="m-doc">FX_SPARKLE2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cac30241e2ee29adaeee1de275b202ed0d" class="m-doc">FX_ROCK2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caf520e518a0dc079f63b0a498a6052178" class="m-doc">FX_FIRE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca8e46f35095c8e035590caa5d4822f084" class="m-doc">FX_GRASS_CUT</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca1533729bd301f8175e819a0948bd895f" class="m-doc">FX_18</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca78570ff816684d34844126771afca16d" class="m-doc">FX_SWORD_MAGIC</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca65e8bf0ae02ad1737b805b419e6d3170" class="m-doc">FX_LIGHTNING</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca776e8c5730fa4d2caee63a2cbf54d7e8" class="m-doc">FX_LIGHTNING_STRIKE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca196126e238e64ef5bb6d3a9396b834b4" class="m-doc">FX_STARS</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cabd1ff3fd5886c26be88f9b04714f0a65" class="m-doc">FX_STARS_STRIKE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca5e8632a181801ec87cbd87e6fa0b3d4b" class="m-doc">FX_STARS_STRIKE2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca86ec10692da95579304fec69fdb21896" class="m-doc">FX_REFLECT2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caac426158d1ac1eb4c998efd0cb9fa7a2" class="m-doc">FX_RIPPLE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca4ef5d9197fcd0911513f94238d60c2b1" class="m-doc">FX_RIPPLE_LARGE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca575272737f90d6af8a857200a1480147" class="m-doc">FX_BROWN_SMOKE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cadc5e842eb10116525e4e0e74d408614b" class="m-doc">FX_BROWN_SMOKE_LARGE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca72b12a83e5c50e53aebe2475f720af87" class="m-doc">FX_BROWN_SMOKE2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca6b216fa4cc07252ddd0bb8e68d86de93" class="m-doc">FX_SWEAT</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cabed299367dd023dc7df2a7872d82bf1d" class="m-doc">FX_SPARKLE4</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca4f50754fd87c07abed44da1c53c4e664" class="m-doc">FX_27</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cac704d79c623671bdd745cd756b43a0b7" class="m-doc">FX_SLOW_EXPLOSION</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caf26cff73d5c77d835d9bc0477bd5f6bf" class="m-doc">FX_CONFETTI</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca02b1a498b435733f508e9abb841ce2a7" class="m-doc">FX_CONFETTI_LARGE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca3534843a10e217493136a9a09b1ba69f" class="m-doc">FX_GREEN_SPLASH2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca3ca877f67e28932dabed631ed6bad2d1" class="m-doc">FX_REFECT3</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cad1e0f3db057d4ba409a923eddaccad94" class="m-doc">FX_SIGN</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cad009e2bb9e64b8b46516dfc571293052" class="m-doc">FX_SLOW_SMOKE2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cac60010865e9b5199a9a038c5d0b319ac" class="m-doc">FX_SLOW_SMOKE_SMALL</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca3a14f678a85b9efe6a5fab239daf35de" class="m-doc">FX_SPARKLE_SECRET</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca87badcc4057e9c03e19fa7e46b343b67" class="m-doc">FX_MAILBOX_UNUSED</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca64c48333dc9e3445baf2386f4b1d8599" class="m-doc">FX_32</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca79f5d5eb26e673ce61a9bff330f9db93" class="m-doc">FX_33</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca46433633f84899173da42df64f40385c" class="m-doc">FX_34</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caabe48ec27c8f74f5e68e0db38616d686" class="m-doc">FX_BIG_EXPLOSION</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca1c3404d2f6af57190f76b083768c0b4c" class="m-doc">FX_LAVA_SPLASH_HUGE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca302dba8e2fb62bff03a3cd6870aecb62" class="m-doc">FX_GRASS_CUT2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca8535585e4dab656b0d6c30287409c238" class="m-doc">FX_BUSH_CUT2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca58fd70c4b3bb8de641348e2b89c73e5a" class="m-doc">FX_BUSH_CUT3</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca5dce17598d796b31be20c165e8a83464" class="m-doc">FX_EGG</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca543b196c40260b1fb30cd892fc91f7e7" class="m-doc">FX_WOOD</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cad1c457763821635f892a1d3f40241385" class="m-doc">FX_BONE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caa00960c164b6cee7974c7c428aba2e4d" class="m-doc">FX_STARS2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caddb8af725060ba447a4a133907f1ccba" class="m-doc">FX_GRASS_CUT3</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca507d69e86f9e0bd947bc52781f660fba" class="m-doc">FX_GRASS_CUT4</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca00d1c2d4ada7a29a1f56d2c9561362ac" class="m-doc">FX_GRASS_CUT5</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca04944c51734af56380cbba6cb90e6e17" class="m-doc">FX_REFLECT4</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cae40840e58180fc71cd6213b4f2f4c884" class="m-doc">FX_STEAM_EFC</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caafadea4348cc447be02a3f3496184d42" class="m-doc">FX_BIG_EXPLOSION2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cae3d67a26b97b5a8a3edf032600109561" class="m-doc">FX_WHITE_SPLASH</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca5f149f6eb6e3fee516393b1027c570e1" class="m-doc">FX_WHITE_ROCK</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca6ae2c354fddd8bbc0e0b31725aab8368" class="m-doc">FX_GIANT_EXPLOSION</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caf03abc9418c21a76669b6d358a5c2541" class="m-doc">FX_GIANT_EXPLOSION2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca201e39f68c7003be9e0977be9f41c3cc" class="m-doc">FX_GIANT_EXPLOSION3</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca4933153db508f4b7f0475f5db70adf16" class="m-doc">FX_GREEN_ORB</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca84ca7ccd9747f41b8ac70008f7e154f9" class="m-doc">FX_GREEN_ORB_SLOW</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cad8fed2513cbde454314b4f72616364dd" class="m-doc">FX_WHITE_AURA</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca18afa629b8fc673457f3dfcb07ce81dd" class="m-doc">FX_WOOD2</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca771f0f32e6ff8ccffa0c40719536a88f" class="m-doc">FX_SPARKLE3</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca930e31d9312b247e9ae378037cc41344" class="m-doc">FX_MAGIC_STORM</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca13e2e98343393ac04ae8f7effb02632a" class="m-doc">FX_BLUE_EFC</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca34b6896ac1a9faabe7612a8209351137" class="m-doc">FX_REFLECT5</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca7503ad91c77d79446be557390a2b3ab3" class="m-doc">FX_GIANT_EXPLOSION4</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caf4312e6a750a5975f9926aa7d356f562" class="m-doc">FX_GREEN_SPLASH</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cadb176307d09cedffe5f6084e32d520b5" class="m-doc">FX_BLUE_PUFF</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cae0dc57d1af1b93d728d832c9da89500f" class="m-doc">FX_WHITE_PUFF</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca5190de6bd5a52b701ad08dc46b707e1e" class="m-doc">FX_AURA_BASE</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca821e4fc57170c8f534c14f3de6f64eca" class="m-doc">FX_RED_AURA</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cafb513eda4b307925c9f515878b5f3bf0" class="m-doc">FX_BLUE_AURA</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca6a5f5fa32546bb22ae17b67dadb67ad9" class="m-doc">FX_58</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca84944dd2736d131c534cbe888bc417e5" class="m-doc">FX_59</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cacfb616a10e5217cd62f27e2c33b8d9de" class="m-doc">FX_5A</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cad26edad212ca2cdee0613e3c875c1bf4" class="m-doc">FX_5B</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cae5f8ed5efa14c1fec72e9d885a6d892e" class="m-doc">FX_BARREL_BEAM</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720caaaa7a04226b09371f2c64bc8dcca7e70" class="m-doc">FX_BARREL</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cafd0a27e4b8a84a8945249b20a397c771" class="m-doc">FX_5E</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cae11c4b383dab9a07bb64e6a7a985c1dd" class="m-doc">FX_5F</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cafbdfb9ac3ffe581af99c6bada0ea97a2" class="m-doc">FX_60</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca12f3f8f9f4dcf6b0af0e2a5fc8fc8556" class="m-doc">FX_STONE_BLOCK</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca37e4389be847b2063a8d78c41b08a9d8" class="m-doc">FX_62</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca9fbea66e8c174204dd519a5d9ab958fc" class="m-doc">FX_63</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cab5d492a2866b8d7c5194b30da81821a1" class="m-doc">FX_64</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca6d10870c1ec05217d373b0c30c1e408b" class="m-doc">FX_65</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca80d436e1009a628364c11d98598832b1" class="m-doc">FX_66</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cadcfaa9a2ab6cf3f2c45479b438c45be1" class="m-doc">FX_67</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca89734b11f132d8d97d76382f8a6e782f" class="m-doc">FX_68</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca9b8c7f47adc1befb2c7761c895daab4b" class="m-doc">FX_69</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720cad8a4ff2d4540fa404c874bd99b1c8372" class="m-doc">FX_6A</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca65124f616d5baf3bb486a5f24a0b5499" class="m-doc">FX_6B</a>,
+              <a href="#acd9c2a1cf576f0fd9da232d337d9720ca07d5150c5e0ee5bf6a8e8518e45219b5" class="m-doc">FX_6C</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

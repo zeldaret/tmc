@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/objectDefinitions.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>objectDefinitions.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a33ae10e39fefcbe16fabf9227c894f0c">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a>*const <a href="#a33ae10e39fefcbe16fabf9227c894f0c" class="m-doc-self">gObjectHitboxes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a40a05e12c8bd434191f000827ed02df9">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a40a05e12c8bd434191f000827ed02df9" class="m-doc-self">gObjectDefinition_F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a25734885d24335c8d7303216f9ddea74">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a25734885d24335c8d7303216f9ddea74" class="m-doc-self">gObjectDefinition_7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd31c6df0211f43a7a08f1cddc3f8ab9">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#acd31c6df0211f43a7a08f1cddc3f8ab9" class="m-doc-self">gObjectDefinition_25</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d141fe6d968276d5c27a9bed13a9455">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a4d141fe6d968276d5c27a9bed13a9455" class="m-doc-self">gObjectDefinition_24</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab48cfdd2fbdad70e4b86b4689ec961e7">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#ab48cfdd2fbdad70e4b86b4689ec961e7" class="m-doc-self">gObjectDefinition_1C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0ce78fc634ef8ca9e5b1addac82a224">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#ac0ce78fc634ef8ca9e5b1addac82a224" class="m-doc-self">gObjectDefinition_2C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ebe59fa4c065b014fb70bf7be311f50">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a2ebe59fa4c065b014fb70bf7be311f50" class="m-doc-self">gObjectDefinition_49</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a97eb1985036d0052841ccda7eecce9c4">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a97eb1985036d0052841ccda7eecce9c4" class="m-doc-self">gObjectDefinition_4F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64adf0de91784a3e321a3868a84bcadf">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a64adf0de91784a3e321a3868a84bcadf" class="m-doc-self">gObjectDefinition_56</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adde8719f117a3b5c02b5e53109df346d">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#adde8719f117a3b5c02b5e53109df346d" class="m-doc-self">gObjectDefinition_26</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5baee556e9f620ae4e1b6cc71a514e16">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a5baee556e9f620ae4e1b6cc71a514e16" class="m-doc-self">gObjectDefinition_59</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf7a7976f351c7dc2a1d2d73e34593f2">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#acf7a7976f351c7dc2a1d2d73e34593f2" class="m-doc-self">gObjectDefinition_4C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d229850966715986a8eab8b4ef310fe">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a2d229850966715986a8eab8b4ef310fe" class="m-doc-self">gObjectDefinition_4D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf7c4cab3acc9155fc1d0009cd2e30c5">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#abf7c4cab3acc9155fc1d0009cd2e30c5" class="m-doc-self">gObjectDefinition_5A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a385e82286e2fdfcb2e433521b0972f9f">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a385e82286e2fdfcb2e433521b0972f9f" class="m-doc-self">gObjectDefinition_61</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d2e703716b723602deb7a993903d215">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a3d2e703716b723602deb7a993903d215" class="m-doc-self">gObjectDefinition_64</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a761cf00fc70795ca954c897f62a66bd4">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a761cf00fc70795ca954c897f62a66bd4" class="m-doc-self">gObjectDefinition_67</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9d5a2713671f525649f70b0d34a6a60">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#ab9d5a2713671f525649f70b0d34a6a60" class="m-doc-self">gObjectDefinition_68</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae0a3273296f6255424ebc13e6d419dc5">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#ae0a3273296f6255424ebc13e6d419dc5" class="m-doc-self">gObjectDefinition_6A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a52c0837f396b3ccde0ea0266f753ddee">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a52c0837f396b3ccde0ea0266f753ddee" class="m-doc-self">gObjectDefinition_6B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a336f4fd8ccd2e03b323f4b4450128e67">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a336f4fd8ccd2e03b323f4b4450128e67" class="m-doc-self">gObjectDefinition_5D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70681fd6bfecb60b77e533e3ecfd488b">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a70681fd6bfecb60b77e533e3ecfd488b" class="m-doc-self">gObjectDefinition_11</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a736a614e452840e784c3903ba82fb8e6">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a736a614e452840e784c3903ba82fb8e6" class="m-doc-self">gObjectDefinition_6F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a14f177f463f28fd314c6bb330c571527">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a14f177f463f28fd314c6bb330c571527" class="m-doc-self">gObjectDefinition_6D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b52493a3f9a046de5ecb8659a2d33da">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a5b52493a3f9a046de5ecb8659a2d33da" class="m-doc-self">gObjectDefinition_3B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7f08f6acf9cb765cb0a458e4bbc85bf2">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a7f08f6acf9cb765cb0a458e4bbc85bf2" class="m-doc-self">gObjectDefinition_75</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a43f924eb19ae94af4554da05de44352d">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a43f924eb19ae94af4554da05de44352d" class="m-doc-self">gObjectDefinition_76</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7381fba484544724cfa3ce47881c42d2">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a7381fba484544724cfa3ce47881c42d2" class="m-doc-self">gObjectDefinition_3E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a093592ac35588b174cd8a99ced642df4">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a093592ac35588b174cd8a99ced642df4" class="m-doc-self">gObjectDefinition_1B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af01d46e0847bcdf7cd8c260d7e6ce591">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#af01d46e0847bcdf7cd8c260d7e6ce591" class="m-doc-self">gObjectDefinition_71</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae9c6704801ca3b6d6ce6a14999f4ab4a">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#ae9c6704801ca3b6d6ce6a14999f4ab4a" class="m-doc-self">gObjectDefinition_72</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaea414ab6597f8f9450538f8c2e33be8">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#aaea414ab6597f8f9450538f8c2e33be8" class="m-doc-self">gObjectDefinition_78</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d8cb4288143d0e4afe5be21c2943ead">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a9d8cb4288143d0e4afe5be21c2943ead" class="m-doc-self">gObjectDefinition_7C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafd6ac4e190ff80b80aad2d5ffce89a2">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#aafd6ac4e190ff80b80aad2d5ffce89a2" class="m-doc-self">gObjectDefinition_46</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0c9e526d3ea164b4e9b4b52203c45a66">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a0c9e526d3ea164b4e9b4b52203c45a66" class="m-doc-self">gObjectDefinition_7D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2121211978aad46f05673ddb6ca812b5">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a2121211978aad46f05673ddb6ca812b5" class="m-doc-self">gObjectDefinition_7F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac9359f142a5cd07fe7be168626e8f58b">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#ac9359f142a5cd07fe7be168626e8f58b" class="m-doc-self">gObjectDefinition_35</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c17cc362b1f888e3314a1a89b58c665">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a8c17cc362b1f888e3314a1a89b58c665" class="m-doc-self">gObjectDefinition_5C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a140720befb3e175a1a000b55c6d95e27">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a140720befb3e175a1a000b55c6d95e27" class="m-doc-self">gObjectDefinition_84</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d75e7ade13c704e4faad0a7230a488a">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a0d75e7ade13c704e4faad0a7230a488a" class="m-doc-self">gObjectDefinition_85</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a21613022dbb2cf24fced805982f21304">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a21613022dbb2cf24fced805982f21304" class="m-doc-self">gObjectDefinition_87</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a02a70b3e83fbd012e06ae0529a4ac02e">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a02a70b3e83fbd012e06ae0529a4ac02e" class="m-doc-self">gObjectDefinition_8A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a1caf3db740c8680833f4b660aa5761">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a0a1caf3db740c8680833f4b660aa5761" class="m-doc-self">gObjectDefinition_8C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e3025e11560af71d201b99f9438bfd9">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a8e3025e11560af71d201b99f9438bfd9" class="m-doc-self">gObjectDefinition_91</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb4d4b40af3a904ecb373d0bb504944f">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#adb4d4b40af3a904ecb373d0bb504944f" class="m-doc-self">gObjectDefinition_92</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f541051ca47d0adf13dc55d7e6fd589">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a1f541051ca47d0adf13dc55d7e6fd589" class="m-doc-self">gObjectDefinition_95</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a572fdffaec26d89f2a6ed0c3dc661858">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a572fdffaec26d89f2a6ed0c3dc661858" class="m-doc-self">gObjectDefinition_96</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c76eff855ddc36a6647e9c5402fa586">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a4c76eff855ddc36a6647e9c5402fa586" class="m-doc-self">gObjectDefinition_97</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8715f7519a892c6f7a439605300636c8">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a8715f7519a892c6f7a439605300636c8" class="m-doc-self">gObjectDefinition_33</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a52e5751120dc906a90cbbbb95bccb394">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a52e5751120dc906a90cbbbb95bccb394" class="m-doc-self">gObjectDefinition_65</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab77ba9c94472a066987da53e7548c504">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#ab77ba9c94472a066987da53e7548c504" class="m-doc-self">gObjectDefinition_22</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a396e8d65b564098223971419dc0223f9">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a396e8d65b564098223971419dc0223f9" class="m-doc-self">gObjectDefinition_54</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ae36da0352dd298acba0a1042b21964">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a2ae36da0352dd298acba0a1042b21964" class="m-doc-self">gObjectDefinition_28</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb6bc578b64510cb4629b17963caf226">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#aeb6bc578b64510cb4629b17963caf226" class="m-doc-self">gObjectDefinition_A0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a99824159b69cf49f67cc67a1cab0e1aa">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a99824159b69cf49f67cc67a1cab0e1aa" class="m-doc-self">gObjectDefinition_A4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a96841f251d30c8c5e94283b7328092df">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a96841f251d30c8c5e94283b7328092df" class="m-doc-self">gObjectDefinition_A9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afed49376ee23530a362388f4f2f004b8">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#afed49376ee23530a362388f4f2f004b8" class="m-doc-self">gObjectDefinition_AA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d4d990adae3afac73449e849a23439b">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a4d4d990adae3afac73449e849a23439b" class="m-doc-self">gObjectDefinition_19</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad4195a4f4d04151d15136fccf4559d04">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#ad4195a4f4d04151d15136fccf4559d04" class="m-doc-self">gObjectDefinition_AD</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af73ff9e74315285adb9c4fe2da6bc1b3">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#af73ff9e74315285adb9c4fe2da6bc1b3" class="m-doc-self">gObjectDefinition_5F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4fb50687677ba974fb6ef272019c6f3b">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a4fb50687677ba974fb6ef272019c6f3b" class="m-doc-self">gObjectDefinition_B4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a65619e3e60d8203f31153541a74f68ce">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a65619e3e60d8203f31153541a74f68ce" class="m-doc-self">gObjectDefinition_BD</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acda223732959fc4de5fa45bf941abe69">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#acda223732959fc4de5fa45bf941abe69" class="m-doc-self">gObjectDefinition_45</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad36aeadc5a03e81fbce851bf647f268b">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#ad36aeadc5a03e81fbce851bf647f268b" class="m-doc-self">gObjectDefinition_C0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9bf8ff05ff7cf0719a238e3f03da45cd">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a9bf8ff05ff7cf0719a238e3f03da45cd" class="m-doc-self">gObjectDefinition_B3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b36858a5a1c5e37b6c63f02c64cacf5">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a6b36858a5a1c5e37b6c63f02c64cacf5" class="m-doc-self">gObjectDefinition_B6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a25f463598aaf076ca3408e20a021ebed">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a25f463598aaf076ca3408e20a021ebed" class="m-doc-self">gObjectDefinition_0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3558eacfec081bd2d248e4444079a632">
+              const <a href="structObjectDefinition.html" class="m-doc">ObjectDefinition</a> <a href="#a3558eacfec081bd2d248e4444079a632" class="m-doc-self">gObjectDefinitions</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a8da64d7ef9996dcb4309ef4b1f69dfb2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8da64d7ef9996dcb4309ef4b1f69dfb2" class="m-doc-self">MULTI_FORM</a>(</span><span class="m-doc-wrap">definition_ptr)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

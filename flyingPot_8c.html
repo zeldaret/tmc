@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/flyingPot.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>flyingPot.c <span class="m-thin">file</span>
+        </h1>
+        <p>Flying pot enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="af61c16b9c07e22e96949bb00a70a3754">
+              <span class="m-doc-wrap-bumper">enum <a href="#af61c16b9c07e22e96949bb00a70a3754" class="m-doc-self">FlyingPotActions</a> { </span><span class="m-doc-wrap"><a href="#af61c16b9c07e22e96949bb00a70a3754a9fd831e8fb4a4386d7daa9a0f8661c6a" class="m-doc">FLYING_POT_ACTION_0</a>,
+              <a href="#af61c16b9c07e22e96949bb00a70a3754ab0a8d44eb1c7dd1471dda29c915b99a7" class="m-doc">FLYING_POT_ACTION_1</a>,
+              <a href="#af61c16b9c07e22e96949bb00a70a3754ae91feed741538f41678606062d2b2c0c" class="m-doc">FLYING_POT_ACTION_2</a>,
+              <a href="#af61c16b9c07e22e96949bb00a70a3754afdb82dda8642bff982f4dd4c8643c434" class="m-doc">FLYING_POT_ACTION_3</a>,
+              <a href="#af61c16b9c07e22e96949bb00a70a3754ad6252937f6cea0999d834e7ea0785eba" class="m-doc">FLYING_POT_ACTION_4</a>,
+              <a href="#af61c16b9c07e22e96949bb00a70a3754a35a2a0d0c88c5e4ddf4d8de7ae24073c" class="m-doc">FLYING_POT_ACTION_5</a>,
+              <a href="#af61c16b9c07e22e96949bb00a70a3754ad8830e6ea824726a7ddaa77ba96e3e18" class="m-doc">FLYING_POT_ACTION_6</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a98e2956ef8b5eaa5ba75cc2e27f40337">
+              <span class="m-doc-wrap-bumper">enum <a href="#a98e2956ef8b5eaa5ba75cc2e27f40337" class="m-doc-self">FlyingPotSubActions</a> { </span><span class="m-doc-wrap"><a href="#a98e2956ef8b5eaa5ba75cc2e27f40337a19743cb00c9dd600ef733b2e91c15147" class="m-doc">FLYING_POT_SUBACTION_0</a>,
+              <a href="#a98e2956ef8b5eaa5ba75cc2e27f40337a4fb4fffd161604e174d6931a479ca817" class="m-doc">FLYING_POT_SUBACTION_1</a>,
+              <a href="#a98e2956ef8b5eaa5ba75cc2e27f40337a108a8331894c815446c79a53a6ee10f6" class="m-doc">FLYING_POT_SUBACTION_2</a>,
+              <a href="#a98e2956ef8b5eaa5ba75cc2e27f40337ab9f3f498fe081134940a9e3d35c1fd93" class="m-doc">FLYING_POT_SUBACTION_3</a>,
+              <a href="#a98e2956ef8b5eaa5ba75cc2e27f40337af3456f7bc0f71d3bc4d0100fc5c97a78" class="m-doc">FLYING_POT_SUBACTION_DO_NOTHING</a>,
+              <a href="#a98e2956ef8b5eaa5ba75cc2e27f40337ac6c5d9ac2acff1ea7d0acd0f6f7883e0" class="m-doc">FLYING_POT_SUBACTION_5</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a8ddb268145398d4d6b357109265f66a8">
+              <span class="m-doc-wrap-bumper">void <a href="#a8ddb268145398d4d6b357109265f66a8" class="m-doc-self">FlyingPot_OnTick</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f6f48c3f2dbf02ce1e1fac76b3ecbe9">
+              <span class="m-doc-wrap-bumper">void <a href="#a8f6f48c3f2dbf02ce1e1fac76b3ecbe9" class="m-doc-self">FlyingPot_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2fe5c7edaedebf675cc3a05d3bb52af1">
+              <span class="m-doc-wrap-bumper">void <a href="#a2fe5c7edaedebf675cc3a05d3bb52af1" class="m-doc-self">FlyingPot_OnGrabbed</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8aaf537bf664f10b48135d424ae564d2">
+              <span class="m-doc-wrap-bumper">void <a href="#a8aaf537bf664f10b48135d424ae564d2" class="m-doc-self">FlyingPot_SubAction0</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1a71ce345c596bf74c2ad44f4b352e54">
+              <span class="m-doc-wrap-bumper">void <a href="#a1a71ce345c596bf74c2ad44f4b352e54" class="m-doc-self">FlyingPot_SubAction1</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a173fed7012b5386015c3db6f551a9b39">
+              <span class="m-doc-wrap-bumper">void <a href="#a173fed7012b5386015c3db6f551a9b39" class="m-doc-self">FlyingPot_SubAction2</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7273686ca27bce35e15fc489d9293349">
+              <span class="m-doc-wrap-bumper">void <a href="#a7273686ca27bce35e15fc489d9293349" class="m-doc-self">FlyingPot_SubAction3</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0ad5dbb53fc88c555098ad6a3b86334">
+              <span class="m-doc-wrap-bumper">void <a href="#ac0ad5dbb53fc88c555098ad6a3b86334" class="m-doc-self">FlyingPot_SubActionDoNothing</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3fa6895fa5912bbca9a522fe554be771">
+              <span class="m-doc-wrap-bumper">void <a href="#a3fa6895fa5912bbca9a522fe554be771" class="m-doc-self">FlyingPot_SubAction5</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acae3e463038ad191fca3d2de1d5571e9">
+              <span class="m-doc-wrap-bumper">void <a href="#acae3e463038ad191fca3d2de1d5571e9" class="m-doc-self">FlyingPot_Init</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9b52b34f68f458ac8ed77dd7d40d1881">
+              <span class="m-doc-wrap-bumper">void <a href="#a9b52b34f68f458ac8ed77dd7d40d1881" class="m-doc-self">FlyingPot_Action1</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac043e0d9ab009be10ad35c3d02c4cf8">
+              <span class="m-doc-wrap-bumper">void <a href="#aac043e0d9ab009be10ad35c3d02c4cf8" class="m-doc-self">FlyingPot_Action2</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac021056d226abedc9b12bc5b430865f6">
+              <span class="m-doc-wrap-bumper">void <a href="#ac021056d226abedc9b12bc5b430865f6" class="m-doc-self">FlyingPot_Action3</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a77c823b3d158831f3b3d8c68b25e5ab1">
+              <span class="m-doc-wrap-bumper">void <a href="#a77c823b3d158831f3b3d8c68b25e5ab1" class="m-doc-self">FlyingPot_Action4</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a646b8b4222a3142efb8662954e50d27d">
+              <span class="m-doc-wrap-bumper">void <a href="#a646b8b4222a3142efb8662954e50d27d" class="m-doc-self">FlyingPot_Action5</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7efd474202132296f2300d85589234c">
+              <span class="m-doc-wrap-bumper">void <a href="#ad7efd474202132296f2300d85589234c" class="m-doc-self">FlyingPot_Action6</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3cf1a80a8a700dea4d0869491949de9d">
+              <span class="m-doc-wrap-bumper">void <a href="#a3cf1a80a8a700dea4d0869491949de9d" class="m-doc-self">sub_08037408</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f46d4e667eca66cf635f8bbebc58462">
+              <span class="m-doc-wrap-bumper">void <a href="#a9f46d4e667eca66cf635f8bbebc58462" class="m-doc-self">sub_08037418</a>(</span><span class="m-doc-wrap"><a href="structFlyingPotEntity.html" class="m-doc">FlyingPotEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a97f4a05936164d3b4331bff536b7af52">
+              <span class="m-doc-wrap-bumper">void <a href="#a97f4a05936164d3b4331bff536b7af52" class="m-doc-self">FlyingPot</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* thisx)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="aa63903b27f65402506612c219fcc6397">
+              <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aa63903b27f65402506612c219fcc6397" class="m-doc-self">gUnk_080FD34C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e0685d3611bf783c5a84f11c863ffeb">
+              void(*const <a href="#a1e0685d3611bf783c5a84f11c863ffeb" class="m-doc-self">FlyingPot_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

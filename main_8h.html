@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/main.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>main.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+                <li><a href="#task-entrypoints">Task entrypoints</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structMain.html" class="m-doc">Main</a>
+            </dt>
+            <dd><a href="structMain.html" class="m-doc">Main</a> system structure.</dd>
+            <dt>
+              struct <a href="structUI.html" class="m-doc">UI</a>
+            </dt>
+            <dd><a href="structHUD.html" class="m-doc">HUD</a> structure.</dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a315ca917ad583797f709ea477dd28705">
+              <span class="m-doc-wrap-bumper">enum <a href="#a315ca917ad583797f709ea477dd28705" class="m-doc-self">Language</a> { </span><span class="m-doc-wrap"><a href="#a315ca917ad583797f709ea477dd28705a92444a77cea009f65fbc1a6b9a081857" class="m-doc">LANGUAGE_JP</a>,
+              <a href="#a315ca917ad583797f709ea477dd28705aaac2ef96a70932ad41eee49a717aaa41" class="m-doc">LANGUAGE_EN</a>,
+              <a href="#a315ca917ad583797f709ea477dd28705af1373afe928afe57a84b0aa2b17e0762" class="m-doc">LANGUAGE_FR</a>,
+              <a href="#a315ca917ad583797f709ea477dd28705a36a933112b35404b18fe48bcf756ad68" class="m-doc">LANGUAGE_DE</a>,
+              <a href="#a315ca917ad583797f709ea477dd28705a8b90d1b18d751c7acae0c1d83367d645" class="m-doc">LANGUAGE_ES</a>,
+              <a href="#a315ca917ad583797f709ea477dd28705af1e552125056da042772d4011dce795a" class="m-doc">LANGUAGE_IT</a>,
+              <a href="#a315ca917ad583797f709ea477dd28705a8fb44703ea0500e63776923be2403ba0" class="m-doc">NUM_LANGUAGES</a> }</span>
+            </dt>
+            <dd>Supported game languages.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">enum <a href="#a8564c478026655cd8718601a4514e1b7" class="m-doc">Task</a> { </span><span class="m-doc-wrap"><a href="#a8564c478026655cd8718601a4514e1b7a177b11b1e11fd8abc47b5407c72394b3" class="m-doc">TASK_TITLE</a>,
+              <a href="#a8564c478026655cd8718601a4514e1b7a4b5805396ab9b7cd58f8dba1f18b1277" class="m-doc">TASK_FILE_SELECT</a>,
+              <a href="#a8564c478026655cd8718601a4514e1b7a671c33f3f3f147e43a372a798c2c43ad" class="m-doc">TASK_GAME</a>,
+              <a href="#a8564c478026655cd8718601a4514e1b7a8b90288c718ff0ab80a075a10d4fd7d0" class="m-doc">TASK_GAMEOVER</a>,
+              <a href="#a8564c478026655cd8718601a4514e1b7a28c625e2fdf272ed80777a874ec5a753" class="m-doc">TASK_STAFFROLL</a>,
+              <a href="#a8564c478026655cd8718601a4514e1b7aa73fd4733185806ec190b7585205b55b" class="m-doc">TASK_DEBUG</a> }</span>
+            </dt>
+            <dd>Program tasks.</dd>
+            <dt id="a6c08197a075fbd066c74761d15126d3b">
+              <span class="m-doc-wrap-bumper">enum <a href="#a6c08197a075fbd066c74761d15126d3b" class="m-doc-self">SleepStatus</a> { </span><span class="m-doc-wrap"><a href="#a6c08197a075fbd066c74761d15126d3ba88ec7d5086d2469ba843c7fcceade8a6" class="m-doc">DEFAULT</a>,
+              <a href="#a6c08197a075fbd066c74761d15126d3bad6137abebe4fdc59e2f0f2c84bdbe3fa" class="m-doc">SLEEP</a> }</span>
+            </dt>
+            <dd>System sleep status.</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a424485b8f54ad459d4375605dee33dd2">
+              <span class="m-doc-wrap-bumper">void <a href="#a424485b8f54ad459d4375605dee33dd2" class="m-doc-self">AgbMain</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Program entry point.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#abdb2c7e33538332a23cbbcd656503255" class="m-doc">SetTask</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> task)</span>
+            </dt>
+            <dd>Begin a new task.</dd>
+            <dt id="aa512e880707a350bdf93bfae7b9f93a0">
+              <span class="m-doc-wrap-bumper">void <a href="#aa512e880707a350bdf93bfae7b9f93a0" class="m-doc-self">InitDMA</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Initialize the DMA system.</dd>
+            <dt id="a6fb906bdecad7b7112e07a76cfdd17ac">
+              <span class="m-doc-wrap-bumper">void <a href="#a6fb906bdecad7b7112e07a76cfdd17ac" class="m-doc-self">DoSoftReset</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Soft reset the system.</dd>
+            <dt id="a3fa35c3a0b1918c34c9f929c4e636b49">
+              <span class="m-doc-wrap-bumper">void <a href="#a3fa35c3a0b1918c34c9f929c4e636b49" class="m-doc-self">SetSleepMode</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Put the system into sleep mode.</dd>
+            <dt id="ac72b21b80f8a38787d527a3794c376f3">
+              <span class="m-doc-wrap-bumper">void <a href="#ac72b21b80f8a38787d527a3794c376f3" class="m-doc-self">SetVBlankDMA</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a>* src,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a>* dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span>
+            </dt>
+            <dd>Sets a DMA to be performed at next VBlank.</dd>
+            <dt id="ae5a8c178d502bf467d3f47dd097d08e9">
+              <span class="m-doc-wrap-bumper">void <a href="#ae5a8c178d502bf467d3f47dd097d08e9" class="m-doc-self">InitVBlankDMA</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a662e8e3421300e19969a180455a5de09">
+              <span class="m-doc-wrap-bumper">void <a href="#a662e8e3421300e19969a180455a5de09" class="m-doc-self">ResetPalettes</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa6d073d07ffa10d79dabc07904e94345">
+              <span class="m-doc-wrap-bumper">void <a href="#aa6d073d07ffa10d79dabc07904e94345" class="m-doc-self">VBlankIntrWait</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a55965a6b16089588efc72928dd6bc366">
+              <span class="m-doc-wrap-bumper">void <a href="#a55965a6b16089588efc72928dd6bc366" class="m-doc-self">VBlankInterruptWait</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afb3319fb2e573b4a8f133c7dec312d0b">
+              <span class="m-doc-wrap-bumper">void <a href="#afb3319fb2e573b4a8f133c7dec312d0b" class="m-doc-self">DisableInterruptsAndDMA</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2965d6dc9affeaa6befa617bd343ebc2">
+              <span class="m-doc-wrap-bumper">void <a href="#a2965d6dc9affeaa6befa617bd343ebc2" class="m-doc-self">EnableVBlankIntr</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29195b26c93f570a7db101605c88f0d4">
+              <span class="m-doc-wrap-bumper">void <a href="#a29195b26c93f570a7db101605c88f0d4" class="m-doc-self">DisableVBlankDMA</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae8ce7c339f7cd0c384e1c2b239e21361">
+              <span class="m-doc-wrap-bumper">auto <a href="#ae8ce7c339f7cd0c384e1c2b239e21361" class="m-doc-self">CheckRegionsOnScreen</a>(</span><span class="m-doc-wrap">const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a>* arr) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Iterate over array of AABBs and check if any fit on screen.</dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a33f1f35bb4bf8f77622a1abae1c17d87">
+              <a href="structMain.html" class="m-doc">Main</a> <a href="#a33f1f35bb4bf8f77622a1abae1c17d87" class="m-doc-self">gMain</a>
+            </dt>
+            <dd><a href="structMain.html" class="m-doc">Main</a> instance.</dd>
+            <dt id="a11f45dff947a34e66b3c4bbc0c025a01">
+              <a href="structUI.html" class="m-doc">UI</a> <a href="#a11f45dff947a34e66b3c4bbc0c025a01" class="m-doc-self">gUI</a>
+            </dt>
+            <dd><a href="structUI.html" class="m-doc">UI</a> instance.</dd>
+            <dt id="ae75926ff1738d1d3d3640ebc11796673">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ae75926ff1738d1d3d3640ebc11796673" class="m-doc-self">gUnk_03003DE4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a99b1b5fee4e89ac74aa78d9313b56cb5">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a99b1b5fee4e89ac74aa78d9313b56cb5" class="m-doc-self">gPaletteBuffer</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="ae72ce63657183560f1b11dbce5a0a5f6">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae72ce63657183560f1b11dbce5a0a5f6" class="m-doc-self">SIGNATURE</a></span>
+            </dt>
+            <dd>File signature.</dd>
+            <dt id="a6f239ec61d38b5dee526a916e7cf6641">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6f239ec61d38b5dee526a916e7cf6641" class="m-doc-self">MAX_MSG_SPEED</a></span>
+            </dt>
+            <dd>Maximum message speed.</dd>
+            <dt id="a99e61917ef1c8f13fa4cd67fbb4ac59b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a99e61917ef1c8f13fa4cd67fbb4ac59b" class="m-doc-self">NUM_SAVE_SLOTS</a></span>
+            </dt>
+            <dd>Number of save slots.</dd>
+            <dt id="a2134a5a06f0865c945543a1f07eba387">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2134a5a06f0865c945543a1f07eba387" class="m-doc-self">MAX_BRIGHTNESS</a></span>
+            </dt>
+            <dd>Maximum brightness.</dd>
+            <dt id="aeb6e378268969c7dab504f1da420a73c">
+              <span class="m-doc-wrap-bumper">#define <a href="#aeb6e378268969c7dab504f1da420a73c" class="m-doc-self">GAME_LANGUAGE</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="task-entrypoints">
+          <h2><a href="#task-entrypoints">Task entrypoints</a></h2>
+          <dl class="m-doc">
+            <dt id="a5acf6fd2b22609d2b382f370c30cc5fa">
+              <span class="m-doc-wrap-bumper">void <a href="#a5acf6fd2b22609d2b382f370c30cc5fa" class="m-doc-self">TitleTask</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Task entrypoint.</dd>
+            <dt id="a745564def9d6371e2ca3aa699c408ecd">
+              <span class="m-doc-wrap-bumper">void <a href="#a745564def9d6371e2ca3aa699c408ecd" class="m-doc-self">FileSelectTask</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Task entrypoint.</dd>
+            <dt id="a4173da76fb9f27080bad9a5cbb1c661d">
+              <span class="m-doc-wrap-bumper">void <a href="#a4173da76fb9f27080bad9a5cbb1c661d" class="m-doc-self">GameTask</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Task entrypoint.</dd>
+            <dt id="a258eadd8f05674a327946d523c88524e">
+              <span class="m-doc-wrap-bumper">void <a href="#a258eadd8f05674a327946d523c88524e" class="m-doc-self">GameOverTask</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Task entrypoint.</dd>
+            <dt id="a6f4d81165772e5f2463842bdba5bb3e4">
+              <span class="m-doc-wrap-bumper">void <a href="#a6f4d81165772e5f2463842bdba5bb3e4" class="m-doc-self">StaffrollTask</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Task entrypoint.</dd>
+            <dt id="ae8ebd87f4d057d4580380340cc62e126">
+              <span class="m-doc-wrap-bumper">void <a href="#ae8ebd87f4d057d4580380340cc62e126" class="m-doc-self">DebugTask</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Task entrypoint.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="a8564c478026655cd8718601a4514e1b7"><div>
+            <h3>
+              enum <a href="#a8564c478026655cd8718601a4514e1b7" class="m-doc-self">Task</a>
+            </h3>
+            <p>Program tasks.</p>
+            <table class="m-table m-fullwidth m-flat m-doc">
+              <thead><tr><th style="width: 1%">Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#a8564c478026655cd8718601a4514e1b7a177b11b1e11fd8abc47b5407c72394b3" class="m-doc-self" id="a8564c478026655cd8718601a4514e1b7a177b11b1e11fd8abc47b5407c72394b3">TASK_TITLE</a></td>
+                  <td>
+                  <p>Title task.</p>
+<p>This is the first task to be entered.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a8564c478026655cd8718601a4514e1b7a4b5805396ab9b7cd58f8dba1f18b1277" class="m-doc-self" id="a8564c478026655cd8718601a4514e1b7a4b5805396ab9b7cd58f8dba1f18b1277">TASK_FILE_SELECT</a></td>
+                  <td>
+                  <p>File selection task.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a8564c478026655cd8718601a4514e1b7a671c33f3f3f147e43a372a798c2c43ad" class="m-doc-self" id="a8564c478026655cd8718601a4514e1b7a671c33f3f3f147e43a372a798c2c43ad">TASK_GAME</a></td>
+                  <td>
+                  <p>Gameplay task.</p>
+<p>Overworld, menus, cutscenes are all contained here.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a8564c478026655cd8718601a4514e1b7a8b90288c718ff0ab80a075a10d4fd7d0" class="m-doc-self" id="a8564c478026655cd8718601a4514e1b7a8b90288c718ff0ab80a075a10d4fd7d0">TASK_GAMEOVER</a></td>
+                  <td>
+                  <p>Gameover task.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a8564c478026655cd8718601a4514e1b7a28c625e2fdf272ed80777a874ec5a753" class="m-doc-self" id="a8564c478026655cd8718601a4514e1b7a28c625e2fdf272ed80777a874ec5a753">TASK_STAFFROLL</a></td>
+                  <td>
+                  <p>Staffroll task.</p>
+<p>Only accessible through the script played during the game ending.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a8564c478026655cd8718601a4514e1b7aa73fd4733185806ec190b7585205b55b" class="m-doc-self" id="a8564c478026655cd8718601a4514e1b7aa73fd4733185806ec190b7585205b55b">TASK_DEBUG</a></td>
+                  <td>
+                  <p>Debug task.</p>
+<p>Inaccessible in normal gameplay.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="abdb2c7e33538332a23cbbcd656503255"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#abdb2c7e33538332a23cbbcd656503255" class="m-doc-self">SetTask</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> task)</span></span>
+            </h3>
+            <p>Begin a new task.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">task</td>
+                  <td><a href="main_8h.html#a8564c478026655cd8718601a4514e1b7" class="m-doc">Task</a> to begin.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

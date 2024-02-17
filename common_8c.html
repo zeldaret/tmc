@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/common.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>common.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structPaletteGroup.html" class="m-doc">PaletteGroup</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structGfxItem.html" class="m-doc">GfxItem</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structstruct__02017AA0.html" class="m-doc">struct_02017AA0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structPACKED.html" class="m-doc">PACKED</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a0bfcaaac22619659835cd0aab62032f7">
+              <span class="m-doc-wrap-bumper">enum <a href="#a0bfcaaac22619659835cd0aab62032f7" class="m-doc-self">DungeonMapObjectTypes</a> { </span><span class="m-doc-wrap"><a href="#a0bfcaaac22619659835cd0aab62032f7a88793f486580e9af988abdf54f79f045" class="m-doc">DMO_TYPE_NONE</a>,
+              <a href="#a0bfcaaac22619659835cd0aab62032f7ae3b21a67728243f5523b5f25d2b55b79" class="m-doc">DMO_TYPE_PLAYER</a>,
+              <a href="#a0bfcaaac22619659835cd0aab62032f7ad283ef33fa64d432bb440628f052a370" class="m-doc">DMO_TYPE_CHEST</a>,
+              <a href="#a0bfcaaac22619659835cd0aab62032f7a2ef51b180e0a6fcc207723477af32c68" class="m-doc">DMO_TYPE_ENTRY</a>,
+              <a href="#a0bfcaaac22619659835cd0aab62032f7a090afc5d39e3c0caec3308d3e652a2e1" class="m-doc">DMO_TYPE_BOSS</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="ab82a8b1062b19084f329274548be6a9e">
+              <span class="m-doc-wrap-bumper">static void <a href="#ab82a8b1062b19084f329274548be6a9e" class="m-doc-self">StoreKeyInput</a>(</span><span class="m-doc-wrap"><a href="structInput.html" class="m-doc">Input</a>* input,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> keyInput)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5e48c259fb2e33c887c4e3b40a046cd7">
+              <span class="m-doc-wrap-bumper">void <a href="#a5e48c259fb2e33c887c4e3b40a046cd7" class="m-doc-self">ClearOAM</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a7f64de1ce462e0784b9fdc6b9daccd">
+              <span class="m-doc-wrap-bumper">void <a href="#a3a7f64de1ce462e0784b9fdc6b9daccd" class="m-doc-self">ResetScreenRegs</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ddca900e2b997a76f35ef2900a5d124">
+              <span class="m-doc-wrap-bumper">void <a href="#a3ddca900e2b997a76f35ef2900a5d124" class="m-doc-self">MessageFromFusionTarget</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3b9b092b30811dcee60d46d894f22534">
+              <span class="m-doc-wrap-bumper">void <a href="#a3b9b092b30811dcee60d46d894f22534" class="m-doc-self">sub_0801E24C</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7c88a5b4a11fa98b3316d079be1fe27">
+              <span class="m-doc-wrap-bumper">void <a href="#ad7c88a5b4a11fa98b3316d079be1fe27" class="m-doc-self">sub_0801E290</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa2ae686d39ce0dd6fcdd58a3cf0cef7a">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa2ae686d39ce0dd6fcdd58a3cf0cef7a" class="m-doc-self">GetIndexInKinstoneBag</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0a4f7cd6b00359cd5cb17b725f732ad">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac0a4f7cd6b00359cd5cb17b725f732ad" class="m-doc-self">sub_0807CB24</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f5932a6de597a26aab0c22816809768">
+              <span class="m-doc-wrap-bumper">void <a href="#a1f5932a6de597a26aab0c22816809768" class="m-doc-self">SortKinstoneBag</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8165d07cec6684b7661a9d3ad34bc9fd">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8165d07cec6684b7661a9d3ad34bc9fd" class="m-doc-self">GetRoomProperty</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> property) -&gt; void*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11d9279558fe847e0446ad1868c765ef">
+              <span class="m-doc-wrap-bumper">auto <a href="#a11d9279558fe847e0446ad1868c765ef" class="m-doc-self">sub_0801DF10</a>(</span><span class="m-doc-wrap">const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a>* lyt) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7028458c3cd24ee115bde22fffa719f">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac7028458c3cd24ee115bde22fffa719f" class="m-doc-self">IsRoomVisited</a>(</span><span class="m-doc-wrap"><a href="structTileEntity.html" class="m-doc">TileEntity</a>* tileEntity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> bank) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a96e8c9edb0177eb9b0304cc05108b8e2">
+              <span class="m-doc-wrap-bumper">auto <a href="#a96e8c9edb0177eb9b0304cc05108b8e2" class="m-doc-self">sub_0801DF60</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a1,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* p) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3705a03603346a64b947a1c5d01c0261">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3705a03603346a64b947a1c5d01c0261" class="m-doc-self">sub_0801DF78</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a2) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10d0126f88bc20c2dc7bb724d6e96244">
+              <span class="m-doc-wrap-bumper">void <a href="#a10d0126f88bc20c2dc7bb724d6e96244" class="m-doc-self">DrawMapPixel</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> x,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> y,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> color)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7a37a9296245482ee17c0805f905cc1">
+              <span class="m-doc-wrap-bumper">void <a href="#ab7a37a9296245482ee17c0805f905cc1" class="m-doc-self">sub_0801E64C</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x1,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y1,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x2,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y2,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> offset)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae23e963277fd47914405413ab40742fd">
+              <span class="m-doc-wrap-bumper">auto <a href="#ae23e963277fd47914405413ab40742fd" class="m-doc-self">DecToHex</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> value) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a735f12a755f58a9fbb5433d7cef9b1e8">
+              <span class="m-doc-wrap-bumper">auto <a href="#a735f12a755f58a9fbb5433d7cef9b1e8" class="m-doc-self">ReadBit</a>(</span><span class="m-doc-wrap">void* src,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> bit) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a261196ee2cac6ee7a3960737629fc1ac">
+              <span class="m-doc-wrap-bumper">auto <a href="#a261196ee2cac6ee7a3960737629fc1ac" class="m-doc-self">WriteBit</a>(</span><span class="m-doc-wrap">void* src,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> bit) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af11b1a868b69609a499d71227c99e200">
+              <span class="m-doc-wrap-bumper">auto <a href="#af11b1a868b69609a499d71227c99e200" class="m-doc-self">ClearBit</a>(</span><span class="m-doc-wrap">void* src,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> bit) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a886a1bb172aafb51e8f21bb17f1cce26" class="m-doc">MemFill16</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> value,
+              void* dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span>
+            </dt>
+            <dd>Fill memory with 16 bit value.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a6b048e00a2d273def7c005ff200ce570" class="m-doc">MemFill32</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> value,
+              void* dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span>
+            </dt>
+            <dd>Fill memory with 32 bit value.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#adefdd66b80bd3e8a06d1c1b5c95b2c17" class="m-doc">MemClear</a>(</span><span class="m-doc-wrap">void* dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span>
+            </dt>
+            <dd>Clear memory.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ab2333d527782bc4ac60b8874027ec0fe" class="m-doc">MemCopy</a>(</span><span class="m-doc-wrap">const void* src,
+              void* dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span>
+            </dt>
+            <dd>Copy memory.</dd>
+            <dt id="a560644a9182c2c0632f4cda8f95789eb">
+              <span class="m-doc-wrap-bumper">void <a href="#a560644a9182c2c0632f4cda8f95789eb" class="m-doc-self">ReadKeyInput</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Refresh <a href="common_8h.html#a3ab024a55891670cd9e5e589eaa059c6" class="m-doc">gInput</a> from system registers.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a3d1a5c3e4ded5636b17c2ab3c731f366" class="m-doc">LoadPaletteGroup</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> group)</span>
+            </dt>
+            <dd>Loads a packed group of palettes.</dd>
+            <dt id="adef6cb48fdfc277402f8c20df519eae8">
+              <span class="m-doc-wrap-bumper">void <a href="#adef6cb48fdfc277402f8c20df519eae8" class="m-doc-self">LoadPalettes</a>(</span><span class="m-doc-wrap">const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* src,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> destPaletteNum,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> numPalettes)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#adf666275743d3a53851f57aba1afb9a8" class="m-doc">SetColor</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> colorIndex,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> color)</span>
+            </dt>
+            <dd>Set color in the palette.</dd>
+            <dt id="a5bc05da1fe17af9d01f51ddcea7e0e77">
+              <span class="m-doc-wrap-bumper">void <a href="#a5bc05da1fe17af9d01f51ddcea7e0e77" class="m-doc-self">SetFillColor</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> color,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> disable_layers)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a197f813dd589da7f5211b32a5051b968" class="m-doc">LoadGfxGroup</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> group)</span>
+            </dt>
+            <dd>Loads a packed group of tiles.</dd>
+            <dt id="a519de2ea508699897b91fad623839bcf">
+              <span class="m-doc-wrap-bumper">void <a href="#a519de2ea508699897b91fad623839bcf" class="m-doc-self">sub_0801D898</a>(</span><span class="m-doc-wrap">void* dest,
+              void* src,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> word,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6f262217c18e750630db6b475409bf57" class="m-doc">zMalloc</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size) -&gt; void*</span>
+            </dt>
+            <dd>Allocate memory on heap.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a21fa4d340e1d8f8ba732e8dcc1f45300" class="m-doc">zFree</a>(</span><span class="m-doc-wrap">void* ptr)</span>
+            </dt>
+            <dd>Free memory from heap.</dd>
+            <dt id="a60486f58072b2bdf3385d46c7345fead">
+              <span class="m-doc-wrap-bumper">void <a href="#a60486f58072b2bdf3385d46c7345fead" class="m-doc-self">zMallocInit</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Initialize the heap.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a71904b785a8769f7383f75dd45987a10" class="m-doc">DispReset</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> refresh)</span>
+            </dt>
+            <dd>Reset All display system registers.</dd>
+            <dt id="a094fc83891161b3a4a82c70a21c681ad">
+              <span class="m-doc-wrap-bumper">auto <a href="#a094fc83891161b3a4a82c70a21c681ad" class="m-doc-self">sub_0801DB94</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ba22d11d199ed1807ab49e501eedae7">
+              <span class="m-doc-wrap-bumper">void <a href="#a6ba22d11d199ed1807ab49e501eedae7" class="m-doc-self">DrawDungeonMap</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> floor,
+              DungeonMapObject* specialData,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7f7fd08428c66b310616cc8db2f435d1">
+              <span class="m-doc-wrap-bumper">void <a href="#a7f7fd08428c66b310616cc8db2f435d1" class="m-doc-self">sub_0801DD58</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> area,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> room)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a417d32343e67ed3919b0d02ac59fba94">
+              <span class="m-doc-wrap-bumper">void <a href="#a417d32343e67ed3919b0d02ac59fba94" class="m-doc-self">LoadDungeonMap</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a887824047f9dec7fbc486a4bd1ce26db">
+              <span class="m-doc-wrap-bumper">void <a href="#a887824047f9dec7fbc486a4bd1ce26db" class="m-doc-self">DrawDungeonFeatures</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> floor,
+              void* data,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2eace239c6578b645bbe3b6daece1f38">
+              <span class="m-doc-wrap-bumper">void <a href="#a2eace239c6578b645bbe3b6daece1f38" class="m-doc-self">InitializeFuseInfo</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> textIndex,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> cancelledTextIndex,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> fusingTextIndex)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82420a2358dca0b996877e5d1f9c44e2">
+              <span class="m-doc-wrap-bumper">auto <a href="#a82420a2358dca0b996877e5d1f9c44e2" class="m-doc-self">PerformFuseAction</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf5d0539714895c52ef7dd69c4d18670">
+              <span class="m-doc-wrap-bumper">void <a href="#abf5d0539714895c52ef7dd69c4d18670" class="m-doc-self">Fuse_Action0</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd5e1a9fdd695451ef5a5b5a45e02d20">
+              <span class="m-doc-wrap-bumper">void <a href="#acd5e1a9fdd695451ef5a5b5a45e02d20" class="m-doc-self">Fuse_Action1</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a352dc035c350456a491581cce36ce4cd">
+              <span class="m-doc-wrap-bumper">void <a href="#a352dc035c350456a491581cce36ce4cd" class="m-doc-self">Fuse_Action2</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a299c38c8ea39380afc21f53f593f436c">
+              <span class="m-doc-wrap-bumper">void <a href="#a299c38c8ea39380afc21f53f593f436c" class="m-doc-self">Fuse_Action3</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad8f1eeab504148e1ea4f8210a55684ae">
+              <span class="m-doc-wrap-bumper">void <a href="#ad8f1eeab504148e1ea4f8210a55684ae" class="m-doc-self">sub_0801E104</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d1e552dab908b99925c64f30bab11f5">
+              <span class="m-doc-wrap-bumper">void <a href="#a8d1e552dab908b99925c64f30bab11f5" class="m-doc-self">sub_0801E120</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a054ab7d60c984cc872fed96de10b0297">
+              <span class="m-doc-wrap-bumper">void <a href="#a054ab7d60c984cc872fed96de10b0297" class="m-doc-self">sub_0801E154</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a1)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad5f2a5db8747f1421cd3e50d57ea121b">
+              <span class="m-doc-wrap-bumper">void <a href="#ad5f2a5db8747f1421cd3e50d57ea121b" class="m-doc-self">sub_0801E160</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a3)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a659d20a7449182e2decdbcb099075db5">
+              <span class="m-doc-wrap-bumper">void <a href="#a659d20a7449182e2decdbcb099075db5" class="m-doc-self">sub_0801E1B8</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a2)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41705c5ee44fa360b4892c176c978e9e">
+              <span class="m-doc-wrap-bumper">void <a href="#a41705c5ee44fa360b4892c176c978e9e" class="m-doc-self">sub_0801E1EC</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a3)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab50b367a84d60d53033cfe997a9a2fdb">
+              <span class="m-doc-wrap-bumper">void <a href="#ab50b367a84d60d53033cfe997a9a2fdb" class="m-doc-self">sub_0801E31C</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> sp00,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> sp04,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> r10,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> r9)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d7fe19f6be01cb4f5d6ca6ceb5be57c">
+              <span class="m-doc-wrap-bumper">void <a href="#a2d7fe19f6be01cb4f5d6ca6ceb5be57c" class="m-doc-self">sub_0801E49C</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> baseX,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> baseY,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> radius,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> baseAngle)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afacd470dab246b20022361e5fc9989d3">
+              <span class="m-doc-wrap-bumper">void <a href="#afacd470dab246b20022361e5fc9989d3" class="m-doc-self">NotifyFusersOnFusionDone</a>(</span><span class="m-doc-wrap"><a href="kinstone_8h.html#a28804753757a32856a1dd0cfd86edc6c" class="m-doc">KinstoneId</a> kinstoneId)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0222f7cbe14ded57b7e760b3c72cb0e5">
+              <span class="m-doc-wrap-bumper">void <a href="#a0222f7cbe14ded57b7e760b3c72cb0e5" class="m-doc-self">AddKinstoneToBag</a>(</span><span class="m-doc-wrap"><a href="kinstone_8h.html#a28804753757a32856a1dd0cfd86edc6c" class="m-doc">KinstoneId</a> kinstoneId)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59c2f8e77bfd577ec1914f6a3534aa07">
+              <span class="m-doc-wrap-bumper">void <a href="#a59c2f8e77bfd577ec1914f6a3534aa07" class="m-doc-self">RemoveKinstoneFromBag</a>(</span><span class="m-doc-wrap"><a href="kinstone_8h.html#a28804753757a32856a1dd0cfd86edc6c" class="m-doc">KinstoneId</a> kinstoneId)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a463366bdce5ebdcf9a1323a0da7d1434">
+              <span class="m-doc-wrap-bumper">auto <a href="#a463366bdce5ebdcf9a1323a0da7d1434" class="m-doc-self">GetAmountInKinstoneBag</a>(</span><span class="m-doc-wrap"><a href="kinstone_8h.html#a28804753757a32856a1dd0cfd86edc6c" class="m-doc">KinstoneId</a> kinstoneId) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f67d01d4db45ec06f24e41a2a1b0d86">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3f67d01d4db45ec06f24e41a2a1b0d86" class="m-doc-self">CheckKinstoneFused</a>(</span><span class="m-doc-wrap"><a href="kinstone_8h.html#a28804753757a32856a1dd0cfd86edc6c" class="m-doc">KinstoneId</a> kinstoneId) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2fc8614cf714214d1954ddd7f7a9efd">
+              <span class="m-doc-wrap-bumper">auto <a href="#af2fc8614cf714214d1954ddd7f7a9efd" class="m-doc-self">CheckFusionMapMarkerDisabled</a>(</span><span class="m-doc-wrap"><a href="kinstone_8h.html#a28804753757a32856a1dd0cfd86edc6c" class="m-doc">KinstoneId</a> kinstoneId) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafd0fe4c01330661559c36d22120630a">
+              <span class="m-doc-wrap-bumper">auto <a href="#aafd0fe4c01330661559c36d22120630a" class="m-doc-self">GetIndexInKinstoneBag</a>(</span><span class="m-doc-wrap"><a href="kinstone_8h.html#a28804753757a32856a1dd0cfd86edc6c" class="m-doc">KinstoneId</a> kinstoneId) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae9ff37084af543616c34b2482bee1632">
+              <span class="m-doc-wrap-bumper">void <a href="#ae9ff37084af543616c34b2482bee1632" class="m-doc-self">UpdateVisibleFusionMapMarkers</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0954c3050ccc1355846a6f815f5e8e39">
+              <span class="m-doc-wrap-bumper">auto <a href="#a0954c3050ccc1355846a6f815f5e8e39" class="m-doc-self">GetFusionToOffer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity) -&gt; <a href="kinstone_8h.html#a28804753757a32856a1dd0cfd86edc6c" class="m-doc">KinstoneId</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0f729df2c32493056d786e73c86299aa">
+              <span class="m-doc-wrap-bumper">auto <a href="#a0f729df2c32493056d786e73c86299aa" class="m-doc-self">GetRandomSharedFusion</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* fuserData) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a316a357417107ac208cb5e1953426cd4">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a316a357417107ac208cb5e1953426cd4" class="m-doc-self">gUnk_03003DE0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa75a88f71296ec64d303b97cb2e1bfc4">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aa75a88f71296ec64d303b97cb2e1bfc4" class="m-doc-self">gzHeap</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a40bf4fa5cfc7e798f35d68005b77c60d">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a40bf4fa5cfc7e798f35d68005b77c60d" class="m-doc-self">gUnk_02035542</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a37d614c82a5fc6ce89419ffa1efee34b">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a37d614c82a5fc6ce89419ffa1efee34b" class="m-doc-self">gDungeonMap</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae68ed70348df8e43dcf1701c807b7ee9">
+              <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a> <a href="#ae68ed70348df8e43dcf1701c807b7ee9" class="m-doc-self">gUnk_02018EE0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6dfda225668af4818c1bcf96e05966bd">
+              void(*const <a href="#a6dfda225668af4818c1bcf96e05966bd" class="m-doc-self">gFuseActions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a56e4fdf3d46f7be095b2c247ec8b17dc">
+              <a href="structstruct__02017AA0.html" class="m-doc">struct_<wbr />02017AA0</a> <a href="#a56e4fdf3d46f7be095b2c247ec8b17dc" class="m-doc-self">gUnk_02017AA0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad8e1e82b8e10915c4857e436ccd18c85">
+              const <a href="structPaletteGroup.html" class="m-doc">PaletteGroup</a>* <a href="#ad8e1e82b8e10915c4857e436ccd18c85" class="m-doc-self">gPaletteGroups</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac517dc976ee2106712f8e82548b6ba66">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ac517dc976ee2106712f8e82548b6ba66" class="m-doc-self">gGlobalGfxAndPalettes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a566a682a1a481407263a46f0e18dbd8b">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a566a682a1a481407263a46f0e18dbd8b" class="m-doc-self">gUsedPalettes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a99b1b5fee4e89ac74aa78d9313b56cb5">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a99b1b5fee4e89ac74aa78d9313b56cb5" class="m-doc-self">gPaletteBuffer</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0b17d3386b6193d8f288e583e4782d2b">
+              const <a href="structGfxItem.html" class="m-doc">GfxItem</a>* <a href="#a0b17d3386b6193d8f288e583e4782d2b" class="m-doc-self">gGfxGroups</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b1136384d91c29dc6446e3365b0a2a8">
+              const <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a6b1136384d91c29dc6446e3365b0a2a8" class="m-doc-self">gUnk_080C9460</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa9c901c35aa51d82db0ffdb2fba90c29">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aa9c901c35aa51d82db0ffdb2fba90c29" class="m-doc-self">gMapData</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a490dcf376839120910c6316a848ade7d">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a>*const *const <a href="#a490dcf376839120910c6316a848ade7d" class="m-doc-self">gDungeonLayouts</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7369a057386135ee401226e0e2ba5681">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a7369a057386135ee401226e0e2ba5681" class="m-doc-self">gMapDataBottomSpecial</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a07b7760429d33bacc86c2239454dbeef">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* <a href="#a07b7760429d33bacc86c2239454dbeef" class="m-doc-self">gUnk_08001DCC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba4df8b867160072f7c9ff8db697a68a">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#aba4df8b867160072f7c9ff8db697a68a" class="m-doc-self">gUnk_080C93E0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4db44d6711cdfa000c37f68c0e62a5bf">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a4db44d6711cdfa000c37f68c0e62a5bf" class="m-doc-self">gDungeonLayouts_None_None</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5dd4a37a90e4f060fd5d4e7a0ca6b7db">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a>*const <a href="#a5dd4a37a90e4f060fd5d4e7a0ca6b7db" class="m-doc-self">gDungeonLayouts_None</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a24ae364fe27534b3fd3d8f569b5b08ed">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a24ae364fe27534b3fd3d8f569b5b08ed" class="m-doc-self">gDungeonLayouts_DeepwoodShrine_1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7bc8295d4b38741b0ce0a476ab3f020">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#ac7bc8295d4b38741b0ce0a476ab3f020" class="m-doc-self">gDungeonLayouts_DeepwoodShrine_B1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba4f9b6bc7f4b87b9563a6c00895dd87">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#aba4f9b6bc7f4b87b9563a6c00895dd87" class="m-doc-self">gDungeonLayouts_DeepwoodShrine_B2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5445101ebc8a158645854dc33df408bb">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a>*const <a href="#a5445101ebc8a158645854dc33df408bb" class="m-doc-self">gDungeonLayouts_DeepwoodShrine</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af17ca51bf32eaf512a5d0324626437de">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#af17ca51bf32eaf512a5d0324626437de" class="m-doc-self">gDungeonLayouts_CaveOfFlames_1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a60becb4175b7d5eba0cd065f1982c44e">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a60becb4175b7d5eba0cd065f1982c44e" class="m-doc-self">gDungeonLayouts_CaveOfFlames_B1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c851b8d9a338dbdac6280aa69716ddc">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a8c851b8d9a338dbdac6280aa69716ddc" class="m-doc-self">gDungeonLayouts_CaveOfFlames_B2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22407df8fa3f5a076c6012cc0013d237">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a22407df8fa3f5a076c6012cc0013d237" class="m-doc-self">gDungeonLayouts_CaveOfFlames_B3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b98fa14b25478bcad6be0f638c2013c">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a>*const <a href="#a2b98fa14b25478bcad6be0f638c2013c" class="m-doc-self">gDungeonLayouts_CaveOfFlames</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3b46f7b68a665ea5e907b47a8d2410b7">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a3b46f7b68a665ea5e907b47a8d2410b7" class="m-doc-self">gDungeonLayouts_FortressOfWinds_3F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a660d296f27437cb347d6544ff5133a5c">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a660d296f27437cb347d6544ff5133a5c" class="m-doc-self">gDungeonLayouts_FortressOfWinds_2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38d20026f5ed901256e5f610f313c4ed">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a38d20026f5ed901256e5f610f313c4ed" class="m-doc-self">gDungeonLayouts_FortressOfWinds_1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8966cc9c9ff166652c69bae8cdbe69da">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a>*const <a href="#a8966cc9c9ff166652c69bae8cdbe69da" class="m-doc-self">gDungeonLayouts_FortressOfWinds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a03a5a604f6a52bb807fdc3e3d878a125">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a03a5a604f6a52bb807fdc3e3d878a125" class="m-doc-self">gDungeonLayouts_TempleOfDroplets_B1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87c994afc30fe69f422be5f8d153aa67">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a87c994afc30fe69f422be5f8d153aa67" class="m-doc-self">gDungeonLayouts_TempleOfDroplets_B2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9337608c354cac1f6bcebd92232f451b">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a9337608c354cac1f6bcebd92232f451b" class="m-doc-self">gDungeonLayouts_TempleOfDroplets_B3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04b4936f311493343b7a6d642ca28eee">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a>*const <a href="#a04b4936f311493343b7a6d642ca28eee" class="m-doc-self">gDungeonLayouts_TempleOfDroplets</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59326ace67ceebd7aef833ed7606d5be">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a59326ace67ceebd7aef833ed7606d5be" class="m-doc-self">gDungeonLayouts_PalaceOfWinds_5F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adcbf524a944ffbd564a65ac8f18c088d">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#adcbf524a944ffbd564a65ac8f18c088d" class="m-doc-self">gDungeonLayouts_PalaceOfWinds_4F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a116d2797efd89ff976a6153997ee91fa">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a116d2797efd89ff976a6153997ee91fa" class="m-doc-self">gDungeonLayouts_PalaceOfWinds_3F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae0a1994e3ba74cbc924beaa54e16ce82">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#ae0a1994e3ba74cbc924beaa54e16ce82" class="m-doc-self">gDungeonLayouts_PalaceOfWinds_2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9c27c27baf81d41400ddcb6b57b10a7c">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a9c27c27baf81d41400ddcb6b57b10a7c" class="m-doc-self">gDungeonLayouts_PalaceOfWinds_1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af5043a833adcfcfec109291b175ed592">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a>*const <a href="#af5043a833adcfcfec109291b175ed592" class="m-doc-self">gDungeonLayouts_PalaceOfWinds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13e8e0704ee84f01c4e456db4973bf80">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a13e8e0704ee84f01c4e456db4973bf80" class="m-doc-self">gDungeonLayouts_DarkHyruleCastle_3F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6a15fa34db61d351108f8c86a5e458cc">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a6a15fa34db61d351108f8c86a5e458cc" class="m-doc-self">gDungeonLayouts_DarkHyruleCastle_2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4b3e4575c533ca38fdd22876f368221">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#ab4b3e4575c533ca38fdd22876f368221" class="m-doc-self">gDungeonLayouts_DarkHyruleCastle_1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93e7a30cdccc6610368e38dab00344a6">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a93e7a30cdccc6610368e38dab00344a6" class="m-doc-self">gDungeonLayouts_DarkHyruleCastle_B1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a6ff4f86cd6b305029c69ba9a38ecec">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a> <a href="#a3a6ff4f86cd6b305029c69ba9a38ecec" class="m-doc-self">gDungeonLayouts_DarkHyruleCastle_B2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa50b90dac220faff0ae727491ce842e5">
+              const <a href="structDungeonLayout.html" class="m-doc">DungeonLayout</a>*const <a href="#aa50b90dac220faff0ae727491ce842e5" class="m-doc-self">gDungeonLayouts_DarkHyruleCastle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab16cb3db8741391ae173ee78b1d4ce3c">
+              const <a href="structDungeonFloorMetadata.html" class="m-doc">DungeonFloorMetadata</a> <a href="#ab16cb3db8741391ae173ee78b1d4ce3c" class="m-doc-self">gDungeonFloorMetadatas</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f102ab83457a438868d038017848bf9">
+              const <a href="structKinstoneWorldEvent.html" class="m-doc">KinstoneWorldEvent</a> <a href="#a9f102ab83457a438868d038017848bf9" class="m-doc-self">gKinstoneWorldEvents</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b8113fd3601b55e67163e45b2f93f27">
+              const <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a2b8113fd3601b55e67163e45b2f93f27" class="m-doc-self">gUnk_080CA06C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6796c7db3dee47948ac2b0d372ef6d6e">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a6796c7db3dee47948ac2b0d372ef6d6e" class="m-doc-self">SharedFusions</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a886a1bb172aafb51e8f21bb17f1cce26"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a886a1bb172aafb51e8f21bb17f1cce26" class="m-doc-self">MemFill16</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> value,
+              void* dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span></span>
+            </h3>
+            <p>Fill memory with 16 bit value.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">value</td>
+                  <td>Fill value.</td>
+                </tr>
+                <tr>
+                  <td>dest</td>
+                  <td>Destination.</td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td>Byte count.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a6b048e00a2d273def7c005ff200ce570"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6b048e00a2d273def7c005ff200ce570" class="m-doc-self">MemFill32</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> value,
+              void* dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span></span>
+            </h3>
+            <p>Fill memory with 32 bit value.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">value</td>
+                  <td>Fill value.</td>
+                </tr>
+                <tr>
+                  <td>dest</td>
+                  <td>Destination.</td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td>Byte count.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="adefdd66b80bd3e8a06d1c1b5c95b2c17"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#adefdd66b80bd3e8a06d1c1b5c95b2c17" class="m-doc-self">MemClear</a>(</span><span class="m-doc-wrap">void* dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span></span>
+            </h3>
+            <p>Clear memory.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">dest</td>
+                  <td>Destination</td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td>Byte count.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ab2333d527782bc4ac60b8874027ec0fe"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab2333d527782bc4ac60b8874027ec0fe" class="m-doc-self">MemCopy</a>(</span><span class="m-doc-wrap">const void* src,
+              void* dest,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span></span>
+            </h3>
+            <p>Copy memory.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">src</td>
+                  <td>Source.</td>
+                </tr>
+                <tr>
+                  <td>dest</td>
+                  <td>Destination.</td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td>Byte count.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a3d1a5c3e4ded5636b17c2ab3c731f366"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3d1a5c3e4ded5636b17c2ab3c731f366" class="m-doc-self">LoadPaletteGroup</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> group)</span></span>
+            </h3>
+            <p>Loads a packed group of palettes.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">group</td>
+                  <td>Group number.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="adf666275743d3a53851f57aba1afb9a8"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#adf666275743d3a53851f57aba1afb9a8" class="m-doc-self">SetColor</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> colorIndex,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> color)</span></span>
+            </h3>
+            <p>Set color in the palette.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">colorIndex</td>
+                  <td>Color index.</td>
+                </tr>
+                <tr>
+                  <td>color</td>
+                  <td>Color.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a197f813dd589da7f5211b32a5051b968"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a197f813dd589da7f5211b32a5051b968" class="m-doc-self">LoadGfxGroup</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> group)</span></span>
+            </h3>
+            <p>Loads a packed group of tiles.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">group</td>
+                  <td>Group number.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a6f262217c18e750630db6b475409bf57"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6f262217c18e750630db6b475409bf57" class="m-doc-self">zMalloc</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span></span>
+            </h3>
+            <p>Allocate memory on heap.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">size</td>
+                  <td>u32 Size to be allocated.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Pointer to allocated memory.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>The heap size is 0x1000 bytes and should be used sparingly. It is customary for entities store the returned pointer in the <a href="structEntity.html#a71ffee91d8f915ce94499a2b4ae3e2e5" class="m-doc">Entity.myHeap</a> field.</p>
+          </div></section>
+          <section class="m-doc-details" id="a21fa4d340e1d8f8ba732e8dcc1f45300"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a21fa4d340e1d8f8ba732e8dcc1f45300" class="m-doc-self">zFree</a>(</span><span class="m-doc-wrap">void* ptr)</span></span>
+            </h3>
+            <p>Free memory from heap.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">ptr</td>
+                  <td>Pointer to be freed.</td>
+                </tr>
+              </tbody>
+            </table>
+<p>The <a href="structEntity.html" class="m-doc">Entity</a> system will automatically free the pointer stored in the <a href="structEntity.html#a71ffee91d8f915ce94499a2b4ae3e2e5" class="m-doc">Entity.myHeap</a> field.</p>
+          </div></section>
+          <section class="m-doc-details" id="a71904b785a8769f7383f75dd45987a10"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a71904b785a8769f7383f75dd45987a10" class="m-doc-self">DispReset</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> refresh)</span></span>
+            </h3>
+            <p>Reset All display system registers.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">refresh</td>
+                  <td>Request refresh of <a href="structHUD.html" class="m-doc">HUD</a> layer (bg 0).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

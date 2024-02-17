@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/player.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>player.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structChargeState.html" class="m-doc">ChargeState</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structPlayerMacroEntry.html" class="m-doc">PlayerMacroEntry</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structPlayerInput.html" class="m-doc">PlayerInput</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structPlayerState.html" class="m-doc">PlayerState</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structStats.html" class="m-doc">Stats</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structWallet.html" class="m-doc">Wallet</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a31cd4a822edf57910c9ecb7801aca36e">
+              <span class="m-doc-wrap-bumper">enum <a href="#a31cd4a822edf57910c9ecb7801aca36e" class="m-doc-self">PlayerActions</a> { </span><span class="m-doc-wrap"><a href="#a31cd4a822edf57910c9ecb7801aca36eae1f4fe0039e417d895b07a4e2ed6cc69" class="m-doc">PLAYER_INIT</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea1e81c71cc28c43e434acca2b3a677f0f" class="m-doc">PLAYER_NORMAL</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea3ae72b4dc279a4a29cdc9e29a9bb565a" class="m-doc">PLAYER_DUMMY</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea9e0ab9ffe66027cfaffad8a98c5fceb9" class="m-doc">PLAYER_FALL</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36eac6e06004f9416d9ca4c9f2d575d31830" class="m-doc">PLAYER_JUMP</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea254f22ef6c623be333c8132d0fc9e50d" class="m-doc">PLAYER_PUSH</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea228d0533cbc87cbdfbc450b84349d76d" class="m-doc">PLAYER_BOUNCE</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36eac6a25fcae0c13bd6355480e6c08a0739" class="m-doc">PLAYER_08070E9C</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea20d36dd077dc1464c5fcbd367ec09212" class="m-doc">PLAYER_ITEMGET</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea88835649ec667304fe406ae2378171d7" class="m-doc">PLAYER_MINISH</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea1a2b6784404239416f1e87bf48b74f91" class="m-doc">PLAYER_MINISHDIE</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36eac84a4c9e92fae580fd35566fd2850759" class="m-doc">PLAYER_08071DB8</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36eaf60d14e4814816328a89271ed8c58ae7" class="m-doc">PLAYER_EMPTYBOTTLE</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea432d93a7242f1d854c6acfb39ea042b9" class="m-doc">PLAYER_FROZEN</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea1c4664b2a0407cbe4e8b8c2d64cf4bf8" class="m-doc">PLAYER_0807204C</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea5f25da82c4267d731ef9056d04382fb1" class="m-doc">PLAYER_ROOM_EXIT</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea5b9b83627cdc8a16925bceec6246b840" class="m-doc">PLAYER_PULL</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea1f25aa028f99c0c565535038496db690" class="m-doc">PLAYER_LAVA</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36eac1c75297447fceafd0410a068468f48b" class="m-doc">PLAYER_WARP</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36eac5df6e64cf9dc050a8bed1d75f7d76d4" class="m-doc">PLAYER_08072454</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ead1022ae33e560517195f97f58cce52f7" class="m-doc">PLAYER_DROWN</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea834a58ba6ec68124b374e0dc792d33df" class="m-doc">PLAYER_USEPORTAL</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36eab34ce553b1ead880983847fd7a919fa8" class="m-doc">PLAYER_TALKEZLO</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36eacd2da72088c20581ec0cae6c549d8bc6" class="m-doc">PLAYER_ROOMTRANSITION</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ead7e677fcf8ef84ad5e5c6a0327e4efde" class="m-doc">PLAYER_ROLL</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea18a9b5e53c2fb50d2ac9c64e885e35d0" class="m-doc">PLAYER_080728AC</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea0df918a13281f906e994fae8f36cb6a3" class="m-doc">PLAYER_INHOLE</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea99facf528b717f72d7f13c6fa19d819a" class="m-doc">PLAYER_08072C9C</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea948169fe55dfef633c6c2e3629a5c8cc" class="m-doc">PLAYER_SLEEP</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea0274ded9ad77e5e43bb42bdac8173975" class="m-doc">PLAYER_CLIMB</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ead4cf50fb767147419e28d1881df6342b" class="m-doc">PLAYER_USEENTRANCE</a>,
+              <a href="#a31cd4a822edf57910c9ecb7801aca36ea2c289eb162b5bc8ca086a7c9ba8fb901" class="m-doc">PLAYER_PARACHUTE</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85ef46a238763a39f0621916d98e1a22">
+              <span class="m-doc-wrap-bumper">enum <a href="#a85ef46a238763a39f0621916d98e1a22" class="m-doc-self">PlayerFrameState</a> { </span><span class="m-doc-wrap"><a href="#a85ef46a238763a39f0621916d98e1a22a3deeecf85b901c6156d6a8dc8bb35e78" class="m-doc">PL_STATE_IDLE</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22ac6d33dc49db8e4b4b7c64d5317984208" class="m-doc">PL_STATE_WALK</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a1be22f8f689bcead663d2bab64ed0991" class="m-doc">PL_STATE_SWORD</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22af4d7f7484672d7754bb017cedaff4bc5" class="m-doc">PL_STATE_GUSTJAR</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a493b1985d8c55edf0d863e159d5fac96" class="m-doc">PL_STATE_HOLD</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a283b8c4dff67c20da5ed89cc551b2215" class="m-doc">PL_STATE_THROW</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a196922c37e2cb449c2cf87a661988cc8" class="m-doc">PL_STATE_6</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22adb276419c8672c7e01c4511ad66fdd8c" class="m-doc">PL_STATE_SWIM</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a9cb585aeb582aaac3e14eac85a780745" class="m-doc">PL_STATE_PARACHUTE</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22abb8f2892668ef0c7407e93f4462c603b" class="m-doc">PL_STATE_ROLL</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a010593fb69e38a49be98e287ae58c640" class="m-doc">PL_STATE_FALL</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a004a0177123aaaccf99a952bfaddb8a5" class="m-doc">PL_STATE_JUMP</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22ae79dc7253ff8fd5ab2db2769d0413b49" class="m-doc">PL_STATE_C</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22af81333fef2ffad8c89df5ff2a417bf32" class="m-doc">PL_STATE_D</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a67ed74dddfe1c4e9658e36ac47d3b40b" class="m-doc">PL_STATE_USEPORTAL</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22ae03d2e9582fc0426bd20ce91c418761e" class="m-doc">PL_STATE_F</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22ab92d46fc23054db95bfbe8cfbfbbff3e" class="m-doc">PL_STATE_TRAPPED</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22aa232a348745c80716d4f434df0dee344" class="m-doc">PL_STATE_11</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22aca15bbe0fbceecd514c43c0b450b6896" class="m-doc">PL_STATE_DIE</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a86f678ff1639c80370216b9613a40c32" class="m-doc">PL_STATE_TALKEZLO</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a559b4d7598f52f1f9d1d8042fa793ae4" class="m-doc">PL_STATE_CAPE</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22aa96aa946f4a6263e3e78ce81d0840518" class="m-doc">PL_STATE_ITEMGET</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22af5404b76adf3e4fdc71300f37fcf00db" class="m-doc">PL_STATE_DROWN</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22ac2a1ebb763602883e017bca515565f04" class="m-doc">PL_STATE_HOLE</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a059e64e44edaa222162d3cf3a1b04679" class="m-doc">PL_STATE_CLIMB</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a8a1ac42bba8c59e58eae44bc88bf0e40" class="m-doc">PL_STATE_PUSH</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a2396216501caaa7bd71074d1c566b128" class="m-doc">PL_STATE_PULL</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22ae1afbb04618a6233769f9fa5cc5f055b" class="m-doc">PL_STATE_SINKING</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a70fe369b8c23f40a9b913a65234477b3" class="m-doc">PL_STATE_STAIRS</a>,
+              <a href="#a85ef46a238763a39f0621916d98e1a22a1169dde5082d4ca7171f9c552ce24be1" class="m-doc">PL_STATE_1D</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adfcafb2764442e55293bd6c9587b58fa">
+              <span class="m-doc-wrap-bumper">enum <a href="#adfcafb2764442e55293bd6c9587b58fa" class="m-doc-self">PlayerSpawnType</a> { </span><span class="m-doc-wrap"><a href="#adfcafb2764442e55293bd6c9587b58faa6be1d8e08fe0fa5e92561773c3a6983c" class="m-doc">PL_SPAWN_DEFAULT</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faa2bbe4831ada236bfe17379d792c7ba5b" class="m-doc">PL_SPAWN_MINISH</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faae3272010857fb431caf0d67b544a4d5f" class="m-doc">PL_SPAWN_DROP</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faa21b3c59a43b45258a0c185f986fb42e0" class="m-doc">PL_SPAWN_WALKING</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faafd81b17eb9a362662c31fd01d2a058a2" class="m-doc">PL_SPAWN_STEP_IN</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faa4ee8eb10997176b7b375d2443bb8ec65" class="m-doc">PL_SPAWN_SLEEPING</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faa776a201acdb94e4def4c2184ec6895e0" class="m-doc">PL_SPAWN_DROP_MINISH</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faa9491b8fbd428b733edd10dc63ccf2a24" class="m-doc">PL_SPAWN_STAIRS_ASCEND</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faaffa1b50536132dd893b46d6d5966f220" class="m-doc">PL_SPAWN_STAIRS_DESCEND</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faa1b70c3ee21c0803af442fe2af7fc894d" class="m-doc">PL_SPAWN_9</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faa4c6bb78fbaba4c770c2871c5b2662c46" class="m-doc">PL_SPAWN_PARACHUTE_FORWARD</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faa82c02ea0ac1db07ae82eb3820b50548d" class="m-doc">PL_SPAWN_PARACHUTE_UP</a>,
+              <a href="#adfcafb2764442e55293bd6c9587b58faacea56b0a53dc5f450a8e068eebc7e105" class="m-doc">PL_SPAWN_FAST_TRAVEL</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a77ccb714ea1fe74fccd7c6f499518f07">
+              <span class="m-doc-wrap-bumper">enum <a href="#a77ccb714ea1fe74fccd7c6f499518f07" class="m-doc-self">PlayerControlMode</a> { </span><span class="m-doc-wrap"><a href="#a77ccb714ea1fe74fccd7c6f499518f07aef475fcc88b0b8ea02162fe0b9e991fe" class="m-doc">CONTROL_ENABLED</a>,
+              <a href="#a77ccb714ea1fe74fccd7c6f499518f07a22f0b867f0e1ec94e4d52c9c084fd823" class="m-doc">CONTROL_1</a>,
+              <a href="#a77ccb714ea1fe74fccd7c6f499518f07a8891f6a3e1f702bfe8f1722dc0e2a27a" class="m-doc">CONTROL_2</a>,
+              <a href="#a77ccb714ea1fe74fccd7c6f499518f07a568ad4f3ef371581a0e84f65e2eda568" class="m-doc">CONTROL_DISABLED</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0114cca8bc7a7564fb48891eb81945e9">
+              <span class="m-doc-wrap-bumper">enum <a href="#a0114cca8bc7a7564fb48891eb81945e9" class="m-doc-self">PlayerDirections</a> { </span><span class="m-doc-wrap"><a href="#a0114cca8bc7a7564fb48891eb81945e9a4aeab758ad742d135735fea04caa1939" class="m-doc">DIR_DIAGONAL</a> = 0x4,
+              <a href="#a0114cca8bc7a7564fb48891eb81945e9a7cc2d5d1d85b91ffa3b1dc6fed8af232" class="m-doc">DIR_NOT_MOVING_CHECK</a> = 0x80,
+              <a href="#a0114cca8bc7a7564fb48891eb81945e9a2e15270378edc4b0861165674c651970" class="m-doc">DIR_NONE</a> = 0xff }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a486dd000e9a9532459d9dd9010570621">
+              <span class="m-doc-wrap-bumper">enum <a href="#a486dd000e9a9532459d9dd9010570621" class="m-doc-self">PlayerFlags</a> { </span><span class="m-doc-wrap"><a href="#a486dd000e9a9532459d9dd9010570621ae53776d0bd945311c9e8862088f0876c" class="m-doc">PL_BUSY</a> = 0x1,
+              <a href="#a486dd000e9a9532459d9dd9010570621a17037fd3e7d9863a7aceff3d721ad1c2" class="m-doc">PL_FLAGS2</a> = 0x2,
+              <a href="#a486dd000e9a9532459d9dd9010570621abff6e7d6177b5171e7c7015555dcb584" class="m-doc">PL_DROWNING</a> = 0x4,
+              <a href="#a486dd000e9a9532459d9dd9010570621a5f15b8386689a1e4442934af215b510c" class="m-doc">PL_NO_CAP</a> = 0x8,
+              <a href="#a486dd000e9a9532459d9dd9010570621ac7893359ba163c2477bdff36a84c33cb" class="m-doc">PL_CAPTURED</a> = 0x10,
+              <a href="#a486dd000e9a9532459d9dd9010570621a69d781b3a69f32d3d6d441d852b68705" class="m-doc">PL_USE_PORTAL</a> = 0x20,
+              <a href="#a486dd000e9a9532459d9dd9010570621a5e77ccc78f571520d0bc6d83ecd5dc3f" class="m-doc">PL_HIDDEN</a> = 0x40,
+              <a href="#a486dd000e9a9532459d9dd9010570621aa9065e8959ce0f2ae9b0667574544ba8" class="m-doc">PL_MINISH</a> = 0x80,
+              <a href="#a486dd000e9a9532459d9dd9010570621a9ba7e7a0a1fc818bda34525ff41fa295" class="m-doc">PL_DISABLE_ITEMS</a> = 0x100,
+              <a href="#a486dd000e9a9532459d9dd9010570621a33fe708c0ccf430a13020fdd47a0647d" class="m-doc">PL_FALLING</a> = 0x200,
+              <a href="#a486dd000e9a9532459d9dd9010570621a49fbd893825ad2eab7359ff9407346f7" class="m-doc">PL_BURNING</a> = 0x400,
+              <a href="#a486dd000e9a9532459d9dd9010570621a032efa25e0cfd71299de81e748e85cfe" class="m-doc">PL_FROZEN</a> = 0x800,
+              <a href="#a486dd000e9a9532459d9dd9010570621a4824ce0c6c4383f17162fb003d26f254" class="m-doc">PL_IN_MINECART</a> = 0x1000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a656083c4779ec530a077d611ddc8f10e" class="m-doc">PL_DRUGGED</a> = 0x4000,
+              <a href="#a486dd000e9a9532459d9dd9010570621ad9716d3cab43faeb10a252599b929463" class="m-doc">PL_PIT_IS_EXIT</a> = 0x8000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a776db32c5b7a78c063fa8c137ea9994f" class="m-doc">PL_FLAGS10000</a> = 0x10000,
+              <a href="#a486dd000e9a9532459d9dd9010570621af6b7f7ffe61f5ff6d89fef77f5c8dcd5" class="m-doc">PL_GYORG_FIGHT</a> = 0x20000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a23fe61d4d431690e21be7929490922a7" class="m-doc">PL_ROLLING</a> = 0x40000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a784ae6c8a5740ee2988ee9dd547bbd1f" class="m-doc">PL_MOLDWORM_CAPTURED</a> = 0x80000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a639add92158576adb8156a8140201488" class="m-doc">PL_IN_HOLE</a> = 0x100000,
+              <a href="#a486dd000e9a9532459d9dd9010570621afdc5da41f55ccf5aead9cd07045a7973" class="m-doc">PL_MOLDWORM_RELEASED</a> = 0x200000,
+              <a href="#a486dd000e9a9532459d9dd9010570621aec2204c43a12fbbc3948f83df3a57f28" class="m-doc">PL_CLONING</a> = 0x400000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a9d3b657f77fea318f3de448bde5c57a2" class="m-doc">PL_USE_LANTERN</a> = 0x800000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a772191ec7d6b375f3057616b32974111" class="m-doc">PL_PARACHUTE</a> = 0x1000000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a972391919121a4d6831c52c3beff4e0b" class="m-doc">PL_CONVEYOR_PUSHED</a> = 0x2000000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a8d0bd332c9fef76678e26a79991c22ca" class="m-doc">PL_ENTER_MINECART</a> = 0x4000000,
+              <a href="#a486dd000e9a9532459d9dd9010570621ab552a2d92e0ad893fdba9a2c6c3a0a72" class="m-doc">PL_SWORD_THRUST</a> = 0x8000000,
+              <a href="#a486dd000e9a9532459d9dd9010570621acac49c4039d4877a8f38a5158f5bf98b" class="m-doc">PL_USE_OCARINA</a> = 0x10000000,
+              <a href="#a486dd000e9a9532459d9dd9010570621adeba5a68202007acc8fbc895236e724c" class="m-doc">PL_CLIMBING</a> = 0x20000000,
+              <a href="#a486dd000e9a9532459d9dd9010570621a5355d95f1d506eff112078f0ad628914" class="m-doc">PL_FLAGS40000000</a> = 0x40000000,
+              <a href="#a486dd000e9a9532459d9dd9010570621abc3369561c728dbdb8ec6f3c8aff3564" class="m-doc">PL_FLAGS80000000</a> = 0x80000000 }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a98665565bede6cda509614b7d6259a21">
+              <span class="m-doc-wrap-bumper">enum <a href="#a98665565bede6cda509614b7d6259a21" class="m-doc-self">PlayerItemId</a> { </span><span class="m-doc-wrap"><a href="#a98665565bede6cda509614b7d6259a21a3a7c937540fa204f809a25465e5c6404" class="m-doc">PL_ITEM_NONE</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a7acf80e0513a8ba8bacb31ac196f8ff5" class="m-doc">PL_ITEM_SWORD</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21af41881160966918d382213ea4b6a349e" class="m-doc">PL_ITEM_BOMB</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21af84a215643bd2a6caccbc2fd42db83f5" class="m-doc">PL_ITEM_BOOMERANG</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21aecb37ca9de962d2f28a13f8d1aa27259" class="m-doc">PL_ITEM_BOW</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a7bedbd1a60c5a1e4db2ab250f8c5761d" class="m-doc">PL_ITEM_SHIELD</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a4fa3888a2dcda98e601d73b7eb66c906" class="m-doc">PL_ITEM_LANTERN</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a200d9c17782a6839e7340b8222ba9c2e" class="m-doc">PL_ITEM_NULLED</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21afad773739793b8efffcabc58aee81d41" class="m-doc">PL_ITEM_GUSTJAR</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21aebc620f09947ea88fcc110ba6577f908" class="m-doc">PL_ITEM_PACCI_CANE</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21aff9da315877a3294cde6819e4d947e66" class="m-doc">PL_ITEM_A</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a1bca6473690c12f210242015526afc0a" class="m-doc">PL_ITEM_B</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a2b3068c033683437665f61ae35e78a83" class="m-doc">PL_ITEM_DASH_SWORD</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a6a727f9d94d3331ee2c373f70b58ffa0" class="m-doc">PL_ITEM_CELL_OVERWRITE_SET</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21af798bf1c12b88d795de53667e744e822" class="m-doc">PL_ITEM_BOTTLE</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a2746c7cee248260286b3703ea1043c11" class="m-doc">PL_ITEM_SWORDBEAM</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a67ecb5873d165a61be0db15c61e43334" class="m-doc">PL_ITEM_GUST</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a5eef2e65043ef5e96fdcbc7058949658" class="m-doc">PL_ITEM_GUSTBIG</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a27f0f6816b6ab5cede804d3d7109be7e" class="m-doc">PL_ITEM_PACCI_CANE_PROJECTILE</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a15d14c3fd2439d57f4bd7329b16ec09b" class="m-doc">PL_ITEM_HELD_OBJECT</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a9073ea58fd00312265b50ea5b848194b" class="m-doc">PL_ITEM_SPIRAL_BEAM</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21aff707deaaf42314f0e0e1b59af5e2ddf" class="m-doc">PL_ITEM_FIREROD_PROJECTILE</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a267f6e5d6a1ba13ec82967ecfb779331" class="m-doc">PL_ITEM_SWORDBEAM2</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a52726d73e3d5cdff627167be3546dbee" class="m-doc">PL_ITEM_NULLED2</a>,
+              <a href="#a98665565bede6cda509614b7d6259a21a27f82456ea480c0936e1f54e52f66cab" class="m-doc">PL_ITEM_CELL_OVERWRITE_SET2</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a24dfdcf13ae4e2b7985a3868a1b5169f">
+              <span class="m-doc-wrap-bumper">enum <a href="#a24dfdcf13ae4e2b7985a3868a1b5169f" class="m-doc-self">SurfaceType</a> { </span><span class="m-doc-wrap"><a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa8783fca1d8427ec94850eb2e5260108c" class="m-doc">SURFACE_NORMAL</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fac24e965355a34beb380643df6ba533c0" class="m-doc">SURFACE_PIT</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa902fdf7579d9c1617929565336c85a36" class="m-doc">SURFACE_2</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa4430abeeab375d8271048fd35aade25e" class="m-doc">SURFACE_3</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169faa894ed305344f925ad0bdbd257750fd0" class="m-doc">SURFACE_SLOPE_GNDGND_V</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa0f07743579deb062ea052073ac8250d9" class="m-doc">SURFACE_SLOPE_GNDGND_H</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fab7054e183d07429da9bc23ef267195b9" class="m-doc">SURFACE_6</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa6a6daab517a3a3cfd17928348f0077be" class="m-doc">SURFACE_7</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa168313cdd71278832c77855d2e4f2ac3" class="m-doc">SURFACE_MINISH_DOOR_FRONT</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa49e2147dce6688f1e91f7f8f5be405b5" class="m-doc">SURFACE_MINISH_DOOR_BACK</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169faad96bdf77510986654c7e2a0ab7757c0" class="m-doc">SURFACE_A</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa52c0eec78ab13f01c16e7f7c5aa3a0f9" class="m-doc">SURFACE_B</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa67ce599c67f9f3cbb71a42fb9eac17aa" class="m-doc">SURFACE_SLOPE_GNDWATER</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa2cb82c06bb66721f48dcc10d3530584f" class="m-doc">SURFACE_D</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa308c5dc619d0d30ea865ea6733405853" class="m-doc">SURFACE_E</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa566ac7cbc431edd07c629a1572c0311e" class="m-doc">SURFACE_F</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169faf2c18dc1be18cae6ed34466f91658e59" class="m-doc">SURFACE_10</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa956682cc193d31f6db572309260b792f" class="m-doc">SURFACE_SWAMP</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa0f9bfa583007a27482a7213b882393f5" class="m-doc">SURFACE_DOOR</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa1ed588b7849fcc783d9c2d382f15715a" class="m-doc">SURFACE_DOOR_13</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169faac3f0e504130d9aea1c93cb601d128c6" class="m-doc">SURFACE_14</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa26a5ef524532785fce934478652a3b43" class="m-doc">SURFACE_CLONE_TILE</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fad2189473d946215f112cc6c22cee6fcd" class="m-doc">SURFACE_16</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5" class="m-doc">SURFACE_ICE</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa3b50f15b7c5792f474a2e310ff769746" class="m-doc">SURFACE_SHALLOW_WATER</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa7e5dd80411f741125f9df0c4e61257bf" class="m-doc">SURFACE_WATER</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169facbd62d255af264ebb1c4d614d541d5d4" class="m-doc">SURFACE_BUTTON</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa7f18415448e7d540a5483d097f491020" class="m-doc">SURFACE_1B</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fac08e4ea13908b4dc30959242c3edd8ac" class="m-doc">SURFACE_1C</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa4bcb9c018c2d17056754b1d30b26dae9" class="m-doc">SURFACE_1D</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fafdca0c1bc00a924388d08483c42fa10e" class="m-doc">SURFACE_LADDER</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa425a73e07a3812aff2d08c1441b9d667" class="m-doc">SURFACE_1F</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa16c13e257802a6efa24b9a3e4b7dd3bb" class="m-doc">SURFACE_20</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fad30aeec2bca1612c92b1b16af05247a4" class="m-doc">SURFACE_21</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa895563096727b7bff251f541cf770b6b" class="m-doc">SURFACE_22</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa9bb3ff1ac074958aaf2f708c3a77499b" class="m-doc">SURFACE_EDGE</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa36611dd012a2875d75abb842942ab76b" class="m-doc">SURFACE_24</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa0f250fffc0d84653c5d6832bf1623747" class="m-doc">SURFACE_DUST</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fac6621f5f3e1b125ed342acdd25205d2c" class="m-doc">SURFACE_26</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa87f6396581d698e70b41e9adca885117" class="m-doc">SURFACE_HOLE</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa957308a628a1018b15f8ed406a8cfce2" class="m-doc">SURFACE_LIGHT_GRADE</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa17785f34a134b935f7c6ba64bbfb0302" class="m-doc">SURFACE_29</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa9b2f0633a32e7ef059019860819da7bc" class="m-doc">SURFACE_AUTO_LADDER</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa64643bdd37d392f70a5b1ef9a75e1614" class="m-doc">SURFACE_CLIMB_WALL</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169faaba39174e1c3ea52e3b573ab785cf5c9" class="m-doc">SURFACE_2C</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fa6dc50a2aeb7d96471639ea20208654c3" class="m-doc">SURFACE_2D</a>,
+              <a href="#a24dfdcf13ae4e2b7985a3868a1b5169fae426cf79cdd93f59968d1d6b933b1897" class="m-doc">SURFACE_FF</a> = 0xff }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acdd367725f2f66f6f0574bb9fa47023b">
+              <span class="m-doc-wrap-bumper">enum <a href="#acdd367725f2f66f6f0574bb9fa47023b" class="m-doc-self">PlayerSkill</a> { </span><span class="m-doc-wrap"><a href="#acdd367725f2f66f6f0574bb9fa47023ba984419a280ad5111b03d5d5ecdcd9a0f" class="m-doc">SKILL_NONE</a> = 0,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023bac566b3a6e80374022f914de9db247057" class="m-doc">SKILL_SPIN_ATTACK</a> = 1,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023ba01391e9233fbcfef88662b773c4c632d" class="m-doc">SKILL_ROLL_ATTACK</a> = 2,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023bac6c92cded87a0b4a9925f12a36bb7812" class="m-doc">SKILL_DASH_ATTACK</a> = 4,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023baf1a0fd1d36adfbf3f6a90f094ad84058" class="m-doc">SKILL_ROCK_BREAKER</a> = 8,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023bae2d74649db8e5dc10d6151a51d574e5e" class="m-doc">SKILL_SWORD_BEAM</a> = 0x10,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023ba4524f49284a8a6c1d62b933767a2ff33" class="m-doc">SKILL_GREAT_SPIN</a> = 0x20,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023baa4d68c77a86934834c9fc2c4113fdd05" class="m-doc">SKILL_DOWN_THRUST</a> = 0x40,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023bac1b1c2dbd88fa245ec9bf77a5d7f3542" class="m-doc">SKILL_PERIL_BEAM</a> = 0x80,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023bab544debce34898d48bcae54f2c6e5f43" class="m-doc">SKILL_FOURSWORD</a> = 0x100,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023ba6c92e73219fa4894a46486165b9917a2" class="m-doc">SKILL_FAST_SPIN</a> = 0x200,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023ba6ca6e7b26d9936e844f4885737d1526e" class="m-doc">SKILL_FAST_SPLIT</a> = 0x400,
+              <a href="#acdd367725f2f66f6f0574bb9fa47023badac44558bd1f5fe68b0702d239027188" class="m-doc">SKILL_LONG_SPIN</a> = 0x800 }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afaec3367963f0dd9dc0d5f8fe69589e6">
+              <span class="m-doc-wrap-bumper">enum <a href="#afaec3367963f0dd9dc0d5f8fe69589e6" class="m-doc-self">PlayerInputState</a> { </span><span class="m-doc-wrap"><a href="#afaec3367963f0dd9dc0d5f8fe69589e6a41d2fae7b3104764dcdc058f3398465a" class="m-doc">INPUT_USE_ITEM1</a> = 0x1,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a7683e81623d8a87cbf7f0ee749d756ae" class="m-doc">INPUT_USE_ITEM2</a> = 0x2,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a885afef7ee97aa536b678a76b5a36217" class="m-doc">INPUT_INTERACT</a> = 0x8,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a5ca8c66158af122edaba602b06a14c14" class="m-doc">INPUT_CANCEL</a> = 0x10,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6aaef7c01800b23a9ce8d1f6873cf1fbc6" class="m-doc">INPUT_CONTEXT</a> = 0x20,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a2786fb18dbc1736b630d7e0af8c7fe7d" class="m-doc">INPUT_40</a> = 0x40,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a59e5e6a0901732b4e21546d1ae55ff40" class="m-doc">INPUT_ACTION</a> =
+        0x80,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a201e0359b83020afa89d5275d04d90fc" class="m-doc">INPUT_RIGHT</a> = 0x100,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a4d17c3e927238dbe1f36d6924843363a" class="m-doc">INPUT_LEFT</a> = 0x200,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6acaee97a215d370b9196a07f5f6348272" class="m-doc">INPUT_UP</a> = 0x400,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a0d2be88d3ee2402177d02065c68eb1ad" class="m-doc">INPUT_DOWN</a> = 0x800,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6ad58d93654b0119dc17a071b9318f431d" class="m-doc">INPUT_ANY_DIRECTION</a> = 0xf00,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a819cd92e11cd144d0683b146d2963da2" class="m-doc">INPUT_FUSE</a> = 0x1000,
+              <a href="#afaec3367963f0dd9dc0d5f8fe69589e6a2bdfef6ba738d6bb4aef4a571a6d1d19" class="m-doc">INPUT_LIFT_THROW</a> = 0x8000 }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7987933819c94e64977954410ee60a36">
+              <span class="m-doc-wrap-bumper">enum <a href="#a7987933819c94e64977954410ee60a36" class="m-doc-self">SwordMove</a> { </span><span class="m-doc-wrap"><a href="#a7987933819c94e64977954410ee60a36a78b9795d0868b1a440e638192b288ff4" class="m-doc">SWORD_MOVE_NONE</a>,
+              <a href="#a7987933819c94e64977954410ee60a36a3de685d49ee162160daa89f7b3943f8f" class="m-doc">SWORD_MOVE_SPIN</a>,
+              <a href="#a7987933819c94e64977954410ee60a36a63dae1e49059ad87ec88243b7e82db37" class="m-doc">SWORD_MOVE_ROLL</a>,
+              <a href="#a7987933819c94e64977954410ee60a36af931d5a4712ede421a248809356c8ea0" class="m-doc">SWORD_MOVE_DASH</a>,
+              <a href="#a7987933819c94e64977954410ee60a36a1800fdfa764beca0c205d285fa0525f0" class="m-doc">SWORD_MOVE_BREAK_POT</a>,
+              <a href="#a7987933819c94e64977954410ee60a36a81c151603ef9aac604b5baaa8b3cdd77" class="m-doc">SWORD_MOVE_FULL_BEAM</a>,
+              <a href="#a7987933819c94e64977954410ee60a36adad8d07ef44ff57dec9092d541125c13" class="m-doc">SWORD_MOVE_GREAT_SPIN</a>,
+              <a href="#a7987933819c94e64977954410ee60a36abf264bb67b04b6fe65f17e0d6303becb" class="m-doc">SWORD_MOVE_DOWN_THRUST</a>,
+              <a href="#a7987933819c94e64977954410ee60a36a4bda10cabc4f2e3066be7faa6071668a" class="m-doc">SWORD_MOVE_LOW_BEAM</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acccf83be1a9fd92b5995e5afd27f62ba">
+              <span class="m-doc-wrap-bumper">enum <a href="#acccf83be1a9fd92b5995e5afd27f62ba" class="m-doc-self">GustJarState</a> { </span><span class="m-doc-wrap"><a href="#acccf83be1a9fd92b5995e5afd27f62baaee203ade7b4a39d31a1e618a4628e579" class="m-doc">PL_JAR_NONE</a> = 0x0,
+              <a href="#acccf83be1a9fd92b5995e5afd27f62baa9a9a30ddae62e62b0a7010ffd6ab697f" class="m-doc">PL_JAR_SUCK</a> = 0x1,
+              <a href="#acccf83be1a9fd92b5995e5afd27f62baa89fe81852126a71cc9454254e766a1dc" class="m-doc">PL_JAR_2</a> = 0x2,
+              <a href="#acccf83be1a9fd92b5995e5afd27f62baacae1e80bdae6656259de97831c887a8b" class="m-doc">PL_JAR_3</a> = 0x3,
+              <a href="#acccf83be1a9fd92b5995e5afd27f62baa767624f4d2240023b71a0df4eb726050" class="m-doc">PL_JAR_BLAST_INIT</a> = 0x4,
+              <a href="#acccf83be1a9fd92b5995e5afd27f62baab8b4035ff3ed35de56343cd45793746b" class="m-doc">PL_JAR_BLAST_UPDATE</a> = 0x5,
+              <a href="#acccf83be1a9fd92b5995e5afd27f62baabcfb85bcea68de01f60f95887f52976a" class="m-doc">PL_JAR_BLAST_DONE</a> = 0x6,
+              <a href="#acccf83be1a9fd92b5995e5afd27f62baa0d6e6f51767bffa9b798ed7adddf881c" class="m-doc">PL_JAR_ENT_ATTACHED</a> = 0x7 }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade26c48d3ec468f166947209b12348a7">
+              <span class="m-doc-wrap-bumper">enum <a href="#ade26c48d3ec468f166947209b12348a7" class="m-doc-self">GustJarCharge</a> { </span><span class="m-doc-wrap"><a href="#ade26c48d3ec468f166947209b12348a7aa13fb2d73f7e0be81420b753cac71872" class="m-doc">JAR_CHARGE_NONE</a> = 0,
+              <a href="#ade26c48d3ec468f166947209b12348a7a3eeea6ea36faaebd3163f15c9de87676" class="m-doc">JAR_CHARGE_SMALL</a> = 1,
+              <a href="#ade26c48d3ec468f166947209b12348a7a7ff68dccce61fe1a25eabd61153237ee" class="m-doc">JAR_CHARGE_MID</a> = 2,
+              <a href="#ade26c48d3ec468f166947209b12348a7a88b043bd6c17ad66a05e24c08b633db4" class="m-doc">JAR_CHARGE_BIG</a> = 3 }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a863a294f7bf461f034cd2145b96f69c1">
+              <span class="m-doc-wrap-bumper">enum <a href="#a863a294f7bf461f034cd2145b96f69c1" class="m-doc-self">PlayerAnimation</a> { </span><span class="m-doc-wrap"><a href="#a863a294f7bf461f034cd2145b96f69c1a9777ae1ef5267266aaa8ef4687bc7b4e" class="m-doc">ANIM_DEFAULT</a> = 0x100,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a59a05fe853a7378a0a76c2cab0e20a49" class="m-doc">ANIM_WALK</a> = 0x104,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aa9ca5af0b1a9f43b9301581931483880" class="m-doc">ANIM_SWORD</a> = 0x108,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a3418f9b317543de71124eb9185722e2e" class="m-doc">ANIM_BOUNCE</a> = 0x114,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a04e0fdbc8b03d4af4ad5d1b7cf4c423c" class="m-doc">ANIM_SPINATTACK</a> = 0x124,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a8e8bbf6a31370dd358854712902c6861" class="m-doc">ANIM_GREATSPIN</a> = 0x128,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a830a6a4e86d16897fb5f8ab2e472bed3" class="m-doc">ANIM_ROLLATTACK_SPIN</a> = 0x12c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aa6dee1d43d4829345caa66d8238c2385" class="m-doc">ANIM_ROLLATTACK_SLIDE</a> = 0x130,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a8298fd827bdbe3ae6464a01b7a7e88a1" class="m-doc">ANIM_ROLLATTACK_END</a> = 0x134,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aa63c69e54bbe3391d07977448cede9c7" class="m-doc">ANIM_SHIELD_PULLOUT</a> = 0x158,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a2a86ad4a0ce7d4f3584337fbd68c4ccd" class="m-doc">ANIM_SHIELD_WALK</a> = 0x160,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a7b26146495b75dcc18def261d3dc2668" class="m-doc">ANIM_SHIELD</a> = 0x164,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1acdf819b7a256dcdd9694e5cc9e39b58f" class="m-doc">ANIM_SWORD_CHARGE</a> = 0x168,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a1d70fbe1ee7db40f1cc4e1b5380b7acd" class="m-doc">ANIM_SWORD_CHARGE_WALK</a> = 0x16c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ae8fd5b7ba615a1bead47fe4c7bf13710" class="m-doc">ANIM_SWORD_CHARGE_BUMP</a> = 0x170,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a4ec3b352ad040d705ab28db552784987" class="m-doc">ANIM_DOWN_THRUST</a> = 0x174,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a401329fbbf0167cd9cd9ba66c6e5a6cc" class="m-doc">ANIM_FALL</a> = 0x1b8,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a1f4720ec4b7773f3533ee459e200b966" class="m-doc">ANIM_GET_ITEM_BIG</a> = 0x1b9,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a269ae96f1ba408b59d4ad57dbc5ce06f" class="m-doc">ANIM_FALL_MINISH</a> = 0x1ba,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1afe0fee39854f925dcaffa371c10f224b" class="m-doc">ANIM_DIE1</a> = 0x1bc,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ac5b0d886c53af25ad400e6324ad47de0" class="m-doc">ANIM_GET_WHITE_SWORD</a> = 0x1e2,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aac3504cad31fbcb06bc87044620ab8ec" class="m-doc">ANIM_BOW_PULLOUT</a> = 0x21c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aad0b993bdc079a2d397f9b10cee9535b" class="m-doc">ANIM_TRAPPED</a> = 0x25c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a2ede8dddf0f3c82a8bc85417cf201152" class="m-doc">ANIM_BOW_SHOOT</a> = 0x27c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a3b16769fab8c69b467b328029bc93c12" class="m-doc">ANIM_BOW_CHARGE</a> = 0x280,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aa2ca4e6e549c1a3c1380ab5a5476a42c" class="m-doc">ANIM_BOW_WALK</a> = 0x284,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ab855922df65a768c75eba1c38ae78d34" class="m-doc">ANIM_ROCS_CAPE</a> = 0x288,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a1ed64756ed2f06acd502e41c4f7dfda0" class="m-doc">ANIM_SWIM_STILL</a> = 0x28c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1af6cf27c56940881135aa1f1c4edf681e" class="m-doc">ANIM_SWIM_MOVE</a> = 0x290,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a4244a3160d848311d9a17df066aa1845" class="m-doc">ANIM_FROZEN</a> = 0x294,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a23fe40d3c19447dc99c5231dec33538e" class="m-doc">ANIM_DASH</a> = 0x298,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aeacb1a4f65a8cedd50ccc1379c86da1c" class="m-doc">ANIM_ELECTROCUTED</a> = 0x29c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ad8f589def3a24a1e29010a8887b4da40" class="m-doc">ANIM_ROLL</a> = 0x2ac,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a240669fc9dd82f180ac8b3d02e84df45" class="m-doc">ANIM_DIE2</a> = 0x2bd,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a7ec39124ba1eb66fde3b4c775810c8c8" class="m-doc">ANIM_DIVE</a> = 0x2be,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1abd3aee9c8d5a6e488e02c6dd104db06c" class="m-doc">ANIM_IN_LAVA</a> = 0x2c1,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a2ed260cac6bcdce356570cd9b887a544" class="m-doc">ANIM_PORTAL</a> = 0x2c2,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a350055252107ac4cb9c9180872fdc6b8" class="m-doc">ANIM_PORTAL_SHRINK</a> = 0x2c3,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aa327ed37db8d6b17a2e416c55e0fe94e" class="m-doc">ANIM_DROWN_RESPAWN</a> = 0x2ce,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ab2dd015554a0ff1714291d4f8281c79d" class="m-doc">ANIM_CLIMB1_UP</a> = 0x2cf,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1af5da385a1d5aa3a4fbdac09a3bee6378" class="m-doc">ANIM_CLIMB2_UP</a> = 0x2d0,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a0766b131481154fb7e0b25800beef12e" class="m-doc">ANIM_CLIMB1_DOWN</a> = 0x2d1,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a6931fadc8e7f59d8deeed8814b5f05c6" class="m-doc">ANIM_CLIMB2_DOWN</a> = 0x2d2,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1abd1d04342a29c6a789819c4cd835a4d4" class="m-doc">ANIM_CLIMB_FROM_TOP</a> = 0x2d3,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a11a775b6f23b952b1e76f575dc794019" class="m-doc">ANIM_CLIMB_LEFT</a> = 0x2d4,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aa7d143a6401c806e020009de43bbd63b" class="m-doc">ANIM_CLIMB_RIGHT</a> = 0x2d5,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ab6902c1b8ddbf7de74bd4da2e29d16d9" class="m-doc">ANIM_CLIMB_TO_TOP</a> = 0x2d6,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ac476efaf0665086fad8554cb97537824" class="m-doc">ANIM_BOTTLE_DRINK</a> = 0x2df,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1adf7f360026129ef1c7923bf07e67155a" class="m-doc">ANIM_GET_ITEM_SMALL</a> = 0x2e0,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a477a085101d2cd18cbf04ce61987d3f2" class="m-doc">ANIM_PICKUP</a> = 0x338,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ad3d17041c0b813a44b0328e3d138ac2c" class="m-doc">ANIM_PUSH</a> = 0x33c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ae7602dda5d82126ada051e6fcdd287e3" class="m-doc">ANIM_PULL</a> = 0x340,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a2c729104b68cffe4eda3fd154517ecff" class="m-doc">ANIM_THROW</a> = 0x344,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ad7bffffb33f1f7cb53996d2a95dffc3c" class="m-doc">ANIM_CARRY</a> = 0x348,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a5db3e0c9b6f57dbad56af72be3b9846b" class="m-doc">ANIM_PULL2</a> = 0x34c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1accf8ed330e49bf45bbfb24f2367be924" class="m-doc">ANIM_CARRY_STAND</a> = 0x350,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a02530a8bc39d63c020bd0545bf179335" class="m-doc">ANIM_GRAB</a> = 0x378,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ad4912089f422686af3536463144d81f4" class="m-doc">ANIM_FALL_ON_BACK</a> = 0x3a0,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a8342319b72595d47ee7e7feac718c3eb" class="m-doc">ANIM_LAUNCHED</a> = 0x3c0,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a60726fcc9f335228ba931cd6752ea5ed" class="m-doc">ANIM_EZLO_SEARCH</a> = 0x3c5,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aea41285728d2c659c9dfd642db517ca1" class="m-doc">ANIM_EZLO_APPEAR_LEFT</a> = 0x3c6,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ad6e77638f9bb5cd771476e0dc5138fd6" class="m-doc">ANIM_EZLO_EYES_UP</a> = 0x3c7,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aa762a884fb7ee615cc0eceac2cbeb3a9" class="m-doc">ANIM_EZLO_HEAD_DOWN</a> = 0x3c8,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a56ff33cb777cce46501cfc8a79d42b06" class="m-doc">ANIM_EZLO_LEAVE_LEFT</a> = 0x3c9,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a9d07326f64ba8df91f08e47100c5d94a" class="m-doc">ANIM_EZLO_APPEAR_RIGHT</a> = 0x3ca,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a3a71d7661133c4dbdad326cad2e04424" class="m-doc">ANIM_EZLO_EYES_MIDDLE</a> = 0x3cc,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a9388efc2adabb1ccb7970132cd68f7a0" class="m-doc">ANIM_EZLO_LEAVE_RIGHT</a> = 0x3cd,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a614a1ca0a5d1235fa1713f66c4e8d026" class="m-doc">ANIM_DEFAULT_NOCAP</a> = 0x400,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a7e52cfb79328748485a128a969c49891" class="m-doc">ANIM_WALK_NOCAP</a> = 0x404,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a9f57086480a9223192a33245a5db2da5" class="m-doc">ANIM_SWORD_NOCAP</a> = 0x408,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ad97cf156095e860eb833940905c2dfa2" class="m-doc">ANIM_SHIELD_PULLOUT_NOCAP</a> = 0x40c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a27e4c08eafe714e2d5c42c0305114984" class="m-doc">ANIM_SHIELD_WALK_NOCAP</a> = 0x410,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a2e53091fac95cab765b94b895299782b" class="m-doc">ANIM_SHIELD_NOCAP</a> = 0x414,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a7a2dfcc98bbf824f7c608909cf4d8a70" class="m-doc">ANIM_BOUNCE_NOCAP</a> = 0x418,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a84b35f5f8005a74464780ec470007d75" class="m-doc">ANIM_HOP_NOCAP</a> = 0x41c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a4647b273c3a01a7ba05ac1af2054b6f1" class="m-doc">ANIM_JUMP_NOCAP</a> = 0x420,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a7a6ee6d200d4a6f99d585ed18cd2b974" class="m-doc">ANIM_LAND_NOCAP</a> = 0x424,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aae09c36e6eebfd1c76a83bb5400b3642" class="m-doc">ANIM_ROLL_NOCAP</a> = 0x438,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a3c4247c47574f9eafbb4763568e6c8a6" class="m-doc">ANIM_DROWN_NOCAP</a> = 0x44c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a0129f868e3b5af345314339774e834ce" class="m-doc">ANIM_FALL_NOCAP</a> = 0x458,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a49ac15dc6fdd1098883fcdb886aebbbf" class="m-doc">ANIM_DIE1_NOCAP</a> = 0x459,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aeb9b640f05ab25ff77e25ebeb51da34f" class="m-doc">ANIM_DIE2_NOCAP</a> = 0x45a,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a7da1e4723c39cdcfd336dbf4b95ef73f" class="m-doc">ANIM_GET_ITEM_BIG_NOCAP</a> = 0x45b,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a76b090dcd4e8cb5c7d7e1ed5e7b7a4f5" class="m-doc">ANIM_GET_ITEM_SMALL_NOCAP</a> = 0x45e,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ac92f59029e36c18cdf6f7e33be141491" class="m-doc">ANIM_GET_ITEM_SWORD</a> = 0x45f,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a5745c8fe6e541901ad9fe05796875cf3" class="m-doc">ANIM_GUSTJAR_PULLOUT</a> = 0x500,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a7d3fe343b46a73c18f480f61fca1004c" class="m-doc">ANIM_GUSTJAR_SUCK</a> = 0x504,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1af5027e10c2181aba04a2491a223b8a9b" class="m-doc">ANIM_MOLEMITTS_FLOOR</a> = 0x508,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a357aa90e905cc836af6b9b9991ed9960" class="m-doc">ANIM_MOLEMITTS_DIG</a> = 0x50c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a09ba207677153fc57563a115e06d02b7" class="m-doc">ANIM_GUSTJAR_END</a> = 0x510,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a11ad6e20d082cd1bd2bf5a551b5badb4" class="m-doc">ANIM_GUSTJAR_BLOW</a> = 0x514,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a5ee1d4a243265bbb5037c50bc3caa207" class="m-doc">ANIM_GUSTJAR_WALK</a> = 0x518,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a175a92d14042f3864102086bda7c8cf0" class="m-doc">ANIM_MOLEMITTS_CLANG</a> = 0x51c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a29384547972b2fb27f0094c3a97979de" class="m-doc">ANIM_MOLEMITTS_MISS</a> = 0x520,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a890b10a7ba0699380f488cd2b212fb3b" class="m-doc">ANIM_GUSTJAR_524</a> = 0x524,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a262bea8bfd0004060988f19c9a863123" class="m-doc">ANIM_ENTER_POT</a> = 0x52c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ad2d05c67e0b6c35ddaf0104808907e41" class="m-doc">ANIM_IN_POT</a> = 0x530,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aea6eebd1f42eaf37d4761a2f13eeb46d" class="m-doc">ANIM_LANTERN_LIGHT</a> = 0x600,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a93c9e3e0cbec892b1d61b00da575a35a" class="m-doc">ANIM_LANTERN_ON</a> = 0x604,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a9441ed8a85df3617a0f841533283a1fa" class="m-doc">ANIM_LANTERN</a> = 0x608,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ab76012ccdc590bee9a39e36a403917e0" class="m-doc">ANIM_LANTERN_BURN</a> = 0x60c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a9fdc00b0ca773f78f8ad81cf4f22c806" class="m-doc">ANIM_BOTTLE_POUR</a> = 0x610,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a98c11ef5c5c0b72f1db64c2e003031bc" class="m-doc">ANIM_BOTTLE_SWING</a> = 0x614,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a929e4b22ecdfa92b33c20976dcc463d6" class="m-doc">ANIM_BOTTLE_SWING_END</a> = 0x618,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a41489895deeace64990667ef3a471efc" class="m-doc">ANIM_FALL_IN_HOLE</a> = 0x61c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a398eb3c6829b311f9c8d98b833e3d075" class="m-doc">ANIM_IN_HOLE</a> = 0x620,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a3c0ec547b6d4c1a9e75233140b3724d4" class="m-doc">ANIM_SPRING_JUMP</a> = 0x624,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aa3a936f1092595ac87c9d4a4dd9e717a" class="m-doc">ANIM_CANE</a> = 0x628,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a233c24abd3af49110889ff82707475d4" class="m-doc">ANIM_PARACHUTE_ACTIVATE</a> = 0x700,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a21a967b123c3cf8c476eabbd586f899e" class="m-doc">ANIM_BOOMERANG_MAGIC</a> = 0x704,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ae92a5ebc8455e8396ee74321490c8999" class="m-doc">ANIM_PARACHUTE</a> = 0x708,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ab55abe276695da32d3e582a072107fbe" class="m-doc">ANIM_MINECART_PAUSE</a> = 0x70c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a4f3d19e204b8af0cfa1acd053057c535" class="m-doc">ANIM_MINECART</a> = 0x710,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ab0dcfa3db718185ded792e4b1488a9c2" class="m-doc">ANIM_PARACHUTE_TURN_RIGHT</a> = 0x714,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a4bcf6f48298f4e162b7ca6c33b43bc18" class="m-doc">ANIM_PARACHUTE_TURN_OPPOSITE</a> = 0x718,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a25bae289799a68146282e6098e51f6df" class="m-doc">ANIM_PARACHUTE_TURN_LEFT</a> = 0x71c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a96e32313bf0cdc435d66d0f54852751f" class="m-doc">ANIM_PARACHUTE_TURN2_RIGHT</a> = 0x720,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a2c89bcc19fd059498f1b2ddd873c2276" class="m-doc">ANIM_PARACHUTE_TURN2_OPPOSITE</a> = 0x724,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a3c6a99982ba2f13e7c487a7be57aa67d" class="m-doc">ANIM_PARACHUTE_TURN2_LEFT</a> = 0x728,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a4223b348b62f7eb28d6d736e77db0d7a" class="m-doc">ANIM_DROWN</a> = 0x72c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1adb62c54f165f469f61199d96df1e6a98" class="m-doc">ANIM_PARACHUTE_FALL</a> = 0x730,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ab3922a64b9dee744ae6c3c8ee695079d" class="m-doc">ANIM_PUT_ON_EZLO</a> = 0x734,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a10ba2c4775581dd03613a123306e22fe" class="m-doc">ANIM_SLEEP</a> = 0x736,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a54a61a9205e4765c6907aed99b18c94a" class="m-doc">ANIM_WAKEUP</a> = 0x737,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a2bb25e55cdad23f555a8e5225e8a5375" class="m-doc">ANIM_PORTAL_ACTIVATE</a> = 0x738,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a4099e8826fe5f6dcee3a0e03fe525ccb" class="m-doc">ANIM_SLEEP_NOCAP</a> = 0x73a,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a505110f66830678950aa199a624fbc0c" class="m-doc">ANIM_WAKEUP_NOCAP</a> = 0x73b,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a3bd90fe22e1d1e0ceb7166d050d2e770" class="m-doc">ANIM_GROW</a> = 0x73c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a5209f37683d307957f32179592822061" class="m-doc">ANIM_HOP</a> = 0x80c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a9c491919d57a5d79da4fe052b5f0a5bc" class="m-doc">ANIM_JUMP</a> = 0x810,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ab8d0de3c4ebd43fb489b7a75c81dadc8" class="m-doc">ANIM_BOOMERANG</a> = 0x818,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a79acd4094b61591b392d68f0ae3de38b" class="m-doc">ANIM_LAND</a> = 0x820,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ad396cac8f87d2e2146fd56ccf9369287" class="m-doc">ANIM_MOLDWORM_CAPTURED</a> = 0x8b0,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ac56f142d5b1fe5d4b626f22f7c876222" class="m-doc">ANIM_GET_NEW_SWORD</a> = 0x8bf,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ab0a25e746df81e81d028285235d4ea91" class="m-doc">ANIM_OCARINA</a> = 0x8e1,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1afa2779b6c76b8aac4360d0414aac5d43" class="m-doc">ANIM_GET_LAST_SWORD</a> = 0x8e3,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a91796eb94afd025a5f26d6d66a929d28" class="m-doc">ANIM_GET_NEWCAP</a> = 0x8e4,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a4e04c8784c0a4c9bdf5fafd27e8f2566" class="m-doc">ANIM_PICKUP_NOCAP</a> = 0x928,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a06d4ec6c058512552d142a55cf979a6a" class="m-doc">ANIM_CARRY_STAND_NOCAP</a> = 0x92c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a07b1e96fbdb52af6f2d4d8dcbced8282" class="m-doc">ANIM_THROW_NOCAP</a> = 0x930,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ae79343e3f55899362d5bb66c3c26c76c" class="m-doc">ANIM_CARRY_NOCAP</a> = 0x934,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a2cd470f13c7d3e39219b09fc747686a9" class="m-doc">ANIM_PUSH_NOCAP</a> = 0x93c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a1b5aa405c47156bbb5f0cd5d5e91a1f1" class="m-doc">ANIM_PULL_START_NOCAP</a> = 0x940,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ae14b601ddb84830fc21c5c60bcee627c" class="m-doc">ANIM_PULL_NOCAP</a> = 0x944,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a6a1a6457f420080a7467736d04925050" class="m-doc">ANIM_GRAB_NOCAP</a> = 0x948,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aeda7901aeb6b25e68e0420877bd1d2c8" class="m-doc">ANIM_FALL_IN_HOLE_NOCAP</a> = 0x950,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a04e867f922a474e8e6fc372db6a67278" class="m-doc">ANIM_IN_HOLE_NOCAP</a> = 0x954,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a23062eead7c6922dae04beb36d53f004" class="m-doc">ANIM_SWORD_MINISH</a> = 0xc00,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a94d0ea09d4dce86c243d64e4f9035351" class="m-doc">ANIM_WALK_MINISH</a> = 0xc04,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a721748ace9847e942cea648b56374134" class="m-doc">ANIM_ROLL_MINISH</a> = 0xc08,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a358306853b4bf19e1cda07f5f1ab3a20" class="m-doc">ANIM_SWIM_MINISH</a> = 0xc0c,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1ac84e340feb2d5aecdb70ce30dbf0ff40" class="m-doc">ANIM_DASH_MINISH</a> = 0xc10,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a943e79cd3909add956f5100da4162d0b" class="m-doc">ANIM_DASH_CHARGE_MINISH</a> = 0xc14,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a999b66431099f74029ec5a83a0e7bf4d" class="m-doc">ANIM_BOUNCE_MINISH</a> = 0xc18,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a2b4b227d21bc8c48c35a945cac35b7aa" class="m-doc">ANIM_DROWN_MINISH</a> = 0xc19,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a8c20ff87b54dcce1a9ed1d9a1be61cce" class="m-doc">ANIM_DIE1_MINISH</a> = 0xc1a,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1a5219a64b700be9d6c44f8868c3f22f26" class="m-doc">ANIM_DIE2_MINISH</a> = 0xc1b,
+              <a href="#a863a294f7bf461f034cd2145b96f69c1aa978a9198c28086e309e5672d32730cb" class="m-doc">ANIM_DIVE_MINISH</a> = 0xc1c }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5e2c374d2990baf931d2f9581cb34ea6">
+              <span class="m-doc-wrap-bumper">enum <a href="#a5e2c374d2990baf931d2f9581cb34ea6" class="m-doc-self">PlayerAnimationState</a> { </span><span class="m-doc-wrap"><a href="#a5e2c374d2990baf931d2f9581cb34ea6a72d99016c9dc49a514ac58c6427d457f" class="m-doc">PAS_NORTH</a>,
+              <a href="#a5e2c374d2990baf931d2f9581cb34ea6a0311158e1144d8b9c1f57e9b9ce596ca" class="m-doc">PAS_EAST</a>,
+              <a href="#a5e2c374d2990baf931d2f9581cb34ea6ab2ca31c3561a5fb47ecd7116ef99c852" class="m-doc">PAS_SOUTH</a>,
+              <a href="#a5e2c374d2990baf931d2f9581cb34ea6aa05512f4ab45904f7d516b5e0b516701" class="m-doc">PAS_WEST</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9a40fc7400eafce3fb17486772fdea35">
+              <span class="m-doc-wrap-bumper">enum <a href="#a9a40fc7400eafce3fb17486772fdea35" class="m-doc-self">InteractionType</a> { </span><span class="m-doc-wrap"><a href="#a9a40fc7400eafce3fb17486772fdea35ac0ac269750e3b5410a79056f6ec0d438" class="m-doc">INTERACTION_NONE</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35a470dbf91cb538739b77c5df91968c107" class="m-doc">INTERACTION_TALK</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35a616db52c29ecce803549454b2ea3d066" class="m-doc">INTERACTION_FUSE</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35a93bfc22deb84ee6bdf77549a7ce238db" class="m-doc">INTERACTION_OPEN_CHEST</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35ad3f78e8ef61521bfdc127f9478438532" class="m-doc">INTERACTION_UNUSED</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35ad0ff3a38206d9c4d7662fe04aee05cce" class="m-doc">INTERACTION_USE_SMALL_KEY</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35ac2d9f3e3c341144ce32f40e2daac74f7" class="m-doc">INTERACTION_USE_BIG_KEY</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35a044ed391fcf93672112dae87ef3b49fa" class="m-doc">INTERACTION_TALK_MINISH</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35a009b0b5e61ff7c7cbbb1ed8f98853f51" class="m-doc">INTERACTION_LIFT_SHOP_ITEM</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35a8fedf47c90b3547cbad852c9a03fb3a2" class="m-doc">INTERACTION_CHECK</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35a05c2dda0579ad2313e245c1e2cccf899" class="m-doc">INTERACTION_DROP_PEDESTAL</a>,
+              <a href="#a9a40fc7400eafce3fb17486772fdea35ae12acca85c2767d69d1cdc56df104a4e" class="m-doc">INTERACTION_NULL</a> = 0xFF }</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf5ce1ab65a019ced43db914e3be1b74">
+              <span class="m-doc-wrap-bumper">enum <a href="#acf5ce1ab65a019ced43db914e3be1b74" class="m-doc-self">ActionRButton</a> { </span><span class="m-doc-wrap"><a href="#acf5ce1ab65a019ced43db914e3be1b74a94668dd62a6567376f82b401f76b065a" class="m-doc">R_ACTION_NONE</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74a814dc73d7c6752fbf6e8252dcf99f3da" class="m-doc">R_ACTION_CANCEL</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74a5f50480377ddfee2e802fba8bfb1c534" class="m-doc">R_ACTION_DROP</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74ae7c282f8fdcc6f9b4a36ac0045e88fc2" class="m-doc">R_ACTION_THROW</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74a1dc271f872c5146a8a62638a491c50d9" class="m-doc">R_ACTION_READ</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74a54b45c3fbbd6885e69ba398c07a27dff" class="m-doc">R_ACTION_CHECK</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74ad63fc723397fd3f9a0fba295df43f3c5" class="m-doc">R_ACTION_OPEN</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74a587fbcd3a048919b9546bb668b8ecf60" class="m-doc">R_ACTION_SPEAK</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74ab866af7a06127e967759d332bf2fca1c" class="m-doc">R_ACTION_GRAB</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74a6b993b6231de4dfddd576db85645aee0" class="m-doc">R_ACTION_LIFT</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74a0e38c871da6647676649e8b5405e8e09" class="m-doc">R_ACTION_GROW</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74af28e52266675f98945d3edb056344038" class="m-doc">R_ACTION_SHRINK</a>,
+              <a href="#acf5ce1ab65a019ced43db914e3be1b74a9d63cc936514aeb34b2d6297f9aca268" class="m-doc">R_ACTION_ROLL</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a6d906e89b705304aa9580c835d6b17a2">
+              <span class="m-doc-wrap-bumper">void <a href="#a6d906e89b705304aa9580c835d6b17a2" class="m-doc-self">DoPlayerAction</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67fa6bb5c85fc43912a225add4e459ac">
+              <span class="m-doc-wrap-bumper">auto <a href="#a67fa6bb5c85fc43912a225add4e459ac" class="m-doc-self">CheckInitPauseMenu</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d024ed7e2c87a1fc729de8aaa35183a">
+              <span class="m-doc-wrap-bumper">void <a href="#a5d024ed7e2c87a1fc729de8aaa35183a" class="m-doc-self">SetPlayerControl</a>(</span><span class="m-doc-wrap"><a href="player_8h.html#a77ccb714ea1fe74fccd7c6f499518f07" class="m-doc">PlayerControlMode</a> mode)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4db65d3b76f0fde1a9c925dfa4b096d7">
+              <span class="m-doc-wrap-bumper">void <a href="#a4db65d3b76f0fde1a9c925dfa4b096d7" class="m-doc-self">ResetActiveItems</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4cfb5f80ce6217349196a21144b9a4c8">
+              <span class="m-doc-wrap-bumper">void <a href="#a4cfb5f80ce6217349196a21144b9a4c8" class="m-doc-self">ResetPlayerVelocity</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93523b5cbd6a98fc115041033fd52c7a">
+              <span class="m-doc-wrap-bumper">void <a href="#a93523b5cbd6a98fc115041033fd52c7a" class="m-doc-self">ResetPlayerAnimationAndAction</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac02f88914bdddf0ec95a72be3721a7cf">
+              <span class="m-doc-wrap-bumper">void <a href="#ac02f88914bdddf0ec95a72be3721a7cf" class="m-doc-self">SetPlayerActionNormal</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf75668d710b2038f7ef62875a12fd92">
+              <span class="m-doc-wrap-bumper">void <a href="#abf75668d710b2038f7ef62875a12fd92" class="m-doc-self">RespawnAsMinish</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a985d03eb00fac17a8eb9875d712a8c64">
+              <span class="m-doc-wrap-bumper">auto <a href="#a985d03eb00fac17a8eb9875d712a8c64" class="m-doc-self">CreatePlayerItem</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> unk) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a79fc161c2440e80237c5f797396f1a91">
+              <span class="m-doc-wrap-bumper">void <a href="#a79fc161c2440e80237c5f797396f1a91" class="m-doc-self">ResolvePlayerAnimation</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5b13ee0984415458814f0a9d9c2cc8e">
+              <span class="m-doc-wrap-bumper">void <a href="#ae5b13ee0984415458814f0a9d9c2cc8e" class="m-doc-self">RegisterPlayerHitbox</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9fc40c742aa86b193bc8e6096e25021c">
+              <span class="m-doc-wrap-bumper">void <a href="#a9fc40c742aa86b193bc8e6096e25021c" class="m-doc-self">UpdateFloorType</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4e5493cc8f6e8371693672b1e134e65">
+              <span class="m-doc-wrap-bumper">void <a href="#af4e5493cc8f6e8371693672b1e134e65" class="m-doc-self">CreateEzloHint</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> hintId,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> hintHeight)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa82f2bdb184599609847de98d14ced0d" class="m-doc">IsItemEquipped</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> itemId) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Returns the slot the item is equipped in.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a334ba45b165a625e9c95187d44634bd7" class="m-doc">GetInventoryValue</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aef9bcf4dc4b7949e9c7e73f1aaf9a4d7" class="m-doc">SetInventoryValue</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> value) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a5ede4c080d48992c358992bd67a26386">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5ede4c080d48992c358992bd67a26386" class="m-doc-self">ModHealth</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> delta) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff2c96ac17ee7fb7465dda41ee9b76d1">
+              <span class="m-doc-wrap-bumper">void <a href="#aff2c96ac17ee7fb7465dda41ee9b76d1" class="m-doc-self">ModRupees</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> delta)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad40b09fc7f73df1fe135850a8875eaf4">
+              <span class="m-doc-wrap-bumper">void <a href="#ad40b09fc7f73df1fe135850a8875eaf4" class="m-doc-self">ModBombs</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> delta)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d5010a3876a14f27313ed8133131463">
+              <span class="m-doc-wrap-bumper">void <a href="#a0d5010a3876a14f27313ed8133131463" class="m-doc-self">DeleteClones</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8cd5e49ca895c8af1967af888f5f537b">
+              <span class="m-doc-wrap-bumper">void <a href="#a8cd5e49ca895c8af1967af888f5f537b" class="m-doc-self">CreateItemEquippedAtSlot</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> equipSlot)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b5f689465707470cb09f4822e00b552">
+              <span class="m-doc-wrap-bumper">void <a href="#a2b5f689465707470cb09f4822e00b552" class="m-doc-self">PutAwayItems</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd147c4b438cf9e38f10964fc2ffd875">
+              <span class="m-doc-wrap-bumper">void <a href="#acd147c4b438cf9e38f10964fc2ffd875" class="m-doc-self">sub_08079E58</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> speed,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab64f4ff37218d648829a96ad5cfecb45">
+              <span class="m-doc-wrap-bumper">void <a href="#ab64f4ff37218d648829a96ad5cfecb45" class="m-doc-self">RespawnPlayer</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1033ca75409322a5d75f063ad0e98e58">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1033ca75409322a5d75f063ad0e98e58" class="m-doc-self">GetSurfaceCalcType</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* param_1,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="player_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169f" class="m-doc">SurfaceType</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2652d385f70072f058a80a6dc635ec07">
+              <span class="m-doc-wrap-bumper">void <a href="#a2652d385f70072f058a80a6dc635ec07" class="m-doc-self">UpdatePlayerMovement</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad86e3c3bf0c6bf3f767b85106d00ae4e">
+              <span class="m-doc-wrap-bumper">void <a href="#ad86e3c3bf0c6bf3f767b85106d00ae4e" class="m-doc-self">EnablePlayerDraw</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af0e217e2b33af7259bf628e8ba184b67">
+              <span class="m-doc-wrap-bumper">void <a href="#af0e217e2b33af7259bf628e8ba184b67" class="m-doc-self">sub_080797EC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace3c6708f176e51e28f88ce698e6c4f4">
+              <span class="m-doc-wrap-bumper">void <a href="#ace3c6708f176e51e28f88ce698e6c4f4" class="m-doc-self">PlayerMinishSetNormalAndCollide</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0b92b7262352e4da7acd33c53cbb3473">
+              <span class="m-doc-wrap-bumper">auto <a href="#a0b92b7262352e4da7acd33c53cbb3473" class="m-doc-self">sub_08079B24</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e8d21c2d02b18fcf834da72bfc5b666">
+              <span class="m-doc-wrap-bumper">void <a href="#a3e8d21c2d02b18fcf834da72bfc5b666" class="m-doc-self">sub_08079708</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aadd365bfef4ba015ddecb36818e2e3ae">
+              <span class="m-doc-wrap-bumper">void <a href="#aadd365bfef4ba015ddecb36818e2e3ae" class="m-doc-self">sub_08079744</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8eabebb7a18a325a1625ace4349558bc">
+              <span class="m-doc-wrap-bumper">void <a href="#a8eabebb7a18a325a1625ace4349558bc" class="m-doc-self">PlayerUpdateSwimming</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a906de2442fc14ec34100361bddb8086e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a906de2442fc14ec34100361bddb8086e" class="m-doc-self">GetActTileInFront</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* player) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8cdeb6f55d498a9a8de71f9459540336">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8cdeb6f55d498a9a8de71f9459540336" class="m-doc-self">sub_080797C4</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad29ebf22a4798722f15bdd3893e26ba2">
+              <span class="m-doc-wrap-bumper">void <a href="#ad29ebf22a4798722f15bdd3893e26ba2" class="m-doc-self">CheckPlayerVelocity</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a45c26c779bef615186889011ae7389f5">
+              <span class="m-doc-wrap-bumper">void <a href="#a45c26c779bef615186889011ae7389f5" class="m-doc-self">sub_0807B068</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee55d5186d884c649a64eb4f73344167">
+              <span class="m-doc-wrap-bumper">auto <a href="#aee55d5186d884c649a64eb4f73344167" class="m-doc-self">sub_0807A2F8</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_1) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7ada0fbbd803a3bb5bdb0ed10730e768">
+              <span class="m-doc-wrap-bumper">void <a href="#a7ada0fbbd803a3bb5bdb0ed10730e768" class="m-doc-self">UpdateActiveItems</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af029f4d175054631f8f63d5d8ff28bea">
+              <span class="m-doc-wrap-bumper">auto <a href="#af029f4d175054631f8f63d5d8ff28bea" class="m-doc-self">sub_0807A2B8</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30e556a10d0dd31c29a93ee13f91f5be">
+              <span class="m-doc-wrap-bumper">auto <a href="#a30e556a10d0dd31c29a93ee13f91f5be" class="m-doc-self">sub_08079550</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a676df2e2ef1c29e7080d5694b4e778ad">
+              <span class="m-doc-wrap-bumper">auto <a href="#a676df2e2ef1c29e7080d5694b4e778ad" class="m-doc-self">sub_080782C0</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa62396eda4ae867f159097d1625e2107">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa62396eda4ae867f159097d1625e2107" class="m-doc-self">sub_080793E4</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_1) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4bfd12f22d814cc5a0e659ff10dae340">
+              <span class="m-doc-wrap-bumper">auto <a href="#a4bfd12f22d814cc5a0e659ff10dae340" class="m-doc-self">sub_08079C30</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* player) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41a70af810e6ddf8268b730d5a799b90">
+              <span class="m-doc-wrap-bumper">void <a href="#a41a70af810e6ddf8268b730d5a799b90" class="m-doc-self">ResetLantern</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af21eeeb334531f12ed5d7a2aa6ba5f1b">
+              <span class="m-doc-wrap-bumper">auto <a href="#af21eeeb334531f12ed5d7a2aa6ba5f1b" class="m-doc-self">CheckQueuedAction</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad27ab280c406f5850cc9cb98dfaec0bd">
+              <span class="m-doc-wrap-bumper">void <a href="#ad27ab280c406f5850cc9cb98dfaec0bd" class="m-doc-self">UpdatePlayerSkills</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3efd8f26f8e510b29d5d55f56414df90">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3efd8f26f8e510b29d5d55f56414df90" class="m-doc-self">sub_0807AC54</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2be9ff859ce661e4d1b368744d30f49">
+              <span class="m-doc-wrap-bumper">void <a href="#af2be9ff859ce661e4d1b368744d30f49" class="m-doc-self">sub_080792D8</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a81f39d0334ff0541b04db49c3ab3b22d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a81f39d0334ff0541b04db49c3ab3b22d" class="m-doc-self">sub_08078F74</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afd77f77ec50173b75beee0509f502c0c">
+              <span class="m-doc-wrap-bumper">void <a href="#afd77f77ec50173b75beee0509f502c0c" class="m-doc-self">AddInteractableAsMinishObject</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae67096072b72b52fdbf1f84e9e4679a7">
+              <span class="m-doc-wrap-bumper">void <a href="#ae67096072b72b52fdbf1f84e9e4679a7" class="m-doc-self">sub_08078D60</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87efe24655ad27d75f7429933d94034c">
+              <span class="m-doc-wrap-bumper">void <a href="#a87efe24655ad27d75f7429933d94034c" class="m-doc-self">PlayerSetNormalAndCollide</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa4611368eb7304acff48b336636e238b">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa4611368eb7304acff48b336636e238b" class="m-doc-self">PlayerTryDropObject</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* arg0,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> unk) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if player state believes the held item is valid? If it&#x27;s not delete the item?</dd>
+            <dt id="a702a4510bb5e21157fa90f680e47f48f">
+              <span class="m-doc-wrap-bumper">void <a href="#a702a4510bb5e21157fa90f680e47f48f" class="m-doc-self">InitItemGetSequence</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> delay)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0b7a32a12c17beb734feee35c7e55243">
+              <span class="m-doc-wrap-bumper">void <a href="#a0b7a32a12c17beb734feee35c7e55243" class="m-doc-self">sub_0807B7D8</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tileType,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tilePos,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa350a23486f243e1349254ae774be0cb">
+              <span class="m-doc-wrap-bumper">void <a href="#aa350a23486f243e1349254ae774be0cb" class="m-doc-self">SetInteractableObjectCollision</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* arg0,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> ignoreLayer,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> interactDirections,
+              const void* customHitbox)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a039ffc3144b76ace035bc9fed76622c5">
+              <span class="m-doc-wrap-bumper">void <a href="#a039ffc3144b76ace035bc9fed76622c5" class="m-doc-self">sub_08079D84</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a39248a04fe8e358681b2f39113596892">
+              <span class="m-doc-wrap-bumper">auto <a href="#a39248a04fe8e358681b2f39113596892" class="m-doc-self">sub_0807953C</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f003265854d43f3c5410d8d05999e2c">
+              <span class="m-doc-wrap-bumper">void <a href="#a9f003265854d43f3c5410d8d05999e2c" class="m-doc-self">sub_0807BB68</a>(</span><span class="m-doc-wrap">const <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a>* param_1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> basePosition,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71c8a9642df94c96732fcc6a2d38feb9">
+              <span class="m-doc-wrap-bumper">void <a href="#a71c8a9642df94c96732fcc6a2d38feb9" class="m-doc-self">SetTileByIndex</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tileIndex,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tilePos,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f48d6fc2a0693bf63677c4fa3894cba">
+              <span class="m-doc-wrap-bumper">void <a href="#a9f48d6fc2a0693bf63677c4fa3894cba" class="m-doc-self">RestorePrevTileEntity</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tilePos,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> layer)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab71cb2a0eac903a1d8618e4d73a5c057">
+              <span class="m-doc-wrap-bumper">void <a href="#ab71cb2a0eac903a1d8618e4d73a5c057" class="m-doc-self">UpdateItemAnim</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27cacf7c82139afa41f7eeaba640dfbc">
+              <span class="m-doc-wrap-bumper">void <a href="#a27cacf7c82139afa41f7eeaba640dfbc" class="m-doc-self">PlayerCancelHoldItem</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a575a79d9b6b378ec7122ae65eaba07a3">
+              <span class="m-doc-wrap-bumper">void <a href="#a575a79d9b6b378ec7122ae65eaba07a3" class="m-doc-self">RegisterCarryEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acaf38aed01e4f3b219ab8846bc24db46">
+              <span class="m-doc-wrap-bumper">void <a href="#acaf38aed01e4f3b219ab8846bc24db46" class="m-doc-self">FreeCarryEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae6880cf4649ae77e52c81c50cdb9333">
+              <span class="m-doc-wrap-bumper">void <a href="#aae6880cf4649ae77e52c81c50cdb9333" class="m-doc-self">PlayerDropHeldObject</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae986e79cff20ffcea88d7b73c7af1862">
+              <span class="m-doc-wrap-bumper">void <a href="#ae986e79cff20ffcea88d7b73c7af1862" class="m-doc-self">PlayerResetStateFromFusion</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af356dc52f1e0f40873e80e0fa6ac6273">
+              <span class="m-doc-wrap-bumper">void <a href="#af356dc52f1e0f40873e80e0fa6ac6273" class="m-doc-self">DeleteItemBehavior</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5dfaa41cba696263089232cded92375">
+              <span class="m-doc-wrap-bumper">void <a href="#ab5dfaa41cba696263089232cded92375" class="m-doc-self">sub_08077D38</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7c922e3e64b8f672877ed23b2cd6be8">
+              <span class="m-doc-wrap-bumper">void <a href="#ad7c922e3e64b8f672877ed23b2cd6be8" class="m-doc-self">SetItemAnim</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> animIndex)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1116924b8c1effbb9a69421c5c380148">
+              <span class="m-doc-wrap-bumper">void <a href="#a1116924b8c1effbb9a69421c5c380148" class="m-doc-self">sub_08077E3C</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea02dd156ee116464feddcbd0f5dace6">
+              <span class="m-doc-wrap-bumper">void <a href="#aea02dd156ee116464feddcbd0f5dace6" class="m-doc-self">sub_080751E8</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a2,
+              void* script)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5acb5f607182003254bd4ecdc5949f06">
+              <span class="m-doc-wrap-bumper">void <a href="#a5acb5f607182003254bd4ecdc5949f06" class="m-doc-self">sub_08077B98</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* unk)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada4785b89b58437ccde5158acc8a676d">
+              <span class="m-doc-wrap-bumper">void <a href="#ada4785b89b58437ccde5158acc8a676d" class="m-doc-self">sub_08077BB8</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* beh)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0f2df9bfbb8a260e4c99da106ac610c6">
+              <span class="m-doc-wrap-bumper">auto <a href="#a0f2df9bfbb8a260e4c99da106ac610c6" class="m-doc-self">CreatePlayerItemIfNotExists</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aade553f927a5d0178ffa71d858c5f879">
+              <span class="m-doc-wrap-bumper">auto <a href="#aade553f927a5d0178ffa71d858c5f879" class="m-doc-self">FindPlayerItemForItem</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a501bd292e92c62b7cb3f697e357a72ab">
+              <span class="m-doc-wrap-bumper">auto <a href="#a501bd292e92c62b7cb3f697e357a72ab" class="m-doc-self">PlayerCanBeMoved</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab968e05180a3ad010302331177cdd8c4">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab968e05180a3ad010302331177cdd8c4" class="m-doc-self">sub_08077EC8</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5ca63037bf8ce6e86a63b10ab3e07936">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5ca63037bf8ce6e86a63b10ab3e07936" class="m-doc-self">IsItemActive</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5fb6fb215e68231d5b27f2f50204e319">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5fb6fb215e68231d5b27f2f50204e319" class="m-doc-self">IsItemActivatedThisFrame</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a563ce970599faac7cc8788ab8c9b723e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a563ce970599faac7cc8788ab8c9b723e" class="m-doc-self">IsItemActiveByInput</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="player_8h.html#afaec3367963f0dd9dc0d5f8fe69589e6" class="m-doc">PlayerInputState</a> input) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9a717d90240501260fa2d19b8cebdbe4">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9a717d90240501260fa2d19b8cebdbe4" class="m-doc-self">sub_08077FEC</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> action) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa4224fb01882bb16127379e38291e0fe">
+              <span class="m-doc-wrap-bumper">void <a href="#aa4224fb01882bb16127379e38291e0fe" class="m-doc-self">DetermineRButtonInteraction</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e605fdaa7f8b346ae4f9dd6dfc935a2">
+              <span class="m-doc-wrap-bumper">void <a href="#a9e605fdaa7f8b346ae4f9dd6dfc935a2" class="m-doc-self">ResetPossibleInteraction</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac671a2b9d18dd1bcbf8d093c042f4562">
+              <span class="m-doc-wrap-bumper">void <a href="#ac671a2b9d18dd1bcbf8d093c042f4562" class="m-doc-self">AddInteractableFuser</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a989a3884a96dea3ec9ed0a3527b52027">
+              <span class="m-doc-wrap-bumper">void <a href="#a989a3884a96dea3ec9ed0a3527b52027" class="m-doc-self">AddInteractableSmallKeyLock</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7ffb6fcafc8dfeff0af22911d0e53853">
+              <span class="m-doc-wrap-bumper">auto <a href="#a7ffb6fcafc8dfeff0af22911d0e53853" class="m-doc-self">AddInteractableBossDoor</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac895fb8c824ef91f783f6df15484195f">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac895fb8c824ef91f783f6df15484195f" class="m-doc-self">AddInteractableObject</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae1563b060a08cdf699ebcf8da1685f00">
+              <span class="m-doc-wrap-bumper">void <a href="#ae1563b060a08cdf699ebcf8da1685f00" class="m-doc-self">RemoveInteractableObject</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd>Clear entry for <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt id="ac411a77d587405c2650e21492b6c7c8a">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac411a77d587405c2650e21492b6c7c8a" class="m-doc-self">GetInteractableObjectIndex</a>(</span><span class="m-doc-wrap">) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af98081b92a7e23cdc8ef33a737cd3b4c">
+              <span class="m-doc-wrap-bumper">void <a href="#af98081b92a7e23cdc8ef33a737cd3b4c" class="m-doc-self">sub_08078AC0</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_3)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e81c4cfbff698206b68d916d75345b8">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e81c4cfbff698206b68d916d75345b8" class="m-doc-self">PausePlayer</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f46affd3b3d55940d02c685e6d4c08d">
+              <span class="m-doc-wrap-bumper">void <a href="#a3f46affd3b3d55940d02c685e6d4c08d" class="m-doc-self">sub_08078E84</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* param_1,
+              <a href="structEntity.html" class="m-doc">Entity</a>* param_2)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae72e67a15eb031db46ed6b8c54cb8d97">
+              <span class="m-doc-wrap-bumper">void <a href="#ae72e67a15eb031db46ed6b8c54cb8d97" class="m-doc-self">sub_08078FB0</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18a169e9010381dabadd21d5c97c0b56">
+              <span class="m-doc-wrap-bumper">void <a href="#a18a169e9010381dabadd21d5c97c0b56" class="m-doc-self">sub_080792BC</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> speed,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> field_0x38)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace0581a3d3f92ed88c22fc35649ad294">
+              <span class="m-doc-wrap-bumper">void <a href="#ace0581a3d3f92ed88c22fc35649ad294" class="m-doc-self">sub_08079BD8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d78bb62470cb0438bd9d53b9e95cb3c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a2d78bb62470cb0438bd9d53b9e95cb3c" class="m-doc-self">sub_08079D48</a>(</span><span class="m-doc-wrap">) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a68fc2d0409b7f4595182b930c8d1b2af">
+              <span class="m-doc-wrap-bumper">auto <a href="#a68fc2d0409b7f4595182b930c8d1b2af" class="m-doc-self">sub_08079FC4</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_1) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93043bec2a8927e791c0cd773cc90296">
+              <span class="m-doc-wrap-bumper">void <a href="#a93043bec2a8927e791c0cd773cc90296" class="m-doc-self">UpdatePlayerPalette</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ae4b0fb125058201744f9c1e5ae2dba">
+              <span class="m-doc-wrap-bumper">void <a href="#a2ae4b0fb125058201744f9c1e5ae2dba" class="m-doc-self">sub_0807A5B8</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acaf04790fba1f0af799609fd99732fcc">
+              <span class="m-doc-wrap-bumper">void <a href="#acaf04790fba1f0af799609fd99732fcc" class="m-doc-self">sub_0807A8D8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2cee29088b93b3445f9a983419b2f9bd">
+              <span class="m-doc-wrap-bumper">void <a href="#a2cee29088b93b3445f9a983419b2f9bd" class="m-doc-self">sub_0807AA80</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a398476bff2e6f5d23e424d898bd69b7a">
+              <span class="m-doc-wrap-bumper">void <a href="#a398476bff2e6f5d23e424d898bd69b7a" class="m-doc-self">sub_0807AABC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63edf9e4885815c088b942033b2dbfd5">
+              <span class="m-doc-wrap-bumper">void <a href="#a63edf9e4885815c088b942033b2dbfd5" class="m-doc-self">PlayerSwimming</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7b0e1d6892489da942cce8187a29062">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab7b0e1d6892489da942cce8187a29062" class="m-doc-self">GetSwordBeam</a>(</span><span class="m-doc-wrap">) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Returns which kind of sword projectile is created.</dd>
+            <dt id="a3bdb3c989a85115e4d63307fd2d3af50">
+              <span class="m-doc-wrap-bumper">void <a href="#a3bdb3c989a85115e4d63307fd2d3af50" class="m-doc-self">sub_0807B0C8</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abc749717b92c70895e23b6c035e3625b">
+              <span class="m-doc-wrap-bumper">auto <a href="#abc749717b92c70895e23b6c035e3625b" class="m-doc-self">sub_0807BD14</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> scrollDirection) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af03770616d06b967f70d94abae0fcb93">
+              <span class="m-doc-wrap-bumper">auto <a href="#af03770616d06b967f70d94abae0fcb93" class="m-doc-self">CreatePlayerItemWithParent</a>(</span><span class="m-doc-wrap"><a href="structItemBehavior.html" class="m-doc">ItemBehavior</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4cf676c86c3bbf9e116032617e2030a7">
+              <span class="m-doc-wrap-bumper">auto <a href="#a4cf676c86c3bbf9e116032617e2030a7" class="m-doc-self">HasSwordEquipped</a>(</span><span class="m-doc-wrap">) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae566407507d6a2c57e066fbcc6d1e448">
+              <span class="m-doc-wrap-bumper">auto <a href="#ae566407507d6a2c57e066fbcc6d1e448" class="m-doc-self">GetPlayerPalette</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> use) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abfd3a7691811f344fe35263fe1b6c43f">
+              <span class="m-doc-wrap-bumper">void <a href="#abfd3a7691811f344fe35263fe1b6c43f" class="m-doc-self">PlayerShrinkByRay</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1de304bc6a129cc8406f9146e005ba8">
+              <span class="m-doc-wrap-bumper">auto <a href="#ad1de304bc6a129cc8406f9146e005ba8" class="m-doc-self">PlayerCheckNEastTile</a>(</span><span class="m-doc-wrap">) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a379dede470cc9576e6b1ac3e58c66893">
+              <span class="m-doc-wrap-bumper">auto <a href="#a379dede470cc9576e6b1ac3e58c66893" class="m-doc-self">DoTileInteractionHere</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a000f9ea2c251f0d13055b9905b1df30e">
+              <span class="m-doc-wrap-bumper">void <a href="#a000f9ea2c251f0d13055b9905b1df30e" class="m-doc-self">UpdateIcePlayerVelocity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6272e8f48550eea6b425c833ea06a6e2">
+              <span class="m-doc-wrap-bumper">void <a href="#a6272e8f48550eea6b425c833ea06a6e2" class="m-doc-self">sub_08008AC6</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2c6940ebeab531bce97847b0be7bab55">
+              <span class="m-doc-wrap-bumper">void <a href="#a2c6940ebeab531bce97847b0be7bab55" class="m-doc-self">sub_08008926</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a577c003d1405fa3d784c3bf785e2e7cc">
+              <span class="m-doc-wrap-bumper">void <a href="#a577c003d1405fa3d784c3bf785e2e7cc" class="m-doc-self">sub_08008AA0</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ae96015131df25747dd1e9e94ef9cc3">
+              <span class="m-doc-wrap-bumper">void <a href="#a9ae96015131df25747dd1e9e94ef9cc3" class="m-doc-self">SetZeldaFollowTarget</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* target)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a6ec9572cb8b814767ed125185d225322">
+              void(*const <a href="#a6ec9572cb8b814767ed125185d225322" class="m-doc-self">gPlayerItemFunctions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa7d4f083ab7c16d69d9d50f9e104a8a6">
+              const <a href="structWallet.html" class="m-doc">Wallet</a> <a href="#aa7d4f083ab7c16d69d9d50f9e104a8a6" class="m-doc-self">gWalletSizes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a359b3e2ff49810d935ed180a748aba81">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a359b3e2ff49810d935ed180a748aba81" class="m-doc-self">gBombBagSizes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89f7567eb680c285faba57b04766aa8f">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a89f7567eb680c285faba57b04766aa8f" class="m-doc-self">gQuiverSizes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a51298958a79611800384a48736d7cfe1">
+              <a href="structEntity.html" class="m-doc">Entity</a>* <a href="#a51298958a79611800384a48736d7cfe1" class="m-doc-self">gPlayerClones</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5bbc5bfadf4430b21587ec59b996cd8">
+              <a href="structPlayerState.html" class="m-doc">PlayerState</a> <a href="#aa5bbc5bfadf4430b21587ec59b996cd8" class="m-doc-self">gPlayerState</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac316ee46e127c8b746dd1bb21e32b106">
+              <a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a> <a href="#ac316ee46e127c8b746dd1bb21e32b106" class="m-doc-self">gPlayerEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a829cf124b498b50e0b8bd5a29bf6c6bc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a829cf124b498b50e0b8bd5a29bf6c6bc" class="m-doc-self">SLOT_A</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0274f68e3b0d4dead38d4305098a29c0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0274f68e3b0d4dead38d4305098a29c0" class="m-doc-self">SLOT_B</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a580768feff78726dc7f34831cb97dc1c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a580768feff78726dc7f34831cb97dc1c" class="m-doc-self">COPY_FLAG_FROM_TO</a>(</span><span class="m-doc-wrap">base,
+              src,
+              dest)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="aa82f2bdb184599609847de98d14ced0d"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa82f2bdb184599609847de98d14ced0d" class="m-doc-self">IsItemEquipped</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> itemId)</span></span>
+            </h3>
+            <p>Returns the slot the item is equipped in.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="item_8h.html#a9933216bbddb97e671cd515e268dfa42" class="m-doc">Item</a></p></aside><p>0: A 1: B 2: Not equipped</p>
+          </div></section>
+          <section class="m-doc-details" id="a334ba45b165a625e9c95187d44634bd7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a334ba45b165a625e9c95187d44634bd7" class="m-doc-self">GetInventoryValue</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item)</span></span>
+            </h3>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="item_8h.html#a9933216bbddb97e671cd515e268dfa42" class="m-doc">Item</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="aef9bcf4dc4b7949e9c7e73f1aaf9a4d7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aef9bcf4dc4b7949e9c7e73f1aaf9a4d7" class="m-doc-self">SetInventoryValue</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> value)</span></span>
+            </h3>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="item_8h.html#a9933216bbddb97e671cd515e268dfa42" class="m-doc">Item</a></p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

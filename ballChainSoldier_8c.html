@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/ballChainSoldier.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>ballChainSoldier.c <span class="m-thin">file</span>
+        </h1>
+        <p>Ball Chain Soldier enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a95b7af7fded0b3071fcdfa8725d5a784">
+              <span class="m-doc-wrap-bumper">void <a href="#a95b7af7fded0b3071fcdfa8725d5a784" class="m-doc-self">sub_0803E86C</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ba34dbe14d275a7d76edbfa60f4675a">
+              <span class="m-doc-wrap-bumper">void <a href="#a1ba34dbe14d275a7d76edbfa60f4675a" class="m-doc-self">sub_0803E9A4</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35f2633ee331cf444be4498a5197dc9c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a35f2633ee331cf444be4498a5197dc9c" class="m-doc-self">sub_0803E9D4</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>*) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8692f399ee48b13f7be0d2543d59f184">
+              <span class="m-doc-wrap-bumper">void <a href="#a8692f399ee48b13f7be0d2543d59f184" class="m-doc-self">sub_0803E8CC</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa82fd750a78509e5d4276d8b38416622">
+              <span class="m-doc-wrap-bumper">void <a href="#aa82fd750a78509e5d4276d8b38416622" class="m-doc-self">sub_0803E92C</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac667a4373530985fc296fe3c3113de7">
+              <span class="m-doc-wrap-bumper">auto <a href="#aac667a4373530985fc296fe3c3113de7" class="m-doc-self">sub_0803EA64</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>*) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a658ac863893e4fbc0ba01425163460f5">
+              <span class="m-doc-wrap-bumper">void <a href="#a658ac863893e4fbc0ba01425163460f5" class="m-doc-self">sub_0803E94C</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a628b9cbb0670f2c7e084b28444f6a1e4">
+              <span class="m-doc-wrap-bumper">auto <a href="#a628b9cbb0670f2c7e084b28444f6a1e4" class="m-doc-self">sub_0803EAD0</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5f448b9f3fc806f5bf6abc39c20bb8ce">
+              <span class="m-doc-wrap-bumper">void <a href="#a5f448b9f3fc806f5bf6abc39c20bb8ce" class="m-doc-self">BallChainSoldier</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89ddd5b631ccedc5af3063b891e70061">
+              <span class="m-doc-wrap-bumper">void <a href="#a89ddd5b631ccedc5af3063b891e70061" class="m-doc-self">BallChainSoldier_OnTick</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac6920495998ae7654bef5c69a36ed6a9">
+              <span class="m-doc-wrap-bumper">void <a href="#ac6920495998ae7654bef5c69a36ed6a9" class="m-doc-self">BallChainSoldier_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57b2b59df4f0fb7935fc8a4afa28a298">
+              <span class="m-doc-wrap-bumper">void <a href="#a57b2b59df4f0fb7935fc8a4afa28a298" class="m-doc-self">BallChainSoldier_OnKnockback</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12de36e71538019a2da9189b6ed0e0fc">
+              <span class="m-doc-wrap-bumper">void <a href="#a12de36e71538019a2da9189b6ed0e0fc" class="m-doc-self">BallChainSoldier_OnDeath</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab563f78a382a8e6fa646d2ecbfb16aad">
+              <span class="m-doc-wrap-bumper">void <a href="#ab563f78a382a8e6fa646d2ecbfb16aad" class="m-doc-self">BallChainSoldier_OnGrabbed</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aef9115c2d8dfa73089d2c976e91e0acf">
+              <span class="m-doc-wrap-bumper">void <a href="#aef9115c2d8dfa73089d2c976e91e0acf" class="m-doc-self">BallChainSoldier_Init</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18afa1bf6a712281e7b6838d27c80e24">
+              <span class="m-doc-wrap-bumper">void <a href="#a18afa1bf6a712281e7b6838d27c80e24" class="m-doc-self">sub_0803E5E8</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f6ad980c660cb072a24a75942c31728">
+              <span class="m-doc-wrap-bumper">void <a href="#a1f6ad980c660cb072a24a75942c31728" class="m-doc-self">sub_0803E61C</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38bd5dc0963a405e8cd689e8b12c75cb">
+              <span class="m-doc-wrap-bumper">void <a href="#a38bd5dc0963a405e8cd689e8b12c75cb" class="m-doc-self">sub_0803E66C</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04515f0fed098809f9414a7c73111f82">
+              <span class="m-doc-wrap-bumper">void <a href="#a04515f0fed098809f9414a7c73111f82" class="m-doc-self">sub_0803E6B4</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6420ca8955ca9508e9d05d1505be96b5">
+              <span class="m-doc-wrap-bumper">void <a href="#a6420ca8955ca9508e9d05d1505be96b5" class="m-doc-self">sub_0803E6E0</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab87d7b49a4dc0ae416a3337807c1ff05">
+              <span class="m-doc-wrap-bumper">void <a href="#ab87d7b49a4dc0ae416a3337807c1ff05" class="m-doc-self">sub_0803E71C</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2421434bf9be027c94d9bce90553a13e">
+              <span class="m-doc-wrap-bumper">void <a href="#a2421434bf9be027c94d9bce90553a13e" class="m-doc-self">sub_0803E75C</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9651a7b3e5b9e713a2983725dd824a8c">
+              <span class="m-doc-wrap-bumper">void <a href="#a9651a7b3e5b9e713a2983725dd824a8c" class="m-doc-self">sub_0803E7B4</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a618e170079aaf254ae041cfe889bf831">
+              <span class="m-doc-wrap-bumper">void <a href="#a618e170079aaf254ae041cfe889bf831" class="m-doc-self">sub_0803E7CC</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a057dc80fe59d497a2fa47794411d2e85">
+              <span class="m-doc-wrap-bumper">void <a href="#a057dc80fe59d497a2fa47794411d2e85" class="m-doc-self">sub_0803E818</a>(</span><span class="m-doc-wrap"><a href="structBallChainSoldierEntity.html" class="m-doc">BallChainSoldierEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a29973fad274ed54593f49005d5361c34">
+              <a href="structEntity.html" class="m-doc">Entity</a>* <a href="#a29973fad274ed54593f49005d5361c34" class="m-doc-self">gUnk_020000B0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac8001311f8e1e54debc7e6f5b557060d">
+              void(*const <a href="#ac8001311f8e1e54debc7e6f5b557060d" class="m-doc-self">BallChainSoldier_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2ab6068d9f85589e9ed8b1288ab2b6f">
+              void(*const <a href="#af2ab6068d9f85589e9ed8b1288ab2b6f" class="m-doc-self">gUnk_080D06F8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b8ce20a6c3c13d141d28cd320b692a4">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a8b8ce20a6c3c13d141d28cd320b692a4" class="m-doc-self">gUnk_080D0724</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5c6b3df1d42c7c2b9bf9258f2ab535ec">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a5c6b3df1d42c7c2b9bf9258f2ab535ec" class="m-doc-self">gUnk_080D0728</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d72ac7900df384097118cb48a70658a">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a5d72ac7900df384097118cb48a70658a" class="m-doc-self">gUnk_080D0730</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
