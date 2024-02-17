@@ -1232,26 +1232,14 @@ bool32 sub_080A5F24(void) {
     return result;
 }
 
-typedef union {
-    struct {
-        s32 v1;
-        s32 v2;
-    } values;
-    u64 raw;
-} DoubleReturnValue;
-
 void sub_080A5F48(Item item, u32 offset) {
-    // this funcitons signature allows the div function to return a u64 (2x 32 bit registers)
-    // with the result in one register and the remainder in the other
-    typedef u64 DivRem(u32, u32);
-
     s32 ammoCount;
     s32 onesDigit;
     s32 tensDigit;
     void* dest;
     u16* temp2;
     u32 index;
-    DoubleReturnValue ret;
+    union SplitDWord divRem;
 
     switch (item) {
         case ITEM_BOTTLE1:
@@ -1281,9 +1269,9 @@ void sub_080A5F48(Item item, u32 offset) {
     if (ammoCount < 0)
         return;
 
-    ret.raw = ((DivRem*)Div)(ammoCount, 10); // by casting to DivRem, we can recover the remainder from the Div call
-    onesDigit = ret.values.v2;
-    tensDigit = ret.values.v1;
+    divRem = DivAndMod(ammoCount, 10);
+    onesDigit = divRem.HALF.HI;
+    tensDigit = divRem.HALF.LO;
 
     if (tensDigit >= 10)
         tensDigit = 9;
