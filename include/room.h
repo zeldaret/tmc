@@ -158,7 +158,7 @@ typedef struct {
     /* 0x2e */ u8 location;
     /* 0x2f */ u8 field2f;
     /* 0x30 */ u8 field30;
-    /* 0x31 */ u8 field31;
+    /* 0x31 */ u8 ezlo_startup_hint;
     /* 0x32 */ u8 field32;
     /* 0x33 */ u8 field33;
 #if defined(JP) || defined(EU)
