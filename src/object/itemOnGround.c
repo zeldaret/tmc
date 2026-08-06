@@ -21,7 +21,7 @@
 #include "sound.h"
 #include "tiles.h"
 
-void sub_08081150(ItemOnGroundEntity* this);
+void ItemOnGround_Kind2_Init(ItemOnGroundEntity* this);
 u8 sub_0808147C(u32);
 void sub_080814A4(ItemOnGroundEntity* this);
 u32 sub_080814C0(ItemOnGroundEntity* this);
@@ -29,28 +29,28 @@ void sub_08081500(ItemOnGroundEntity* this);
 void sub_0808153C(ItemOnGroundEntity* this);
 void sub_08081598(ItemOnGroundEntity* this);
 void sub_080813BC(ItemOnGroundEntity* this);
-void sub_080810FC(ItemOnGroundEntity* this);
+void ItemOnGround_Kind1_Init(ItemOnGroundEntity* this);
 void ItemOnGround_Init(ItemOnGroundEntity* this);
 void ItemOnGround_Action1(ItemOnGroundEntity* this);
 void ItemOnGround_Action2(ItemOnGroundEntity* this);
 void ItemOnGround_Action3(ItemOnGroundEntity* this);
 void ItemOnGround_Action4(ItemOnGroundEntity* this);
-void sub_080810A8(ItemOnGroundEntity* this);
-void sub_080810FC(ItemOnGroundEntity* this);
-void sub_08081150(ItemOnGroundEntity* this);
-void sub_08081134(ItemOnGroundEntity* this);
-void sub_08081188(ItemOnGroundEntity* this);
-void sub_080811AC(ItemOnGroundEntity* this);
-void sub_080811C8(ItemOnGroundEntity* this);
-void sub_080811D8(ItemOnGroundEntity* this);
-void sub_08081248(ItemOnGroundEntity* this);
-void sub_0808126C(ItemOnGroundEntity* this);
-void sub_0808127C(ItemOnGroundEntity* this);
-void nullsub_113(ItemOnGroundEntity* this);
-void sub_080812A0(ItemOnGroundEntity* this);
-void sub_080812A8(ItemOnGroundEntity* this);
-void sub_080812E8(ItemOnGroundEntity* this);
-void nullsub_510(ItemOnGroundEntity* this);
+void ItemOnGround_Kindx_Init(ItemOnGroundEntity* this);
+void ItemOnGround_Kind1_Init(ItemOnGroundEntity* this);
+void ItemOnGround_Kind2_Init(ItemOnGroundEntity* this);
+void ItemOnGround_Kind3_Init(ItemOnGroundEntity* this);
+void ItemOnGround_Kind4_Init(ItemOnGroundEntity* this);
+void ItemOnGround_Burried_Init(ItemOnGroundEntity* this);
+void ItemOnGround_Sunken_Init(ItemOnGroundEntity* this);
+void ItemOnGround_Kind9_Init(ItemOnGroundEntity* this);
+void ItemOnGround_Kindx_Action2(ItemOnGroundEntity* this);
+void ItemOnGround_Kind2_Action2(ItemOnGroundEntity* this);
+void ItemOnGround_Kind3_Action2(ItemOnGroundEntity* this);
+void ItemOnGround_Kind4_Action2(ItemOnGroundEntity* this);
+void ItemOnGround_Kind5_Action2(ItemOnGroundEntity* this);
+void ItemOnGround_Burried_Action2(ItemOnGroundEntity* this);
+void ItemOnGround_Sunken_Action2(ItemOnGroundEntity* this);
+void ItemOnGround_Kind9_Action2(ItemOnGroundEntity* this);
 void sub_080813D4(ItemOnGroundEntity* this);
 void sub_080813E8(ItemOnGroundEntity* this);
 void sub_080813F0(ItemOnGroundEntity* this);
@@ -99,7 +99,7 @@ void ItemOnGround(ItemOnGroundEntity* this) {
         ItemOnGround_Actions[super->action](this);
     }
 
-    if (super->type == 0x5C) {
+    if (super->type == ITEM_KINSTONE) {
         gRoomVars.numKinstoneDrops++;
     }
 
@@ -107,9 +107,9 @@ void ItemOnGround(ItemOnGroundEntity* this) {
 }
 
 void ItemOnGround_Init(ItemOnGroundEntity* this) {
-    static void (*const gUnk_0811E7E8[])(ItemOnGroundEntity*) = {
-        sub_080810A8, sub_080810FC, sub_08081150, sub_08081134, sub_08081188, sub_080810A8,
-        sub_080810A8, sub_080811AC, sub_080811C8, sub_080811D8, sub_080810A8,
+    static void (*const sItemOnGround_Init_Kinds[])(ItemOnGroundEntity*) = {
+        ItemOnGround_Kindx_Init, ItemOnGround_Kind1_Init, ItemOnGround_Kind2_Init, ItemOnGround_Kind3_Init, ItemOnGround_Kind4_Init, ItemOnGround_Kindx_Init,
+        ItemOnGround_Kindx_Init, ItemOnGround_Burried_Init, ItemOnGround_Sunken_Init, ItemOnGround_Kind9_Init, ItemOnGround_Kindx_Init,
     };
     if (this->flag && CheckFlags(this->flag)) {
         DeleteThisEntity();
@@ -142,14 +142,14 @@ void ItemOnGround_Init(ItemOnGroundEntity* this) {
                 break;
         }
 
-        this->unk_69 = super->timer;
+        this->kind = super->timer;
         this->unk_6a = 0;
         this->unk_6c = 0;
         this->unk_68 = 0;
         super->timer = 0;
         SetEntityPriority(super, PRIO_NO_BLOCK);
         super->gustJarFlags = sub_0808147C(super->type);
-        gUnk_0811E7E8[this->unk_69](this);
+        sItemOnGround_Init_Kinds[this->kind](this);
     } else {
         Entity* entity = CreateObject(FAIRY, 0x60, 0);
         if (entity != NULL) {
@@ -163,7 +163,7 @@ void ItemOnGround_Init(ItemOnGroundEntity* this) {
     }
 }
 
-void sub_080810A8(ItemOnGroundEntity* this) {
+void ItemOnGround_Kindx_Init(ItemOnGroundEntity* this) {
     super->action = 1;
     sub_080814A4(this);
     if (super->direction & 0x80) {
@@ -184,7 +184,7 @@ void sub_080810A8(ItemOnGroundEntity* this) {
     }
 }
 
-void sub_080810FC(ItemOnGroundEntity* this) {
+void ItemOnGround_Kind1_Init(ItemOnGroundEntity* this) {
     if (super->type != ITEM_HEART) {
         sub_08081598(this);
     } else {
@@ -196,13 +196,13 @@ void sub_080810FC(ItemOnGroundEntity* this) {
     }
 }
 
-void sub_08081134(ItemOnGroundEntity* this) {
+void ItemOnGround_Kind3_Init(ItemOnGroundEntity* this) {
     sub_080814A4(this);
     this->unk_6c += 80;
-    sub_08081150(this);
+    ItemOnGround_Kind2_Init(this);
 }
 
-void sub_08081150(ItemOnGroundEntity* this) {
+void ItemOnGround_Kind2_Init(ItemOnGroundEntity* this) {
     super->action = 2;
     COLLISION_ON(super);
     super->z.HALF.HI = -0x80;
@@ -211,7 +211,7 @@ void sub_08081150(ItemOnGroundEntity* this) {
     SoundReq(SFX_12D);
 }
 
-void sub_08081188(ItemOnGroundEntity* this) {
+void ItemOnGround_Kind4_Init(ItemOnGroundEntity* this) {
     super->action = 2;
     COLLISION_ON(super);
     if (super->collisionLayer == 2) {
@@ -219,24 +219,24 @@ void sub_08081188(ItemOnGroundEntity* this) {
     }
 }
 
-void sub_080811AC(ItemOnGroundEntity* this) {
+void ItemOnGround_Burried_Init(ItemOnGroundEntity* this) {
     super->action = 2;
     super->spriteSettings.draw = 0;
-    this->unk_6e = GetTileTypeAtEntity(super);
+    this->originalTile = GetTileTypeAtEntity(super);
 }
 
-void sub_080811C8(ItemOnGroundEntity* this) {
+void ItemOnGround_Sunken_Init(ItemOnGroundEntity* this) {
     super->action = 2;
     super->spriteSettings.draw = 0;
 }
 
-void sub_080811D8(ItemOnGroundEntity* this) {
-    sub_08081188(this);
+void ItemOnGround_Kind9_Init(ItemOnGroundEntity* this) {
+    ItemOnGround_Kind4_Init(this);
     SoundReq(SFX_215);
 }
 
 void ItemOnGround_Action1(ItemOnGroundEntity* this) {
-    if (this->unk_69 != 6) {
+    if (this->kind != ITEM_ON_GROUND_KIND_6) {
         ProcessMovement2(super);
     } else {
         LinearMoveUpdate(super);
@@ -252,13 +252,13 @@ void ItemOnGround_Action1(ItemOnGroundEntity* this) {
 
 void ItemOnGround_Action2(ItemOnGroundEntity* this) {
     static void (*const gUnk_0811E814[])(ItemOnGroundEntity*) = {
-        sub_08081248, sub_08081248, sub_0808126C, sub_0808127C, nullsub_113,  sub_080812A0,
-        sub_08081248, sub_080812A8, sub_080812E8, nullsub_510,  sub_08081248,
+        ItemOnGround_Kindx_Action2, ItemOnGround_Kindx_Action2, ItemOnGround_Kind2_Action2, ItemOnGround_Kind3_Action2, ItemOnGround_Kind4_Action2,  ItemOnGround_Kind5_Action2,
+        ItemOnGround_Kindx_Action2, ItemOnGround_Burried_Action2, ItemOnGround_Sunken_Action2, ItemOnGround_Kind9_Action2,  ItemOnGround_Kindx_Action2,
     };
-    gUnk_0811E814[this->unk_69](this);
+    gUnk_0811E814[this->kind](this);
 }
 
-void sub_08081248(ItemOnGroundEntity* this) {
+void ItemOnGround_Kindx_Action2(ItemOnGroundEntity* this) {
     sub_08081500(this);
     if (sub_080814C0(this)) {
         ItemOnGround_SetFlagAndDelete(this, FALSE);
@@ -267,12 +267,12 @@ void sub_08081248(ItemOnGroundEntity* this) {
     }
 }
 
-void sub_0808126C(ItemOnGroundEntity* this) {
+void ItemOnGround_Kind2_Action2(ItemOnGroundEntity* this) {
     UpdateAnimationSingleFrame(super);
     sub_0808153C(this);
 }
 
-void sub_0808127C(ItemOnGroundEntity* this) {
+void ItemOnGround_Kind3_Action2(ItemOnGroundEntity* this) {
     if (sub_080814C0(this)) {
         ItemOnGround_SetFlagAndDelete(this, FALSE);
     } else {
@@ -280,24 +280,24 @@ void sub_0808127C(ItemOnGroundEntity* this) {
     }
 }
 
-void nullsub_113(ItemOnGroundEntity* this) {
+void ItemOnGround_Kind4_Action2(ItemOnGroundEntity* this) {
 }
 
-void sub_080812A0(ItemOnGroundEntity* this) {
+void ItemOnGround_Kind5_Action2(ItemOnGroundEntity* this) {
     sub_08081500(this);
 }
 
-void sub_080812A8(ItemOnGroundEntity* this) {
-    if (GetCollisionDataAtEntity(super) != COLLISION_DATA_15 && this->unk_6e != GetTileTypeAtEntity(super)) {
+void ItemOnGround_Burried_Action2(ItemOnGroundEntity* this) {
+    if (GetCollisionDataAtEntity(super) != COLLISION_DATA_15 && this->originalTile != GetTileTypeAtEntity(super)) {
         super->direction = 0;
         super->speed = 0;
         super->spriteSettings.draw = 1;
-        this->unk_69 = 0;
-        sub_080810A8(this);
+        this->kind = ITEM_ON_GROUND_KIND_0;
+        ItemOnGround_Kindx_Init(this);
     }
 }
 
-void sub_080812E8(ItemOnGroundEntity* this) {
+void ItemOnGround_Sunken_Action2(ItemOnGroundEntity* this) {
     PlayerState* playerState = &gPlayerState;
 #ifdef EU
     if ((playerState->swim_state & 0x80) && IsColliding(super, &gPlayerEntity.base)) {
@@ -305,11 +305,11 @@ void sub_080812E8(ItemOnGroundEntity* this) {
     if ((playerState->swim_state & 0x80) && (playerState->flags & PL_MINISH) == 0 &&
         IsColliding(super, &gPlayerEntity.base)) {
 #endif
-        sub_080810FC(this);
+        ItemOnGround_Kind1_Init(this);
     }
 }
 
-void nullsub_510(ItemOnGroundEntity* this) {
+void ItemOnGround_Kind9_Action2(ItemOnGroundEntity* this) {
 }
 
 void ItemOnGround_Action3(ItemOnGroundEntity* this) {
@@ -321,7 +321,7 @@ void ItemOnGround_Action3(ItemOnGroundEntity* this) {
         super->z.HALF.HI--;
         other = &gPlayerEntity.base;
         if (IsColliding(super, other)) {
-            sub_080810FC(this);
+            ItemOnGround_Kind1_Init(this);
         }
     }
 }
@@ -360,7 +360,7 @@ void sub_080813E8(ItemOnGroundEntity* this) {
 
 void sub_080813F0(ItemOnGroundEntity* this) {
     if (sub_0806F3E4(super)) {
-        sub_080810FC(this);
+        ItemOnGround_Kind1_Init(this);
     }
 }
 
@@ -372,7 +372,7 @@ void ItemOnGround_SetFlagAndDelete(ItemOnGroundEntity* this, bool32 doSetFlag) {
     DeleteThisEntity();
 }
 
-bool32 sub_08081420(ItemOnGroundEntity* this) {
+bool32 ItemOnGround_PickUp(ItemOnGroundEntity* this) {
     if (CheckShouldPlayItemGetCutscene(this)) {
         SetEntityPriority(super, PRIO_PLAYER_EVENT);
         CreateItemEntity(super->type, super->type2, 0);
@@ -418,7 +418,7 @@ void sub_0808148C(u32 arg0) {
 }
 
 void sub_080814A4(ItemOnGroundEntity* this) {
-    if (this->unk_69 == 10) {
+    if (this->kind == ITEM_ON_GROUND_KIND_10) {
         this->unk_6c = 120;
     } else {
         this->unk_6c = 600;
@@ -489,7 +489,7 @@ void sub_08081598(ItemOnGroundEntity* this) {
     super->child = &gPlayerEntity.base;
     CopyPosition(super->child, super);
     super->z.HALF.HI -= 4;
-    if (super->type != 0x5F && sub_08081420(this)) {
+    if (super->type != ITEM_HEART && ItemOnGround_PickUp(this)) {
         ItemOnGround_SetFlagAndDelete(this, 1);
     }
 }
