@@ -17,7 +17,7 @@ _08000E4E:
 
 	thumb_func_start Random
 Random: @ 0x08000E50
-	ldr r2, _08000EBC @ =gRand
+	ldr r2, =gRand
 	ldr r0, [r2]
 	lsls r1, r0, #1
 	adds r0, r0, r1
@@ -30,22 +30,22 @@ Random: @ 0x08000E50
 	non_word_aligned_thumb_func_start sub_08000E62
 sub_08000E62: @ 0x08000E62
 	lsrs r1, r0, #1
-	ldr r2, _08000EC0 @ =0x55555555
+	ldr r2, =0x55555555
 	ands r0, r2
 	ands r1, r2
 	adds r0, r0, r1
 	lsrs r1, r0, #2
-	ldr r2, _08000EC4 @ =0x33333333
+	ldr r2, =0x33333333
 	ands r0, r2
 	ands r1, r2
 	adds r0, r0, r1
 	lsrs r1, r0, #4
-	ldr r2, _08000EC8 @ =0x0F0F0F0F
+	ldr r2, =0x0F0F0F0F
 	ands r0, r2
 	ands r1, r2
 	adds r0, r0, r1
 	lsrs r1, r0, #8
-	ldr r2, _08000ECC @ =0x00FF00FF
+	ldr r2, =0x00FF00FF
 	ands r0, r2
 	ands r1, r2
 	adds r0, r0, r1
@@ -64,7 +64,7 @@ LoadResourceAsync: @ 0x08000E96
 	movs r3, #0
 _08000E98:
 	push {r4, r5}
-	ldr r5, _08000ED0 @ =gUnk_03003DE0
+	ldr r5, =gUnk_03003DE0
 	ldrb r4, [r5]
 	cmp r4, #0x28
 	bhs _08000EB6
@@ -72,7 +72,7 @@ _08000E98:
 	strb r4, [r5]
 	movs r5, #0xc
 	muls r4, r5, r4
-	ldr r5, _08000ED4 @ =gUnk_03000C24
+	ldr r5, =gUnk_03000C24
 	adds r4, r4, r5
 	strb r3, [r4]
 	strh r2, [r4, #2]
@@ -82,10 +82,3 @@ _08000EB6:
 	pop {r4, r5}
 	bx lr
 	.align 2, 0
-_08000EBC: .4byte gRand
-_08000EC0: .4byte 0x55555555
-_08000EC4: .4byte 0x33333333
-_08000EC8: .4byte 0x0F0F0F0F
-_08000ECC: .4byte 0x00FF00FF
-_08000ED0: .4byte gUnk_03003DE0
-_08000ED4: .4byte gUnk_03000C24
