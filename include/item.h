@@ -5,7 +5,6 @@
 #include "entity.h"
 #include "player.h"
 
-extern u32 GiveItem(u32, u32);
 extern u32 CreateRandomItemDrop(Entity*, u32);
 extern void DisableRandomDrops();
 extern void EnableRandomDrops(void);
@@ -174,5 +173,7 @@ typedef enum {
     CREATE_ITEM_4,
     CREATE_ITEM_5,
 } CreateItemFunc;
+
+extern u32 GiveItem(Item, u32);
 
 #endif // ITEM_H

@@ -463,9 +463,9 @@ void DisplayEzloMessage(void) {
 void CreateMiscManager(void) {
     Entity* e = NULL;
 
-    if (gRoomTransition.field31)
+    if (gRoomTransition.ezlo_startup_hint)
         return;
-    gRoomTransition.field31 = 1;
+    gRoomTransition.ezlo_startup_hint = TRUE;
 #ifndef DEMO_JP
     gRoomTransition.location = gArea.locationIndex;
 #endif

@@ -217,7 +217,7 @@ static void GameMain_ChangeRoom(void) {
         sub_0801855C();
     }
 #elif defined(DEMO_JP)
-    if (gRoomTransition.field31)
+    if (gRoomTransition.ezlo_startup_hint)
         CheckAreaDiscovery();
     if (gArea.unk28.textBaseIndex != 0xff) {
         sub_0801855C();
