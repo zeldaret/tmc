@@ -20,7 +20,7 @@ typedef enum {
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68;
-    /*0x69*/ ItemOnGroundKind kind: 8;
+    /*0x69*/ ItemOnGroundKind kind : 8;
     /*0x6a*/ u8 unk_6a;
     /*0x6b*/ u8 unused1[1];
     /*0x6c*/ u16 unk_6c;

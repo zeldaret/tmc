@@ -108,8 +108,9 @@ void ItemOnGround(ItemOnGroundEntity* this) {
 
 void ItemOnGround_Init(ItemOnGroundEntity* this) {
     static void (*const sItemOnGround_Init_Kinds[])(ItemOnGroundEntity*) = {
-        ItemOnGround_Kindx_Init, ItemOnGround_Kind1_Init, ItemOnGround_Kind2_Init, ItemOnGround_Kind3_Init, ItemOnGround_Kind4_Init, ItemOnGround_Kindx_Init,
-        ItemOnGround_Kindx_Init, ItemOnGround_Burried_Init, ItemOnGround_Sunken_Init, ItemOnGround_Kind9_Init, ItemOnGround_Kindx_Init,
+        ItemOnGround_Kindx_Init,  ItemOnGround_Kind1_Init, ItemOnGround_Kind2_Init, ItemOnGround_Kind3_Init,
+        ItemOnGround_Kind4_Init,  ItemOnGround_Kindx_Init, ItemOnGround_Kindx_Init, ItemOnGround_Burried_Init,
+        ItemOnGround_Sunken_Init, ItemOnGround_Kind9_Init, ItemOnGround_Kindx_Init,
     };
     if (this->flag && CheckFlags(this->flag)) {
         DeleteThisEntity();
@@ -252,8 +253,10 @@ void ItemOnGround_Action1(ItemOnGroundEntity* this) {
 
 void ItemOnGround_Action2(ItemOnGroundEntity* this) {
     static void (*const gUnk_0811E814[])(ItemOnGroundEntity*) = {
-        ItemOnGround_Kindx_Action2, ItemOnGround_Kindx_Action2, ItemOnGround_Kind2_Action2, ItemOnGround_Kind3_Action2, ItemOnGround_Kind4_Action2,  ItemOnGround_Kind5_Action2,
-        ItemOnGround_Kindx_Action2, ItemOnGround_Burried_Action2, ItemOnGround_Sunken_Action2, ItemOnGround_Kind9_Action2,  ItemOnGround_Kindx_Action2,
+        ItemOnGround_Kindx_Action2, ItemOnGround_Kindx_Action2,   ItemOnGround_Kind2_Action2,
+        ItemOnGround_Kind3_Action2, ItemOnGround_Kind4_Action2,   ItemOnGround_Kind5_Action2,
+        ItemOnGround_Kindx_Action2, ItemOnGround_Burried_Action2, ItemOnGround_Sunken_Action2,
+        ItemOnGround_Kind9_Action2, ItemOnGround_Kindx_Action2,
     };
     gUnk_0811E814[this->kind](this);
 }
