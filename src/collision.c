@@ -41,7 +41,7 @@ typedef struct {
 extern ColSettings gCollisionMtx[173 * 34];
 
 extern void ram_CollideAll(void);
-u32 sub_08081420(Entity*);
+u32 ItemOnGround_PickUp(Entity*);
 extern void SoundReqClipped(Entity*, u32);
 void sub_08079D84(void);
 void sub_080180BC(Entity*, Entity*);
@@ -374,7 +374,7 @@ CollisionResult CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettin
 CollisionResult CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     COLLISION_OFF(tgt);
     tgt->contactFlags = org->hurtType | CONTACT_NOW;
-    if ((tgt->type == 0x5F || tgt->type == 0x60) && sub_08081420(tgt))
+    if ((tgt->type == 0x5F || tgt->type == 0x60) && ItemOnGround_PickUp(tgt))
         tgt->health = 0;
     return RESULT_COLLISION_WITHOUT_SET;
 }
