@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/madderpillar.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>madderpillar.c <span class="m-thin">file</span>
+        </h1>
+        <p>Madderpillar enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a59c440f3f82371d89dd7f7ba4ea52424">
+              <span class="m-doc-wrap-bumper">void <a href="#a59c440f3f82371d89dd7f7ba4ea52424" class="m-doc-self">sub_08029E0C</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a24477acd3d97ad9b9e920de140abb5d0">
+              <span class="m-doc-wrap-bumper">void <a href="#a24477acd3d97ad9b9e920de140abb5d0" class="m-doc-self">sub_08029EEC</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acb4ae656d085f4acaedc2eac1009d3b3">
+              <span class="m-doc-wrap-bumper">void <a href="#acb4ae656d085f4acaedc2eac1009d3b3" class="m-doc-self">sub_0802A098</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a25818072ea249eed1eda3eab9ea2adcc">
+              <span class="m-doc-wrap-bumper">void <a href="#a25818072ea249eed1eda3eab9ea2adcc" class="m-doc-self">sub_0802A16C</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afedd3c3bf36290903e22583be7522838">
+              <span class="m-doc-wrap-bumper">void <a href="#afedd3c3bf36290903e22583be7522838" class="m-doc-self">sub_0802A058</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a102b053c170173addec9b09e9708413b">
+              <span class="m-doc-wrap-bumper">auto <a href="#a102b053c170173addec9b09e9708413b" class="m-doc-self">sub_0802A14C</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f3a313386b9968ab8bdd92bdb7b00fa">
+              <span class="m-doc-wrap-bumper">void <a href="#a8f3a313386b9968ab8bdd92bdb7b00fa" class="m-doc-self">sub_0802A18C</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d7e41b2d80d1b4c7393e3c83ceb2c43">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5d7e41b2d80d1b4c7393e3c83ceb2c43" class="m-doc-self">sub_08029FE4</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac9365c66f1223069aa6cbe8bce9646ac">
+              <span class="m-doc-wrap-bumper">void <a href="#ac9365c66f1223069aa6cbe8bce9646ac" class="m-doc-self">sub_08029FB4</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa56d22e65a14841abfdcf8fb4140867">
+              <span class="m-doc-wrap-bumper">void <a href="#afa56d22e65a14841abfdcf8fb4140867" class="m-doc-self">sub_0802A0F8</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a09e2a1447620ce12b1503f7072bd9bd1">
+              <span class="m-doc-wrap-bumper">void <a href="#a09e2a1447620ce12b1503f7072bd9bd1" class="m-doc-self">sub_08029F0C</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a301e504d3741c4ca8213210a6bcf834c">
+              <span class="m-doc-wrap-bumper">void <a href="#a301e504d3741c4ca8213210a6bcf834c" class="m-doc-self">Madderpillar</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac2553f4e46e5adc32db0aeb704ffdc51">
+              <span class="m-doc-wrap-bumper">void <a href="#ac2553f4e46e5adc32db0aeb704ffdc51" class="m-doc-self">sub_08029870</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace0d0161ac70800d92b31a23ae550f34">
+              <span class="m-doc-wrap-bumper">void <a href="#ace0d0161ac70800d92b31a23ae550f34" class="m-doc-self">Madderpillar_OnTick</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ec8327f314c92c52968031661b4d4a0">
+              <span class="m-doc-wrap-bumper">void <a href="#a8ec8327f314c92c52968031661b4d4a0" class="m-doc-self">Madderpillar_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac9726cf6b9a89fc8addc886d24109348">
+              <span class="m-doc-wrap-bumper">void <a href="#ac9726cf6b9a89fc8addc886d24109348" class="m-doc-self">Madderpillar_OnDeath</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e920826a32a82f2399c7ed4a01f2f76">
+              <span class="m-doc-wrap-bumper">void <a href="#a4e920826a32a82f2399c7ed4a01f2f76" class="m-doc-self">Madderpillar_OnGrabbed</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2de360afb004ad68f9674173ddf7b34a">
+              <span class="m-doc-wrap-bumper">void <a href="#a2de360afb004ad68f9674173ddf7b34a" class="m-doc-self">sub_0802999C</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5902accf8348d7cba07766d10f3cf930">
+              <span class="m-doc-wrap-bumper">void <a href="#a5902accf8348d7cba07766d10f3cf930" class="m-doc-self">sub_08029A94</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9b408302920e090d180621ae76a90db">
+              <span class="m-doc-wrap-bumper">void <a href="#ab9b408302920e090d180621ae76a90db" class="m-doc-self">sub_08029AA4</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a44b21b82a8324e340e74c77ddc48ed35">
+              <span class="m-doc-wrap-bumper">void <a href="#a44b21b82a8324e340e74c77ddc48ed35" class="m-doc-self">sub_08029AE0</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20132670b4946e49b3707b3017166632">
+              <span class="m-doc-wrap-bumper">void <a href="#a20132670b4946e49b3707b3017166632" class="m-doc-self">sub_08029B2C</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4a105d7d005a16e0c8ac8cfb18be2f7">
+              <span class="m-doc-wrap-bumper">void <a href="#af4a105d7d005a16e0c8ac8cfb18be2f7" class="m-doc-self">sub_08029B90</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11e0dd3a0a29ffc0b75a3078502ece52">
+              <span class="m-doc-wrap-bumper">void <a href="#a11e0dd3a0a29ffc0b75a3078502ece52" class="m-doc-self">sub_08029BC4</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5f73aac8c7a60d4ddb665da85652f5d9">
+              <span class="m-doc-wrap-bumper">void <a href="#a5f73aac8c7a60d4ddb665da85652f5d9" class="m-doc-self">sub_08029C08</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea61216bc0357bb5d46822dfc8150d17">
+              <span class="m-doc-wrap-bumper">void <a href="#aea61216bc0357bb5d46822dfc8150d17" class="m-doc-self">sub_08029C2C</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a14648c850d18f5515acb0c692f62644b">
+              <span class="m-doc-wrap-bumper">void <a href="#a14648c850d18f5515acb0c692f62644b" class="m-doc-self">sub_08029C50</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae04ca00c3cbe442521ed08272d2b886f">
+              <span class="m-doc-wrap-bumper">void <a href="#ae04ca00c3cbe442521ed08272d2b886f" class="m-doc-self">sub_08029C6C</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf5df8f60e885acfb1e3558eb17253ec">
+              <span class="m-doc-wrap-bumper">void <a href="#abf5df8f60e885acfb1e3558eb17253ec" class="m-doc-self">sub_08029C98</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa1101287b46b109bb42b3bcc4600eadb">
+              <span class="m-doc-wrap-bumper">void <a href="#aa1101287b46b109bb42b3bcc4600eadb" class="m-doc-self">sub_08029CCC</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a359e1b861dc2dc3aff56698f825bd7">
+              <span class="m-doc-wrap-bumper">void <a href="#a4a359e1b861dc2dc3aff56698f825bd7" class="m-doc-self">sub_08029CF0</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea1721bd2e814433099ab0babb355e34">
+              <span class="m-doc-wrap-bumper">void <a href="#aea1721bd2e814433099ab0babb355e34" class="m-doc-self">sub_08029D08</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adf3ceb786ef078fd293d8ae50f79e54b">
+              <span class="m-doc-wrap-bumper">void <a href="#adf3ceb786ef078fd293d8ae50f79e54b" class="m-doc-self">sub_08029D14</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85ca69a016214f7d5d49a045b5e4d571">
+              <span class="m-doc-wrap-bumper">void <a href="#a85ca69a016214f7d5d49a045b5e4d571" class="m-doc-self">sub_08029D78</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a533881449b060198c0e6503f181060a8">
+              <span class="m-doc-wrap-bumper">void <a href="#a533881449b060198c0e6503f181060a8" class="m-doc-self">sub_08029DAC</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab962b895239f4408a4f291fc408ee41e">
+              <span class="m-doc-wrap-bumper">void <a href="#ab962b895239f4408a4f291fc408ee41e" class="m-doc-self">sub_08029DDC</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a354a265011ebcf4b2b6ee14c4ea318b6">
+              <span class="m-doc-wrap-bumper">void <a href="#a354a265011ebcf4b2b6ee14c4ea318b6" class="m-doc-self">sub_08029DE4</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abfb0bd29e1ad565db31d9fb812a5e9ff">
+              <span class="m-doc-wrap-bumper">auto <a href="#abfb0bd29e1ad565db31d9fb812a5e9ff" class="m-doc-self">sub_08029F48</a>(</span><span class="m-doc-wrap"><a href="structMadderpillarEntity.html" class="m-doc">MadderpillarEntity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="af1ed6be2fc51142bb9e595eb4b3512f8">
+              <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a> <a href="#af1ed6be2fc51142bb9e595eb4b3512f8" class="m-doc-self">gUnk_080B4488</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1a4b5762689bc33c703f3333a22f2b4a">
+              void(*const <a href="#a1a4b5762689bc33c703f3333a22f2b4a" class="m-doc-self">gUnk_080CCD44</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85a396fe01f827730d77fb06ae18b47e">
+              void(*const <a href="#a85a396fe01f827730d77fb06ae18b47e" class="m-doc-self">Madderpillar_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a110d22504552d22ebe6ea7b83b3031ef">
+              void(*const <a href="#a110d22504552d22ebe6ea7b83b3031ef" class="m-doc-self">gUnk_080CCD78</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9b0d600b3f73d075b669699466021788">
+              void(*const <a href="#a9b0d600b3f73d075b669699466021788" class="m-doc-self">gUnk_080CCD88</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d006886aadbed5b5d57aaf1ec62331f">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a7d006886aadbed5b5d57aaf1ec62331f" class="m-doc-self">gUnk_080CCDA0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2f52293bcb6fb2e46eeb105089d9875">
+              void(*const <a href="#ae2f52293bcb6fb2e46eeb105089d9875" class="m-doc-self">gUnk_080CCDA8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a746652588cfe92af5faec02f1cbf12b6">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a746652588cfe92af5faec02f1cbf12b6" class="m-doc-self">gUnk_080CCDC8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3c2abb8e65b17c3d516736ca6feac68">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ac3c2abb8e65b17c3d516736ca6feac68" class="m-doc-self">gUnk_080CCDD4</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

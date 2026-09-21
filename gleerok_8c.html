@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/gleerok.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>gleerok.c <span class="m-thin">file</span>
+        </h1>
+        <p>Gleerok enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structGleerok__HeapStruct2.html" class="m-doc">Gleerok_HeapStruct2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structGleerok__HeapStruct.html" class="m-doc">Gleerok_HeapStruct</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a3e2780c9d0c52921fcf318d2cdca05f9">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3e2780c9d0c52921fcf318d2cdca05f9" class="m-doc-self">sub_0806FC80</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent,
+              <a href="structEntity.html" class="m-doc">Entity</a>* ent2,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> param_3) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ab11af145e9d75eea4010de09f40c2e">
+              <span class="m-doc-wrap-bumper">void <a href="#a9ab11af145e9d75eea4010de09f40c2e" class="m-doc-self">sub_0802E518</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a94ffaf3a39f1ffbcc728384d27d1621e">
+              <span class="m-doc-wrap-bumper">void <a href="#a94ffaf3a39f1ffbcc728384d27d1621e" class="m-doc-self">sub_0802E7E4</a>(</span><span class="m-doc-wrap"><a href="structGleerok__HeapStruct.html" class="m-doc">Gleerok_<wbr />HeapStruct</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a33b688a410ad07a70ba9c4f8cded9706">
+              <span class="m-doc-wrap-bumper">void <a href="#a33b688a410ad07a70ba9c4f8cded9706" class="m-doc-self">sub_0802E1D0</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aef1943ee62903076bec611b0d87e327b">
+              <span class="m-doc-wrap-bumper">void <a href="#aef1943ee62903076bec611b0d87e327b" class="m-doc-self">sub_0802EB9C</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2fc453762a524e5ce0fc8b11966d4604">
+              <span class="m-doc-wrap-bumper">void <a href="#a2fc453762a524e5ce0fc8b11966d4604" class="m-doc-self">sub_0802D86C</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad68300d88ce8bcbf2dfe744586293480">
+              <span class="m-doc-wrap-bumper">void <a href="#ad68300d88ce8bcbf2dfe744586293480" class="m-doc-self">sub_0802E430</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a19cea851e4cf9dbf719f7fcb4b068ceb">
+              <span class="m-doc-wrap-bumper">void <a href="#a19cea851e4cf9dbf719f7fcb4b068ceb" class="m-doc-self">sub_0802EBC4</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6102a4db0884e748b05b992bcea95526">
+              <span class="m-doc-wrap-bumper">void <a href="#a6102a4db0884e748b05b992bcea95526" class="m-doc-self">sub_0802E9B0</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3780c617b3f7749a674c0e6567073ed1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3780c617b3f7749a674c0e6567073ed1" class="m-doc-self">sub_0802EB08</a>(</span><span class="m-doc-wrap"><a href="structGleerok__HeapStruct.html" class="m-doc">Gleerok_<wbr />HeapStruct</a>* param_1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_2,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> param_3) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a309e31a0870ad5f6805ceedecc284b60">
+              <span class="m-doc-wrap-bumper">auto <a href="#a309e31a0870ad5f6805ceedecc284b60" class="m-doc-self">sub_0802EA18</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_3) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ef023c93947c662a31b72d923c9969f">
+              <span class="m-doc-wrap-bumper">void <a href="#a8ef023c93947c662a31b72d923c9969f" class="m-doc-self">sub_0802EA48</a>(</span><span class="m-doc-wrap"><a href="structGleerok__HeapStruct.html" class="m-doc">Gleerok_<wbr />HeapStruct</a>* param_1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_3,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_4)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa6954117572e53363738ea93a0ca0724">
+              <span class="m-doc-wrap-bumper">void <a href="#aa6954117572e53363738ea93a0ca0724" class="m-doc-self">sub_0802EA68</a>(</span><span class="m-doc-wrap"><a href="structGleerok__HeapStruct.html" class="m-doc">Gleerok_<wbr />HeapStruct</a>* param_1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_3,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_4)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a28bd4b2e66089fc08e7edff6fd80a029">
+              <span class="m-doc-wrap-bumper">auto <a href="#a28bd4b2e66089fc08e7edff6fd80a029" class="m-doc-self">sub_0802E7CC</a>(</span><span class="m-doc-wrap"><a href="structGleerok__HeapStruct.html" class="m-doc">Gleerok_<wbr />HeapStruct</a>* param_1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_2,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_3,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_4) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a269126ed3f5f8be3174e475ac6d7a95d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a269126ed3f5f8be3174e475ac6d7a95d" class="m-doc-self">sub_0802EA88</a>(</span><span class="m-doc-wrap"><a href="structGleerok__HeapStruct.html" class="m-doc">Gleerok_<wbr />HeapStruct</a>* param_1) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa736964f6d164286309897ebb81b4e09">
+              <span class="m-doc-wrap-bumper">void <a href="#aa736964f6d164286309897ebb81b4e09" class="m-doc-self">sub_0802E768</a>(</span><span class="m-doc-wrap"><a href="structGleerok__HeapStruct.html" class="m-doc">Gleerok_<wbr />HeapStruct</a>* param_1)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82c56dda687328004284681ed87e9d07">
+              <span class="m-doc-wrap-bumper">void <a href="#a82c56dda687328004284681ed87e9d07" class="m-doc-self">Gleerok_OnTick</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb278603e008a9551b6c69a0c5c57106">
+              <span class="m-doc-wrap-bumper">void <a href="#adb278603e008a9551b6c69a0c5c57106" class="m-doc-self">Gleerok_OnDeath</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e7c62986ce9d8541d47d9c3dc75054a">
+              <span class="m-doc-wrap-bumper">void <a href="#a2e7c62986ce9d8541d47d9c3dc75054a" class="m-doc-self">sub_0802D158</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae96fe7540dec11dcf6892cc354227757">
+              <span class="m-doc-wrap-bumper">void <a href="#ae96fe7540dec11dcf6892cc354227757" class="m-doc-self">sub_0802D170</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ba1661de489f214f9e83987a8ea1db1">
+              <span class="m-doc-wrap-bumper">void <a href="#a9ba1661de489f214f9e83987a8ea1db1" class="m-doc-self">sub_0802D218</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a02e8ac046d157b1d3db122d1a385133f">
+              <span class="m-doc-wrap-bumper">void <a href="#a02e8ac046d157b1d3db122d1a385133f" class="m-doc-self">sub_0802D258</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2399b04bb627ee9fed5d8a7de7ffacde">
+              <span class="m-doc-wrap-bumper">void <a href="#a2399b04bb627ee9fed5d8a7de7ffacde" class="m-doc-self">sub_0802D33C</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5ac1dc602699862ffa090be04ea213e">
+              <span class="m-doc-wrap-bumper">void <a href="#aa5ac1dc602699862ffa090be04ea213e" class="m-doc-self">sub_0802D3B8</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a58a032ec75c3a1f35b72c2b13fc66450">
+              <span class="m-doc-wrap-bumper">void <a href="#a58a032ec75c3a1f35b72c2b13fc66450" class="m-doc-self">sub_0802D650</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59b3e4aec793955a33c967baca34c775">
+              <span class="m-doc-wrap-bumper">void <a href="#a59b3e4aec793955a33c967baca34c775" class="m-doc-self">Gleerok</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a73701073a5b934463f019b3c00327d47">
+              <span class="m-doc-wrap-bumper">void <a href="#a73701073a5b934463f019b3c00327d47" class="m-doc-self">sub_0802D674</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2c01d99481cb43f9e2e409efe9defdb">
+              <span class="m-doc-wrap-bumper">void <a href="#ad2c01d99481cb43f9e2e409efe9defdb" class="m-doc-self">sub_0802D6F0</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afaab7d0a75b6e46e00dc0667c3f71bf7">
+              <span class="m-doc-wrap-bumper">void <a href="#afaab7d0a75b6e46e00dc0667c3f71bf7" class="m-doc-self">sub_0802D714</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a966827b58e73eea6ad816cb0442afc1d">
+              <span class="m-doc-wrap-bumper">void <a href="#a966827b58e73eea6ad816cb0442afc1d" class="m-doc-self">sub_0802D77C</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af6d8d1f5e2b37819b7a1f671aa14f1b1">
+              <span class="m-doc-wrap-bumper">void <a href="#af6d8d1f5e2b37819b7a1f671aa14f1b1" class="m-doc-self">sub_0802D7B4</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6910ae4e68b90c7cb0702f837ef4a01f">
+              <span class="m-doc-wrap-bumper">void <a href="#a6910ae4e68b90c7cb0702f837ef4a01f" class="m-doc-self">sub_0802DB84</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5fa04acd0fe07603d4198475bb2958f1">
+              <span class="m-doc-wrap-bumper">void <a href="#a5fa04acd0fe07603d4198475bb2958f1" class="m-doc-self">sub_0802DC1C</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a285d04b82afdd4b182a59a63c437a83f">
+              <span class="m-doc-wrap-bumper">void <a href="#a285d04b82afdd4b182a59a63c437a83f" class="m-doc-self">sub_0802DCE0</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5d8878cf85ee7833e05d538b8fdb932">
+              <span class="m-doc-wrap-bumper">void <a href="#aa5d8878cf85ee7833e05d538b8fdb932" class="m-doc-self">sub_0802DDD8</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac9a2882e0d54789b009bd47cfc825ba3">
+              <span class="m-doc-wrap-bumper">void <a href="#ac9a2882e0d54789b009bd47cfc825ba3" class="m-doc-self">sub_0802DFA8</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e5a643a80bc6fe64723cc3a4ff54ac8">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e5a643a80bc6fe64723cc3a4ff54ac8" class="m-doc-self">sub_0802DFC0</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a698ee8942f0439396d60ce6d659aaf08">
+              <span class="m-doc-wrap-bumper">void <a href="#a698ee8942f0439396d60ce6d659aaf08" class="m-doc-self">sub_0802E034</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f25ec0f5564024c6bfe130024f4dc7c">
+              <span class="m-doc-wrap-bumper">void <a href="#a9f25ec0f5564024c6bfe130024f4dc7c" class="m-doc-self">sub_0802E0B8</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c02907f41819eb51ecdc8329692ee98">
+              <span class="m-doc-wrap-bumper">void <a href="#a6c02907f41819eb51ecdc8329692ee98" class="m-doc-self">sub_0802E300</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e3ee702f07711f3c052f9daf71b2792">
+              <span class="m-doc-wrap-bumper">void <a href="#a8e3ee702f07711f3c052f9daf71b2792" class="m-doc-self">sub_0802E448</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a741c40802cc7aa2b3a49283faad1958b">
+              <span class="m-doc-wrap-bumper">void <a href="#a741c40802cc7aa2b3a49283faad1958b" class="m-doc-self">sub_0802E4C0</a>(</span><span class="m-doc-wrap"><a href="structGleerokEntity.html" class="m-doc">GleerokEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a7e81b034421e8dd3091bd9f756ba37ff">
+              void(*const <a href="#a7e81b034421e8dd3091bd9f756ba37ff" class="m-doc-self">Gleerok_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a425a7db33e1d9ddbf9e718bc54e8d47b">
+              void(*const <a href="#a425a7db33e1d9ddbf9e718bc54e8d47b" class="m-doc-self">gUnk_080CD75C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af9bd2c24a1efd8fc5d203f2fa1118546">
+              void(*const <a href="#af9bd2c24a1efd8fc5d203f2fa1118546" class="m-doc-self">gUnk_080CD7B8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63baf202414e97dd7f7791e5954cc927">
+              void(*const <a href="#a63baf202414e97dd7f7791e5954cc927" class="m-doc-self">gUnk_080CD7E4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6fd32c3de724b26f5f33415160d98c9">
+              void(*const <a href="#ab6fd32c3de724b26f5f33415160d98c9" class="m-doc-self">gUnk_080CD810</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e2e53fb1b27a476034fa2366078fc5c">
+              void(*const <a href="#a1e2e53fb1b27a476034fa2366078fc5c" class="m-doc-self">gUnk_080CD828</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af53d7998661107fa8d71f9a62a5e232e">
+              void(*const <a href="#af53d7998661107fa8d71f9a62a5e232e" class="m-doc-self">gUnk_080CD848</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae90ab3c6deb9a1f9c7b34cdca5c67726">
+              <a href="structGleerok__HeapStruct2.html" class="m-doc">Gleerok_<wbr />HeapStruct2</a> <a href="#ae90ab3c6deb9a1f9c7b34cdca5c67726" class="m-doc-self">gUnk_080CD7C4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22b5fecf39d88ab40afd1154c1ef0777">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a22b5fecf39d88ab40afd1154c1ef0777" class="m-doc-self">gUnk_080CD884</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83a7f84f7b841314470655fc6f47691f">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a83a7f84f7b841314470655fc6f47691f" class="m-doc-self">gUnk_080CD7F8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf4610eb9b23246807abdd89a933fa05">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#abf4610eb9b23246807abdd89a933fa05" class="m-doc-self">gUnk_080CD840</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a21e499e230f8ae646c44ad08980b6360">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a21e499e230f8ae646c44ad08980b6360" class="m-doc-self">gUnk_080CD844</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7c9fca6d22993fbee6cd945f0dbf585">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ad7c9fca6d22993fbee6cd945f0dbf585" class="m-doc-self">gUnk_080CD850</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad9316652f332589756f0ad5120742555">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ad9316652f332589756f0ad5120742555" class="m-doc-self">gUnk_080CD854</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d756c346054d238ba025b20e7483c08">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* <a href="#a8d756c346054d238ba025b20e7483c08" class="m-doc-self">gUnk_080CD86C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d029f4e80d3a1e44cac38e1d3eeec28">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* <a href="#a9d029f4e80d3a1e44cac38e1d3eeec28" class="m-doc-self">gUnk_080CD878</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae0345a4d02cf62ead60c8b32ad969d7f">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ae0345a4d02cf62ead60c8b32ad969d7f" class="m-doc-self">gUnk_080CD774</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

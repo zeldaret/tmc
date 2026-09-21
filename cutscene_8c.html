@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/cutscene.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>cutscene.c <span class="m-thin">file</span>
+        </h1>
+        <p>Cutscenes.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="ada30a11fc7a398c0d3f5263f052a7387">
+              <span class="m-doc-wrap-bumper">void <a href="#ada30a11fc7a398c0d3f5263f052a7387" class="m-doc-self">sub_08051F78</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7754ec7c9098fee16f852ef84ebf4697">
+              <span class="m-doc-wrap-bumper">void <a href="#a7754ec7c9098fee16f852ef84ebf4697" class="m-doc-self">sub_08051FF0</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9c921bf15a097367a14d9d33d3f3df15">
+              <span class="m-doc-wrap-bumper">void <a href="#a9c921bf15a097367a14d9d33d3f3df15" class="m-doc-self">sub_08052004</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae81cf7079a1f38a62ecc01813ed1366e">
+              <span class="m-doc-wrap-bumper">void <a href="#ae81cf7079a1f38a62ecc01813ed1366e" class="m-doc-self">sub_080535AC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a627250c241b56fddfad308f5b7d17460">
+              <span class="m-doc-wrap-bumper">void <a href="#a627250c241b56fddfad308f5b7d17460" class="m-doc-self">sub_080535F4</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a95669dff1e1d32979aec1f976612a542">
+              <span class="m-doc-wrap-bumper">void <a href="#a95669dff1e1d32979aec1f976612a542" class="m-doc-self">nullsub_481</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a441a75ed8b0af0ff2254aa4d2f303536">
+              <span class="m-doc-wrap-bumper">void <a href="#a441a75ed8b0af0ff2254aa4d2f303536" class="m-doc-self">sub_08053618</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafd2915eb15a349f5e7619952c25882a">
+              <span class="m-doc-wrap-bumper">void <a href="#aafd2915eb15a349f5e7619952c25882a" class="m-doc-self">CutsceneMain_Init</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3df68781019ebbe526fbf20e803691c3">
+              <span class="m-doc-wrap-bumper">void <a href="#a3df68781019ebbe526fbf20e803691c3" class="m-doc-self">sub_08053634</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a58b731b973b8d831af4a7196b7b270ab">
+              <span class="m-doc-wrap-bumper">void <a href="#a58b731b973b8d831af4a7196b7b270ab" class="m-doc-self">sub_08053648</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a55e684e1b6a35ca9638c8131be552ac6">
+              <span class="m-doc-wrap-bumper">void <a href="#a55e684e1b6a35ca9638c8131be552ac6" class="m-doc-self">sub_0805367C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11676429b3871e0680167d11ff9beb97">
+              <span class="m-doc-wrap-bumper">void <a href="#a11676429b3871e0680167d11ff9beb97" class="m-doc-self">sub_0805368C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5dede37fdf92508bb88b5627692489b0">
+              <span class="m-doc-wrap-bumper">void <a href="#a5dede37fdf92508bb88b5627692489b0" class="m-doc-self">sub_080536A8</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e3750944fa0b39658d46f7edf433515">
+              <span class="m-doc-wrap-bumper">void <a href="#a3e3750944fa0b39658d46f7edf433515" class="m-doc-self">sub_080536B8</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e0f014d71c584f71c249893b780c054">
+              <span class="m-doc-wrap-bumper">void <a href="#a2e0f014d71c584f71c249893b780c054" class="m-doc-self">sub_08053758</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a99b4744aa5be5f408f34a1e6b9e0c450">
+              <span class="m-doc-wrap-bumper">void <a href="#a99b4744aa5be5f408f34a1e6b9e0c450" class="m-doc-self">sub_08053800</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac9370d15bd01c3a908ab02fec2734f0e">
+              <span class="m-doc-wrap-bumper">void <a href="#ac9370d15bd01c3a908ab02fec2734f0e" class="m-doc-self">sub_08053894</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9bda7edc36b3d97d31ab322205e03bf5">
+              <span class="m-doc-wrap-bumper">void <a href="#a9bda7edc36b3d97d31ab322205e03bf5" class="m-doc-self">sub_08053904</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a536610deef9fb78440a59770bbe8b6af">
+              <span class="m-doc-wrap-bumper">void <a href="#a536610deef9fb78440a59770bbe8b6af" class="m-doc-self">sub_08053974</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a94d612060694a92c337a729f34354d2f">
+              <span class="m-doc-wrap-bumper">void <a href="#a94d612060694a92c337a729f34354d2f" class="m-doc-self">nullsub_482</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86500f21997ea11498598f81d632df04">
+              <span class="m-doc-wrap-bumper">void <a href="#a86500f21997ea11498598f81d632df04" class="m-doc-self">sub_080539BC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad800ddbfe1268458ce7529928b1168db">
+              <span class="m-doc-wrap-bumper">void <a href="#ad800ddbfe1268458ce7529928b1168db" class="m-doc-self">sub_080536D4</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b0bea4701ed22a71e6641b7a917c9a0">
+              <span class="m-doc-wrap-bumper">void <a href="#a6b0bea4701ed22a71e6641b7a917c9a0" class="m-doc-self">sub_0805370C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a260024d74e7d47bf7d2b9938231d6d2b">
+              <span class="m-doc-wrap-bumper">void <a href="#a260024d74e7d47bf7d2b9938231d6d2b" class="m-doc-self">sub_080536F0</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4c5d789ef77411b82cc8607a5176c42">
+              <span class="m-doc-wrap-bumper">void <a href="#ac4c5d789ef77411b82cc8607a5176c42" class="m-doc-self">sub_080539F4</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae3eac30667cbe80126b0db467c3e12bf">
+              <span class="m-doc-wrap-bumper">void <a href="#ae3eac30667cbe80126b0db467c3e12bf" class="m-doc-self">sub_08053A1C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11ab81b32e43b5da94a9c16be5d96de7">
+              <span class="m-doc-wrap-bumper">void <a href="#a11ab81b32e43b5da94a9c16be5d96de7" class="m-doc-self">sub_08053A5C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a843458efd76637c7fc6b353fe3b93235">
+              <span class="m-doc-wrap-bumper">void <a href="#a843458efd76637c7fc6b353fe3b93235" class="m-doc-self">sub_08053A90</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c786b8f34b820ac4413bd281a97a75c">
+              <span class="m-doc-wrap-bumper">void <a href="#a6c786b8f34b820ac4413bd281a97a75c" class="m-doc-self">sub_0805373C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c24e0ccc6f8b6c4a4445d0a679cee15">
+              <span class="m-doc-wrap-bumper">void <a href="#a6c24e0ccc6f8b6c4a4445d0a679cee15" class="m-doc-self">sub_08053ACC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5930e82149adf608f8bad58796e33823">
+              <span class="m-doc-wrap-bumper">void <a href="#a5930e82149adf608f8bad58796e33823" class="m-doc-self">sub_08053B00</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a7974b602983f3580e3a8c0c08f3ba4">
+              <span class="m-doc-wrap-bumper">void <a href="#a0a7974b602983f3580e3a8c0c08f3ba4" class="m-doc-self">sub_08053B10</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a023f3477133ee4ff124580c677fafa36">
+              <span class="m-doc-wrap-bumper">void <a href="#a023f3477133ee4ff124580c677fafa36" class="m-doc-self">sub_08053AB0</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a58cea341ae71789a6886b56877d416e2">
+              <span class="m-doc-wrap-bumper">void <a href="#a58cea341ae71789a6886b56877d416e2" class="m-doc-self">sub_08053B3C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aca58b1b5cadad1f1884b859eb16334e8">
+              <span class="m-doc-wrap-bumper">void <a href="#aca58b1b5cadad1f1884b859eb16334e8" class="m-doc-self">sub_08053B74</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f9ad20559cbc5e6f56d1df00fd39f0a">
+              <span class="m-doc-wrap-bumper">void <a href="#a8f9ad20559cbc5e6f56d1df00fd39f0a" class="m-doc-self">sub_08053BAC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af97e6420be53e0371404377cd3448be4">
+              <span class="m-doc-wrap-bumper">void <a href="#af97e6420be53e0371404377cd3448be4" class="m-doc-self">sub_08053BBC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa342aaaddad7c66aa408f6d8bad7538d">
+              <span class="m-doc-wrap-bumper">void <a href="#aa342aaaddad7c66aa408f6d8bad7538d" class="m-doc-self">sub_08053B58</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb4bf6ec46e867c339d68ab171b5300d">
+              <span class="m-doc-wrap-bumper">void <a href="#adb4bf6ec46e867c339d68ab171b5300d" class="m-doc-self">sub_08053BE8</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa54cf8fef7e43122070dc35170aff746">
+              <span class="m-doc-wrap-bumper">void <a href="#aa54cf8fef7e43122070dc35170aff746" class="m-doc-self">sub_08053C20</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a355fdf519bee6a616c32c8a1ff07d1c9">
+              <span class="m-doc-wrap-bumper">void <a href="#a355fdf519bee6a616c32c8a1ff07d1c9" class="m-doc-self">nullsub_483</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeaf07c07853a693fc6c1c2365f03327f">
+              <span class="m-doc-wrap-bumper">void <a href="#aeaf07c07853a693fc6c1c2365f03327f" class="m-doc-self">sub_08053C60</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad12de4d674d3c0ca4502d6dc6ef121d5">
+              <span class="m-doc-wrap-bumper">void <a href="#ad12de4d674d3c0ca4502d6dc6ef121d5" class="m-doc-self">sub_08053C04</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a811f62ec13df45e013bb81c62cd0f592">
+              <span class="m-doc-wrap-bumper">void <a href="#a811f62ec13df45e013bb81c62cd0f592" class="m-doc-self">sub_08053C84</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af9dbaa8e688c688b0def2eebbd625cbf">
+              <span class="m-doc-wrap-bumper">void <a href="#af9dbaa8e688c688b0def2eebbd625cbf" class="m-doc-self">sub_08053CAC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0ad39f68af204b35434cf227f2002685">
+              <span class="m-doc-wrap-bumper">void <a href="#a0ad39f68af204b35434cf227f2002685" class="m-doc-self">sub_08053E58</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d34372836ddf173f4451fe0b397c4ae">
+              <span class="m-doc-wrap-bumper">void <a href="#a4d34372836ddf173f4451fe0b397c4ae" class="m-doc-self">CutsceneMain_Exit</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6a2a4d0c7a2b880f951e456c1f778908">
+              <span class="m-doc-wrap-bumper">void <a href="#a6a2a4d0c7a2b880f951e456c1f778908" class="m-doc-self">sub_08053CC8</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d8f0b90a38fcdaf79afd1ef7391c840">
+              <span class="m-doc-wrap-bumper">void <a href="#a7d8f0b90a38fcdaf79afd1ef7391c840" class="m-doc-self">sub_08053D34</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae38610fb8fd618b0e00c68ffd78b45cc">
+              <span class="m-doc-wrap-bumper">void <a href="#ae38610fb8fd618b0e00c68ffd78b45cc" class="m-doc-self">sub_08053D90</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a546c6d7fc8f9ee0a9de421765c628324">
+              <span class="m-doc-wrap-bumper">void <a href="#a546c6d7fc8f9ee0a9de421765c628324" class="m-doc-self">sub_08053DB4</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adacc8ca664b07d02c30559cf24ad15ee">
+              <span class="m-doc-wrap-bumper">void <a href="#adacc8ca664b07d02c30559cf24ad15ee" class="m-doc-self">sub_08053E30</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a908c832c3bddfa98d3730dd267b4027d">
+              <span class="m-doc-wrap-bumper">void <a href="#a908c832c3bddfa98d3730dd267b4027d" class="m-doc-self">sub_08053E74</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a317656d8f8aed59125a76210d5d8c7fa">
+              <span class="m-doc-wrap-bumper">void <a href="#a317656d8f8aed59125a76210d5d8c7fa" class="m-doc-self">sub_08053EC4</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad293280fd44c5ad0aa51d9a96391aeac">
+              <span class="m-doc-wrap-bumper">void <a href="#ad293280fd44c5ad0aa51d9a96391aeac" class="m-doc-self">sub_08053EFC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1bcedfb19bd71b6bbf5ab7d55be7e0e">
+              <span class="m-doc-wrap-bumper">void <a href="#ab1bcedfb19bd71b6bbf5ab7d55be7e0e" class="m-doc-self">sub_08053F20</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a029466ad7d588861762db48bb346e9aa">
+              <span class="m-doc-wrap-bumper">void <a href="#a029466ad7d588861762db48bb346e9aa" class="m-doc-self">sub_08053F88</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b933a6d5bc683c5d64ff034da5451a9">
+              <span class="m-doc-wrap-bumper">void <a href="#a5b933a6d5bc683c5d64ff034da5451a9" class="m-doc-self">CutsceneMain_Update</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="acc475e9750ca2d217cabdb001f520893">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#acc475e9750ca2d217cabdb001f520893" class="m-doc-self">gUnk_080FCB94</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36df9ea746507ddf2f936e2eaf0d3c15">
+              void(*const <a href="#a36df9ea746507ddf2f936e2eaf0d3c15" class="m-doc-self">gUnk_080FCBB4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4bd6eb4574362063e93b43f2f502b7c3">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a4bd6eb4574362063e93b43f2f502b7c3" class="m-doc-self">script_IntroCameraTarget</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46ca2e9d743a350f71574c7c5a7eac6f">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a46ca2e9d743a350f71574c7c5a7eac6f" class="m-doc-self">script_ZeldaMoveToLinksHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71310884a33dc8930dbfec712c85b7cc">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a71310884a33dc8930dbfec712c85b7cc" class="m-doc-self">script_HouseDoorIntro</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a900f55acb3bf6ceba1ddfaeec98fd6c5">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a900f55acb3bf6ceba1ddfaeec98fd6c5" class="m-doc-self">script_CutsceneOrchestratorIntro2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2003a20ca1846ca4738b52afabfa9040">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#a2003a20ca1846ca4738b52afabfa9040" class="m-doc-self">gUnk_080FCBC4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb5fa9a7a89cac74e3486955343e0c88">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#aeb5fa9a7a89cac74e3486955343e0c88" class="m-doc-self">script_CutsceneOrchestratorIntro</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac38f6b19431f2db6c858a4376accdb59">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#ac38f6b19431f2db6c858a4376accdb59" class="m-doc-self">script_SmithIntro</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8efd529fac39505e7cbadfb4c69b5f2e">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a8efd529fac39505e7cbadfb4c69b5f2e" class="m-doc-self">script_ZeldaIntro</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae9e26169c533bc2ff1050f1693e213ee">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#ae9e26169c533bc2ff1050f1693e213ee" class="m-doc-self">gUnk_080FCC14</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae4090413b7f6bfd46719869f4f0f75cb">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#ae4090413b7f6bfd46719869f4f0f75cb" class="m-doc-self">script_ZeldaLeaveLinksHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d6b6e0a765dc231f3508fcde5beaf32">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#a5d6b6e0a765dc231f3508fcde5beaf32" class="m-doc-self">gUnk_080FCC54</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac2b3ddc5bfc6a0d07e5b3823eb3875d7">
+              const <a href="structFont.html" class="m-doc">Font</a> <a href="#ac2b3ddc5bfc6a0d07e5b3823eb3875d7" class="m-doc-self">gUnk_080FCC84</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e47e843ca74739e9252a962c3e6019d">
+              const <a href="structFont.html" class="m-doc">Font</a> <a href="#a8e47e843ca74739e9252a962c3e6019d" class="m-doc-self">gUnk_080FCC9C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a91ab597623fa27713649eb3bd010522c">
+              const <a href="structstruct__080FCCB4.html" class="m-doc">struct_<wbr />080FCCB4</a> <a href="#a91ab597623fa27713649eb3bd010522c" class="m-doc-self">gUnk_080FCCB4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04abba0a9d6948643319a4c25a945f55">
+              void(*const <a href="#a04abba0a9d6948643319a4c25a945f55" class="m-doc-self">gUnk_080FCCFC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a407cbdbb04e2a7a249f67494ec506383">
+              void(*const <a href="#a407cbdbb04e2a7a249f67494ec506383" class="m-doc-self">gUnk_080FCD38</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d8b0f6da2afabe884e3bf5d3f7f66d9">
+              void(*const <a href="#a0d8b0f6da2afabe884e3bf5d3f7f66d9" class="m-doc-self">gUnk_080FCD40</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8363ca610bab8e111004f0f78ee2a046">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a8363ca610bab8e111004f0f78ee2a046" class="m-doc-self">script_CutsceneOrchestratorMinishVaati</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1be845fe6fadac432854c50e1fa3b331">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a1be845fe6fadac432854c50e1fa3b331" class="m-doc-self">script_MinishEzlo</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b198377466897369f078ffc49de1205">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a6b198377466897369f078ffc49de1205" class="m-doc-self">script_CutsceneMiscObjectMinishCap</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e24165ba0a09b9417bef6a98ec021a1">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a3e24165ba0a09b9417bef6a98ec021a1" class="m-doc-self">script_Vaati</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aed7a4586d7c28c3a9fb9d6250a7cf595">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#aed7a4586d7c28c3a9fb9d6250a7cf595" class="m-doc-self">gUnk_080FCD84</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4da62850591f95513f2a21ac3aa7073">
+              void(*const <a href="#ac4da62850591f95513f2a21ac3aa7073" class="m-doc-self">gUnk_080FCDD4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d3ece8575dab9e727d931c4fa38f0ba">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a7d3ece8575dab9e727d931c4fa38f0ba" class="m-doc-self">script_CutsceneOrchestratorTakeoverCutscene</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac308fbbf6a4bb42065d135db69a3a51f">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#ac308fbbf6a4bb42065d135db69a3a51f" class="m-doc-self">script_KingDaltusTakeover</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d952a07a57380843a0ab6cd08cc261a">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a0d952a07a57380843a0ab6cd08cc261a" class="m-doc-self">script_VaatiTakeover</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a51edb9d510769eabbf59245c25cc252f">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a51edb9d510769eabbf59245c25cc252f" class="m-doc-self">script_ZeldaStoneTakeover</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04ecc350be251350d9be831ef4d117f3">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#a04ecc350be251350d9be831ef4d117f3" class="m-doc-self">gUnk_080FCDE0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a807543aefbd8a659b30048b70e23ac9d">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a807543aefbd8a659b30048b70e23ac9d" class="m-doc-self">script_MinisterPothoTakeover</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5e51661605320dd64d5498e05ecce4e0">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a5e51661605320dd64d5498e05ecce4e0" class="m-doc-self">script_GuardTakeover</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada1fdc0d984a8d36f57d603d518e3883">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#ada1fdc0d984a8d36f57d603d518e3883" class="m-doc-self">gUnk_080FCE30</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af84828f842de22f575656a0de14e62de">
+              void(*const <a href="#af84828f842de22f575656a0de14e62de" class="m-doc-self">gUnk_080FCEB0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a172b6126599bcf7acbc3de5f3e1c1acf">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a172b6126599bcf7acbc3de5f3e1c1acf" class="m-doc-self">script_ZeldaStoneInDHC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c3a6ff677dbd5d3b7c25a88f425fdc0">
+              <a href="script_8h.html#ae4ed2d86bbfdcc0225129e15c3257d0c" class="m-doc">Script</a> <a href="#a8c3a6ff677dbd5d3b7c25a88f425fdc0" class="m-doc-self">script_ZeldaStoneDHC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa0fda68ed074380e6b63d83ef7b8c6f9">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#aa0fda68ed074380e6b63d83ef7b8c6f9" class="m-doc-self">gUnk_080FCEBC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3654333e270bc235f61179302c6aa26">
+              void(*const <a href="#af3654333e270bc235f61179302c6aa26" class="m-doc-self">gUnk_080FCEEC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab12d392f6a251c4ec7af05571a15e386">
+              void(*const <a href="#ab12d392f6a251c4ec7af05571a15e386" class="m-doc-self">gUnk_080FCEF8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af29abe4a36319b822695e5c00c3ff652">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#af29abe4a36319b822695e5c00c3ff652" class="m-doc-self">gUnk_080FCF24</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a311c682e0d5e6063bb1fdf483609440c">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#a311c682e0d5e6063bb1fdf483609440c" class="m-doc-self">gUnk_080FCF44</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38daa3fae7b1a92fba34e73c194a8218">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#a38daa3fae7b1a92fba34e73c194a8218" class="m-doc-self">gUnk_080FCF64</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab18514a79a3f9051bbf35b1bd5188ac0">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#ab18514a79a3f9051bbf35b1bd5188ac0" class="m-doc-self">gUnk_080FCF84</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7b0cfb21458755d5cf04fce383c6acc">
+              const <a href="structstruct__080FCF04.html" class="m-doc">struct_<wbr />080FCF04</a> <a href="#ab7b0cfb21458755d5cf04fce383c6acc" class="m-doc-self">gUnk_080FCF04</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb4dd8b43b08706a060cda3dbe23ca54">
+              void(*const <a href="#aeb4dd8b43b08706a060cda3dbe23ca54" class="m-doc-self">gUnk_080FCFA4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae349f9dcebb4a946d4308d96ba1ab653">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#ae349f9dcebb4a946d4308d96ba1ab653" class="m-doc-self">gUnk_080FCFE8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad8f2a9ed0600fe44915a3da07fb97eba">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#ad8f2a9ed0600fe44915a3da07fb97eba" class="m-doc-self">gUnk_080FD008</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a712b70e45bf4b3dae5237a7c46a7848d">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#a712b70e45bf4b3dae5237a7c46a7848d" class="m-doc-self">gUnk_080FD028</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac538ce3353aed13c760b1882c17c01eb">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#ac538ce3353aed13c760b1882c17c01eb" class="m-doc-self">gUnk_080FD048</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab543a10a9e574df4cc977956bd4246fe">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#ab543a10a9e574df4cc977956bd4246fe" class="m-doc-self">gUnk_080FD078</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab11bbf20176f16a32c25de660263d6ad">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#ab11bbf20176f16a32c25de660263d6ad" class="m-doc-self">gUnk_080FD098</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a69eac0b7ae72c21007efbefd3475c1da">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#a69eac0b7ae72c21007efbefd3475c1da" class="m-doc-self">gUnk_080FD0C8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa644facaac0ef0ba79097e3d5a5eda54">
+              const <a href="structEntityData.html" class="m-doc">EntityData</a> <a href="#aa644facaac0ef0ba79097e3d5a5eda54" class="m-doc-self">gUnk_080FD0E8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3eefbd8682e153927362b09907c7b8e5">
+              const <a href="structstruct__080FCFB8.html" class="m-doc">struct_<wbr />080FCFB8</a> <a href="#a3eefbd8682e153927362b09907c7b8e5" class="m-doc-self">gUnk_080FCFB8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2378951c0ea7c1f18125e3ddb68c75b">
+              void(*const <a href="#ae2378951c0ea7c1f18125e3ddb68c75b" class="m-doc-self">gUnk_080FD108</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5b2e1aeefc1dea25512e0d619941b33">
+              void(*const <a href="#aa5b2e1aeefc1dea25512e0d619941b33" class="m-doc-self">gUnk_080FD138</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

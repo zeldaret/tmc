@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/flyingSkull.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>flyingSkull.c <span class="m-thin">file</span>
+        </h1>
+        <p>Flying Skull enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a386d9a3655d37a25604bcb8e580a894e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a386d9a3655d37a25604bcb8e580a894e" class="m-doc-self">sub_080012DC</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a575a79d9b6b378ec7122ae65eaba07a3">
+              <span class="m-doc-wrap-bumper">void <a href="#a575a79d9b6b378ec7122ae65eaba07a3" class="m-doc-self">RegisterCarryEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acc0acdd59b4ef05fb09f7ba765911590">
+              <span class="m-doc-wrap-bumper">void <a href="#acc0acdd59b4ef05fb09f7ba765911590" class="m-doc-self">sub_0803A100</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a393d150b3e01415863c44c98fa2a11c5">
+              <span class="m-doc-wrap-bumper">void <a href="#a393d150b3e01415863c44c98fa2a11c5" class="m-doc-self">sub_0803A0E0</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8336f8b46a8efde4151649c90d3ddbce">
+              <span class="m-doc-wrap-bumper">void <a href="#a8336f8b46a8efde4151649c90d3ddbce" class="m-doc-self">FlyingSkull</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a76c7529cb23334c3a8ee658efbadd4bf">
+              <span class="m-doc-wrap-bumper">void <a href="#a76c7529cb23334c3a8ee658efbadd4bf" class="m-doc-self">FlyingSkull_OnTick</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab09504440929be2f413902da45dd36ba">
+              <span class="m-doc-wrap-bumper">void <a href="#ab09504440929be2f413902da45dd36ba" class="m-doc-self">FlyingSkull_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e323391f156fe8bc664fcaa0de0b446">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e323391f156fe8bc664fcaa0de0b446" class="m-doc-self">FlyingSkull_OnGrabbed</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac899faaf5974fae7ca62002719b22468">
+              <span class="m-doc-wrap-bumper">void <a href="#ac899faaf5974fae7ca62002719b22468" class="m-doc-self">sub_08039C98</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0db45bf4b75ebd5563823af8cb4e3a3f">
+              <span class="m-doc-wrap-bumper">void <a href="#a0db45bf4b75ebd5563823af8cb4e3a3f" class="m-doc-self">sub_08039CB0</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa995c96f5a8350891779da90559a7be9">
+              <span class="m-doc-wrap-bumper">void <a href="#aa995c96f5a8350891779da90559a7be9" class="m-doc-self">sub_08039CE0</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85aaa68f9405a924b52da29f032fde3d">
+              <span class="m-doc-wrap-bumper">void <a href="#a85aaa68f9405a924b52da29f032fde3d" class="m-doc-self">sub_08039D4C</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a801720b2c6f68a4321db666c23b7ad95">
+              <span class="m-doc-wrap-bumper">void <a href="#a801720b2c6f68a4321db666c23b7ad95" class="m-doc-self">nullsub_166</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ef20acafd8d4dc1896906160e2ea4fa">
+              <span class="m-doc-wrap-bumper">void <a href="#a9ef20acafd8d4dc1896906160e2ea4fa" class="m-doc-self">sub_08039D6C</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5701ef79a0047ae08fd624039e9da68c">
+              <span class="m-doc-wrap-bumper">void <a href="#a5701ef79a0047ae08fd624039e9da68c" class="m-doc-self">sub_08039D74</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1a4f5ec42f2428e9ef4e491139d7361e">
+              <span class="m-doc-wrap-bumper">void <a href="#a1a4f5ec42f2428e9ef4e491139d7361e" class="m-doc-self">sub_08039DD8</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a265b8532d4ead7cfd53a2440d93ff5ea">
+              <span class="m-doc-wrap-bumper">void <a href="#a265b8532d4ead7cfd53a2440d93ff5ea" class="m-doc-self">sub_08039ECC</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea8b0002a6d3347c5c9ac0c0c7df17ad">
+              <span class="m-doc-wrap-bumper">void <a href="#aea8b0002a6d3347c5c9ac0c0c7df17ad" class="m-doc-self">sub_08039EE4</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="affc0ed8823c2ec06d04aba2e571f6d24">
+              <span class="m-doc-wrap-bumper">void <a href="#affc0ed8823c2ec06d04aba2e571f6d24" class="m-doc-self">sub_08039F4C</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7b4c96b45353920eaf1c60bc60e47e1">
+              <span class="m-doc-wrap-bumper">void <a href="#ac7b4c96b45353920eaf1c60bc60e47e1" class="m-doc-self">sub_08039F78</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f935f8969a6ee1198ec253d12b25501">
+              <span class="m-doc-wrap-bumper">void <a href="#a8f935f8969a6ee1198ec253d12b25501" class="m-doc-self">sub_08039FA4</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a54b3befda9607a3f5651e676b193e396">
+              <span class="m-doc-wrap-bumper">void <a href="#a54b3befda9607a3f5651e676b193e396" class="m-doc-self">sub_08039FAC</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab93ef8f7c56ff292f1829b23c1bb649e">
+              <span class="m-doc-wrap-bumper">void <a href="#ab93ef8f7c56ff292f1829b23c1bb649e" class="m-doc-self">sub_0803A048</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acdbcba513bbee173233a1f3e81cbd6c4">
+              <span class="m-doc-wrap-bumper">void <a href="#acdbcba513bbee173233a1f3e81cbd6c4" class="m-doc-self">sub_0803A080</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5ee7701b94282eb43d18174c8b9b28e">
+              <span class="m-doc-wrap-bumper">void <a href="#ab5ee7701b94282eb43d18174c8b9b28e" class="m-doc-self">sub_0803A09C</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adcae4b403b8fecd8b9f387b20470dd03">
+              <span class="m-doc-wrap-bumper">void <a href="#adcae4b403b8fecd8b9f387b20470dd03" class="m-doc-self">sub_0803A0B8</a>(</span><span class="m-doc-wrap"><a href="structFlyingSkullEntity.html" class="m-doc">FlyingSkullEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a5d17644d988e92b0a5c57b5a6f4a6986">
+              void(*const <a href="#a5d17644d988e92b0a5c57b5a6f4a6986" class="m-doc-self">FlyingSkull_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae960dd9f2c85d5446c0d7302005459d2">
+              void(*const <a href="#ae960dd9f2c85d5446c0d7302005459d2" class="m-doc-self">gUnk_080CFB9C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a518054bf0f81fdd0bbcc0500175f0753">
+              void(*const <a href="#a518054bf0f81fdd0bbcc0500175f0753" class="m-doc-self">gUnk_080CFBBC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0bee4efb7771b6b22e499ad6f7e7b58e">
+              void(*const <a href="#a0bee4efb7771b6b22e499ad6f7e7b58e" class="m-doc-self">gUnk_080CFBD4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac78152eb6d01a711d7d6724f3f816324">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#ac78152eb6d01a711d7d6724f3f816324" class="m-doc-self">gUnk_080CFBE4</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

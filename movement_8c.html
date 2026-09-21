@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/movement.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>movement.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="aa884075f403706dceea29a61771a0d44">
+              <span class="m-doc-wrap-bumper">enum <a href="#aa884075f403706dceea29a61771a0d44" class="m-doc-self">CollisionType</a> { </span><span class="m-doc-wrap"><a href="#aa884075f403706dceea29a61771a0d44a5e74321cfe973f7d32eb4bad9c049944" class="m-doc">CollisionType0</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44a1adfee023a50cdac00ed5e3c9d073785" class="m-doc">CollisionType1</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44afaafc5d4c5399783b7ff11dd32174aae" class="m-doc">CollisionType2</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44ac9eeeceb81df6151e4c4f6f08474c555" class="m-doc">CollisionType3</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44a888c93ba4aeacad8af6ce6688b16e232" class="m-doc">CollisionType4</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44a6eaf5663907e08744bffc718cc9ac5df" class="m-doc">CollisionType5</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44ade56a7a5263e26e932e7da9f4d6412c1" class="m-doc">CollisionType6</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44a237167a7d337234198dfd1ba9d04d169" class="m-doc">CollisionType7</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44a8045699b89d96d88b203cfa64fa19747" class="m-doc">CollisionType8</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44aa91bd6bdff066b08656c49d4ca954b5c" class="m-doc">CollisionType9</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44ad9cb62d883594ee4bae4dd7b9f3f6005" class="m-doc">CollisionType10</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44a0473bdf45219fcac25f1512a48e23f9c" class="m-doc">CollisionType11</a>,
+              <a href="#aa884075f403706dceea29a61771a0d44a3101d83b965a5d1c835c8fe58c7d3153" class="m-doc">CollisionType12</a> }</span>
+            </dt>
+            <dd>The type of the movement/collision? that is done.</dd>
+            <dt id="a7e034c51a395dc81dafe280e699d1482">
+              <span class="m-doc-wrap-bumper">enum <a href="#a7e034c51a395dc81dafe280e699d1482" class="m-doc-self">TileFilled</a> { </span><span class="m-doc-wrap"><a href="#a7e034c51a395dc81dafe280e699d1482aa027a26dbcdbfa2a020d5f6b3e7266c8" class="m-doc">FilledNone</a> = 0,
+              <a href="#a7e034c51a395dc81dafe280e699d1482abcc80abcfd5b26bdfbe7ff4fb964fed6" class="m-doc">FilledAll</a> = 1,
+              <a href="#a7e034c51a395dc81dafe280e699d1482a955e1746131a76ed8118c6b4c4edbba8" class="m-doc">FilledNorthWest</a> = 2,
+              <a href="#a7e034c51a395dc81dafe280e699d1482a42529af8ee0e43f19db1c8d4a69df1c4" class="m-doc">FilledNorthEast</a> = 3,
+              <a href="#a7e034c51a395dc81dafe280e699d1482a8a29209714167169d225f9d75356f39f" class="m-doc">FilledSouthWest</a> = 4,
+              <a href="#a7e034c51a395dc81dafe280e699d1482aa55aa7fb77296475c5d2b974e96294f8" class="m-doc">FilledSouthEast</a> = 5,
+              <a href="#a7e034c51a395dc81dafe280e699d1482a6568a2075772c30e2d4df9a55c245102" class="m-doc">FilledSouth</a> = 6,
+              <a href="#a7e034c51a395dc81dafe280e699d1482ab41f6c3a600b8863c6c1ce22395643cc" class="m-doc">FilledNorth</a> = 7,
+              <a href="#a7e034c51a395dc81dafe280e699d1482ac04bf802f9fb4220a2ae6bb4d10f13e0" class="m-doc">FilledWest</a> = 8,
+              <a href="#a7e034c51a395dc81dafe280e699d1482a20feea48c88c3bbf280b68326873f2af" class="m-doc">FilledEast</a> = 9 }</span>
+            </dt>
+            <dd>The collision function that is evaluated for a tile depending on the x/y position of the entity in the tile.</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a29a3f89088f5b0f4f2a948023c33fb26">
+              <span class="m-doc-wrap-bumper">auto <a href="#a29a3f89088f5b0f4f2a948023c33fb26" class="m-doc-self">sub_080AF0C8</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad04f37cd40de3de9cba66e45f506c978">
+              <span class="m-doc-wrap-bumper">auto <a href="#ad04f37cd40de3de9cba66e45f506c978" class="m-doc-self">MoveNorth</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a31346b48ae0cf52d1397973f425c3649">
+              <span class="m-doc-wrap-bumper">auto <a href="#a31346b48ae0cf52d1397973f425c3649" class="m-doc-self">MoveNorthEast</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a69c549e39b62f2538ade1ee113d53a11">
+              <span class="m-doc-wrap-bumper">auto <a href="#a69c549e39b62f2538ade1ee113d53a11" class="m-doc-self">MoveEast</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5f6e0692c3c36be91eb1b8b749b6ae10">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5f6e0692c3c36be91eb1b8b749b6ae10" class="m-doc-self">MoveSouthEast</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aec97d22d6cec4e6e1c0da401cf790d8c">
+              <span class="m-doc-wrap-bumper">auto <a href="#aec97d22d6cec4e6e1c0da401cf790d8c" class="m-doc-self">MoveSouth</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1cff71673c2929eab02430c091fc114f">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1cff71673c2929eab02430c091fc114f" class="m-doc-self">MoveSouthWest</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a659c2eaccd05d76c1517160f4fa65f0c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a659c2eaccd05d76c1517160f4fa65f0c" class="m-doc-self">MoveWest</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f9048f969e4fb3e58f15509848f2414">
+              <span class="m-doc-wrap-bumper">auto <a href="#a2f9048f969e4fb3e58f15509848f2414" class="m-doc-self">MoveNorthWest</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89d4c3eb3c58836910060415c30416ea">
+              <span class="m-doc-wrap-bumper">auto <a href="#a89d4c3eb3c58836910060415c30416ea" class="m-doc-self">TileCollisionFunction0</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Empty.</dd>
+            <dt id="a8e020be02b8c501e67037d06fee941fc">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8e020be02b8c501e67037d06fee941fc" class="m-doc-self">TileCollisionFunction1</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Fully filled.</dd>
+            <dt id="aec60d14925a1301dc1ee7bd3c9768c70">
+              <span class="m-doc-wrap-bumper">auto <a href="#aec60d14925a1301dc1ee7bd3c9768c70" class="m-doc-self">TileCollisionFunction2</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Diagonal North West filled.</dd>
+            <dt id="aa03fe20cd5b8af20d52fd772cf9e68fc">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa03fe20cd5b8af20d52fd772cf9e68fc" class="m-doc-self">TileCollisionFunction3</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Diagonal North East filled.</dd>
+            <dt id="a3c8bdb20271a26af25952b43428d77e8">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3c8bdb20271a26af25952b43428d77e8" class="m-doc-self">TileCollisionFunction4</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Diagonal South West filled.</dd>
+            <dt id="a2eddcc90215c77be23fe522b082a4814">
+              <span class="m-doc-wrap-bumper">auto <a href="#a2eddcc90215c77be23fe522b082a4814" class="m-doc-self">TileCollisionFunction5</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Diagonal South East filled.</dd>
+            <dt id="a04f8fa31cfc7b8509d24361235654a9b">
+              <span class="m-doc-wrap-bumper">auto <a href="#a04f8fa31cfc7b8509d24361235654a9b" class="m-doc-self">TileCollisionFunction6</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>3/8 South filled</dd>
+            <dt id="a1e15a92b4efbca185bb5ff4cf01b1d79">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1e15a92b4efbca185bb5ff4cf01b1d79" class="m-doc-self">TileCollisionFunction7</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>3/8 North filled</dd>
+            <dt id="a032e7164afa8af7c830b88bb3e767c8c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a032e7164afa8af7c830b88bb3e767c8c" class="m-doc-self">TileCollisionFunction8</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>3/8 West filled</dd>
+            <dt id="acdea3cc0abfc51b787445f7b69963c5b">
+              <span class="m-doc-wrap-bumper">auto <a href="#acdea3cc0abfc51b787445f7b69963c5b" class="m-doc-self">TileCollisionFunction9</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>3/8 East filled</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#af5e64523d795dc57e320c3017b0c2bad" class="m-doc">IsTileCollision</a>(</span><span class="m-doc-wrap">const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* collisionData,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a00a25645f4f3cfea11b239a062d5ffbf" class="m-doc">CalculateEntityTileCollisions</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType)</span>
+            </dt>
+            <dd>Calculates the collisions with the tiles around the entity and stores the result in <a href="structEntity.html#a09217c06e669a56e4df092efd6076522" class="m-doc">Entity.collisions</a>.</dd>
+            <dt id="a6e0cd6b4e3e3b0d8b2843ef39defbc4c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a6e0cd6b4e3e3b0d8b2843ef39defbc4c" class="m-doc-self">ProcessMovementInternal</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> radius,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a28d759e0d25590d1ef6e4bcafa32e6e5">
+              <span class="m-doc-wrap-bumper">auto <a href="#a28d759e0d25590d1ef6e4bcafa32e6e5" class="m-doc-self">ProcessMovement0</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a905742fc123d224e576aabe5180ee3ea">
+              <span class="m-doc-wrap-bumper">auto <a href="#a905742fc123d224e576aabe5180ee3ea" class="m-doc-self">ProcessMovement1</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace575edbafb14b0a24d3df797fed5cc5">
+              <span class="m-doc-wrap-bumper">auto <a href="#ace575edbafb14b0a24d3df797fed5cc5" class="m-doc-self">ProcessMovement2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7df677aa882ac044a0838785d3c39e3">
+              <span class="m-doc-wrap-bumper">auto <a href="#ad7df677aa882ac044a0838785d3c39e3" class="m-doc-self">ProcessMovement10</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aec3b7471d501d96fb2340404dd0224bd">
+              <span class="m-doc-wrap-bumper">auto <a href="#aec3b7471d501d96fb2340404dd0224bd" class="m-doc-self">ProcessMovement12</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a92aa06d2ccfdf591d97f5e832c81b73a">
+              <span class="m-doc-wrap-bumper">auto <a href="#a92aa06d2ccfdf591d97f5e832c81b73a" class="m-doc-self">ProcessMovement0_custom</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> speed) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12f58d90be090faec31f961a0f104eab">
+              <span class="m-doc-wrap-bumper">auto <a href="#a12f58d90be090faec31f961a0f104eab" class="m-doc-self">ProcessMovement3</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e03edecd413a05a4d0c5cebcb3e541e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3e03edecd413a05a4d0c5cebcb3e541e" class="m-doc-self">ProcessMovement4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e3d2d7c72fec8c1ebf66844180e80e1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3e3d2d7c72fec8c1ebf66844180e80e1" class="m-doc-self">ProcessMovement5</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35d11738726c6e318140cc938463149f">
+              <span class="m-doc-wrap-bumper">void <a href="#a35d11738726c6e318140cc938463149f" class="m-doc-self">Knockback1</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2891752c118a680681429f7b11bf8552">
+              <span class="m-doc-wrap-bumper">void <a href="#a2891752c118a680681429f7b11bf8552" class="m-doc-self">Knockback2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae2491be3061afe9c9eae1c694f6d92c">
+              <span class="m-doc-wrap-bumper">auto <a href="#aae2491be3061afe9c9eae1c694f6d92c" class="m-doc-self">ProcessMovement6</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac94055fc697cc8ea5f34b6a060ab53e0">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac94055fc697cc8ea5f34b6a060ab53e0" class="m-doc-self">ProcessMovement6_custom</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> speed) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd6cfc2fb191aaac129a366bc384f769">
+              <span class="m-doc-wrap-bumper">void <a href="#abd6cfc2fb191aaac129a366bc384f769" class="m-doc-self">ProcessMovementInternal2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> speed)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae360b6565edbceb15864848e26fbe69">
+              <span class="m-doc-wrap-bumper">void <a href="#aae360b6565edbceb15864848e26fbe69" class="m-doc-self">sub_080AF250</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> param_1)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace42deda06f9aba4724dd390cf9477fb">
+              <span class="m-doc-wrap-bumper">void <a href="#ace42deda06f9aba4724dd390cf9477fb" class="m-doc-self">sub_080AF284</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a40bb20360a62c6009f5e5b38871e9b8b">
+              <span class="m-doc-wrap-bumper">void <a href="#a40bb20360a62c6009f5e5b38871e9b8b" class="m-doc-self">sub_080AF2E4</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a7293f233bf8ad645b97173e96aa301d7">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a7293f233bf8ad645b97173e96aa301d7" class="m-doc-self">gUnk_08133918</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="af5e64523d795dc57e320c3017b0c2bad"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af5e64523d795dc57e320c3017b0c2bad" class="m-doc-self">IsTileCollision</a>(</span><span class="m-doc-wrap">const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* collisionData,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">collisionData</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>x world coordinate</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>y world coordinate</td>
+                </tr>
+                <tr>
+                  <td>collisionType</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>bool32</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="movement_8c.html#aa884075f403706dceea29a61771a0d44" class="m-doc">CollisionType</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a00a25645f4f3cfea11b239a062d5ffbf"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a00a25645f4f3cfea11b239a062d5ffbf" class="m-doc-self">CalculateEntityTileCollisions</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> direction,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> collisionType)</span></span>
+            </h3>
+            <p>Calculates the collisions with the tiles around the entity and stores the result in <a href="structEntity.html#a09217c06e669a56e4df092efd6076522" class="m-doc">Entity.collisions</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">this</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>direction</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>collisionType</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="movement_8c.html#aa884075f403706dceea29a61771a0d44" class="m-doc">CollisionType</a></p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

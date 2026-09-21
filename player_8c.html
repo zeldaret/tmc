@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/player.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>player.c <span class="m-thin">file</span>
+        </h1>
+        <p>Player entity.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a798160074fc45b6fabe7bfeebd3c8f7e">
+              using <a href="#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc-self">PlayerEntityAction</a> = void()(PlayerEntity*)
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a9f1a44fa1d2e4b8e48d93edb67153ddf">
+              <span class="m-doc-wrap-bumper">static void <a href="#a9f1a44fa1d2e4b8e48d93edb67153ddf" class="m-doc-self">DoJump</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2fe5f76442bdb4b56eb77377bc1a0084">
+              <span class="m-doc-wrap-bumper">static void <a href="#a2fe5f76442bdb4b56eb77377bc1a0084" class="m-doc-self">sub_080717F8</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a42c7dd7b7a0132d1d26c2da036db0abd">
+              <span class="m-doc-wrap-bumper">static void <a href="#a42c7dd7b7a0132d1d26c2da036db0abd" class="m-doc-self">reset_priority</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a369c57baeceb81390a25d37b654a8bc8">
+              <span class="m-doc-wrap-bumper">static void <a href="#a369c57baeceb81390a25d37b654a8bc8" class="m-doc-self">break_out</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7737bb3c9e29a6039728eb7d191c096">
+              <span class="m-doc-wrap-bumper">static void <a href="#ac7737bb3c9e29a6039728eb7d191c096" class="m-doc-self">sub_08073AD4</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a270f57f7b82646eefbcb7d981e96c096">
+              <span class="m-doc-wrap-bumper">static void <a href="#a270f57f7b82646eefbcb7d981e96c096" class="m-doc-self">sub_08073B60</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aefde84eab4392d633f56b4ca520f7f6c">
+              <span class="m-doc-wrap-bumper">static void <a href="#aefde84eab4392d633f56b4ca520f7f6c" class="m-doc-self">sub_08074244</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae499c7ce17bbf7609c62d32786ce51cc">
+              <span class="m-doc-wrap-bumper">static void <a href="#ae499c7ce17bbf7609c62d32786ce51cc" class="m-doc-self">hide</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5daa65d3ec163691535f475b51d175ee">
+              <span class="m-doc-wrap-bumper">static void <a href="#a5daa65d3ec163691535f475b51d175ee" class="m-doc-self">conveyer_push</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4727cef0c8f92de321aedb1af12e36f">
+              <span class="m-doc-wrap-bumper">static void <a href="#af4727cef0c8f92de321aedb1af12e36f" class="m-doc-self">sub_08074D34</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9768a27e62926316f6a9cf9a527396a9">
+              <span class="m-doc-wrap-bumper">static void <a href="#a9768a27e62926316f6a9cf9a527396a9" class="m-doc-self">sub_08070BEC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a873c724b4abe31e215b230f569915fb8">
+              <span class="m-doc-wrap-bumper">static void <a href="#a873c724b4abe31e215b230f569915fb8" class="m-doc-self">sub_08074808</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae78a853473d8b969cef16531edcb8e64">
+              <span class="m-doc-wrap-bumper">void <a href="#ae78a853473d8b969cef16531edcb8e64" class="m-doc-self">SurfaceAction_Water</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaadcac9e6fdd8e9f94a4bc450592d7a9">
+              <span class="m-doc-wrap-bumper">void <a href="#aaadcac9e6fdd8e9f94a4bc450592d7a9" class="m-doc-self">SurfaceAction_Ladder</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6f7de40bacf096b96858bbcec00db6f0">
+              <span class="m-doc-wrap-bumper">void <a href="#a6f7de40bacf096b96858bbcec00db6f0" class="m-doc-self">SurfaceAction_AutoLadder</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3aafe28fd2696dd160fd2c13e7f8a797">
+              <span class="m-doc-wrap-bumper">void <a href="#a3aafe28fd2696dd160fd2c13e7f8a797" class="m-doc-self">InitPauseMenu</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf6a16c49f8d4192b107cd1b6446d7d6">
+              <span class="m-doc-wrap-bumper">auto <a href="#aaf6a16c49f8d4192b107cd1b6446d7d6" class="m-doc-self">UpdatePlayerCollision</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67fa6bb5c85fc43912a225add4e459ac">
+              <span class="m-doc-wrap-bumper">auto <a href="#a67fa6bb5c85fc43912a225add4e459ac" class="m-doc-self">CheckInitPauseMenu</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6aa8af6bb523dac0cb698e1ebbed1bf1">
+              <span class="m-doc-wrap-bumper">void <a href="#a6aa8af6bb523dac0cb698e1ebbed1bf1" class="m-doc-self">DoPlayerAction</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5748b31aa6b4d2e95a4112461dd9d246">
+              <span class="m-doc-wrap-bumper">static void <a href="#a5748b31aa6b4d2e95a4112461dd9d246" class="m-doc-self">PlayerInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4930edaef43fff1c6bba47a62d85b774">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4930edaef43fff1c6bba47a62d85b774" class="m-doc-self">PlayerNormal</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6217eeff9dd72762cdd042a03aef0ad7">
+              <span class="m-doc-wrap-bumper">static void <a href="#a6217eeff9dd72762cdd042a03aef0ad7" class="m-doc-self">PlayerFall</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aca27ab4ad616a8515b95c86d54a7a9b9">
+              <span class="m-doc-wrap-bumper">static void <a href="#aca27ab4ad616a8515b95c86d54a7a9b9" class="m-doc-self">PlayerFallInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1a2ea1a705c71e2e269f03362ca574b">
+              <span class="m-doc-wrap-bumper">static void <a href="#ac1a2ea1a705c71e2e269f03362ca574b" class="m-doc-self">PlayerFallUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9668f4054ba9188f3622e70f61427190">
+              <span class="m-doc-wrap-bumper">static void <a href="#a9668f4054ba9188f3622e70f61427190" class="m-doc-self">PlayerBounce</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace2b304e1af0fdcc77e99f2f1264e31c">
+              <span class="m-doc-wrap-bumper">static void <a href="#ace2b304e1af0fdcc77e99f2f1264e31c" class="m-doc-self">PlayerBounceInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee61630327717b5a41ef3b3fb7d85763">
+              <span class="m-doc-wrap-bumper">static void <a href="#aee61630327717b5a41ef3b3fb7d85763" class="m-doc-self">PlayerBounceUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4b28797c6eee58c0bea4c4d0434299f3">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4b28797c6eee58c0bea4c4d0434299f3" class="m-doc-self">sub_08070E7C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0e511e85ecd7ee41bb82ed9b48268b99">
+              <span class="m-doc-wrap-bumper">static void <a href="#a0e511e85ecd7ee41bb82ed9b48268b99" class="m-doc-self">sub_08070E9C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a263da803214c4abbcefa2f61c1783320">
+              <span class="m-doc-wrap-bumper">static void <a href="#a263da803214c4abbcefa2f61c1783320" class="m-doc-self">sub_08070EDC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1dd3d27a5c8d490c0a2edfb4a368e168">
+              <span class="m-doc-wrap-bumper">static void <a href="#a1dd3d27a5c8d490c0a2edfb4a368e168" class="m-doc-self">sub_08070f24</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5c50bc1d647fe4e35f37b6612c8f7bb">
+              <span class="m-doc-wrap-bumper">static void <a href="#ab5c50bc1d647fe4e35f37b6612c8f7bb" class="m-doc-self">PlayerItemGet</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa4bc3c075be3f726aa4771411a565826">
+              <span class="m-doc-wrap-bumper">static void <a href="#aa4bc3c075be3f726aa4771411a565826" class="m-doc-self">PlayerItemGetInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4313a395571cb341483eccb84b55ffff">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4313a395571cb341483eccb84b55ffff" class="m-doc-self">PlayerItemGetUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e96f88b7cee9a827c4e02a2b849a1bb">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4e96f88b7cee9a827c4e02a2b849a1bb" class="m-doc-self">sub_08071038</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a821fe55af3d9dac4c82e1b1c75afc70e">
+              <span class="m-doc-wrap-bumper">static void <a href="#a821fe55af3d9dac4c82e1b1c75afc70e" class="m-doc-self">PlayerJump</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d40d7f7ffb01173648579654c839b1a">
+              <span class="m-doc-wrap-bumper">static void <a href="#a8d40d7f7ffb01173648579654c839b1a" class="m-doc-self">PlayerJumpInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9dfe6617f084a02c014b0a39d051ac46">
+              <span class="m-doc-wrap-bumper">static void <a href="#a9dfe6617f084a02c014b0a39d051ac46" class="m-doc-self">sub_08071130</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41b1ba036f6b35e329414f549a710c99">
+              <span class="m-doc-wrap-bumper">static void <a href="#a41b1ba036f6b35e329414f549a710c99" class="m-doc-self">sub_08071208</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa23c1ec22d2b8f5506c854dfb0c9eecb">
+              <span class="m-doc-wrap-bumper">static void <a href="#aa23c1ec22d2b8f5506c854dfb0c9eecb" class="m-doc-self">PlayerDrown</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af8130f9ae46cd310053315ce207463c2">
+              <span class="m-doc-wrap-bumper">static void <a href="#af8130f9ae46cd310053315ce207463c2" class="m-doc-self">PlayerDrownInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0c7ac661cc1da3c3edaaecde11aa84fc">
+              <span class="m-doc-wrap-bumper">static void <a href="#a0c7ac661cc1da3c3edaaecde11aa84fc" class="m-doc-self">sub_080712F0</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aecd8b9db6cf69cc23d54aa31e98b2af9">
+              <span class="m-doc-wrap-bumper">static void <a href="#aecd8b9db6cf69cc23d54aa31e98b2af9" class="m-doc-self">PlayerUsePortal</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63c3e47a6e192152d5dd39d0d7acf49d">
+              <span class="m-doc-wrap-bumper">static void <a href="#a63c3e47a6e192152d5dd39d0d7acf49d" class="m-doc-self">PortalJumpOnUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3feca5703bf4ef5ec07f749f06f4d72d">
+              <span class="m-doc-wrap-bumper">static void <a href="#a3feca5703bf4ef5ec07f749f06f4d72d" class="m-doc-self">PortalStandUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4895393b3e747b5d3d4dfd985246390">
+              <span class="m-doc-wrap-bumper">static void <a href="#af4895393b3e747b5d3d4dfd985246390" class="m-doc-self">PortalActivateInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a060f8beba19aa23bac50635171f1f16a">
+              <span class="m-doc-wrap-bumper">static void <a href="#a060f8beba19aa23bac50635171f1f16a" class="m-doc-self">PortalActivateUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9de9f493b76b38330a16cac4f2961100">
+              <span class="m-doc-wrap-bumper">static void <a href="#a9de9f493b76b38330a16cac4f2961100" class="m-doc-self">PortalShrinkInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf6de9388c3fecd1dacb7f39100e8e7d">
+              <span class="m-doc-wrap-bumper">static void <a href="#aaf6de9388c3fecd1dacb7f39100e8e7d" class="m-doc-self">PortalShrinkUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa9dfb7499372a1bb56a67a0dbc0f62b1">
+              <span class="m-doc-wrap-bumper">static void <a href="#aa9dfb7499372a1bb56a67a0dbc0f62b1" class="m-doc-self">PortalEnterUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2594290a0c5b00d87453fe441a743294">
+              <span class="m-doc-wrap-bumper">static void <a href="#a2594290a0c5b00d87453fe441a743294" class="m-doc-self">PortalUnknownUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6340ce18b49d1c614d6b8d1f0a4dd29d">
+              <span class="m-doc-wrap-bumper">static void <a href="#a6340ce18b49d1c614d6b8d1f0a4dd29d" class="m-doc-self">PlayerTalkEzlo</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a085cce6baa1ce515b75841ee752225">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4a085cce6baa1ce515b75841ee752225" class="m-doc-self">PlayerTalkEzlo_Init</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a733c2511d2ef7c3365dad415dbd4a3bd">
+              <span class="m-doc-wrap-bumper">static void <a href="#a733c2511d2ef7c3365dad415dbd4a3bd" class="m-doc-self">PlayerTalkEzlo_CreateMessage</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aefde85b06ef26b35cdd45933d2752721">
+              <span class="m-doc-wrap-bumper">static void <a href="#aefde85b06ef26b35cdd45933d2752721" class="m-doc-self">PlayerTalkEzlo_MessageIdle</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05e0e49ca496d8aae20248926d2a6b4d">
+              <span class="m-doc-wrap-bumper">static void <a href="#a05e0e49ca496d8aae20248926d2a6b4d" class="m-doc-self">PlayerTalkEzlo_Leave</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7c4ec1c68d75697df250dfb4aec782d7">
+              <span class="m-doc-wrap-bumper">static void <a href="#a7c4ec1c68d75697df250dfb4aec782d7" class="m-doc-self">PlayerPush</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a849e7795c01113767344393b6ff092e9">
+              <span class="m-doc-wrap-bumper">static void <a href="#a849e7795c01113767344393b6ff092e9" class="m-doc-self">PlayerPushInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9d65a89eb7ff1ea4745a1dfbfe42e80">
+              <span class="m-doc-wrap-bumper">static void <a href="#ab9d65a89eb7ff1ea4745a1dfbfe42e80" class="m-doc-self">PlayerPushUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4986b8ddd912d3b02d9f5d3d0118fa83">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4986b8ddd912d3b02d9f5d3d0118fa83" class="m-doc-self">PlayerPushEnd</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6bd0df031b84d70d17017b713d0835e5">
+              <span class="m-doc-wrap-bumper">static void <a href="#a6bd0df031b84d70d17017b713d0835e5" class="m-doc-self">PlayerMinishDie</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd3041df041224751d2761f44e312e67">
+              <span class="m-doc-wrap-bumper">static void <a href="#abd3041df041224751d2761f44e312e67" class="m-doc-self">PlayerMinishDieInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a141faace93c75eb510aa065a41ae6ce3">
+              <span class="m-doc-wrap-bumper">static void <a href="#a141faace93c75eb510aa065a41ae6ce3" class="m-doc-self">sub_08071CAC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a37b63638a8928833f3368df3f2c963d4">
+              <span class="m-doc-wrap-bumper">static void <a href="#a37b63638a8928833f3368df3f2c963d4" class="m-doc-self">sub_08071D04</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a489696bc460eedfe0100203c7b6f0e70">
+              <span class="m-doc-wrap-bumper">static void <a href="#a489696bc460eedfe0100203c7b6f0e70" class="m-doc-self">sub_08071D80</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d866acd5d9608dd70f0a4bc058173b8">
+              <span class="m-doc-wrap-bumper">static void <a href="#a3d866acd5d9608dd70f0a4bc058173b8" class="m-doc-self">sub_08071DB8</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7f2e115b4bccd86e2ee54366c34465eb">
+              <span class="m-doc-wrap-bumper">static void <a href="#a7f2e115b4bccd86e2ee54366c34465eb" class="m-doc-self">sub_08071DD0</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85c767b42bf2a003880149f88a85b9fe">
+              <span class="m-doc-wrap-bumper">static void <a href="#a85c767b42bf2a003880149f88a85b9fe" class="m-doc-self">sub_08071E04</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3245ada9e93594d5574c1b25889b4d32">
+              <span class="m-doc-wrap-bumper">static void <a href="#a3245ada9e93594d5574c1b25889b4d32" class="m-doc-self">sub_08071E74</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a80f7978b58b1238648fd5d65c605abef">
+              <span class="m-doc-wrap-bumper">static void <a href="#a80f7978b58b1238648fd5d65c605abef" class="m-doc-self">PlayerEmptyBottle</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff38d95d4c9c8691215ce9836b2596f1">
+              <span class="m-doc-wrap-bumper">static void <a href="#aff38d95d4c9c8691215ce9836b2596f1" class="m-doc-self">PlayerEmptyBottleInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a78b7244b26b2caadddf856a3622e814b">
+              <span class="m-doc-wrap-bumper">static void <a href="#a78b7244b26b2caadddf856a3622e814b" class="m-doc-self">PlayerEmptyBottleUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13fb19f69a5458af67cd23504cc36653">
+              <span class="m-doc-wrap-bumper">static void <a href="#a13fb19f69a5458af67cd23504cc36653" class="m-doc-self">PlayerFrozen</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3df9364a277121095125729892b1a144">
+              <span class="m-doc-wrap-bumper">static void <a href="#a3df9364a277121095125729892b1a144" class="m-doc-self">PlayerFrozenInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a43b28ce48048321da468e5ca1c29649c">
+              <span class="m-doc-wrap-bumper">static void <a href="#a43b28ce48048321da468e5ca1c29649c" class="m-doc-self">PlayerFrozenUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ec12823f14fdddfeb853147675737ca">
+              <span class="m-doc-wrap-bumper">static void <a href="#a1ec12823f14fdddfeb853147675737ca" class="m-doc-self">sub_0807204C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2f210c9013e8d1fd6d84108829e3e83">
+              <span class="m-doc-wrap-bumper">static void <a href="#ab2f210c9013e8d1fd6d84108829e3e83" class="m-doc-self">sub_08072064</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade34c16932baa3eb9f913c6848e67af4">
+              <span class="m-doc-wrap-bumper">static void <a href="#ade34c16932baa3eb9f913c6848e67af4" class="m-doc-self">sub_08072098</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d484088f0d90191f80f6aa8870860e6">
+              <span class="m-doc-wrap-bumper">static void <a href="#a8d484088f0d90191f80f6aa8870860e6" class="m-doc-self">PlayerRoomExit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada1374271d5fec01d0348a6dbe38cc4a">
+              <span class="m-doc-wrap-bumper">static void <a href="#ada1374271d5fec01d0348a6dbe38cc4a" class="m-doc-self">sub_08072100</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0bb10062bdc848097985b48226c47841">
+              <span class="m-doc-wrap-bumper">static void <a href="#a0bb10062bdc848097985b48226c47841" class="m-doc-self">sub_08072168</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac414aa81a2f9d7038f5b9c3dfd549ae2">
+              <span class="m-doc-wrap-bumper">static void <a href="#ac414aa81a2f9d7038f5b9c3dfd549ae2" class="m-doc-self">PlayerPull</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36f45ead8ddef9385b779468b366a684">
+              <span class="m-doc-wrap-bumper">static void <a href="#a36f45ead8ddef9385b779468b366a684" class="m-doc-self">sub_08072214</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5cfcaa82fc47c1aabe37c530f2253bd">
+              <span class="m-doc-wrap-bumper">static void <a href="#aa5cfcaa82fc47c1aabe37c530f2253bd" class="m-doc-self">sub_08072260</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a95bb1ff6b90da9d886aaa43493d882f4">
+              <span class="m-doc-wrap-bumper">static void <a href="#a95bb1ff6b90da9d886aaa43493d882f4" class="m-doc-self">PlayerLava</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85d240b866c7355796efdeff966c4496">
+              <span class="m-doc-wrap-bumper">static void <a href="#a85d240b866c7355796efdeff966c4496" class="m-doc-self">PlayerLavaInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a370ac4321439c3378256fb24f705d93b">
+              <span class="m-doc-wrap-bumper">static void <a href="#a370ac4321439c3378256fb24f705d93b" class="m-doc-self">sub_08072354</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7cd4c4ef98aaa090ccb93f7d237c9c30">
+              <span class="m-doc-wrap-bumper">static void <a href="#a7cd4c4ef98aaa090ccb93f7d237c9c30" class="m-doc-self">sub_080723D0</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a872b2a089fe3d750b3ac7efdc78492b6">
+              <span class="m-doc-wrap-bumper">static void <a href="#a872b2a089fe3d750b3ac7efdc78492b6" class="m-doc-self">sub_0807240C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4aa53292f85d416ad7ebebdf51bda84b">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4aa53292f85d416ad7ebebdf51bda84b" class="m-doc-self">sub_08072454</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1565ab306fa03694e9d5a7520306ed0b">
+              <span class="m-doc-wrap-bumper">static void <a href="#a1565ab306fa03694e9d5a7520306ed0b" class="m-doc-self">sub_0807246C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a60556a60ebd9fb91bd7568ea7a531960">
+              <span class="m-doc-wrap-bumper">static void <a href="#a60556a60ebd9fb91bd7568ea7a531960" class="m-doc-self">sub_08072490</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67ee1bdd1f58f00ed94ae5a85ee52001">
+              <span class="m-doc-wrap-bumper">static void <a href="#a67ee1bdd1f58f00ed94ae5a85ee52001" class="m-doc-self">PlayerRoomTransition</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac692bf5c633a599e932a52b842645fb2">
+              <span class="m-doc-wrap-bumper">static void <a href="#ac692bf5c633a599e932a52b842645fb2" class="m-doc-self">sub_080724DC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a51365681b9c3b623b2b4a77c9e22ca72">
+              <span class="m-doc-wrap-bumper">static void <a href="#a51365681b9c3b623b2b4a77c9e22ca72" class="m-doc-self">sub_0807258C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a308d71601175f7b6168051588aa14d8a">
+              <span class="m-doc-wrap-bumper">static void <a href="#a308d71601175f7b6168051588aa14d8a" class="m-doc-self">PlayerRoll</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a045a1c7dd219659e25900c1e810d2156">
+              <span class="m-doc-wrap-bumper">static void <a href="#a045a1c7dd219659e25900c1e810d2156" class="m-doc-self">PlayerRollInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae1a536d3ea0e1f1004b6875771ed7239">
+              <span class="m-doc-wrap-bumper">static void <a href="#ae1a536d3ea0e1f1004b6875771ed7239" class="m-doc-self">PlayerRollUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d427d11db44d97e72f35e6e76f8edb1">
+              <span class="m-doc-wrap-bumper">static void <a href="#a9d427d11db44d97e72f35e6e76f8edb1" class="m-doc-self">PlayerWaitForScroll</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7f63995ea8513b9d0f7c729c79de739b">
+              <span class="m-doc-wrap-bumper">static void <a href="#a7f63995ea8513b9d0f7c729c79de739b" class="m-doc-self">PlayerInHole</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7597e88aa3dbc23a3e3373ce4ac1b1a">
+              <span class="m-doc-wrap-bumper">static void <a href="#ac7597e88aa3dbc23a3e3373ce4ac1b1a" class="m-doc-self">PlayerInHoleInit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57c74e7e70c502532779e6955dbf1482">
+              <span class="m-doc-wrap-bumper">static void <a href="#a57c74e7e70c502532779e6955dbf1482" class="m-doc-self">PlayerInHoleUpdate</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4993cd1e5d153649a03f6ddd9182b33d">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4993cd1e5d153649a03f6ddd9182b33d" class="m-doc-self">sub_08072ACC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4eaf58d2016ec46624b9754fae6d0426">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4eaf58d2016ec46624b9754fae6d0426" class="m-doc-self">sub_08072B5C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adf25736ac95bf8a5817288eff2eb30c8">
+              <span class="m-doc-wrap-bumper">static void <a href="#adf25736ac95bf8a5817288eff2eb30c8" class="m-doc-self">sub_08072C48</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a239144958ad9c3dc5f4500f41565420d">
+              <span class="m-doc-wrap-bumper">static void <a href="#a239144958ad9c3dc5f4500f41565420d" class="m-doc-self">sub_08072C9C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2629a210d586b7ff7b3e373d11cb9fbf">
+              <span class="m-doc-wrap-bumper">static void <a href="#a2629a210d586b7ff7b3e373d11cb9fbf" class="m-doc-self">sub_08072CC0</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a876419e979d705fd935a90b5dea92fdb">
+              <span class="m-doc-wrap-bumper">static void <a href="#a876419e979d705fd935a90b5dea92fdb" class="m-doc-self">sub_08072CFC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a16f4543e1f430821bec14e5a19a829e1">
+              <span class="m-doc-wrap-bumper">static void <a href="#a16f4543e1f430821bec14e5a19a829e1" class="m-doc-self">sub_08072D54</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af6fab20c08f7567eafad7cba5ecdf12b">
+              <span class="m-doc-wrap-bumper">static void <a href="#af6fab20c08f7567eafad7cba5ecdf12b" class="m-doc-self">sub_08072F14</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1332543ee28eb235e35b63cfa0547ca3">
+              <span class="m-doc-wrap-bumper">static void <a href="#a1332543ee28eb235e35b63cfa0547ca3" class="m-doc-self">PlayerClimb</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04ba9e5b05f1c9309fcf3cab9d538ab1">
+              <span class="m-doc-wrap-bumper">static void <a href="#a04ba9e5b05f1c9309fcf3cab9d538ab1" class="m-doc-self">sub_08072F94</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2c5f923019885cd2fad230cd0dcd0a3">
+              <span class="m-doc-wrap-bumper">static void <a href="#ad2c5f923019885cd2fad230cd0dcd0a3" class="m-doc-self">sub_08073094</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad882ec319af9d5df2691f31cc7075abd">
+              <span class="m-doc-wrap-bumper">static void <a href="#ad882ec319af9d5df2691f31cc7075abd" class="m-doc-self">PlayerUseEntrance</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa3c5c40b34da4a1cbb7f93f7cbe586e0">
+              <span class="m-doc-wrap-bumper">static void <a href="#aa3c5c40b34da4a1cbb7f93f7cbe586e0" class="m-doc-self">PlayerUseStairs</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a475c3e37d14fed09239526cc3f5ffec7">
+              <span class="m-doc-wrap-bumper">static void <a href="#a475c3e37d14fed09239526cc3f5ffec7" class="m-doc-self">sub_080732D0</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34de44206edc048f3cddb563ab287ae8">
+              <span class="m-doc-wrap-bumper">static void <a href="#a34de44206edc048f3cddb563ab287ae8" class="m-doc-self">sub_0807332C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac49bc44637f03e0b30f412203982447a">
+              <span class="m-doc-wrap-bumper">static void <a href="#ac49bc44637f03e0b30f412203982447a" class="m-doc-self">sub_080733BC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b5bc807a7fe715406cb38fe139bf930">
+              <span class="m-doc-wrap-bumper">static void <a href="#a1b5bc807a7fe715406cb38fe139bf930" class="m-doc-self">PlayerParachute</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9b9eb0de1a410dcf60dee14575e03d1">
+              <span class="m-doc-wrap-bumper">static void <a href="#ab9b9eb0de1a410dcf60dee14575e03d1" class="m-doc-self">sub_08073468</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="accac51ac23c4e9012200caa369f3d116">
+              <span class="m-doc-wrap-bumper">static void <a href="#accac51ac23c4e9012200caa369f3d116" class="m-doc-self">sub_080734D4</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c09ea061d2275c853defd88285f241b">
+              <span class="m-doc-wrap-bumper">static void <a href="#a1c09ea061d2275c853defd88285f241b" class="m-doc-self">sub_08073504</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab375060d8aa42e5f38ee51f5907ddf12">
+              <span class="m-doc-wrap-bumper">static void <a href="#ab375060d8aa42e5f38ee51f5907ddf12" class="m-doc-self">sub_08073584</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d844f0b10d674c50dd19ed45600b1a9">
+              <span class="m-doc-wrap-bumper">static void <a href="#a3d844f0b10d674c50dd19ed45600b1a9" class="m-doc-self">sub_0807379C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a74b4ee8338d15cf43c2a9e2402fbbaa0">
+              <span class="m-doc-wrap-bumper">static void <a href="#a74b4ee8338d15cf43c2a9e2402fbbaa0" class="m-doc-self">sub_080737BC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d05ac33120a39cd401525bc182a313e">
+              <span class="m-doc-wrap-bumper">static void <a href="#a5d05ac33120a39cd401525bc182a313e" class="m-doc-self">sub_0807380C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62892a1c72deaf7ae19ee17029eb3d3d">
+              <span class="m-doc-wrap-bumper">void <a href="#a62892a1c72deaf7ae19ee17029eb3d3d" class="m-doc-self">sub_08073884</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10db8fd3585b32a3e2779b8ada8d39f0">
+              <span class="m-doc-wrap-bumper">static void <a href="#a10db8fd3585b32a3e2779b8ada8d39f0" class="m-doc-self">sub_08073924</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a40e79a51f85d9202f5c9a60c356e0bcb">
+              <span class="m-doc-wrap-bumper">static void <a href="#a40e79a51f85d9202f5c9a60c356e0bcb" class="m-doc-self">sub_08073968</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa98ef0d84dc61996800bc3278d54748">
+              <span class="m-doc-wrap-bumper">static void <a href="#aaa98ef0d84dc61996800bc3278d54748" class="m-doc-self">sub_080739EC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac31eae56f771f8a566c7ecfed49c650a">
+              <span class="m-doc-wrap-bumper">void <a href="#ac31eae56f771f8a566c7ecfed49c650a" class="m-doc-self">sub_08073A94</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e17082da82e4549b8ea450bbbff9a88">
+              <span class="m-doc-wrap-bumper">void <a href="#a6e17082da82e4549b8ea450bbbff9a88" class="m-doc-self">sub_08073B8C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aad796dcbb8e83398cb68b9b7fee4f406">
+              <span class="m-doc-wrap-bumper">void <a href="#aad796dcbb8e83398cb68b9b7fee4f406" class="m-doc-self">sub_08073C30</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a49ddfcb5639d19090f07cf9021d4e747">
+              <span class="m-doc-wrap-bumper">static void <a href="#a49ddfcb5639d19090f07cf9021d4e747" class="m-doc-self">PlayerMinish</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad45f39b1ca5c793d0f60f8f9c3ca5753">
+              <span class="m-doc-wrap-bumper">static void <a href="#ad45f39b1ca5c793d0f60f8f9c3ca5753" class="m-doc-self">sub_08073C80</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a79e47a7893f133726f1dc42e5d17bbf5">
+              <span class="m-doc-wrap-bumper">static void <a href="#a79e47a7893f133726f1dc42e5d17bbf5" class="m-doc-self">sub_08073D20</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a014142281c52ae6f5793d1809088809b">
+              <span class="m-doc-wrap-bumper">static void <a href="#a014142281c52ae6f5793d1809088809b" class="m-doc-self">sub_08073F04</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaef8ff1e0bf5052f1473d22dbb0d572a">
+              <span class="m-doc-wrap-bumper">static void <a href="#aaef8ff1e0bf5052f1473d22dbb0d572a" class="m-doc-self">sub_08073F4C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4d30e428fa665aba3366ef40d2c27f9">
+              <span class="m-doc-wrap-bumper">static void <a href="#ab4d30e428fa665aba3366ef40d2c27f9" class="m-doc-self">sub_08073FD0</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1cbfa49cba73ef8bf876990688e23397">
+              <span class="m-doc-wrap-bumper">static void <a href="#a1cbfa49cba73ef8bf876990688e23397" class="m-doc-self">sub_08074018</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7130cf57da9a4bc7c29514f60e02bc7a">
+              <span class="m-doc-wrap-bumper">static void <a href="#a7130cf57da9a4bc7c29514f60e02bc7a" class="m-doc-self">sub_08074060</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a55bddd971e0fcddce229a8b4919c2fbe">
+              <span class="m-doc-wrap-bumper">void <a href="#a55bddd971e0fcddce229a8b4919c2fbe" class="m-doc-self">sub_080740D8</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0aa3892d365792133ab99b6c202f2c49">
+              <span class="m-doc-wrap-bumper">auto <a href="#a0aa3892d365792133ab99b6c202f2c49" class="m-doc-self">sub_080741C4</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aca465656a6595d646dd4733480b99bb2">
+              <span class="m-doc-wrap-bumper">void <a href="#aca465656a6595d646dd4733480b99bb2" class="m-doc-self">SurfaceAction_DoNothing</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab071bd7acd3cdaf118b87915c78afb60">
+              <span class="m-doc-wrap-bumper">void <a href="#ab071bd7acd3cdaf118b87915c78afb60" class="m-doc-self">SurfaceAction_Pit</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace04c7c09303702021455834106db533">
+              <span class="m-doc-wrap-bumper">void <a href="#ace04c7c09303702021455834106db533" class="m-doc-self">SurfaceAction_SlopeGndGndVertical</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3db437b80a62ba1f845c16f90e516191">
+              <span class="m-doc-wrap-bumper">void <a href="#a3db437b80a62ba1f845c16f90e516191" class="m-doc-self">SurfaceAction_SlopeGndGndHorizontal</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1408fba84c913ecbb52c9b59da72b325">
+              <span class="m-doc-wrap-bumper">void <a href="#a1408fba84c913ecbb52c9b59da72b325" class="m-doc-self">SurfaceAction_6</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0e1fd0f87737909f2098ef0be54e531a">
+              <span class="m-doc-wrap-bumper">void <a href="#a0e1fd0f87737909f2098ef0be54e531a" class="m-doc-self">SurfaceAction_7</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5fb5091cd61042a1cbd1f6fe5131042">
+              <span class="m-doc-wrap-bumper">void <a href="#ae5fb5091cd61042a1cbd1f6fe5131042" class="m-doc-self">SurfaceAction_MinishDoorFront</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34db7d2b193b1e61296add55f013029f">
+              <span class="m-doc-wrap-bumper">void <a href="#a34db7d2b193b1e61296add55f013029f" class="m-doc-self">SurfaceAction_MinishDoorBack</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20844fbdf3b4edbfe499c0eeab509863">
+              <span class="m-doc-wrap-bumper">void <a href="#a20844fbdf3b4edbfe499c0eeab509863" class="m-doc-self">SurfaceAction_A</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b100fbf40968d27a488b1d57c34cf84">
+              <span class="m-doc-wrap-bumper">void <a href="#a1b100fbf40968d27a488b1d57c34cf84" class="m-doc-self">SurfaceAction_B</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c7304d936255ddf859d9c7edb80a85c">
+              <span class="m-doc-wrap-bumper">void <a href="#a1c7304d936255ddf859d9c7edb80a85c" class="m-doc-self">SurfaceAction_14</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#af26131b5f0a58ce9a8cf69a2470f385e" class="m-doc">SurfaceAction_CloneTile</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5ef2932476e4f3a660ec7961b3f587a3">
+              <span class="m-doc-wrap-bumper">void <a href="#a5ef2932476e4f3a660ec7961b3f587a3" class="m-doc-self">SurfaceAction_16</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8339d72aafe8647d611df5146a69ebca">
+              <span class="m-doc-wrap-bumper">void <a href="#a8339d72aafe8647d611df5146a69ebca" class="m-doc-self">SurfaceAction_Ice</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7fd27cf7df9a57a45ed6c647d23687f3">
+              <span class="m-doc-wrap-bumper">void <a href="#a7fd27cf7df9a57a45ed6c647d23687f3" class="m-doc-self">SurfaceAction_ShallowWater</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7cc0f9903c9da991a77a26f569656ba4">
+              <span class="m-doc-wrap-bumper">void <a href="#a7cc0f9903c9da991a77a26f569656ba4" class="m-doc-self">SurfaceAction_SlopeGndWater</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a104f5832c5a53bddf9ae7c6729048764">
+              <span class="m-doc-wrap-bumper">void <a href="#a104f5832c5a53bddf9ae7c6729048764" class="m-doc-self">SurfaceAction_Swamp</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4d6ed8b86db960d93fb15806768a8ba">
+              <span class="m-doc-wrap-bumper">void <a href="#af4d6ed8b86db960d93fb15806768a8ba" class="m-doc-self">SurfaceAction_Button</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7127f5f3b5319ff456cdc77ccedc0e33">
+              <span class="m-doc-wrap-bumper">void <a href="#a7127f5f3b5319ff456cdc77ccedc0e33" class="m-doc-self">sub_080748D4</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2bfa025bf56cecbba9de348415f5a95a">
+              <span class="m-doc-wrap-bumper">void <a href="#a2bfa025bf56cecbba9de348415f5a95a" class="m-doc-self">SurfaceAction_1B</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7158b722c4eb5875b2dfe21174f1f3b">
+              <span class="m-doc-wrap-bumper">void <a href="#ad7158b722c4eb5875b2dfe21174f1f3b" class="m-doc-self">SurfaceAction_1C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af06cd258be4dcee3785625cc7d41ad7e">
+              <span class="m-doc-wrap-bumper">void <a href="#af06cd258be4dcee3785625cc7d41ad7e" class="m-doc-self">SurfaceAction_ClimbWall</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae4ab498c5557b7bc8a1813bba6470de2">
+              <span class="m-doc-wrap-bumper">void <a href="#ae4ab498c5557b7bc8a1813bba6470de2" class="m-doc-self">SurfaceAction_2C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a869bf8461a1834e7b40e435bc30faebe">
+              <span class="m-doc-wrap-bumper">void <a href="#a869bf8461a1834e7b40e435bc30faebe" class="m-doc-self">SurfaceAction_20</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6666dba9a04cca81fa9a401e58127a3">
+              <span class="m-doc-wrap-bumper">void <a href="#ab6666dba9a04cca81fa9a401e58127a3" class="m-doc-self">SurfaceAction_22</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6901c192500d97b8a2e75a5b0ddc28bb">
+              <span class="m-doc-wrap-bumper">void <a href="#a6901c192500d97b8a2e75a5b0ddc28bb" class="m-doc-self">SurfaceAction_Dust</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab696804470580d5ea7d5a7315b94d3ae">
+              <span class="m-doc-wrap-bumper">void <a href="#ab696804470580d5ea7d5a7315b94d3ae" class="m-doc-self">SurfaceAction_26</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af77984af7ab99bc674b3db4b396a14cd">
+              <span class="m-doc-wrap-bumper">void <a href="#af77984af7ab99bc674b3db4b396a14cd" class="m-doc-self">SurfaceAction_Hole</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae707a5bcd57304aeb06201f7758ebfcb">
+              <span class="m-doc-wrap-bumper">void <a href="#ae707a5bcd57304aeb06201f7758ebfcb" class="m-doc-self">SurfaceAction_ConveyerNorth</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee95e51515c9c9077ee5d745bd367c6b">
+              <span class="m-doc-wrap-bumper">void <a href="#aee95e51515c9c9077ee5d745bd367c6b" class="m-doc-self">SurfaceAction_ConveyerSouth</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f7cc46456a015e46a2ad3a5dd2a712e">
+              <span class="m-doc-wrap-bumper">void <a href="#a8f7cc46456a015e46a2ad3a5dd2a712e" class="m-doc-self">SurfaceAction_ConveyerWest</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa9dc3fe17c4221e77b727a18173c49f6">
+              <span class="m-doc-wrap-bumper">void <a href="#aa9dc3fe17c4221e77b727a18173c49f6" class="m-doc-self">SurfaceAction_ConveyerEast</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8cdde11e2c97094c1b525cba1bf085f6">
+              <span class="m-doc-wrap-bumper">static void <a href="#a8cdde11e2c97094c1b525cba1bf085f6" class="m-doc-self">PlayerSleep</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a143e6312f7bb3636b340a51bc81c8a2c">
+              <span class="m-doc-wrap-bumper">static void <a href="#a143e6312f7bb3636b340a51bc81c8a2c" class="m-doc-self">sub_08074C68</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac32e2946c84bae8a87145f37ca1b1821">
+              <span class="m-doc-wrap-bumper">static void <a href="#ac32e2946c84bae8a87145f37ca1b1821" class="m-doc-self">sub_08074CF8</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adf98d851b71024b93741cafbc7ef745d">
+              <span class="m-doc-wrap-bumper">static void <a href="#adf98d851b71024b93741cafbc7ef745d" class="m-doc-self">sub_08074F00</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a330e4aaeda5f09cd1fff74a828924c77">
+              <span class="m-doc-wrap-bumper">void <a href="#a330e4aaeda5f09cd1fff74a828924c77" class="m-doc-self">sub_08074F1C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1145c03fddaed5ee8196b0c48fe183aa">
+              <span class="m-doc-wrap-bumper">void <a href="#a1145c03fddaed5ee8196b0c48fe183aa" class="m-doc-self">sub_08074F2C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3539d50370de6c2fd02214ea2e2feb5d">
+              <span class="m-doc-wrap-bumper">void <a href="#a3539d50370de6c2fd02214ea2e2feb5d" class="m-doc-self">sub_08074F44</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aefd21f4476182f62307b749acfff496e">
+              <span class="m-doc-wrap-bumper">void <a href="#aefd21f4476182f62307b749acfff496e" class="m-doc-self">sub_08074F8C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a69673c00bcd499abd27d195071966245">
+              <span class="m-doc-wrap-bumper">void <a href="#a69673c00bcd499abd27d195071966245" class="m-doc-self">sub_08074FEC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1686f1fa8c5acb329106980fd390963">
+              <span class="m-doc-wrap-bumper">void <a href="#ab1686f1fa8c5acb329106980fd390963" class="m-doc-self">sub_0807501C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3ff67c552aa26863c744466cf66aea4">
+              <span class="m-doc-wrap-bumper">void <a href="#ab3ff67c552aa26863c744466cf66aea4" class="m-doc-self">sub_0807508C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af95aa520502a21286de3d3b4d5085dc4">
+              <span class="m-doc-wrap-bumper">void <a href="#af95aa520502a21286de3d3b4d5085dc4" class="m-doc-self">sub_080750F4</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afd542dc68c4cf63f1fc03f28c16f6432">
+              <span class="m-doc-wrap-bumper">void <a href="#afd542dc68c4cf63f1fc03f28c16f6432" class="m-doc-self">sub_08075110</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b746ff854d722f9c6ec3a359e39d6c1">
+              <span class="m-doc-wrap-bumper">void <a href="#a5b746ff854d722f9c6ec3a359e39d6c1" class="m-doc-self">sub_0807513C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af0b678e6bbb4e70d0d64f32de28da354">
+              <span class="m-doc-wrap-bumper">void <a href="#af0b678e6bbb4e70d0d64f32de28da354" class="m-doc-self">sub_0807518C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae04c010ac8ed0cd138501b2c88bde21">
+              <span class="m-doc-wrap-bumper">void <a href="#aae04c010ac8ed0cd138501b2c88bde21" class="m-doc-self">sub_080751B4</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abdaa6b1075324d827204a26fb460cec9">
+              <span class="m-doc-wrap-bumper">void <a href="#abdaa6b1075324d827204a26fb460cec9" class="m-doc-self">sub_080751E8</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a1,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> a2,
+              void* script)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ceac3542cbd173e9b4ae760df3e8c45">
+              <span class="m-doc-wrap-bumper">void <a href="#a9ceac3542cbd173e9b4ae760df3e8c45" class="m-doc-self">sub_0807529C</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7b0d8dc863e58043a62093c3c7e8c122">
+              <span class="m-doc-wrap-bumper">void <a href="#a7b0d8dc863e58043a62093c3c7e8c122" class="m-doc-self">sub_080752AC</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this,
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a>* ctx)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a55f21d779f1157ecbe185c847e544d29">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a55f21d779f1157ecbe185c847e544d29" class="m-doc-self">PlayerInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a436f23a1b6ae0cf7dd6fa064de3808db">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a436f23a1b6ae0cf7dd6fa064de3808db" class="m-doc-self">PlayerNormal</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a338df5d403491cc08c8e7e4f95b2db3e">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a338df5d403491cc08c8e7e4f95b2db3e" class="m-doc-self">PlayerFall</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0be144968e605861d590ddfc00262b55">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a0be144968e605861d590ddfc00262b55" class="m-doc-self">PlayerJump</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adda47bb7cce3402eacd2d81a743f7484">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#adda47bb7cce3402eacd2d81a743f7484" class="m-doc-self">PlayerPush</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c2d8c141f4cc9ef400ee948af846c94">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a3c2d8c141f4cc9ef400ee948af846c94" class="m-doc-self">PlayerBounce</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a387b6d9daa1715ec8dfcb7d388c26a33">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a387b6d9daa1715ec8dfcb7d388c26a33" class="m-doc-self">sub_08070E9C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ccf278c859a9aeeaaf947862ac83f49">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a1ccf278c859a9aeeaaf947862ac83f49" class="m-doc-self">PlayerItemGet</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2934f80e90bd185bbd431157337e631b">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a2934f80e90bd185bbd431157337e631b" class="m-doc-self">PlayerMinish</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b4f99ccab5cf5af365f05b540694460">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a1b4f99ccab5cf5af365f05b540694460" class="m-doc-self">PlayerMinishDie</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a5693eb999f95cf76eae381899bd6b7">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a4a5693eb999f95cf76eae381899bd6b7" class="m-doc-self">sub_08071DB8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9a718fe9c4e80122fc35f5c4c025de80">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a9a718fe9c4e80122fc35f5c4c025de80" class="m-doc-self">PlayerEmptyBottle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7dd99d0a9f5882fa533e99dfe935b70d">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a7dd99d0a9f5882fa533e99dfe935b70d" class="m-doc-self">PlayerFrozen</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8fc59e8befd9922e512c597861e1bb5e">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a8fc59e8befd9922e512c597861e1bb5e" class="m-doc-self">sub_0807204C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4cf54d34e9ccf836346998d7bcdf1c8a">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a4cf54d34e9ccf836346998d7bcdf1c8a" class="m-doc-self">PlayerRoomExit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7417491c750b4948e7701f487dd743f">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ac7417491c750b4948e7701f487dd743f" class="m-doc-self">PlayerPull</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4fdc623fd0ed0e643c012159fc1de758">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a4fdc623fd0ed0e643c012159fc1de758" class="m-doc-self">PlayerLava</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b2473b8128282eaac97df29dde4c636">
+              <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a8b2473b8128282eaac97df29dde4c636" class="m-doc-self">PlayerWarp</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b13f6a33a2af852a310ba148a5f7443">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a8b13f6a33a2af852a310ba148a5f7443" class="m-doc-self">sub_08072454</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70f5c0569dff34e55a09ddbc280fe461">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a70f5c0569dff34e55a09ddbc280fe461" class="m-doc-self">PlayerDrown</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1198e17e4e798a90320d9aa50a954d0e">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a1198e17e4e798a90320d9aa50a954d0e" class="m-doc-self">PlayerUsePortal</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a403aaccbcf501e4804a4db707dcb7795">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a403aaccbcf501e4804a4db707dcb7795" class="m-doc-self">PlayerTalkEzlo</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ca5aa52f676d34e25756a23400cc3e5">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a6ca5aa52f676d34e25756a23400cc3e5" class="m-doc-self">PlayerRoomTransition</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a84b19cc47323abeadf481b28bb961470">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a84b19cc47323abeadf481b28bb961470" class="m-doc-self">PlayerRoll</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a784be50f9980fabd00b1bcf472d68322">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a784be50f9980fabd00b1bcf472d68322" class="m-doc-self">PlayerWaitForScroll</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac2243e4542df258815b8c113eed4949e">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ac2243e4542df258815b8c113eed4949e" class="m-doc-self">PlayerInHole</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5c266d1d0905bdd7842f22c1e90ffd6">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ab5c266d1d0905bdd7842f22c1e90ffd6" class="m-doc-self">sub_08072C9C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ba7c8374c9ea463d541b0a39b1a331e">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a1ba7c8374c9ea463d541b0a39b1a331e" class="m-doc-self">PlayerSleep</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e4363de2f79f5278b018dbfcfc66dd1">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a6e4363de2f79f5278b018dbfcfc66dd1" class="m-doc-self">PlayerClimb</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9bbbc050c0b619020d1cbb19d6365d49">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a9bbbc050c0b619020d1cbb19d6365d49" class="m-doc-self">PlayerUseEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a55d2ef8cd171ce2186aeb42e7902561c">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a55d2ef8cd171ce2186aeb42e7902561c" class="m-doc-self">PlayerParachute</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafe0f9b7338e24bd5ce472511282474c">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aafe0f9b7338e24bd5ce472511282474c" class="m-doc-self">PlayerFallInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa1f0c97d4859a5ff6718988918526b15">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aa1f0c97d4859a5ff6718988918526b15" class="m-doc-self">PlayerFallUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a50d7ad9ac5b48ab805d401c28f15802a">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a50d7ad9ac5b48ab805d401c28f15802a" class="m-doc-self">PlayerBounceInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff5fd558ac1b7a9dcfa0cbab51a70ffa">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aff5fd558ac1b7a9dcfa0cbab51a70ffa" class="m-doc-self">PlayerBounceUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa81d672baa94083fcab5e7119544e815">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aa81d672baa94083fcab5e7119544e815" class="m-doc-self">sub_08070E7C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad960239380ae5f4e1d087690f73b7d30">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ad960239380ae5f4e1d087690f73b7d30" class="m-doc-self">sub_08070EDC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adadaf31c6582b4f8a1778c609bcd528d">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#adadaf31c6582b4f8a1778c609bcd528d" class="m-doc-self">sub_08070f24</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4323d84c5ec53d1f9e0baea2cdf76df4">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a4323d84c5ec53d1f9e0baea2cdf76df4" class="m-doc-self">PlayerItemGetInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ed03618e5fc4682975c4441234b4282">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a1ed03618e5fc4682975c4441234b4282" class="m-doc-self">PlayerItemGetUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46d9619e054dace541ac8a3da34f729d">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a46d9619e054dace541ac8a3da34f729d" class="m-doc-self">sub_08071038</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5132296a256abd10cc28153a59fef9e4">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a5132296a256abd10cc28153a59fef9e4" class="m-doc-self">PlayerJumpInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad4cf2e336a5f127bdc763c58a0be3c80">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ad4cf2e336a5f127bdc763c58a0be3c80" class="m-doc-self">sub_08071130</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aabc25a0a35b7074565fb42c3de66d420">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aabc25a0a35b7074565fb42c3de66d420" class="m-doc-self">sub_08071208</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a48fa11035ba0725fed3786b05182c365">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a48fa11035ba0725fed3786b05182c365" class="m-doc-self">PlayerDrownInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8a13418240e047ed4f5560c507961549">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a8a13418240e047ed4f5560c507961549" class="m-doc-self">sub_080712F0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a49bf9f9a511c962232209afe65bd07c3">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a49bf9f9a511c962232209afe65bd07c3" class="m-doc-self">PortalJumpOnUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3bfcfdf571df43937f384a7714dda54">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ab3bfcfdf571df43937f384a7714dda54" class="m-doc-self">PortalStandUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ea4f9b0ea21bf8e16f2eeec80c28763">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a9ea4f9b0ea21bf8e16f2eeec80c28763" class="m-doc-self">PortalActivateInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4fc58307fe0d60a24c02940a57924672">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a4fc58307fe0d60a24c02940a57924672" class="m-doc-self">PortalActivateUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c72b83fae1b93377a18d6d624a1ce85">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a8c72b83fae1b93377a18d6d624a1ce85" class="m-doc-self">PortalShrinkInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a560a7666ea916d6d27c1165b97f924da">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a560a7666ea916d6d27c1165b97f924da" class="m-doc-self">PortalShrinkUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae91fbaab7e70708af7eb0e61d8b742a">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aae91fbaab7e70708af7eb0e61d8b742a" class="m-doc-self">PortalEnterUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4730065c844044815ead8943897d77b3">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a4730065c844044815ead8943897d77b3" class="m-doc-self">PortalUnknownUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e4f6956dbc407c28271e2b4909d1130">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a2e4f6956dbc407c28271e2b4909d1130" class="m-doc-self">PlayerTalkEzlo_Init</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a68110670075cb0ce5c0581d63ae59e42">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a68110670075cb0ce5c0581d63ae59e42" class="m-doc-self">PlayerTalkEzlo_CreateMessage</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a157f276b27b960afbe4a61c6624c119b">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a157f276b27b960afbe4a61c6624c119b" class="m-doc-self">PlayerTalkEzlo_MessageIdle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adcab613c6f5285e9fdf5c286e5490c5f">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#adcab613c6f5285e9fdf5c286e5490c5f" class="m-doc-self">PlayerTalkEzlo_Leave</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71c06ad84009dddc6cc39b0a9a861353">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a71c06ad84009dddc6cc39b0a9a861353" class="m-doc-self">PlayerPushInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8424f1ad15abc52e2e68f8fda19923aa">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a8424f1ad15abc52e2e68f8fda19923aa" class="m-doc-self">PlayerPushUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aade9a2ae1064c18976d312f05ec0a4d4">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aade9a2ae1064c18976d312f05ec0a4d4" class="m-doc-self">PlayerPushEnd</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0ab281e12b18ef1cfdfd9a92d8e2f94d">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a0ab281e12b18ef1cfdfd9a92d8e2f94d" class="m-doc-self">PlayerMinishDieInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae19fc073be710d43a1fff87bd97ba794">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ae19fc073be710d43a1fff87bd97ba794" class="m-doc-self">sub_08071CAC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae27afaa720f86c1453fad5df972e40ce">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ae27afaa720f86c1453fad5df972e40ce" class="m-doc-self">sub_08071D04</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4196a3c609343b894d26fe4a11ee2503">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a4196a3c609343b894d26fe4a11ee2503" class="m-doc-self">sub_08071D80</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae8b1c3cd430aa69ab8706a0254237600">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ae8b1c3cd430aa69ab8706a0254237600" class="m-doc-self">sub_08071DD0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afaab2512a7f1f0b77c57a5d68943a707">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#afaab2512a7f1f0b77c57a5d68943a707" class="m-doc-self">sub_08071E04</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a937e68912e8c780f352dd11c3a4ef39f">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a937e68912e8c780f352dd11c3a4ef39f" class="m-doc-self">sub_08071E74</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afd85bafe0c8304d4d8587a956576da08">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#afd85bafe0c8304d4d8587a956576da08" class="m-doc-self">PlayerEmptyBottleInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86126d0b14ac32a5f2aa51bcc7052eeb">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a86126d0b14ac32a5f2aa51bcc7052eeb" class="m-doc-self">PlayerEmptyBottleUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab704abd34c68d7bae41a9c0e9f5bb1aa">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ab704abd34c68d7bae41a9c0e9f5bb1aa" class="m-doc-self">PlayerFrozenInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3651c859b2ab441df4c2b5d5f0a0c34">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#af3651c859b2ab441df4c2b5d5f0a0c34" class="m-doc-self">PlayerFrozenUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af81fbe75ec33cde6c4bc394f9d5f77cd">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#af81fbe75ec33cde6c4bc394f9d5f77cd" class="m-doc-self">sub_08072064</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a077b2a9960d4d0c803e10a3d22ed2e8b">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a077b2a9960d4d0c803e10a3d22ed2e8b" class="m-doc-self">sub_08072098</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34f023cb28d704946b791c3b5360dfbe">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a34f023cb28d704946b791c3b5360dfbe" class="m-doc-self">sub_08072100</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61374bbde1b918dabd14c14f3eb9a919">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a61374bbde1b918dabd14c14f3eb9a919" class="m-doc-self">sub_08072168</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a92a496ba6581be3db3a4399ca633b7c8">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a92a496ba6581be3db3a4399ca633b7c8" class="m-doc-self">sub_08072214</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abb44d1849e10fa603d285bfdbe693411">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#abb44d1849e10fa603d285bfdbe693411" class="m-doc-self">sub_08072260</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c52460491d424261866b59841d5dedd">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a6c52460491d424261866b59841d5dedd" class="m-doc-self">PlayerLavaInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb181ac55a561976c975fe794ebf9bb0">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#adb181ac55a561976c975fe794ebf9bb0" class="m-doc-self">sub_08072354</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acea6832dffd2a4d6c0122f8891fa9730">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#acea6832dffd2a4d6c0122f8891fa9730" class="m-doc-self">sub_080723D0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3cc76af5d1bca222c8e784bddb78f2e5">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a3cc76af5d1bca222c8e784bddb78f2e5" class="m-doc-self">sub_0807240C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af96cac20f352484b03b744aa0efa8a77">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#af96cac20f352484b03b744aa0efa8a77" class="m-doc-self">sub_0807246C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a95d5b62c23eecb69ce0916f983612e27">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a95d5b62c23eecb69ce0916f983612e27" class="m-doc-self">sub_08072490</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9eb63892b81f0a49730b9d8178a849b7">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a9eb63892b81f0a49730b9d8178a849b7" class="m-doc-self">sub_080724DC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6fe68ca91db20a331858d2f0d8fe6072">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a6fe68ca91db20a331858d2f0d8fe6072" class="m-doc-self">sub_0807258C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ff6d2f3f540dfdef6d333a95242d9ab">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a1ff6d2f3f540dfdef6d333a95242d9ab" class="m-doc-self">PlayerRollInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a730bf06d8e9af16fbf31b9befe0bd385">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a730bf06d8e9af16fbf31b9befe0bd385" class="m-doc-self">PlayerRollUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad0891fc51b9a970a3414bbedac9f339b">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ad0891fc51b9a970a3414bbedac9f339b" class="m-doc-self">PlayerInHoleInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a21cbac174528f38d8925ab8217313882">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a21cbac174528f38d8925ab8217313882" class="m-doc-self">PlayerInHoleUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae958661c5bbfe51de587c0d3e4bcf45a">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ae958661c5bbfe51de587c0d3e4bcf45a" class="m-doc-self">sub_08072ACC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a627c145ef38c9a0ab8901251a513c1f4">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a627c145ef38c9a0ab8901251a513c1f4" class="m-doc-self">sub_08072B5C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeeec7ac3c028570000f5a8a5021dfdc9">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aeeec7ac3c028570000f5a8a5021dfdc9" class="m-doc-self">sub_08072C48</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d8a639da0cbcc1874ec728135d0d941">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a3d8a639da0cbcc1874ec728135d0d941" class="m-doc-self">sub_08072CC0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a055b7f333b16352ebbc592ed717b1489">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a055b7f333b16352ebbc592ed717b1489" class="m-doc-self">sub_08072CFC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf7b2ec13dd9d45ffff2238c49d12087">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#acf7b2ec13dd9d45ffff2238c49d12087" class="m-doc-self">sub_08072D54</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5412e76b14c27875e4cd93178f355caa">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a5412e76b14c27875e4cd93178f355caa" class="m-doc-self">sub_08072F14</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a69f4273b899bce658c8f3f51028f2a34">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a69f4273b899bce658c8f3f51028f2a34" class="m-doc-self">sub_08072F94</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af330ecc17998942eca27065f3ab4df62">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#af330ecc17998942eca27065f3ab4df62" class="m-doc-self">sub_08073094</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38b8a79654602dc7ca2b1f5b0e0cc5f0">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a38b8a79654602dc7ca2b1f5b0e0cc5f0" class="m-doc-self">PlayerUseStairs</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30c729402d2bff2c44364f20dbf10723">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a30c729402d2bff2c44364f20dbf10723" class="m-doc-self">sub_080732D0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2aadd18ccd5aac4f2f5ed719f4565838">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a2aadd18ccd5aac4f2f5ed719f4565838" class="m-doc-self">sub_0807332C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa3d0a8f4d69799ba3f01f5d0b290574">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#afa3d0a8f4d69799ba3f01f5d0b290574" class="m-doc-self">sub_080733BC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa48a7ea7aceefff7da5491cbe8f647a8">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aa48a7ea7aceefff7da5491cbe8f647a8" class="m-doc-self">sub_08073468</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a860e56c2ddba645d7ba7f0d4f0791c5c">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a860e56c2ddba645d7ba7f0d4f0791c5c" class="m-doc-self">sub_080734D4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a69419f0f348174ea79f2f714609a49b8">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a69419f0f348174ea79f2f714609a49b8" class="m-doc-self">sub_08073504</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afe732f33c70fd933d46c65fbbc311c60">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#afe732f33c70fd933d46c65fbbc311c60" class="m-doc-self">sub_08073584</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a06317b58b54872a1ac548095e6beaab0">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a06317b58b54872a1ac548095e6beaab0" class="m-doc-self">sub_0807379C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27a550d10b0752865e4d74766a6b6ec9">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a27a550d10b0752865e4d74766a6b6ec9" class="m-doc-self">sub_080737BC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac8e3a755f12160daffd93cc1d1c7af05">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ac8e3a755f12160daffd93cc1d1c7af05" class="m-doc-self">sub_0807380C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa72c7e7d918d5be6d03a7157fbce6b96">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aa72c7e7d918d5be6d03a7157fbce6b96" class="m-doc-self">sub_08073884</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6351dff31b30ed154f9783d6293859f0">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a6351dff31b30ed154f9783d6293859f0" class="m-doc-self">sub_08073924</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae43aa25d0a489deb2a12af8a8f6e8cfe">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ae43aa25d0a489deb2a12af8a8f6e8cfe" class="m-doc-self">sub_08073968</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa2ea280d2f5eca9cb81431d671b811c0">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aa2ea280d2f5eca9cb81431d671b811c0" class="m-doc-self">sub_080739EC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2a21fcd17e9eb5484489368167f18595">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a2a21fcd17e9eb5484489368167f18595" class="m-doc-self">sub_08073A94</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18a53944fad3ab043e79483655c73cff">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a18a53944fad3ab043e79483655c73cff" class="m-doc-self">sub_08073B8C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a88eda067c81106aaa0e43d0318bbfa90">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a88eda067c81106aaa0e43d0318bbfa90" class="m-doc-self">sub_08073C30</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab49d72fac13a934400b6a98a1c514d6f">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ab49d72fac13a934400b6a98a1c514d6f" class="m-doc-self">sub_08073C80</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3acb08213b2e59ead4b7a2396e0644e">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ad3acb08213b2e59ead4b7a2396e0644e" class="m-doc-self">sub_08073D20</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1352e362b5aeef41a652cd6bebf5f737">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a1352e362b5aeef41a652cd6bebf5f737" class="m-doc-self">sub_08073F04</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a642761b5988b578b222f0fe8b3853902">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a642761b5988b578b222f0fe8b3853902" class="m-doc-self">sub_08073F4C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d5f5a2951a0a83eb37953cc709fe166">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a0d5f5a2951a0a83eb37953cc709fe166" class="m-doc-self">sub_08073FD0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b670997e982879cb4cc6946f8ded624">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a2b670997e982879cb4cc6946f8ded624" class="m-doc-self">sub_08074018</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa3b0b382b7aaa448ee1ad0360f11b342">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aa3b0b382b7aaa448ee1ad0360f11b342" class="m-doc-self">sub_08074060</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e06b6ea2b5251288e2a5cdf6c68a6ba">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a2e06b6ea2b5251288e2a5cdf6c68a6ba" class="m-doc-self">sub_080740D8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59e1fbdf2f71bb0daf7968712ff8b671">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a59e1fbdf2f71bb0daf7968712ff8b671" class="m-doc-self">sub_08074C68</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0191f34805f8ef13105dfaf37a77a81">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ac0191f34805f8ef13105dfaf37a77a81" class="m-doc-self">sub_08074CF8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad78dbcd67eaf12d3ea3bfa44bba9cf57">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ad78dbcd67eaf12d3ea3bfa44bba9cf57" class="m-doc-self">sub_08074F00</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a55deab8293cfc6d82419b774c8a9d4c2">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a55deab8293cfc6d82419b774c8a9d4c2" class="m-doc-self">sub_080750F4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade9ed1fdd28a8509b1a8c79a6d3df125">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ade9ed1fdd28a8509b1a8c79a6d3df125" class="m-doc-self">sub_08074F1C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f03e2d6f16aa0572eaef4a91bf5181d">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a1f03e2d6f16aa0572eaef4a91bf5181d" class="m-doc-self">sub_08074F2C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4fd5d2c2cfb8314af04cdf55f1db4fd">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ab4fd5d2c2cfb8314af04cdf55f1db4fd" class="m-doc-self">sub_08074F44</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0eae70b582eab22c0795a45c47e40ffc">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a0eae70b582eab22c0795a45c47e40ffc" class="m-doc-self">sub_08074F8C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5803f89d08fbd22b69601027acaa9a89">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a5803f89d08fbd22b69601027acaa9a89" class="m-doc-self">sub_08074FEC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a08223054989cd69bb740c02b906d3da2">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a08223054989cd69bb740c02b906d3da2" class="m-doc-self">sub_0807501C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6708584492bf34f012ada797988074e4">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a6708584492bf34f012ada797988074e4" class="m-doc-self">sub_0807508C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4fdbb963d11c2d50a3ea677ce0c120e9">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a4fdbb963d11c2d50a3ea677ce0c120e9" class="m-doc-self">sub_08075110</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaecaf100d7e6915236f02e837d95375f">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#aaecaf100d7e6915236f02e837d95375f" class="m-doc-self">sub_0807513C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae77e41e7f63cfe4654f61c81f058eb09">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#ae77e41e7f63cfe4654f61c81f058eb09" class="m-doc-self">sub_0807518C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53e08366116afa887a2733cec3f9fe20">
+              static <a href="player_8c.html#a798160074fc45b6fabe7bfeebd3c8f7e" class="m-doc">PlayerEntityAction</a> <a href="#a53e08366116afa887a2733cec3f9fe20" class="m-doc-self">sub_080751B4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a03c7718038b72b304582543721d447fb">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a03c7718038b72b304582543721d447fb" class="m-doc-self">gUnk_080082DC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad99c0e2a5808f5cb4f37fc356e82e2df">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ad99c0e2a5808f5cb4f37fc356e82e2df" class="m-doc-self">script_BedInLinksRoom</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a44ff781cb8164c008472244ca21b232b">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a44ff781cb8164c008472244ca21b232b" class="m-doc-self">script_BedAtSimons</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a45d930e8aec8d916975ae36da9c3f36b">
+              <a href="structScriptExecutionContext.html" class="m-doc">ScriptExecutionContext</a> <a href="#a45d930e8aec8d916975ae36da9c3f36b" class="m-doc-self">gPlayerScriptExecutionContext</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a549caf31fc0f0eb94b5a850bcca3db78">
+              static const <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a> <a href="#a549caf31fc0f0eb94b5a850bcca3db78" class="m-doc-self">sTiles0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11d72e3414eec3580fa8d5208a6eacbd">
+              static const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a11d72e3414eec3580fa8d5208a6eacbd" class="m-doc-self">sTiles0End</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab07c3551c44d90e0bccfc1be843505e7">
+              static const <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a> <a href="#ab07c3551c44d90e0bccfc1be843505e7" class="m-doc-self">sTiles1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad794da8a61f2fd178e28cd3ba5d526fb">
+              static const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ad794da8a61f2fd178e28cd3ba5d526fb" class="m-doc-self">sTiles1End</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a50a63630f698c2349cd7bbeb78d534c2">
+              static const <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a> <a href="#a50a63630f698c2349cd7bbeb78d534c2" class="m-doc-self">sTiles2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac8e99e8fda9d31d2d50af0024df95171">
+              static const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ac8e99e8fda9d31d2d50af0024df95171" class="m-doc-self">sTiles2End</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a908de076e04f03524c90ceed8c375e4d">
+              static const <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a> <a href="#a908de076e04f03524c90ceed8c375e4d" class="m-doc-self">sTiles3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad84fa8dbe7162896c6ec82ab1b9fc143">
+              static const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ad84fa8dbe7162896c6ec82ab1b9fc143" class="m-doc-self">sTiles3End</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa48797cf4b64ae8757ce67ac79899bfd">
+              static const <a href="structKeyValuePair.html" class="m-doc">KeyValuePair</a>*const <a href="#aa48797cf4b64ae8757ce67ac79899bfd" class="m-doc-self">sTileTable</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="ac68f94f8bc0f68f772d9e6396ff01332">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac68f94f8bc0f68f772d9e6396ff01332" class="m-doc-self">kGravityRate</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a90c0f975e58fbab1a86835b51e89271f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a90c0f975e58fbab1a86835b51e89271f" class="m-doc-self">kWalkSpeedSlopeSubtractor</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a107841554c944b526021cf42d0d7dad5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a107841554c944b526021cf42d0d7dad5" class="m-doc-self">kWalkSpeed</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae8428ff8475bb5166e0f04489bb2a3ba">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae8428ff8475bb5166e0f04489bb2a3ba" class="m-doc-self">kWalkSpeedRolling</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af7e72d66bec92fd4eceab7e16043f42c">
+              <span class="m-doc-wrap-bumper">#define <a href="#af7e72d66bec92fd4eceab7e16043f42c" class="m-doc-self">kWalkSpeedGustJar</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aab4177e6eb921eeb6afed651948b811b">
+              <span class="m-doc-wrap-bumper">#define <a href="#aab4177e6eb921eeb6afed651948b811b" class="m-doc-self">kWalkSpeedShield</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac8ed532001abc53595cdfc9040cea449">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac8ed532001abc53595cdfc9040cea449" class="m-doc-self">kWalkSpeedSwordCharge</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c91068b1c69e18a5381273c5162610a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3c91068b1c69e18a5381273c5162610a" class="m-doc-self">kWalkSpeedBurning</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e58f702e7f57fee445e39e68fe33b9f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7e58f702e7f57fee445e39e68fe33b9f" class="m-doc-self">kJumpSpeedForward</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35fc566fa8f5e3534186843b2193d5e6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a35fc566fa8f5e3534186843b2193d5e6" class="m-doc-self">kJumpSpeedHoleForward</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62d3bdb3a443fe3a7f74129a69d058d0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a62d3bdb3a443fe3a7f74129a69d058d0" class="m-doc-self">kJumpSpeedHoleZ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3135dd48859b1d5bdf194d4afe3e9b4">
+              <span class="m-doc-wrap-bumper">#define <a href="#af3135dd48859b1d5bdf194d4afe3e9b4" class="m-doc-self">kBounceSpeedForward</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac14b523082a24d315b6de1789ec01db">
+              <span class="m-doc-wrap-bumper">#define <a href="#aac14b523082a24d315b6de1789ec01db" class="m-doc-self">kBounceSpeedZ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aca2fbe026c0e80cff447688602fdd6e3">
+              <span class="m-doc-wrap-bumper">#define <a href="#aca2fbe026c0e80cff447688602fdd6e3" class="m-doc-self">kPullSpeed</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6a95488e098a25b4c817d8548f2226af">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6a95488e098a25b4c817d8548f2226af" class="m-doc-self">kPushSpeed</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3b8e569c5a3bc9d0ce419495dbcf8ef">
+              <span class="m-doc-wrap-bumper">#define <a href="#af3b8e569c5a3bc9d0ce419495dbcf8ef" class="m-doc-self">kFallDamage</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="af26131b5f0a58ce9a8cf69a2470f385e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af26131b5f0a58ce9a8cf69a2470f385e" class="m-doc-self">SurfaceAction_CloneTile</a>(</span><span class="m-doc-wrap"><a href="structPlayerEntity.html" class="m-doc">PlayerEntity</a>* this)</span></span>
+            </h3>
+            <p><span></span></p>
+<aside class="m-note m-danger"><h4><a href="bug.html#_bug000013" class="m-doc">Bug</a></h4><p>: n is not initialized</p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

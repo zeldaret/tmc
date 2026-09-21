@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/data/hitbox.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_c1be8d27e7f84178e95f152701110b19.html">data</a>/</span>hitbox.c <span class="m-thin">file</span>
+        </h1>
+        <p>Hitboxes.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a9a49ceb7485f56c8bc66238088ef426c">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a9a49ceb7485f56c8bc66238088ef426c" class="m-doc-self">gHitbox_0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3eb093566e70d32c401c4a0b58e6dd9c">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a3eb093566e70d32c401c4a0b58e6dd9c" class="m-doc-self">gHitbox_30</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a16712278d9495765b1363183d67dc4f4">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a16712278d9495765b1363183d67dc4f4" class="m-doc-self">gHitbox_31</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa6cbfd5af8f81891e3191b89c685c1f6">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aa6cbfd5af8f81891e3191b89c685c1f6" class="m-doc-self">gHitbox_1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d6ea95923a56d7732553fcc02937d26">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a1d6ea95923a56d7732553fcc02937d26" class="m-doc-self">gHitbox_2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a60aa008f5b16f98542ca6ebd270c0061">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a60aa008f5b16f98542ca6ebd270c0061" class="m-doc-self">gUnk_080FD178</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13caa0f853882d498ac83aecf9f8893b">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a13caa0f853882d498ac83aecf9f8893b" class="m-doc-self">gHitbox_3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61d181bfd584f723bf7b7525ff058692">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a61d181bfd584f723bf7b7525ff058692" class="m-doc-self">gHitbox_4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5287a2145121d41d48cfd59069ea284d">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a5287a2145121d41d48cfd59069ea284d" class="m-doc-self">gUnk_080FD190</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a05c9a461a61ae061dac4dc73308ab4">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a0a05c9a461a61ae061dac4dc73308ab4" class="m-doc-self">gHitbox_5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1415c9a619f96fb45957754daf73619">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ab1415c9a619f96fb45957754daf73619" class="m-doc-self">gHitbox_6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2633f41d563e8b47e15ba7c50753dce8">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#a2633f41d563e8b47e15ba7c50753dce8" class="m-doc-self">gUnk_080FD1A8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa1bfb2e97720b1ae1c44a97951956335">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aa1bfb2e97720b1ae1c44a97951956335" class="m-doc-self">gUnk_080FD1B4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab85bd3fc1c7c65399c4e22b46faf4f39">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ab85bd3fc1c7c65399c4e22b46faf4f39" class="m-doc-self">unused1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a365d9cc17e6ea385ac2e11278e9b4695">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a365d9cc17e6ea385ac2e11278e9b4695" class="m-doc-self">gHitbox_7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1012efb3f3b03c52b59329753b316b67">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a1012efb3f3b03c52b59329753b316b67" class="m-doc-self">gHitbox_8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a485c328b4b51f10c1ddd8da7dac253bb">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a485c328b4b51f10c1ddd8da7dac253bb" class="m-doc-self">gUnk_080FD1D4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abaaaefbeb60f61e36a84acc2f424fc99">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#abaaaefbeb60f61e36a84acc2f424fc99" class="m-doc-self">gUnk_080FD1DC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4f5c2455b4dcafd90a8e1cfd8e5d3c75">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a4f5c2455b4dcafd90a8e1cfd8e5d3c75" class="m-doc-self">gUnk_080FD1E4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acc027ad385a65ebf43d99b989c79e95b">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#acc027ad385a65ebf43d99b989c79e95b" class="m-doc-self">gUnk_080FD1EC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a500cf602e55d70f2eba4d7bf28ae6a88">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a500cf602e55d70f2eba4d7bf28ae6a88" class="m-doc-self">gUnk_080FD1F4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c1ab92525fb4b82a7d8db2e35ad4917">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a1c1ab92525fb4b82a7d8db2e35ad4917" class="m-doc-self">gUnk_080FD1FC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac502ae2aab1a364e4d09d3d5b6943305">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ac502ae2aab1a364e4d09d3d5b6943305" class="m-doc-self">gUnk_080FD204</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a503ececada682a0c165ff484dd83a42b">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a503ececada682a0c165ff484dd83a42b" class="m-doc-self">gUnk_080FD20C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9295e3ace2a3e3c6741981904a74ec94">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a9295e3ace2a3e3c6741981904a74ec94" class="m-doc-self">gUnk_080FD214</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aef79a9b0f4b2631e578957a2dd21c7b2">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aef79a9b0f4b2631e578957a2dd21c7b2" class="m-doc-self">gUnk_080FD21C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a31a8825aa009b6f1083b6fd3f5b8f859">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a31a8825aa009b6f1083b6fd3f5b8f859" class="m-doc-self">gUnk_080FD224</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b2e883863ec0f4daefc333f7509d3ce">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#a2b2e883863ec0f4daefc333f7509d3ce" class="m-doc-self">gUnk_080FD22C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e3d7d2e11c704369a0ed187198959ac">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a2e3d7d2e11c704369a0ed187198959ac" class="m-doc-self">gUnk_080FD238</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a66675116e452282db7607cecc836fed0">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a66675116e452282db7607cecc836fed0" class="m-doc-self">gUnk_080FD240</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd499d52505e5e2eb696c8add1c3ac63">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#abd499d52505e5e2eb696c8add1c3ac63" class="m-doc-self">gUnk_080FD248</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acda5ea6e5ec4c790144d287c36f8e401">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#acda5ea6e5ec4c790144d287c36f8e401" class="m-doc-self">gHitbox_9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a173c3dac8f7ac0e86eafad99b4e69e2d">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a173c3dac8f7ac0e86eafad99b4e69e2d" class="m-doc-self">gUnk_080FD258</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a597a64cd8feb20ae02173fd88e22b1cc">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a597a64cd8feb20ae02173fd88e22b1cc" class="m-doc-self">gUnk_080FD260</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2840c1031e3c48c65c5d9d860620fbad">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a2840c1031e3c48c65c5d9d860620fbad" class="m-doc-self">gHitbox_10</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35a65fb039118579c67d920cc1ac62d1">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a35a65fb039118579c67d920cc1ac62d1" class="m-doc-self">gUnk_080FD270</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70b76c87d61188c158189b0cb90d305a">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a70b76c87d61188c158189b0cb90d305a" class="m-doc-self">gUnk_080FD278</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc3f11f0df12f89f8dbdbbb44bc053a4">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#adc3f11f0df12f89f8dbdbbb44bc053a4" class="m-doc-self">gUnk_080FD280</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf0b52709cc078dbfddad0a101441333">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aaf0b52709cc078dbfddad0a101441333" class="m-doc-self">gUnk_080FD288</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d6f68f7407a5b5bf77b8a8b76c9255a">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a4d6f68f7407a5b5bf77b8a8b76c9255a" class="m-doc-self">gUnk_080FD290</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa7209d0c91a77e3c4b2626b6f189831f">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aa7209d0c91a77e3c4b2626b6f189831f" class="m-doc-self">gUnk_080FD298</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32b00b7c9be291f1ab0bb2af01f25cc5">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a32b00b7c9be291f1ab0bb2af01f25cc5" class="m-doc-self">gUnk_080FD2A0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaba97d57dace2b1fff6d420714aa343b">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aaba97d57dace2b1fff6d420714aa343b" class="m-doc-self">gUnk_080FD2A8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12ac0cd99d512c300d46db227f775532">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a12ac0cd99d512c300d46db227f775532" class="m-doc-self">gHitbox_11</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab448cae47674f331cfc4b8a994b97e6c">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ab448cae47674f331cfc4b8a994b97e6c" class="m-doc-self">gHitbox_12</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d38f4a62d070156cbb828ee9e0e466d">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a9d38f4a62d070156cbb828ee9e0e466d" class="m-doc-self">gHitbox_13</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a950ac6e0147a660bd1fda146617166cd">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a950ac6e0147a660bd1fda146617166cd" class="m-doc-self">gHitbox_14</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a693b3b23724e42caf746b273408a3ddd">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a693b3b23724e42caf746b273408a3ddd" class="m-doc-self">gUnk_080FD2D0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a48549dc6e0a6479c60b6c4db610100b4">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a48549dc6e0a6479c60b6c4db610100b4" class="m-doc-self">gUnk_080FD2D8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afaaa4a989d0370d8795c4e85f3f14c3d">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#afaaa4a989d0370d8795c4e85f3f14c3d" class="m-doc-self">gUnk_080FD2E0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac5a504a1090ab0a51ea5dece7dc7c5b8">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ac5a504a1090ab0a51ea5dece7dc7c5b8" class="m-doc-self">gUnk_080FD2E8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a234c6f6700fb7d8f5b288f5e0275a91e">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a234c6f6700fb7d8f5b288f5e0275a91e" class="m-doc-self">gUnk_080FD2F0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aedc22caca1af066fa5e97083ac502634">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aedc22caca1af066fa5e97083ac502634" class="m-doc-self">gHitbox_15</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afff7de5a5f053ad78058a46bc0d4a74f">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#afff7de5a5f053ad78058a46bc0d4a74f" class="m-doc-self">gHitbox_16</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a149d6e7d4ac1cd980e9273a8c8ef2511">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a149d6e7d4ac1cd980e9273a8c8ef2511" class="m-doc-self">gUnk_080FD308</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b7f1dc4d7c0cf48e5f6c94aeaeb2c8e">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a2b7f1dc4d7c0cf48e5f6c94aeaeb2c8e" class="m-doc-self">gUnk_080FD310</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab025b6fe1c68fbf3a06d2036f65d00e2">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ab025b6fe1c68fbf3a06d2036f65d00e2" class="m-doc-self">gHitbox_17</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3b563a870108ea0307f0ce8ef39abe4c">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a3b563a870108ea0307f0ce8ef39abe4c" class="m-doc-self">gUnk_080FD320</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c1606624d37617f589491d08bbc1c0d">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a8c1606624d37617f589491d08bbc1c0d" class="m-doc-self">gUnk_080FD328</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27ffe893f99230f5678db65486e64eb7">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a27ffe893f99230f5678db65486e64eb7" class="m-doc-self">gUnk_080FD330</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a222192e5fca53f1d29842877604f1a3a">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a222192e5fca53f1d29842877604f1a3a" class="m-doc-self">gHitbox_18</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a632e75e519318099d4a32718e602c53a">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#a632e75e519318099d4a32718e602c53a" class="m-doc-self">gUnk_080FD340</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="affddb249d3ab36ecb8535171b2b27182">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#affddb249d3ab36ecb8535171b2b27182" class="m-doc-self">gUnk_080FD34C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a746a8f55de437ec2715897f7716138f1">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a746a8f55de437ec2715897f7716138f1" class="m-doc-self">gUnk_080FD354</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18b861e818e775fc207e35304f374947">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a18b861e818e775fc207e35304f374947" class="m-doc-self">gUnk_080FD35C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1201e36c59f9acec2981e03a7083b4e5">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a1201e36c59f9acec2981e03a7083b4e5" class="m-doc-self">gUnk_080FD364</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9cee7a472597e4aa0cc34c54fef910af">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a9cee7a472597e4aa0cc34c54fef910af" class="m-doc-self">gUnk_080FD36C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a365823eaf31bf326a8dbb39219958007">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a365823eaf31bf326a8dbb39219958007" class="m-doc-self">gUnk_080FD374</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7503094661f7af662e0de3ccfbade7b8">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a7503094661f7af662e0de3ccfbade7b8" class="m-doc-self">gUnk_080FD37C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a835571b72d617f146dfdc70a92e88b09">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a835571b72d617f146dfdc70a92e88b09" class="m-doc-self">gUnk_080FD384</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1f399dba9471ea44b30a714aea898c0">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ac1f399dba9471ea44b30a714aea898c0" class="m-doc-self">gUnk_080FD38C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9285316a5d5e847d9a27a04cd4a91dd0">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a9285316a5d5e847d9a27a04cd4a91dd0" class="m-doc-self">gUnk_080FD394</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f327e6e24bcaa59879bd07058e9cb82">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a9f327e6e24bcaa59879bd07058e9cb82" class="m-doc-self">gUnk_080FD39C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a80230357c5635383444352f5362cf891">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a80230357c5635383444352f5362cf891" class="m-doc-self">gUnk_080FD3A4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d9bd8438a8c1b3448ccaaa2a5ffc81c">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a5d9bd8438a8c1b3448ccaaa2a5ffc81c" class="m-doc-self">gUnk_080FD3AC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6da4fb8b6134fe6f72ff4748f53a67dd">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a6da4fb8b6134fe6f72ff4748f53a67dd" class="m-doc-self">gUnk_080FD3B4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a07f462895288a9739343ec4b9e7e34a0">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a07f462895288a9739343ec4b9e7e34a0" class="m-doc-self">gUnk_080FD3BC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac32048de960f4af72b5e4646691d02af">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ac32048de960f4af72b5e4646691d02af" class="m-doc-self">gUnk_080FD3C4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa70c274e68ab5055bf7ba2415f03ad70">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aa70c274e68ab5055bf7ba2415f03ad70" class="m-doc-self">gUnk_080FD3CC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00da3c9f25d92583f5a22bff63f9eac0">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a00da3c9f25d92583f5a22bff63f9eac0" class="m-doc-self">unused2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac37b4736d8ea9b56019e669128d38cb6">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ac37b4736d8ea9b56019e669128d38cb6" class="m-doc-self">gUnk_080FD3DC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b436e17e73edbb2e7b062f9af82fdd5">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a6b436e17e73edbb2e7b062f9af82fdd5" class="m-doc-self">gUnk_080FD3E4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c12479b50906fd9ca0c894892094fcf">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a6c12479b50906fd9ca0c894892094fcf" class="m-doc-self">gUnk_080FD3EC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64315d890db52cd6d8201ec777fd84d0">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a64315d890db52cd6d8201ec777fd84d0" class="m-doc-self">gUnk_080FD3F4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a816a4b92e1319cf045964ade1e7f4ff8">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#a816a4b92e1319cf045964ade1e7f4ff8" class="m-doc-self">gUnk_080FD3FC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7ba8003c6f0355a644cb3a359a8ac1ee">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a7ba8003c6f0355a644cb3a359a8ac1ee" class="m-doc-self">gUnk_080FD408</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1745af6caff1935760c7f4009d73cea4">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#a1745af6caff1935760c7f4009d73cea4" class="m-doc-self">gHitbox_19</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7f1f814a182e28fdd35d9158f4ed18f">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ae7f1f814a182e28fdd35d9158f4ed18f" class="m-doc-self">gUnk_080FD41C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd00e4721a958939aa21bd2d587b6fa8">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#acd00e4721a958939aa21bd2d587b6fa8" class="m-doc-self">gUnk_080FD424</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa66d82b0e9102b351a442140d51ea876">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aa66d82b0e9102b351a442140d51ea876" class="m-doc-self">gUnk_080FD42C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afcb83a1b6cec4264b5e12f5550524184">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#afcb83a1b6cec4264b5e12f5550524184" class="m-doc-self">gUnk_080FD434</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5de47ea267eac881dbed12e3fa151c85">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#a5de47ea267eac881dbed12e3fa151c85" class="m-doc-self">gUnk_080FD43C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27c40a714953b48001df7428677d7d75">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a27c40a714953b48001df7428677d7d75" class="m-doc-self">gHitbox_20</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d8ab726dde55c67379a4b251f091d4f">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a3d8ab726dde55c67379a4b251f091d4f" class="m-doc-self">gUnk_080FD450</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a558e82ca5a164288ad0988abe9d7b215">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a558e82ca5a164288ad0988abe9d7b215" class="m-doc-self">gHitbox_21</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a77b25064a8de90df2e2d5ba74ff8e14f">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a77b25064a8de90df2e2d5ba74ff8e14f" class="m-doc-self">gHitbox_22</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa6293e3b03943b8aa880861405cc412d">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aa6293e3b03943b8aa880861405cc412d" class="m-doc-self">gHitbox_23</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ab1706b10a3ad8305e951277680f82a">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a3ab1706b10a3ad8305e951277680f82a" class="m-doc-self">gHitbox_32</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a58b32c7e6ff13a2b87ce4968462e3a2e">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a58b32c7e6ff13a2b87ce4968462e3a2e" class="m-doc-self">unused3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2416ed3c0c0d9580cebcddfd5b6fe833">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a2416ed3c0c0d9580cebcddfd5b6fe833" class="m-doc-self">gHitbox_24</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a203e6355f54ae9f77d564db27cc5d514">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a203e6355f54ae9f77d564db27cc5d514" class="m-doc-self">gUnk_080FD488</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aebec11f94d6b9e51e51f2de193b56899">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aebec11f94d6b9e51e51f2de193b56899" class="m-doc-self">gUnk_080FD490</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adfe9b3b0b18466186e805d8a502f0273">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#adfe9b3b0b18466186e805d8a502f0273" class="m-doc-self">gHitbox_25</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aec01a22a2de1c823dc80cde178ea4097">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#aec01a22a2de1c823dc80cde178ea4097" class="m-doc-self">gHitbox_26</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89e661c58ef12687f9d2181102efe400">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a89e661c58ef12687f9d2181102efe400" class="m-doc-self">unused4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe4f29832a3b6c4287aa63a1c3b3ce9f">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#abe4f29832a3b6c4287aa63a1c3b3ce9f" class="m-doc-self">gUnk_080FD4B8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e92059bf6a23b5fcc422030a1dff147">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a1e92059bf6a23b5fcc422030a1dff147" class="m-doc-self">gUnk_080FD4C0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa6dfdb40f5ba4d98771d7761d6ab1010">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aa6dfdb40f5ba4d98771d7761d6ab1010" class="m-doc-self">gUnk_080FD4C8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade8d6ff2b97f09914ce7724614ef895a">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ade8d6ff2b97f09914ce7724614ef895a" class="m-doc-self">gUnk_080FD4D0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba7549a97113e0e04a1594131fb3399c">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#aba7549a97113e0e04a1594131fb3399c" class="m-doc-self">gUnk_080FD4D8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af471d077ded5fd7618b7b391250a00ce">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#af471d077ded5fd7618b7b391250a00ce" class="m-doc-self">gUnk_080FD4E0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adeeb54712614c4ce8055a05d711a60fd">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#adeeb54712614c4ce8055a05d711a60fd" class="m-doc-self">gUnk_080FD4E8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae495d8cae27c1c76d42f85f5667703ec">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ae495d8cae27c1c76d42f85f5667703ec" class="m-doc-self">gUnk_080FD4F0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ef1af3fe382f7e03efabf8c606738fb">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a6ef1af3fe382f7e03efabf8c606738fb" class="m-doc-self">gUnk_080FD4F8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30d295cf9ed4544085d723e38587784c">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a30d295cf9ed4544085d723e38587784c" class="m-doc-self">gUnk_080FD500</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7fdad11fbdda493b872bf3709a84675b">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a7fdad11fbdda493b872bf3709a84675b" class="m-doc-self">gUnk_080FD508</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9a3f2ab957cadb0dfd494afd1e8ec533">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a9a3f2ab957cadb0dfd494afd1e8ec533" class="m-doc-self">gUnk_080FD510</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae0fb0e6d6c2d208b054e559155643d87">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ae0fb0e6d6c2d208b054e559155643d87" class="m-doc-self">gUnk_080FD518</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac40909b42b214a6a32f3a73dded4052c">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ac40909b42b214a6a32f3a73dded4052c" class="m-doc-self">gUnk_080FD520</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e4019042cf2964b037e1fc5393cd2d6">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a4e4019042cf2964b037e1fc5393cd2d6" class="m-doc-self">gHitbox_27</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada61207d0b1e3cee179c5576e4acaee3">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ada61207d0b1e3cee179c5576e4acaee3" class="m-doc-self">gUnk_080FD530</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab06e6db711365ef000d4cded68abd537">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#ab06e6db711365ef000d4cded68abd537" class="m-doc-self">gUnk_080FD538</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22de0a3ef8216337198c72f2e54f1c31">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a22de0a3ef8216337198c72f2e54f1c31" class="m-doc-self">gUnk_080FD544</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adf4b7454d825cf34409ef3d4999d3b91">
+              const <a href="structHitbox3D.html" class="m-doc">Hitbox3D</a> <a href="#adf4b7454d825cf34409ef3d4999d3b91" class="m-doc-self">gHitbox_28</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4bd7d9b44cc04e2fa1c3fa83b036a9fc">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a4bd7d9b44cc04e2fa1c3fa83b036a9fc" class="m-doc-self">gUnk_080FD558</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a91a8a1016f9036e990e5a41a67aa5bbd">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a91a8a1016f9036e990e5a41a67aa5bbd" class="m-doc-self">gUnk_080FD560</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d66ac874890a89b68904adadef6bf62">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a3d66ac874890a89b68904adadef6bf62" class="m-doc-self">gHitbox_29</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb447734f42fed6682823c9772eebd8a">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#adb447734f42fed6682823c9772eebd8a" class="m-doc-self">gUnk_080FD570</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35f7f443626c65387fcb9ca2b7c685f2">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a35f7f443626c65387fcb9ca2b7c685f2" class="m-doc-self">gUnk_080FD578</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac08e132f3b69e839f07d8f25c7a3d0e7">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#ac08e132f3b69e839f07d8f25c7a3d0e7" class="m-doc-self">gUnk_080FD580</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9720a4ce47ad9a0f5ee106b1b93cf1da">
+              const <a href="structHitbox.html" class="m-doc">Hitbox</a> <a href="#a9720a4ce47ad9a0f5ee106b1b93cf1da" class="m-doc-self">gUnk_080FD588</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

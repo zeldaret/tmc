@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/moldworm.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>moldworm.c <span class="m-thin">file</span>
+        </h1>
+        <p>Moldworm enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a4204f66be78789900b4bf7ac8b4aa335">
+              <span class="m-doc-wrap-bumper">void <a href="#a4204f66be78789900b4bf7ac8b4aa335" class="m-doc-self">SoundReqClipped</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab0af55d7b07f538acb570dd1a1592b4e">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab0af55d7b07f538acb570dd1a1592b4e" class="m-doc-self">sub_08023A38</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> tileType) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae84f98376976910aa2fbe574aed18320">
+              <span class="m-doc-wrap-bumper">void <a href="#ae84f98376976910aa2fbe574aed18320" class="m-doc-self">sub_08023990</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d0bd30006ac92e8f54697b8e0ab6a82">
+              <span class="m-doc-wrap-bumper">void <a href="#a5d0bd30006ac92e8f54697b8e0ab6a82" class="m-doc-self">sub_08023A88</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e1037dff9ce1758542e071c1b4d5e49">
+              <span class="m-doc-wrap-bumper">void <a href="#a4e1037dff9ce1758542e071c1b4d5e49" class="m-doc-self">sub_080235BC</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adf96c3c4f475cba578b43032a70102e0">
+              <span class="m-doc-wrap-bumper">void <a href="#adf96c3c4f475cba578b43032a70102e0" class="m-doc-self">sub_08023644</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7ba59c68fedca0dd9eea38f1fe902999">
+              <span class="m-doc-wrap-bumper">void <a href="#a7ba59c68fedca0dd9eea38f1fe902999" class="m-doc-self">sub_08023730</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea78ce73e9363529e98554cf609ec0d8">
+              <span class="m-doc-wrap-bumper">void <a href="#aea78ce73e9363529e98554cf609ec0d8" class="m-doc-self">sub_080237D8</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63f4a07a02bda9c73953133e30376fc9">
+              <span class="m-doc-wrap-bumper">void <a href="#a63f4a07a02bda9c73953133e30376fc9" class="m-doc-self">sub_0802390C</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2131011818d747180d3e701aab493658">
+              <span class="m-doc-wrap-bumper">void <a href="#a2131011818d747180d3e701aab493658" class="m-doc-self">sub_080239F0</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6669dd1fbde263449329e5db1e51c662">
+              <span class="m-doc-wrap-bumper">auto <a href="#a6669dd1fbde263449329e5db1e51c662" class="m-doc-self">sub_08023B38</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa3623baae2fffabf26a2f7618d6511d1">
+              <span class="m-doc-wrap-bumper">void <a href="#aa3623baae2fffabf26a2f7618d6511d1" class="m-doc-self">sub_08023A68</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a06019edb9c99e4faeca08558f940bdec">
+              <span class="m-doc-wrap-bumper">void <a href="#a06019edb9c99e4faeca08558f940bdec" class="m-doc-self">sub_08023AB0</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abfa477482e0e080085a2ed16bde2acc1">
+              <span class="m-doc-wrap-bumper">void <a href="#abfa477482e0e080085a2ed16bde2acc1" class="m-doc-self">Moldworm</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0edc0175fa95f4d3e452dc8baac82c00">
+              <span class="m-doc-wrap-bumper">void <a href="#a0edc0175fa95f4d3e452dc8baac82c00" class="m-doc-self">Moldworm_OnTick</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa927ee1dbeb8c8404b7dd1f265bdca91">
+              <span class="m-doc-wrap-bumper">void <a href="#aa927ee1dbeb8c8404b7dd1f265bdca91" class="m-doc-self">Moldworm_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a73600d4891329d6d5c9d83190642882a">
+              <span class="m-doc-wrap-bumper">void <a href="#a73600d4891329d6d5c9d83190642882a" class="m-doc-self">Moldworm_OnKnockback</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2271b4517fd85bc3bc428303b084784a">
+              <span class="m-doc-wrap-bumper">void <a href="#a2271b4517fd85bc3bc428303b084784a" class="m-doc-self">Moldworm_OnGrabbed</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3402533131120c5872d8631a9bfd992b">
+              <span class="m-doc-wrap-bumper">void <a href="#a3402533131120c5872d8631a9bfd992b" class="m-doc-self">sub_080231BC</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af0a8b7d752b5ce3501760959a96e1878">
+              <span class="m-doc-wrap-bumper">void <a href="#af0a8b7d752b5ce3501760959a96e1878" class="m-doc-self">nullsub_136</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2a30b9d17a9fbbc541468051d39677df">
+              <span class="m-doc-wrap-bumper">void <a href="#a2a30b9d17a9fbbc541468051d39677df" class="m-doc-self">sub_08023288</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53027bedd266d57a5c306c5104edc9d5">
+              <span class="m-doc-wrap-bumper">void <a href="#a53027bedd266d57a5c306c5104edc9d5" class="m-doc-self">sub_08023330</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04c358d10c523628f9525b22f9bbd552">
+              <span class="m-doc-wrap-bumper">void <a href="#a04c358d10c523628f9525b22f9bbd552" class="m-doc-self">sub_08023398</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b36c197efe34a8e09bb79035db3cb92">
+              <span class="m-doc-wrap-bumper">void <a href="#a5b36c197efe34a8e09bb79035db3cb92" class="m-doc-self">sub_080234A4</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0de0d5083f5fcf2ed7e36fdcf0025ec0">
+              <span class="m-doc-wrap-bumper">void <a href="#a0de0d5083f5fcf2ed7e36fdcf0025ec0" class="m-doc-self">sub_080234D8</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d508b5b4f0063c3aeab5444b56edb5d">
+              <span class="m-doc-wrap-bumper">void <a href="#a4d508b5b4f0063c3aeab5444b56edb5d" class="m-doc-self">sub_0802351C</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a2655b27aab88caaa45d3f0eeb359cc">
+              <span class="m-doc-wrap-bumper">void <a href="#a3a2655b27aab88caaa45d3f0eeb359cc" class="m-doc-self">sub_080235D4</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae3a4fcaa17a6345e1bc58267ce1d4e1b">
+              <span class="m-doc-wrap-bumper">void <a href="#ae3a4fcaa17a6345e1bc58267ce1d4e1b" class="m-doc-self">sub_08023604</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a816e9470059134eeac99602c8e942cc3">
+              <span class="m-doc-wrap-bumper">void <a href="#a816e9470059134eeac99602c8e942cc3" class="m-doc-self">sub_080236F8</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a003c60ebab33ef52cbdbcb8a3edf55ae">
+              <span class="m-doc-wrap-bumper">void <a href="#a003c60ebab33ef52cbdbcb8a3edf55ae" class="m-doc-self">sub_08023748</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aead650e9ce85e0e358257b603f876781">
+              <span class="m-doc-wrap-bumper">void <a href="#aead650e9ce85e0e358257b603f876781" class="m-doc-self">sub_0802376C</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad574fe53a559edbe7c59af59c6ed25eb">
+              <span class="m-doc-wrap-bumper">void <a href="#ad574fe53a559edbe7c59af59c6ed25eb" class="m-doc-self">sub_08023894</a>(</span><span class="m-doc-wrap"><a href="structMoldwormEntity.html" class="m-doc">MoldwormEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="acd312e1b91833d1f526aa5c8e63c3c78">
+              void(*const <a href="#acd312e1b91833d1f526aa5c8e63c3c78" class="m-doc-self">Moldworm_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8927241d35ab446e27c27a63569946d1">
+              void(*const <a href="#a8927241d35ab446e27c27a63569946d1" class="m-doc-self">gUnk_080CBC50</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34a8d71f3a233a536fc8436444239dce">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a34a8d71f3a233a536fc8436444239dce" class="m-doc-self">gUnk_080CBC70</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a649207c5aea90eeca76985c691e960bf">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a649207c5aea90eeca76985c691e960bf" class="m-doc-self">gUnk_080CBC90</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac5dd3aab276e54cb1c6846df76de8ca7">
+              void(*const <a href="#ac5dd3aab276e54cb1c6846df76de8ca7" class="m-doc-self">gUnk_080CBC98</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acbabf83372fad1a91f4ec2f11247be2f">
+              void(*const <a href="#acbabf83372fad1a91f4ec2f11247be2f" class="m-doc-self">gUnk_080CBCA8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab573ed4e9b5af50374831a1d03ac0780">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#ab573ed4e9b5af50374831a1d03ac0780" class="m-doc-self">gUnk_080CBCB8</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

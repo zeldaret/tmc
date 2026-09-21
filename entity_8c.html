@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/entity.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>entity.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structTemp.html" class="m-doc">Temp</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structUpdateContext.html" class="m-doc">UpdateContext</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="aafd61cf4fe27683414e9b7c13723b4dc">
+              using <a href="#aafd61cf4fe27683414e9b7c13723b4dc" class="m-doc-self">Getter</a> = void*(*)(void)
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3c7a5def5c17b8c7a23c5fbbd6b6591">
+              using <a href="#ad3c7a5def5c17b8c7a23c5fbbd6b6591" class="m-doc-self">Deleter</a> = void(*)(void*)
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a2eed688182cefcef554385d73e7e69c2">
+              <span class="m-doc-wrap-bumper">void <a href="#a2eed688182cefcef554385d73e7e69c2" class="m-doc-self">UpdatePlayerInput</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a559f6291951a54f21b7e3627d2c0a3a3">
+              <span class="m-doc-wrap-bumper">void <a href="#a559f6291951a54f21b7e3627d2c0a3a3" class="m-doc-self">ClearHitboxList</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a461f78b5adb21cebad9a24cdab6470ab">
+              <span class="m-doc-wrap-bumper">void <a href="#a461f78b5adb21cebad9a24cdab6470ab" class="m-doc-self">sub_0805EE88</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a9d66f8f33815b60c77480af2602aaf8e" class="m-doc">ClearAllDeletedEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a708e80b9ca5cecd79162528588e3d6b6">
+              <span class="m-doc-wrap-bumper">void <a href="#a708e80b9ca5cecd79162528588e3d6b6" class="m-doc-self">DeleteAllEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afc59f04baddd683f5abe3c661801b1cc">
+              <span class="m-doc-wrap-bumper">void <a href="#afc59f04baddd683f5abe3c661801b1cc" class="m-doc-self">sub_0805E98C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afb20ba58cc7b73a8ebcdbc9766411560">
+              <span class="m-doc-wrap-bumper">void <a href="#afb20ba58cc7b73a8ebcdbc9766411560" class="m-doc-self">UnloadOBJPalette2</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* ent)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac98938386bc647a6b05fee9ac45d25ea">
+              <span class="m-doc-wrap-bumper">void <a href="#ac98938386bc647a6b05fee9ac45d25ea" class="m-doc-self">sub_08017744</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a47e2a68aed80a421d133500fc45fd97b">
+              <span class="m-doc-wrap-bumper">void <a href="#a47e2a68aed80a421d133500fc45fd97b" class="m-doc-self">EnemyDetachFX</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adbb52ea87c54c9c0bc2cecd59043f817">
+              <span class="m-doc-wrap-bumper">void <a href="#adbb52ea87c54c9c0bc2cecd59043f817" class="m-doc-self">ClearDeletedEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa212752003f7233fccc907a424c70c15">
+              <span class="m-doc-wrap-bumper">void <a href="#aa212752003f7233fccc907a424c70c15" class="m-doc-self">ram_ClearAndUpdateEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3137ab57c83c9abd47815ba3f484ee5e">
+              <span class="m-doc-wrap-bumper">void <a href="#a3137ab57c83c9abd47815ba3f484ee5e" class="m-doc-self">ram_UpdateEntities</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4699d958419410e8d25fd55244ae5618">
+              <span class="m-doc-wrap-bumper">static void <a href="#a4699d958419410e8d25fd55244ae5618" class="m-doc-self">UpdatePriorityTimer</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a19d6d394c9a62e871f7f6b7bb2553d8d">
+              <span class="m-doc-wrap-bumper">static void <a href="#a19d6d394c9a62e871f7f6b7bb2553d8d" class="m-doc-self">ReleaseTransitionManager</a>(</span><span class="m-doc-wrap">void*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7a1b39144216287c691dc4e230ad078">
+              <span class="m-doc-wrap-bumper">static void <a href="#ae7a1b39144216287c691dc4e230ad078" class="m-doc-self">UnlinkEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a429612d0a095d358acf521fa8fede055">
+              <span class="m-doc-wrap-bumper">void <a href="#a429612d0a095d358acf521fa8fede055" class="m-doc-self">sub_0805E248</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad0ddec6e0ee519d6b3bd52965b876fdf">
+              <span class="m-doc-wrap-bumper">void <a href="#ad0ddec6e0ee519d6b3bd52965b876fdf" class="m-doc-self">InitDefaultPriority</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* e)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a4fce2f48fa39845091e5f42ce76f4fe1" class="m-doc">SetEntityPriority</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> prio)</span>
+            </dt>
+            <dd>Set the default priority for entity.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a381f535e7d5a1cd061d47afd1ca92dcd" class="m-doc">EntityDisabled</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if entity is disabled.</dd>
+            <dt id="ab2c55494bc286f8cd8f692ca690f859c">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab2c55494bc286f8cd8f692ca690f859c" class="m-doc-self">AnyPrioritySet</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if system or entity is blocking updates.</dd>
+            <dt id="adf3688f73832982b57f0f1cb956ccddf">
+              <span class="m-doc-wrap-bumper">static void <a href="#adf3688f73832982b57f0f1cb956ccddf" class="m-doc-self">UpdatePriority</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a2874199aaab29c8977ea728c51a5f925" class="m-doc">SetMinPriority</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> prio) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd>Set the minimum <a href="structEntity.html" class="m-doc">Entity</a> priority.</dd>
+            <dt id="a45da48befee0175df268a61259efca61">
+              <span class="m-doc-wrap-bumper">void <a href="#a45da48befee0175df268a61259efca61" class="m-doc-self">ResetEntityPriority</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Reset a priority event requested by an <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a77c5f283f431a7f123111b53e176529a" class="m-doc">RequestPriority</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd>Request indefinite priority for an <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ab0c78790708c48da9467122e06d94674" class="m-doc">RequestPriorityOverPlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd>Request priority over player update.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#af68db7819235d908fa5afd7e961982ee" class="m-doc">RevokePriorityOverPlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd>Revoke priority over player update.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ac0d722dcd8a20c6e0ee763b5d716f734" class="m-doc">RequestPriorityDuration</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> time)</span>
+            </dt>
+            <dd>Request update priority over other <a href="structEntity.html" class="m-doc">Entity</a>&#x27;s for a period of time.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ac5e15241f94e81a767e82f8e7ac49c2a" class="m-doc">SetPriorityTimer</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> time)</span>
+            </dt>
+            <dd>Set the remaining frames of <a href="structEntity.html" class="m-doc">Entity</a> priority.</dd>
+            <dt id="ab9ba69c066c3eb487505395451c5cadf">
+              <span class="m-doc-wrap-bumper">void <a href="#ab9ba69c066c3eb487505395451c5cadf" class="m-doc-self">SetPlayerEventPriority</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Set entity and system priority to <a href="entity_8h.html#a315655b1bb5848c063491adffde62b15ace0388e7ecc035747816508bb1e82486" class="m-doc">PRIO_<wbr />PLAYER_<wbr />EVENT</a>.</dd>
+            <dt id="a7faa91fbaed882b4a52c469d7b72219d">
+              <span class="m-doc-wrap-bumper">void <a href="#a7faa91fbaed882b4a52c469d7b72219d" class="m-doc-self">ResetPlayerEventPriority</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Reset entity and system priority to defaults.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a3e8ffe04b055b88fa7686d8e7b4a4824" class="m-doc">RevokePriority</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd>Revoke priority from an <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt id="a86fc118cbdd9f0fe5cc3ec5101cbd099">
+              <span class="m-doc-wrap-bumper">void <a href="#a86fc118cbdd9f0fe5cc3ec5101cbd099" class="m-doc-self">SetRoomReloadPriority</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Set system priority to <a href="entity_8h.html#a315655b1bb5848c063491adffde62b15ace0388e7ecc035747816508bb1e82486" class="m-doc">PRIO_<wbr />PLAYER_<wbr />EVENT</a>.</dd>
+            <dt id="a3b5b2d4a2b543233e56329ccef9c4aea">
+              <span class="m-doc-wrap-bumper">void <a href="#a3b5b2d4a2b543233e56329ccef9c4aea" class="m-doc-self">SetInitializationPriority</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Set system priority to <a href="entity_8h.html#a315655b1bb5848c063491adffde62b15a9c607c121a82da3abd2b000e0e0d837f" class="m-doc">PRIO_<wbr />HIGHEST</a>.</dd>
+            <dt id="a747cf633dbd691d53977b6ba01c3324c">
+              <span class="m-doc-wrap-bumper">void <a href="#a747cf633dbd691d53977b6ba01c3324c" class="m-doc-self">ClearEventPriority</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Reset the system update priority.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a773eed4b8020d1f54f34aa6b2b482110" class="m-doc">UpdateEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Iteratively execute every <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a794a850c731d3e72a695d50cba2586c3" class="m-doc">UpdateManagers</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Iteratively execute every <a href="structManager.html" class="m-doc">Manager</a>.</dd>
+            <dt id="a36285181cb30d34565167eaabb9076ec">
+              <span class="m-doc-wrap-bumper">void <a href="#a36285181cb30d34565167eaabb9076ec" class="m-doc-self">EraseAllEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Erase all <a href="structEntity.html" class="m-doc">Entity</a>&#x27;s.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6d2bc0abd718b661429d94cb7a0bece2" class="m-doc">GetEmptyEntity</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd>Allocate a new <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt id="a0b867d5a60075c0bb4c727a5069af3cf">
+              <span class="m-doc-wrap-bumper">auto <a href="#a0b867d5a60075c0bb4c727a5069af3cf" class="m-doc-self">CreateAuxPlayerEntity</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a194fa5cb5659e97a34e136d1896fafa3">
+              <span class="m-doc-wrap-bumper">auto <a href="#a194fa5cb5659e97a34e136d1896fafa3" class="m-doc-self">GetEmptyEntityByKind</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> kind) -&gt; void*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a30920df21da66ce7420215f9e0de8e7c" class="m-doc">DeleteThisEntity</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd>Delete the <a href="structEntity.html" class="m-doc">Entity</a> currently in execution.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#aab35eec1900236d684438d531eeac242" class="m-doc">DeleteEntityAny</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd>Delete <a href="structManager.html" class="m-doc">Manager</a> or <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a6c36abfca4590f417be8e49ebb2d48ca" class="m-doc">DeleteEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span>
+            </dt>
+            <dd>Delete an <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt id="a3c542546b9492eab825d34a69d47f96a">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3c542546b9492eab825d34a69d47f96a" class="m-doc-self">GetEmptyManager</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="structManager.html" class="m-doc">Manager</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a8a316420c79f1524c8173bfdad4acf0d" class="m-doc">DeleteManager</a>(</span><span class="m-doc-wrap">void* manager)</span>
+            </dt>
+            <dd>Delete a manager.</dd>
+            <dt id="a61c33e0f8c2770ce2f23aedf4b76024b">
+              <span class="m-doc-wrap-bumper">void <a href="#a61c33e0f8c2770ce2f23aedf4b76024b" class="m-doc-self">sub_0805E958</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace6c06a5118f7971db4e752e136eb05f">
+              <span class="m-doc-wrap-bumper">void <a href="#ace6c06a5118f7971db4e752e136eb05f" class="m-doc-self">sub_0805E974</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad62223313d05c2bb619dcb5bdf413c1e">
+              <span class="m-doc-wrap-bumper">void <a href="#ad62223313d05c2bb619dcb5bdf413c1e" class="m-doc-self">RecycleEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a15a08332ca9ce9f402df86b197f81e23">
+              <span class="m-doc-wrap-bumper">void <a href="#a15a08332ca9ce9f402df86b197f81e23" class="m-doc-self">DeleteSleepingEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ae5ce0603ecca1dace9703329a0764bd0" class="m-doc">AppendEntityToList</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> listIndex)</span>
+            </dt>
+            <dd>Add an <a href="structEntity.html" class="m-doc">Entity</a> to the end of a <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a3cc87a5f41bb0610bcf55a7024793161" class="m-doc">PrependEntityToList</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> listIndex)</span>
+            </dt>
+            <dd>Add an <a href="structEntity.html" class="m-doc">Entity</a> to the start of a <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6fe45d954588dd3590f4ca2dc09d770b" class="m-doc">EntityHasDuplicateID</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Search all lists for <a href="structEntity.html" class="m-doc">Entity</a> of same kind and id.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a303f349c64e46d9a61e2e226dd54de15" class="m-doc">FindEntityByID</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> kind,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> listIndex) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd>Find an <a href="structEntity.html" class="m-doc">Entity</a> for a given kind and id, and <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a94d2a2ea316cc1a094bb2d629c1a316a" class="m-doc">FindEntity</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> kind,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> listIndex,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type2) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd>Find an <a href="structEntity.html" class="m-doc">Entity</a> with full identifiers.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a61a7debead7be2ea161ce006ec947e8e" class="m-doc">FindNextDuplicateID</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              int listIndex) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd>Find an <a href="structEntity.html" class="m-doc">Entity</a> of same kind and id in <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a866c4b1f53fad0f000657eaccf7fcc73" class="m-doc">DeepFindEntityByID</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> kind,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id) -&gt; <a href="structEntity.html" class="m-doc">Entity</a>*</span>
+            </dt>
+            <dd>Search all lists for an <a href="structEntity.html" class="m-doc">Entity</a> of same kind and id.</dd>
+            <dt id="ade7b770307420fa96585cff068b6e365">
+              <span class="m-doc-wrap-bumper">void <a href="#ade7b770307420fa96585cff068b6e365" class="m-doc-self">DeleteAllEnemies</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a9826f31a307186987c06c97074637fd7">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a9826f31a307186987c06c97074637fd7" class="m-doc-self">gUpdateVisibleTiles</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6789b6d053a4d714f37edb334e780c0b">
+              <a href="structManager.html" class="m-doc">Manager</a> <a href="#a6789b6d053a4d714f37edb334e780c0b" class="m-doc-self">gUnk_02033290</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7cf77187bc6704c7a6a233382fea244">
+              <a href="structUpdateContext.html" class="m-doc">UpdateContext</a> <a href="#ab7cf77187bc6704c7a6a233382fea244" class="m-doc-self">gUpdateContext</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad031a54c6ae8571597635fb324697bec">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ad031a54c6ae8571597635fb324697bec" class="m-doc-self">gEntityListLUT</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7fb959aa3ff274e95c4f6f76cb1bcf9">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ac7fb959aa3ff274e95c4f6f76cb1bcf9" class="m-doc-self">gPrioritiesDefault</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0490d7e59a29c792b0276fbc72efae41">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a0490d7e59a29c792b0276fbc72efae41" class="m-doc-self">gPrioritiesKinstoneMenu</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8953f891030bbd1077614c374dc6c634">
+              <a href="structLinkedList.html" class="m-doc">LinkedList</a> <a href="#a8953f891030bbd1077614c374dc6c634" class="m-doc-self">gEntityListsBackup</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a9d66f8f33815b60c77480af2602aaf8e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9d66f8f33815b60c77480af2602aaf8e" class="m-doc-self">ClearAllDeletedEntities</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p><span></span></p>
+<aside class="m-note m-danger"><h4><a href="bug.html#_bug000004" class="m-doc">Bug</a></h4><p>if prev pointed to a VALID location higher than a signed int, would still be deleted</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a4fce2f48fa39845091e5f42ce76f4fe1"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4fce2f48fa39845091e5f42ce76f4fe1" class="m-doc-self">SetEntityPriority</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> prio)</span></span>
+            </h3>
+            <p>Set the default priority for entity.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> to set the priority of.</td>
+                </tr>
+                <tr>
+                  <td>prio</td>
+                  <td><a href="entity_8h.html#a315655b1bb5848c063491adffde62b15" class="m-doc">Priority</a> level.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a381f535e7d5a1cd061d47afd1ca92dcd"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a381f535e7d5a1cd061d47afd1ca92dcd" class="m-doc-self">EntityDisabled</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span></span>
+            </h3>
+            <p>Check if entity is disabled.</p>
+<p>Entities are disabled if:</p><ul><li>They are deleted.</li><li>There is an event and the entity doesn&#x27;t have priority (n/a if entity is in action 0).</li></ul>
+          </div></section>
+          <section class="m-doc-details" id="a2874199aaab29c8977ea728c51a5f925"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2874199aaab29c8977ea728c51a5f925" class="m-doc-self">SetMinPriority</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> prio)</span></span>
+            </h3>
+            <p>Set the minimum <a href="structEntity.html" class="m-doc">Entity</a> priority.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">prio</td>
+                  <td>Minimum <a href="entity_8h.html#a315655b1bb5848c063491adffde62b15" class="m-doc">Priority</a>.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Success.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a77c5f283f431a7f123111b53e176529a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a77c5f283f431a7f123111b53e176529a" class="m-doc-self">RequestPriority</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span></span>
+            </h3>
+            <p>Request indefinite priority for an <a href="structEntity.html" class="m-doc">Entity</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> requesting priority.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ab0c78790708c48da9467122e06d94674"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab0c78790708c48da9467122e06d94674" class="m-doc-self">RequestPriorityOverPlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span></span>
+            </h3>
+            <p>Request priority over player update.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> requesting priority.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="af68db7819235d908fa5afd7e961982ee"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af68db7819235d908fa5afd7e961982ee" class="m-doc-self">RevokePriorityOverPlayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span></span>
+            </h3>
+            <p>Revoke priority over player update.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> which requested priority.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ac0d722dcd8a20c6e0ee763b5d716f734"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac0d722dcd8a20c6e0ee763b5d716f734" class="m-doc-self">RequestPriorityDuration</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> time)</span></span>
+            </h3>
+            <p>Request update priority over other <a href="structEntity.html" class="m-doc">Entity</a>&#x27;s for a period of time.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> requesting priority.</td>
+                </tr>
+                <tr>
+                  <td>time</td>
+                  <td>Number of frames.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ac5e15241f94e81a767e82f8e7ac49c2a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac5e15241f94e81a767e82f8e7ac49c2a" class="m-doc-self">SetPriorityTimer</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> time)</span></span>
+            </h3>
+            <p>Set the remaining frames of <a href="structEntity.html" class="m-doc">Entity</a> priority.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">time</td>
+                  <td>Number of frames.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a3e8ffe04b055b88fa7686d8e7b4a4824"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3e8ffe04b055b88fa7686d8e7b4a4824" class="m-doc-self">RevokePriority</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span></span>
+            </h3>
+            <p>Revoke priority from an <a href="structEntity.html" class="m-doc">Entity</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> which requested priority.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a773eed4b8020d1f54f34aa6b2b482110"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a773eed4b8020d1f54f34aa6b2b482110" class="m-doc-self">UpdateEntities</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Iteratively execute every <a href="structEntity.html" class="m-doc">Entity</a>.</p>
+<p>Call once per frame.</p>
+          </div></section>
+          <section class="m-doc-details" id="a794a850c731d3e72a695d50cba2586c3"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a794a850c731d3e72a695d50cba2586c3" class="m-doc-self">UpdateManagers</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Iteratively execute every <a href="structManager.html" class="m-doc">Manager</a>.</p>
+<p>Call once per frame.</p>
+          </div></section>
+          <section class="m-doc-details" id="a6d2bc0abd718b661429d94cb7a0bece2"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structEntity.html" class="m-doc">Entity</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6d2bc0abd718b661429d94cb7a0bece2" class="m-doc-self">GetEmptyEntity</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Allocate a new <a href="structEntity.html" class="m-doc">Entity</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Allocated <a href="structEntity.html" class="m-doc">Entity</a> or NULL if failed.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a30920df21da66ce7420215f9e0de8e7c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a30920df21da66ce7420215f9e0de8e7c" class="m-doc-self">DeleteThisEntity</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Delete the <a href="structEntity.html" class="m-doc">Entity</a> currently in execution.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="structUpdateContext.html" class="m-doc">UpdateContext</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="aab35eec1900236d684438d531eeac242"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aab35eec1900236d684438d531eeac242" class="m-doc-self">DeleteEntityAny</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span></span>
+            </h3>
+            <p>Delete <a href="structManager.html" class="m-doc">Manager</a> or <a href="structEntity.html" class="m-doc">Entity</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> or <a href="structManager.html" class="m-doc">Manager</a> to be deleted.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a6c36abfca4590f417be8e49ebb2d48ca"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6c36abfca4590f417be8e49ebb2d48ca" class="m-doc-self">DeleteEntity</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span></span>
+            </h3>
+            <p>Delete an <a href="structEntity.html" class="m-doc">Entity</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> to delete.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a8a316420c79f1524c8173bfdad4acf0d"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8a316420c79f1524c8173bfdad4acf0d" class="m-doc-self">DeleteManager</a>(</span><span class="m-doc-wrap">void* manager)</span></span>
+            </h3>
+            <p>Delete a manager.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">manager</td>
+                  <td><a href="structManager.html" class="m-doc">Manager</a> to delete.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ae5ce0603ecca1dace9703329a0764bd0"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae5ce0603ecca1dace9703329a0764bd0" class="m-doc-self">AppendEntityToList</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> listIndex)</span></span>
+            </h3>
+            <p>Add an <a href="structEntity.html" class="m-doc">Entity</a> to the end of a <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> to add.</td>
+                </tr>
+                <tr>
+                  <td>listIndex</td>
+                  <td>Target <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a3cc87a5f41bb0610bcf55a7024793161"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3cc87a5f41bb0610bcf55a7024793161" class="m-doc-self">PrependEntityToList</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> listIndex)</span></span>
+            </h3>
+            <p>Add an <a href="structEntity.html" class="m-doc">Entity</a> to the start of a <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">entity</td>
+                  <td><a href="structEntity.html" class="m-doc">Entity</a> to add.</td>
+                </tr>
+                <tr>
+                  <td>listIndex</td>
+                  <td>Target <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a6fe45d954588dd3590f4ca2dc09d770b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6fe45d954588dd3590f4ca2dc09d770b" class="m-doc-self">EntityHasDuplicateID</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity)</span></span>
+            </h3>
+            <p>Search all lists for <a href="structEntity.html" class="m-doc">Entity</a> of same kind and id.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>bool32 Duplicate was found.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a303f349c64e46d9a61e2e226dd54de15"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structEntity.html" class="m-doc">Entity</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a303f349c64e46d9a61e2e226dd54de15" class="m-doc-self">FindEntityByID</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> kind,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> listIndex)</span></span>
+            </h3>
+            <p>Find an <a href="structEntity.html" class="m-doc">Entity</a> for a given kind and id, and <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Entity* First result or NULL if none found.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a94d2a2ea316cc1a094bb2d629c1a316a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structEntity.html" class="m-doc">Entity</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a94d2a2ea316cc1a094bb2d629c1a316a" class="m-doc-self">FindEntity</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> kind,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> listIndex,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> type2)</span></span>
+            </h3>
+            <p>Find an <a href="structEntity.html" class="m-doc">Entity</a> with full identifiers.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Entity* First result or NULL if none found.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a61a7debead7be2ea161ce006ec947e8e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structEntity.html" class="m-doc">Entity</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a61a7debead7be2ea161ce006ec947e8e" class="m-doc-self">FindNextDuplicateID</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* entity,
+              int listIndex)</span></span>
+            </h3>
+            <p>Find an <a href="structEntity.html" class="m-doc">Entity</a> of same kind and id in <a href="structLinkedList.html" class="m-doc">LinkedList</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Entity* First result or NULL if none found.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a866c4b1f53fad0f000657eaccf7fcc73"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structEntity.html" class="m-doc">Entity</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a866c4b1f53fad0f000657eaccf7fcc73" class="m-doc-self">DeepFindEntityByID</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> kind,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id)</span></span>
+            </h3>
+            <p>Search all lists for an <a href="structEntity.html" class="m-doc">Entity</a> of same kind and id.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Entity* First result or NULL if none found.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
