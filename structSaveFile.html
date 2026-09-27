@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SaveFile struct | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          SaveFile <span class="m-thin">struct</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="save_8h.html">&lt;include/save.h&gt;</a></div>
+        </h1>
+        <p>Contains all information about a save file.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-attribs">Public variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+<p>The contents of this structure are read from and written to EEPROM.</p>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
+          <dl class="m-doc">
+            <dt id="ace427623a5dafe112471442f037443a3">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ace427623a5dafe112471442f037443a3" class="m-doc-self">invalid</a>
+            </dt>
+            <dd>save file is invalid</dd>
+            <dt id="add1463576bf2fca1401b2edd0c277dc3">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#add1463576bf2fca1401b2edd0c277dc3" class="m-doc-self">initialized</a>
+            </dt>
+            <dd>save file is initialized</dd>
+            <dt id="ac5911c744f08336031381a7d99a4a6c3">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ac5911c744f08336031381a7d99a4a6c3" class="m-doc-self">msg_speed</a>
+            </dt>
+            <dd>message speed setting</dd>
+            <dt id="ab95a53ee70f178d2cb328d01c4ec166f">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ab95a53ee70f178d2cb328d01c4ec166f" class="m-doc-self">brightness</a>
+            </dt>
+            <dd>brightness setting</dd>
+            <dt id="a35c7a3640796c4431596678ea9f5747e">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a35c7a3640796c4431596678ea9f5747e" class="m-doc-self">filler4</a>
+            </dt>
+            <dd>unused filler</dd>
+            <dt id="a7a3e5b20a6c7b3bb8aefbab4e2336330">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a7a3e5b20a6c7b3bb8aefbab4e2336330" class="m-doc-self">saw_staffroll</a>
+            </dt>
+            <dd>beat the game and watched the credits</dd>
+            <dt id="a016ead9d026dec5aad0ad95e87fcd46f">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a016ead9d026dec5aad0ad95e87fcd46f" class="m-doc-self">dws_barrel_state</a>
+            </dt>
+            <dd>state of the big barrel in DWS, 0 or 2</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a4f2a3343f207ae9b56d3f4c421151bba" class="m-doc">global_progress</a>
+            </dt>
+            <dd></dd>
+            <dt id="a3847d64ae5f7b92bf736278b7a2bff88">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a3847d64ae5f7b92bf736278b7a2bff88" class="m-doc-self">available_figurines</a>
+            </dt>
+            <dd>figurines available to get</dd>
+            <dt id="a759ef0c927d53eb137c6f8cad3e19736">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a759ef0c927d53eb137c6f8cad3e19736" class="m-doc-self">fillerA</a>
+            </dt>
+            <dd>unused filler</dd>
+            <dt id="af01f930823d584f19a61b8683469c9fb">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#af01f930823d584f19a61b8683469c9fb" class="m-doc-self">map_hints</a>
+            </dt>
+            <dd>bitmask, used by subtask MapHint</dd>
+            <dt id="af795d5861f0b57ba1e1d16beb0e161ba">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#af795d5861f0b57ba1e1d16beb0e161ba" class="m-doc-self">filler22</a>
+            </dt>
+            <dd>unused filler</dd>
+            <dt>
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a580f71ae698f42a88d1c767803088308" class="m-doc">windcrests</a>
+            </dt>
+            <dd>upper 8 bit Windcrest flags</dd>
+            <dt id="a56edd83cb13def20aff5fe01b797b2a8">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a56edd83cb13def20aff5fe01b797b2a8" class="m-doc-self">filler44</a>
+            </dt>
+            <dd>unused filler</dd>
+            <dt id="af318bc43e91909a1aea45342646a5a2c">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#af318bc43e91909a1aea45342646a5a2c" class="m-doc-self">enemies_killed</a>
+            </dt>
+            <dd>number of enemies killed</dd>
+            <dt id="aada611cf5efa18efd44298bcf517c7a3">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aada611cf5efa18efd44298bcf517c7a3" class="m-doc-self">filler54</a>
+            </dt>
+            <dd>unused filler</dd>
+            <dt id="a4162cd42dc11598ad9c0a66b7c746667">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a4162cd42dc11598ad9c0a66b7c746667" class="m-doc-self">items_bought</a>
+            </dt>
+            <dd>number of items bought in stockwells shop</dd>
+            <dt id="a8b947c3d4ea13db08ea51c675f9310ed">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a8b947c3d4ea13db08ea51c675f9310ed" class="m-doc-self">areaVisitFlags</a>
+            </dt>
+            <dd><a href="structArea.html" class="m-doc">Area</a> visit flags.</dd>
+            <dt id="a264b7606e2d208680583f3cf13bf574b">
+              char <a href="#a264b7606e2d208680583f3cf13bf574b" class="m-doc-self">name</a>
+            </dt>
+            <dd>Save file name.</dd>
+            <dt id="a685574ed6b17af9888e66b47a33cf690">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a685574ed6b17af9888e66b47a33cf690" class="m-doc-self">filler86</a>
+            </dt>
+            <dd>unused filler</dd>
+            <dt id="a58209abe3d6f45af536aa92cd46160f3">
+              <a href="structPlayerRoomStatus.html" class="m-doc">PlayerRoomStatus</a> <a href="#a58209abe3d6f45af536aa92cd46160f3" class="m-doc-self">saved_status</a>
+            </dt>
+            <dd>Player room status.</dd>
+            <dt id="a7ab420229da53c041fd69728bb44e494">
+              <a href="structStats.html" class="m-doc">Stats</a> <a href="#a7ab420229da53c041fd69728bb44e494" class="m-doc-self">stats</a>
+            </dt>
+            <dd>Player stats.</dd>
+            <dt id="a7bbdd1a7a2be78a25de6499c88506902">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a7bbdd1a7a2be78a25de6499c88506902" class="m-doc-self">fillerCC</a>
+            </dt>
+            <dd>unused filler</dd>
+            <dt id="a52eac149ee806f8fe8880f2d0a4d01d9">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a52eac149ee806f8fe8880f2d0a4d01d9" class="m-doc-self">figurines</a>
+            </dt>
+            <dd>figurine bitset</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a82c8e478f47f7df5ccdab2d67536ad49" class="m-doc">inventory</a>
+            </dt>
+            <dd>2 bit per item</dd>
+            <dt>
+              <a href="structKinstoneSave.html" class="m-doc">KinstoneSave</a> <a href="#a0dfa7d5a670c0ecd79c687e1448c4199" class="m-doc">kinstones</a>
+            </dt>
+            <dd>save data for kinstones</dd>
+            <dt id="a1dda5c26a077267f902e28ab06a88f72">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a1dda5c26a077267f902e28ab06a88f72" class="m-doc-self">flags</a>
+            </dt>
+            <dd>flags</dd>
+            <dt id="a3521739ef2be7e4b6f1efd8a20294ac8">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a3521739ef2be7e4b6f1efd8a20294ac8" class="m-doc-self">dungeonKeys</a>
+            </dt>
+            <dd>indexed by dungeon id, keys per dungeon</dd>
+            <dt id="adf4220a8ca6ac2c3b00c0f402aa07e1d">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#adf4220a8ca6ac2c3b00c0f402aa07e1d" class="m-doc-self">dungeonItems</a>
+            </dt>
+            <dd>dungeon items 4: compass, 2: big key, 1: small key</dd>
+            <dt id="ac2b82a3681ac3db5194fdde145a3201b">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ac2b82a3681ac3db5194fdde145a3201b" class="m-doc-self">dungeonWarps</a>
+            </dt>
+            <dd>indexed by dungeon id</dd>
+            <dt id="ab6908e29408459edf35bf5667fe89c88">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#ab6908e29408459edf35bf5667fe89c88" class="m-doc-self">darknut_timer</a>
+            </dt>
+            <dd>timer for darknut fight before Vaati fight</dd>
+            <dt id="a2aec7fb1821d800c35033e3b6b33644a">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a2aec7fb1821d800c35033e3b6b33644a" class="m-doc-self">drug_kill_count</a>
+            </dt>
+            <dd>&quot;timer&quot; enemy kill count when turning in the last drug quest item</dd>
+            <dt id="a378b72d12c891264cacb175c1b30cd35">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a378b72d12c891264cacb175c1b30cd35" class="m-doc-self">biggoron_timer</a>
+            </dt>
+            <dd>timer for biggoron mirror shield</dd>
+            <dt id="a16af4c6e356d31451c660afb33208754">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a16af4c6e356d31451c660afb33208754" class="m-doc-self">vaati_timer</a>
+            </dt>
+            <dd>timer for vaati wrath fight</dd>
+            <dt id="af911503016e45a3618186cd70eaf06f0">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#af911503016e45a3618186cd70eaf06f0" class="m-doc-self">timer4</a>
+            </dt>
+            <dd>&quot;timer4&quot; unused</dd>
+            <dt id="ad32edb1908686e1e2e048556ab170d9e">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#ad32edb1908686e1e2e048556ab170d9e" class="m-doc-self">timer5</a>
+            </dt>
+            <dd>&quot;timer5&quot; unused</dd>
+            <dt id="ae0b04dc2df2c4f77726e5c1b9f7c3ef2">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#ae0b04dc2df2c4f77726e5c1b9f7c3ef2" class="m-doc-self">timer6</a>
+            </dt>
+            <dd>&quot;timer6&quot; unused</dd>
+            <dt id="a0cc06527e9d5f5277b63d32ed8209687">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a0cc06527e9d5f5277b63d32ed8209687" class="m-doc-self">demo_timer</a>
+            </dt>
+            <dd>timer for US demo version playtime limit</dd>
+            <dt id="ac1f1c6dca8c2879158a5f8014d168499">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ac1f1c6dca8c2879158a5f8014d168499" class="m-doc-self">filler4ac</a>
+            </dt>
+            <dd>unused filler</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="a4f2a3343f207ae9b56d3f4c421151bba"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> SaveFile::<wbr /><a href="#a4f2a3343f207ae9b56d3f4c421151bba" class="m-doc-self">global_progress</a>
+            </h3>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="save_8h.html#a4d76e084a3119be6cb1c429d9b8a0e56" class="m-doc">UpdateGlobalProgress</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a580f71ae698f42a88d1c767803088308"><div>
+            <h3>
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> SaveFile::<wbr /><a href="#a580f71ae698f42a88d1c767803088308" class="m-doc-self">windcrests</a>
+            </h3>
+            <p>upper 8 bit Windcrest flags</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="windcrest_8h.html#af28bdd2d67bdd06dcf0f664afc09f92e" class="m-doc">WindcrestID</a> lower bits used for other things</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a82c8e478f47f7df5ccdab2d67536ad49"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> SaveFile::<wbr /><a href="#a82c8e478f47f7df5ccdab2d67536ad49" class="m-doc-self">inventory</a>
+            </h3>
+            <p>2 bit per item</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="item_8h.html#a9933216bbddb97e671cd515e268dfa42" class="m-doc">Item</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a0dfa7d5a670c0ecd79c687e1448c4199"><div>
+            <h3>
+              <a href="structKinstoneSave.html" class="m-doc">KinstoneSave</a> SaveFile::<wbr /><a href="#a0dfa7d5a670c0ecd79c687e1448c4199" class="m-doc-self">kinstones</a>
+            </h3>
+            <p>save data for kinstones</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="structKinstoneSave.html" class="m-doc">KinstoneSave</a></p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

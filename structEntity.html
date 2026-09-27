@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Entity struct | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          Entity <span class="m-thin">struct</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="entity_8h.html">&lt;include/entity.h&gt;</a></div>
+        </h1>
+        <p>Container for instantiable behavior.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-types">Public types</a></li>
+                <li><a href="#pub-attribs">Public variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="pub-types">
+          <h2><a href="#pub-types">Public types</a></h2>
+          <dl class="m-doc">
+            <dt>
+              union <a href="unionEntity_1_1Palette.html" class="m-doc">Palette</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structEntity_1_1SpriteOrientation.html" class="m-doc">SpriteOrientation</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structEntity_1_1SpriteRendering.html" class="m-doc">SpriteRendering</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structEntity_1_1SpriteSettings.html" class="m-doc">SpriteSettings</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a735504d1f554424376f44839a19ac907">
+              struct Entity_* <a href="#a735504d1f554424376f44839a19ac907" class="m-doc-self">prev</a>
+            </dt>
+            <dd>previous <a href="structEntity.html" class="m-doc">Entity</a></dd>
+            <dt id="ae3973df57ebb529c4675b6965fbefa65">
+              struct Entity_* <a href="#ae3973df57ebb529c4675b6965fbefa65" class="m-doc-self">next</a>
+            </dt>
+            <dd>next <a href="structEntity.html" class="m-doc">Entity</a></dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a38690d6874070b16c7741a7626e2fdfb" class="m-doc">kind</a>
+            </dt>
+            <dd></dd>
+            <dt id="a1b0c4b4d9a726bb1d01739a8f080e69c">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a1b0c4b4d9a726bb1d01739a8f080e69c" class="m-doc-self">id</a>
+            </dt>
+            <dd><a href="structEntity.html" class="m-doc">Entity</a> id.</dd>
+            <dt id="a7b9d5bf68140313fa9f42f8005b23af1">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a7b9d5bf68140313fa9f42f8005b23af1" class="m-doc-self">type</a>
+            </dt>
+            <dd>For use internally to allow different variations.</dd>
+            <dt id="a2cfc0eae908e3b0898898574fd103477">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a2cfc0eae908e3b0898898574fd103477" class="m-doc-self">type2</a>
+            </dt>
+            <dd>For use internally.</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#af7f69fd918e3535124d6030e48c52812" class="m-doc">action</a>
+            </dt>
+            <dd>Current action.</dd>
+            <dt id="af7b1d24dcfb778370f1b62f99c6b6c7e">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#af7b1d24dcfb778370f1b62f99c6b6c7e" class="m-doc-self">subAction</a>
+            </dt>
+            <dd>Optional sub-action.</dd>
+            <dt id="a08c2b1575801b904cb3b270be9fd12a5">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a08c2b1575801b904cb3b270be9fd12a5" class="m-doc-self">timer</a>
+            </dt>
+            <dd>General purpose timer.</dd>
+            <dt id="a9f8c962c0f75505cf4af94fea071de91">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a9f8c962c0f75505cf4af94fea071de91" class="m-doc-self">subtimer</a>
+            </dt>
+            <dd>General purpose timer.</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ad1d0a3f5055f29472e19a60d04d354b1" class="m-doc">flags</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> : 4 <a href="#a3dfdb4588ec0dc66064b8cc1ef4dc865" class="m-doc">updatePriority</a>
+            </dt>
+            <dd>Current priority.</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> : 4 <a href="#aaa1dd51f588f48d5bd7635ff89e78fc4" class="m-doc">updatePriorityPrev</a>
+            </dt>
+            <dd>Priority to restore after request is over.</dd>
+            <dt id="a214f1d7eba1022d51d929d187d326d2f">
+              <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a> <a href="#a214f1d7eba1022d51d929d187d326d2f" class="m-doc-self">spriteIndex</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a5410b327717551069d1a5251161b4390" class="m-doc">animationState</a>
+            </dt>
+            <dd>Animation state.</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#adb65248e8047c287b9005fec248ef110" class="m-doc">direction</a>
+            </dt>
+            <dd>Facing direction.</dd>
+            <dt id="a624e677b4941820a00759d6c4cdd6a53">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a624e677b4941820a00759d6c4cdd6a53" class="m-doc-self">carryFlags</a>
+            </dt>
+            <dd>Flags for carrying this <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt id="a5ebc4812f81f7aab21b8e4d055e1455d">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a5ebc4812f81f7aab21b8e4d055e1455d" class="m-doc-self">followerFlag</a>
+            </dt>
+            <dd>Controls collisions between followers, unused.</dd>
+            <dt id="a6ba8280e7ceabdaf2a6d4d85a2301d48">
+              struct <a href="structEntity_1_1SpriteSettings.html" class="m-doc">Entity::<wbr />SpriteSettings</a> <a href="#a6ba8280e7ceabdaf2a6d4d85a2301d48" class="m-doc-self">spriteSettings</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a9f8eeca0ef3c32f49722709aeaa4cc">
+              struct <a href="structEntity_1_1SpriteRendering.html" class="m-doc">Entity::<wbr />SpriteRendering</a> <a href="#a3a9f8eeca0ef3c32f49722709aeaa4cc" class="m-doc-self">spriteRendering</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a75cb3c9c231ce812884253e0656759">
+              union <a href="unionEntity_1_1Palette.html" class="m-doc">Entity::<wbr />Palette</a> <a href="#a4a75cb3c9c231ce812884253e0656759" class="m-doc-self">palette</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e022cb72a25056f1077c974418553e7">
+              struct <a href="structEntity_1_1SpriteOrientation.html" class="m-doc">Entity::<wbr />SpriteOrientation</a> <a href="#a3e022cb72a25056f1077c974418553e7" class="m-doc-self">spriteOrientation</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af13df8d3f2d8b2edbe41b621409700c3">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#af13df8d3f2d8b2edbe41b621409700c3" class="m-doc-self">gustJarFlags</a>
+            </dt>
+            <dd>Controls sfx and other things.</dd>
+            <dt id="addd310d77013056bfa61d84ae875757d">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#addd310d77013056bfa61d84ae875757d" class="m-doc-self">gustJarTolerance</a>
+            </dt>
+            <dd>Frames needed to pull off ground.</dd>
+            <dt id="a03848ef3a5837f6e0f07991b6a18e9b8">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a03848ef3a5837f6e0f07991b6a18e9b8" class="m-doc-self">frameIndex</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41f66fe75de8b4a5efe6c5edef89f18f">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a41f66fe75de8b4a5efe6c5edef89f18f" class="m-doc-self">lastFrameIndex</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6fa015b48c70b419ba44a278a07d0bf7">
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> <a href="#a6fa015b48c70b419ba44a278a07d0bf7" class="m-doc-self">zVelocity</a>
+            </dt>
+            <dd>Z axis speed, measured in px/frame.</dd>
+            <dt id="a9bcec412581f070c7c2c31fefc330367">
+              <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a> <a href="#a9bcec412581f070c7c2c31fefc330367" class="m-doc-self">speed</a>
+            </dt>
+            <dd>Magnitude of speed.</dd>
+            <dt id="a3db77bef1f33399368dbe400e69ec2f2">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a3db77bef1f33399368dbe400e69ec2f2" class="m-doc-self">spriteAnimation</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb8aa5b52dfa01ff7d96086304c7afd6">
+              SpritePriority <a href="#aeb8aa5b52dfa01ff7d96086304c7afd6" class="m-doc-self">spritePriority</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a09217c06e669a56e4df092efd6076522" class="m-doc">collisions</a>
+            </dt>
+            <dd>Collision flags for each direction.</dd>
+            <dt id="a0980f27e32c34bb640f107f951fcddc0">
+              union <a href="unionSplitWord.html" class="m-doc">SplitWord</a> <a href="#a0980f27e32c34bb640f107f951fcddc0" class="m-doc-self">x</a>
+            </dt>
+            <dd>X position, fixed point Q16.16.</dd>
+            <dt id="a08dfa78130e10d319bc207cf4e8239f8">
+              union <a href="unionSplitWord.html" class="m-doc">SplitWord</a> <a href="#a08dfa78130e10d319bc207cf4e8239f8" class="m-doc-self">y</a>
+            </dt>
+            <dd>Y position, fixed point Q16.16.</dd>
+            <dt id="a737c8759545fbcff2a5b14a38e261505">
+              union <a href="unionSplitWord.html" class="m-doc">SplitWord</a> <a href="#a737c8759545fbcff2a5b14a38e261505" class="m-doc-self">z</a>
+            </dt>
+            <dd>Z position, fixed point Q16.16.</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a4c0007e59ce35c8ba0ae9d12326bc2ea" class="m-doc">collisionLayer</a>
+            </dt>
+            <dd></dd>
+            <dt id="aaab878a28f1318f3195f59262eeb7446">
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#aaab878a28f1318f3195f59262eeb7446" class="m-doc-self">interactType</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a9fd4447b358a5ba3055da340b32760">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a4a9fd4447b358a5ba3055da340b32760" class="m-doc-self">gustJarState</a>
+            </dt>
+            <dd>4: grabbed by GustJar</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a93cdb749359fc246d471538ffe8b2972" class="m-doc">collisionMask</a>
+            </dt>
+            <dd>Bitfield.</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ae6ce8379a3e20615dbd5267d288bb8e8" class="m-doc">collisionFlags</a>
+            </dt>
+            <dd></dd>
+            <dt id="ae81455c7bd6a92cc545c50ba68807b86">
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#ae81455c7bd6a92cc545c50ba68807b86" class="m-doc-self">iframes</a>
+            </dt>
+            <dd>Invulnerability frames.</dd>
+            <dt id="a0662389d0224ceea9bd7b91429394185">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a0662389d0224ceea9bd7b91429394185" class="m-doc-self">knockbackDirection</a>
+            </dt>
+            <dd>Direction of knockback.</dd>
+            <dt id="ae2ae39bc7fae6b0a6580ec253c0f656a">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ae2ae39bc7fae6b0a6580ec253c0f656a" class="m-doc-self">hitType</a>
+            </dt>
+            <dd>Behavior as a collision sender.</dd>
+            <dt id="afa486c4faf0d7c3559558c07da5fad02">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#afa486c4faf0d7c3559558c07da5fad02" class="m-doc-self">hurtType</a>
+            </dt>
+            <dd>Behavior as a collision receiver.</dd>
+            <dt id="a00136e7ae4622a9b2163f0f6725edad6">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a00136e7ae4622a9b2163f0f6725edad6" class="m-doc-self">contactFlags</a>
+            </dt>
+            <dd>Information about collision contact.</dd>
+            <dt id="a0738a39c583d6a715d4c9613d6f91d34">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a0738a39c583d6a715d4c9613d6f91d34" class="m-doc-self">knockbackDuration</a>
+            </dt>
+            <dd>Duration of knockback.</dd>
+            <dt id="a6b2eae049800addae207f19718e3a690">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a6b2eae049800addae207f19718e3a690" class="m-doc-self">confusedTime</a>
+            </dt>
+            <dd>Frames that this <a href="structEntity.html" class="m-doc">Entity</a> is confused.</dd>
+            <dt id="aa9f9e1993b7fd72a852e86b88a08b077">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aa9f9e1993b7fd72a852e86b88a08b077" class="m-doc-self">damage</a>
+            </dt>
+            <dd>Damage this <a href="structEntity.html" class="m-doc">Entity</a> inflicts.</dd>
+            <dt id="a05adfb0c4bf2b5965819d7437fd5cd2b">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a05adfb0c4bf2b5965819d7437fd5cd2b" class="m-doc-self">health</a>
+            </dt>
+            <dd>Health of this <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt id="a75998e16eabcdc20707a0b9b2b86285e">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a75998e16eabcdc20707a0b9b2b86285e" class="m-doc-self">knockbackSpeed</a>
+            </dt>
+            <dd>How fast this <a href="structEntity.html" class="m-doc">Entity</a> is knocked back.</dd>
+            <dt id="a570112c03a8ff3b3b078a018a580fe11">
+              <a href="structHitbox.html" class="m-doc">Hitbox</a>* <a href="#a570112c03a8ff3b3b078a018a580fe11" class="m-doc-self">hitbox</a>
+            </dt>
+            <dd><a href="structHitbox.html" class="m-doc">Hitbox</a> associated with this <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt id="ae1f2aba750ba94cfdc06f7f1207e1cdb">
+              struct Entity_* <a href="#ae1f2aba750ba94cfdc06f7f1207e1cdb" class="m-doc-self">contactedEntity</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct Entity_* <a href="#a10ac470abe9dfbc03f24d384889bede9" class="m-doc">parent</a>
+            </dt>
+            <dd>Parent <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt>
+              struct Entity_* <a href="#aed65187a09020a488398f7b0269ecc0f" class="m-doc">child</a>
+            </dt>
+            <dd>Child <a href="structEntity.html" class="m-doc">Entity</a>.</dd>
+            <dt id="a33d98988b93ad534ee76fd01bd8db210">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a33d98988b93ad534ee76fd01bd8db210" class="m-doc-self">animIndex</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf20e9e15d79acae160d573cd918cdf0">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aaf20e9e15d79acae160d573cd918cdf0" class="m-doc-self">frameDuration</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa471b93f3a8afb1b1ba350309d907b95">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aa471b93f3a8afb1b1ba350309d907b95" class="m-doc-self">frame</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a84166dd42b22304f0d8f5a0504b22535">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a84166dd42b22304f0d8f5a0504b22535" class="m-doc-self">frameSpriteSettings</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6dc095da2c8ee90f033cde0fea531ed5">
+              void* <a href="#a6dc095da2c8ee90f033cde0fea531ed5" class="m-doc-self">animPtr</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a16665b2f915a9d0293f6144dd473a023">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a16665b2f915a9d0293f6144dd473a023" class="m-doc-self">spriteVramOffset</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63fd8f35c16a1802c8c2f17f06405d3f">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a63fd8f35c16a1802c8c2f17f06405d3f" class="m-doc-self">spriteOffsetX</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad6ce5555e83d449d040f5d93ad17e76b">
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#ad6ce5555e83d449d040f5d93ad17e76b" class="m-doc-self">spriteOffsetY</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71ffee91d8f915ce94499a2b4ae3e2e5">
+              void* <a href="#a71ffee91d8f915ce94499a2b4ae3e2e5" class="m-doc-self">myHeap</a>
+            </dt>
+            <dd>Heap data allocated with <a href="common_8h.html#a6f262217c18e750630db6b475409bf57" class="m-doc">zMalloc</a>.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="a38690d6874070b16c7741a7626e2fdfb"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> Entity::<wbr /><a href="#a38690d6874070b16c7741a7626e2fdfb" class="m-doc-self">kind</a>
+            </h3>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="entity_8h.html#ad90c5929a39651126870429e8f6689b3" class="m-doc">EntityKind</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="af7f69fd918e3535124d6030e48c52812"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> Entity::<wbr /><a href="#af7f69fd918e3535124d6030e48c52812" class="m-doc-self">action</a>
+            </h3>
+            <p>Current action.</p>
+<p>Usually used to index a function table.</p>
+          </div></section>
+          <section class="m-doc-details" id="ad1d0a3f5055f29472e19a60d04d354b1"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> Entity::<wbr /><a href="#ad1d0a3f5055f29472e19a60d04d354b1" class="m-doc-self">flags</a>
+            </h3>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="entity_8h.html#acda3452546886b2b713c62c4a07fd52a" class="m-doc">EntityFlags</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a3dfdb4588ec0dc66064b8cc1ef4dc865"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> : 4 Entity::<wbr /><a href="#a3dfdb4588ec0dc66064b8cc1ef4dc865" class="m-doc-self">updatePriority</a>
+            </h3>
+            <p>Current priority.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="entity_8h.html#a315655b1bb5848c063491adffde62b15" class="m-doc">Priority</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="aaa1dd51f588f48d5bd7635ff89e78fc4"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> : 4 Entity::<wbr /><a href="#aaa1dd51f588f48d5bd7635ff89e78fc4" class="m-doc-self">updatePriorityPrev</a>
+            </h3>
+            <p>Priority to restore after request is over.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="entity_8h.html#a957abd995ebef02feebc2e2bc3d12d1c" class="m-doc">RequestPriority</a>.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a5410b327717551069d1a5251161b4390"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> Entity::<wbr /><a href="#a5410b327717551069d1a5251161b4390" class="m-doc-self">animationState</a>
+            </h3>
+            <p>Animation state.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="entity_8h.html#a8c8d699f77e19d867cfadeb034c8b069" class="m-doc">AnimationState</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="adb65248e8047c287b9005fec248ef110"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> Entity::<wbr /><a href="#adb65248e8047c287b9005fec248ef110" class="m-doc-self">direction</a>
+            </h3>
+            <p>Facing direction.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="entity_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a09217c06e669a56e4df092efd6076522"><div>
+            <h3>
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> Entity::<wbr /><a href="#a09217c06e669a56e4df092efd6076522" class="m-doc-self">collisions</a>
+            </h3>
+            <p>Collision flags for each direction.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="collision_8h.html#ac229809d578f8efa7f10bcceb8ed23b8" class="m-doc">Collisions</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a4c0007e59ce35c8ba0ae9d12326bc2ea"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> Entity::<wbr /><a href="#a4c0007e59ce35c8ba0ae9d12326bc2ea" class="m-doc-self">collisionLayer</a>
+            </h3>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="entity_8h.html#a8e00d7b68952c9891c104ecf503b61b8" class="m-doc">CollisionLayer</a>.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a93cdb749359fc246d471538ffe8b2972"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> Entity::<wbr /><a href="#a93cdb749359fc246d471538ffe8b2972" class="m-doc-self">collisionMask</a>
+            </h3>
+            <p>Bitfield.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="entity_8h.html#a75784d4464c4565947d4ab43b2e618c3" class="m-doc">CollisionClass</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="ae6ce8379a3e20615dbd5267d288bb8e8"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> Entity::<wbr /><a href="#ae6ce8379a3e20615dbd5267d288bb8e8" class="m-doc-self">collisionFlags</a>
+            </h3>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="entity_8h.html#a51f3cfd13ef7752ddd89ea32bcccd7d5" class="m-doc">CollisionFlags</a>,</p><p><a href="entity_8h.html#a75784d4464c4565947d4ab43b2e618c3" class="m-doc">CollisionClass</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a10ac470abe9dfbc03f24d384889bede9"><div>
+            <h3>
+              struct Entity_* Entity::<wbr /><a href="#a10ac470abe9dfbc03f24d384889bede9" class="m-doc-self">parent</a>
+            </h3>
+            <p>Parent <a href="structEntity.html" class="m-doc">Entity</a>.</p>
+<p>Sometimes points to associated data.</p>
+          </div></section>
+          <section class="m-doc-details" id="aed65187a09020a488398f7b0269ecc0f"><div>
+            <h3>
+              struct Entity_* Entity::<wbr /><a href="#aed65187a09020a488398f7b0269ecc0f" class="m-doc-self">child</a>
+            </h3>
+            <p>Child <a href="structEntity.html" class="m-doc">Entity</a>.</p>
+<p>Sometimes points to associated data.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

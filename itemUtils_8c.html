@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/itemUtils.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>itemUtils.c <span class="m-thin">file</span>
+        </h1>
+        <p>Item Utils.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a52db272d29d56ef4f9418b3cc1935714" class="m-doc">GetSaleItemConfirmMessageID</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Get the item purchase enquiry message.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa79b581a4b3aaf82c3e1c8d22c8a9741" class="m-doc">GetItemPrice</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd>Get item price.</dd>
+            <dt id="a7321ebdd184c225c850cd6d65a8337c2">
+              <span class="m-doc-wrap-bumper">auto <a href="#a7321ebdd184c225c850cd6d65a8337c2" class="m-doc-self">GiveItem</a>(</span><span class="m-doc-wrap"><a href="item_8h.html#a9933216bbddb97e671cd515e268dfa42" class="m-doc">Item</a> item,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_2) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a519865b31e8892f17134efc69a0e6d41">
+              <span class="m-doc-wrap-bumper">void <a href="#a519865b31e8892f17134efc69a0e6d41" class="m-doc-self">sub_08054288</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> param_1)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7faa58b4450fc1bede3a84d195efe9d3">
+              <span class="m-doc-wrap-bumper">auto <a href="#a7faa58b4450fc1bede3a84d195efe9d3" class="m-doc-self">getItemMetaDataGetTextIndex</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> itemIndex) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff8bafb4586a0d9e28ad4c44ced3b384">
+              <span class="m-doc-wrap-bumper">auto <a href="#aff8bafb4586a0d9e28ad4c44ced3b384" class="m-doc-self">IsMinishItem</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_1) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4fc837be0e80e1ab3925c6274fbbdd41">
+              <span class="m-doc-wrap-bumper">void <a href="#a4fc837be0e80e1ab3925c6274fbbdd41" class="m-doc-self">ModShells</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> shells)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7ecac966571c7b32258f90e84dfaac5">
+              <span class="m-doc-wrap-bumper">void <a href="#ab7ecac966571c7b32258f90e84dfaac5" class="m-doc-self">ModBombs</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> bombs)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a37dd2e4f8cd77ed4530275d0d2aef47f">
+              <span class="m-doc-wrap-bumper">void <a href="#a37dd2e4f8cd77ed4530275d0d2aef47f" class="m-doc-self">ModArrows</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> arrows)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a3bab1b5a7db536fa4286a88dc882f1f8" class="m-doc">IsItemEquipped</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> itemId) -&gt; <a href="item_8h.html#a0e64738dd17353d58cb9cf9b455e5ea3" class="m-doc">EquipSlot</a></span>
+            </dt>
+            <dd>Returns the slot the item is equipped in.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a5a53ffad77fbac5d20fc29ba4b4e1b42" class="m-doc">PutItemOnSlot</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item)</span>
+            </dt>
+            <dd>Put an item in A or B slot.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a1edc1a3089b15e2609e358725e970f86" class="m-doc">ForceEquipItem</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> slot)</span>
+            </dt>
+            <dd>Force equip an item.</dd>
+            <dt id="a18b09d32cdcc084f2b8b878ec13a9f16">
+              <span class="m-doc-wrap-bumper">auto <a href="#a18b09d32cdcc084f2b8b878ec13a9f16" class="m-doc-self">SetBottleContents</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> itemId,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> bottleIndex) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9bf43b44db39d21ecfe31789e450d984" class="m-doc">ItemIsSword</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if item is a sword.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a885970d8012cde3027ca64fe3f9e1fcd" class="m-doc">ItemIsShield</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd>Check if item is a shield.</dd>
+            <dt id="a5279334199fce0ffa9c2df4ddcea73fc">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5279334199fce0ffa9c2df4ddcea73fc" class="m-doc-self">ItemIsBottle</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> id) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#acc10571ab54c4293850d96fdc3fc17d3" class="m-doc">GetBottleContaining</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Get the index of the bottle containing the specified item.</dd>
+            <dt id="a33ef6c00c0ed7319e2416cc2b0de8b0a">
+              <span class="m-doc-wrap-bumper">void <a href="#a33ef6c00c0ed7319e2416cc2b0de8b0a" class="m-doc-self">sub_08054524</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a58538fc49b9d905197eec148ccb0ed60">
+              <span class="m-doc-wrap-bumper">void <a href="#a58538fc49b9d905197eec148ccb0ed60" class="m-doc-self">DisableRandomDrops</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac8b6652cf7b79ec8091b751cba9d63a2">
+              <span class="m-doc-wrap-bumper">void <a href="#ac8b6652cf7b79ec8091b751cba9d63a2" class="m-doc-self">EnableRandomDrops</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc6a1c2258d485309425d1de5a2fc5a0">
+              <span class="m-doc-wrap-bumper">void <a href="#adc6a1c2258d485309425d1de5a2fc5a0" class="m-doc-self">SumDropProbabilities</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a>*,
+              const <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a>*,
+              const <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a>*,
+              const <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4ef80332644fad1e8596728f8da05f65">
+              <span class="m-doc-wrap-bumper">auto <a href="#a4ef80332644fad1e8596728f8da05f65" class="m-doc-self">SumDropProbabilities2</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a>*,
+              const <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a>*,
+              const <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a>*,
+              const <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac17dee0d87678dea7b0f29cddc75c51a">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac17dee0d87678dea7b0f29cddc75c51a" class="m-doc-self">CreateItemDrop</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* arg0,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> itemId,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> itemParameter) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5bb61b37699458432e903ca65b53ef23">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5bb61b37699458432e903ca65b53ef23" class="m-doc-self">CreateRandomItemDrop</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* arg0,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> arg1) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="aa7d4f083ab7c16d69d9d50f9e104a8a6">
+              const <a href="structWallet.html" class="m-doc">Wallet</a> <a href="#aa7d4f083ab7c16d69d9d50f9e104a8a6" class="m-doc-self">gWalletSizes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a359b3e2ff49810d935ed180a748aba81">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a359b3e2ff49810d935ed180a748aba81" class="m-doc-self">gBombBagSizes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89f7567eb680c285faba57b04766aa8f">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a89f7567eb680c285faba57b04766aa8f" class="m-doc-self">gQuiverSizes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d93b4abd3cd47c07c93241fc12ad4d0">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a2d93b4abd3cd47c07c93241fc12ad4d0" class="m-doc-self">gUnk_080FD5A8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20878cd23b520f33c7dac76ea61894e8">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a20878cd23b520f33c7dac76ea61894e8" class="m-doc-self">gUnk_080FE1C6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7b1a4c9759cc92c59235a1b783045930">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a7b1a4c9759cc92c59235a1b783045930" class="m-doc-self">gUnk_080FE1DD</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a52db272d29d56ef4f9418b3cc1935714"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a52db272d29d56ef4f9418b3cc1935714" class="m-doc-self">GetSaleItemConfirmMessageID</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item)</span></span>
+            </h3>
+            <p>Get the item purchase enquiry message.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">item</td>
+                  <td>The item to get the message for.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>The message index.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aa79b581a4b3aaf82c3e1c8d22c8a9741"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa79b581a4b3aaf82c3e1c8d22c8a9741" class="m-doc-self">GetItemPrice</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item)</span></span>
+            </h3>
+            <p>Get item price.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">item</td>
+                  <td>The item to get the price of.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>The price of the item.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a3bab1b5a7db536fa4286a88dc882f1f8"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="item_8h.html#a0e64738dd17353d58cb9cf9b455e5ea3" class="m-doc">EquipSlot</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3bab1b5a7db536fa4286a88dc882f1f8" class="m-doc-self">IsItemEquipped</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> itemId)</span></span>
+            </h3>
+            <p>Returns the slot the item is equipped in.</p>
+<p>0: A 1: B 2: Not equipped</p>
+          </div></section>
+          <section class="m-doc-details" id="a5a53ffad77fbac5d20fc29ba4b4e1b42"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5a53ffad77fbac5d20fc29ba4b4e1b42" class="m-doc-self">PutItemOnSlot</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item)</span></span>
+            </h3>
+            <p>Put an item in A or B slot.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">item</td>
+                  <td>The item to put.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a1edc1a3089b15e2609e358725e970f86"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1edc1a3089b15e2609e358725e970f86" class="m-doc-self">ForceEquipItem</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> slot)</span></span>
+            </h3>
+            <p>Force equip an item.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">item</td>
+                  <td>The item to equip.</td>
+                </tr>
+                <tr>
+                  <td>slot</td>
+                  <td>The slot to equip the item in.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a9bf43b44db39d21ecfe31789e450d984"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9bf43b44db39d21ecfe31789e450d984" class="m-doc-self">ItemIsSword</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item)</span></span>
+            </h3>
+            <p>Check if item is a sword.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">item</td>
+                  <td>The item to check.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>True if the item is a sword.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a885970d8012cde3027ca64fe3f9e1fcd"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a885970d8012cde3027ca64fe3f9e1fcd" class="m-doc-self">ItemIsShield</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item)</span></span>
+            </h3>
+            <p>Check if item is a shield.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>True if the item is a shield.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="acc10571ab54c4293850d96fdc3fc17d3"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#acc10571ab54c4293850d96fdc3fc17d3" class="m-doc-self">GetBottleContaining</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> item)</span></span>
+            </h3>
+            <p>Get the index of the bottle containing the specified item.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">item</td>
+                  <td>The item to check.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Bottle index, or 0 if the item is not in a bottle.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

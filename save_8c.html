@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/save.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>save.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structSaveFileStatus.html" class="m-doc">SaveFileStatus</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structSaveFileEEPROMAddresses.html" class="m-doc">SaveFileEEPROMAddresses</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a61726013e1a3b55433cd4b2ecb9785d8">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a61726013e1a3b55433cd4b2ecb9785d8" class="m-doc-self">HandleSaveInit</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="save_8h.html#a85868e93184e48095ce0f366c7494203" class="m-doc">SaveResult</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a25e410e55e8c09d2de7286bb9bfd7f8e">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a25e410e55e8c09d2de7286bb9bfd7f8e" class="m-doc-self">HandleSaveInProgress</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="save_8h.html#a85868e93184e48095ce0f366c7494203" class="m-doc">SaveResult</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf76784b02a82892efea3666a0d32683">
+              <span class="m-doc-wrap-bumper">static auto <a href="#aaf76784b02a82892efea3666a0d32683" class="m-doc-self">HandleSaveDone</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="save_8h.html#a85868e93184e48095ce0f366c7494203" class="m-doc">SaveResult</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f9ddeeef0854cb546e72d4aa0859f26">
+              <span class="m-doc-wrap-bumper">auto <a href="#a2f9ddeeef0854cb546e72d4aa0859f26" class="m-doc-self">GetSaveFileEEPROMAddresses</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; const <a href="structSaveFileEEPROMAddresses.html" class="m-doc">SaveFileEEPROMAddresses</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac72b8d7439ebf0f39ab3eed6f9dd2177">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac72b8d7439ebf0f39ab3eed6f9dd2177" class="m-doc-self">DataDoubleReadWithStatus</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              void* data) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93501203dee6db5858cca7b270d2000e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a93501203dee6db5858cca7b270d2000e" class="m-doc-self">DataDoubleWriteWithStatus</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              const void* data) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b6b015268470c611ab8f30376a34fba">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5b6b015268470c611ab8f30376a34fba" class="m-doc-self">VerifyChecksum</a>(</span><span class="m-doc-wrap"><a href="structSaveFileStatus.html" class="m-doc">SaveFileStatus</a>* fileStatus,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a>* data,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d83e2915e470dc766688141b2a9219c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8d83e2915e470dc766688141b2a9219c" class="m-doc-self">CalculateChecksum</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a>* data,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae58c39da5ce874b9b69354c6f0e7d8bf">
+              <span class="m-doc-wrap-bumper">auto <a href="#ae58c39da5ce874b9b69354c6f0e7d8bf" class="m-doc-self">WriteSaveFile</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index,
+              <a href="structSaveFile.html" class="m-doc">SaveFile</a>* saveFile) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a734fbc18ed2cfb11f412a07a5b385851">
+              <span class="m-doc-wrap-bumper">void <a href="#a734fbc18ed2cfb11f412a07a5b385851" class="m-doc-self">SetFileStatusInit</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0105e7ca2962b672d5fb028493b4bc6d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a0105e7ca2962b672d5fb028493b4bc6d" class="m-doc-self">ReadSaveFileStatus</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> address,
+              <a href="structSaveFileStatus.html" class="m-doc">SaveFileStatus</a>* fileStatus) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a35ed574f8f7c3f2908d1d75adec8b47a" class="m-doc">ParseSaveFileStatus</a>(</span><span class="m-doc-wrap">const <a href="structSaveFileStatus.html" class="m-doc">SaveFileStatus</a>* fileStatus) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>2 for valid existing file 1 for valid empty file 0 for bad file</dd>
+            <dt id="a944a4bec0ea4c49af63e93ecb3e84ad5">
+              <span class="m-doc-wrap-bumper">auto <a href="#a944a4bec0ea4c49af63e93ecb3e84ad5" class="m-doc-self">WriteSaveFileStatus</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> address,
+              const <a href="structSaveFileStatus.html" class="m-doc">SaveFileStatus</a>* fileStatus) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ac81b51214b91fbb5397ed582bfa29664" class="m-doc">DataRead</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> address,
+              void* data,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>read arbitrary data from EEPROM</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a04f4a671c49b9c5af0e1f8d895ac1d21" class="m-doc">DataWrite</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> address,
+              const void* data,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>write arbitrary data to EEPROM</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4976c45cee8662f37b6bdac1410047e3" class="m-doc">DataCompare</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> address,
+              const void* data,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>compare arbitrary data with EEPROM</dd>
+            <dt id="a27a292c8adc2956c1df437df982dadb4">
+              <span class="m-doc-wrap-bumper">void <a href="#a27a292c8adc2956c1df437df982dadb4" class="m-doc-self">sub_0807CD9C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a45b2cbf53baccb75083adfe8d9e3bf19" class="m-doc">HandleSave</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> idx) -&gt; <a href="save_8h.html#a85868e93184e48095ce0f366c7494203" class="m-doc">SaveResult</a></span>
+            </dt>
+            <dd>Attempt to save the game.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ac9863e749b0268c6dddb6345e7a7efdc" class="m-doc">InitSaveData</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Initialize the save system.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a5e7113189617cdeb62393743dda13729" class="m-doc">WriteSaveHeader</a>(</span><span class="m-doc-wrap"><a href="structSaveHeader.html" class="m-doc">SaveHeader</a>* saveHeader) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Write save header.</dd>
+            <dt id="ac17675067c76075c5fa59d5d848206ae">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac17675067c76075c5fa59d5d848206ae" class="m-doc-self">sub_0807CF1C</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* arg0) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a22424130360e9ad657781cd1abf81a09" class="m-doc">ReadSaveFile</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index,
+              <a href="structSaveFile.html" class="m-doc">SaveFile</a>* saveFile) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd>Read save file.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a53e09b9a410d5ad05df3ee71b62424f7" class="m-doc">ReadSaveHeader</a>(</span><span class="m-doc-wrap"><a href="structSaveHeader.html" class="m-doc">SaveHeader</a>* saveHeader) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd>Read save header.</dd>
+            <dt id="afd9386ff1baae706fa1350c9043f4911">
+              <span class="m-doc-wrap-bumper">auto <a href="#afd9386ff1baae706fa1350c9043f4911" class="m-doc-self">sub_0807CF3C</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>* arg0) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#aca3aa86439ed6d8fadfd38f919a1b8d5" class="m-doc">SetFileStatusDeleted</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span>
+            </dt>
+            <dd>Mark a save file as deleted.</dd>
+            <dt id="afaeb53f9bfd842d399204d6d795cc0a5">
+              <span class="m-doc-wrap-bumper">auto <a href="#afaeb53f9bfd842d399204d6d795cc0a5" class="m-doc-self">WriteSaveFileStatus</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> address,
+              const struct <a href="structSaveFileStatus.html" class="m-doc">SaveFileStatus</a>* fileStatus) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="aa538fea8730954d49e2467e26acddbc7">
+              const char <a href="#aa538fea8730954d49e2467e26acddbc7" class="m-doc-self">gUnk_0811E470</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aad4c4f3d4864fce5db9143137083d5ef">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aad4c4f3d4864fce5db9143137083d5ef" class="m-doc-self">padding</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa0b31ccae2c59fcd82fee2ab0be3769">
+              static <a href="save_8h.html#a85868e93184e48095ce0f366c7494203" class="m-doc">SaveResult</a>(*const <a href="#afa0b31ccae2c59fcd82fee2ab0be3769" class="m-doc-self">sSaveHandlers</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adfb1041b98c049e7944ef72eedd14b97">
+              static const char <a href="#adfb1041b98c049e7944ef72eedd14b97" class="m-doc-self">sSignatureLong</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa0c48037f94f7c5433f3fa94f1b38f3">
+              static const <a href="structSaveFileStatus.html" class="m-doc">SaveFileStatus</a> <a href="#aaa0c48037f94f7c5433f3fa94f1b38f3" class="m-doc-self">sSaveDescInit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abba4cc27966aa3d6f2bd3382c740a919">
+              static const <a href="structSaveFileStatus.html" class="m-doc">SaveFileStatus</a> <a href="#abba4cc27966aa3d6f2bd3382c740a919" class="m-doc-self">sSaveDescDeleted</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9789f3cf03dc4fac13fe2f5709f9042a">
+              const char <a href="#a9789f3cf03dc4fac13fe2f5709f9042a" class="m-doc-self">sDummyData</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5798c7e9ef3dcbb8d674629b6f2ff083">
+              const <a href="structSaveFileEEPROMAddresses.html" class="m-doc">SaveFileEEPROMAddresses</a> <a href="#a5798c7e9ef3dcbb8d674629b6f2ff083" class="m-doc-self">gSaveFileEEPROMAddresses</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a35ed574f8f7c3f2908d1d75adec8b47a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a35ed574f8f7c3f2908d1d75adec8b47a" class="m-doc-self">ParseSaveFileStatus</a>(</span><span class="m-doc-wrap">const <a href="structSaveFileStatus.html" class="m-doc">SaveFileStatus</a>* fileStatus)</span></span>
+            </h3>
+            <p>2 for valid existing file 1 for valid empty file 0 for bad file</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">fileStatus</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ac81b51214b91fbb5397ed582bfa29664"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac81b51214b91fbb5397ed582bfa29664" class="m-doc-self">DataRead</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> address,
+              void* data,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span></span>
+            </h3>
+            <p>read arbitrary data from EEPROM</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">address</td>
+                  <td>EEPROM address</td>
+                </tr>
+                <tr>
+                  <td>data</td>
+                  <td>buffer to read into</td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td>size in bytes to read</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>TRUE on success</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a04f4a671c49b9c5af0e1f8d895ac1d21"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a04f4a671c49b9c5af0e1f8d895ac1d21" class="m-doc-self">DataWrite</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> address,
+              const void* data,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span></span>
+            </h3>
+            <p>write arbitrary data to EEPROM</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">address</td>
+                  <td>EEPROM address</td>
+                </tr>
+                <tr>
+                  <td>data</td>
+                  <td>buffer to write from</td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td>size in bytes to write</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>TRUE on success</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a4976c45cee8662f37b6bdac1410047e3"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4976c45cee8662f37b6bdac1410047e3" class="m-doc-self">DataCompare</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> address,
+              const void* data,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> size)</span></span>
+            </h3>
+            <p>compare arbitrary data with EEPROM</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">address</td>
+                  <td>EEPROM address</td>
+                </tr>
+                <tr>
+                  <td>data</td>
+                  <td>buffer to compare to</td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td>size in bytes to compare</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>TRUE on success</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a45b2cbf53baccb75083adfe8d9e3bf19"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="save_8h.html#a85868e93184e48095ce0f366c7494203" class="m-doc">SaveResult</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a45b2cbf53baccb75083adfe8d9e3bf19" class="m-doc-self">HandleSave</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> idx)</span></span>
+            </h3>
+            <p>Attempt to save the game.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">idx</td>
+                  <td>The save slot.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td><a href="save_8h.html#a85868e93184e48095ce0f366c7494203" class="m-doc">SaveResult</a> result.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ac9863e749b0268c6dddb6345e7a7efdc"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac9863e749b0268c6dddb6345e7a7efdc" class="m-doc-self">InitSaveData</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <p>Initialize the save system.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Success</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a5e7113189617cdeb62393743dda13729"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5e7113189617cdeb62393743dda13729" class="m-doc-self">WriteSaveHeader</a>(</span><span class="m-doc-wrap"><a href="structSaveHeader.html" class="m-doc">SaveHeader</a>* saveHeader)</span></span>
+            </h3>
+            <p>Write save header.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Success.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a22424130360e9ad657781cd1abf81a09"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a22424130360e9ad657781cd1abf81a09" class="m-doc-self">ReadSaveFile</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index,
+              <a href="structSaveFile.html" class="m-doc">SaveFile</a>* saveFile)</span></span>
+            </h3>
+            <p>Read save file.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Success.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a53e09b9a410d5ad05df3ee71b62424f7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a53e09b9a410d5ad05df3ee71b62424f7" class="m-doc-self">ReadSaveHeader</a>(</span><span class="m-doc-wrap"><a href="structSaveHeader.html" class="m-doc">SaveHeader</a>* saveHeader)</span></span>
+            </h3>
+            <p>Read save header.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Success.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aca3aa86439ed6d8fadfd38f919a1b8d5"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aca3aa86439ed6d8fadfd38f919a1b8d5" class="m-doc-self">SetFileStatusDeleted</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> index)</span></span>
+            </h3>
+            <p>Mark a save file as deleted.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">index</td>
+                  <td>The save file index.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

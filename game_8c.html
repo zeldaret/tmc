@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/game.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>game.c <span class="m-thin">file</span>
+        </h1>
+        <p>Game task.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a66e765fa35a7653b47b85152c0b23971">
+              using <a href="#a66e765fa35a7653b47b85152c0b23971" class="m-doc-self">GameState</a> = void()(void)
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac15148347e269cc7c83c14df23803065">
+              using <a href="#ac15148347e269cc7c83c14df23803065" class="m-doc-self">GameMainState</a> = void()(void)
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="aaa26e7fdd1f78ba7d61bbbf008c2a7f7">
+              <span class="m-doc-wrap-bumper">void <a href="#aaa26e7fdd1f78ba7d61bbbf008c2a7f7" class="m-doc-self">FinalizeSave</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a783abc37336051098a99c428a5a3c97b">
+              <span class="m-doc-wrap-bumper">void <a href="#a783abc37336051098a99c428a5a3c97b" class="m-doc-self">ClearArmosData</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf6fd51ea75649cb3803ef7aeba56802">
+              <span class="m-doc-wrap-bumper">void <a href="#abf6fd51ea75649cb3803ef7aeba56802" class="m-doc-self">ClearRoomMemory</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9b4b85dc3d04ee9c7038d3fb85baf584">
+              <span class="m-doc-wrap-bumper">void <a href="#a9b4b85dc3d04ee9c7038d3fb85baf584" class="m-doc-self">ClearMenuSavestate</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a33af5a57485c50c64659cda5ea68be1f">
+              <span class="m-doc-wrap-bumper">void <a href="#a33af5a57485c50c64659cda5ea68be1f" class="m-doc-self">ResetUI</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f212310e3a3bb357ec715b8009861fb">
+              <span class="m-doc-wrap-bumper">void <a href="#a2f212310e3a3bb357ec715b8009861fb" class="m-doc-self">sub_0806FD8C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb71996f1fc2977f87e24ff1de7d90df">
+              <span class="m-doc-wrap-bumper">void <a href="#aeb71996f1fc2977f87e24ff1de7d90df" class="m-doc-self">sub_080300C4</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a553ffd65b67311ddea53fbd202eab6ec">
+              <span class="m-doc-wrap-bumper">auto <a href="#a553ffd65b67311ddea53fbd202eab6ec" class="m-doc-self">sub_0805BC04</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a15a08332ca9ce9f402df86b197f81e23">
+              <span class="m-doc-wrap-bumper">void <a href="#a15a08332ca9ce9f402df86b197f81e23" class="m-doc-self">DeleteSleepingEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41ea058d2ee27b702c373311153f081d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a41ea058d2ee27b702c373311153f081d" class="m-doc-self">UpdateLightLevel</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a92585deff19a894f2e041baead56bb91">
+              <span class="m-doc-wrap-bumper">void <a href="#a92585deff19a894f2e041baead56bb91" class="m-doc-self">sub_080185F8</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46ec1e41bc5ca6bf6a424a04fc951070">
+              <span class="m-doc-wrap-bumper">void <a href="#a46ec1e41bc5ca6bf6a424a04fc951070" class="m-doc-self">UpdateDoorTransition</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ae1f6a5016b1b63c640d054329335b2">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9ae1f6a5016b1b63c640d054329335b2" class="m-doc-self">CheckInitPortal</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade808e92abf16db358fa9229412f74b9">
+              <span class="m-doc-wrap-bumper">void <a href="#ade808e92abf16db358fa9229412f74b9" class="m-doc-self">UpdateCarriedObject</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7823bc93f76396a6668a52c8b2a4c50c">
+              <span class="m-doc-wrap-bumper">void <a href="#a7823bc93f76396a6668a52c8b2a4c50c" class="m-doc-self">CollisionMain</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1e51dc59e631224e648ed0497fc8ad8">
+              <span class="m-doc-wrap-bumper">void <a href="#ad1e51dc59e631224e648ed0497fc8ad8" class="m-doc-self">sub_0805BB74</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> lightLevel)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf440233dc8c411c7390eeea171131d3">
+              <span class="m-doc-wrap-bumper">void <a href="#aaf440233dc8c411c7390eeea171131d3" class="m-doc-self">CreateZeldaFollower</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae8f6cad55ec75606eab9e4d7b9a8e2ba">
+              <span class="m-doc-wrap-bumper">void <a href="#ae8f6cad55ec75606eab9e4d7b9a8e2ba" class="m-doc-self">LoadRoomGfx</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad62223313d05c2bb619dcb5bdf413c1e">
+              <span class="m-doc-wrap-bumper">void <a href="#ad62223313d05c2bb619dcb5bdf413c1e" class="m-doc-self">RecycleEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2cc721cb58b2684aab41f920023277dc">
+              <span class="m-doc-wrap-bumper">void <a href="#a2cc721cb58b2684aab41f920023277dc" class="m-doc-self">sub_0804AF90</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a380da0135278204f8635fca74a457252">
+              <span class="m-doc-wrap-bumper">void <a href="#a380da0135278204f8635fca74a457252" class="m-doc-self">CallRoomProp6</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5c3b33bd3c91e6bb9ee3d7bbdb317dfa">
+              <span class="m-doc-wrap-bumper">static void <a href="#a5c3b33bd3c91e6bb9ee3d7bbdb317dfa" class="m-doc-self">UpdateWindcrests</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85994b5133a906d5e2554405850927cb">
+              <span class="m-doc-wrap-bumper">static void <a href="#a85994b5133a906d5e2554405850927cb" class="m-doc-self">InitializeEntities</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a025d2b3b892161d467c994506eb84d28">
+              <span class="m-doc-wrap-bumper">static void <a href="#a025d2b3b892161d467c994506eb84d28" class="m-doc-self">sub_08051D98</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a859860492f50a4b117a3b7169f2ed4fc">
+              <span class="m-doc-wrap-bumper">static void <a href="#a859860492f50a4b117a3b7169f2ed4fc" class="m-doc-self">sub_08051DCC</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aab51596d0860c07a4883e830480197c6">
+              <span class="m-doc-wrap-bumper">void <a href="#aab51596d0860c07a4883e830480197c6" class="m-doc-self">sub_08054974</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> worldEventId,
+              <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> param_2)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4173da76fb9f27080bad9a5cbb1c661d">
+              <span class="m-doc-wrap-bumper">void <a href="#a4173da76fb9f27080bad9a5cbb1c661d" class="m-doc-self">GameTask</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a7da9d44948e79fe36968623bdb23429d">
+              static <a href="game_8c.html#a66e765fa35a7653b47b85152c0b23971" class="m-doc">GameState</a> <a href="#a7da9d44948e79fe36968623bdb23429d" class="m-doc-self">GameTask_Transition</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaef307fcf279f576c9b2f548fe37810e">
+              static <a href="game_8c.html#a66e765fa35a7653b47b85152c0b23971" class="m-doc">GameState</a> <a href="#aaef307fcf279f576c9b2f548fe37810e" class="m-doc-self">GameTask_Init</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5c661f209cda468ee95c7f1b7f1697e">
+              static <a href="game_8c.html#a66e765fa35a7653b47b85152c0b23971" class="m-doc">GameState</a> <a href="#aa5c661f209cda468ee95c7f1b7f1697e" class="m-doc-self">GameTask_Exit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab8bee98b314c3d9bf8b5fdb88c40390d">
+              static <a href="game_8c.html#a66e765fa35a7653b47b85152c0b23971" class="m-doc">GameState</a> <a href="#ab8bee98b314c3d9bf8b5fdb88c40390d" class="m-doc-self">GameTask_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82e81d01bd78b68d327b730c9fd90515">
+              static <a href="game_8c.html#ac15148347e269cc7c83c14df23803065" class="m-doc">GameMainState</a> <a href="#a82e81d01bd78b68d327b730c9fd90515" class="m-doc-self">GameMain_InitRoom</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd2b1dd05113b32a6ee6383893018644">
+              static <a href="game_8c.html#ac15148347e269cc7c83c14df23803065" class="m-doc">GameMainState</a> <a href="#acd2b1dd05113b32a6ee6383893018644" class="m-doc-self">GameMain_ChangeRoom</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a704dbed2b432fbe3089bfdeda82fc0b0">
+              static <a href="game_8c.html#ac15148347e269cc7c83c14df23803065" class="m-doc">GameMainState</a> <a href="#a704dbed2b432fbe3089bfdeda82fc0b0" class="m-doc-self">GameMain_Update</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a158e110b49066e80572868dda2200f88">
+              static <a href="game_8c.html#ac15148347e269cc7c83c14df23803065" class="m-doc">GameMainState</a> <a href="#a158e110b49066e80572868dda2200f88" class="m-doc-self">GameMain_ChangeArea</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a96211249bedb29554779df8df0878d5d">
+              <a href="game_8c.html#ac15148347e269cc7c83c14df23803065" class="m-doc">GameMainState</a> <a href="#a96211249bedb29554779df8df0878d5d" class="m-doc-self">GameMain_MinishPortal</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11759256065eda272b0092ec7b197885">
+              static <a href="game_8c.html#ac15148347e269cc7c83c14df23803065" class="m-doc">GameMainState</a> <a href="#a11759256065eda272b0092ec7b197885" class="m-doc-self">GameMain_BarrelUpdate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70c4e3c4fb7171b535e0c2c0c49da95f">
+              <a href="game_8c.html#ac15148347e269cc7c83c14df23803065" class="m-doc">GameMainState</a> <a href="#a70c4e3c4fb7171b535e0c2c0c49da95f" class="m-doc-self">GameMain_Subtask</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9826f31a307186987c06c97074637fd7">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a9826f31a307186987c06c97074637fd7" class="m-doc-self">gUpdateVisibleTiles</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

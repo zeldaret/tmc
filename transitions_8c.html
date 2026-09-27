@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/data/transitions.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_c1be8d27e7f84178e95f152701110b19.html">data</a>/</span>transitions.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="affbbe217b10b6d3fcf5faaa1846e7250">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#affbbe217b10b6d3fcf5faaa1846e7250" class="m-doc-self">gExitList_NoExitList</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adea8cd7bf4ca718a4f97816ef15f8993">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#adea8cd7bf4ca718a4f97816ef15f8993" class="m-doc-self">gExitLists_NoExit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89c635b2e02453e4f23ddf51f1bca41e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a89c635b2e02453e4f23ddf51f1bca41e" class="m-doc-self">gExitList_MinishWoods_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a28e79cb9aa005324d2c45f856bac4616">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a28e79cb9aa005324d2c45f856bac4616" class="m-doc-self">gExitLists_MinishWoods</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb1635a5f6e73f4587c8cd0278b4fb17">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#adb1635a5f6e73f4587c8cd0278b4fb17" class="m-doc-self">gExitList_LakeHylia_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a508d667a5dacd932b47bb38becf5d783">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a508d667a5dacd932b47bb38becf5d783" class="m-doc-self">gExitList_LakeHylia_Beanstalk</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a078bfb6189410285bfed3ef19c766ab7">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a078bfb6189410285bfed3ef19c766ab7" class="m-doc-self">gExitLists_LakeHylia</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf6a2813e3732513b4eda05bb26f675f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acf6a2813e3732513b4eda05bb26f675f" class="m-doc-self">gExitList_CastorWilds_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a571380d7cd531a82ba35f6ffb611499c">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a571380d7cd531a82ba35f6ffb611499c" class="m-doc-self">gExitLists_CastorWilds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5dd52571b5bec05346a42e2e23fb3f0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa5dd52571b5bec05346a42e2e23fb3f0" class="m-doc-self">gExitList_Ruins_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5f9ef3d2e17daac516dd7728f4997408">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5f9ef3d2e17daac516dd7728f4997408" class="m-doc-self">gExitList_Ruins_Beanstalk</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18238b0bfefc6859c1d864520d81415b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a18238b0bfefc6859c1d864520d81415b" class="m-doc-self">gExitList_Ruins_LadderToTektites</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace125927a746621913179d48f40cadb5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ace125927a746621913179d48f40cadb5" class="m-doc-self">gExitList_Ruins_FortressEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa328936a501d3364f1b4094ca936ea5e">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#aa328936a501d3364f1b4094ca936ea5e" class="m-doc-self">gExitLists_Ruins</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a425beb0aa12e2820655a95d1ea897756">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a425beb0aa12e2820655a95d1ea897756" class="m-doc-self">gExitList_HyruleTown_0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a08cf67319acd9fec0fb3d641163be4b6">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a08cf67319acd9fec0fb3d641163be4b6" class="m-doc-self">gExitLists_HyruleTown</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa48a12f062824e08bf69e8440ef6c67d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa48a12f062824e08bf69e8440ef6c67d" class="m-doc-self">gExitList_HyruleTown_1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae88e9db099b886a9b2797dd3c663139d">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ae88e9db099b886a9b2797dd3c663139d" class="m-doc-self">gExitLists_FestivalTown</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a96f414981e68be34bc3f50b28274bf6f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a96f414981e68be34bc3f50b28274bf6f" class="m-doc-self">gExitList_MtCrenel_MountainTop</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa3fa6139938d83ee921098e0a0214b9a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa3fa6139938d83ee921098e0a0214b9a" class="m-doc-self">gExitList_MtCrenel_WallClimb</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7a60e886bee77f89557c90c6ebc70dfb">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7a60e886bee77f89557c90c6ebc70dfb" class="m-doc-self">gExitList_MtCrenel_CaveOfFlamesEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac9c19c984ea5f1978084d84db574f045">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac9c19c984ea5f1978084d84db574f045" class="m-doc-self">gExitList_MtCrenel_GustJarShortcut</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aebbfcdf6bc29aea34b5d59cfd5786b01">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aebbfcdf6bc29aea34b5d59cfd5786b01" class="m-doc-self">gExitList_MtCrenel_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11cab0f4204229f3394792dd6763c432">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a11cab0f4204229f3394792dd6763c432" class="m-doc-self">gExitLists_MtCrenel</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41396109f21986426576f161bae90a8f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a41396109f21986426576f161bae90a8f" class="m-doc-self">gExitList_HyruleField_WesternWoodSouth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa96e8ded4e761bd51d95c882c9d6ed07">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa96e8ded4e761bd51d95c882c9d6ed07" class="m-doc-self">gExitList_HyruleField_SouthHyruleField</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e5bd4068df2cf30541f50ef459f7665">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9e5bd4068df2cf30541f50ef459f7665" class="m-doc-self">gExitList_HyruleField_EasternHillsSouth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3dd40e56b160311974a41dcaba1b4f68">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3dd40e56b160311974a41dcaba1b4f68" class="m-doc-self">gExitList_HyruleField_EasternHillsCenter</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abaf0e756905e718e57080a0e27e9b89e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#abaf0e756905e718e57080a0e27e9b89e" class="m-doc-self">gExitList_HyruleField_EasternHillsNorth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a450a82346b1f4f74100febb7eb9ab4a9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a450a82346b1f4f74100febb7eb9ab4a9" class="m-doc-self">gExitList_HyruleField_LonLonRanch</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac70e64bf433a6d4bd6453dc7c9e41da6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac70e64bf433a6d4bd6453dc7c9e41da6" class="m-doc-self">gExitList_HyruleField_NorthHyruleField</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8a8434e569014a9ea52cbc26157ce9bf">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a8a8434e569014a9ea52cbc26157ce9bf" class="m-doc-self">gExitList_HyruleField_TrilbyHighlands</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af0d813000980f09bf0407b18bf7e0628">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af0d813000980f09bf0407b18bf7e0628" class="m-doc-self">gExitList_HyruleField_WesternWoodsNorth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab0f5c5e781cfc2383af0b787285bedbb">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab0f5c5e781cfc2383af0b787285bedbb" class="m-doc-self">gExitList_HyruleField_WesternWoodsCenter</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8451d7721f2fbdbefe97b01068f239c2">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a8451d7721f2fbdbefe97b01068f239c2" class="m-doc-self">gExitLists_HyruleField</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e8b7ed2f424e1266c78e3ccd523e767">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2e8b7ed2f424e1266c78e3ccd523e767" class="m-doc-self">gExitList_CastleGarden_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e8fbae9b1bd73f076a15466f930dce0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4e8fbae9b1bd73f076a15466f930dce0" class="m-doc-self">gUnk_08134FBC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35ac6af9188a75607839cbdeed86d6b4">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a35ac6af9188a75607839cbdeed86d6b4" class="m-doc-self">gUnk_08135048</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae16d9b5c453b78c20d39851dd84e457">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#aae16d9b5c453b78c20d39851dd84e457" class="m-doc-self">gExitLists_CastleGarden</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac4ec64971d6d5d1a9d0104877c87d60">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aac4ec64971d6d5d1a9d0104877c87d60" class="m-doc-self">gExitList_CloudTops_House</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad82f5f09403216534423f32ae5912214">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ad82f5f09403216534423f32ae5912214" class="m-doc-self">gExitLists_CloudTops</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab33bc87eaa1fa7fb6f1c07fd1a497ce6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab33bc87eaa1fa7fb6f1c07fd1a497ce6" class="m-doc-self">gExitList_RoyalValley_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa81657171a75baff8338353a95e96e5e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa81657171a75baff8338353a95e96e5e" class="m-doc-self">gExitList_RoyalValley_ForestMaze</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a423b2859ca80fb8b58ecfb11c1364063">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a423b2859ca80fb8b58ecfb11c1364063" class="m-doc-self">gUnk_08135190</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0cab5c4879919e580d3810103f720146">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a0cab5c4879919e580d3810103f720146" class="m-doc-self">gExitLists_RoyalValley</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1943baa5b6caee1c977288436c2203d7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1943baa5b6caee1c977288436c2203d7" class="m-doc-self">gExitList_VeilFalls_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38dbf3285832fbec8fcd100fbe4b986d">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a38dbf3285832fbec8fcd100fbe4b986d" class="m-doc-self">gExitLists_VeilFalls</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b19ca7ba2e867b22030ca1f8c078ae8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a8b19ca7ba2e867b22030ca1f8c078ae8" class="m-doc-self">gExitList_Beanstalks_MountCrenel</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71d7d3a0c4bb699dd9cc1a4188923f31">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a71d7d3a0c4bb699dd9cc1a4188923f31" class="m-doc-self">gExitList_Beanstalks_LakeHylia</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05281fc8fba92cc2f839b0abce023bef">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a05281fc8fba92cc2f839b0abce023bef" class="m-doc-self">gExitList_Beanstalks_Ruins</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a07e44efc7568fb537ad59af613a94c4e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a07e44efc7568fb537ad59af613a94c4e" class="m-doc-self">gExitList_Beanstalks_EasternHills</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a957404dce8aeca659a6d567b802cbc83">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a957404dce8aeca659a6d567b802cbc83" class="m-doc-self">gExitList_Beanstalks_WesternWoods</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0d071e46808e7208f407a77144bca64">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac0d071e46808e7208f407a77144bca64" class="m-doc-self">gExitList_Beanstalks_MountCrenelClimb</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac95ede4c58f5413fac350b4f0a72e4bf">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac95ede4c58f5413fac350b4f0a72e4bf" class="m-doc-self">gExitList_Beanstalks_LakeHyliaClimb</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c5efdfe414e8790cad57be90cbe6f98">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a8c5efdfe414e8790cad57be90cbe6f98" class="m-doc-self">gExitList_Beanstalks_RuinsClimb</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f94891903420c54ade5a5ebe1a9f80b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a8f94891903420c54ade5a5ebe1a9f80b" class="m-doc-self">gExitList_Beanstalks_EasternHillsClimb</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e4762fba3a0f7f6c23d5e4f523c9aaa">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a6e4762fba3a0f7f6c23d5e4f523c9aaa" class="m-doc-self">gExitList_Beanstalks_WesternWoodsClimb</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa77a36d020c713267618214bd941fda2">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#aa77a36d020c713267618214bd941fda2" class="m-doc-self">gExitLists_Beanstalks</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abadbedac46f92bfa0386e27b3a1a9d91">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#abadbedac46f92bfa0386e27b3a1a9d91" class="m-doc-self">gExitList_LakeWoodsCave_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c20dea240fa205bc7cbb99a9a85c0f6">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a4c20dea240fa205bc7cbb99a9a85c0f6" class="m-doc-self">gExitLists_LakeWoodsCave</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d05b556d052c00e2008a3a1ad691dad">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0d05b556d052c00e2008a3a1ad691dad" class="m-doc-self">gExitList_HyruleDigCaves_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71710f8e1308c49930a5c59b0490b155">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a71710f8e1308c49930a5c59b0490b155" class="m-doc-self">gExitLists_HyruleDigCaves</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb16fa1331196b65a848d94213b8e2de">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aeb16fa1331196b65a848d94213b8e2de" class="m-doc-self">gExitList_MinishVillage_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2db4f37e8145dc58b7a544b675f919a9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2db4f37e8145dc58b7a544b675f919a9" class="m-doc-self">gExitList_MinishVillage_SideHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adebb6ffcd2e58a9766157658b2553546">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#adebb6ffcd2e58a9766157658b2553546" class="m-doc-self">gExitLists_MinishVillage</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e7fd0b825956379769f61da0be739b5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3e7fd0b825956379769f61da0be739b5" class="m-doc-self">gExitList_MelarisMine_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4df1024c197b269e7ea413aa952c18d1">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a4df1024c197b269e7ea413aa952c18d1" class="m-doc-self">gExitLists_MelarisMine</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38e991349249963cbd98b8ab866e8fbb">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a38e991349249963cbd98b8ab866e8fbb" class="m-doc-self">gExitList_MinishPaths_ToMinishVillage</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae482b1c1253bdeff724bddc0353b7712">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae482b1c1253bdeff724bddc0353b7712" class="m-doc-self">gExitList_MinishPaths_CastorWilds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86464433bbdc2ae26c99284c6a983813">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a86464433bbdc2ae26c99284c6a983813" class="m-doc-self">gExitList_MinishPaths_HyruleTown</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3691585341261e4140f434b7080e221">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab3691585341261e4140f434b7080e221" class="m-doc-self">gExitList_MinishPaths_LonLonRanch</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acdea33607690d7d36fb690bbd7d440e3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acdea33607690d7d36fb690bbd7d440e3" class="m-doc-self">gExitList_MinishPaths_MayorsCabin</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35cc0e27bd8bdc0612ee7b1155d2a220">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a35cc0e27bd8bdc0612ee7b1155d2a220" class="m-doc-self">gExitLists_MinishPaths</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab80c08afd5125085f4f0df3ebe104de3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab80c08afd5125085f4f0df3ebe104de3" class="m-doc-self">gExitList_CrenelMinishPaths_CrenelBean</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2834f119dd94cb785e7f6ff55dcde2bc">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2834f119dd94cb785e7f6ff55dcde2bc" class="m-doc-self">gExitList_CrenelMinishPaths_CrenelWater</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9104e9811e47132ce5fec6bed942934c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9104e9811e47132ce5fec6bed942934c" class="m-doc-self">gExitList_CrenelMinishPaths_Rainfall</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82d9d84f2ee9b3cd09cd4f5703f1032b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a82d9d84f2ee9b3cd09cd4f5703f1032b" class="m-doc-self">gExitList_CrenelMinishPaths_MelarisMine</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a319a95af906d4f6a085fdb5681b1504b">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a319a95af906d4f6a085fdb5681b1504b" class="m-doc-self">gExitLists_CrenelMinishPaths</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab59e285086bd62bb32c5bfd80cdedcaf">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab59e285086bd62bb32c5bfd80cdedcaf" class="m-doc-self">gExitList_DigCaves1_TrilbyHighlands</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ccd94b0058fd4c8c42f35ee01a9149a">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a2ccd94b0058fd4c8c42f35ee01a9149a" class="m-doc-self">gExitLists_DigCaves1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aadec9fddb3701743dd4c9e47ea219aea">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aadec9fddb3701743dd4c9e47ea219aea" class="m-doc-self">gExitList_MinishHouseInteriors_GentariMain</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d48eedf269f3a6de4e60b02318720a3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1d48eedf269f3a6de4e60b02318720a3" class="m-doc-self">gExitList_MinishHouseInteriors_GentariExit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0bfff70f74222a7e9af06fdf20952b6d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0bfff70f74222a7e9af06fdf20952b6d" class="m-doc-self">gExitList_MinishHouseInteriors_Festari</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a989c38ff5e652783e4c1ad3c477c58f7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a989c38ff5e652783e4c1ad3c477c58f7" class="m-doc-self">gExitList_MinishHouseInteriors_Red</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2727c103d20399de2d905d9ddd26707b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2727c103d20399de2d905d9ddd26707b" class="m-doc-self">gExitList_MinishHouseInteriors_Green</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12bc23abd4085e8875f8faad153349a2">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a12bc23abd4085e8875f8faad153349a2" class="m-doc-self">gExitList_MinishHouseInteriors_Blue</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae017ea0c6b7e18dd34ed51b4be87ee3c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae017ea0c6b7e18dd34ed51b4be87ee3c" class="m-doc-self">gExitList_MinishHouseInteriors_SideArea</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea83576c0b21381ea1afeb55373ab7ed">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aea83576c0b21381ea1afeb55373ab7ed" class="m-doc-self">gExitList_MinishHouseInteriors_ShoeMinish</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8d45744aa16ce876b373a6dbbb03e32">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa8d45744aa16ce876b373a6dbbb03e32" class="m-doc-self">gExitList_MinishHouseInteriors_PotMinish</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af6d0691a44b0755a9b2f02661a7e89dd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af6d0691a44b0755a9b2f02661a7e89dd" class="m-doc-self">gExitList_MinishHouseInteriors_BarrelMinish</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05b55bfc00c44e64f037352054cb0e57">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a05b55bfc00c44e64f037352054cb0e57" class="m-doc-self">gExitList_MinishHouseInteriors_NULL1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8421398e1eac6e89827fdffe77fb5326">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a8421398e1eac6e89827fdffe77fb5326" class="m-doc-self">gExitList_MinishHouseInteriors_NULL2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05c02b0d632e11feff8b40e639fe2922">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a05c02b0d632e11feff8b40e639fe2922" class="m-doc-self">gExitList_MinishHouseInteriors_MelariMinesSouthwest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62c1dbf037c794e4fcf0c2fc6048474b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a62c1dbf037c794e4fcf0c2fc6048474b" class="m-doc-self">gExitList_MinishHouseInteriors_MelariMinesSoutheast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc7494b6b1ce024fa88a472335ed6da5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#adc7494b6b1ce024fa88a472335ed6da5" class="m-doc-self">gExitList_MinishHouseInteriors_MelariMinesEast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ce2fab2b33350b3c36e6d7ee71e74a6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3ce2fab2b33350b3c36e6d7ee71e74a6" class="m-doc-self">gExitList_MinishHouseInteriors_HyruleFieldSouthwest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac880587f78b4cdc99c298677e7e8dd6d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac880587f78b4cdc99c298677e7e8dd6d" class="m-doc-self">gExitList_MinishHouseInteriors_SouthHyruleField</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2375f31066fb35ad8542e869d88e4e90">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2375f31066fb35ad8542e869d88e4e90" class="m-doc-self">gExitList_MinishHouseInteriors_NextToKnuckle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1d335d6c9b22b4e50b12958c6ebd1c3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac1d335d6c9b22b4e50b12958c6ebd1c3" class="m-doc-self">gExitList_MinishHouseInteriors_Librari</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7adce35d6f90b9b3a585485fb90302a2">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7adce35d6f90b9b3a585485fb90302a2" class="m-doc-self">gExitList_MinishHouseInteriors_HyruleFieldExit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0741f6f1b1634a4b83153955903688b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac0741f6f1b1634a4b83153955903688b" class="m-doc-self">gExitList_MinishHouseInteriors_HyruleTown</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a23eb085d9ca83d6ccee3a9488e16d7a4">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a23eb085d9ca83d6ccee3a9488e16d7a4" class="m-doc-self">gExitList_MinishHouseInteriors_MinishWoodsBomb</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a15e3b17f063015ab0255ec198bb0dd09">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a15e3b17f063015ab0255ec198bb0dd09" class="m-doc-self">gExitList_MinishHouseInteriors_LakeHyliaOcarina</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae63748d24d4125d476b3cc343ec68fee">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ae63748d24d4125d476b3cc343ec68fee" class="m-doc-self">gExitLists_MinishHouseInteriors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a923c1d71ee9f60c887abe249d336768b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a923c1d71ee9f60c887abe249d336768b" class="m-doc-self">gExitList_OuterFortressOfWinds_EntranceHall</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a550da08dded7f0d8fd7e39e197794d30">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a550da08dded7f0d8fd7e39e197794d30" class="m-doc-self">gExitList_OuterFortressOfWinds_2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae66f65cd2713c7439eab8ae4659086f6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae66f65cd2713c7439eab8ae4659086f6" class="m-doc-self">gExitList_OuterFortressOfWinds_3F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e835b6ab76861825e49bf3dcd1d92ff">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1e835b6ab76861825e49bf3dcd1d92ff" class="m-doc-self">gExitList_OuterFortressOfWinds_MoleMitts</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adada1d49ad8ddec4d9d4c2c6bbc9b1c5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#adada1d49ad8ddec4d9d4c2c6bbc9b1c5" class="m-doc-self">gExitList_OuterFortressOfWinds_SmallKey</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae75da89ef64dba8f27a24965a32658cf">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ae75da89ef64dba8f27a24965a32658cf" class="m-doc-self">gExitLists_OuterFortressOfWinds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd6189b5833f5c908199f6406bcde684">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acd6189b5833f5c908199f6406bcde684" class="m-doc-self">gExitList_HyliaDigCaves_North</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2726e25cad9d9e43c6df9792307b6774">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a2726e25cad9d9e43c6df9792307b6774" class="m-doc-self">gExitLists_HyliaDigCaves</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22fa4de7e1d6f2cf617a3cf196dd1f37">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a22fa4de7e1d6f2cf617a3cf196dd1f37" class="m-doc-self">gExitList_VeilFallsTop_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a48010bfc124e8b922d95bf08c232f3b4">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a48010bfc124e8b922d95bf08c232f3b4" class="m-doc-self">gExitLists_VeilFallsTop</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5a856ef8fa9671e313f2da00b009ef1c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5a856ef8fa9671e313f2da00b009ef1c" class="m-doc-self">gExitList_HouseInteriors2_Stranger</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a81d4933a2b83919ddc7b05be7a92a08d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a81d4933a2b83919ddc7b05be7a92a08d" class="m-doc-self">gExitList_HouseInteriors2_WestOracle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a859084a834855a85a9a908a607726d86">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a859084a834855a85a9a908a607726d86" class="m-doc-self">gExitList_HouseInteriors2_2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a74a4fefcf33e497a601c000dfabe1be8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a74a4fefcf33e497a601c000dfabe1be8" class="m-doc-self">gExitList_HouseInteriors2_3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a06d36202bb4128fb333ca57de47e015c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a06d36202bb4128fb333ca57de47e015c" class="m-doc-self">gExitList_HouseInteriors2_DrLeft</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a16b47713589758baac9912b2570adfc6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a16b47713589758baac9912b2570adfc6" class="m-doc-self">gExitList_HouseInteriors2_NULL1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a045f704f68fc6ce90b0e4cf4d4e7a286">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a045f704f68fc6ce90b0e4cf4d4e7a286" class="m-doc-self">gExitList_HouseInteriors2_Romio</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a399ab5ed78a5ee3bf72ac9689ba83fd2">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a399ab5ed78a5ee3bf72ac9689ba83fd2" class="m-doc-self">gExitList_HouseInteriors2_Julietta</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1883eddbdc288d120f85d7317124bc60">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1883eddbdc288d120f85d7317124bc60" class="m-doc-self">gExitList_HouseInteriors2_Percy</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a40b2524988c102be64802198aae71071">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a40b2524988c102be64802198aae71071" class="m-doc-self">gExitList_HouseInteriors2_EastOracle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa3fd2575a1fb010161477cc83a3da985">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa3fd2575a1fb010161477cc83a3da985" class="m-doc-self">gExitList_HouseInteriors2_A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64268136c543e5c0b57690ef326ced3a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a64268136c543e5c0b57690ef326ced3a" class="m-doc-self">gExitList_HouseInteriors2_B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2a9295ab90820f126a12cef9d674210f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2a9295ab90820f126a12cef9d674210f" class="m-doc-self">gExitList_HouseInteriors2_Cucco</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae583c2d736cabaf51075021cc4dd1e3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aae583c2d736cabaf51075021cc4dd1e3" class="m-doc-self">gExitList_HouseInteriors2_LinksHouseEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a08cb19b9dfa8d546bb2fbe9e029574d9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a08cb19b9dfa8d546bb2fbe9e029574d9" class="m-doc-self">gExitList_HouseInteriors2_Dampe</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acfc2998cb0c0d317987e709ca2b30880">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acfc2998cb0c0d317987e709ca2b30880" class="m-doc-self">gExitList_HouseInteriors2_NULL2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa783605f64027d5a1f0a5311e5df95d3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa783605f64027d5a1f0a5311e5df95d3" class="m-doc-self">gExitList_HouseInteriors2_StockwellLakeHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad8c15e0abcf276679acf1c1bfa44355d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad8c15e0abcf276679acf1c1bfa44355d" class="m-doc-self">gExitList_HouseInteriors2_LinksHouseBedroom</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6927c760bb1beab7db9f5b7769ccca7a">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a6927c760bb1beab7db9f5b7769ccca7a" class="m-doc-self">gExitLists_HouseInteriors2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="affd40961cbdbadcf39494ab6c1ba3b19">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#affd40961cbdbadcf39494ab6c1ba3b19" class="m-doc-self">gExitList_HouseInteriors4_Carpenter</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a88d52845e1d31161bab6adbb54100acd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a88d52845e1d31161bab6adbb54100acd" class="m-doc-self">gExitList_HouseInteriors4_Swiftblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad72fe9bc397b45a308bfa009c106b8c6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad72fe9bc397b45a308bfa009c106b8c6" class="m-doc-self">gExitList_HouseInteriors4_RanchHouseWest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a281b8b5e3dc31168b15a96a3298119de">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a281b8b5e3dc31168b15a96a3298119de" class="m-doc-self">gExitList_HouseInteriors4_RanchHouseEast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0387e8059bae91986c884f6d7abe1025">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0387e8059bae91986c884f6d7abe1025" class="m-doc-self">gExitList_HouseInteriors4_FarmHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af97ba88762bb80c900d0a127f614025b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af97ba88762bb80c900d0a127f614025b" class="m-doc-self">gExitList_HouseInteriors4_MayorLakeCabin</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6683a2942121f811b10bded0e4fb0d1a">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a6683a2942121f811b10bded0e4fb0d1a" class="m-doc-self">gExitLists_HouseInteriors4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aedd0cceb434d8c8966706cd2af4bdabe">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aedd0cceb434d8c8966706cd2af4bdabe" class="m-doc-self">gExitList_GreatFairies_Graveyard</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3b4a869836093762c86eea7241ddf1a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad3b4a869836093762c86eea7241ddf1a" class="m-doc-self">gExitList_GreatFairies_MinishWoods</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad959dbddf81f7776f9ec86ea34852cd8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad959dbddf81f7776f9ec86ea34852cd8" class="m-doc-self">gExitList_GreatFairies_MtCrenel</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa607efcae16813fb027e4c701972f9c6">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#aa607efcae16813fb027e4c701972f9c6" class="m-doc-self">gExitLists_GreatFairies</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af0a398d345e26898d4b5dbf1ee3fa956">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af0a398d345e26898d4b5dbf1ee3fa956" class="m-doc-self">gExitList_HouseInteriors3_StockwellShop</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0215fa705861fb580a6cee146bcde88">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac0215fa705861fb580a6cee146bcde88" class="m-doc-self">gExitList_HouseInteriors3_Cafe</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a78f39fc371835e0d546aae83f2fe7c75">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a78f39fc371835e0d546aae83f2fe7c75" class="m-doc-self">gExitList_HouseInteriors3_RemShoeShop</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a450024f03137317dc035851737bdd4bc">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a450024f03137317dc035851737bdd4bc" class="m-doc-self">gExitList_HouseInteriors3_Bakery</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a478d452238007595646f34c8ea677842">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a478d452238007595646f34c8ea677842" class="m-doc-self">gExitList_HouseInteriors3_Simon</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab83649708dd04edc2cce1eb587359c29">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab83649708dd04edc2cce1eb587359c29" class="m-doc-self">gExitList_HouseInteriors3_FigurineHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6cf8f8b1471e74ecbcfcad1d7a5808c3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a6cf8f8b1471e74ecbcfcad1d7a5808c3" class="m-doc-self">gExitList_HouseInteriors3_BorlovEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62442eefb69c4604fadf6fd97c19edb1">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a62442eefb69c4604fadf6fd97c19edb1" class="m-doc-self">gExitList_HouseInteriors3_Carlov</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7454a75c25523f4894ee90330cd09bb0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7454a75c25523f4894ee90330cd09bb0" class="m-doc-self">gExitList_HouseInteriors3_Borlov</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87dc9a618d167566fe921b73470669c0">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a87dc9a618d167566fe921b73470669c0" class="m-doc-self">gExitLists_HouseInteriors3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4384cea663846920595191ee7224674">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab4384cea663846920595191ee7224674" class="m-doc-self">gExitList_HouseInteriors1_Mayor</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acaf91a5089ac0770bc5ba022787bb01b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acaf91a5089ac0770bc5ba022787bb01b" class="m-doc-self">gExitList_HouseInteriors1_PostOffice</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af71bc69b645722b3d3d33bd864177d17">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af71bc69b645722b3d3d33bd864177d17" class="m-doc-self">gExitList_HouseInteriors1_Library2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a71b8db3f6c5b506c1642f9869f776dfd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a71b8db3f6c5b506c1642f9869f776dfd" class="m-doc-self">gExitList_HouseInteriors1_Library1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab50a83b979a70de0be48518a1442c8aa">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab50a83b979a70de0be48518a1442c8aa" class="m-doc-self">gExitList_HouseInteriors1_Inn1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a518503061fbd8b67197afda95ab23f79">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a518503061fbd8b67197afda95ab23f79" class="m-doc-self">gExitList_HouseInteriors1_InnWestRoom</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d9cce1cd1b88b57cd11d358230ebbbd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1d9cce1cd1b88b57cd11d358230ebbbd" class="m-doc-self">gExitList_HouseInteriors1_InnMiddleRoom</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee1d10f69fe567cbe36c927c54b84ffe">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aee1d10f69fe567cbe36c927c54b84ffe" class="m-doc-self">gExitList_HouseInteriors1_InnEastRoom</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="accc4064849c1322c79fe59e756039b88">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#accc4064849c1322c79fe59e756039b88" class="m-doc-self">gExitList_HouseInteriors1_InnWest2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4dcb443c9a684af0208b42826373cc5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac4dcb443c9a684af0208b42826373cc5" class="m-doc-self">gExitList_HouseInteriors1_InnEast2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35797051d68712878be6e3d83fe1081a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a35797051d68712878be6e3d83fe1081a" class="m-doc-self">gExitList_HouseInteriors1_SchoolWest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1a0bd784e949c6fd6f122779bfbcda7c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1a0bd784e949c6fd6f122779bfbcda7c" class="m-doc-self">gExitList_HouseInteriors1_SchoolEast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab8b9158bfb6bb39262d428de1b0a8de6">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ab8b9158bfb6bb39262d428de1b0a8de6" class="m-doc-self">gExitLists_HouseInteriors1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a546aabbc78186553da707a4cd3bc540b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a546aabbc78186553da707a4cd3bc540b" class="m-doc-self">gExitList_TreeInteriors_WitchHut</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa4f3b97b9661eb303b952cb514f1c9e5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa4f3b97b9661eb303b952cb514f1c9e5" class="m-doc-self">gExitList_TreeInteriors_StairsToCarlov</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5dcc96ce2c2712f553123e352c21594e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5dcc96ce2c2712f553123e352c21594e" class="m-doc-self">gExitList_TreeInteriors_PercysTreehouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a732f58fe8a50f7490674eed64fa834ab">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a732f58fe8a50f7490674eed64fa834ab" class="m-doc-self">gExitList_TreeInteriors_HeartPiece</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a060ccc77068c2fcf982c9b0e8847d1e3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a060ccc77068c2fcf982c9b0e8847d1e3" class="m-doc-self">gExitList_TreeInteriors_Waveblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3663e44c62bcbe73c1d540b0a7a25e10">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3663e44c62bcbe73c1d540b0a7a25e10" class="m-doc-self">gExitList_TreeInteriors_14</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad5b274c09f5f01e48b90e4a59451d83f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad5b274c09f5f01e48b90e4a59451d83f" class="m-doc-self">gExitList_TreeInteriors_BoomerangNorthwest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e93335b7a9205885935f248ca449d24">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7e93335b7a9205885935f248ca449d24" class="m-doc-self">gExitList_TreeInteriors_BoomerangNortheast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af6442c658f1f9724b8c0b564c1d07769">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af6442c658f1f9724b8c0b564c1d07769" class="m-doc-self">gExitList_TreeInteriors_BoomerangSouthwest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c3150089f2f1a1c0259f6298386b94a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1c3150089f2f1a1c0259f6298386b94a" class="m-doc-self">gExitList_TreeInteriors_BoomerangSoutheast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7a9a7dbf0f8cd3c0091bd77a8aa525c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac7a9a7dbf0f8cd3c0091bd77a8aa525c" class="m-doc-self">gExitList_TreeInteriors_WesternWoodsHeartPiece</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad47bef235317a402ae715b3dd95fa9c9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad47bef235317a402ae715b3dd95fa9c9" class="m-doc-self">gExitList_TreeInteriors_NorthHyruleFieldFairyFountain</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5015f10a2311dfd4a084444e8a187b44">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5015f10a2311dfd4a084444e8a187b44" class="m-doc-self">gExitList_TreeInteriors_MinishWoodsGreatFairy</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00e568445fd552afe3c25012e435d251">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a00e568445fd552afe3c25012e435d251" class="m-doc-self">gExitList_TreeInteriors_1C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5623f3d8043edca50b46de6fa56c4abd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5623f3d8043edca50b46de6fa56c4abd" class="m-doc-self">gExitList_TreeInteriors_MinishWoodsBusinessScrub</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7f426b4187ec7cee0774467baee2f449">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7f426b4187ec7cee0774467baee2f449" class="m-doc-self">gExitList_TreeInteriors_1E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a23d0cb95b416d353e89b109997339253">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a23d0cb95b416d353e89b109997339253" class="m-doc-self">gExitList_TreeInteriors_UnusedHeartContainer</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae9a06bd6e99b70c95fe9a71d786c7561">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ae9a06bd6e99b70c95fe9a71d786c7561" class="m-doc-self">gExitLists_TreeInteriors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac20f04f05158a235dc0d772f180ce4cd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac20f04f05158a235dc0d772f180ce4cd" class="m-doc-self">gExitList_Dojos_Grayblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abb53b78e08281d1fa6498667446ab994">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#abb53b78e08281d1fa6498667446ab994" class="m-doc-self">gExitList_Dojos_Swiftblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0b69fb240da58850de20cb30985b2b69">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0b69fb240da58850de20cb30985b2b69" class="m-doc-self">gExitList_Dojos_Waveblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad26960d813f8e157196e93942d5bc06d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad26960d813f8e157196e93942d5bc06d" class="m-doc-self">gExitList_Dojos_ToGrimblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9790dd6cc50d2f3817bd4c9b561dc7ea">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9790dd6cc50d2f3817bd4c9b561dc7ea" class="m-doc-self">gExitList_Dojos_ToSplitblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa603bac27bb72660c70028dc7209ecf">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#afa603bac27bb72660c70028dc7209ecf" class="m-doc-self">gExitList_Dojos_ToGreatblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafb7e3f1176229e600e5c9ee7b91627c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aafb7e3f1176229e600e5c9ee7b91627c" class="m-doc-self">gExitList_Dojos_ToScarblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a630816693dffe1530535068cf6fee396">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a630816693dffe1530535068cf6fee396" class="m-doc-self">gExitLists_Dojos</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afdd40eed029879328a1894aa968eefa4">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#afdd40eed029879328a1894aa968eefa4" class="m-doc-self">gExitList_MinishCracks_LonLonRanchNorth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12bf3d2c656085207b4fcf2268aa01ff">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a12bf3d2c656085207b4fcf2268aa01ff" class="m-doc-self">gExitList_MinishCracks_LakeHyliaEast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac70a622654b0cdccf06ddc8bc857e091">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac70a622654b0cdccf06ddc8bc857e091" class="m-doc-self">gExitList_MinishCracks_HyruleCastleGarden</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad665d8d8aebb73a00c1c673ca6b27be7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad665d8d8aebb73a00c1c673ca6b27be7" class="m-doc-self">gExitList_MinishCracks_MtCrenel</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a768bba0a062571761e073bc142294b8b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a768bba0a062571761e073bc142294b8b" class="m-doc-self">gExitList_MinishCracks_EastHyruleCastle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad04c717f169843565627086da965ab34">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad04c717f169843565627086da965ab34" class="m-doc-self">gExitList_MinishCracks_5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a95b54a2dd5604e4c151dc64bebdc3fed">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a95b54a2dd5604e4c151dc64bebdc3fed" class="m-doc-self">gExitList_MinishCracks_CastorWildsBow</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abfbac4be8cd70bf9d72d386a4a1077bf">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#abfbac4be8cd70bf9d72d386a4a1077bf" class="m-doc-self">gExitList_MinishCracks_RuinsEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2906fa88686877f1334b305bc2edcff">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad2906fa88686877f1334b305bc2edcff" class="m-doc-self">gExitList_MinishCracks_MinishWoodsSouth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a80d5eeeaac89a4fe9986f572265a30fa">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a80d5eeeaac89a4fe9986f572265a30fa" class="m-doc-self">gExitList_MinishCracks_CastorWildsNorth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c9911fd8dbf9286aefe05bebc0205b0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1c9911fd8dbf9286aefe05bebc0205b0" class="m-doc-self">gExitList_MinishCracks_CastorWildsWest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae481deeee958f8708269c87e7bfb5e6c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae481deeee958f8708269c87e7bfb5e6c" class="m-doc-self">gExitList_MinishCracks_CastorWildsMiddle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36eb72805372f9449dcd4c3139a1685b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a36eb72805372f9449dcd4c3139a1685b" class="m-doc-self">gExitList_MinishCracks_RuinsTektite</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2e526a6d359d96a45888d36f8f40c70">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae2e526a6d359d96a45888d36f8f40c70" class="m-doc-self">gExitList_MinishCracks_CastorWildsNextToBow</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae4826a436ae00bfa3446e2b765d00d94">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae4826a436ae00bfa3446e2b765d00d94" class="m-doc-self">gExitList_MinishCracks_11</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01549fdc77fae5a8de5ab54e1f58bd36">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a01549fdc77fae5a8de5ab54e1f58bd36" class="m-doc-self">gExitLists_MinishCracks</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4bf2f5bd50b9ae02c416ebda22eec020">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4bf2f5bd50b9ae02c416ebda22eec020" class="m-doc-self">gExitList_CrenelCaves_BlockPushing</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af7edef5f4160fd221db1bd050d13605f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af7edef5f4160fd221db1bd050d13605f" class="m-doc-self">gExitList_CrenelCaves_PillarCave</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad72475679d931e020c0df0660a38c84b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad72475679d931e020c0df0660a38c84b" class="m-doc-self">gExitList_CrenelCaves_BridgeSwitch</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c9246d91c9a4bb3b35c97d6de0987d9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a8c9246d91c9a4bb3b35c97d6de0987d9" class="m-doc-self">gExitList_CrenelCaves_ExitToMines</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a990837d00197c4af1b6770fd0674bc6f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a990837d00197c4af1b6770fd0674bc6f" class="m-doc-self">gExitList_CrenelCaves_GripRing</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5bf00247abd79036ebb8e02fc3b77bec">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5bf00247abd79036ebb8e02fc3b77bec" class="m-doc-self">gExitList_CrenelCaves_FairyFountain</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5e8a5883a5714e9249b3310333e9a71d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5e8a5883a5714e9249b3310333e9a71d" class="m-doc-self">gExitList_CrenelCaves_SpinyChuPuzzle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada88e153d9e20c6479d125a491f2e201">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ada88e153d9e20c6479d125a491f2e201" class="m-doc-self">gExitList_CrenelCaves_ChuchuPotChest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d481f6a661bc3f32878992473ad6bd5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7d481f6a661bc3f32878992473ad6bd5" class="m-doc-self">gExitList_CrenelCaves_WaterHeartPiece</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7550eba2a142117aa12fc53e96460114">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7550eba2a142117aa12fc53e96460114" class="m-doc-self">gExitList_CrenelCaves_RupeeFairyFountain</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ff0867c06911d554450f974cfc3e6ba">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1ff0867c06911d554450f974cfc3e6ba" class="m-doc-self">gExitList_CrenelCaves_HelmasaurHallway</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a661a9c9cac808866de750161be1b79d3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a661a9c9cac808866de750161be1b79d3" class="m-doc-self">gExitList_CrenelCaves_MushroomKeese</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4978e75c8b6f1018a656e560b1e8dbaf">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4978e75c8b6f1018a656e560b1e8dbaf" class="m-doc-self">gExitList_CrenelCaves_LadderToSpringWater</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e6b4a488092c4e6eab0aa47d3297810">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2e6b4a488092c4e6eab0aa47d3297810" class="m-doc-self">gExitList_CrenelCaves_BombBusinessScrub</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a03cf53746b8cdb0e7bd78db398e81b20">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a03cf53746b8cdb0e7bd78db398e81b20" class="m-doc-self">gExitList_CrenelCaves_Hermit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9173c2b8ca7b343adb13a3d95b3d2f1c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9173c2b8ca7b343adb13a3d95b3d2f1c" class="m-doc-self">gExitList_CrenelCaves_HintScrub</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a115e26d2c6339d7acb6670aa8be5bfce">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a115e26d2c6339d7acb6670aa8be5bfce" class="m-doc-self">gExitList_CrenelCaves_ToGrayblade</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af93ab075a105b8355b801034fe836257">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#af93ab075a105b8355b801034fe836257" class="m-doc-self">gExitLists_CrenelCaves</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3bf3cac1fb468fc87beff21311aa399a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3bf3cac1fb468fc87beff21311aa399a" class="m-doc-self">gExitList_CastorCaves_South</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afc40bedbf611a9e5069853e3040517d4">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#afc40bedbf611a9e5069853e3040517d4" class="m-doc-self">gExitList_CastorCaves_North</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a558a9dbed08c9462b2edae8af0eb3a4f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a558a9dbed08c9462b2edae8af0eb3a4f" class="m-doc-self">gExitList_CastorCaves_WindRuins</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad41b9fae26a17821b4bfe86be641f450">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad41b9fae26a17821b4bfe86be641f450" class="m-doc-self">gExitList_CastorCaves_Darknut</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a43a18d5c2145b05953811de7dbe06e02">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a43a18d5c2145b05953811de7dbe06e02" class="m-doc-self">gExitList_CastorCaves_HeartPiece</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2bb844d2ef6058e047759e4087c20f43">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a2bb844d2ef6058e047759e4087c20f43" class="m-doc-self">gExitLists_CastorCaves</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a271a1ad9f6e1900956f10dcdc455551a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a271a1ad9f6e1900956f10dcdc455551a" class="m-doc-self">gExitList_CastorDarknut_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3a2ba96fadb178ff8c3355dfe6b82e9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af3a2ba96fadb178ff8c3355dfe6b82e9" class="m-doc-self">gExitList_CastorDarknut_Hall</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22858e6aac096d16fa37a107226735e2">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a22858e6aac096d16fa37a107226735e2" class="m-doc-self">gExitLists_CastorDarknut</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a44f52a5ec853cc9feaee66fec613d818">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a44f52a5ec853cc9feaee66fec613d818" class="m-doc-self">gExitList_ArmosInteriors_RuinsEntranceNorth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d94a35ad40fe4922e908c7307f3bd5e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0d94a35ad40fe4922e908c7307f3bd5e" class="m-doc-self">gExitList_ArmosInteriors_RuinsEntranceSouth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae50140d8cba40ce13aa9ccf48ed8ba97">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae50140d8cba40ce13aa9ccf48ed8ba97" class="m-doc-self">gExitList_ArmosInteriors_RuinsLeft</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0a269b3a000216fd453cc0434ebd5d9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac0a269b3a000216fd453cc0434ebd5d9" class="m-doc-self">gExitList_ArmosInteriors_RuinsMiddleLeft</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a54ed99d3cdc9bf5297b6f488b0a6bbb1">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a54ed99d3cdc9bf5297b6f488b0a6bbb1" class="m-doc-self">gExitList_ArmosInteriors_RuinsMiddleRight</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d887fa8688ee2bda97045a296f0f11f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5d887fa8688ee2bda97045a296f0f11f" class="m-doc-self">gExitList_ArmosInteriors_RuinsRight</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abbc1bdd1cc158e7bf6f3dc3584a1e457">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#abbc1bdd1cc158e7bf6f3dc3584a1e457" class="m-doc-self">gExitList_ArmosInteriors_6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e3d6be304dad2de7deca4ee73bff2fd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4e3d6be304dad2de7deca4ee73bff2fd" class="m-doc-self">gExitList_ArmosInteriors_RuinsGrassPath</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a432b9d60edc7c3eb341936e37a926be3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a432b9d60edc7c3eb341936e37a926be3" class="m-doc-self">gExitList_ArmosInteriors_8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd35409ace6d3e8583f75d602de8194a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acd35409ace6d3e8583f75d602de8194a" class="m-doc-self">gExitList_ArmosInteriors_FortressOfWindsLeft</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5670d0d6bc3fca69b4eab0c3708e692c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5670d0d6bc3fca69b4eab0c3708e692c" class="m-doc-self">gExitList_ArmosInteriors_FortressOfWindsRight</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d2b58b60d0fae54fb4ce2792622c1f5">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a4d2b58b60d0fae54fb4ce2792622c1f5" class="m-doc-self">gExitLists_ArmosInteriors</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aefe5f88ee1ec21cd0b145caa742d510c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aefe5f88ee1ec21cd0b145caa742d510c" class="m-doc-self">gExitList_TownMinishHoles_MayorsHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac64fa8a5a72afc4c09a916bfe2fd93eb">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac64fa8a5a72afc4c09a916bfe2fd93eb" class="m-doc-self">gExitList_TownMinishHoles_WestOracle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab55b85a6da2314e1f2a08db907499c21">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab55b85a6da2314e1f2a08db907499c21" class="m-doc-self">gExitList_TownMinishHoles_DrLeft</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a98eb22ad52ca20d6432248e9dbbc4f5a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a98eb22ad52ca20d6432248e9dbbc4f5a" class="m-doc-self">gExitList_TownMinishHoles_Carpenter</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afd78ffabda8fc73fead80303ae1c594a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#afd78ffabda8fc73fead80303ae1c594a" class="m-doc-self">gExitList_TownMinishHoles_Cafe</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a678174a42a37f979a287b91ce1958d88">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a678174a42a37f979a287b91ce1958d88" class="m-doc-self">gExitList_TownMinishHoles_LibraryBookshelf</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7b4329a9c780ac7013e2d6911c77ea1">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab7b4329a9c780ac7013e2d6911c77ea1" class="m-doc-self">gExitList_TownMinishHoles_LibrariBookHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7b1e48236e355df492d7497f78fbd729">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7b1e48236e355df492d7497f78fbd729" class="m-doc-self">gExitList_TownMinishHoles_RemShoeShop</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d264d675ae81de5c3d38ae6e72fc885">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a9d264d675ae81de5c3d38ae6e72fc885" class="m-doc-self">gExitLists_TownMinishHoles</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0d21a8bc6c6ac533ed5c53394a14ad5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac0d21a8bc6c6ac533ed5c53394a14ad5" class="m-doc-self">gExitList_MinishRafters_Cafe</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a06bf6067a61971a0465e7dbad3b8b0aa">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a06bf6067a61971a0465e7dbad3b8b0aa" class="m-doc-self">gExitList_MinishRafters_Stockwell</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13ddae39ce2672ddce97798857e60880">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a13ddae39ce2672ddce97798857e60880" class="m-doc-self">gExitList_MinishRafters_DrLeft</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a313b342301c1ea52c1fbbeab8a77452e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a313b342301c1ea52c1fbbeab8a77452e" class="m-doc-self">gExitList_MinishRafters_Bakery</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6bcabf10693f018872b2d081b12410c1">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a6bcabf10693f018872b2d081b12410c1" class="m-doc-self">gExitLists_MinishRafters</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00ea8ac51e2bd9b589c514b3f4769205">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a00ea8ac51e2bd9b589c514b3f4769205" class="m-doc-self">gExitList_GoronCave_Stairs</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af751a0733ec06d7050191f94373761b9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af751a0733ec06d7050191f94373761b9" class="m-doc-self">gExitList_GoronCave_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7056c89facb3fc5939cd4b9e315efa61">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a7056c89facb3fc5939cd4b9e315efa61" class="m-doc-self">gExitLists_GoronCave</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29e5e145ae98d6e06f5a699668d58d57">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a29e5e145ae98d6e06f5a699668d58d57" class="m-doc-self">gExitList_WindTribeTower_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a88365c310a213f51fc91e99c2bb20fde">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a88365c310a213f51fc91e99c2bb20fde" class="m-doc-self">gExitList_WindTribeTower_Floor2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3072fa87046ed295e5ce936b931a4cc4">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3072fa87046ed295e5ce936b931a4cc4" class="m-doc-self">gExitList_WindTribeTower_Floor3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a514f8dfdfed1e18005ca21bd020b0fc7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a514f8dfdfed1e18005ca21bd020b0fc7" class="m-doc-self">gExitList_WindTribeTower_Floor4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a557077b503b5ded0bc7194da048dbf35">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a557077b503b5ded0bc7194da048dbf35" class="m-doc-self">gExitLists_WindTribeTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9317a6d61819b9f5e8b79bc01cdd208c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9317a6d61819b9f5e8b79bc01cdd208c" class="m-doc-self">gExitList_WindTribeTowerRoof_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7abbb424e765cfebb8f4f493976a6cac">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a7abbb424e765cfebb8f4f493976a6cac" class="m-doc-self">gExitLists_WindTribeTowerRoof</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af641ad6d1ec0bd7825b2978434f46fed">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af641ad6d1ec0bd7825b2978434f46fed" class="m-doc-self">gExitList_Caves_Boomerang</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57df96c05cdac82274feafb02733c47f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a57df96c05cdac82274feafb02733c47f" class="m-doc-self">gExitList_Caves_ToGraveyard</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05478f2b063c419ceb6185e1e9a1d5eb">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a05478f2b063c419ceb6185e1e9a1d5eb" class="m-doc-self">gExitList_Caves_2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c57f5689f4febfe4f3f51f5cb246212">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3c57f5689f4febfe4f3f51f5cb246212" class="m-doc-self">gExitList_Caves_3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa5216a5d6b1014114d5176835ddd690">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aaa5216a5d6b1014114d5176835ddd690" class="m-doc-self">gExitList_Caves_4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00a7ba9bc94f13defd98b4a46aa80fc7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a00a7ba9bc94f13defd98b4a46aa80fc7" class="m-doc-self">gExitList_Caves_5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a100b99eb249660bf64e9f643e8dd6b3d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a100b99eb249660bf64e9f643e8dd6b3d" class="m-doc-self">gExitList_Caves_TrilbyKeeseChest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9447c1de5bb232928d85684ec2f98917">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9447c1de5bb232928d85684ec2f98917" class="m-doc-self">gExitList_Caves_TrilbyFairyFountain</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae61c5f7b7b3bf4fd5006407f4772ba46">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae61c5f7b7b3bf4fd5006407f4772ba46" class="m-doc-self">gExitList_Caves_SouthHyruleFieldFairyFountain</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af5f7a1c2e9fb8c2c8de958c0d5ab5795">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af5f7a1c2e9fb8c2c8de958c0d5ab5795" class="m-doc-self">gExitList_Caves_A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4543b9cc0e123d5fdc958a14093ae411">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4543b9cc0e123d5fdc958a14093ae411" class="m-doc-self">gExitList_Caves_HyruleTownWaterfall</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1bf06959de53d94570f1bf63020bce8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab1bf06959de53d94570f1bf63020bce8" class="m-doc-self">gExitList_Caves_LonLonRanch</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6575f887cb74b74a7f23bb86dc8f4342">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a6575f887cb74b74a7f23bb86dc8f4342" class="m-doc-self">gExitList_Caves_TrilbyHighlands</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59623d2c3a63e2cbea1481d875daae8e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a59623d2c3a63e2cbea1481d875daae8e" class="m-doc-self">gExitList_Caves_LonLonRanchWallet</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a938bff681cae21d39941da93cfa0a9a6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a938bff681cae21d39941da93cfa0a9a6" class="m-doc-self">gExitList_Caves_SouthHyruleFieldRupee</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba167a9f887f601a2c32de3fb779ae0e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aba167a9f887f601a2c32de3fb779ae0e" class="m-doc-self">gExitList_Caves_TrilbyRupee</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67a99c900f8382eb1aeaf7192910dba2">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a67a99c900f8382eb1aeaf7192910dba2" class="m-doc-self">gExitList_Caves_TrilbyMittsFairyFountain</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32a5f5c3140d0ffe047497ad8ec1116f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a32a5f5c3140d0ffe047497ad8ec1116f" class="m-doc-self">gExitList_Caves_HillsKeeseChest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3729d5464c349c921c1f1c353465258">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab3729d5464c349c921c1f1c353465258" class="m-doc-self">gExitList_Caves_BottleBusinessScrub</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34506d8dce2b757c405f2cdf8c4d316e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a34506d8dce2b757c405f2cdf8c4d316e" class="m-doc-self">gExitList_Caves_HeartPieceHallway</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0db2faac344c6cb138b78b2478efd9b9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0db2faac344c6cb138b78b2478efd9b9" class="m-doc-self">gExitList_Caves_NorthHyruleFieldFairyFountain</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a72b0e7924666f984493149d5acd9e2df">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a72b0e7924666f984493149d5acd9e2df" class="m-doc-self">gExitList_Caves_KinstoneBusinessScrub</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2271d83813ceef1caa235c1991b20117">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a2271d83813ceef1caa235c1991b20117" class="m-doc-self">gExitLists_Caves</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a78a0c33631e6ac5eab5abaf5d03e067d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a78a0c33631e6ac5eab5abaf5d03e067d" class="m-doc-self">gExitList_VeilFallsCaves_Hallway2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf6379419159e945439b63ed928fc1e0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aaf6379419159e945439b63ed928fc1e0" class="m-doc-self">gExitList_VeilFallsCaves_Hallway1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29a8a9a4eac7006132a28b459c67e4fd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a29a8a9a4eac7006132a28b459c67e4fd" class="m-doc-self">gExitList_VeilFallsCaves_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a266d942506001585a9125664a15a5fa6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a266d942506001585a9125664a15a5fa6" class="m-doc-self">gExitList_VeilFallsCaves_Exit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae04117a37add70063300d58fe609950a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae04117a37add70063300d58fe609950a" class="m-doc-self">gExitList_VeilFallsCaves_SecretChest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac42ec0c461cd48719af406b7c4122912">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac42ec0c461cd48719af406b7c4122912" class="m-doc-self">gExitList_VeilFallsCaves_SecretStaircases</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af7acb0a2b7087bf826dfa24c4448eedd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af7acb0a2b7087bf826dfa24c4448eedd" class="m-doc-self">gExitList_VeilFallsCaves_BlockPuzzle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5a9fbc5058556e06102c506531062dfb">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5a9fbc5058556e06102c506531062dfb" class="m-doc-self">gExitList_VeilFallsCaves_RupeePath</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd23dc3b55a0021b63f8277f845c7e0d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acd23dc3b55a0021b63f8277f845c7e0d" class="m-doc-self">gExitList_VeilFallsCaves_HeartPiece</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67493ce28b5b1f2c654d21374bc2b49e">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a67493ce28b5b1f2c654d21374bc2b49e" class="m-doc-self">gExitLists_VeilFallsCaves</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae4fbfed5878dfd8064dbfcbc55d29678">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae4fbfed5878dfd8064dbfcbc55d29678" class="m-doc-self">gExitList_RoyalValleyGraves_HeartPiece</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae3ac537267932a3742f61cb6d188efe">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aae3ac537267932a3742f61cb6d188efe" class="m-doc-self">gExitList_RoyalValleyGraves_Gina</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad4d19777014614ae8b097f7f4f455976">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ad4d19777014614ae8b097f7f4f455976" class="m-doc-self">gExitLists_RoyalValleyGraves</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a254f6bc1bd25fbeccec220440bd121e4">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a254f6bc1bd25fbeccec220440bd121e4" class="m-doc-self">gExitList_MinishCaves_BeanPesto</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29ee9a3468648655490586c7c0d6d026">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a29ee9a3468648655490586c7c0d6d026" class="m-doc-self">gExitList_MinishCaves_SoutheastWater1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a68d7181f7fba423465da15c78379e2f6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a68d7181f7fba423465da15c78379e2f6" class="m-doc-self">gExitList_MinishCaves_Ruins</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aacffefcf266d29d68e748a6fd78583d7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aacffefcf266d29d68e748a6fd78583d7" class="m-doc-self">gExitList_MinishCaves_OutsideLinksHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa454ec0f18e15fbbc56abd86b80d9b02">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa454ec0f18e15fbbc56abd86b80d9b02" class="m-doc-self">gExitList_MinishCaves_MinishWoodsNorth1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3dfe4ebac8f3310e243576bd4c017de">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af3dfe4ebac8f3310e243576bd4c017de" class="m-doc-self">gExitList_MinishCaves_LakeHyliaNorth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f11129d1e940f658682699f776f78ce">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3f11129d1e940f658682699f776f78ce" class="m-doc-self">gExitList_MinishCaves_LakeHyliaLibrari</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a66a8c279233c39d0ec11f79e00ab31ab">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a66a8c279233c39d0ec11f79e00ab31ab" class="m-doc-self">gExitList_MinishCaves_MinishWoodsSouthwest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a284c12ac040a420ad59b2727b7607ed2">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a284c12ac040a420ad59b2727b7607ed2" class="m-doc-self">gExitLists_MinishCaves</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b205b404766758d65425c65d7e870cf">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2b205b404766758d65425c65d7e870cf" class="m-doc-self">gExitList_CastleGardenMinishHoles_East</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae9def301449039ee62722c9be6bfc364">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae9def301449039ee62722c9be6bfc364" class="m-doc-self">gExitList_CastleGardenMinishHoles_West</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01495b17c99d6e98f5e7d6c5c836a600">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a01495b17c99d6e98f5e7d6c5c836a600" class="m-doc-self">gExitLists_CastleGardenMinishHoles</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad62a9a1468172cafc91e71e9eb43ecf6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad62a9a1468172cafc91e71e9eb43ecf6" class="m-doc-self">gExitList_37_0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad8a9dd7c47d610ee4fa9025ffd14f82c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad8a9dd7c47d610ee4fa9025ffd14f82c" class="m-doc-self">gExitList_37_1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2c4a3ee77dde4690c8553cf0e90feb0a">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a2c4a3ee77dde4690c8553cf0e90feb0a" class="m-doc-self">gExitLists_37</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a51689c2391ec0188d0d3b5c63ec32c64">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a51689c2391ec0188d0d3b5c63ec32c64" class="m-doc-self">gExitList_HyruleTownUnderground_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5ad6a53a622549877e9f0f0aec4f3725">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5ad6a53a622549877e9f0f0aec4f3725" class="m-doc-self">gExitList_HyruleTownUnderground_Well</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af443ce18f7fb8f067502d15533a2b8b9">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#af443ce18f7fb8f067502d15533a2b8b9" class="m-doc-self">gExitLists_HyruleTownUnderground</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9558dd4d77cb89150cf088b3d813ebbe">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9558dd4d77cb89150cf088b3d813ebbe" class="m-doc-self">gExitList_HyruleTownMinishCaves_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e16532c89d4ab593ec47ce3a9ca91fa">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2e16532c89d4ab593ec47ce3a9ca91fa" class="m-doc-self">gExitList_HyruleTownMinishCaves_Entrance2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abbc51a06788beb13aedf0f8d0305159b">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#abbc51a06788beb13aedf0f8d0305159b" class="m-doc-self">gExitLists_HyruleTownMinishCaves</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab918c3a8fd14b2cdfa72b1c24dad1c71">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab918c3a8fd14b2cdfa72b1c24dad1c71" class="m-doc-self">gExitList_GardenFountains_East</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13fcbd6dca716dabc8c2836c77315f7a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a13fcbd6dca716dabc8c2836c77315f7a" class="m-doc-self">gExitList_GardenFountains_West</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae050eaf3132646941de2854d34e246e5">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ae050eaf3132646941de2854d34e246e5" class="m-doc-self">gExitLists_GardenFountains</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4b3fd21577033cc5c6fa401bb009d71">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab4b3fd21577033cc5c6fa401bb009d71" class="m-doc-self">gExitList_GreatFairies_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01533ebf8e02abf757ae9e97db3f6927">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a01533ebf8e02abf757ae9e97db3f6927" class="m-doc-self">gExitList_GreatFairies_Exit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1bd70e4ee8e90b77b2cdf7eb8f5efca6">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a1bd70e4ee8e90b77b2cdf7eb8f5efca6" class="m-doc-self">gExitLists_HyruleCastleCellar</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67b0b3a66535c2628904e5ff35179d30">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a67b0b3a66535c2628904e5ff35179d30" class="m-doc-self">gExitLists_40</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a706e6efcd4ddc02231f6fcd4d692868e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a706e6efcd4ddc02231f6fcd4d692868e" class="m-doc-self">gExitList_DeepwoodShrine_StairsToB1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a013b9295d6491b6d6d0d72782ea39757">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a013b9295d6491b6d6d0d72782ea39757" class="m-doc-self">gExitList_DeepwoodShrine_BluePortal</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4fa836dde8c3ad641e6cd4b35aab49f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac4fa836dde8c3ad641e6cd4b35aab49f" class="m-doc-self">gExitList_DeepwoodShrine_Map</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82f7561e808a047f41e8f93390fa9622">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a82f7561e808a047f41e8f93390fa9622" class="m-doc-self">gExitList_DeepwoodShrine_Button</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4f2d05ddd38c9dc1dc8c8b6fe4fef39">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af4f2d05ddd38c9dc1dc8c8b6fe4fef39" class="m-doc-self">gExitList_DeepwoodShrine_Lever</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a3bdbfdde417bbf8f0c1bcdfcca7fb5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0a3bdbfdde417bbf8f0c1bcdfcca7fb5" class="m-doc-self">gExitList_DeepwoodShrine_Barrel</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac29921d3b5e01eec5c248a01d51f6be7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac29921d3b5e01eec5c248a01d51f6be7" class="m-doc-self">gExitList_DeepwoodShrine_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d3f21a21dc99131e4c3908f27fde1af">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3d3f21a21dc99131e4c3908f27fde1af" class="m-doc-self">gExitList_DeepwoodShrine_Compass</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1cfcf78bea02a7023000fb7bd4ee78b1">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1cfcf78bea02a7023000fb7bd4ee78b1" class="m-doc-self">gExitList_DeepwoodShrineBoss_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac9a633c1dbeef02359b11a93679c9884">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac9a633c1dbeef02359b11a93679c9884" class="m-doc-self">gExitList_DeepwoodShrine_PreBoss</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada9b413ac1a05936a158ec261e79ae31">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ada9b413ac1a05936a158ec261e79ae31" class="m-doc-self">gExitLists_DeepwoodShrine</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad6c46055a21d8e17c135c9e6aba80446">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ad6c46055a21d8e17c135c9e6aba80446" class="m-doc-self">gExitLists_DeepwoodShrineBoss</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aefe888f6630a45797ab3598fd03c83c0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aefe888f6630a45797ab3598fd03c83c0" class="m-doc-self">gExitList_DeepwoodShrineEntry_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7f29fd9df5eabc2dea056f6bd7b6365a">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a7f29fd9df5eabc2dea056f6bd7b6365a" class="m-doc-self">gExitLists_DeepwoodShrineEntry</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a606d12feec498b70eacd2b7593116cf2">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a606d12feec498b70eacd2b7593116cf2" class="m-doc-self">gExitList_CaveOfFlames_AfterCane</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5c1273593463b2e954bc5dea9146813c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5c1273593463b2e954bc5dea9146813c" class="m-doc-self">gExitList_CaveOfFlames_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3f24513cd0892d6841a8196a9bb966d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af3f24513cd0892d6841a8196a9bb966d" class="m-doc-self">gExitList_CaveOfFlames_MainCart</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a396491f93e80d4664fac9e9e3211b4d8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a396491f93e80d4664fac9e9e3211b4d8" class="m-doc-self">gExitList_CaveOfFlames_NorthEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ac7b6ff464638930153c934b76eb745">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2ac7b6ff464638930153c934b76eb745" class="m-doc-self">gExitList_CaveOfFlames_MinishSpikes</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aef3b6dde8f4476d4ada3f4f44b2ecd66">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aef3b6dde8f4476d4ada3f4f44b2ecd66" class="m-doc-self">gExitList_CaveOfFlames_BeforeGleerok</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d749436ed4fcc3c6bd4d68ac0b3b4d0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2d749436ed4fcc3c6bd4d68ac0b3b4d0" class="m-doc-self">gExitList_CaveOfFlames_BossDoor</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a266b1e06e9afda862aed8c54cd94a19d">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a266b1e06e9afda862aed8c54cd94a19d" class="m-doc-self">gExitLists_CaveOfFlames</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22bff4b331ea73545c2549d99468814c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a22bff4b331ea73545c2549d99468814c" class="m-doc-self">gExitList_FortressOfWinds_BeforeMazaal</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adbe0a91e2a611807d3a7ab30d8dea9eb">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#adbe0a91e2a611807d3a7ab30d8dea9eb" class="m-doc-self">gExitList_FortressOfWinds_EastKeyLever</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86b0791a9de3cf03608e3edb6ef8dbad">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a86b0791a9de3cf03608e3edb6ef8dbad" class="m-doc-self">gExitList_FortressOfWinds_PitPlatforms</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad5d79af787c9b248521bf372a2ff93f7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad5d79af787c9b248521bf372a2ff93f7" class="m-doc-self">gExitList_FortressOfWinds_WestKeyLever</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae6901944fd1b54d9c89c0e6af5c7a9ca">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae6901944fd1b54d9c89c0e6af5c7a9ca" class="m-doc-self">gExitList_FortressOfWinds_Mazaal</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a74583c0a195f94dba665a8a4af1977f0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a74583c0a195f94dba665a8a4af1977f0" class="m-doc-self">gExitList_FortressOfWinds_Stalfos</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff543e1165b545cd8153f9ea03d238e3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aff543e1165b545cd8153f9ea03d238e3" class="m-doc-self">gExitList_FortressOfWinds_EntranceMoleMitts</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38cd62344c6044f06cc81e5522e71617">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a38cd62344c6044f06cc81e5522e71617" class="m-doc-self">gExitList_FortressOfWinds_Main2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf2d36767d007e9d8509258b06baee8a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acf2d36767d007e9d8509258b06baee8a" class="m-doc-self">gExitList_FortressOfWinds_MinishHole</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa79c1ee068411b02d25cee1bfff1a418">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa79c1ee068411b02d25cee1bfff1a418" class="m-doc-self">gExitList_FortressOfWinds_BossKey</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae8194dcde8d2049656ec6eab46fba6de">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae8194dcde8d2049656ec6eab46fba6de" class="m-doc-self">gExitList_FortressOfWinds_WestStairs2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0114173379ec52b40c1b448cf7d8fda1">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0114173379ec52b40c1b448cf7d8fda1" class="m-doc-self">gExitList_FortressOfWinds_EastStairs2F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0774fc6c2797f8f90c15b0d4ce225dab">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0774fc6c2797f8f90c15b0d4ce225dab" class="m-doc-self">gExitList_FortressOfWinds_WestStairs1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5e3c1339d714dda2491e7784c09c8380">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5e3c1339d714dda2491e7784c09c8380" class="m-doc-self">gExitList_FortressOfWinds_CenterStairs1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4223c7a60355423d83644268d6fb2778">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4223c7a60355423d83644268d6fb2778" class="m-doc-self">gExitList_FortressOfWinds_EastStairs1F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7dcbfcbd0f8afeae89a28473120e8cc6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7dcbfcbd0f8afeae89a28473120e8cc6" class="m-doc-self">gExitList_FortressOfWinds_Wizzrobe</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3b6b3c73fb2c3046e04a9351c2d7e72">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac3b6b3c73fb2c3046e04a9351c2d7e72" class="m-doc-self">gExitList_FortressOfWinds_HeartPiece</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a14488da7187b157613df31d83cf155b6">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a14488da7187b157613df31d83cf155b6" class="m-doc-self">gExitLists_FortressOfWinds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae662ae10d7cfc80dd5ebfbf6ff2a6bee">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae662ae10d7cfc80dd5ebfbf6ff2a6bee" class="m-doc-self">gExitList_FortressOfWindsTop_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad392ae6e9502244f3f65340b6b5edef8">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ad392ae6e9502244f3f65340b6b5edef8" class="m-doc-self">gExitLists_FortressOfWindsTop</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2dfa6023b5989d8771f0228bb2bc42e8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2dfa6023b5989d8771f0228bb2bc42e8" class="m-doc-self">gExitList_InnerMazaal_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab391154f07764eeec1711b12e5ce0201">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ab391154f07764eeec1711b12e5ce0201" class="m-doc-self">gExitLists_InnerMazaal</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adca16df529229b90e8d09ce13c34bbb6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#adca16df529229b90e8d09ce13c34bbb6" class="m-doc-self">gExitList_TempleOfDroplets_WestHole</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86c67b7929d0f61aa737740f58daadf5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a86c67b7929d0f61aa737740f58daadf5" class="m-doc-self">gExitList_TempleOfDroplets_EastHole</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac80b60336cdfe453be7d117006c12813">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac80b60336cdfe453be7d117006c12813" class="m-doc-self">gExitList_TempleOfDroplets_HoleToBlueChuchu</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b273fe89291f7b5f2e54dc766ff8521">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a8b273fe89291f7b5f2e54dc766ff8521" class="m-doc-self">gExitList_TempleOfDroplets_BigBlueChuchu</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7ab3f409c63b2665fa5814b1e23212ce">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a7ab3f409c63b2665fa5814b1e23212ce" class="m-doc-self">gExitList_TempleOfDroplets_BigBlueChuchuKey</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a66bbac6381a164f4aaf2cac5094266">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0a66bbac6381a164f4aaf2cac5094266" class="m-doc-self">gExitList_TempleOfDroplets_BossKey</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac80c91787295d4e14d3867246dc8067a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac80c91787295d4e14d3867246dc8067a" class="m-doc-self">gExitList_TempleOfDroplets_NorthSmallKey</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a21d1913a7f2e7fa0cb58d367c96a86e2">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a21d1913a7f2e7fa0cb58d367c96a86e2" class="m-doc-self">gExitList_TempleOfDroplets_BlueChuchuKeyLever</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf33368b31b3a3511e282b3f6c0f30e2">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acf33368b31b3a3511e282b3f6c0f30e2" class="m-doc-self">gExitList_TempleOfDroplets_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac53303b50c61154c571489232007359c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac53303b50c61154c571489232007359c" class="m-doc-self">gExitList_TempleOfDroplets_WaterfallNortheast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a478fbd1fdbd231bda89897d904f4a8b8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a478fbd1fdbd231bda89897d904f4a8b8" class="m-doc-self">gExitList_TempleOfDroplets_Element</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afb2fc9016d12a595762abec3e6da6413">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#afb2fc9016d12a595762abec3e6da6413" class="m-doc-self">gExitList_TempleOfDroplets_IceCorner</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a03f8b78de361ac631b42d4879a017230">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a03f8b78de361ac631b42d4879a017230" class="m-doc-self">gExitList_TempleOfDroplets_BigOcto</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae9be9a228b481d356cb34bbeb1662c9c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae9be9a228b481d356cb34bbeb1662c9c" class="m-doc-self">gExitList_TempleOfDroplets_NorthwestStairs</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af9ed71d8736a790a20a87e37d3a424ea">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af9ed71d8736a790a20a87e37d3a424ea" class="m-doc-self">gExitList_TempleOfDroplets_ScissorsMiniboss</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a479291ac9f35681c784c65803f2513ff">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a479291ac9f35681c784c65803f2513ff" class="m-doc-self">gExitList_TempleOfDroplets_WaterfallSouthwest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adcf3635149337899cd1e4fb841916c27">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#adcf3635149337899cd1e4fb841916c27" class="m-doc-self">gExitList_TempleOfDroplets_ToBigBlueChuchu</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5522f319e85d514d578eb03ef1497334">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5522f319e85d514d578eb03ef1497334" class="m-doc-self">gExitList_TempleOfDroplets_BlockCloneIceBridge</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a729f6dfce6ebeb751974440ed2af4bde">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a729f6dfce6ebeb751974440ed2af4bde" class="m-doc-self">gExitList_TempleOfDroplets_StairsToScissorsMiniboss</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a856d3053e736b8125e9f077ce6f7a65d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a856d3053e736b8125e9f077ce6f7a65d" class="m-doc-self">gExitList_TempleOfDroplets_LilypadWestB2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a49f5d85d454aa7c385e82cb0ccec1420">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a49f5d85d454aa7c385e82cb0ccec1420" class="m-doc-self">gExitList_TempleOfDroplets_CompassRoom</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac503015be32c27ecd5d8add96aef2a41">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#ac503015be32c27ecd5d8add96aef2a41" class="m-doc-self">gExitLists_TempleOfDroplets</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab683dfc77a40cef09a03622608cfd765">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab683dfc77a40cef09a03622608cfd765" class="m-doc-self">gExitList_61_0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6d174410a829645320df36cea638d21d">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a6d174410a829645320df36cea638d21d" class="m-doc-self">gExitLists_61</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f64bdd7a7246250728a7ee0b2c3993c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a8f64bdd7a7246250728a7ee0b2c3993c" class="m-doc-self">gExitList_RoyalCrypt_WaterRope</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac731a19cb1123d54b8ce3d88b717862b">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac731a19cb1123d54b8ce3d88b717862b" class="m-doc-self">gExitList_RoyalCrypt_Gibdo</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2a18436f4610460716db5f6c16e63e27">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2a18436f4610460716db5f6c16e63e27" class="m-doc-self">gExitList_RoyalCrypt_KeyBlock</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4cb0b63749f223adac9dd164e23517d2">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4cb0b63749f223adac9dd164e23517d2" class="m-doc-self">gExitList_RoyalCrypt_MushroomPit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a672d9d94b3aa5fdd3b4c144dc7b0e0e5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a672d9d94b3aa5fdd3b4c144dc7b0e0e5" class="m-doc-self">gExitList_RoyalCrypt_Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7b5546d4d55d778bd95766f94e45b575">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a7b5546d4d55d778bd95766f94e45b575" class="m-doc-self">gExitLists_RoyalCrypt</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32db6da4f6ce9c165eb1e1c8c472ea15">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a32db6da4f6ce9c165eb1e1c8c472ea15" class="m-doc-self">gExitList_PalaceOfWinds_GyorgTornado</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a202ba9abddf9304c80f59f4d024ba2af">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a202ba9abddf9304c80f59f4d024ba2af" class="m-doc-self">gExitList_PalaceOfWinds_GyorgBossDoor</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17d9f4ac0434ba3a9ff530d154c292cb">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a17d9f4ac0434ba3a9ff530d154c292cb" class="m-doc-self">gExitList_PalaceOfWinds_BallAndChainSoldiers</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f1c6d1b56ad22557b33a404382a68d6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a8f1c6d1b56ad22557b33a404382a68d6" class="m-doc-self">gExitList_PalaceOfWinds_BombarossaPath</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d4ccff4226472a245c2a3eddd4386ec">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3d4ccff4226472a245c2a3eddd4386ec" class="m-doc-self">gExitList_PalaceOfWinds_HoleToDarknut</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1aa07b36c7dc373af001944b113dd99a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1aa07b36c7dc373af001944b113dd99a" class="m-doc-self">gExitList_PalaceOfWinds_ToBombarossaPath</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adaf55114b030dfe8c119fd1b095f3d54">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#adaf55114b030dfe8c119fd1b095f3d54" class="m-doc-self">gExitList_PalaceOfWinds_BombWallInside</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7725978ab1c53df5d1b808b03ba603c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad7725978ab1c53df5d1b808b03ba603c" class="m-doc-self">gExitList_PalaceOfWinds_BombWallOutside</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac5bf577ec3f92cdca4a283d2ddaad209">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac5bf577ec3f92cdca4a283d2ddaad209" class="m-doc-self">gExitList_PalaceOfWinds_BlockMazeToBossDoor</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2c4177d1b653fbff99164f322e4d6a8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab2c4177d1b653fbff99164f322e4d6a8" class="m-doc-self">gExitList_PalaceOfWinds_HeartPieceBridge</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a49768c012d319858be71bb443a0fb7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4a49768c012d319858be71bb443a0fb7" class="m-doc-self">gExitList_PalaceOfWinds_RedWarpHall</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acdaafb7b3aca699f4b4a7f9b5c9c7608">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#acdaafb7b3aca699f4b4a7f9b5c9c7608" class="m-doc-self">gExitList_PalaceOfWinds_PitCornerAfterKey</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4739d51ad7a2364235718da84e8566a7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4739d51ad7a2364235718da84e8566a7" class="m-doc-self">gExitList_PalaceOfWinds_PotPush</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac20fcccf953a9806374343bd01375972">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac20fcccf953a9806374343bd01375972" class="m-doc-self">gExitList_PalaceOfWinds_StairsAfterFloormaster</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e40248569ee122abf45d7e1333274db">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4e40248569ee122abf45d7e1333274db" class="m-doc-self">gExitList_PalaceOfWinds_KeyArrowButton</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aefc259605d0337b60fc69818847561bc">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aefc259605d0337b60fc69818847561bc" class="m-doc-self">gExitList_PalaceOfWinds_PeahatSwitch</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a91ad978f8d0a881e0508f765aba71aed">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a91ad978f8d0a881e0508f765aba71aed" class="m-doc-self">gExitList_PalaceOfWinds_WhirlwindBombarossa</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a49bef93fd1c42a30a2825c092f3bcbdc">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a49bef93fd1c42a30a2825c092f3bcbdc" class="m-doc-self">gExitList_PalaceOfWinds_ToPeahatSwitch</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae09283393b26d63af8ae0c5e6fa730f7">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae09283393b26d63af8ae0c5e6fa730f7" class="m-doc-self">gExitList_PalaceOfWinds_GibdoStairs</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c7fae471403003dd4da9ec41e6cb12d">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3c7fae471403003dd4da9ec41e6cb12d" class="m-doc-self">gExitList_PalaceOfWinds_BridgeAfterDarknut</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a90569010f2c2f3659b70145e79c947bd">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a90569010f2c2f3659b70145e79c947bd" class="m-doc-self">gExitList_PalaceOfWinds_DarkCompassHall</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04fabcc4e033c0e8bc05401a2a121f7b">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a04fabcc4e033c0e8bc05401a2a121f7b" class="m-doc-self">gExitLists_PalaceOfWinds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adef015db308d42f572a61f26f8ca5f16">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#adef015db308d42f572a61f26f8ca5f16" class="m-doc-self">gExitList_Unused1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a09260436ec14ba68ad3609553793b8ff">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a09260436ec14ba68ad3609553793b8ff" class="m-doc-self">gExitList_DarkHyruleCastle_1FEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9bffaa7ed299e94dc7b7bc41455637ad">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9bffaa7ed299e94dc7b7bc41455637ad" class="m-doc-self">gExitList_DarkHyruleCastle_3FTopLeftTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a65e6950c718a05e07ee56458ce4c28d8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a65e6950c718a05e07ee56458ce4c28d8" class="m-doc-self">gExitList_DarkHyruleCastle_3FTopRightTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a315104bfbd7d05399af62df6a36f73d8">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a315104bfbd7d05399af62df6a36f73d8" class="m-doc-self">gExitList_DarkHyruleCastle_3FBottomLeftTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afd541eca128e5b52b84e1609ea138778">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#afd541eca128e5b52b84e1609ea138778" class="m-doc-self">gExitList_DarkHyruleCastle_3FBottomRightTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0849b2f1c3dd57b50757a7c6ca08f25c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a0849b2f1c3dd57b50757a7c6ca08f25c" class="m-doc-self">gExitList_DarkHyruleCastle_3FKeatonHallToVaati</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac87153ee0261ad421d0b47065c0bf5b0">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac87153ee0261ad421d0b47065c0bf5b0" class="m-doc-self">gExitList_DarkHyruleCastle_3FTripleDarknut</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f48216e90b2cb9fcfaa357e1c3b64e3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1f48216e90b2cb9fcfaa357e1c3b64e3" class="m-doc-self">gExitList_DarkHyruleCastle_2FTopLeftTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5fd628b3bfd16d4833590f0930547e55">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5fd628b3bfd16d4833590f0930547e55" class="m-doc-self">gExitList_DarkHyruleCastle_2FTopRightTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af296ea8fe8eef7ac7e53900a667ac1fa">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af296ea8fe8eef7ac7e53900a667ac1fa" class="m-doc-self">gExitList_DarkHyruleCastle_2FRight</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18cb249bfab6b3765c88f4fe17e15652">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a18cb249bfab6b3765c88f4fe17e15652" class="m-doc-self">gExitList_DarkHyruleCastle_2FBossDoor</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a683af3540c863718551be30188014e13">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a683af3540c863718551be30188014e13" class="m-doc-self">gExitList_DarkHyruleCastle_2FEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57b5f3cba2f3056762ae0ae2ffad31f3">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a57b5f3cba2f3056762ae0ae2ffad31f3" class="m-doc-self">gExitList_DarkHyruleCastle_2FBottomLeftTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad5aba23113672e9ef56e9fd31baf8201">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad5aba23113672e9ef56e9fd31baf8201" class="m-doc-self">gExitList_DarkHyruleCastle_2FBottomLeftGhini</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace98b99e72c49f8afd45f14c1bc509b6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ace98b99e72c49f8afd45f14c1bc509b6" class="m-doc-self">gExitList_DarkHyruleCastle_B1Entrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa35679a1045c982b87787cb94628a636">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa35679a1045c982b87787cb94628a636" class="m-doc-self">gExitList_DarkHyruleCastle_2FBottomRightTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2fdfce7a1a2b6d55fe467da8d0c8d50c">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a2fdfce7a1a2b6d55fe467da8d0c8d50c" class="m-doc-self">gExitList_DarkHyruleCastle_1FTopLeftTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a98ee737ace936d6c689a87d6cae3edc6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a98ee737ace936d6c689a87d6cae3edc6" class="m-doc-self">gExitList_DarkHyruleCastle_1FThroneRoom</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41888f780da48780abaaaf6ec4d530ad">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a41888f780da48780abaaaf6ec4d530ad" class="m-doc-self">gExitList_DarkHyruleCastle_1FCompass</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9116eac775192ea2ea352ca7f2216221">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9116eac775192ea2ea352ca7f2216221" class="m-doc-self">gExitList_DarkHyruleCastle_1FTopRightTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3e39df4715c3f252005bfb59e6e7d94">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab3e39df4715c3f252005bfb59e6e7d94" class="m-doc-self">gExitList_DarkHyruleCastle_1FBeforeThrone</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c9109d99de4f8df8967cb5072c8fbde">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a6c9109d99de4f8df8967cb5072c8fbde" class="m-doc-self">gExitList_DarkHyruleCastle_1FBottomLeftTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="add43ed75172dd7eeb82c3cb4d8449234">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#add43ed75172dd7eeb82c3cb4d8449234" class="m-doc-self">gExitList_DarkHyruleCastle_1FBottomRightTower</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aed500b3de356d8d60c11cdc5c76cb27f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aed500b3de356d8d60c11cdc5c76cb27f" class="m-doc-self">gExitList_DarkHyruleCastle_B1BelowThrone</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae27b453c56c5a6e9dc5636d3d992d118">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ae27b453c56c5a6e9dc5636d3d992d118" class="m-doc-self">gExitList_DarkHyruleCastle_B1BelowCompass</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad4dbc9ded9040fe7ec346f4606084795">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ad4dbc9ded9040fe7ec346f4606084795" class="m-doc-self">gExitList_DarkHyruleCastle_B1BeforeThrone</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9937e3775e6d8422c23a4331c26c7585">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a9937e3775e6d8422c23a4331c26c7585" class="m-doc-self">gExitList_DarkHyruleCastle_B1ToPrison</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3b119e9775a722fead2c61e767878648">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a3b119e9775a722fead2c61e767878648" class="m-doc-self">gExitList_DarkHyruleCastle_B1Map</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4cd2009638e6d41eea57335588c34f9">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab4cd2009638e6d41eea57335588c34f9" class="m-doc-self">gExitList_DarkHyruleCastle_B2ToPrison</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af07bb7580976cf2b2398f023a983f70d">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#af07bb7580976cf2b2398f023a983f70d" class="m-doc-self">gExitLists_DarkHyruleCastle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af87892464e8623157aa9fe0779bbdc62">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af87892464e8623157aa9fe0779bbdc62" class="m-doc-self">gExitList_Unused2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d466da7bac78b91834af5169908d4f4">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5d466da7bac78b91834af5169908d4f4" class="m-doc-self">gExitList_DarkHyruleCastleOutside_ZeldaStatuePlatform</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d7efa8541937c7f910845635e2feaa6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a1d7efa8541937c7f910845635e2feaa6" class="m-doc-self">gExitList_DarkHyruleCastleOutside_Garden</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af14fa6515625ddf62c6722441d0069e6">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#af14fa6515625ddf62c6722441d0069e6" class="m-doc-self">gExitList_DarkHyruleCastleOutside_OutsideNorthwest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afc82ac18c765fbeeb0bb6f6da7c9ee58">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#afc82ac18c765fbeeb0bb6f6da7c9ee58" class="m-doc-self">gExitList_DarkHyruleCastleOutside_OutsideNortheast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab78d71c0e8540a7537c8007c0a6d969a">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab78d71c0e8540a7537c8007c0a6d969a" class="m-doc-self">gExitList_DarkHyruleCastleOutside_OutsideEast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa59d27643615fbf8b8800c1038282d86">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#aa59d27643615fbf8b8800c1038282d86" class="m-doc-self">gExitList_DarkHyruleCastleOutside_OutsideSouthwest</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5959e8182d9161a620b106b445466c59">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5959e8182d9161a620b106b445466c59" class="m-doc-self">gExitList_DarkHyruleCastleOutside_OutsideSouth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5e29b871d3bd0a57f1e032726dea336e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5e29b871d3bd0a57f1e032726dea336e" class="m-doc-self">gExitList_DarkHyruleCastleOutside_OutsideSoutheast</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e756a39a862e19b4c6570d1a0b43487">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a8e756a39a862e19b4c6570d1a0b43487" class="m-doc-self">gExitLists_DarkHyruleCastleOutside</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83a69a3634b080f29e91403c15eba09e">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a83a69a3634b080f29e91403c15eba09e" class="m-doc-self">gExitList_VaatisArms_First</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5355e092e7092b4149349c3e4c4b0a34">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a5355e092e7092b4149349c3e4c4b0a34" class="m-doc-self">gExitList_VaatisArms_Second</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af1c2d5b94b10e5fb6f3c7bc18c520f48">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#af1c2d5b94b10e5fb6f3c7bc18c520f48" class="m-doc-self">gExitLists_VaatisArms</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab93904366b4fc43cedff87c1624854e1">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ab93904366b4fc43cedff87c1624854e1" class="m-doc-self">gExitList_DarkHyruleCastleBridge_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0b5a29a0c3115032ba31bae61874eb0c">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a0b5a29a0c3115032ba31bae61874eb0c" class="m-doc-self">gExitLists_DarkHyruleCastleBridge</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10a45c8276278293ac9e26cf4721c42f">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a10a45c8276278293ac9e26cf4721c42f" class="m-doc-self">gExitList_HyruleCastle_0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a33aae6b932916eba3627e9112906cb06">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a33aae6b932916eba3627e9112906cb06" class="m-doc-self">gExitList_HyruleCastle_1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a96557d530c7f3d5d3182ac5909da5708">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a96557d530c7f3d5d3182ac5909da5708" class="m-doc-self">gExitList_HyruleCastle_3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a758f5ce160bc1ae3f764a3cea1a61a95">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a758f5ce160bc1ae3f764a3cea1a61a95" class="m-doc-self">gExitLists_HyruleCastle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afb2c6a74a6acb8f383c8a4e375ca0e02">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#afb2c6a74a6acb8f383c8a4e375ca0e02" class="m-doc-self">gExitList_SanctuaryEntrance_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff628fc6d20467bd502d70f62949dc57">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#aff628fc6d20467bd502d70f62949dc57" class="m-doc-self">gExitLists_SanctuaryEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64773ebafc39128931fdba703eb167e5">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a64773ebafc39128931fdba703eb167e5" class="m-doc-self">gExitList_Sanctuary_Hall</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6135606328b48f6107ade20e1c644518">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a6135606328b48f6107ade20e1c644518" class="m-doc-self">gUnk_0813A76C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d959ca55097afbf7191b70eaba6ecc1">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#a4d959ca55097afbf7191b70eaba6ecc1" class="m-doc-self">gExitList_Sanctuary_Main</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4f414ae699fbb7018f9dbc2ce914989">
+              const <a href="structTransition.html" class="m-doc">Transition</a> <a href="#ac4f414ae699fbb7018f9dbc2ce914989" class="m-doc-self">gExitList_Sanctuary_StainedGlass</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a31ac315410b2e2a000dade9fc6f68089">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const <a href="#a31ac315410b2e2a000dade9fc6f68089" class="m-doc-self">gExitLists_Sanctuary</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afdbcee30943fd607325a0d5899c018e9">
+              const <a href="structTransition.html" class="m-doc">Transition</a>*const *const <a href="#afdbcee30943fd607325a0d5899c018e9" class="m-doc-self">gExitLists</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a9ef3b7df5c0e6da92dfb1d55989ce747">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9ef3b7df5c0e6da92dfb1d55989ce747" class="m-doc-self">TransitionListEnd</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
