@@ -1631,7 +1631,7 @@ static void sub_08071E04(PlayerEntity* this) {
     }
 
     sub_080792D8();
-    if (sub_0807953C())
+    if (PlayerInputPressed())
         super->timer -= 2;
     else
         super->timer--;
@@ -1723,7 +1723,7 @@ static void PlayerFrozenUpdate(PlayerEntity* this) {
         sub_08079708(super);
     } else {
         if (gPlayerState.flags & PL_FROZEN) {
-            if (sub_0807953C() != 0) {
+            if (PlayerInputPressed() != 0) {
                 super->timer -= 3;
                 super->spriteOffsetX = 2;
             } else {

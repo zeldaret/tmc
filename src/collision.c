@@ -326,7 +326,7 @@ CollisionResult sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSetting
 CollisionResult sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 CollisionResult sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 CollisionResult sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-CollisionResult sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult CollisionFire(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 CollisionResult sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 CollisionResult sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 CollisionResult sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
@@ -351,7 +351,7 @@ const CollisionHandler gCollisionHandlers[] = {
     sub_0801802C,
     sub_08017DD4,
     sub_080180E8,
-    sub_08017BBC,
+    CollisionFire,
     sub_08017C40,
     sub_08017D6C,
     sub_08017D28,
@@ -409,7 +409,7 @@ CollisionResult sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSetting
     return RESULT_COLLISION;
 }
 
-CollisionResult sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult CollisionFire(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_BURNING | PL_IN_MINECART)) == 0) {
         Entity* e = CreateObject(LINK_FIRE, 1, 0);
         if (e != NULL) {

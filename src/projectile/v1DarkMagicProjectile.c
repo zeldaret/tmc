@@ -218,7 +218,7 @@ void V1DarkMagicProjectile_Action3(V1DarkMagicProjectileEntity* this) {
 }
 
 void sub_080AAF74(V1DarkMagicProjectileEntity* this) {
-    if (sub_0807953C() != 0) {
+    if (PlayerInputPressed() != 0) {
         this->unk_80 += (Random() & 1) + 1;
     }
     if (++super->timer == 0x3c) {

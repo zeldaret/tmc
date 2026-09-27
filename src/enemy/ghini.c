@@ -257,7 +257,7 @@ void Ghini_Action9(GhiniEntity* this) {
     if ((super->frame & 1) != 0) {
         sub_0803F6C0(this);
     }
-    if (sub_0807953C() != 0) {
+    if (PlayerInputPressed() != 0) {
         this->unk_78 += 0xc;
     }
     if (gPlayerEntity.base.health == 0) {

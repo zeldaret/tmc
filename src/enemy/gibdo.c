@@ -315,7 +315,7 @@ void sub_080379BC(GibdoEntity* this) {
 }
 
 bool32 sub_080379EC(GibdoEntity* this) {
-    if (sub_0807953C() != 0) {
+    if (PlayerInputPressed() != 0) {
         if (--super->timer == 0) {
             sub_08037A58(this);
             return TRUE;

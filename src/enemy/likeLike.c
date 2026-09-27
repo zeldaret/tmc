@@ -191,7 +191,7 @@ void sub_0802805C(LikeLikeEntity* this) {
 
     UpdateAnimationVariableFrames(super, 2);
 
-    if (sub_0807953C()) {
+    if (PlayerInputPressed()) {
         u32 tmp2 = Random();
         u32 tmp3 = super->subtimer + 1;
         tmp3 += (tmp2 & 1);
