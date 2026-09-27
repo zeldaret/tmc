@@ -301,7 +301,7 @@ void Enemy50_Action9(Enemy50Entity* this) {
     if ((super->frame & 1) != 0) {
         sub_0803F6C0(this);
     }
-    if (sub_0807953C()) {
+    if (PlayerInputPressed()) {
         this->unk_78 += 8;
     }
     if (gPlayerEntity.base.health == 0) {

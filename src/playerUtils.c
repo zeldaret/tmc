@@ -1982,7 +1982,7 @@ void sub_08079520(Entity* this) {
     }
 }
 
-u32 sub_0807953C(void) {
+u32 PlayerInputPressed(void) {
     u32 tmp = INPUT_ANY_DIRECTION | INPUT_CONTEXT | INPUT_CANCEL | INPUT_INTERACT;
     return gPlayerState.playerInput.newInput & tmp;
 }

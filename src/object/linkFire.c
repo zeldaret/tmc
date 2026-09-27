@@ -14,54 +14,54 @@ typedef struct {
     /*0x6c*/ u16 unk_6c;
 } LinkFireEntity;
 
-void sub_0808DDB4(LinkFireEntity*);
-void sub_0808DDE0(LinkFireEntity*);
-void sub_0808DDE8(LinkFireEntity*);
+void LinkFire_Init(LinkFireEntity*);
+void LinkFire_Update_Type0(LinkFireEntity*);
+void LinkFire_Update_Type1(LinkFireEntity*);
 
 void LinkFire(LinkFireEntity* this) {
-    static void (*const gUnk_081217A8[])(LinkFireEntity*) = {
-        sub_0808DDB4,
-        sub_0808DDE0,
+    static void (*const sLinkFire_Type0_Actions[])(LinkFireEntity*) = {
+        LinkFire_Init,
+        LinkFire_Update_Type0,
     };
-    static void (*const gUnk_081217B0[])(LinkFireEntity*) = {
-        sub_0808DDB4,
-        sub_0808DDE8,
+    static void (*const sLinkFire_Type1_Actions[])(LinkFireEntity*) = {
+        LinkFire_Init,
+        LinkFire_Update_Type1,
     };
     if (super->type != 0) {
-        gUnk_081217B0[super->action](this);
+        sLinkFire_Type1_Actions[super->action](this);
     } else {
-        gUnk_081217A8[super->action](this);
+        sLinkFire_Type0_Actions[super->action](this);
     }
 }
 
-void sub_0808DDB4(LinkFireEntity* this) {
+void LinkFire_Init(LinkFireEntity* this) {
     super->action = 1;
     if (super->type != 0) {
         super->timer = 120;
         this->unk_6c = 0xf0;
         InitializeAnimation(super, 0);
-        sub_0808DDE8(this);
+        LinkFire_Update_Type1(this);
     }
 }
 
-void sub_0808DDE0(LinkFireEntity* this) {
+void LinkFire_Update_Type0(LinkFireEntity* this) {
     DeleteThisEntity();
 }
 
-void sub_0808DDE8(LinkFireEntity* this) {
-    static const s8 gUnk_081217B8[] = { 0, -6, 0, 6 };
+void LinkFire_Update_Type1(LinkFireEntity* this) {
+    static const s8 sLinkFire_PositionOffsets[] = { 0, -6, 0, 6 };
     Entity* player;
     this->unk_6c--;
-    if (sub_0807953C()) {
+    if (PlayerInputPressed()) {
         super->subtimer++;
     }
-    if (((0x1e < super->subtimer) || ((gPlayerState.flags & (PL_CAPTURED | PL_FROZEN | PL_IN_MINECART)) != 0)) ||
+    if ((30 < super->subtimer) || ((gPlayerState.flags & (PL_CAPTURED | PL_FROZEN | PL_IN_MINECART)) != 0) ||
         (this->unk_6c == 0)) {
         gPlayerState.flags &= ~PL_BURNING;
         DeleteThisEntity();
     }
     player = &gPlayerEntity.base;
-    super->x.HALF.HI = (s8)gUnk_081217B8[gPlayerEntity.base.animationState >> 1] + player->x.HALF.HI;
+    super->x.HALF.HI = sLinkFire_PositionOffsets[gPlayerEntity.base.animationState >> 1] + player->x.HALF.HI;
     super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + -6;
     super->z = gPlayerEntity.base.z;
     super->collisionLayer = gPlayerEntity.base.collisionLayer;

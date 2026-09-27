@@ -263,10 +263,10 @@ typedef struct {
 typedef enum {
     INPUT_USE_ITEM1 = 0x1, // A
     INPUT_USE_ITEM2 = 0x2, // B
-    INPUT_INTERACT = 0x8,  // A sub_080782C0, sub_0807953C, PlayerUpdateSwimming, sub_08076518. ItemForSale_Action2
-    INPUT_CANCEL = 0x10,   // B sub_0807953C, ToggleDiving, sub_08076518, ItemForSale_Action2
-    INPUT_CONTEXT = 0x20,  // R sub_0807953C
-    INPUT_40 = 0x40,       // A CrenelBeanSprout_Action1
+    INPUT_INTERACT = 0x8, // A sub_080782C0, PlayerInputPressed, PlayerUpdateSwimming, sub_08076518, ItemForSale_Action2
+    INPUT_CANCEL = 0x10,  // B PlayerInputPressed, ToggleDiving, sub_08076518, ItemForSale_Action2
+    INPUT_CONTEXT = 0x20, // R PlayerInputPressed
+    INPUT_40 = 0x40,      // A CrenelBeanSprout_Action1
     INPUT_ACTION =
         0x80, // R sub_08073584, IsPreventedFromUsingItem, sub_080782C0, CrenelBeanSprout_Action1, ItemForSale_Action2
     INPUT_RIGHT = 0x100,
@@ -763,7 +763,7 @@ void InitItemGetSequence(u32, u32, u32);
 void sub_0807B7D8(u32 tileType, u32 tilePos, u32 layer);
 void SetInteractableObjectCollision(Entity*, u32, u32, const void*);
 void sub_08079D84(void);
-u32 sub_0807953C(void);
+u32 PlayerInputPressed(void);
 void sub_0807BB68(const s16*, u32, u32);
 void SetTileByIndex(u32 tileIndex, u32 tilePos, u32 layer);
 void RestorePrevTileEntity(u32 tilePos, u32 layer);
@@ -801,7 +801,7 @@ void PausePlayer(void);
 void sub_08078E84(Entity*, Entity*);
 void sub_08078FB0(Entity*);
 void sub_080792BC(s32, u32, u32);
-u32 sub_0807953C(void);
+u32 PlayerInputPressed(void);
 void sub_08079BD8(Entity*);
 u32 sub_08079D48();
 void sub_08079D84(void);

@@ -171,7 +171,7 @@ void sub_0802953C(RupeeLikeEntity* this) {
 
     sub_080296C8(this);
     sub_080296C8(this);
-    if (sub_0807953C() != 0) {
+    if (PlayerInputPressed() != 0) {
         super->subtimer++;
     }
     if (super->timer != 0) {

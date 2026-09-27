@@ -237,7 +237,7 @@ void sub_08021B64(BeetleEntity* this) {
         s32 iVar4 = 1;
 
         if (gPlayerState.framestate != PL_STATE_JUMP && gPlayerState.framestate != PL_STATE_CAPE) {
-            if (sub_0807953C())
+            if (PlayerInputPressed())
                 iVar4 = super->type * 3 + 8;
 
             iVar4 = super->timer - iVar4;

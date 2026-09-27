@@ -832,7 +832,7 @@ u32 sub_08024E34(void) {
 void sub_08024E4C(PestoEntity* this) {
     if (this->unk_83 == 3) {
         super->subtimer = ++super->subtimer & 0x1f;
-        if (sub_0807953C()) {
+        if (PlayerInputPressed()) {
             u32 r = Random();
             this->unk_84++;
             r &= 1;
