@@ -251,7 +251,7 @@ SECTIONS {
         /* scripts */
         data/scripts.o(.text);
         asm/src/script.o(.text);
-        asm/src/projectileUpdate.o(.text);
+        src/projectileUpdate.o(.text);
 
         /* C source compiled with interworking */
         src/interrupts.o(.text);
