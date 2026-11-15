@@ -24,14 +24,14 @@ SCRIPT_START script_08016482
 	SetVariableToFrame
 	SetAnimation 0x0000
 	TriggerInteract
-	_0807E974 0x0600
+	_0807E974 TEXT_LOCATIONS, 0x00
 	AddInteractableWhenBigObject
 	RemoveInteractableObject
 	AddInteractableWhenBigFuser 0x0000
 	AddInteractableFuser KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT
 	WaitUntilTextboxCloses
 	MessageFromTarget TEXT_LOCATIONS, 0x01
-	MessageNoOverlap 0x0601
+	MessageNoOverlap TEXT_LOCATIONS, 0x01
 	MessageFromTargetPos_1 TEXT_LOCATIONS, 0x01
 	MessageFromTargetTable TEXT_LOCATIONS << 8 | 0x01, TEXT_LOCATIONS << 8 | 0x02, TEXT_LOCATIONS << 8 | 0x03
 	MessageNoOverlapVar

@@ -440,9 +440,10 @@
 	.2byte 0x0451
 .endm
 
-.macro _0807E974 s:req
+.macro _0807E974 a:req, b:req
 	.2byte 0x0852
-	.2byte \s
+	.byte \b
+	.byte \a
 .endm
 
 .macro AddInteractableWhenBigObject
@@ -475,46 +476,29 @@
 	.2byte 0x0459
 .endm
 
-.macro MessageFromTarget a:req, b
+.macro MessageFromTarget a:req, b:req
 	.2byte 0x085a
-	.ifnb \b
 	.byte \b
 	.byte \a
-	.else
-	.2byte \a
-	.endif
 .endm
 
-.macro MessageNoOverlap a:req, b
+.macro MessageNoOverlap a:req, b:req
 	.2byte 0x085b
-	.ifnb \b
 	.byte \b
 	.byte \a
-	.else
-	.2byte \a
-	.endif
 .endm
 
-.macro MessageFromTargetPos a:req, b:req, c
+.macro MessageFromTargetPos a:req, b:req, c:req
 	.2byte 0x0c5c
-	.ifnb \c
 	.byte \b
 	.byte \a
 	.2byte \c
-	.else
-	.2byte \a
-	.2byte \b
-	.endif
 .endm
 
-.macro MessageFromTargetPos_1 a:req, b
+.macro MessageFromTargetPos_1 a:req, b:req
 	.2byte 0x085c
-	.ifnb \b
 	.byte \b
 	.byte \a
-	.else
-	.2byte \a
-	.endif
 .endm
 
 .macro MessageFromTargetTable labels:vararg
@@ -526,14 +510,10 @@
 	.2byte 0x045e
 .endm
 
-.macro EzloMessage a:req, b
+.macro EzloMessage a:req, b:req
 	.2byte 0x085f
-	.ifnb \b
 	.byte \b
 	.byte \a
-	.else
-	.2byte \a
-	.endif
 .endm
 
 .macro GetSelectedChoice
