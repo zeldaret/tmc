@@ -33,7 +33,7 @@ script_RentLargeRoom: @ Rent large room
 	WaitUntilTextboxCloses
 	Call sub_0806C578
 SCRIPT_END
-SCRIPT_START script_RentRegularRoom
+script_RentRegularRoom:
 	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x04
 	CallWithArg ScriptCommand_SetMessageValue, (SMV_RUPEES << 16) | 200
@@ -47,7 +47,7 @@ SCRIPT_START script_RentRegularRoom
 	WaitUntilTextboxCloses
 	Call sub_0806C588
 SCRIPT_END
-SCRIPT_START script_RentSmallRoom
+script_RentSmallRoom:
 	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x03
 	CallWithArg ScriptCommand_SetMessageValue, (SMV_RUPEES << 16) | 50
@@ -61,7 +61,7 @@ SCRIPT_START script_RentSmallRoom
 	WaitUntilTextboxCloses
 	Call sub_0806C598
 SCRIPT_END
-SCRIPT_START script_EmmaNotEnoughRupees
+script_EmmaNotEnoughRupees:
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x07
 	Jump script_EndDialog
 script_RentNoRoom: @ Rent no room
