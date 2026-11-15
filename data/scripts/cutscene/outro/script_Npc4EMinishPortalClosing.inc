@@ -3,7 +3,7 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	Call sub_0808D2CC
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	_0807E8E4_0
+	PlayerIdleNorth
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000080
 	OffsetEntityPosition 0x0000, 0xffe0

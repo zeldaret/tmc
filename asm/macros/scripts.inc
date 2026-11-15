@@ -359,23 +359,19 @@
 	.2byte 0x043f
 .endm
 
-.macro _0807E800 w:req
+.macro SetFadeIris
 	.2byte 0x0c40
-	.4byte \w
+	.4byte 0
 .endm
 
-.macro _0807E80C w:req
+.macro SetFadeIrisInOut
 	.2byte 0x0c41
-	.4byte \w
+	.4byte 0
 .endm
 
-.macro _0807E858 s:req
+.macro SetFadeProgress s:req
 	.2byte 0x0842
 	.2byte \s
-.endm
-
-.macro _0807E858_0
-	.2byte 0x0442
 .endm
 
 .macro SetPlayerIdle
@@ -405,19 +401,19 @@
 	.2byte \s
 .endm
 
-.macro _0807E8E4_0
+.macro PlayerIdleNorth
 	.2byte 0x0449
 .endm
 
-.macro _0807E8E4_1
+.macro PlayerIdleEast
 	.2byte 0x044a
 .endm
 
-.macro _0807E8E4_2
+.macro PlayerIdleSouth
 	.2byte 0x044b
 .endm
 
-.macro _0807E8E4_3
+.macro PlayerIdleWest
 	.2byte 0x044c
 .endm
 

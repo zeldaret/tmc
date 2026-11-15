@@ -15,7 +15,7 @@ script_080145F8:
 	JumpIf script_08014632
 	SetPlayerIdle
 	Wait 0x0018
-	_0807E8E4_3
+	PlayerIdleWest
 	SetAnimationState 0x0002
 	MessageFromTargetPos TEXT_CARLOV, 0x2b, 0x000c
 	WaitUntilTextboxCloses

@@ -12,8 +12,8 @@
 	.endm
 
 
-gUnk_08016984:: @ 08016984
-	.incbin "code_08016984/gUnk_08016984.bin"
+gScriptCommand_PlayerIdle_Reference:: @ 08016984
+	.2byte 0x0449
 
     non_word_aligned_thumb_func_start GetNextScriptCommandHalfword
 GetNextScriptCommandHalfword:

@@ -8,7 +8,7 @@ script_0800DA64:
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Call DisablePauseMenuAndPutAwayItems
-	_0807E8E4_0
+	PlayerIdleNorth
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	SetScrollSpeed 4
@@ -23,7 +23,7 @@ script_0800DA64:
 	Wait 0x001e
 	MessageFromTargetPos TEXT_VAATI2, 0x2e, 0x0002
 	WaitUntilTextboxCloses
-	_0807E8E4_0
+	PlayerIdleNorth
 	CallWithArg SetPlayerPos, 0x00780138
 	SetScrollSpeed 4
 	CameraTargetPlayer
@@ -31,11 +31,11 @@ script_0800DA64:
 	SetRoomFlag 0x0000
 	Call CreatePlayerQuestionMark
 	Wait 0x001e
-	_0807E8E4_1
+	PlayerIdleEast
 	Wait 0x000a
-	_0807E8E4_3
+	PlayerIdleWest
 	Wait 0x000a
-	_0807E8E4_2
+	PlayerIdleSouth
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	SetRoomFlag 0x0001

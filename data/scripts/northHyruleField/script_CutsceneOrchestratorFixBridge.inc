@@ -8,7 +8,7 @@ SCRIPT_START script_CutsceneOrchestratorFixBridge
 	SetEntitySpeed 0x0200
 	EndBlock
 	Wait 0x000f
-	_0807E8E4_2
+	PlayerIdleSouth
 	Call CreatePlayerExclamationMark
 	Wait 0x001e
 	MoveTo 0x00b8, 0x0258

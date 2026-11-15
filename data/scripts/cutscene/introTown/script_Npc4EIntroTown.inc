@@ -78,7 +78,7 @@ SCRIPT_START script_Npc4EIntroTown
 	Call sub_08063C5C
 	PlaySound SFX_CUCCO_MINIGAME_BELL
 	Wait 0x001e
-	_0807E8E4_0
+	PlayerIdleNorth
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	MessageFromTargetPos TEXT_PROLOGUE, 0x21, 0x000e
@@ -92,7 +92,7 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitForSyncFlagAndClear 0x00000001
 	MessageFromTargetPos TEXT_PROLOGUE, 0x22, 0x000e
 	WaitUntilTextboxCloses
-	_0807E8E4_0
+	PlayerIdleNorth
 	Call sub_08063C14
 	Call sub_08094CDC
 	Wait 0x001e
@@ -113,20 +113,20 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	_0807E8E4_1
+	PlayerIdleEast
 	Call sub_08063C2C
 	MessageFromTargetPos TEXT_PROLOGUE, 0x27, 0x0000
 	WaitUntilTextboxCloses
 	Call sub_08063C74
 	Wait 0x003c
 	Call sub_08063C14
-	_0807E8E4_0
+	PlayerIdleNorth
 	MessageFromTargetPos TEXT_PROLOGUE, 0x28, 0x000e
 	WaitUntilTextboxCloses
-	_0807E8E4_1
+	PlayerIdleEast
 	MessageFromTargetPos TEXT_PROLOGUE, 0x29, 0x0000
 	WaitUntilTextboxCloses
-	_0807E8E4_0
+	PlayerIdleNorth
 	MessageFromTargetPos TEXT_PROLOGUE, 0x2a, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C14
@@ -139,7 +139,7 @@ SCRIPT_START script_Npc4EIntroTown
 	Wait 0x001e
 	Call sub_08094E0C
 	Wait 0x001e
-	_0807E8E4_1
+	PlayerIdleEast
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	MessageFromTargetPos TEXT_PROLOGUE, 0x2b, 0x0000

@@ -10,7 +10,7 @@ SCRIPT_START script_SmithIntro
 	Wait 0x001e
 	CameraTargetEntity
 	SetFadeTime 0x0004
-	_0807E800 0x00000000
+	SetFadeIris
 	WaitForFadeFinish
 	WaitForSyncFlagAndClear 0x00000008
 	DoPostScriptAction 0x0004

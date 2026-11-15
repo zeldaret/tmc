@@ -1,4 +1,4 @@
-@ TODO UNUSED?
+@ TODO UNUSED? looks like a reference list of script commands for developers?
 SCRIPT_START script_08016482
 	FadeInvert
 	Nop2 0x0080
@@ -6,19 +6,19 @@ SCRIPT_START script_08016482
 	SetFade5
 	SetFade6
 	SetFade7
-	_0807E800 0x00000000
-	_0807E80C 0x00000000
-	_0807E858_0
+	SetFadeIris
+	SetFadeIrisInOut
+	.2byte 0x0442 @ SetFadeProgress with missing parameter
 	SetPlayerIdle
 	EnablePlayerControl
 	DisablePlayerControl
 	SetPlayerAction 0x00005408
 	StartPlayerScript script_08016384
 	SetPlayerAnimation ANIM_FALL_ON_BACK
-	_0807E8E4_0
-	_0807E8E4_1
-	_0807E8E4_2
-	_0807E8E4_3
+	PlayerIdleNorth
+	PlayerIdleEast
+	PlayerIdleSouth
+	PlayerIdleWest
 	SetAction 0x0004
 	SetIntVariable 0x00000000
 	SetVariableToFrame

@@ -14,7 +14,7 @@ SCRIPT_START script_HurdyGurdyManFirstKinstone
 	MoveTo 0x01f8, 0x0328
 	SetAnimationState 0x0004
 	SetAnimation 0x0008
-	_0807E8E4_0
+	PlayerIdleNorth
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000002
 	Call HurdyGurdyMan_MakeInteractable

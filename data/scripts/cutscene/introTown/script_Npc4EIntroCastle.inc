@@ -48,13 +48,13 @@ SCRIPT_START script_Npc4EIntroCastle
 	WaitForSyncFlagAndClear 0x01000000
 	SetSyncFlag 0x0002a800
 	WaitForSyncFlagAndClear 0x00055000
-	_0807E8E4_1
+	PlayerIdleEast
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000008
 	MessageFromTargetPos TEXT_PROLOGUE, 0x39, 0x000c
 	WaitUntilTextboxCloses
 	PlayBgm BGM_CASTLE_TOURNAMENT
-	_0807E8E4_2
+	PlayerIdleSouth
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000008
 	SetSyncFlag 0x00000010

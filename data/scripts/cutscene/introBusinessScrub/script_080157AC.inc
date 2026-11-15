@@ -59,7 +59,7 @@ script_08015888:
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	Wait 0x0078
-	_0807E8E4_2
+	PlayerIdleSouth
 	MessageFromTargetPos TEXT_PROLOGUE, 0x68, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000001

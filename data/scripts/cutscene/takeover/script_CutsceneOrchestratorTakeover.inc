@@ -14,7 +14,7 @@ script_08015BF0:
 	WaitForSyncFlagAndClear 0x00000100
 	CameraTargetPlayer
 	SetFadeTime 0x0004
-	_0807E80C 0x00000000
+	SetFadeIrisInOut
 	WaitForFadeFinish
 	StopBgm
 	Call sub_08053BE8
@@ -24,10 +24,10 @@ script_08015BF0:
 	CameraTargetPlayer
 	SetFadeTime 0x0100
 	SetFade4
-	_0807E80C 0x00000000
+	SetFadeIrisInOut
 	EndBlock
 	SetFadeTime 0x0004
-	_0807E800 0x00000000
+	SetFadeIris
 	WaitForFadeFinish
 	PlayBGM
 	EzloMessage TEXT_VAATI, 0x1f

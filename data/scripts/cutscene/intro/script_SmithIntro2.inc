@@ -20,7 +20,7 @@ SCRIPT_START script_SmithIntro2
 	Wait 0x000f
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos TEXT_PROLOGUE, 0x09, 0x0000
-	_0807E8E4_1
+	PlayerIdleEast
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
@@ -45,7 +45,7 @@ SCRIPT_START script_SmithIntro2
 	@ Give player rusty sword
 	GivePlayerItem ITEM_QST_SWORD
 	WaitPlayerGetItem
-	_0807E8E4_1
+	PlayerIdleEast
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos TEXT_PROLOGUE, 0x0c, 0x0000
 	WaitUntilTextboxCloses

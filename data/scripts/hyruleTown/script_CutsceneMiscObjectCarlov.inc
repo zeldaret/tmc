@@ -12,7 +12,7 @@ script_080145C2:
 	ClearRoomFlag 0x0005
 .ifdef EU
 	Wait 0x0018
-	_0807E8E4_1
+	PlayerIdleEast
 	SetAnimationState 0x0006
 .else
 	Wait 0x000c

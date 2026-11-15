@@ -48,7 +48,7 @@ SCRIPT_START script_MinishVillageObjectPictureBackRoom
 	SetFade5
 	WaitForFadeFinish
 	StopBgm
-	_0807E858 0x0000
+	SetFadeProgress 0x0000
 	Wait 0x003c
 	CameraTargetPlayer
 	Call WaitForCameraTouchRoomBorder

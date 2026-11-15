@@ -91,14 +91,14 @@ void ScriptCommand_SetFade7(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFadeIris(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFadeIrisInOut(Entity* entity, ScriptExecutionContext* context);
 void SetFadeIrisForCameraTarget(u32);
-void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetFadeProgress(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetPlayerIdle(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_EnablePlayerControl(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DisablePlayerControl(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetPlayerAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_StartPlayerScript(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetPlayerAnimation(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_PlayerIdle(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetVariableToFrame(Entity* entity, ScriptExecutionContext* context);
@@ -168,7 +168,7 @@ typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
 extern u16* gUnk_08001A7C[];
 extern u8 gUnk_08114F30[];
 extern u8 gUnk_08114F34[];
-extern const u16 gUnk_08016984;
+extern const u16 gScriptCommand_PlayerIdle_Reference;
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
 
@@ -539,17 +539,17 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_SetFade7,
         ScriptCommand_SetFadeIris,
         ScriptCommand_SetFadeIrisInOut,
-        ScriptCommand_0807E858,
+        ScriptCommand_SetFadeProgress,
         ScriptCommand_SetPlayerIdle,
         ScriptCommand_EnablePlayerControl,
         ScriptCommand_DisablePlayerControl,
         ScriptCommand_SetPlayerAction,
         ScriptCommand_StartPlayerScript,
         ScriptCommand_SetPlayerAnimation,
-        ScriptCommand_0807E8E4,
-        ScriptCommand_0807E8E4,
-        ScriptCommand_0807E8E4,
-        ScriptCommand_0807E8E4,
+        ScriptCommand_PlayerIdle,
+        ScriptCommand_PlayerIdle,
+        ScriptCommand_PlayerIdle,
+        ScriptCommand_PlayerIdle,
         ScriptCommand_SetAction,
         ScriptCommand_SetIntVariable,
         ScriptCommand_SetVariableToFrame,
@@ -1059,7 +1059,7 @@ void SetFadeIrisForCameraTarget(u32 type) {
     SetFadeIris(x, y, type, gActiveScriptInfo.fadeSpeed);
 }
 
-void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetFadeProgress(Entity* entity, ScriptExecutionContext* context) {
     SetFadeProgress(context->scriptInstructionPointer[1]);
 }
 
@@ -1092,8 +1092,8 @@ void ScriptCommand_SetPlayerAnimation(Entity* entity, ScriptExecutionContext* co
     gPlayerState.animation = context->scriptInstructionPointer[1];
 }
 
-void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context) {
-    u32 tmp = (gUnk_08016984 & 0x3FF);
+void ScriptCommand_PlayerIdle(Entity* entity, ScriptExecutionContext* context) {
+    u32 tmp = (gScriptCommand_PlayerIdle_Reference & 0x3FF);
     u32 tmp2;
     gPlayerEntity.base.animationState = tmp2 = (context->scriptInstructionPointer[0] - tmp) << 1;
 }

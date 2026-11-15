@@ -235,7 +235,7 @@ script_08012A74:
 	Wait 0x0078
 	PlayBgm BGM_EZLO_THEME
 	BeginBlock
-	_0807E8E4_2
+	PlayerIdleSouth
 	EzloMessage TEXT_FINDING_EZLO, 0x12
 	EndBlock
 	WaitUntilTextboxCloses

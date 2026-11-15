@@ -5,7 +5,7 @@ SCRIPT_START script_Npc4EFixedEverything
 	Call DisablePauseMenuAndPutAwayItems
 	SetEntityPositionRelative 0x0088, 0x0148
 	Call sub_0807F844
-	_0807E8E4_3
+	PlayerIdleWest
 	CallWithArg SetPlayerFlag, PL_NO_CAP
 	CallWithArg SetPlayerPos, 0x00a80088
 	PlaySound SFX_APPARATE
