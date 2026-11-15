@@ -2193,19 +2193,22 @@ Enemies_HouseInteriors1_InnWestRoom:: @ 080D6A2C
 TileEntities_HouseInteriors1_InnWestRoom:: @ 080D6A3C
 	tile_entity_list_end
 
-gUnk_080D6A44:: @ 080D6A44
-	.incbin "data_080D5360/gUnk_080D6A44.bin"
+TileEntities_HouseInteriors1_InnWestRoom_1:: @ 080D6A44
+	tile_entity type=0x2, paramA=0x1, paramB=0x6e5c, paramC=0x8a, paramD=0x1
+	tile_entity_list_end
 
-gUnk_080D6A54:: @ 080D6A54
-	.incbin "data_080D5360/gUnk_080D6A54.bin"
+TileEntities_HouseInteriors1_InnWestRoom_2:: @ 080D6A54
+	tile_entity type=0x2, paramA=0x1, paramB=0x6f5c, paramC=0x8a, paramD=0x1
+	tile_entity_list_end
 
-gUnk_080D6A64:: @ 080D6A64
-	.incbin "data_080D5360/gUnk_080D6A64.bin"
+TileEntities_HouseInteriors1_InnWestRoom_3:: @ 080D6A64
+	tile_entity type=0x2, paramA=0x1, paramB=0x705c, paramC=0x8a, paramD=0x1
+	tile_entity_list_end
 
-gUnk_080D6A74:: @ 080D6A74
-	.4byte gUnk_080D6A44
-	.4byte gUnk_080D6A54
-	.4byte gUnk_080D6A64
+TileEntities_HouseInteriors1_InnWestRoom_Dynamic:: @ 080D6A74
+	.4byte TileEntities_HouseInteriors1_InnWestRoom_1
+	.4byte TileEntities_HouseInteriors1_InnWestRoom_2
+	.4byte TileEntities_HouseInteriors1_InnWestRoom_3
 
 Room_HouseInteriors1_InnWestRoom:: @ 080D6A80
 	.4byte Entities_HouseInteriors1_InnWestRoom_0
@@ -2231,15 +2234,17 @@ Enemies_HouseInteriors1_InnMiddleRoom:: @ 080D6AE0
 TileEntities_HouseInteriors1_InnMiddleRoom:: @ 080D6AF0
 	tile_entity_list_end
 
-gUnk_080D6AF8:: @ 080D6AF8
-	.incbin "data_080D5360/gUnk_080D6AF8.bin"
+TileEntities_HouseInteriors1_InnMiddleRoom_1:: @ 080D6AF8
+	tile_entity type=0x2, paramA=0x2, paramB=0x715c, paramC=0x8a, paramD=0x1
+	tile_entity_list_end
 
-gUnk_080D6B08:: @ 080D6B08
-	.incbin "data_080D5360/gUnk_080D6B08.bin"
+TileEntities_HouseInteriors1_InnMiddleRoom_2:: @ 080D6B08
+	tile_entity type=0x2, paramA=0x2, paramB=0x725c, paramC=0x8a, paramD=0x1
+	tile_entity_list_end
 
-gUnk_080D6B18:: @ 080D6B18
-	.4byte gUnk_080D6AF8
-	.4byte gUnk_080D6B08
+TileEntities_HouseInteriors1_InnMiddleRoom_Dynamic:: @ 080D6B18
+	.4byte TileEntities_HouseInteriors1_InnMiddleRoom_1
+	.4byte TileEntities_HouseInteriors1_InnMiddleRoom_2
 
 Room_HouseInteriors1_InnMiddleRoom:: @ 080D6B20
 	.4byte Entities_HouseInteriors1_InnMiddleRoom_0
@@ -2264,19 +2269,22 @@ Enemies_HouseInteriors1_InnEastRoom:: @ 080D6B70
 TileEntities_HouseInteriors1_InnEastRoom:: @ 080D6B80
 	tile_entity_list_end
 
-gUnk_080D6B88:: @ 080D6B88
-	.incbin "data_080D5360/gUnk_080D6B88.bin"
+TileEntities_HouseInteriors1_InnEastRoom_1:: @ 080D6B88
+	tile_entity type=0x2, paramA=0x3, paramB=0x735c, paramC=0x87, paramD=0x1
+	tile_entity_list_end
 
-gUnk_080D6B98:: @ 080D6B98
-	.incbin "data_080D5360/gUnk_080D6B98.bin"
+TileEntities_HouseInteriors1_InnEastRoom_2:: @ 080D6B98
+	tile_entity type=0x2, paramA=0x3, paramB=0x745c, paramC=0x87, paramD=0x1
+	tile_entity_list_end
 
-gUnk_080D6BA8:: @ 080D6BA8
-	.incbin "data_080D5360/gUnk_080D6BA8.bin"
+TileEntities_HouseInteriors1_InnEastRoom_3:: @ 080D6BA8
+	tile_entity type=0x2, paramA=0x3, paramB=0x755c, paramC=0x87, paramD=0x1
+	tile_entity_list_end
 
-gUnk_080D6BB8:: @ 080D6BB8
-	.4byte gUnk_080D6B88
-	.4byte gUnk_080D6B98
-	.4byte gUnk_080D6BA8
+TileEntities_HouseInteriors1_InnEastRoom_Dynamic:: @ 080D6BB8
+	.4byte TileEntities_HouseInteriors1_InnEastRoom_1
+	.4byte TileEntities_HouseInteriors1_InnEastRoom_2
+	.4byte TileEntities_HouseInteriors1_InnEastRoom_3
 
 Room_HouseInteriors1_InnEastRoom:: @ 080D6BC4
 	.4byte Entities_HouseInteriors1_InnEastRoom_0
