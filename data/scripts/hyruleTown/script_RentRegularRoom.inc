@@ -8,7 +8,7 @@ SCRIPT_START script_RentRegularRoom
 	HasRupees 200
 	JumpIfNot script_EmmaNotEnoughRupees
 	ModRupees -200
-	SetLocalFlag 0x0091
+	SetLocalFlag YADO_CHECKIN
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses
 	Call sub_0806C588

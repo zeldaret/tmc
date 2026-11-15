@@ -28,7 +28,7 @@ script_0800E872: @ Rent large room
 	HasRupees 400
 	JumpIfNot script_EmmaNotEnoughRupees
 	ModRupees -400
-	SetLocalFlag 0x0091
+	SetLocalFlag YADO_CHECKIN
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses
 	Call sub_0806C578
