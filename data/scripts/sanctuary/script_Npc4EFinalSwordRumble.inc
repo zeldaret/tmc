@@ -11,7 +11,7 @@ SCRIPT_START script_Npc4EFinalSwordRumble
 	SetSyncFlag 0x00000008
 	Wait 0x0078
 	CallWithArg DeleteRepeatedSoundManager, 0x00000001
-	_0807F0C8 0x0000, 0x0000
+	InitScreenShake 0x0000, 0x0000
 	Wait 0x003c
 	SetScrollSpeed 4
 	SetEntityPositionRelative 0x00e8, 0x0050

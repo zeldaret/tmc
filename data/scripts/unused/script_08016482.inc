@@ -76,6 +76,6 @@ SCRIPT_START script_08016482
 	CameraTargetEntity
 	CameraTargetPlayer
 	SetScrollSpeed 7
-	_0807F0C8 0x003c, 0x0003
+	InitScreenShake 0x003c, 0x0003
 SCRIPT_END
 	.2byte 0x0000

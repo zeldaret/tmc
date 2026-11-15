@@ -19,4 +19,4 @@ SCRIPT_START script_Npc4EFixedEverything
 	MessageFromTargetPos TEXT_VAATI2, 0x5e, 0x000e
 	WaitUntilTextboxCloses
 	CallWithArg CreateRepeatedSoundManager, 0x00000001
-	_0807F0C8 0xffff, 0x0000
+	InitScreenShake 0xffff, 0x0000

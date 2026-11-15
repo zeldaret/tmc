@@ -109,7 +109,7 @@ void ScriptCommand_AddInteractableWhenBigObject(Entity* entity, ScriptExecutionC
 void ScriptCommand_RemoveInteractableObject(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableWhenBigFuser(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_UpdateFusion(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WaitForFusion(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableFuser(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitUntilTextboxCloses(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MessageFromTarget(Entity* entity, ScriptExecutionContext* context);
@@ -161,7 +161,7 @@ void ScriptCommand_InitItemGetSequence(Entity* entity, ScriptExecutionContext* c
 void ScriptCommand_CameraTargetEntity(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CameraTargetPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetScrollSpeed(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_InitScreenShake(Entity* entity, ScriptExecutionContext* context);
 
 typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
 
@@ -560,7 +560,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_RemoveInteractableObject,
         ScriptCommand_AddInteractableWhenBigFuser,
         ScriptCommand_UpdateFusion,
-        ScriptCommand_0807EA4C,
+        ScriptCommand_WaitForFusion,
         ScriptCommand_AddInteractableFuser,
         ScriptCommand_WaitUntilTextboxCloses,
         ScriptCommand_MessageFromTarget,
@@ -611,7 +611,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_CameraTargetEntity,
         ScriptCommand_CameraTargetPlayer,
         ScriptCommand_SetScrollSpeed,
-        ScriptCommand_0807F0C8,
+        ScriptCommand_InitScreenShake,
     };
 
     if (!context->scriptInstructionPointer)
@@ -1187,7 +1187,7 @@ void ScriptCommand_UpdateFusion(Entity* entity, ScriptExecutionContext* context)
     }
 }
 
-void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_WaitForFusion(Entity* entity, ScriptExecutionContext* context) {
     if (entity->interactType == INTERACTION_FUSE) {
         InitializeFuseInfo(entity, 0, 0, 0);
         entity->interactType = INTERACTION_NONE;
@@ -1538,7 +1538,7 @@ void ScriptCommand_SetScrollSpeed(Entity* entity, ScriptExecutionContext* contex
     gRoomControls.scrollSpeed = context->scriptInstructionPointer[1] & 7;
 }
 
-void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_InitScreenShake(Entity* entity, ScriptExecutionContext* context) {
     InitScreenShake(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
 }
 

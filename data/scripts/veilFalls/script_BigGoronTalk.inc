@@ -54,4 +54,4 @@ script_08009452:
 	MessageNoOverlap TEXT_GORONS, 0x0b
 	WaitUntilTextboxCloses
 	Call sub_0806D74C
-	_0807F0C8 0xffff, 0x0000
+	InitScreenShake 0xffff, 0x0000

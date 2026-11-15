@@ -463,7 +463,7 @@
 	.2byte 0x0456
 .endm
 
-.macro _0807EA4C
+.macro WaitForFusion
 	.2byte 0x0457
 .endm
 
@@ -731,7 +731,7 @@
 	.2byte \s
 .endm
 
-.macro _0807F0C8 a:req, b:req
+.macro InitScreenShake a:req, b:req
 	.2byte 0x0c8a
 	.2byte \a
 	.2byte \b

@@ -7,7 +7,7 @@ SCRIPT_START script_CastorWildsStatueMiddle
 	SetAnimationState 0x0002
 	EndBlock
 script_0800B298:
-	_0807EA4C
+	WaitForFusion
 	UpdateFusion
 	SetPlayerIdle
 	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_MIDDLE
