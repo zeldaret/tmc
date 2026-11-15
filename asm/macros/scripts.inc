@@ -440,7 +440,7 @@
 	.2byte 0x0451
 .endm
 
-.macro _0807E974 a:req, b:req
+.macro MessageFromTargetAndWait a:req, b:req
 	.2byte 0x0852
 	.byte \b
 	.byte \a
@@ -525,7 +525,7 @@
 	.2byte \s
 .endm
 
-.macro _0807EB4C a:req, b:req
+.macro FacePosition a:req, b:req
 	.2byte 0x0c62
 	.2byte \a
 	.2byte \b
@@ -604,11 +604,11 @@
 	.2byte \s
 .endm
 
-.macro _0807ED24 a:req, b:req, c:req
+.macro MoveToPosition x:req, y:req, frames:req
 	.2byte 0x1072
-	.2byte \a
-	.2byte \b
-	.2byte \c
+	.2byte \x
+	.2byte \y
+	.2byte \frames
 .endm
 
 .macro MoveTo a:req, b:req
@@ -637,10 +637,10 @@
 	.2byte \b
 .endm
 
-.macro _0807EF3C a:req, b:req
+.macro Fall velocity:req, gravity:req
 	.2byte 0x0c78
-	.2byte \a
-	.2byte \b
+	.2byte \velocity
+	.2byte \gravity
 .endm
 
 .macro DoPostScriptAction action:req

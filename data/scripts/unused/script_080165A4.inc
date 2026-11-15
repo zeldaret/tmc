@@ -6,7 +6,7 @@ SCRIPT_START script_080165A4
 	AddInteractableWhenBigObject
 	EndBlock
 script_080165B2:
-	_0807E974 TEXT_LOCATIONS, 0x01
+	MessageFromTargetAndWait TEXT_LOCATIONS, 0x01
 	Jump script_080165B2
 	.2byte 0x0000
 script_080165BC:

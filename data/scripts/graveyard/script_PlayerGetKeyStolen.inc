@@ -13,7 +13,7 @@ SCRIPT_START script_PlayerGetKeyStolen
 	PlaySound SFX_PLY_JUMP
 	SetAnimationState 0x0004
 	Call sub_0807F210
-	_0807EF3C 0x0200, 0x0020
+	Fall 0x0200, 0x0020
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000040
 	Call SetPlayerActionNormal

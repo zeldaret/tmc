@@ -104,7 +104,7 @@ void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* contex
 void ScriptCommand_SetVariableToFrame(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetAnimation(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TriggerInteract(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MessageFromTargetAndWait(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableWhenBigObject(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_RemoveInteractableObject(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableWhenBigFuser(Entity* entity, ScriptExecutionContext* context);
@@ -120,7 +120,7 @@ void ScriptCommand_MessageNoOverlapVar(Entity* entity, ScriptExecutionContext* c
 void ScriptCommand_EzloMessage(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_GetSelectedChoice(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EB4C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_FacePosition(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_FacePlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_FaceAwayFromPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityDirection(Entity* entity, ScriptExecutionContext* context);
@@ -137,13 +137,13 @@ void ScriptCommand_WalkNorth(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WalkEast(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WalkSouth(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WalkWest(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MoveToPosition(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveTo(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_LookAt(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveTowardsTarget(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveToPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveToOffset(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_Fall(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoPostScriptAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoPostScriptAction2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_PlaySound(Entity* entity, ScriptExecutionContext* context);
@@ -555,7 +555,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_SetVariableToFrame,
         ScriptCommand_SetAnimation,
         ScriptCommand_TriggerInteract,
-        ScriptCommand_0807E974,
+        ScriptCommand_MessageFromTargetAndWait,
         ScriptCommand_AddInteractableWhenBigObject,
         ScriptCommand_RemoveInteractableObject,
         ScriptCommand_AddInteractableWhenBigFuser,
@@ -571,7 +571,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_EzloMessage,
         ScriptCommand_GetSelectedChoice,
         ScriptCommand_SetAnimationState,
-        ScriptCommand_0807EB4C,
+        ScriptCommand_FacePosition,
         ScriptCommand_FacePlayer,
         ScriptCommand_FaceAwayFromPlayer,
         ScriptCommand_SetEntityDirection,
@@ -587,13 +587,13 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_WalkEast,
         ScriptCommand_WalkSouth,
         ScriptCommand_WalkWest,
-        ScriptCommand_0807ED24,
+        ScriptCommand_MoveToPosition,
         ScriptCommand_MoveTo,
         ScriptCommand_LookAt,
         ScriptCommand_MoveTowardsTarget,
         ScriptCommand_MoveToPlayer,
         ScriptCommand_MoveToOffset,
-        ScriptCommand_0807EF3C,
+        ScriptCommand_Fall,
         ScriptCommand_DoPostScriptAction,
         ScriptCommand_DoPostScriptAction2,
         ScriptCommand_PlaySound,
@@ -1126,7 +1126,7 @@ void ScriptCommand_TriggerInteract(Entity* entity, ScriptExecutionContext* conte
     }
 }
 
-void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_MessageFromTargetAndWait(Entity* entity, ScriptExecutionContext* context) {
     switch (context->unk_18) {
         default:
             if (!--context->unk_19)
@@ -1246,7 +1246,7 @@ void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* con
     entity->animationState = context->scriptInstructionPointer[1];
 }
 
-void ScriptCommand_0807EB4C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_FacePosition(Entity* entity, ScriptExecutionContext* context) {
     entity->animationState = GetAnimationStateForDirection8(
         sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
                      context->scriptInstructionPointer[2] + gRoomControls.origin_y));
@@ -1355,17 +1355,17 @@ void ScriptCommand_WalkWest(Entity* entity, ScriptExecutionContext* context) {
     sub_0807EC44(entity, context);
 }
 
-void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_MoveToPosition(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
-        s32 tmp, tmp2, tmp3;
+        s32 target, currentX, currentY;
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[3];
-        tmp = context->scriptInstructionPointer[1];
-        tmp2 = entity->x.HALF.HI - gRoomControls.origin_x;
-        context->x.WORD = ((tmp - tmp2) << 0x10) / context->unk_12;
-        tmp = context->scriptInstructionPointer[2];
-        tmp3 = entity->y.HALF.HI - gRoomControls.origin_y;
-        context->y.WORD = ((tmp - tmp3) << 0x10) / context->unk_12;
+        target = context->scriptInstructionPointer[1];
+        currentX = entity->x.HALF.HI - gRoomControls.origin_x;
+        context->x.WORD = ((target - currentX) << 0x10) / context->unk_12;
+        target = context->scriptInstructionPointer[2];
+        currentY = entity->y.HALF.HI - gRoomControls.origin_y;
+        context->y.WORD = ((target - currentY) << 0x10) / context->unk_12;
         entity->animationState = GetAnimationStateForDirection8(
             sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
                          context->scriptInstructionPointer[2] + gRoomControls.origin_y));
@@ -1447,7 +1447,7 @@ void ScriptCommand_MoveToOffset(Entity* entity, ScriptExecutionContext* context)
     }
 }
 
-void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_Fall(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
         entity->zVelocity = ((s16)context->scriptInstructionPointer[1]) << 8;

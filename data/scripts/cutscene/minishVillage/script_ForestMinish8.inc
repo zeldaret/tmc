@@ -21,9 +21,9 @@ SCRIPT_START script_ForestMinish8
 	SetSyncFlag 0x00010000
 	WaitForSyncFlagAndClear 0x00008000
 	PlaySound SFX_PLY_JUMP
-	_0807EF3C 0x0180, 0x0030
+	Fall 0x0180, 0x0030
 	PlaySound SFX_PLY_JUMP
-	_0807EF3C 0x0180, 0x0030
+	Fall 0x0180, 0x0030
 	SetSyncFlag 0x00010000
 	WaitForSyncFlagAndClear 0x00008000
 	SetEntitySpeed 0x0300

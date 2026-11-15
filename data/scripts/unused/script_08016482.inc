@@ -24,7 +24,7 @@ SCRIPT_START script_08016482
 	SetVariableToFrame
 	SetAnimation 0x0000
 	TriggerInteract
-	_0807E974 TEXT_LOCATIONS, 0x00
+	MessageFromTargetAndWait TEXT_LOCATIONS, 0x00
 	AddInteractableWhenBigObject
 	RemoveInteractableObject
 	AddInteractableWhenBigFuser 0x0000
@@ -38,7 +38,7 @@ SCRIPT_START script_08016482
 	EzloMessage TEXT_LOCATIONS, 0x02
 	GetSelectedChoice
 	SetAnimationState 0x0000
-	_0807EB4C 0x0000, 0x0000
+	FacePosition 0x0000, 0x0000
 	FacePlayer
 	FaceAwayFromPlayer
 	SetEntityDirection 0x0000
@@ -53,7 +53,7 @@ SCRIPT_START script_08016482
 	WalkEast 0x0030
 	WalkSouth 0x0040
 	WalkWest 0x0050
-	_0807ED24 0x0000, 0x0000, 0x0000
+	MoveToPosition 0x0000, 0x0000, 0x0000
 	MoveTo 0x0000, 0x0000
 	LookAt 0x0000, 0x0000
 	MoveTowardsTarget

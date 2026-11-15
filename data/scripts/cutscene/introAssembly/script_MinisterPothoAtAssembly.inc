@@ -6,7 +6,7 @@ SCRIPT_START script_MinisterPothoAtAssembly
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000004
 	PlaySound SFX_PLY_JUMP
-	_0807EF3C 0x0180, 0x0030
+	Fall 0x0180, 0x0030
 	SetAnimationState 0x0002
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
