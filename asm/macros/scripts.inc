@@ -540,7 +540,7 @@
 	.endif
 .endm
 
-.macro _0807EB38
+.macro GetSelectedChoice
 	.2byte 0x0460
 .endm
 

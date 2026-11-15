@@ -118,7 +118,7 @@ void ScriptCommand_MessageFromTargetPos(Entity* entity, ScriptExecutionContext* 
 void ScriptCommand_MessageFromTargetTable(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MessageNoOverlapVar(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_EzloMessage(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_GetSelectedChoice(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EB4C(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_FacePlayer(Entity* entity, ScriptExecutionContext* context);
@@ -569,7 +569,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_MessageFromTargetTable,
         ScriptCommand_MessageNoOverlapVar,
         ScriptCommand_EzloMessage,
-        ScriptCommand_0807EB38,
+        ScriptCommand_GetSelectedChoice,
         ScriptCommand_SetAnimationState,
         ScriptCommand_0807EB4C,
         ScriptCommand_FacePlayer,
@@ -1238,7 +1238,7 @@ void ScriptCommand_EzloMessage(Entity* entity, ScriptExecutionContext* context) 
     CreateEzloHint(context->scriptInstructionPointer[1], 0);
 }
 
-void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_GetSelectedChoice(Entity* entity, ScriptExecutionContext* context) {
     context->intVariable = gMessageChoiceSelection.choice;
 }
 

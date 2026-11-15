@@ -17,7 +17,7 @@ script_EmmaWaitForInteraction:
 	CallWithArg ScriptCommand_SetMessageValue, (SMV_FIELD_0X18 << 16) | 400
 	EndBlock
 	WaitUntilTextboxCloses
-	_0807EB38
+	GetSelectedChoice
 	JumpTable script_RentNoRoom, script_RentSmallRoom, script_RentRegularRoom, script_RentLargeRoom
 script_RentLargeRoom: @ Rent large room
 	BeginBlock

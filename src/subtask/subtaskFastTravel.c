@@ -104,7 +104,7 @@ u32 sub_080A6D74(u32 param_1) {
 
 void Subtask_FastTravel_2(void) {
     u32 tmp;
-    switch (sub_08056338()) {
+    switch (MessageGetSelectedChoice()) {
 #ifdef EU
         case 0:
             gMenu.field_0x0 = 2;

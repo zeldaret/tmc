@@ -106,7 +106,7 @@ extern Window gCurrentWindow;
 extern Window gNewWindow;
 
 extern struct {
-    u8 unk_00;
+    MessageChoiceStatus status : 8;
     u8 unk_01[1];
     s8 choiceCount;
     s8 currentChoice;
@@ -117,11 +117,11 @@ extern struct {
 
 extern u8 gTextGfxBuffer[0xD00];
 
-s32 sub_08056338(void) {
+s32 MessageGetSelectedChoice(void) {
     s32 result;
 
     result = -1;
-    if (((gMessage.state & MESSAGE_ACTIVE) == 0) && (gMessageChoiceSelection.status == 3))
+    if (((gMessage.state & MESSAGE_ACTIVE) == 0) && (gMessageChoiceSelection.status == MESSAGE_CHOICE_STATUS_SELECTED))
         result = gMessageChoiceSelection.choice;
     return result;
 }
@@ -180,7 +180,7 @@ void MessageInitialize(void) {
     MemClear(&gTextRender, sizeof(gTextRender));
     MemClear(&gNewWindow, sizeof(gNewWindow));
     MemClear(&gCurrentWindow, sizeof(gCurrentWindow));
-    MemClear(&gMessageChoiceSelection, 4);
+    MemClear(&gMessageChoiceSelection, sizeof(gMessageChoiceSelection));
 }
 
 void MessageMain(void) {
@@ -376,7 +376,7 @@ u16 RunTextCommand(TextRender* this) {
         chr = GetCharacter(&this->curToken);
         switch (chr) {
             case 0:
-                if (gMessageChoiceSelection.status == 1) {
+                if (gMessageChoiceSelection.status == MESSAGE_CHOICE_STATUS_1) {
                     this->renderStatus = RENDER_ENQUIRY;
 #ifndef EU
                     SwitchChoice(0, 0);
@@ -437,11 +437,11 @@ u16 RunTextCommand(TextRender* this) {
                 this->message.textWindowPosY = this->curToken.param;
                 break;
             case 12:
-                if (gMessageChoiceSelection.status != 1) {
-                    MemClear(&gMessageChoiceSelection, 4);
+                if (gMessageChoiceSelection.status != MESSAGE_CHOICE_STATUS_1) {
+                    MemClear(&gMessageChoiceSelection, sizeof(gMessageChoiceSelection));
                     MemClear(&gMessageChoices, sizeof(gMessageChoices));
-                    gMessageChoices.unk_00 = 1;
-                    gMessageChoiceSelection.status = 1;
+                    gMessageChoices.status = MESSAGE_CHOICE_STATUS_1;
+                    gMessageChoiceSelection.status = MESSAGE_CHOICE_STATUS_1;
                 }
                 if (gMessageChoices.choiceCount > 3)
                     break;
@@ -523,7 +523,7 @@ void TextDispEnquiry(TextRender* this) {
             }
             sub_0805EF40(&this->curToken, src);
             gMessageChoiceSelection.choice = gMessageChoices.currentChoice;
-            gMessageChoiceSelection.status = 3;
+            gMessageChoiceSelection.status = MESSAGE_CHOICE_STATUS_SELECTED;
             MemClear(&gMessageChoices, sizeof(gMessageChoices));
             SoundReq(SFX_TEXTBOX_SELECT);
             this->renderStatus = RENDER_UPDATE;
@@ -546,8 +546,8 @@ void TextDispEnquiry(TextRender* this) {
     } else {
         doSwitch = 0;
     }
-    if (gMessageChoiceSelection.status == 1) {
-        gMessageChoices.unk_00 = gMessageChoiceSelection.status = 2;
+    if (gMessageChoiceSelection.status == MESSAGE_CHOICE_STATUS_1) {
+        gMessageChoices.status = gMessageChoiceSelection.status = MESSAGE_CHOICE_STATUS_2;
         doSwitch = 1;
     }
     if (doSwitch) {

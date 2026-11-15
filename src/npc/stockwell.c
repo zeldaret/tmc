@@ -146,7 +146,7 @@ void sub_0806522C(Entity* this) {
 }
 
 void sub_08065250(Entity* this) {
-    switch (sub_08056338()) {
+    switch (MessageGetSelectedChoice()) {
         case 0:
             this->subAction++;
             this->timer = 30;

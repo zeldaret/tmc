@@ -29,7 +29,7 @@ script_080144A2:
 	Call sub_0806E250
 	JumpIfNot script_080144B8
 	MessageFromTarget TEXT_BURLOV, 0x0b
-	_0807EB38
+	GetSelectedChoice
 	JumpTable script_080144B8, script_080144C0
 script_080144B8:
 	ClearLocalFlag 0x0093

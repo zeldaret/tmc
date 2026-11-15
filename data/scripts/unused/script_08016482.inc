@@ -36,7 +36,7 @@ SCRIPT_START script_08016482
 	MessageFromTargetTable TEXT_LOCATIONS << 8 | 0x01, TEXT_LOCATIONS << 8 | 0x02, TEXT_LOCATIONS << 8 | 0x03
 	MessageNoOverlapVar
 	EzloMessage TEXT_LOCATIONS, 0x02
-	_0807EB38
+	GetSelectedChoice
 	SetAnimationState 0x0000
 	_0807EB4C 0x0000, 0x0000
 	FacePlayer
