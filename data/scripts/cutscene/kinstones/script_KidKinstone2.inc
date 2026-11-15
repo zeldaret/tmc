@@ -1,7 +1,7 @@
 @ Hyrule Town Kinstone cutscene Kid 2
 SCRIPT_START script_KidKinstone2
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0002
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x0008

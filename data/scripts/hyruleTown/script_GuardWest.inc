@@ -2,7 +2,7 @@
 SCRIPT_START script_GuardWest
 	BeginBlock
 	SetAnimationState 0x0002
-	_0807E9D4
+	AddInteractableWhenBigObject
 	CallWithArg sub_0807F3D8, 0x00000008
 	Call GuardWithSpear_ResetLastSwordMove
 .ifndef EU
@@ -71,7 +71,7 @@ script_08010060:
 	Jump script_0800FF92
 	.2byte 0x0000
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	CallWithArg sub_080672B0, 0x00000000

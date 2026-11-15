@@ -1,7 +1,7 @@
 @ Mines Melari
 SCRIPT_START script_Melari
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	SetAnimation 0x0000

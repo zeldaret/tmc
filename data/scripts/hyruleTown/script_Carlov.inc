@@ -1,7 +1,7 @@
 @ Hyrule Town ~~Carlov~~ Burlov
 SCRIPT_START script_Carlov
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0000
 	SetEntitySpeed 0x01c0
 	DoPostScriptAction 0x000a
@@ -62,13 +62,13 @@ script_080144FC:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_08014462
 .ifdef USA
-	_0807E9DC
+	RemoveInteractableObject
 .else
 .ifdef DEMO_USA
-	_0807E9DC
+	RemoveInteractableObject
 .else
 .ifdef DEMO_JP
-	_0807E9DC
+	RemoveInteractableObject
 .endif
 .endif
 .endif

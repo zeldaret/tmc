@@ -4,7 +4,7 @@ SCRIPT_START script_PercyIntro
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EndBlock
 script_0800F662:
 	CheckEntityInteractType

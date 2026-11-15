@@ -1,7 +1,7 @@
 @ Town Minish on book above Dr Left
 SCRIPT_START script_TownMinish3
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	SetEntitySpeed 0x0200
 	CheckGlobalFlag MIZUKAKI_START

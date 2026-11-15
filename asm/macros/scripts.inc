@@ -449,15 +449,15 @@
 	.2byte \s
 .endm
 
-.macro _0807E9D4
+.macro AddInteractableWhenBigObject
 	.2byte 0x0453
 .endm
 
-.macro _0807E9DC
+.macro RemoveInteractableObject
 	.2byte 0x0454
 .endm
 
-.macro _0807E9E4 s:req
+.macro AddInteractableWhenBigFuser s:req
 	.2byte 0x0855
 	.2byte \s
 .endm
@@ -470,7 +470,7 @@
 	.2byte 0x0457
 .endm
 
-.macro _0807EA88 s:req
+.macro AddInteractableFuser s:req
 	.2byte 0x0858
 	.2byte \s
 .endm

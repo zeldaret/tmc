@@ -2,7 +2,7 @@
 SCRIPT_START script_GuardEntry3
 	BeginBlock
 	SetAnimationState 0x0002
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock
@@ -22,7 +22,7 @@ script_08011A7C:
 	.2byte 0x0000
 	BeginBlock
 	SetAnimationState 0x0004
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock

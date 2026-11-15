@@ -13,7 +13,7 @@ SCRIPT_START script_MinisterPothoAtAssembly
 	SetAnimationState 0x0004
 	SetSyncFlag 0x00000008
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	Jump script_0800927E
 	.2byte 0x0000

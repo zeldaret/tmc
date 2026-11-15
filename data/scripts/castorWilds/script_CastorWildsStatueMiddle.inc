@@ -3,7 +3,7 @@ SCRIPT_START script_CastorWildsStatueMiddle
 	BeginBlock
 	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_MIDDLE
 	JumpIf script_0800B302
-	_0807EA88 KINSTONE_CASTOR_WILDS_STATUE_MIDDLE
+	AddInteractableFuser KINSTONE_CASTOR_WILDS_STATUE_MIDDLE
 	SetAnimationState 0x0002
 	EndBlock
 script_0800B298:

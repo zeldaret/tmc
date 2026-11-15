@@ -1,7 +1,7 @@
 @ Veil Falls BigGoron 3
 SCRIPT_START script_BigGoron3
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EndBlock
 script_0800934E:
 	CheckEntityInteractType

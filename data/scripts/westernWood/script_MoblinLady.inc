@@ -2,7 +2,7 @@
 SCRIPT_START script_MoblinLady
 	BeginBlock
 	FacePlayer
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	EndBlock
 script_08012338:

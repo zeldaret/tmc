@@ -25,10 +25,10 @@ SCRIPT_START script_08016482
 	SetAnimation 0x0000
 	TriggerInteract
 	_0807E974 0x0600
-	_0807E9D4
-	_0807E9DC
-	_0807E9E4 0x0000
-	_0807EA88 KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT
+	AddInteractableWhenBigObject
+	RemoveInteractableObject
+	AddInteractableWhenBigFuser 0x0000
+	AddInteractableFuser KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT
 	WaitUntilTextboxCloses
 	MessageFromTarget TEXT_LOCATIONS, 0x01
 	MessageNoOverlap 0x0601

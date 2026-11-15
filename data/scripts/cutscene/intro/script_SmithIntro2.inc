@@ -3,7 +3,7 @@ SCRIPT_START script_SmithIntro2
 	BeginBlock
 	SetAnimationState 0x0006
 	SetEntitySpeed 0x0080
-	_0807E9D4
+	AddInteractableWhenBigObject
 	Call SetPriorityMessage
 	EndBlock
 	CheckGlobalFlag START
