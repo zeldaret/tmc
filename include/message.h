@@ -128,12 +128,12 @@ extern TextRender gTextRender;
 static_assert(sizeof(TextRender) == 0xa8);
 
 typedef struct {
-    u8 unk_00;
-    u8 unk_01;
+    u8 status;
+    u8 choice;
     u8 unk_02[0xE];
-} struct_02000040;
+} MessageChoiceSelection;
 
-extern struct_02000040 gUnk_02000040;
+extern MessageChoiceSelection gMessageChoiceSelection;
 
 /**
  * @brief Initialize the message system.

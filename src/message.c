@@ -121,8 +121,8 @@ s32 sub_08056338(void) {
     s32 result;
 
     result = -1;
-    if (((gMessage.state & MESSAGE_ACTIVE) == 0) && (gUnk_02000040.unk_00 == 3))
-        result = gUnk_02000040.unk_01;
+    if (((gMessage.state & MESSAGE_ACTIVE) == 0) && (gMessageChoiceSelection.status == 3))
+        result = gMessageChoiceSelection.choice;
     return result;
 }
 
@@ -180,7 +180,7 @@ void MessageInitialize(void) {
     MemClear(&gTextRender, sizeof(gTextRender));
     MemClear(&gNewWindow, sizeof(gNewWindow));
     MemClear(&gCurrentWindow, sizeof(gCurrentWindow));
-    MemClear(&gUnk_02000040, 4);
+    MemClear(&gMessageChoiceSelection, 4);
 }
 
 void MessageMain(void) {
@@ -376,7 +376,7 @@ u16 RunTextCommand(TextRender* this) {
         chr = GetCharacter(&this->curToken);
         switch (chr) {
             case 0:
-                if (gUnk_02000040.unk_00 == 1) {
+                if (gMessageChoiceSelection.status == 1) {
                     this->renderStatus = RENDER_ENQUIRY;
 #ifndef EU
                     SwitchChoice(0, 0);
@@ -437,11 +437,11 @@ u16 RunTextCommand(TextRender* this) {
                 this->message.textWindowPosY = this->curToken.param;
                 break;
             case 12:
-                if (gUnk_02000040.unk_00 != 1) {
-                    MemClear(&gUnk_02000040, 4);
+                if (gMessageChoiceSelection.status != 1) {
+                    MemClear(&gMessageChoiceSelection, 4);
                     MemClear(&gMessageChoices, sizeof(gMessageChoices));
                     gMessageChoices.unk_00 = 1;
-                    gUnk_02000040.unk_00 = 1;
+                    gMessageChoiceSelection.status = 1;
                 }
                 if (gMessageChoices.choiceCount > 3)
                     break;
@@ -522,8 +522,8 @@ void TextDispEnquiry(TextRender* this) {
                 src = gUnk_08107C0F;
             }
             sub_0805EF40(&this->curToken, src);
-            gUnk_02000040.unk_01 = gMessageChoices.currentChoice;
-            gUnk_02000040.unk_00 = 3;
+            gMessageChoiceSelection.choice = gMessageChoices.currentChoice;
+            gMessageChoiceSelection.status = 3;
             MemClear(&gMessageChoices, sizeof(gMessageChoices));
             SoundReq(SFX_TEXTBOX_SELECT);
             this->renderStatus = RENDER_UPDATE;
@@ -546,8 +546,8 @@ void TextDispEnquiry(TextRender* this) {
     } else {
         doSwitch = 0;
     }
-    if (gUnk_02000040.unk_00 == 1) {
-        gMessageChoices.unk_00 = gUnk_02000040.unk_00 = 2;
+    if (gMessageChoiceSelection.status == 1) {
+        gMessageChoices.unk_00 = gMessageChoiceSelection.status = 2;
         doSwitch = 1;
     }
     if (doSwitch) {

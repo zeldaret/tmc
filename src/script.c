@@ -838,7 +838,7 @@ void ScriptCommand_HasShells(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_CheckTextboxResult(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = !gUnk_02000040.unk_01;
+    context->condition = !gMessageChoiceSelection.choice;
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1239,7 +1239,7 @@ void ScriptCommand_EzloMessage(Entity* entity, ScriptExecutionContext* context) 
 }
 
 void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context) {
-    context->intVariable = gUnk_02000040.unk_01;
+    context->intVariable = gMessageChoiceSelection.choice;
 }
 
 void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* context) {
