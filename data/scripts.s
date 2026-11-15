@@ -10,6 +10,7 @@
 	.include "sound.inc"
 	.include "kinstone.inc"
 	.include "script.inc"
+	.include "entity.inc"
 
 	.syntax unified
 	.text

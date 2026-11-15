@@ -3,13 +3,13 @@ SCRIPT_START script_Emma
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
-	SetAnimationState 0x0000
+	SetAnimationState IdleNorth
 	EndBlock
 script_EmmaWaitForInteraction:
 	CheckEntityInteractType
 	JumpIfNot script_EmmaWaitForInteraction
 	SetPlayerIdle
-	SetAnimationState 0x0004
+	SetAnimationState IdleSouth
 	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x01
 	CallWithArg ScriptCommand_SetMessageValue, (SMV_RUPEES << 16) | 50
@@ -31,7 +31,7 @@ script_RentLargeRoom: @ Rent large room
 	SetLocalFlag YADO_CHECKIN
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses
-	Call sub_0806C578
+	Call Emma_GoToWestRoom
 SCRIPT_END
 script_RentRegularRoom:
 	BeginBlock
@@ -45,7 +45,7 @@ script_RentRegularRoom:
 	SetLocalFlag YADO_CHECKIN
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses
-	Call sub_0806C588
+	Call Emma_GoToMiddleRoom
 SCRIPT_END
 script_RentSmallRoom:
 	BeginBlock
@@ -59,7 +59,7 @@ script_RentSmallRoom:
 	SetLocalFlag YADO_CHECKIN
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses
-	Call sub_0806C598
+	Call Emma_GoToEastRoom
 SCRIPT_END
 script_EmmaNotEnoughRupees:
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x07
@@ -69,5 +69,5 @@ script_RentNoRoom: @ Rent no room
 script_EndDialog:
 	WaitUntilTextboxCloses
 	EnablePlayerControl
-	SetAnimationState 0x0000
+	SetAnimationState IdleNorth
 	Jump script_EmmaWaitForInteraction
