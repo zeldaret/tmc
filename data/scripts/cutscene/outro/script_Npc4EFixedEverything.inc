@@ -5,7 +5,7 @@ SCRIPT_START script_Npc4EFixedEverything
 	Call DisablePauseMenuAndPutAwayItems
 	SetEntityPositionRelative 0x0088, 0x0148
 	Call sub_0807F844
-	_0807E8E4_3
+	PlayerIdleWest
 	CallWithArg SetPlayerFlag, PL_NO_CAP
 	CallWithArg SetPlayerPos, 0x00a80088
 	PlaySound SFX_APPARATE
@@ -19,4 +19,4 @@ SCRIPT_START script_Npc4EFixedEverything
 	MessageFromTargetPos TEXT_VAATI2, 0x5e, 0x000e
 	WaitUntilTextboxCloses
 	CallWithArg CreateRepeatedSoundManager, 0x00000001
-	_0807F0C8 0xffff, 0x0000
+	InitScreenShake 0xffff, 0x0000

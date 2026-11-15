@@ -2,7 +2,7 @@
 SCRIPT_START script_TownsperonIntro
 	BeginBlock
 	Call sub_08061FE4
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800F564:

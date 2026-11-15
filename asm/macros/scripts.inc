@@ -359,23 +359,19 @@
 	.2byte 0x043f
 .endm
 
-.macro _0807E800 w:req
+.macro SetFadeIris
 	.2byte 0x0c40
-	.4byte \w
+	.4byte 0
 .endm
 
-.macro _0807E80C w:req
+.macro SetFadeIrisInOut
 	.2byte 0x0c41
-	.4byte \w
+	.4byte 0
 .endm
 
-.macro _0807E858 s:req
+.macro SetFadeProgress s:req
 	.2byte 0x0842
 	.2byte \s
-.endm
-
-.macro _0807E858_0
-	.2byte 0x0442
 .endm
 
 .macro SetPlayerIdle
@@ -405,19 +401,19 @@
 	.2byte \s
 .endm
 
-.macro _0807E8E4_0
+.macro PlayerIdleNorth
 	.2byte 0x0449
 .endm
 
-.macro _0807E8E4_1
+.macro PlayerIdleEast
 	.2byte 0x044a
 .endm
 
-.macro _0807E8E4_2
+.macro PlayerIdleSouth
 	.2byte 0x044b
 .endm
 
-.macro _0807E8E4_3
+.macro PlayerIdleWest
 	.2byte 0x044c
 .endm
 
@@ -444,20 +440,21 @@
 	.2byte 0x0451
 .endm
 
-.macro _0807E974 s:req
+.macro MessageFromTargetAndWait a:req, b:req
 	.2byte 0x0852
-	.2byte \s
+	.byte \b
+	.byte \a
 .endm
 
-.macro _0807E9D4
+.macro AddInteractableWhenBigObject
 	.2byte 0x0453
 .endm
 
-.macro _0807E9DC
+.macro RemoveInteractableObject
 	.2byte 0x0454
 .endm
 
-.macro _0807E9E4 s:req
+.macro AddInteractableWhenBigFuser s:req
 	.2byte 0x0855
 	.2byte \s
 .endm
@@ -466,11 +463,11 @@
 	.2byte 0x0456
 .endm
 
-.macro _0807EA4C
+.macro WaitForFusion
 	.2byte 0x0457
 .endm
 
-.macro _0807EA88 s:req
+.macro AddInteractableFuser s:req
 	.2byte 0x0858
 	.2byte \s
 .endm
@@ -479,46 +476,29 @@
 	.2byte 0x0459
 .endm
 
-.macro MessageFromTarget a:req, b
+.macro MessageFromTarget a:req, b:req
 	.2byte 0x085a
-	.ifnb \b
 	.byte \b
 	.byte \a
-	.else
-	.2byte \a
-	.endif
 .endm
 
-.macro MessageNoOverlap a:req, b
+.macro MessageNoOverlap a:req, b:req
 	.2byte 0x085b
-	.ifnb \b
 	.byte \b
 	.byte \a
-	.else
-	.2byte \a
-	.endif
 .endm
 
-.macro MessageFromTargetPos a:req, b:req, c
+.macro MessageFromTargetPos a:req, b:req, c:req
 	.2byte 0x0c5c
-	.ifnb \c
 	.byte \b
 	.byte \a
 	.2byte \c
-	.else
-	.2byte \a
-	.2byte \b
-	.endif
 .endm
 
-.macro MessageFromTargetPos_1 a:req, b
+.macro MessageFromTargetPos_1 a:req, b:req
 	.2byte 0x085c
-	.ifnb \b
 	.byte \b
 	.byte \a
-	.else
-	.2byte \a
-	.endif
 .endm
 
 .macro MessageFromTargetTable labels:vararg
@@ -530,17 +510,13 @@
 	.2byte 0x045e
 .endm
 
-.macro EzloMessage a:req, b
+.macro EzloMessage a:req, b:req
 	.2byte 0x085f
-	.ifnb \b
 	.byte \b
 	.byte \a
-	.else
-	.2byte \a
-	.endif
 .endm
 
-.macro _0807EB38
+.macro GetSelectedChoice
 	.2byte 0x0460
 .endm
 
@@ -549,7 +525,7 @@
 	.2byte \s
 .endm
 
-.macro _0807EB4C a:req, b:req
+.macro FacePosition a:req, b:req
 	.2byte 0x0c62
 	.2byte \a
 	.2byte \b
@@ -628,11 +604,11 @@
 	.2byte \s
 .endm
 
-.macro _0807ED24 a:req, b:req, c:req
+.macro MoveToPosition x:req, y:req, frames:req
 	.2byte 0x1072
-	.2byte \a
-	.2byte \b
-	.2byte \c
+	.2byte \x
+	.2byte \y
+	.2byte \frames
 .endm
 
 .macro MoveTo a:req, b:req
@@ -661,10 +637,10 @@
 	.2byte \b
 .endm
 
-.macro _0807EF3C a:req, b:req
+.macro Fall velocity:req, gravity:req
 	.2byte 0x0c78
-	.2byte \a
-	.2byte \b
+	.2byte \velocity
+	.2byte \gravity
 .endm
 
 .macro DoPostScriptAction action:req
@@ -755,7 +731,7 @@
 	.2byte \s
 .endm
 
-.macro _0807F0C8 a:req, b:req
+.macro InitScreenShake a:req, b:req
 	.2byte 0x0c8a
 	.2byte \a
 	.2byte \b

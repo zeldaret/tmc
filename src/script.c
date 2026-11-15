@@ -91,25 +91,25 @@ void ScriptCommand_SetFade7(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFadeIris(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFadeIrisInOut(Entity* entity, ScriptExecutionContext* context);
 void SetFadeIrisForCameraTarget(u32);
-void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetFadeProgress(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetPlayerIdle(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_EnablePlayerControl(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DisablePlayerControl(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetPlayerAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_StartPlayerScript(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetPlayerAnimation(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_PlayerIdle(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetVariableToFrame(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetAnimation(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TriggerInteract(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MessageFromTargetAndWait(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableWhenBigObject(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_RemoveInteractableObject(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableWhenBigFuser(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_UpdateFusion(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WaitForFusion(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableFuser(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitUntilTextboxCloses(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MessageFromTarget(Entity* entity, ScriptExecutionContext* context);
@@ -118,9 +118,9 @@ void ScriptCommand_MessageFromTargetPos(Entity* entity, ScriptExecutionContext* 
 void ScriptCommand_MessageFromTargetTable(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MessageNoOverlapVar(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_EzloMessage(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_GetSelectedChoice(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EB4C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_FacePosition(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_FacePlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_FaceAwayFromPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityDirection(Entity* entity, ScriptExecutionContext* context);
@@ -137,13 +137,13 @@ void ScriptCommand_WalkNorth(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WalkEast(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WalkSouth(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WalkWest(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MoveToPosition(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveTo(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_LookAt(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveTowardsTarget(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveToPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveToOffset(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_Fall(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoPostScriptAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoPostScriptAction2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_PlaySound(Entity* entity, ScriptExecutionContext* context);
@@ -161,14 +161,14 @@ void ScriptCommand_InitItemGetSequence(Entity* entity, ScriptExecutionContext* c
 void ScriptCommand_CameraTargetEntity(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CameraTargetPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetScrollSpeed(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_InitScreenShake(Entity* entity, ScriptExecutionContext* context);
 
 typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
 
 extern u16* gUnk_08001A7C[];
 extern u8 gUnk_08114F30[];
 extern u8 gUnk_08114F34[];
-extern const u16 gUnk_08016984;
+extern const u16 gScriptCommand_PlayerIdle_Reference;
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
 
@@ -539,28 +539,28 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_SetFade7,
         ScriptCommand_SetFadeIris,
         ScriptCommand_SetFadeIrisInOut,
-        ScriptCommand_0807E858,
+        ScriptCommand_SetFadeProgress,
         ScriptCommand_SetPlayerIdle,
         ScriptCommand_EnablePlayerControl,
         ScriptCommand_DisablePlayerControl,
         ScriptCommand_SetPlayerAction,
         ScriptCommand_StartPlayerScript,
         ScriptCommand_SetPlayerAnimation,
-        ScriptCommand_0807E8E4,
-        ScriptCommand_0807E8E4,
-        ScriptCommand_0807E8E4,
-        ScriptCommand_0807E8E4,
+        ScriptCommand_PlayerIdle,
+        ScriptCommand_PlayerIdle,
+        ScriptCommand_PlayerIdle,
+        ScriptCommand_PlayerIdle,
         ScriptCommand_SetAction,
         ScriptCommand_SetIntVariable,
         ScriptCommand_SetVariableToFrame,
         ScriptCommand_SetAnimation,
         ScriptCommand_TriggerInteract,
-        ScriptCommand_0807E974,
+        ScriptCommand_MessageFromTargetAndWait,
         ScriptCommand_AddInteractableWhenBigObject,
         ScriptCommand_RemoveInteractableObject,
         ScriptCommand_AddInteractableWhenBigFuser,
         ScriptCommand_UpdateFusion,
-        ScriptCommand_0807EA4C,
+        ScriptCommand_WaitForFusion,
         ScriptCommand_AddInteractableFuser,
         ScriptCommand_WaitUntilTextboxCloses,
         ScriptCommand_MessageFromTarget,
@@ -569,9 +569,9 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_MessageFromTargetTable,
         ScriptCommand_MessageNoOverlapVar,
         ScriptCommand_EzloMessage,
-        ScriptCommand_0807EB38,
+        ScriptCommand_GetSelectedChoice,
         ScriptCommand_SetAnimationState,
-        ScriptCommand_0807EB4C,
+        ScriptCommand_FacePosition,
         ScriptCommand_FacePlayer,
         ScriptCommand_FaceAwayFromPlayer,
         ScriptCommand_SetEntityDirection,
@@ -587,13 +587,13 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_WalkEast,
         ScriptCommand_WalkSouth,
         ScriptCommand_WalkWest,
-        ScriptCommand_0807ED24,
+        ScriptCommand_MoveToPosition,
         ScriptCommand_MoveTo,
         ScriptCommand_LookAt,
         ScriptCommand_MoveTowardsTarget,
         ScriptCommand_MoveToPlayer,
         ScriptCommand_MoveToOffset,
-        ScriptCommand_0807EF3C,
+        ScriptCommand_Fall,
         ScriptCommand_DoPostScriptAction,
         ScriptCommand_DoPostScriptAction2,
         ScriptCommand_PlaySound,
@@ -611,7 +611,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_CameraTargetEntity,
         ScriptCommand_CameraTargetPlayer,
         ScriptCommand_SetScrollSpeed,
-        ScriptCommand_0807F0C8,
+        ScriptCommand_InitScreenShake,
     };
 
     if (!context->scriptInstructionPointer)
@@ -838,7 +838,7 @@ void ScriptCommand_HasShells(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_CheckTextboxResult(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = !gUnk_02000040.unk_01;
+    context->condition = !gMessageChoiceSelection.choice;
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1059,7 +1059,7 @@ void SetFadeIrisForCameraTarget(u32 type) {
     SetFadeIris(x, y, type, gActiveScriptInfo.fadeSpeed);
 }
 
-void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetFadeProgress(Entity* entity, ScriptExecutionContext* context) {
     SetFadeProgress(context->scriptInstructionPointer[1]);
 }
 
@@ -1092,8 +1092,8 @@ void ScriptCommand_SetPlayerAnimation(Entity* entity, ScriptExecutionContext* co
     gPlayerState.animation = context->scriptInstructionPointer[1];
 }
 
-void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context) {
-    u32 tmp = (gUnk_08016984 & 0x3FF);
+void ScriptCommand_PlayerIdle(Entity* entity, ScriptExecutionContext* context) {
+    u32 tmp = (gScriptCommand_PlayerIdle_Reference & 0x3FF);
     u32 tmp2;
     gPlayerEntity.base.animationState = tmp2 = (context->scriptInstructionPointer[0] - tmp) << 1;
 }
@@ -1126,7 +1126,7 @@ void ScriptCommand_TriggerInteract(Entity* entity, ScriptExecutionContext* conte
     }
 }
 
-void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_MessageFromTargetAndWait(Entity* entity, ScriptExecutionContext* context) {
     switch (context->unk_18) {
         default:
             if (!--context->unk_19)
@@ -1187,7 +1187,7 @@ void ScriptCommand_UpdateFusion(Entity* entity, ScriptExecutionContext* context)
     }
 }
 
-void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_WaitForFusion(Entity* entity, ScriptExecutionContext* context) {
     if (entity->interactType == INTERACTION_FUSE) {
         InitializeFuseInfo(entity, 0, 0, 0);
         entity->interactType = INTERACTION_NONE;
@@ -1238,15 +1238,15 @@ void ScriptCommand_EzloMessage(Entity* entity, ScriptExecutionContext* context) 
     CreateEzloHint(context->scriptInstructionPointer[1], 0);
 }
 
-void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context) {
-    context->intVariable = gUnk_02000040.unk_01;
+void ScriptCommand_GetSelectedChoice(Entity* entity, ScriptExecutionContext* context) {
+    context->intVariable = gMessageChoiceSelection.choice;
 }
 
 void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* context) {
     entity->animationState = context->scriptInstructionPointer[1];
 }
 
-void ScriptCommand_0807EB4C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_FacePosition(Entity* entity, ScriptExecutionContext* context) {
     entity->animationState = GetAnimationStateForDirection8(
         sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
                      context->scriptInstructionPointer[2] + gRoomControls.origin_y));
@@ -1355,17 +1355,17 @@ void ScriptCommand_WalkWest(Entity* entity, ScriptExecutionContext* context) {
     sub_0807EC44(entity, context);
 }
 
-void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_MoveToPosition(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
-        s32 tmp, tmp2, tmp3;
+        s32 target, currentX, currentY;
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[3];
-        tmp = context->scriptInstructionPointer[1];
-        tmp2 = entity->x.HALF.HI - gRoomControls.origin_x;
-        context->x.WORD = ((tmp - tmp2) << 0x10) / context->unk_12;
-        tmp = context->scriptInstructionPointer[2];
-        tmp3 = entity->y.HALF.HI - gRoomControls.origin_y;
-        context->y.WORD = ((tmp - tmp3) << 0x10) / context->unk_12;
+        target = context->scriptInstructionPointer[1];
+        currentX = entity->x.HALF.HI - gRoomControls.origin_x;
+        context->x.WORD = ((target - currentX) << 0x10) / context->unk_12;
+        target = context->scriptInstructionPointer[2];
+        currentY = entity->y.HALF.HI - gRoomControls.origin_y;
+        context->y.WORD = ((target - currentY) << 0x10) / context->unk_12;
         entity->animationState = GetAnimationStateForDirection8(
             sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
                          context->scriptInstructionPointer[2] + gRoomControls.origin_y));
@@ -1447,7 +1447,7 @@ void ScriptCommand_MoveToOffset(Entity* entity, ScriptExecutionContext* context)
     }
 }
 
-void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_Fall(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
         entity->zVelocity = ((s16)context->scriptInstructionPointer[1]) << 8;
@@ -1538,7 +1538,7 @@ void ScriptCommand_SetScrollSpeed(Entity* entity, ScriptExecutionContext* contex
     gRoomControls.scrollSpeed = context->scriptInstructionPointer[1] & 7;
 }
 
-void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_InitScreenShake(Entity* entity, ScriptExecutionContext* context) {
     InitScreenShake(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
 }
 

@@ -34,7 +34,7 @@ script_0800E176:
 	SetLocalFlag 0x0094
 script_0800E1D0:
 	CallWithArg sub_0807F3D8, 0x00000000
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EnablePlayerControl
 	EndBlock
 script_0800E1E0:

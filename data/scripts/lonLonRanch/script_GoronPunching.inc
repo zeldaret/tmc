@@ -1,7 +1,7 @@
 @ Lon Lon Ranch Goron punching at cave
 SCRIPT_START script_GoronPunching
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	Call sub_080694EC
 	DoPostScriptAction 0x000a
 	Call Goron_MakeInteractable
@@ -34,8 +34,8 @@ script_0800B9F4:
 	Jump script_0800B9CA
 script_0800BA24:
 	WaitUntilTextboxCloses
-	_0807E9DC
-	_0807E9D4
+	RemoveInteractableObject
+	AddInteractableWhenBigObject
 	Call sub_080694EC
 	Call EnablePauseMenu
 	EnablePlayerControl

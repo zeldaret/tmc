@@ -1,7 +1,7 @@
 @ Hyrule Town Anju inside
 SCRIPT_START script_AnjuInside
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a

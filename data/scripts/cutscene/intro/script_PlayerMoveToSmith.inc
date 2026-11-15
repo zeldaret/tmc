@@ -1,7 +1,7 @@
 @ Player at Smith during intro
 SCRIPT_START script_PlayerMoveToSmith
 	BeginBlock
-	_0807E8E4_1
+	PlayerIdleEast
 	SetEntitySpeed 0x00c0
 	EndBlock
 	SetSyncFlag 0x00000004
@@ -11,7 +11,7 @@ SCRIPT_START script_PlayerMoveToSmith
 	MoveTo 0x0060, 0x0068
 	SetSyncFlag 0x00000004
 	DoPostScriptAction 0x0000
-	_0807E8E4_0
+	PlayerIdleNorth
 	Wait 0x000f
 	PlaySound SFX_VO_ZELDA1
 	DoPostScriptAction 0x0000
@@ -19,7 +19,7 @@ SCRIPT_START script_PlayerMoveToSmith
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000002
 	MoveTo 0x0070, 0x005c
-	_0807E8E4_1
+	PlayerIdleEast
 	DoPostScriptAction 0x0000
 	Wait 0x000f
 	SetSyncFlag 0x00000008

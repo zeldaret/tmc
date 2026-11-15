@@ -5,12 +5,12 @@ SCRIPT_START script_MinisterPothoIntroCastle
 	DoPostScriptAction 0x0000
 .ifdef JP
 .ifndef DEMO_JP
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 .endif
 .else
 .ifdef EU
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 .endif
 .endif

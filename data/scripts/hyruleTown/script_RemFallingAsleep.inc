@@ -42,7 +42,7 @@ script_08013006:
 	InitItemGetSequence ITEM_QST_MUSHROOM
 	WaitPlayerGetItem
 	Wait 0x001e
-	_0807E8E4_0
+	PlayerIdleNorth
 	Call DeleteNpcRem
 	SetAnimation 0x000b
 	Wait 0x003c

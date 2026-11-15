@@ -47,7 +47,7 @@ SCRIPT_START script_ZeldaIntroBusinessScrub
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetSyncFlag 0x00000002
 script_08015A32:
 	EndBlock

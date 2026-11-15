@@ -2,7 +2,7 @@
 SCRIPT_START script_KidIntro2
 	BeginBlock
 	DoPostScriptAction 0x0001
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	Call sub_08062788
 	EndBlock

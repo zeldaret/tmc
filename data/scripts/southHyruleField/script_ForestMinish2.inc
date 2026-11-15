@@ -19,7 +19,7 @@ script_0800C5A6:
 	Call sub_08060208
 	Jump script_0800C5C0
 script_0800C5BC:
-	MessageNoOverlap 0x4710
+	MessageNoOverlap TEXT_ANSWER_HOUSE, 0x10
 script_0800C5C0:
 	WaitUntilTextboxCloses
 	EnablePlayerControl

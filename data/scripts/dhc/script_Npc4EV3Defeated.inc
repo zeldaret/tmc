@@ -13,7 +13,7 @@ script_0800A0FE:
 .endif
 	SetEntityPositionRelative 0x00b0, 0x0058
 	Call sub_0807F844
-	_0807E8E4_3
+	PlayerIdleWest
 	CallWithArg SetPlayerPos, 0x00d00060
 	CallWithArg sub_08094AE8, script_CutsceneMiscObjectV3DefeatedMinishCap
 	PlaySound SFX_APPARATE

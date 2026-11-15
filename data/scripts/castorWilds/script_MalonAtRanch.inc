@@ -3,7 +3,7 @@ SCRIPT_START script_MalonAtRanch
 	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0001
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EndBlock
 script_0800B5FA:
 	CheckEntityInteractType

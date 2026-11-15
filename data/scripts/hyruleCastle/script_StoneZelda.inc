@@ -3,7 +3,7 @@ SCRIPT_START script_StoneZelda
 	BeginBlock
 	DoPostScriptAction 0x000a
 	Call sub_08066E38
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EndBlock
 script_08009300:
 	CheckEntityInteractType

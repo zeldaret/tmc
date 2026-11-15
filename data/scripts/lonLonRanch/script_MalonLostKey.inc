@@ -4,7 +4,7 @@ SCRIPT_START script_MalonLostKey
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0001
 	SetEntitySpeed 0x00c0
-	_0807E9D4
+	AddInteractableWhenBigObject
 script_0800B4BC:
 	EndBlock
 	BeginBlock

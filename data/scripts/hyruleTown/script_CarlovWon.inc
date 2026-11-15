@@ -1,7 +1,7 @@
 @ Carlov when won
 SCRIPT_START script_CarlovWon
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0000
 	SetEntitySpeed 0x01c0
 	DoPostScriptAction 0x000a

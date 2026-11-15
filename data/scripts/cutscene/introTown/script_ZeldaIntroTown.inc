@@ -24,7 +24,7 @@ script_0800FB6C:
 	DoPostScriptAction 0x0001
 	SetSyncFlag 0x00000004
 	DoPostScriptAction 0x000a
-	_0807E9D4
+	AddInteractableWhenBigObject
 script_0800FBAE:
 	FacePlayerAndCheckDist
 	JumpIfNot script_0800FBAE

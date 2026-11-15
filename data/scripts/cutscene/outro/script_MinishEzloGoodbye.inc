@@ -42,7 +42,7 @@ SCRIPT_START script_MinishEzloGoodbye
 	Call CreateDeathFx
 	Call sub_0806305C
 	Call sub_080630A4
-	_0807EF3C 0x0000, 0x0020
+	Fall 0x0000, 0x0020
 	Wait 0x001e
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002

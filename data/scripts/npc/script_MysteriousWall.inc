@@ -9,7 +9,7 @@ SCRIPT_START script_MysteriousWall
 	CallWithArg NPC4E_ChangeInteractableHitbox, 0x00000005
 	EndBlock
 script_0800B98A:
-	_0807EA4C
+	WaitForFusion
 	UpdateFusion
 	JumpIf script_0800B99E
 	Call EnablePauseMenu

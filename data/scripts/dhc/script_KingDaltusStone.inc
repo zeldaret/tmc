@@ -31,7 +31,7 @@ script_0800E37A:
 	SetLocalFlag LV6_39_KING
 script_0800E3BE:
 	DoPostScriptAction 0x0000
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EnablePlayerControl
 	EndBlock
 script_0800E3C8:
@@ -47,7 +47,7 @@ script_0800E3C8:
 	SetLocalFlag LV6_1d_KEYGET
 	EnablePlayerControl
 script_0800E3E8:
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EnablePlayerControl
 	EndBlock
 script_0800E3EE:

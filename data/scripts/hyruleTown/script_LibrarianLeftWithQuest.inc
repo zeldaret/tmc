@@ -1,7 +1,7 @@
 @ Librarian left with book quest
 SCRIPT_START script_LibrarianLeftWithQuest
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000a
 	SetAnimation 0x0000

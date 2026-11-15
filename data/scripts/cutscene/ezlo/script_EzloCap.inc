@@ -52,7 +52,7 @@ SCRIPT_START script_EzloCap
 	WaitUntilTextboxCloses
 	SetAnimation 0x0020
 	DoPostScriptAction 0x000a
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetSyncFlag 0x00000008
 script_080127F2:
 	EndBlock
@@ -72,7 +72,7 @@ script_080127F2:
 	Jump script_080127F2
 script_08012824:
 	SetPlayerIdle
-	_0807E9DC
+	RemoveInteractableObject
 	CallWithArg sub_0807F5B0, 0x0000003c
 	Call ResetPlayerAnimationAndAction
 	EndBlock
@@ -116,7 +116,7 @@ script_08012824:
 	Call sub_0806D908
 	WalkForward 0x0010
 	DoPostScriptAction 0x000a
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
 script_08012904:
@@ -235,7 +235,7 @@ script_08012A74:
 	Wait 0x0078
 	PlayBgm BGM_EZLO_THEME
 	BeginBlock
-	_0807E8E4_2
+	PlayerIdleSouth
 	EzloMessage TEXT_FINDING_EZLO, 0x12
 	EndBlock
 	WaitUntilTextboxCloses

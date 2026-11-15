@@ -47,7 +47,7 @@ script_080101AC:
 	CallWithArg SetPlayerPos, 0x03400378
 	Call SetPlayerActionNormal
 	Call DisablePlayerSwimState
-	_0807E8E4_1
+	PlayerIdleEast
 	Call SetPlayerCollisionLayer1
 	Call CuccoMinigame_Cleanup
 	Call sub_0806EC38

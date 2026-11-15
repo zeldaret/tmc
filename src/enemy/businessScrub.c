@@ -265,7 +265,7 @@ void BusinessScrub_Action5(BusinessScrubEntity* this) {
     struct SalesOffering* offer = (struct SalesOffering*)this->unk_7c;
     u32 subtype;
 
-    if ((gMessage.state & MESSAGE_ACTIVE) == 0 && sub_0802915C(this) && !sub_08056338()) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0 && sub_0802915C(this) && !MessageGetSelectedChoice()) {
         if (offer->price <= gSave.stats.rupees) {
             if (BusinessScrub_CheckRefillFitsBag(this)) {
                 /* Bag full. */

@@ -1,7 +1,7 @@
 @ Dr Left
 SCRIPT_START script_DrLeft
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	Call sub_0806C09C
 	DoPostScriptAction 0x000a
 	SetAnimation 0x0000

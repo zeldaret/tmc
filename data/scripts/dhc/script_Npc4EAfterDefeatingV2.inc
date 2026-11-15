@@ -44,4 +44,4 @@ script_0800DBCA:
 	StopBgm
 	Call sub_08094F98
 	CallWithArg CreateRepeatedSoundManager, 0x00000001
-	_0807F0C8 0xffff, 0x0000
+	InitScreenShake 0xffff, 0x0000

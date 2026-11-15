@@ -11,7 +11,7 @@ SCRIPT_START script_PlayerGetElement
 script_0800A0D2:
 	MoveTowardsTarget
 	JumpIfNot script_0800A0D2
-	_0807E8E4_0
+	PlayerIdleNorth
 	Wait 0x0008
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004

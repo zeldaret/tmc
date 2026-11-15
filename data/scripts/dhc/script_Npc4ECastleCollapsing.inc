@@ -10,10 +10,10 @@ SCRIPT_START script_Npc4ECastleCollapsing
 	StartPlayerScript script_PlayerCastleCollapsing
 	CameraTargetPlayer
 	SetFadeTime 0x0004
-	_0807E80C 0x00000000
+	SetFadeIrisInOut
 	WaitForFadeFinish
 	CallWithArg DeleteRepeatedSoundManager, 0x00000001
-	_0807F0C8 0x0000, 0x0000
+	InitScreenShake 0x0000, 0x0000
 	SetLocalFlag 0x0079
 	CallWithArg NPC4E_DoScreenTransition, 2
 	Call EnablePauseMenu

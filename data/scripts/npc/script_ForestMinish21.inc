@@ -1,7 +1,7 @@
 @ Some Forest Minish ?
 SCRIPT_START script_ForestMinish21
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EndBlock
 script_080168E6:
 	TriggerInteract

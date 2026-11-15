@@ -73,7 +73,7 @@ script_080105E0:
 	Jump script_08010502
 	.2byte 0x0000
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

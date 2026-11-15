@@ -9,7 +9,7 @@ SCRIPT_START script_Npc4ESpawnTextBoard
 	SetSyncFlag 0x00000004
 	Wait 0x0078
 	CallWithArg DeleteRepeatedSoundManager, 0x00000001
-	_0807F0C8 0x0000, 0x0000
+	InitScreenShake 0x0000, 0x0000
 	StartPlayerScript script_PlayerTextBoardAppears
 	WaitForSyncFlagAndClear 0x00000002
 	EzloMessage TEXT_PANEL_TUTORIAL, 0x01

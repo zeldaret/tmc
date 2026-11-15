@@ -1,4 +1,4 @@
-@ TODO UNUSED?
+@ TODO UNUSED? looks like a reference list of script commands for developers?
 SCRIPT_START script_08016482
 	FadeInvert
 	Nop2 0x0080
@@ -6,39 +6,39 @@ SCRIPT_START script_08016482
 	SetFade5
 	SetFade6
 	SetFade7
-	_0807E800 0x00000000
-	_0807E80C 0x00000000
-	_0807E858_0
+	SetFadeIris
+	SetFadeIrisInOut
+	.2byte 0x0442 @ SetFadeProgress with missing parameter
 	SetPlayerIdle
 	EnablePlayerControl
 	DisablePlayerControl
 	SetPlayerAction 0x00005408
 	StartPlayerScript script_08016384
 	SetPlayerAnimation ANIM_FALL_ON_BACK
-	_0807E8E4_0
-	_0807E8E4_1
-	_0807E8E4_2
-	_0807E8E4_3
+	PlayerIdleNorth
+	PlayerIdleEast
+	PlayerIdleSouth
+	PlayerIdleWest
 	SetAction 0x0004
 	SetIntVariable 0x00000000
 	SetVariableToFrame
 	SetAnimation 0x0000
 	TriggerInteract
-	_0807E974 0x0600
-	_0807E9D4
-	_0807E9DC
-	_0807E9E4 0x0000
-	_0807EA88 KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT
+	MessageFromTargetAndWait TEXT_LOCATIONS, 0x00
+	AddInteractableWhenBigObject
+	RemoveInteractableObject
+	AddInteractableWhenBigFuser 0x0000
+	AddInteractableFuser KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT
 	WaitUntilTextboxCloses
 	MessageFromTarget TEXT_LOCATIONS, 0x01
-	MessageNoOverlap 0x0601
+	MessageNoOverlap TEXT_LOCATIONS, 0x01
 	MessageFromTargetPos_1 TEXT_LOCATIONS, 0x01
 	MessageFromTargetTable TEXT_LOCATIONS << 8 | 0x01, TEXT_LOCATIONS << 8 | 0x02, TEXT_LOCATIONS << 8 | 0x03
 	MessageNoOverlapVar
 	EzloMessage TEXT_LOCATIONS, 0x02
-	_0807EB38
+	GetSelectedChoice
 	SetAnimationState 0x0000
-	_0807EB4C 0x0000, 0x0000
+	FacePosition 0x0000, 0x0000
 	FacePlayer
 	FaceAwayFromPlayer
 	SetEntityDirection 0x0000
@@ -53,7 +53,7 @@ SCRIPT_START script_08016482
 	WalkEast 0x0030
 	WalkSouth 0x0040
 	WalkWest 0x0050
-	_0807ED24 0x0000, 0x0000, 0x0000
+	MoveToPosition 0x0000, 0x0000, 0x0000
 	MoveTo 0x0000, 0x0000
 	LookAt 0x0000, 0x0000
 	MoveTowardsTarget
@@ -76,6 +76,6 @@ SCRIPT_START script_08016482
 	CameraTargetEntity
 	CameraTargetPlayer
 	SetScrollSpeed 7
-	_0807F0C8 0x003c, 0x0003
+	InitScreenShake 0x003c, 0x0003
 SCRIPT_END
 	.2byte 0x0000

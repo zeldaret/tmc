@@ -4,7 +4,7 @@ SCRIPT_START script_CutsceneMiscObjectSwordInChest
 	Call sub_08095330
 	EndBlock
 	WaitForSyncFlagAndClear 0x00800000
-	_0807EF3C 0x0000, 0x0020
+	Fall 0x0000, 0x0020
 	SetSyncFlag 0x01000000
 	WaitForSyncFlagAndClear 0x00800000
 	Call sub_08095364
