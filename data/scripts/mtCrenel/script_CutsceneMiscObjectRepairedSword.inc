@@ -8,5 +8,5 @@ SCRIPT_START script_CutsceneMiscObjectRepairedSword
 	WaitForSyncFlagAndClear 0x00000020
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

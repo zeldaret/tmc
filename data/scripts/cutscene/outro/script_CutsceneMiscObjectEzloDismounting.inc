@@ -7,5 +7,5 @@ SCRIPT_START script_CutsceneMiscObjectEzloDismounting
 	EndBlock
 	WaitForSyncFlag 0x00000800
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

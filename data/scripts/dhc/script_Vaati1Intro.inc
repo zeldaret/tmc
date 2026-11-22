@@ -36,4 +36,4 @@ SCRIPT_START script_Vaati1Intro
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

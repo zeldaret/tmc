@@ -16,4 +16,4 @@ SCRIPT_START script_ZeldaLeaveLinksHouse
 	WaitForFadeFinish
 	Call sub_08053634
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

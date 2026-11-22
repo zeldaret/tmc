@@ -8,5 +8,5 @@ SCRIPT_START script_PlayerAtDrLeftDoor
 	WalkSouth 0x0008
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

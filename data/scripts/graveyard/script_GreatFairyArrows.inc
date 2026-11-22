@@ -50,4 +50,4 @@ script_0800B6A6:
 	Wait 0x001e
 	Call EnablePauseMenu
 	EnablePlayerControl
-SCRIPT_END
+	EndScript

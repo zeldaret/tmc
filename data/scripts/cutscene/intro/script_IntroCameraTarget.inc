@@ -14,4 +14,4 @@ SCRIPT_START script_IntroCameraTarget
 	Call sub_08053648
 	@ Move camera target down
 	MoveTo 0x0240, 0x0228
-SCRIPT_END
+	EndScript

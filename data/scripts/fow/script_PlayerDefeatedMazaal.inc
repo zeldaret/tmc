@@ -16,5 +16,5 @@ SCRIPT_START script_PlayerDefeatedMazaal
 	Wait 0x0008
 	SetSyncFlag 0x00000002
 	MoveTo 0x0088, 0x0158
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

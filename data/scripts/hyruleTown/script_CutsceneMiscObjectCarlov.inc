@@ -27,4 +27,4 @@ script_080145C2:
 	Jump script_080145C2
 script_080145E4:
 	EndBlock
-SCRIPT_END
+	EndScript

@@ -10,12 +10,12 @@ SCRIPT_START script_CutsceneMiscObjectBrokenSword
 	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0007
 	WaitForSyncFlagAndClear 0x00000010
-SCRIPT_END
+	EndScript
 script_0800D242:
 	DoPostScriptAction 0x0007
 	SetAnimation 0x0003
-SCRIPT_END
+	EndScript
 script_0800D24C:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

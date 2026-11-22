@@ -6,5 +6,5 @@ SCRIPT_START script_CutsceneMiscObjectEarthElement
 	SetEntityPositionRelative 0x00b0, 0x00f8
 	SetAnimation 0x0001
 	EndBlock
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

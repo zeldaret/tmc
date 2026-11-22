@@ -13,5 +13,5 @@ SCRIPT_START script_PlayerFaintAgain
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

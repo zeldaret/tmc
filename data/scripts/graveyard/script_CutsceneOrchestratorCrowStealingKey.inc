@@ -26,4 +26,4 @@ SCRIPT_START script_CutsceneOrchestratorCrowStealingKey
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

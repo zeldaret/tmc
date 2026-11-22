@@ -16,4 +16,4 @@ script_0800BB7A:
 	Wait 0x000f
 	MoveTo 0x0380, 0x00f8
 	Call sub_08054968
-SCRIPT_END
+	EndScript

@@ -4,4 +4,4 @@ SCRIPT_START script_ZeldaStoneInDHC
 	DoPostScriptAction 0x000a
 	Call sub_08066E38
 	EndBlock
-SCRIPT_END
+	EndScript

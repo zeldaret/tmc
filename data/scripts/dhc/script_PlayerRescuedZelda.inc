@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerRescuedZelda
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

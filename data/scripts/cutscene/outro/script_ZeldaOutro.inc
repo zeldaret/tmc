@@ -57,5 +57,5 @@ SCRIPT_START script_ZeldaOutro
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -6,4 +6,4 @@ SCRIPT_START script_PlayerIntroBusinessScrub2
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000010
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

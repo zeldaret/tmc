@@ -10,4 +10,4 @@ SCRIPT_START script_BedInLinksRoom
 	SetIntVariable 0x00000003
 	DoPostScriptAction 0x0001
 	EndBlock
-SCRIPT_END
+	EndScript

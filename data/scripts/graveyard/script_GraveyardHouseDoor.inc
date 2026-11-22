@@ -27,4 +27,4 @@ script_080096EC:
 	EnablePlayerControl
 script_080096FC:
 	Call sub_0808692C
-SCRIPT_END
+	EndScript

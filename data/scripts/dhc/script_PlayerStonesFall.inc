@@ -7,4 +7,4 @@ SCRIPT_START script_PlayerStonesFall
 	Call WaitForPlayerAnim
 	SetSyncFlag 0x00000004
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

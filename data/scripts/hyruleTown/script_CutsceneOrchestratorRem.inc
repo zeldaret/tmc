@@ -5,7 +5,7 @@ SCRIPT_START script_CutsceneOrchestratorRem
 	JumpIfNot script_0801319A
 	DoPostScriptAction 0x0006
 	EndBlock
-SCRIPT_END
+	EndScript
 SCRIPT_START script_0801319A
 	EndBlock
 	BeginBlock

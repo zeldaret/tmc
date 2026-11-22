@@ -44,4 +44,4 @@ script_0800B4F0:
 	EnablePlayerControl
 	Call sub_0807FBCC
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

@@ -11,7 +11,7 @@ script_0800B7EE:
 	PlayerIdleNorth
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
-SCRIPT_END
+	EndScript
 script_0800B7FC:
 	CallWithArg sub_0807F4F8, 0x00000090
 	CallWithArg sub_0807F464, 0x00000078
@@ -21,5 +21,5 @@ script_0800B7FC:
 	SetAnimationState 0x0004
 	SetAnimation 0x0000
 	EndBlock
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

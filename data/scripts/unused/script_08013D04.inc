@@ -13,5 +13,5 @@ script_08013D1C:
 	SetSyncFlag 0x08000000
 	Call SetPlayerActionNormal
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

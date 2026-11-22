@@ -8,5 +8,5 @@ SCRIPT_START script_CutsceneMiscObjectWindElementFloating
 	MoveTo 0x00b0, 0x0168
 	SetAnimation 0x0007
 	SetSyncFlag 0x40000000
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

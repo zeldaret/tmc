@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerGetSword
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000020
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

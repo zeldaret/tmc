@@ -25,5 +25,5 @@ SCRIPT_START script_ZeldaMoveToLinksHouse
 	MoveTo 0x0290, 0x0190
 	DoPostScriptAction 0x0008
 	MoveTo 0x0290, 0x0188
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

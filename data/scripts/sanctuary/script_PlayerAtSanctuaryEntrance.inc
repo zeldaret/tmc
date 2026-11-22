@@ -9,4 +9,4 @@ SCRIPT_START script_PlayerAtSanctuaryEntrance
 	Wait 0x001e
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

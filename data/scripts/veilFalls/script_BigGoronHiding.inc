@@ -8,4 +8,4 @@ script_0800932E:
 	MoveToOffset -8, 0x0000
 	MoveToOffset 0x0008, 0x0000
 	Jump script_0800932E
-SCRIPT_END
+	EndScript

@@ -41,5 +41,5 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	WaitForSyncFlagAndClear 0x00000200
 	Call sub_0804BCDC
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

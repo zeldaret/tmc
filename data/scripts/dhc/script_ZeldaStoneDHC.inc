@@ -14,5 +14,5 @@ SCRIPT_START script_ZeldaStoneDHC
 	WaitUntilTextboxCloses
 	Wait 0x003c
 	Call sub_08053C84
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

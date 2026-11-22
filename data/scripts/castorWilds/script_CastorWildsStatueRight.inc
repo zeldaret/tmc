@@ -25,5 +25,5 @@ script_0800B2E2:
 	SetSyncFlag 0x00000001
 script_0800B302:
 	EndBlock
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

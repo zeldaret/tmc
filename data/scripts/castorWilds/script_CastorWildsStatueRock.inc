@@ -41,5 +41,5 @@ script_0800B350:
 	PlaySound SFX_SECRET
 script_0800B39C:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

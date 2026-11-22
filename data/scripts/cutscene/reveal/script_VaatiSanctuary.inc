@@ -31,5 +31,5 @@ SCRIPT_START script_VaatiSanctuary
 	Wait 0x0078
 	SetSyncFlag 0x00000040
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

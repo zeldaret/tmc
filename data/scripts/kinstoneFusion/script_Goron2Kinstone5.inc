@@ -31,4 +31,4 @@ script_0800C120:
 	DoPostScriptAction 0x000f
 	SetAnimation 0x0008
 	Wait 0x00f0
-SCRIPT_END
+	EndScript

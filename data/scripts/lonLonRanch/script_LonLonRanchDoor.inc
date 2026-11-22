@@ -19,4 +19,4 @@ SCRIPT_START script_LonLonRanchDoor
 	PlaySound SFX_111
 script_0800B5BC:
 	Call sub_0808692C
-SCRIPT_END
+	EndScript

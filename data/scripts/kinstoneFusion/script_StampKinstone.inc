@@ -15,4 +15,4 @@ script_0800BBBA:
 	WaitUntilTextboxCloses
 	Wait 0x0078
 	Call sub_08054968
-SCRIPT_END
+	EndScript

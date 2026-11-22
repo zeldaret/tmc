@@ -11,5 +11,5 @@ script_0800E5D8:
 	SetRoomFlag 0x0001
 	Wait 0x001e
 	EnablePlayerControl
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

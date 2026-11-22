@@ -10,4 +10,4 @@ SCRIPT_START script_Npc4EHyruleCastleEntrance
 	Wait 0x003c
 	CallWithArg NPC4E_DoScreenTransition, 11
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

@@ -19,5 +19,5 @@ script_0800E550:
 script_0800E582:
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

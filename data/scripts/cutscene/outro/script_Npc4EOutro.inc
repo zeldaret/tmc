@@ -61,4 +61,4 @@ SCRIPT_START script_Npc4EOutro
 	PlaySound SFX_APPARATE
 	CallWithArg NPC4E_DoScreenTransition, 7
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

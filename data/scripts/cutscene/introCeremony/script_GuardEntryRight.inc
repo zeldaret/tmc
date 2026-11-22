@@ -13,4 +13,4 @@ SCRIPT_START script_GuardEntryRight
 	SetSyncFlag 0x00400000
 	WaitForSyncFlagAndClear 0x00200000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

@@ -10,4 +10,4 @@ SCRIPT_START script_PlayerWakeAfterRest
 	DoPostScriptAction 0x0014
 	Wait 0x001e
 	SetSyncFlag 0x00000001
-SCRIPT_END
+	EndScript

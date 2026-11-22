@@ -18,4 +18,4 @@ SCRIPT_START script_CutsceneMiscObjectRightBullyingOctorok
 	WaitForSyncFlagAndClear 0x00000010
 	Wait 0x0001
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

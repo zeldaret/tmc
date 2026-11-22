@@ -12,4 +12,4 @@ SCRIPT_START script_CutsceneMiscObjectKingsGravestone
 	MoveTo 0x0118, 0x0060
 	SetSyncFlag 0x00000002
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

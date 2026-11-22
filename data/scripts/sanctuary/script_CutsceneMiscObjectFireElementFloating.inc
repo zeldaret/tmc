@@ -8,5 +8,5 @@ SCRIPT_START script_CutsceneMiscObjectFireElementFloating
 	MoveTo 0x0120, 0x00f8
 	SetAnimation 0x0003
 	SetSyncFlag 0x10000000
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

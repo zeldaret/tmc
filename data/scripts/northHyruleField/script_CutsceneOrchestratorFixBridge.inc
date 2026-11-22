@@ -19,4 +19,4 @@ SCRIPT_START script_CutsceneOrchestratorFixBridge
 	CameraTargetPlayer
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

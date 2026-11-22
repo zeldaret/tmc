@@ -28,4 +28,4 @@ SCRIPT_START script_VaatiAppearsAgain
 	WalkSouth 0x0030
 	SetSyncFlag 0x00000004
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

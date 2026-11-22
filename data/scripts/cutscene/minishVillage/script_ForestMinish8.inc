@@ -31,5 +31,5 @@ SCRIPT_START script_ForestMinish8
 	MoveTo 0x0188, 0x02d8
 	SetSyncFlag 0x00010000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

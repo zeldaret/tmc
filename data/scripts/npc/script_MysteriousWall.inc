@@ -21,5 +21,5 @@ script_0800B99E:
 	EnablePlayerControl
 script_0800B9AC:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

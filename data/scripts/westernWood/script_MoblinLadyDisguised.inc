@@ -59,5 +59,5 @@ script_080122EC:
 	Wait 0x001e
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.align 2, 0

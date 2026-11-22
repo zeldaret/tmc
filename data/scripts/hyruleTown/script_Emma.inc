@@ -32,7 +32,7 @@ script_RentLargeRoom: @ Rent large room
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses
 	Call Emma_GoToWestRoom
-SCRIPT_END
+	EndScript
 script_RentRegularRoom:
 	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x04
@@ -46,7 +46,7 @@ script_RentRegularRoom:
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses
 	Call Emma_GoToMiddleRoom
-SCRIPT_END
+	EndScript
 script_RentSmallRoom:
 	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x03
@@ -60,7 +60,7 @@ script_RentSmallRoom:
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses
 	Call Emma_GoToEastRoom
-SCRIPT_END
+	EndScript
 script_EmmaNotEnoughRupees:
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x07
 	Jump script_EndDialog

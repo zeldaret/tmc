@@ -20,4 +20,4 @@ SCRIPT_START script_08015B34
 	Jump script_08015B34
 script_08015B7E:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

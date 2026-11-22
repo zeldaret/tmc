@@ -14,4 +14,4 @@ script_0800BADE:
 	WaitUntilTextboxCloses
 	Wait 0x0078
 	Call sub_08054968
-SCRIPT_END
+	EndScript

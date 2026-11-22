@@ -9,4 +9,4 @@ SCRIPT_START script_PlayerGiveKey
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
-SCRIPT_END
+	EndScript

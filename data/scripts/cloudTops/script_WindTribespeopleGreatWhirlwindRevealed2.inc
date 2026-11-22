@@ -23,5 +23,5 @@ script_0800D82A:
 	JumpIf script_0800D82A
 	SetSyncFlag 0x00000004
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -22,5 +22,5 @@ script_08010942:
 	EnablePlayerControl
 	Jump script_0801091C
 	Call sub_0808692C
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -14,4 +14,4 @@ SCRIPT_START script_PlayerFainting
 	Call WaitForAnimDone
 	WaitForSyncFlag 0x80000000
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

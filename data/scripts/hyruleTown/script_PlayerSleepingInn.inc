@@ -16,5 +16,5 @@ script_08010A78:
 	EnablePlayerControl
 	Call EnablePauseMenu
 	Call ResetPlayerAnimationAndAction
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

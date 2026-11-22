@@ -16,5 +16,5 @@ script_0801454C:
 	WaitForSyncFlagAndClear 0x00000002
 	EnablePlayerControl
 	Jump script_0801454C
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

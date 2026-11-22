@@ -111,4 +111,4 @@ script_0800F314:
 	MoveToOffset 0x00c0, 0x0000
 	SetSyncFlag 0x00000040
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

@@ -25,4 +25,4 @@ script_08009376:
 	EnablePlayerControl
 	Call EnablePauseMenu
 	Jump script_0800934E
-SCRIPT_END
+	EndScript

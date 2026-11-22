@@ -55,4 +55,4 @@ script_0800E4FA:
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 	EndBlock
-SCRIPT_END
+	EndScript

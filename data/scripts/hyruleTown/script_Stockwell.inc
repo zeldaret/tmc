@@ -61,4 +61,4 @@ script_08014330:
 	SetAction 0x0001
 	EnablePlayerControl
 script_08014382:
-SCRIPT_END
+	EndScript

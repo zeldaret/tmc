@@ -13,4 +13,4 @@ SCRIPT_START script_PlayerAtMadderpillar
 	Call sub_080752AC
 	EnablePlayerControl
 	Call ResetPlayerAnimationAndAction
-SCRIPT_END
+	EndScript

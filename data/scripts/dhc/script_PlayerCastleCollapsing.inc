@@ -8,4 +8,4 @@ SCRIPT_START script_PlayerCastleCollapsing
 	MoveToOffset 0x0000, 0x0080
 	SetSyncFlag 0x00000004
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

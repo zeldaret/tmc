@@ -65,4 +65,4 @@ SCRIPT_START script_CutsceneOrchestratorTakeoverCutscene
 	StopBgm
 	SetRoomFlag 0x0000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

@@ -65,5 +65,5 @@ script_0800DCD0:
 	WaitForSyncFlagAndClear 0x00000001
 	SetEntitySpeed 0x0100
 	MoveToOffset 0x0000, 0x0080
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

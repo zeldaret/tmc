@@ -55,4 +55,4 @@ SCRIPT_START script_MinishEzloGoodbye
 	MoveTo 0x0088, 0x0040
 	SetSyncFlag 0x00000004
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

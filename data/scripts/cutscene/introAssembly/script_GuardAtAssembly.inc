@@ -16,4 +16,4 @@ SCRIPT_START script_GuardAtAssembly
 	SetEntitySpeed 0x0200
 	WalkSouth 0x1c20
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

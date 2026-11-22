@@ -13,4 +13,4 @@ SCRIPT_START script_PlayerAtGraveyardHouseDoor
 	SetEntitySpeed 0x0100
 	WalkSouth 0x0010
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

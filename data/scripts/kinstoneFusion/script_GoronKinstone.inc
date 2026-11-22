@@ -35,5 +35,5 @@ script_0800BC62:
 	DoPostScriptAction 0x0008
 	Wait 0x0078
 	Call sub_08054968
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

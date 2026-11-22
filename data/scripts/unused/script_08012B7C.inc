@@ -9,4 +9,4 @@ SCRIPT_START script_08012B7C
 	SetSyncFlag 0x00000002
 	CallWithArg SetPlayerIFrames, -30
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

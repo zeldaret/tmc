@@ -28,4 +28,4 @@ SCRIPT_START script_CutsceneMiscObjectMinishCapOutro
 	PlaySound SFX_FA
 	Wait 0x003c
 	SetSyncFlag 0x00000100
-SCRIPT_END
+	EndScript

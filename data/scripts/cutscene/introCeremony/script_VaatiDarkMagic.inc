@@ -18,5 +18,5 @@ SCRIPT_START script_VaatiDarkMagic
 	WaitForSyncFlagAndClear 0x08000000
 	PlaySound SFX_11D
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

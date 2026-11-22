@@ -75,5 +75,5 @@ script_08010240:
 	ClearRoomFlag 0x0001
 	Call sub_080A169C
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

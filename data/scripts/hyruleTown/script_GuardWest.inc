@@ -90,4 +90,4 @@ script_08010090:
 	CallWithArg sub_080672B0, 0x00000000
 	Jump script_08010090
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

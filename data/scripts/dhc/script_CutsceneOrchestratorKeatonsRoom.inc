@@ -18,4 +18,4 @@ script_0800E510:
 script_0800E53C:
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

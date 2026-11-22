@@ -20,4 +20,4 @@ script_0800BC18:
 	Call sub_08065CCC
 	Wait 0x0078
 	Call sub_08054968
-SCRIPT_END
+	EndScript

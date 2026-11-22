@@ -19,4 +19,4 @@ script_08009816:
 	Call sub_0807FBD4
 	PlaySound SFX_1F3
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

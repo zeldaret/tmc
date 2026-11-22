@@ -26,4 +26,4 @@ script_0800FF34:
 script_0800FF6A:
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

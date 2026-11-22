@@ -13,4 +13,4 @@ SCRIPT_START script_ZeldaGoodbye
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x80000000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

@@ -18,4 +18,4 @@ script_080149AA:
 	Jump script_080149AA
 script_080149C6:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

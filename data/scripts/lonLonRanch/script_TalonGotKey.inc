@@ -34,4 +34,4 @@ SCRIPT_START script_TalonGotKey
 	SetSyncFlag 0x00000010
 	SetSyncFlag 0x00000008
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

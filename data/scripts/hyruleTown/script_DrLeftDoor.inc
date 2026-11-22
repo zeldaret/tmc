@@ -26,5 +26,5 @@ script_0800EF82:
 	EnablePlayerControl
 script_0800EF92:
 	Call sub_0808692C
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

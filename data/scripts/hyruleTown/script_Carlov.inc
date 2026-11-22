@@ -72,6 +72,6 @@ script_080144FC:
 .endif
 .endif
 .endif
-SCRIPT_END
+	EndScript
 	.align 2, 0
 

@@ -5,4 +5,4 @@ SCRIPT_START script_BigGoronKinstone5
 	InitScreenShake 0x0000, 0x0000
 	Wait 0x00b4
 	Call sub_08054968
-SCRIPT_END
+	EndScript

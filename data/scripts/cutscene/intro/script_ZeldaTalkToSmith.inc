@@ -37,5 +37,5 @@ SCRIPT_START script_ZeldaTalkToSmith
 	Call ResetPlayerAnimationAndAction
 	EnablePlayerControl
 	EndBlock
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

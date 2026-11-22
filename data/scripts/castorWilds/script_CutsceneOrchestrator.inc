@@ -22,4 +22,4 @@ script_0800B216:
 	CheckLocalFlag HIKYOU_00_SEKIZOU
 	JumpIfNot script_0800B216
 script_0800B252:
-SCRIPT_END
+	EndScript

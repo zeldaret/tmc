@@ -8,5 +8,5 @@ SCRIPT_START script_PlayerV2Defeated
 	MoveTo 0x00a8, 0x002c
 	SetSyncFlag 0x00000002
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

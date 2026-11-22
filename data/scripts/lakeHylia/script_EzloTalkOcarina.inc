@@ -9,4 +9,4 @@ SCRIPT_START script_EzloTalkOcarina
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

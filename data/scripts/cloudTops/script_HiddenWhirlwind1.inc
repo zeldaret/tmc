@@ -10,5 +10,5 @@ script_0800D6E0:
 	JumpIfNot script_0800D6E0
 script_0800D6E8:
 	DoPostScriptAction 0x0007
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

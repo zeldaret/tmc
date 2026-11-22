@@ -24,7 +24,7 @@ script_0800A0FE:
 	WaitForSyncFlagAndClear 0x00000004
 	CallWithArg NPC4E_DoScreenTransition, 6
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 .ifndef EU
 	.2byte 0x0000
 .endif

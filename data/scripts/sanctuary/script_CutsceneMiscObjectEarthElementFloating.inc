@@ -8,5 +8,5 @@ SCRIPT_START script_CutsceneMiscObjectEarthElementFloating
 	MoveTo 0x00b0, 0x00f8
 	SetAnimation 0x0001
 	SetSyncFlag 0x08000000
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

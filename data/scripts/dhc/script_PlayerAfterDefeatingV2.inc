@@ -10,5 +10,5 @@ SCRIPT_START script_PlayerAfterDefeatingV2
 	DoPostScriptAction 0x000c
 	SetSyncFlag 0x00000004
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

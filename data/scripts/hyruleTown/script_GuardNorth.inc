@@ -26,4 +26,4 @@ script_0800FED8:
 script_0800FF0E:
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

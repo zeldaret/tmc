@@ -71,4 +71,4 @@ script_08015888:
 	SetScrollSpeed 4
 	CameraTargetPlayer
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

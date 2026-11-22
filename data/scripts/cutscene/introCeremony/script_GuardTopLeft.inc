@@ -41,4 +41,4 @@ SCRIPT_START script_GuardTopLeft
 	WalkForward 0x003c
 	SetSyncFlag 0x00010000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

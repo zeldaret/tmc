@@ -62,5 +62,5 @@ script_08009C50:
 	MessageNoOverlap TEXT_PROLOGUE, 0x0e
 	EnablePlayerControl
 	Jump script_08009C50
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

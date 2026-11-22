@@ -38,4 +38,4 @@ SCRIPT_START script_VaatiTakeover
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

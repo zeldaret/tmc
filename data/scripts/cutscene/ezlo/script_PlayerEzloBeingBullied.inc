@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerEzloBeingBullied
 	Wait 0x003c
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

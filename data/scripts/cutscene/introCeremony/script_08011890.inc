@@ -14,4 +14,4 @@ SCRIPT_START script_08011890
 	SetSyncFlag 0x10000000
 	WaitForSyncFlagAndClear 0x08000000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

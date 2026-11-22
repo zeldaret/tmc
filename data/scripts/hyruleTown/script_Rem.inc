@@ -33,4 +33,4 @@ script_08012F6C:
 	WaitUntilTextboxCloses
 	SetAction 0x0001
 	Jump script_08012F6C
-SCRIPT_END
+	EndScript

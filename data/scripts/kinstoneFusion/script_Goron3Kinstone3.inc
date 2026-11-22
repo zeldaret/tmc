@@ -23,4 +23,4 @@ SCRIPT_START script_Goron3Kinstone3
 	SetAnimation 0x0008
 	Wait 0x00f0
 	Call sub_08054968
-SCRIPT_END
+	EndScript

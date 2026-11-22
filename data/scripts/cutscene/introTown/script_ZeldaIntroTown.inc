@@ -104,4 +104,4 @@ script_0800FC9E:
 	WaitForSyncFlagAndClear 0x00000002
 	Call sub_08066D4C
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

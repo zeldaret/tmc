@@ -21,4 +21,4 @@ SCRIPT_START script_PlayerIntro
 	EnablePlayerControl
 	Call EnablePauseMenu
 	Call ResetPlayerAnimationAndAction
-SCRIPT_END
+	EndScript

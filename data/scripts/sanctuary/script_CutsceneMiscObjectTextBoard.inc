@@ -57,5 +57,5 @@ script_08013C92:
 script_08013C98:
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.align 2, 0

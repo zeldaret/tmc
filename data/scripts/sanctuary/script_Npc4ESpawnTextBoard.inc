@@ -21,4 +21,4 @@ SCRIPT_START script_Npc4ESpawnTextBoard
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

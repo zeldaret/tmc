@@ -18,5 +18,5 @@ SCRIPT_START script_BusinessScrubIntro
 	PlaySound SFX_SECRET
 	Call sub_08046078
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

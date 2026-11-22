@@ -16,4 +16,4 @@ SCRIPT_START script_08013494
 	SetSyncFlag 0x00000080
 	EndBlock
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

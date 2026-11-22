@@ -8,4 +8,4 @@ SCRIPT_START script_PlayerAtCarlov
 	Wait 0x0010
 	SetSyncFlag 0x00000001
 	Call PlayerSetNormalAndCollide
-SCRIPT_END
+	EndScript

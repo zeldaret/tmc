@@ -25,4 +25,4 @@ SCRIPT_START script_PlayerMoveToSmith
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000002
 	SetSyncFlag 0x00000008
-SCRIPT_END
+	EndScript

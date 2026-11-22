@@ -171,5 +171,5 @@ SCRIPT_START script_Npc4EIntroTown
 	EnablePlayerControl
 script_0800FA4C:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

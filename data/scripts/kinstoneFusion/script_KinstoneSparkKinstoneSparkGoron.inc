@@ -17,4 +17,4 @@ SCRIPT_START script_KinstoneSparkKinstoneSparkGoron
 	SetRoomFlag 0x00ff
 	SetAnimation 0x0005
 	Wait 0x000f
-SCRIPT_END
+	EndScript

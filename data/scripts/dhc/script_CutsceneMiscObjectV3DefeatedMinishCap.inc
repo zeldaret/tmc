@@ -16,5 +16,5 @@ SCRIPT_START script_CutsceneMiscObjectV3DefeatedMinishCap
 	SetSyncFlag 0x00000002
 	Wait 0x003c
 	SetSyncFlag 0x00000004
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

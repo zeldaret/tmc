@@ -21,5 +21,5 @@ SCRIPT_START script_08012D18
 	Jump script_08012D18
 script_08012D68:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

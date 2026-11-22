@@ -29,7 +29,7 @@
 \name:
 .endm
 
-.macro SCRIPT_END
+.macro EndScript
 	.2byte 0xffff
 .endm
 

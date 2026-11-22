@@ -19,5 +19,5 @@ script_080143AC:
 	SetAnimation 0x0004
 	SetAction 0x0001
 	EnablePlayerControl
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

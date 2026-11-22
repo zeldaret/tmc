@@ -16,5 +16,5 @@ SCRIPT_START script_CutsceneOrchestratorDarknutFight
 	EzloMessage TEXT_TREASURE_GUARDIAN, 0x01
 	EnablePlayerControl
 	Call EnablePauseMenu
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

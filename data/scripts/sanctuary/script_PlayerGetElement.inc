@@ -19,4 +19,4 @@ script_0800A0D2:
 	Wait 0x003c
 	SetEntitySpeed 0x0080
 	WalkNorth 0x0030
-SCRIPT_END
+	EndScript

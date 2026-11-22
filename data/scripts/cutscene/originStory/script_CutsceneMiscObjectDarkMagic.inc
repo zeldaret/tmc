@@ -18,4 +18,4 @@ SCRIPT_START script_CutsceneMiscObjectDarkMagic
 	SetSyncFlag 0x00080000
 	WaitForSyncFlagAndClear 0x00040000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

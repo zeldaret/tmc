@@ -20,5 +20,5 @@ SCRIPT_START script_CutsceneOrchestratorGreatWhirlwindRevealed
 	EnablePlayerControl
 	Call EnablePauseMenu
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -13,4 +13,4 @@ SCRIPT_START script_CutsceneOrchestratorIntro
 	Call EnablePauseMenu
 	EnablePlayerControl
 	Call PlayerSetNormalAndCollide
-SCRIPT_END
+	EndScript

@@ -8,4 +8,4 @@ SCRIPT_START script_PlayerAtMelari
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000008
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

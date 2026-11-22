@@ -10,4 +10,4 @@ script_080095DE:
 	JumpIf script_DampeInside
 	DoPostScriptAction 0x000b
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

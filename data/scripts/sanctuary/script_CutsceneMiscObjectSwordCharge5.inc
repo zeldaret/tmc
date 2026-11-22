@@ -13,4 +13,4 @@ SCRIPT_START script_CutsceneMiscObjectSwordCharge5
 	SetAnimation 0x0010
 	Call WaitForAnimDone
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

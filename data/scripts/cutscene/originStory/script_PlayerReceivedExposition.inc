@@ -2,4 +2,4 @@
 SCRIPT_START script_PlayerReceivedExposition
 	DoPostScriptAction 0x0015
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

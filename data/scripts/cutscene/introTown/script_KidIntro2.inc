@@ -21,4 +21,4 @@ script_0800F6F4:
 script_0800F718:
 	Call sub_080627E8
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

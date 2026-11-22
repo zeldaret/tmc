@@ -35,4 +35,4 @@ SCRIPT_START script_SmithIntro
 	SetFade5
 	WaitForFadeFinish
 	Call sub_08053634
-SCRIPT_END
+	EndScript

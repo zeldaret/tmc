@@ -20,5 +20,5 @@ SCRIPT_START script_ZeldaIntro
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000008
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

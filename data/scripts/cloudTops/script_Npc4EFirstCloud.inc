@@ -34,4 +34,4 @@ script_0800D650:
 	JumpIfNot script_Npc4EKinstoneFused
 	LoadRoomEntityList gUnk_080DD730
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

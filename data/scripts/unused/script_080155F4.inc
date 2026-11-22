@@ -8,5 +8,5 @@ script_08015608:
 	CheckRoomFlag 0x0001
 	JumpIfNot script_08015608
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

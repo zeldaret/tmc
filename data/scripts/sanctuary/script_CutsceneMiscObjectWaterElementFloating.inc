@@ -8,5 +8,5 @@ SCRIPT_START script_CutsceneMiscObjectWaterElementFloating
 	MoveTo 0x0120, 0x0168
 	SetAnimation 0x0005
 	SetSyncFlag 0x20000000
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

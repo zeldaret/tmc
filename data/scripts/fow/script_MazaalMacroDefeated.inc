@@ -9,4 +9,4 @@ SCRIPT_START script_MazaalMacroDefeated
 	WaitForSyncFlagAndClear 0x00000002
 	Wait 0x000c
 	SetAction 0x0005
-SCRIPT_END
+	EndScript

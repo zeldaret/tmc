@@ -20,4 +20,4 @@ script_08012CA0:
 	EnablePlayerControl
 script_08012CD2:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

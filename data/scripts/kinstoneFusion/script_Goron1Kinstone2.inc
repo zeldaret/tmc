@@ -35,4 +35,4 @@ script_0800BD1C:
 	WaitForSyncFlagAndClear 0x00000004
 	SetEntitySpeed 0x0080
 	MoveToOffset 0x0000, -32
-SCRIPT_END
+	EndScript

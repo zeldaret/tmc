@@ -8,4 +8,4 @@ SCRIPT_START script_CutsceneMiscObjectSwordCharge4
 	EndBlock
 	WaitForSyncFlag 0x00000040
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

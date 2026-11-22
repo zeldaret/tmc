@@ -33,4 +33,4 @@ SCRIPT_START script_EzloCapOutro
 	DoPostScriptAction 0x0008
 	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

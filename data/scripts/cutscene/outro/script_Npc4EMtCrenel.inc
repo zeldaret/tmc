@@ -17,4 +17,4 @@ SCRIPT_START script_Npc4EMtCrenel
 	Wait 0x003c
 	CallWithArg NPC4E_DoScreenTransition, 14
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

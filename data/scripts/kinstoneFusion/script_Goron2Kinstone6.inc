@@ -37,4 +37,4 @@ script_0800C248:
 	Call sub_08054F64
 	SetEntitySpeed 0x0080
 	MoveToOffset 0x0000, -32
-SCRIPT_END
+	EndScript

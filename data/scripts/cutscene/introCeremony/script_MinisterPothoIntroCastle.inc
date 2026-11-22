@@ -46,7 +46,7 @@ script_08011134:
 	WalkForward 0x003c
 	SetSyncFlag 0x00000008
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 .ifdef JP
 .ifndef DEMO_JP
 	.2byte 0x0000

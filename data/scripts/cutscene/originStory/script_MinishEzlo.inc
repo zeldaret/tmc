@@ -43,4 +43,4 @@ script_080155E6:
 	CheckRoomFlag 0x0001
 	JumpIfNot script_080155E6
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

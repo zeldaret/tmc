@@ -18,5 +18,5 @@ SCRIPT_START script_VaatiWithZelda
 	WaitForSyncFlagAndClear 0x00000001
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0014
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

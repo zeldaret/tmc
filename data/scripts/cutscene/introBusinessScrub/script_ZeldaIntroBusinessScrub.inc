@@ -70,5 +70,5 @@ script_08015A54:
 	Call sub_08066D4C
 	SetSyncFlag 0x00000002
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

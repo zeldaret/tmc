@@ -17,5 +17,5 @@ SCRIPT_START script_PlayerGetKeyStolen
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000040
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

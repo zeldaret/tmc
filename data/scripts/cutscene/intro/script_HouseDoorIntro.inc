@@ -16,5 +16,5 @@ SCRIPT_START script_HouseDoorIntro
 	SetFadeIrisInOut
 	WaitForFadeFinish @ Wait for end of transition
 	Call sub_0805367C
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

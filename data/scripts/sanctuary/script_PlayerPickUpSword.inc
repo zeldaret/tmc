@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerPickUpSword
 	Wait 0x0078
 	WaitForSyncFlagAndClear 0x00040000
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

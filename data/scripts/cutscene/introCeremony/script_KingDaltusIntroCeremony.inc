@@ -23,4 +23,4 @@ SCRIPT_START script_KingDaltusIntroCeremony
 	WalkForward 0x003c
 	SetSyncFlag 0x00000080
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

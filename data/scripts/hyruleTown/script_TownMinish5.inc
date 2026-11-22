@@ -61,4 +61,4 @@ script_0800EEFE:
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000048
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

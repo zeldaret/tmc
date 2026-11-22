@@ -8,5 +8,5 @@ SCRIPT_START script_MazaalBossObjectMazaal
 	StartPlayerScript script_PlayerAtMazaal
 	WaitForSyncFlagAndClear 0x00000001
 	SetAction 0x0002
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

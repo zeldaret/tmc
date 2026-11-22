@@ -40,5 +40,5 @@ script_0800F490:
 	MoveTo 0x0288, 0x0328
 	SetSyncFlag 0x00000100
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -6,4 +6,4 @@ SCRIPT_START script_PlayerSanctuaryIntro
 	EndBlock
 	SetSyncFlag 0x00000002
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

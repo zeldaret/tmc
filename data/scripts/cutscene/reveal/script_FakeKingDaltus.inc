@@ -11,5 +11,5 @@ SCRIPT_START script_FakeKingDaltus
 	Wait 0x000a
 	SetSyncFlag 0x00000010
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

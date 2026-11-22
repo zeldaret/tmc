@@ -10,4 +10,4 @@ SCRIPT_START script_PlayerAtGentari
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

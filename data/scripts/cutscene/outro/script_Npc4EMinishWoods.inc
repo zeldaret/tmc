@@ -17,4 +17,4 @@ SCRIPT_START script_Npc4EMinishWoods
 	Wait 0x003c
 	CallWithArg NPC4E_DoScreenTransition, 13
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

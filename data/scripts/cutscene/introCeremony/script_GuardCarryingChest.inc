@@ -52,4 +52,4 @@ script_08011312:
 	WalkForward 0x003c
 	SetSyncFlag 0x00001000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

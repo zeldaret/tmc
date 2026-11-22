@@ -14,4 +14,4 @@ SCRIPT_START script_PlayerAtDarknutFight
 	Wait 0x001e
 	SetSyncFlag 0x00000001
 	Call PlayerSetNormalAndCollide
-SCRIPT_END
+	EndScript

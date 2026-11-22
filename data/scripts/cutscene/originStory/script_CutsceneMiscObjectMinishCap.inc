@@ -19,5 +19,5 @@ SCRIPT_START script_CutsceneMiscObjectMinishCap
 	SetAnimation 0x0001
 	Call WaitForAnimDone
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

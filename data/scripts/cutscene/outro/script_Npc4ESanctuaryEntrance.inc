@@ -10,4 +10,4 @@ SCRIPT_START script_Npc4ESanctuaryEntrance
 	PlaySound SFX_EVAPORATE
 	CallWithArg NPC4E_DoScreenTransition, 15
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

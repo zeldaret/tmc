@@ -13,5 +13,5 @@ SCRIPT_START script_BigGoronKinstone3
 	InitScreenShake 0x001e, 0x0000
 	PlaySound SFX_10B
 	SetSyncFlag 0x00000001
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

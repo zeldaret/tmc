@@ -6,5 +6,5 @@ SCRIPT_START script_ZeldaStoneTakeover
 	EndBlock
 	WaitForSyncFlag 0x00000400
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -24,4 +24,4 @@ SCRIPT_START script_CutsceneOrchestratorCameraTarget
 	WaitForFadeFinish
 	SetRoomFlag 0x0001
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

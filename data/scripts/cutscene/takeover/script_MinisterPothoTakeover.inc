@@ -12,4 +12,4 @@ SCRIPT_START script_MinisterPothoTakeover
 	DoPostScriptAction 0x0005
 	WaitForSyncFlag 0x00000400
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

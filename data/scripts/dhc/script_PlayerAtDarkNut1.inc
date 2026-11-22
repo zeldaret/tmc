@@ -12,4 +12,4 @@ SCRIPT_START script_PlayerAtDarkNut1
 	Call sub_080752AC
 	EnablePlayerControl
 	Call ResetPlayerAnimationAndAction
-SCRIPT_END
+	EndScript

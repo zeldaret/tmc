@@ -28,5 +28,5 @@ SCRIPT_START script_MinishEzloOutro
 	WaitForSyncFlagAndClear 0x00000002
 	CallWithArg sub_080960C4, script_EzloZeldaMagic
 	SetSyncFlag 0x00000040
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

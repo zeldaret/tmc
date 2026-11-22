@@ -28,5 +28,5 @@ script_08014938:
 	Call sub_0806E1FC
 	Wait 0x001e
 	Call EnablePauseMenu
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

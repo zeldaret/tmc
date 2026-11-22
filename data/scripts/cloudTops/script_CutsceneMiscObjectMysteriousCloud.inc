@@ -6,5 +6,5 @@ SCRIPT_START script_CutsceneMiscObjectMysteriousCloud
 	Call SetCollisionLayer1
 	Call sub_0807F738
 	EndBlock
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

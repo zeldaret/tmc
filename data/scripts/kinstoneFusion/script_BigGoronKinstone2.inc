@@ -12,4 +12,4 @@ SCRIPT_START script_BigGoronKinstone2
 	Call sub_0806D67C
 	InitScreenShake 0x001e, 0x0000
 	PlaySound SFX_10B
-SCRIPT_END
+	EndScript

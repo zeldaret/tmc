@@ -22,4 +22,4 @@ script_080153C2:
 	Wait 0x0078
 	SetSyncFlag 0x00000010
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

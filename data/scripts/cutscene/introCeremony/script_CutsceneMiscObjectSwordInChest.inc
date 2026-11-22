@@ -16,5 +16,5 @@ SCRIPT_START script_CutsceneMiscObjectSwordInChest
 	SetSyncFlag 0x01000000
 	WaitForSyncFlagAndClear 0x00800000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

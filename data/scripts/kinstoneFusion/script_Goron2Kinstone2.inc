@@ -33,4 +33,4 @@ SCRIPT_START script_Goron2Kinstone2
 	SetEntitySpeed 0x0080
 	MoveToOffset 0x0000, -32
 	Call sub_08054968
-SCRIPT_END
+	EndScript

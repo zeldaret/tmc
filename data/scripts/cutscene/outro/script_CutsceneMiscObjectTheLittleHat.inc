@@ -13,4 +13,4 @@ SCRIPT_START script_CutsceneMiscObjectTheLittleHat
 	WaitForSyncFlagAndClear 0x00000008
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

@@ -7,4 +7,4 @@ SCRIPT_START script_PlayerAtIntroCeremony
 	ClearSyncFlag 0x00000002
 	EndBlock
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

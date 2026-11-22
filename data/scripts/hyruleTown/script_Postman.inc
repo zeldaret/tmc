@@ -40,4 +40,4 @@ script_08010B4A:
 	Jump script_08010B1C
 script_08010B62:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
