@@ -1,5 +1,5 @@
 @ DHC Guard stone
-SCRIPT_START script_GuardStone1
+script_GuardStone1::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000a

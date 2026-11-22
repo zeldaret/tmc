@@ -1,5 +1,5 @@
 @ Ezlo being bullied Player
-SCRIPT_START script_PlayerEzloBeingBullied
+script_PlayerEzloBeingBullied::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

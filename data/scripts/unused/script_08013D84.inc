@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_08013D84
+script_08013D84::
 	BeginBlock
 	Call MakePedestalInteractable
 	DoPostScriptAction 0x0008

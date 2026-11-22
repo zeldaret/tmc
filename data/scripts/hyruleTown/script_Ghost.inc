@@ -1,5 +1,5 @@
 @ Hyrule Town Ghost
-SCRIPT_START script_Ghost
+script_Ghost::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	AddInteractableWhenBigObject

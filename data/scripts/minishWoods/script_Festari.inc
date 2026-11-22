@@ -1,5 +1,5 @@
 @ Festari at beginning
-SCRIPT_START script_Festari
+script_Festari::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	SetEntitySpeed 0x0080

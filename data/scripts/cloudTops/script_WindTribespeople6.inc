@@ -1,5 +1,5 @@
 @ Cloud Tops Windtribespeople sucked up ghost
-SCRIPT_START script_WindTribespeople6
+script_WindTribespeople6::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	EndBlock

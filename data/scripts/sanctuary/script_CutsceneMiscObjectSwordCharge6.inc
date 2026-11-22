@@ -1,5 +1,5 @@
 @ Sanctuary CUTSCENE_MISC_OBJECT Sword charging 3?
-SCRIPT_START script_CutsceneMiscObjectSwordCharge6
+script_CutsceneMiscObjectSwordCharge6::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimation 0x0005

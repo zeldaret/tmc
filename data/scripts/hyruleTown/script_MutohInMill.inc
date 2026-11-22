@@ -1,5 +1,5 @@
 @ Hyrule Town Mutoh
-SCRIPT_START script_MutohInMill
+script_MutohInMill::
 	BeginBlock
 	Call Mutoh_MakeInteractable
 	DoPostScriptAction 0x000a

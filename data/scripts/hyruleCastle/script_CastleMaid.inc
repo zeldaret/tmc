@@ -1,5 +1,5 @@
 @ Intro Hyrule Castle Maid
-SCRIPT_START script_CastleMaid
+script_CastleMaid::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0004

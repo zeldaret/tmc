@@ -1,5 +1,5 @@
 @ Hyrule Town Picolyte Bottle object in Carlov Chest room
-SCRIPT_START script_CarlovChest
+script_CarlovChest::
 	BeginBlock
 	EndBlock
 script_080148F4:

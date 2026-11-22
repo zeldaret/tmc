@@ -1,5 +1,5 @@
 @ Outro Zelda after fixing everything
-SCRIPT_START script_ZeldaGoodbye
+script_ZeldaGoodbye::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007

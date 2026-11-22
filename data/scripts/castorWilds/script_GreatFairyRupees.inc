@@ -1,5 +1,5 @@
 @ Lake Hylia Great Fairy CUTSCENE_ORCHESTRATOR
-SCRIPT_START script_GreatFairyRupees
+script_GreatFairyRupees::
 	BeginBlock
 	EndBlock
 script_0800B6CC:

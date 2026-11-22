@@ -1,5 +1,5 @@
 @ Intro Player
-SCRIPT_START script_PlayerIntro
+script_PlayerIntro::
 	BeginBlock
 	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle

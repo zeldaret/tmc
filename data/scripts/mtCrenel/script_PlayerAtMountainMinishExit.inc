@@ -1,5 +1,5 @@
 @ Player at Mountain Minish at exit
-SCRIPT_START script_PlayerAtMountainMinishExit
+script_PlayerAtMountainMinishExit::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

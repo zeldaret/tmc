@@ -1,5 +1,5 @@
 @ Player in Sanctuary move towards picture
-SCRIPT_START script_PlayerMoveToPicture
+script_PlayerMoveToPicture::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

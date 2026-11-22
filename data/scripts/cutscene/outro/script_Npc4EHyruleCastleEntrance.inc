@@ -1,5 +1,5 @@
 @ Outro NPC4E Fix Hyrule Castle Entrance
-SCRIPT_START script_Npc4EHyruleCastleEntrance
+script_Npc4EHyruleCastleEntrance::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems

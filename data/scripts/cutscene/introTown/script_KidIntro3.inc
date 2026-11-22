@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Kid
-SCRIPT_START script_KidIntro3
+script_KidIntro3::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock

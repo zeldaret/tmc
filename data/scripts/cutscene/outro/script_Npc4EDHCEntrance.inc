@@ -1,5 +1,5 @@
 @ Outro NPC4E Fix DHC Entrance
-SCRIPT_START script_Npc4EDHCEntrance
+script_Npc4EDHCEntrance::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems

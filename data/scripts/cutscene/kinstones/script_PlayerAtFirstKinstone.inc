@@ -1,5 +1,5 @@
 @ Hyrule Town Kinstone cutscene Player
-SCRIPT_START script_PlayerAtFirstKinstone
+script_PlayerAtFirstKinstone::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

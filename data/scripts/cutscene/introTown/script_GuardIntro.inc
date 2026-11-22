@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Guard
-SCRIPT_START script_GuardIntro
+script_GuardIntro::
 	BeginBlock
 	SetAnimationState 0x0006
 	AddInteractableWhenBigObject

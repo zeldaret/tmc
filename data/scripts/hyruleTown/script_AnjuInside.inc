@@ -1,5 +1,5 @@
 @ Hyrule Town Anju inside
-SCRIPT_START script_AnjuInside
+script_AnjuInside::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0004

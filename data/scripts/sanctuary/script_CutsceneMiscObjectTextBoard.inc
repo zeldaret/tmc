@@ -1,5 +1,5 @@
 @ Sanctuary CUTSCENE_MISC_OBJECT text board
-SCRIPT_START script_CutsceneMiscObjectTextBoard
+script_CutsceneMiscObjectTextBoard::
 	BeginBlock
 	CheckLocalFlag 0x007a
 	JumpIf script_08013C2A

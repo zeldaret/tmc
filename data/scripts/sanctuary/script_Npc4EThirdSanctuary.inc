@@ -1,5 +1,5 @@
 @ Sanctuary third time NPC4E controlling cutscene
-SCRIPT_START script_Npc4EThirdSanctuary
+script_Npc4EThirdSanctuary::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock

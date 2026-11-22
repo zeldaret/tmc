@@ -1,5 +1,5 @@
 @ Farore completely alone
-SCRIPT_START script_FaroreAlone
+script_FaroreAlone::
 	BeginBlock
 	Call Farore_MakeInteractable
 	SetAnimationState 0x0004

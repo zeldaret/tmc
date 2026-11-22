@@ -1,5 +1,5 @@
 @ Gorman at third house
-SCRIPT_START script_GormanCats
+script_GormanCats::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

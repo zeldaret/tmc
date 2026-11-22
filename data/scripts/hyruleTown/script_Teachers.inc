@@ -1,5 +1,5 @@
 @ Hyrule Town Teachers
-SCRIPT_START script_Teachers
+script_Teachers::
 	BeginBlock
 	Call Teachers_MakeInteractable
 	DoPostScriptAction 0x000a

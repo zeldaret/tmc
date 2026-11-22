@@ -1,5 +1,5 @@
 @ Hyrule Town Intro Kid blocking the way
-SCRIPT_START script_KidIntro2
+script_KidIntro2::
 	BeginBlock
 	DoPostScriptAction 0x0001
 	AddInteractableWhenBigObject

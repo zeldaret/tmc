@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E Pedestal for sword
-SCRIPT_START script_Npc4EPedestal
+script_Npc4EPedestal::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock

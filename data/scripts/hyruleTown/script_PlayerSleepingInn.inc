@@ -1,5 +1,5 @@
 @ Player sleeping at Inn
-SCRIPT_START script_PlayerSleepingInn
+script_PlayerSleepingInn::
 	BeginBlock
 	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle

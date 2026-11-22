@@ -1,5 +1,5 @@
 @ Simons Simulation CUTSCENE_ORCHESTRATOR
-SCRIPT_START script_CutsceneOrchestratorSimonsSimulation
+script_CutsceneOrchestratorSimonsSimulation::
 	BeginBlock
 	DisablePlayerControl
 	EndBlock

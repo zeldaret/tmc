@@ -1,5 +1,5 @@
 @ TODO UNUSED? looks like a reference list of script commands for developers?
-SCRIPT_START script_08016482
+script_08016482::
 	FadeInvert
 	Nop2 0x0080
 	SetFade4

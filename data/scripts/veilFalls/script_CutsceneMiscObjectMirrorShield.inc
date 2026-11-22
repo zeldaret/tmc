@@ -1,5 +1,5 @@
 @ Veil Falls CUTSCENE_MISC_OBJECT Mirror Shield being spit out
-SCRIPT_START script_CutsceneMiscObjectMirrorShield
+script_CutsceneMiscObjectMirrorShield::
 	BeginBlock
 	Call sub_0806D804
 	SetEntitySpeed 0x0180

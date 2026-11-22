@@ -1,5 +1,5 @@
 @ Hyrule Town CUTSCENE_ORCHESTRATOR at Carlov
-SCRIPT_START script_CutsceneMiscObjectCarlov2
+script_CutsceneMiscObjectCarlov2::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetAnimationState 0x0004

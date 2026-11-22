@@ -1,5 +1,5 @@
 @ DHC left Guard at King cell
-SCRIPT_START script_GuardCellLeft
+script_GuardCellLeft::
 	BeginBlock
 	SetAnimationState 0x0002
 	CallWithArg sub_0807F3D8, 0x00000000

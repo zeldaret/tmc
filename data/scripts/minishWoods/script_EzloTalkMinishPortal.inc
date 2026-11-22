@@ -1,5 +1,5 @@
 @ Minish Woods Ezlo Talks after exiting portal for the first time
-SCRIPT_START script_EzloTalkMinishPortal
+script_EzloTalkMinishPortal::
 	EndBlock
 	BeginBlock
 	CheckPlayerMinish

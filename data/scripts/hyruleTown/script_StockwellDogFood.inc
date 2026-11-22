@@ -1,5 +1,5 @@
 @ Stockwell pick up dog food
-SCRIPT_START script_StockwellDogFood
+script_StockwellDogFood::
 	EndBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems

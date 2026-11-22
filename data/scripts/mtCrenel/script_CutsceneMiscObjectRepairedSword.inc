@@ -1,5 +1,5 @@
 @ Mines CUTSCENE_MISC_OBJECT Repaired Sword on Table?
-SCRIPT_START script_CutsceneMiscObjectRepairedSword
+script_CutsceneMiscObjectRepairedSword::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock

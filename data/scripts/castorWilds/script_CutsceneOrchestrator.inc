@@ -1,5 +1,5 @@
 @ Castor Wilds CUTSCENE_ORCHESTRATOR?
-SCRIPT_START script_CutsceneOrchestrator
+script_CutsceneOrchestrator::
 	BeginBlock
 	SetSyncFlag 0x00000000
 	CheckLocalFlag HIKYOU_00_SEKIZOU

@@ -1,5 +1,5 @@
 @ Nayru completely alone
-SCRIPT_START script_NayruAlone
+script_NayruAlone::
 	BeginBlock
 	Call Nayru_MakeInteractable
 	SetAnimationState 0x0004

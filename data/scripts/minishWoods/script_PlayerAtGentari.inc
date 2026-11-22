@@ -1,5 +1,5 @@
 @ Player at Gentari
-SCRIPT_START script_PlayerAtGentari
+script_PlayerAtGentari::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

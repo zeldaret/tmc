@@ -1,5 +1,5 @@
 @ Cloud Tops Windtribespeople at the bed
-SCRIPT_START script_WindTribespeople5
+script_WindTribespeople5::
 	BeginBlock
 	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a

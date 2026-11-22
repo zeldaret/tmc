@@ -1,5 +1,5 @@
 @ Outside Castle after ezlo cutscene EzloCap
-SCRIPT_START script_EzloCapExplainingOriginStory
+script_EzloCapExplainingOriginStory::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007

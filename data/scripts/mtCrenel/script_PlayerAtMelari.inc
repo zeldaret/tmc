@@ -1,5 +1,5 @@
 @ Player at Melari
-SCRIPT_START script_PlayerAtMelari
+script_PlayerAtMelari::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

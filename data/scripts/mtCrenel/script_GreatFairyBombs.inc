@@ -1,5 +1,5 @@
 @ Mountain Great Fairy CUTSCENE_ORCHESTRATOR
-SCRIPT_START script_GreatFairyBombs
+script_GreatFairyBombs::
 	BeginBlock
 	EndBlock
 script_0800B734:

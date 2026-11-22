@@ -1,5 +1,5 @@
 @ Outro NPC4E
-SCRIPT_START script_Npc4EOutro
+script_Npc4EOutro::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems

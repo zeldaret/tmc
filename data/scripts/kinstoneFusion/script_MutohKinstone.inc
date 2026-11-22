@@ -1,5 +1,5 @@
 @ Hyrule Town Mutoh in Kinstone cutscene
-SCRIPT_START script_MutohKinstone
+script_MutohKinstone::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

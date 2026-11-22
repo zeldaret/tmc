@@ -1,6 +1,6 @@
 @ KINSTONE_SPARK in Goron Merchant arriving Kinstone cutscene
 @ blue from left to right
-SCRIPT_START script_KinstoneSparkKinstoneSparkGoronMerchang
+script_KinstoneSparkKinstoneSparkGoronMerchang::
 	BeginBlock
 	SetEntitySpeed 0x0180
 	SetAnimation 0x0004

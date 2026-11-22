@@ -1,5 +1,5 @@
 @ Veil Falls Talk to BigGoron
-SCRIPT_START script_BigGoronTalk
+script_BigGoronTalk::
 	CheckLocalFlag DAIGORON_EXCHG
 	JumpIf script_0800943E
 	CheckInventory1 ITEM_SHIELD

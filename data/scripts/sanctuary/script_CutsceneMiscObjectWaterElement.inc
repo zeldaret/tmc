@@ -1,5 +1,5 @@
 @ Sanctuary CUTSCENE_MISC_OBJECT Water Element
-SCRIPT_START script_CutsceneMiscObjectWaterElement
+script_CutsceneMiscObjectWaterElement::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	Call SetCollisionLayer2

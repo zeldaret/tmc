@@ -1,5 +1,5 @@
 @ Tingle Siblings
-SCRIPT_START script_TingleSiblings
+script_TingleSiblings::
 	BeginBlock
 	Call TingleSiblings_MakeInteractable
 	SetAnimationState 0x0004

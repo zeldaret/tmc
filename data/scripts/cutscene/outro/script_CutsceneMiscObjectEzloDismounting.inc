@@ -1,5 +1,5 @@
 @ Outro CUTSCENE_MISC_OBJECT Ezlo moving from Links head
-SCRIPT_START script_CutsceneMiscObjectEzloDismounting
+script_CutsceneMiscObjectEzloDismounting::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b

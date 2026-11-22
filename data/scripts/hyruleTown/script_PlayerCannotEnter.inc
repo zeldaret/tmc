@@ -1,5 +1,5 @@
 @ Player cannot enter something to the left
-SCRIPT_START script_PlayerCannotEnter
+script_PlayerCannotEnter::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

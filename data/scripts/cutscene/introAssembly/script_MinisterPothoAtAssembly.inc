@@ -1,5 +1,5 @@
 @ Intro Assembly Minister Potho
-SCRIPT_START script_MinisterPothoAtAssembly
+script_MinisterPothoAtAssembly::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

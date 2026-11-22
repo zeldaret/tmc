@@ -1,5 +1,5 @@
 @ Mazaal Macro when defeated
-SCRIPT_START script_MazaalMacroDefeated
+script_MazaalMacroDefeated::
 	BeginBlock
 	SetPlayerIdle
 	EndBlock

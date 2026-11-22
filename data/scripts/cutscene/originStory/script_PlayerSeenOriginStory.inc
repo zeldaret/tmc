@@ -1,5 +1,5 @@
 @ Player after Ezlo Cutscene
-SCRIPT_START script_PlayerSeenOriginStory
+script_PlayerSeenOriginStory::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetEntityPositionRelative 0x0208, 0x0148

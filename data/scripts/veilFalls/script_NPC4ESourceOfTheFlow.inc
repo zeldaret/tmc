@@ -1,5 +1,5 @@
 @ Veil Falls NPC4E Source of the Flow
-SCRIPT_START script_NPC4ESourceOfTheFlow
+script_NPC4ESourceOfTheFlow::
 	BeginBlock
 	Call sub_0806DB84
 	CheckKinstoneFused KINSTONE_SOURCE_FLOW

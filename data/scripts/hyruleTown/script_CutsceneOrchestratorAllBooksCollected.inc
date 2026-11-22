@@ -1,5 +1,5 @@
 @ Library CUTSCENE_ORCHESTRATOR all books collected
-SCRIPT_START script_CutsceneOrchestratorAllBooksCollected
+script_CutsceneOrchestratorAllBooksCollected::
 	BeginBlock
 	SetEntityPositionRelative 0x0068, 0x0068
 	SetScrollSpeed 4

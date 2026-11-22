@@ -1,5 +1,5 @@
 @ Hyrule Town Pita
-SCRIPT_START script_Pita
+script_Pita::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

@@ -1,5 +1,5 @@
 @ Hyrule Town player tries to enter Inn
-SCRIPT_START script_PlayerAtInnDoor
+script_PlayerAtInnDoor::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

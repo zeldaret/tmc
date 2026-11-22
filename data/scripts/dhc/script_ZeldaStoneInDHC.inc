@@ -1,5 +1,5 @@
 @ DHC Zelda stone
-SCRIPT_START script_ZeldaStoneInDHC
+script_ZeldaStoneInDHC::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	Call sub_08066E38

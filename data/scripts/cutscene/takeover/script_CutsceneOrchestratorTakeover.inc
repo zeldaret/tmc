@@ -1,5 +1,5 @@
 @ Western Wood CUTSCENE_ORCHESTRATOR Cutscene
-SCRIPT_START script_CutsceneOrchestratorTakeover
+script_CutsceneOrchestratorTakeover::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

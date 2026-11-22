@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E spawn text board
-SCRIPT_START script_Npc4ESpawnTextBoard
+script_Npc4ESpawnTextBoard::
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	SetScrollSpeed 7

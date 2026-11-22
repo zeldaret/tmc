@@ -1,5 +1,5 @@
 @ Intro Hyrule Castle roaming Guard
-SCRIPT_START script_GuardGarden4
+script_GuardGarden4::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0004

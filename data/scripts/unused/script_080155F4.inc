@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_080155F4
+script_080155F4::
 	WaitForSyncFlagAndClear 0x00000020
 	SetAnimation 0x0000
 	Wait 0x0014

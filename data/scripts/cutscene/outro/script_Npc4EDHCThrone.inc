@@ -1,5 +1,5 @@
 @ Outro NPC4E Fix DHC Throne
-SCRIPT_START script_Npc4EDHCThrone
+script_Npc4EDHCThrone::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems

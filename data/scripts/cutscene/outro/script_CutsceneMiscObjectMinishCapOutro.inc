@@ -1,5 +1,5 @@
 @ Outro CUTSCENE_MISC_OBJECT Minish Cap
-SCRIPT_START script_CutsceneMiscObjectMinishCapOutro
+script_CutsceneMiscObjectMinishCapOutro::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007

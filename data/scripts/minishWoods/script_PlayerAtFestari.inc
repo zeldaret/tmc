@@ -1,5 +1,5 @@
 @ Player at Festari
-SCRIPT_START script_PlayerAtFestari
+script_PlayerAtFestari::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

@@ -1,5 +1,5 @@
 @ Hyrule Town Stockwell
-SCRIPT_START script_Stockwell
+script_Stockwell::
 	BeginBlock
 	CheckLocalFlag 0x0054
 	JumpIf script_08014382

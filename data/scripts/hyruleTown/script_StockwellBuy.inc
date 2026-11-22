@@ -1,5 +1,5 @@
 @ Hyrule Town Stockwell do you want to buy?
-SCRIPT_START script_StockwellBuy
+script_StockwellBuy::
 	EndBlock
 	SetPlayerIdle
 	WaitUntilTextboxCloses

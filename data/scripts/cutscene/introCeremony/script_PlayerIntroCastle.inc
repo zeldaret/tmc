@@ -1,5 +1,5 @@
 @ Intro Hyrule Castle Player
-SCRIPT_START script_PlayerIntroCastle
+script_PlayerIntroCastle::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

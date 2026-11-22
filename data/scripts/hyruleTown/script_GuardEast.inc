@@ -1,5 +1,5 @@
 @ Hyrule Town Guard east
-SCRIPT_START script_GuardEast
+script_GuardEast::
 	BeginBlock
 	CheckInventory1 ITEM_PACCI_CANE
 	JumpIf script_0800FF6A

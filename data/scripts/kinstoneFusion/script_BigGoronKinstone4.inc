@@ -1,5 +1,5 @@
 @ BigGoron Kinstone cutscene 4
-SCRIPT_START script_BigGoronKinstone4
+script_BigGoronKinstone4::
 	MoveToOffset 0xfff8, 0x0000
 	MoveToOffset 0x0010, 0x0000
 	MoveToOffset 0xfff0, 0x0000

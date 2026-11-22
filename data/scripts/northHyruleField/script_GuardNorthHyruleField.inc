@@ -1,6 +1,6 @@
 @ Outside Castle Guard
 @ also at Lon Lon Ranch
-SCRIPT_START script_GuardNorthHyruleField
+script_GuardNorthHyruleField::
 	BeginBlock
 	SetAnimationState 0x0004
 	AddInteractableWhenBigObject

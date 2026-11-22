@@ -1,5 +1,5 @@
 @ Outro CUTSCENE_MISC_OBJECT Tektite 1
-SCRIPT_START script_CutsceneMiscObjectTektite1
+script_CutsceneMiscObjectTektite1::
 	BeginBlock
 	SetAnimationState 0x0002
 	DoPostScriptAction 0x0007

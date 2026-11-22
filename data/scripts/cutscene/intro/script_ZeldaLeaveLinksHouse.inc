@@ -1,5 +1,5 @@
 @ Intro Zelda leaving
-SCRIPT_START script_ZeldaLeaveLinksHouse
+script_ZeldaLeaveLinksHouse::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0006

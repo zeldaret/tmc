@@ -1,5 +1,5 @@
 @ Intro Hyrule Castle Garden Guard
-SCRIPT_START script_GuardGarden3
+script_GuardGarden3::
 	BeginBlock
 	SetAnimationState 0x0004
 script_0801196A:

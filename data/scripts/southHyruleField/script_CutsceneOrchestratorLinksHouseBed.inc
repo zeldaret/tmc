@@ -1,5 +1,5 @@
 @ Links house CUTSCENE_ORCHESTRATOR bed
-SCRIPT_START script_CutsceneOrchestratorLinksHouseBed
+script_CutsceneOrchestratorLinksHouseBed::
 	BeginBlock
 	EndBlock
 script_08009DF0:

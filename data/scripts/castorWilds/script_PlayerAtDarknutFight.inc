@@ -1,5 +1,5 @@
 @ Player at darknut in Castor Wilds
-SCRIPT_START script_PlayerAtDarknutFight
+script_PlayerAtDarknutFight::
 	BeginBlock
 	DoPostScriptAction 0x0000
 	EndBlock

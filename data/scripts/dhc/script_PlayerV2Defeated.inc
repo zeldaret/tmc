@@ -1,5 +1,5 @@
 @ Player after defeating V2
-SCRIPT_START script_PlayerV2Defeated
+script_PlayerV2Defeated::
 	BeginBlock
 	SetEntitySpeed 0x00c0
 	EndBlock

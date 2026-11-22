@@ -1,5 +1,5 @@
 @ Hyrule Castle Guard kicking Link out of garden
-SCRIPT_START script_GuardGarden8
+script_GuardGarden8::
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
 	MessageFromTargetPos TEXT_VAATI, 0x20, 0x000c

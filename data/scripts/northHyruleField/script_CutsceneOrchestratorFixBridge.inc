@@ -1,5 +1,5 @@
 @ Outside Caste CUTSCENE_ORCHESTRATOR Fix bridge
-SCRIPT_START script_CutsceneOrchestratorFixBridge
+script_CutsceneOrchestratorFixBridge::
 	BeginBlock
 	SetLocalFlag SOUGEN_06_SLIDE
 	SetPlayerIdle

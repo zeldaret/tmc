@@ -1,5 +1,5 @@
 @ Hyrule Town KINSTONE_SPARK Kinstone spark red from bottom
-SCRIPT_START script_KinstoneSparkKinstoneSparkFromBottom
+script_KinstoneSparkKinstoneSparkFromBottom::
 	BeginBlock
 	SetEntitySpeed 0x0120
 	SetAnimation 0x0004

@@ -1,5 +1,5 @@
 @ Hyrule Town Guard closing Library
-SCRIPT_START script_GuardLibrary
+script_GuardLibrary::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0004

@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR Kill first Dark Nut
-SCRIPT_START script_CutsceneOrchestratorKillDarkNut
+script_CutsceneOrchestratorKillDarkNut::
 	EndBlock
 script_0800E5D8:
 	CheckLocalFlag 0x0086

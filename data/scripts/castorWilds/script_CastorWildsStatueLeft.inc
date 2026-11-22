@@ -1,5 +1,5 @@
 @ Castor Wilds Statue left
-SCRIPT_START script_CastorWildsStatueLeft
+script_CastorWildsStatueLeft::
 	BeginBlock
 	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_LEFT
 	JumpIf script_0800B302

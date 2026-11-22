@@ -1,5 +1,5 @@
 @ DHC King Daltus stone
-SCRIPT_START script_KingDaltusStone
+script_KingDaltusStone::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000a

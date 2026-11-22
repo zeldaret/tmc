@@ -1,5 +1,5 @@
 @ Outro CUTSCENE_MISC_OBJECT Ezlo final magic shrinking
-SCRIPT_START script_CutsceneMiscObjectEzloFinalMagic
+script_CutsceneMiscObjectEzloFinalMagic::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b

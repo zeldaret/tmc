@@ -1,5 +1,5 @@
 @ Mines Melari
-SCRIPT_START script_Melari
+script_Melari::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

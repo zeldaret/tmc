@@ -1,5 +1,5 @@
 @ Lon Lon Ranch Talon you have the key
-SCRIPT_START script_TalonGotKey
+script_TalonGotKey::
 	BeginBlock
 	SetEntitySpeed 0x00c0
 	SetAction 0x0001

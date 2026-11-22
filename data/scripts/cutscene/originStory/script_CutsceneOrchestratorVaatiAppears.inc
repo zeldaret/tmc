@@ -1,5 +1,5 @@
 @ Outside Castle CUTSCENE_ORCHESTRATOR Vaati appearance
-SCRIPT_START script_CutsceneOrchestratorVaatiAppears
+script_CutsceneOrchestratorVaatiAppears::
 	BeginBlock
 	SetEntityPositionRelative 0x01f8, 0x00e0
 	Call DisableRandomDrops

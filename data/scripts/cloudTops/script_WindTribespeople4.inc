@@ -1,5 +1,5 @@
 @ Cloud Tops Windtribespeople blocking way up
-SCRIPT_START script_WindTribespeople4
+script_WindTribespeople4::
 	BeginBlock
 	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a

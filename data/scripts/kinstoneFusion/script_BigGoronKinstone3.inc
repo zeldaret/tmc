@@ -1,5 +1,5 @@
 @ BigGoron Kinstone cutscene 3
-SCRIPT_START script_BigGoronKinstone3
+script_BigGoronKinstone3::
 	BeginBlock
 	Call sub_0806D660
 	SetEntitySpeed 0x0080

@@ -1,5 +1,5 @@
 @ 4th Goron during 4th Goron cutscene
-SCRIPT_START script_Goron4Kinstone4
+script_Goron4Kinstone4::
 	BeginBlock
 	SetAnimationState 0x0000
 	SetAnimation 0x0000

@@ -1,5 +1,5 @@
 @ Player waking up after rest
-SCRIPT_START script_PlayerWakeAfterRest
+script_PlayerWakeAfterRest::
 	BeginBlock
 	Call DisablePauseMenuAndPutAwayItems
 	EndBlock

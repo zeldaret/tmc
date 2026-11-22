@@ -1,5 +1,5 @@
 @ Cloud Tops Windtribespeople blocking the way up to the palace
-SCRIPT_START script_WindTribespeople3
+script_WindTribespeople3::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	Call WindTribespeople_MakeInteractable

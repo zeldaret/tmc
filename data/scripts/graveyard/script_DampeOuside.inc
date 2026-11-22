@@ -1,5 +1,5 @@
 @ Graveyard Dampe outside
-SCRIPT_START script_DampeOuside
+script_DampeOuside::
 	BeginBlock
 	DoPostScriptAction 0x000b
 	DoPostScriptAction 0x0008

@@ -1,5 +1,5 @@
 @ Player at Sanctuary pedestal
-SCRIPT_START script_PlayerAtPedestal
+script_PlayerAtPedestal::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

@@ -1,5 +1,5 @@
 @ Mines Melari in his room
-SCRIPT_START script_MelariInRoom
+script_MelariInRoom::
 	BeginBlock
 	Call Melari_MakeInteractable
 	DoPostScriptAction 0x000a

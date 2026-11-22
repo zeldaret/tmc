@@ -1,5 +1,5 @@
 @ Intro Assembly Smith
-SCRIPT_START script_SmithAtAssembly
+script_SmithAtAssembly::
 	BeginBlock
 	Call SetPriorityMessage
 	SetAnimationState 0x0006

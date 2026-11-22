@@ -1,5 +1,5 @@
 @ Carlov when won
-SCRIPT_START script_CarlovWon
+script_CarlovWon::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0000

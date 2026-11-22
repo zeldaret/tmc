@@ -1,5 +1,5 @@
 @ Older lady in cat persons house 
-SCRIPT_START script_OldLadyCatHouse1
+script_OldLadyCatHouse1::
 	BeginBlock
 	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a

@@ -1,5 +1,5 @@
 @ DHC Vaati V1 intro
-SCRIPT_START script_Vaati1Intro
+script_Vaati1Intro::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetAnimationState 0x0004

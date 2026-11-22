@@ -1,5 +1,5 @@
 @ Player at Graveyard King Gustaf
-SCRIPT_START script_PlayerAtKingGustav
+script_PlayerAtKingGustav::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

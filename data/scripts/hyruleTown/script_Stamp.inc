@@ -1,5 +1,5 @@
 @ Hyrule Town Stamp
-SCRIPT_START script_Stamp
+script_Stamp::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	AddInteractableWhenBigObject

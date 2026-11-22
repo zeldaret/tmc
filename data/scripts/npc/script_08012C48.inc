@@ -1,5 +1,5 @@
 @ CUTSCENE_MISC_OBJECT in sub_08095954 ?
-SCRIPT_START script_08012C48
+script_08012C48::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetEntitySpeed 0x0280

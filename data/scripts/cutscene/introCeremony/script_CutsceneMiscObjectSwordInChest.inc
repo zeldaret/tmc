@@ -1,5 +1,5 @@
 @ Intro Ceremony CUTSCENE_MISC_OBJECT Sword in Chest
-SCRIPT_START script_CutsceneMiscObjectSwordInChest
+script_CutsceneMiscObjectSwordInChest::
 	BeginBlock
 	Call sub_08095330
 	EndBlock

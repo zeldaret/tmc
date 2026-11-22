@@ -1,5 +1,5 @@
 @ Sanctuary CUTSCENE_MISC_OBJECT Wind Element
-SCRIPT_START script_CutsceneMiscObjectWindElement
+script_CutsceneMiscObjectWindElement::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	Call SetCollisionLayer2

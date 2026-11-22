@@ -1,5 +1,5 @@
 @ Hyrule Town Guard patrolling
-SCRIPT_START script_GuardPatrolling
+script_GuardPatrolling::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0004

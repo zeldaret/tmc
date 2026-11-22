@@ -1,5 +1,5 @@
 @ After Mazaal NPC4E text board
-SCRIPT_START script_Npc4EWindRuinsTextBoard
+script_Npc4EWindRuinsTextBoard::
 	BeginBlock
 	Call MakeCheckableObjectInteractable
 	DoPostScriptAction 0x0008

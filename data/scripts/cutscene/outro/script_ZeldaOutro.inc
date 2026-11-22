@@ -1,5 +1,5 @@
 @ Outro Zelda
-SCRIPT_START script_ZeldaOutro
+script_ZeldaOutro::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x0007

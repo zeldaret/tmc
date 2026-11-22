@@ -1,5 +1,5 @@
 @ Hyrule Town Guard west
-SCRIPT_START script_GuardWest
+script_GuardWest::
 	BeginBlock
 	SetAnimationState 0x0002
 	AddInteractableWhenBigObject

@@ -1,5 +1,5 @@
 @ Veil Falls BigGoron still hiding
-SCRIPT_START script_BigGoronHiding
+script_BigGoronHiding::
 	BeginBlock
 	Call sub_0806D650
 	SetEntitySpeed 0x0010

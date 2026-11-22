@@ -1,5 +1,5 @@
 @ Graveyard CUTSCENE_ORCHESTRATOR Crow stealing key cutscene
-SCRIPT_START script_CutsceneOrchestratorCrowStealingKey
+script_CutsceneOrchestratorCrowStealingKey::
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Call DisablePauseMenuAndPutAwayItems

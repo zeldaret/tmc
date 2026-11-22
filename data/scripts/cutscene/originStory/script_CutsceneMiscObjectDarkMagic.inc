@@ -1,5 +1,5 @@
 @ Ezlo Cutscene CUTSCENE_MISC_OBJECT dark magic
-SCRIPT_START script_CutsceneMiscObjectDarkMagic
+script_CutsceneMiscObjectDarkMagic::
 	BeginBlock
 	SetAnimation 0x0000
 	SetEntitySpeed 0x0200

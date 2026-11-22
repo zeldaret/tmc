@@ -1,5 +1,5 @@
 @ Intro Hyrule Castle Zelda
-SCRIPT_START script_ZeldaIntroCastle
+script_ZeldaIntroCastle::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0100

@@ -1,5 +1,5 @@
 @ Something during Sanctuary Vaati cutscene? Called from script_VaatiSanctuary
-SCRIPT_START script_08013494
+script_08013494::
 	BeginBlock
 	SetAnimation 0x0000
 	SetEntitySpeed 0x0200

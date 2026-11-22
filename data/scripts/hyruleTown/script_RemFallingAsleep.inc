@@ -1,5 +1,5 @@
 @ Rem falling asleep
-SCRIPT_START script_RemFallingAsleep
+script_RemFallingAsleep::
 	BeginBlock
 	CheckLocalFlag 0x0060
 	JumpIf script_08012FD2

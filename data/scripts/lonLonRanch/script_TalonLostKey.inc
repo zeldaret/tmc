@@ -1,5 +1,5 @@
 @ Lon Lon Ranch Talon lost key
-SCRIPT_START script_TalonLostKey
+script_TalonLostKey::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	Call SetCollisionLayer1

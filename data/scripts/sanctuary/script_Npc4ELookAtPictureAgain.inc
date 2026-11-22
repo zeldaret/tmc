@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E Inspect picture in back room after Vaati has revealed himself
-SCRIPT_START script_Npc4ELookAtPictureAgain
+script_Npc4ELookAtPictureAgain::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock

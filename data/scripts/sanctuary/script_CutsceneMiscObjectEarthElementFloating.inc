@@ -1,5 +1,5 @@
 @ Sanctuary CUTSCENE_MISC_OBJECT floating Earth Element
-SCRIPT_START script_CutsceneMiscObjectEarthElementFloating
+script_CutsceneMiscObjectEarthElementFloating::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimation 0x0000

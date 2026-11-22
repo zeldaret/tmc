@@ -1,5 +1,5 @@
 @ Lon Lon Ranch Malon lost key
-SCRIPT_START script_MalonLostKey
+script_MalonLostKey::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0001

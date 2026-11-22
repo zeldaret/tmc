@@ -1,5 +1,5 @@
 @ CUTSCENE_MISC_OBJECT in sub_080954AC ? businessScrubPrologue?
-SCRIPT_START script_08015B14
+script_08015B14::
 	BeginBlock
 	SetAnimation 0x0018
 	SetEntitySpeed 0x0300

@@ -1,5 +1,5 @@
 @ Bomb Forest Minish during Kinstone cutscene
-SCRIPT_START script_BombMinishKinstone
+script_BombMinishKinstone::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

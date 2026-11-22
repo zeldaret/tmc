@@ -1,5 +1,5 @@
 @ Graveyard Great Fairy CUTSCENE_ORCHESTRATOR
-SCRIPT_START script_GreatFairyArrows
+script_GreatFairyArrows::
 	BeginBlock
 	EndBlock
 script_0800B618:

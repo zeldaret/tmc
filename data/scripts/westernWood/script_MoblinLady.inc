@@ -1,5 +1,5 @@
 @ Western Wood MoblinLady in Percys house
-SCRIPT_START script_MoblinLady
+script_MoblinLady::
 	BeginBlock
 	FacePlayer
 	AddInteractableWhenBigObject

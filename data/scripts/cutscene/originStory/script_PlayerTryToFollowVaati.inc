@@ -1,5 +1,5 @@
 @ Player trying to follow Vaati outside castle
-SCRIPT_START script_PlayerTryToFollowVaati
+script_PlayerTryToFollowVaati::
 	BeginBlock
 	SetEntitySpeed 0x0200
 	EndBlock

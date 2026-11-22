@@ -1,5 +1,5 @@
 @ DHC Zelda after defeating V2
-SCRIPT_START script_ZeldaAfterDefeatingV2
+script_ZeldaAfterDefeatingV2::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	Call sub_08066E38

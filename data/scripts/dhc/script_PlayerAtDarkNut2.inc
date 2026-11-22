@@ -1,5 +1,5 @@
 @ DHC player at a dark nut fight
-SCRIPT_START script_PlayerAtDarkNut2
+script_PlayerAtDarkNut2::
 	BeginBlock
 	SetEntitySpeed 0x0140
 	SetEntityDirection 0x0008

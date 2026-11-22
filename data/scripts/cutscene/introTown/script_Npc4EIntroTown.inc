@@ -1,5 +1,5 @@
 @ Intro Hyrule Town NPC4E
-SCRIPT_START script_Npc4EIntroTown
+script_Npc4EIntroTown::
 	CheckLocalFlag MACHI_01_DEMO
 	JumpIf script_0800FA4C
 	SetPlayerIdle

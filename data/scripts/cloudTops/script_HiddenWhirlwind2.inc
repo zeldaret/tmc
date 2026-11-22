@@ -1,5 +1,5 @@
 @ Cloud Tops Whirlwind hidden in clouds
-SCRIPT_START script_HiddenWhirlwind2
+script_HiddenWhirlwind2::
 	BeginBlock
 	CheckLocalFlag KUMOUE_02_02
 	JumpIf script_0800D6E8

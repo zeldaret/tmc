@@ -1,5 +1,5 @@
 @ Zelda intro in front of links house
-SCRIPT_START script_ZeldaOutsideLinksHouse
+script_ZeldaOutsideLinksHouse::
 	BeginBlock
 	SetEntitySpeed 0x0180
 	DoPostScriptAction 0x000a

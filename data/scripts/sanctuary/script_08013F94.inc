@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E 1?
-SCRIPT_START script_08013F94
+script_08013F94::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock

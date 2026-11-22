@@ -1,5 +1,5 @@
 @ Minish Woods Ezlo Cutscene NPC4E
-SCRIPT_START script_Npc4EEzloCutscene
+script_Npc4EEzloCutscene::
 	BeginBlock
 	Call DisableRandomDrops
 	EndBlock

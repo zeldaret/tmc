@@ -1,5 +1,5 @@
 @ Mountain Ezlo text after beating CoF
-SCRIPT_START script_EzloTalkCoF
+script_EzloTalkCoF::
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_EZLO_ELEMENTS_DONE, 0x02

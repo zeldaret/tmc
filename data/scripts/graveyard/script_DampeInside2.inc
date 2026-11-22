@@ -1,5 +1,5 @@
 @ Graveyard Dampe in house 2?
-SCRIPT_START script_DampeInside2
+script_DampeInside2::
 	BeginBlock
 	Call Dampe_MakeInteractable
 	DoPostScriptAction 0x000a

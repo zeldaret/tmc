@@ -1,5 +1,5 @@
 @ Ezlo Cutscene Vaati
-SCRIPT_START script_Vaati
+script_Vaati::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b

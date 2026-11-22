@@ -1,5 +1,5 @@
 @ Veil Falls NPC4E Source of the Flow during opening Kinstone cutscene
-SCRIPT_START script_NPC4ESouurceOfTheFlowOpening
+script_NPC4ESouurceOfTheFlowOpening::
 	SetSyncFlag 0x00000003
 	WaitForSyncFlagAndClear 0x0000000c
 	InitScreenShake 0x0000, 0x0000

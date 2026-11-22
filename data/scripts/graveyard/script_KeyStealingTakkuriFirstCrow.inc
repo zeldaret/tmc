@@ -1,5 +1,5 @@
 @ Graveyard CAMERA_TARGET7 Crow stealing the key? first crow that makes link loose the key
-SCRIPT_START script_CameraTarget7FirstCrow
+script_CameraTarget7FirstCrow::
 	BeginBlock
 	SetAnimation 0x0003
 	DoPostScriptAction 0x0007

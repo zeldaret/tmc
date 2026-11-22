@@ -1,5 +1,5 @@
 @ Player in Sanctuary when spawning text board
-SCRIPT_START script_PlayerTextBoardAppears
+script_PlayerTextBoardAppears::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

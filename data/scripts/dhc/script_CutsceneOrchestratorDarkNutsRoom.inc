@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR Towards Vaati room with Dark Nuts
-SCRIPT_START script_CutsceneOrchestratorDarkNutsRoom
+script_CutsceneOrchestratorDarkNutsRoom::
 	BeginBlock
 	EndBlock
 	CheckLocalFlag 0x007e

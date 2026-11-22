@@ -1,5 +1,5 @@
 @ Ezlo Cutscene MinishEzlo
-SCRIPT_START script_MinishEzlo
+script_MinishEzlo::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007

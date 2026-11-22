@@ -1,5 +1,5 @@
 @ Hyrule Town Goron Merchant
-SCRIPT_START script_GoronMerchant
+script_GoronMerchant::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

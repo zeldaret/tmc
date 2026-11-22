@@ -1,5 +1,5 @@
 @ Librarian right
-SCRIPT_START script_LibrarianRight
+script_LibrarianRight::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0004

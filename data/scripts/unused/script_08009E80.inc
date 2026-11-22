@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_08009E80
+script_08009E80::
 	BeginBlock
 	EndBlock
 	EndScript

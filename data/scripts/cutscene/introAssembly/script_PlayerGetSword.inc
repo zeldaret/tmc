@@ -1,5 +1,5 @@
 @ Intro Assembly Player gets Sword
-SCRIPT_START script_PlayerGetSword
+script_PlayerGetSword::
 	SetInventoryValue ITEM_SMITH_SWORD, 0x0001
 	CallWithArg PutItemAnySlot, ITEM_SMITH_SWORD
 	PlaySound SFX_ITEM_GET

@@ -1,5 +1,5 @@
 @ Crenel Hermit
-SCRIPT_START script_CrenelHermit
+script_CrenelHermit::
 	BeginBlock
 	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a

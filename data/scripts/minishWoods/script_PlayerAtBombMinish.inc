@@ -1,5 +1,5 @@
 @ Minish Woods Player at Bomb Minish
-SCRIPT_START script_PlayerAtBombMinish
+script_PlayerAtBombMinish::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

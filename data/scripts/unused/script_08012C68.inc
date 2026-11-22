@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_08012C68
+script_08012C68::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x0008

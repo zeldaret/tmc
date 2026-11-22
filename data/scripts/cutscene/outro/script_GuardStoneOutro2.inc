@@ -1,5 +1,5 @@
 @ Outro Guard stone 2
-SCRIPT_START script_GuardStoneOutro2
+script_GuardStoneOutro2::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimationState 0x0004

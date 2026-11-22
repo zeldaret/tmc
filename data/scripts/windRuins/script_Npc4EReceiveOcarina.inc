@@ -1,5 +1,5 @@
 @ After Mazaal NPC4E receive ocarina
-SCRIPT_START script_Npc4EReceiveOcarina
+script_Npc4EReceiveOcarina::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	CheckInventory1 ITEM_OCARINA

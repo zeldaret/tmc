@@ -1,5 +1,5 @@
 @ Minish Village Intro Forest Minish 2
-SCRIPT_START script_ForestMinish6
+script_ForestMinish6::
 	BeginBlock
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0008

@@ -1,5 +1,5 @@
 @ 1st Goron during 3rd Goron Kinstone cutscene
-SCRIPT_START script_Goron1Kinstone3
+script_Goron1Kinstone3::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0008

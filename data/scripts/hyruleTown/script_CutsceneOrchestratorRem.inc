@@ -1,12 +1,12 @@
 @ CUTSCENE_ORCHESTRATOR in Rems shoe shop ?
-SCRIPT_START script_CutsceneOrchestratorRem
+script_CutsceneOrchestratorRem::
 	BeginBlock
 	CheckLocalFlag 0x0062
 	JumpIfNot script_0801319A
 	DoPostScriptAction 0x0006
 	EndBlock
 	EndScript
-SCRIPT_START script_0801319A
+script_0801319A::
 	EndBlock
 	BeginBlock
 	CameraTargetEntity

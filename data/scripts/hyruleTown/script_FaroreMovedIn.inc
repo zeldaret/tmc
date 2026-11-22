@@ -1,5 +1,5 @@
 @ Farore moved in 
-SCRIPT_START script_FaroreMovedIn
+script_FaroreMovedIn::
 	BeginBlock
 	Call Farore_MakeInteractable
 	SetAnimationState 0x0004

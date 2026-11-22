@@ -1,5 +1,5 @@
 @ Player at Library fall through trap
-SCRIPT_START script_PlayerActivatedTrapCard
+script_PlayerActivatedTrapCard::
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	Wait 0x0014

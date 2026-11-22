@@ -1,5 +1,5 @@
 @ Player waking up after Simons Simulation
-SCRIPT_START script_PlayerWakingUpAtSimons
+script_PlayerWakingUpAtSimons::
 	BeginBlock
 	SetPlayerIdle
 	EndBlock

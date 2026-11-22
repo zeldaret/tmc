@@ -1,5 +1,5 @@
 @ Hyrule Town Kinstone cutscene Kid 3
-SCRIPT_START script_KidKinstone3
+script_KidKinstone3::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0002

@@ -1,5 +1,5 @@
 @ Intro Ceremony NPC4E monsters
-SCRIPT_START script_Npc4EMonsters
+script_Npc4EMonsters::
 	Wait 0x001e
 	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003

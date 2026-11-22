@@ -1,5 +1,5 @@
 @ BigGoron Kinstone Cutscene 5
-SCRIPT_START script_BigGoronKinstone5
+script_BigGoronKinstone5::
 	SetEntitySpeed 0x0080
 	MoveToOffset 0x0000, -208
 	InitScreenShake 0x0000, 0x0000

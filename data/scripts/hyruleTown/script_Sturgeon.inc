@@ -1,5 +1,5 @@
 @ Library Sturgeon
-SCRIPT_START script_Sturgeon
+script_Sturgeon::
 	BeginBlock
 	Call Sturgeon_MakeInteractable
 	DoPostScriptAction 0x000a

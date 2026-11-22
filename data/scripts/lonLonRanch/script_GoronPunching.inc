@@ -1,5 +1,5 @@
 @ Lon Lon Ranch Goron punching at cave
-SCRIPT_START script_GoronPunching
+script_GoronPunching::
 	BeginBlock
 	AddInteractableWhenBigObject
 	Call sub_080694EC

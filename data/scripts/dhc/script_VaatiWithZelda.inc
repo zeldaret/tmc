@@ -1,5 +1,5 @@
 @ DHC Vaati when with Zelda
-SCRIPT_START script_VaatiWithZelda
+script_VaatiWithZelda::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimationState 0x0000

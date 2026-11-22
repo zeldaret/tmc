@@ -1,5 +1,5 @@
 @ Goron Merchant in arriving Kinstone cutscene
-SCRIPT_START script_GoronMerchantArriving
+script_GoronMerchantArriving::
 	BeginBlock
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000

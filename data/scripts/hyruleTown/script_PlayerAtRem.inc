@@ -1,5 +1,5 @@
 @ Player at Rem
-SCRIPT_START script_PlayerAtRem
+script_PlayerAtRem::
 	BeginBlock
 	SetAnimationState 0x0006
 	SetEntitySpeed 0x0140

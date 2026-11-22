@@ -1,5 +1,5 @@
 @ Sanctuary second time CUTSCENE_MISC_OBJECT sword?
-SCRIPT_START script_CutsceneMiscObjectSword2
+script_CutsceneMiscObjectSword2::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimation 0x0009

@@ -1,5 +1,5 @@
 @ Player at Melari place broken Sword
-SCRIPT_START script_PlayerPlaceBrokenSword
+script_PlayerPlaceBrokenSword::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

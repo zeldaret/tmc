@@ -1,5 +1,5 @@
 @ Simon
-SCRIPT_START script_Simon
+script_Simon::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

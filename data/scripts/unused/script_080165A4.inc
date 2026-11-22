@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_080165A4
+script_080165A4::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004

@@ -1,5 +1,5 @@
 @ Goron in fusing kinstone cutscene
-SCRIPT_START script_GoronKinstone
+script_GoronKinstone::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0008

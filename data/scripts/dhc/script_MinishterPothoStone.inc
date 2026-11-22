@@ -1,5 +1,5 @@
 @ DHC Minister Potho stone
-SCRIPT_START script_MinishterPothoStone
+script_MinishterPothoStone::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000a

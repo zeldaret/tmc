@@ -1,5 +1,5 @@
 @ Hyrule Townsperson house with dog
-SCRIPT_START script_TownspersonInDogHouse
+script_TownspersonInDogHouse::
 	BeginBlock
 	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a

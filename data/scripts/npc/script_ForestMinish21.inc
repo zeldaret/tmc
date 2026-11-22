@@ -1,5 +1,5 @@
 @ Some Forest Minish ?
-SCRIPT_START script_ForestMinish21
+script_ForestMinish21::
 	BeginBlock
 	AddInteractableWhenBigObject
 	EndBlock

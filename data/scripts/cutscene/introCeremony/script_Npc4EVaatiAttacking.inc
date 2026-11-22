@@ -1,5 +1,5 @@
 @ Intro Ceremony NPC4E Vaati attacking
-SCRIPT_START script_Npc4EVaatiAttacking
+script_Npc4EVaatiAttacking::
 	Wait 0x003c
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000200

@@ -1,5 +1,5 @@
 @ Outro CUTSCENE_MISC_OBJECT Zelda glowing?
-SCRIPT_START script_CutsceneMiscObjectZeldaMagic
+script_CutsceneMiscObjectZeldaMagic::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b

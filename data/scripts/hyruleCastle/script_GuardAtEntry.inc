@@ -1,5 +1,5 @@
 @ Hyrule Castle inside Guard at entry
-SCRIPT_START script_GuardAtEntry
+script_GuardAtEntry::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

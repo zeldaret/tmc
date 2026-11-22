@@ -1,5 +1,5 @@
 @ Outro Minish Ezlo
-SCRIPT_START script_MinishEzloOutro
+script_MinishEzloOutro::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0080

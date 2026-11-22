@@ -1,5 +1,5 @@
 @ DHC Player trying to escape the collapsing castle
-SCRIPT_START script_PlayerCastleEscape
+script_PlayerCastleEscape::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

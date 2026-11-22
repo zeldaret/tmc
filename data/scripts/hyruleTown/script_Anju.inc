@@ -1,5 +1,5 @@
 @ Hyrule Town Anju
-SCRIPT_START script_Anju
+script_Anju::
 	BeginBlock
 	DoPostScriptAction 0x0001
 	Call Anju_MakeInteractable

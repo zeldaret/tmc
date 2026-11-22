@@ -1,5 +1,5 @@
 @ Intro Ceremony Entrace Guard right
-SCRIPT_START script_GuardEntryRight
+script_GuardEntryRight::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0006

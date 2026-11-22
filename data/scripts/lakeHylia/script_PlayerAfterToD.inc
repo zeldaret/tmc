@@ -1,5 +1,5 @@
 @ Player after ToD
-SCRIPT_START script_PlayerAfterToD
+script_PlayerAfterToD::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

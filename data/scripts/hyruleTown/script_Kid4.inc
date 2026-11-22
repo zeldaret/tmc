@@ -1,5 +1,5 @@
 @ Hyrule Town Kid pacing around in school garden
-SCRIPT_START script_Kid4
+script_Kid4::
 	BeginBlock
 	DoPostScriptAction 0x0000
 	Call Kid_MakeInteractable

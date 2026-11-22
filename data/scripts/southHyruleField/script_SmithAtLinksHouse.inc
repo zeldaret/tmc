@@ -1,5 +1,5 @@
 @ Links house Smith
-SCRIPT_START script_SmithAtLinksHouse
+script_SmithAtLinksHouse::
 	BeginBlock
 	Call SetPriorityMessage
 	Call Smith_MakeInteractable

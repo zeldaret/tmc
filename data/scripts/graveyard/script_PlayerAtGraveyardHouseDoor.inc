@@ -1,5 +1,5 @@
 @ Player at Graveyard house door
-SCRIPT_START script_PlayerAtGraveyardHouseDoor
+script_PlayerAtGraveyardHouseDoor::
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0001
 	MoveTo 0x01a0, 0x01b0

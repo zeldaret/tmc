@@ -1,5 +1,5 @@
 @ Some Forest Minish ?
-SCRIPT_START script_ForestMinish17
+script_ForestMinish17::
 	SetEntitySpeed 0x0100
 script_080166BC:
 	MoveTo 0x0055, 0x0039

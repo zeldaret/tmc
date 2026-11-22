@@ -1,5 +1,5 @@
 @ Minish Woods CUTSCENE_ORCHESTRATOR 2?
-SCRIPT_START script_08012D18
+script_08012D18::
 	EndBlock
 	BeginBlock
 	CheckGlobalFlag EZERO_1ST

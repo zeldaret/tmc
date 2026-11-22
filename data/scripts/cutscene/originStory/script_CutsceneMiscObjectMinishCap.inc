@@ -1,5 +1,5 @@
 @ Ezlo Cutscene CUTSCENE_MISC_OBJECT Minish Cap
-SCRIPT_START script_CutsceneMiscObjectMinishCap
+script_CutsceneMiscObjectMinishCap::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetEntitySpeed 0x0040

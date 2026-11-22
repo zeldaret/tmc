@@ -1,5 +1,5 @@
 @ Librarian left with book quest
-SCRIPT_START script_LibrarianLeftWithQuest
+script_LibrarianLeftWithQuest::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0004

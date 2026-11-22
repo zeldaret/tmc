@@ -1,5 +1,5 @@
 @ Player when defeating Mazaal
-SCRIPT_START script_PlayerDefeatedMazaal
+script_PlayerDefeatedMazaal::
 	BeginBlock
 	SetEntitySpeed 0x0140
 	EndBlock

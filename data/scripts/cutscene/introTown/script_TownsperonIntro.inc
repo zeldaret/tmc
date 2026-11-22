@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Townsperson
-SCRIPT_START script_TownsperonIntro
+script_TownsperonIntro::
 	BeginBlock
 	Call sub_08061FE4
 	AddInteractableWhenBigObject

@@ -1,5 +1,5 @@
 @ Player at intro outside castle
-SCRIPT_START script_PlayerIntroBusinessScrub2
+script_PlayerIntroBusinessScrub2::
 	SetEntitySpeed 0x0100
 	MoveTo 0x0238, 0x0228
 	SetAnimationState 0x0002

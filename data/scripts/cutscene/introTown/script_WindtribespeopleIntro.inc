@@ -1,5 +1,5 @@
 @ Intro Hyrule Town WindTribespeople
-SCRIPT_START script_WindtribespeopleIntro
+script_WindtribespeopleIntro::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

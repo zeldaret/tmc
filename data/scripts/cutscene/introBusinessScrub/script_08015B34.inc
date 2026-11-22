@@ -1,5 +1,5 @@
 @ Intro Outside Castle CUTSCENE_ORCHESTRATOR 2?
-SCRIPT_START script_08015B34
+script_08015B34::
 	EndBlock
 	BeginBlock
 	CheckLocalFlag SOUGEN_06_AKINDO

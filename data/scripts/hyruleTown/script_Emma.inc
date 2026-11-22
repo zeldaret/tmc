@@ -1,5 +1,5 @@
 @ Hyrule Town Emma
-SCRIPT_START script_Emma
+script_Emma::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

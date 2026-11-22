@@ -1,5 +1,5 @@
 @ Intro Assembly Player
-SCRIPT_START script_PlayerEnters
+script_PlayerEnters::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

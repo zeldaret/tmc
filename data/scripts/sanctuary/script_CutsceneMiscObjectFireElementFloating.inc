@@ -1,5 +1,5 @@
 @ Sanctuary CUTSCENE_MISC_OBJECT floating Fire Element
-SCRIPT_START script_CutsceneMiscObjectFireElementFloating
+script_CutsceneMiscObjectFireElementFloating::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimation 0x0002

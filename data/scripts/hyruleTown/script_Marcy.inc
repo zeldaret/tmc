@@ -1,5 +1,5 @@
 @ Hyrule Town Marcy selling the newsletter
-SCRIPT_START script_Marcy
+script_Marcy::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	AddInteractableWhenBigObject

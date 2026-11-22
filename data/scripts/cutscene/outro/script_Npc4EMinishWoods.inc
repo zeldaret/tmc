@@ -1,5 +1,5 @@
 @ Outro NPC4E Minish Woods
-SCRIPT_START script_Npc4EMinishWoods
+script_Npc4EMinishWoods::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems

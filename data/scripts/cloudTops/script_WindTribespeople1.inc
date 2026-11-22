@@ -1,5 +1,5 @@
 @ Cloud Tops WindTribespeople blocking exit
-SCRIPT_START script_WindTribespeople1
+script_WindTribespeople1::
 	BeginBlock
 	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a

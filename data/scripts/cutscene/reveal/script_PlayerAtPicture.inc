@@ -1,5 +1,5 @@
 @ Player in Sanctuary at picture
-SCRIPT_START script_PlayerAtPicture
+script_PlayerAtPicture::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

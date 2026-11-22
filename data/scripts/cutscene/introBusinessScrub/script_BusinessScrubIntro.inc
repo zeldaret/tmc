@@ -1,5 +1,5 @@
 @ Intro Outside Castle Business Scrub
-SCRIPT_START script_BusinessScrubIntro
+script_BusinessScrubIntro::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000a

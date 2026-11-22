@@ -1,5 +1,5 @@
 @ NPC4E in front of links house during intro
-SCRIPT_START script_Npc4EOutsideLinksHouse
+script_Npc4EOutsideLinksHouse::
 	BeginBlock
 	SetEntityPositionRelative 0x0238, 0x01a8
 	Call sub_0807F844

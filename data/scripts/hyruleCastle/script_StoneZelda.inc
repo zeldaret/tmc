@@ -1,5 +1,5 @@
 @ Hyrule Castle Stone Zelda
-SCRIPT_START script_StoneZelda
+script_StoneZelda::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	Call sub_08066E38

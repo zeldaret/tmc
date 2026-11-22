@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E Rumble after fusing final sword
-SCRIPT_START script_Npc4EFinalSwordRumble
+script_Npc4EFinalSwordRumble::
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
 .ifdef EU

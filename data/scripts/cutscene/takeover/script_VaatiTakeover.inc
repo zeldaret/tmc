@@ -1,5 +1,5 @@
 @ Western Wood Cutscene Vaati
-SCRIPT_START script_VaatiTakeover
+script_VaatiTakeover::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetAnimationState 0x0004

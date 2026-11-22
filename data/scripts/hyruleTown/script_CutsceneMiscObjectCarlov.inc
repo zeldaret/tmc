@@ -1,5 +1,5 @@
 @ Hyrule Town CUTSCENE_ORCHESTRATOR at Carlov 2
-SCRIPT_START script_CutsceneMiscObjectCarlov
+script_CutsceneMiscObjectCarlov::
 	BeginBlock
 	SetEntityPositionRelative 0x01f8, 0x00e0
 	CheckLocalFlag 0x005e

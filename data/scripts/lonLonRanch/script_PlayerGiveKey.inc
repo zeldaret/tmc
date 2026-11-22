@@ -1,5 +1,5 @@
 @ Player at Lon Lon Ranch give key
-SCRIPT_START script_PlayerGiveKey
+script_PlayerGiveKey::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

@@ -1,5 +1,5 @@
 @ Sanctuary second time floating water element
-SCRIPT_START script_CutsceneMiscObjectWaterElementFloating
+script_CutsceneMiscObjectWaterElementFloating::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimation 0x0004

@@ -1,5 +1,5 @@
 @ Player at Text board after Mazaal
-SCRIPT_START script_PlayerAtTextboard
+script_PlayerAtTextboard::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

@@ -1,5 +1,5 @@
 @ Western Wood Moblin disguised as Townsperson in Percys house
-SCRIPT_START script_MoblinLadyDisguised
+script_MoblinLadyDisguised::
 	BeginBlock
 	SetAnimationState 0x0004
 	Call sub_08061FD8

@@ -1,5 +1,5 @@
 @ Cloud Tops Windtribespeople
-SCRIPT_START script_WindTribespeople7
+script_WindTribespeople7::
 	BeginBlock
 	CheckGlobalFlag KUMOTATSUMAKI
 	JumpIf script_08014CD4

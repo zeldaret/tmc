@@ -1,5 +1,5 @@
 @ Intro Assembly Guard
-SCRIPT_START script_GuardAtAssembly
+script_GuardAtAssembly::
 	BeginBlock
 	SetAnimationState 0x0000
 	SetAnimation 0x0000

@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR Towards Vaati in room with Keatons
-SCRIPT_START script_CutsceneOrchestratorKeatonsRoom
+script_CutsceneOrchestratorKeatonsRoom::
 	BeginBlock
 	EndBlock
 	CheckLocalFlag 0x007d

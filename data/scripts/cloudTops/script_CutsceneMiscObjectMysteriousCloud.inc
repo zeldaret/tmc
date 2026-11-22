@@ -1,5 +1,5 @@
 @ Cloud Tops CUTSCENE_MISC_OBJECT Mysterious Cloud
-SCRIPT_START script_CutsceneMiscObjectMysteriousCloud
+script_CutsceneMiscObjectMysteriousCloud::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x0011

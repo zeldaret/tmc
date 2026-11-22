@@ -1,5 +1,5 @@
 @ Outro CUTSCENE_MISC_OBJECT Ezlo and Zelda magic
-SCRIPT_START script_EzloZeldaMagic
+script_EzloZeldaMagic::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b

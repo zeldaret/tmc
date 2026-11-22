@@ -1,5 +1,5 @@
 @ Hyrule Town Mama
-SCRIPT_START script_Mama
+script_Mama::
 	BeginBlock
 	Call Mama_MakeInteractable
 	DoPostScriptAction 0x000a

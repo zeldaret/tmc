@@ -1,5 +1,5 @@
 @ Outro NPC4E Fix Hyrule Castle Throne
-SCRIPT_START script_Npc4EHyruleCastleThrone
+script_Npc4EHyruleCastleThrone::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems

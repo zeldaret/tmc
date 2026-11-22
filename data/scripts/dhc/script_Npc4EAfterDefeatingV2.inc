@@ -1,5 +1,5 @@
 @ DHC NPC4E At Zelda after defeating V2
-SCRIPT_START script_Npc4EAfterDefeatingV2
+script_Npc4EAfterDefeatingV2::
 	BeginBlock
 	EndBlock
 script_0800DB7C:

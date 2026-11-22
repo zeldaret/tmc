@@ -1,5 +1,5 @@
 @ Graveyard CUTSCENE_ORCHESTRATOR When getting the key back
-SCRIPT_START script_CutsceneOrchestratorGetKeyBack
+script_CutsceneOrchestratorGetKeyBack::
 	BeginBlock
 	EndBlock
 script_080098D8:

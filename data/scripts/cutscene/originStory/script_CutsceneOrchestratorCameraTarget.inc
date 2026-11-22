@@ -1,5 +1,5 @@
 @ Ezlo Cutscene CUTSCENE_ORCHESTRATOR Camera Target?
-SCRIPT_START script_CutsceneOrchestratorCameraTarget
+script_CutsceneOrchestratorCameraTarget::
 	SetSyncFlag 0x00000800
 	WaitForSyncFlagAndClear 0x00001000
 	PlaySound SFX_125

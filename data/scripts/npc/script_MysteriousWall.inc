@@ -1,5 +1,5 @@
 @ Cave NPC4E Fusion thingy Mysterious Wall
-SCRIPT_START script_MysteriousWall
+script_MysteriousWall::
 	BeginBlock
 	DoPostScriptAction 0x000b
 	DoPostScriptAction 0x0008

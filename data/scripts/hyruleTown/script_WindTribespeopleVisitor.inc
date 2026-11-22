@@ -1,5 +1,5 @@
 @ Hyrule Town Windstribepeople in house
-SCRIPT_START script_WindTribespeopleVisitor
+script_WindTribespeopleVisitor::
 	BeginBlock
 	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a

@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Zelda
-SCRIPT_START script_ZeldaIntroTown
+script_ZeldaIntroTown::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x000b

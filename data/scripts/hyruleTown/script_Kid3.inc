@@ -1,5 +1,5 @@
 @ Hyrule Town Kid running in school garden
-SCRIPT_START script_Kid3
+script_Kid3::
 	BeginBlock
 	DoPostScriptAction 0x0000
 	EndBlock

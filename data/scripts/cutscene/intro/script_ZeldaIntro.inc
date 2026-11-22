@@ -1,5 +1,5 @@
 @ Intro Zelda at Smith
-SCRIPT_START script_ZeldaIntro
+script_ZeldaIntro::
 	BeginBlock
 	Call SetPriorityMessage
 	SetEntitySpeed 0x00c0

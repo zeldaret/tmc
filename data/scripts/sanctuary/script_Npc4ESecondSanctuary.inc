@@ -1,5 +1,5 @@
 @ Sanctuary second time NPC4E? Handles cutscene
-SCRIPT_START script_Npc4ESecondSanctuary
+script_Npc4ESecondSanctuary::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock

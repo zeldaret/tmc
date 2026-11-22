@@ -1,5 +1,5 @@
 @ Phonograph
-SCRIPT_START script_Phonograph
+script_Phonograph::
 	BeginBlock
 	Call MakeCheckableObjectInteractable
 	EndBlock

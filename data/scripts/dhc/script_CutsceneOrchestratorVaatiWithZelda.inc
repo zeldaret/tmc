@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR Vaati with Zelda
-SCRIPT_START script_CutsceneOrchestratorVaatiWithZelda
+script_CutsceneOrchestratorVaatiWithZelda::
 	BeginBlock
 	EndBlock
 script_0800DA64:

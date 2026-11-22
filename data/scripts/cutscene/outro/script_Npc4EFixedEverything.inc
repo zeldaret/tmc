@@ -1,5 +1,5 @@
 @ Outro NPC4E Fixed everything
-SCRIPT_START script_Npc4EFixedEverything
+script_Npc4EFixedEverything::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems

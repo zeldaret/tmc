@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR Towards Vaati in room with Ball&Chain soldier
-SCRIPT_START script_CutsceneOrchestratorBallAndChainSoldierRoom
+script_CutsceneOrchestratorBallAndChainSoldierRoom::
 	BeginBlock
 	Call SetPriorityPlayerEvent
 	EndBlock

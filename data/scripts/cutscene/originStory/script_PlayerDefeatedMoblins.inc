@@ -1,5 +1,5 @@
 @ Player Outside Castle after defeating Moblins
-SCRIPT_START script_PlayerDefeatedMoblins
+script_PlayerDefeatedMoblins::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

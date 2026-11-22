@@ -1,5 +1,5 @@
 @ Castor Wilds Statue rock
-SCRIPT_START script_CastorWildsStatueRock
+script_CastorWildsStatueRock::
 	BeginBlock
 	CheckLocalFlag HIKYOU_00_SEKIZOU
 	JumpIf script_0800B39C

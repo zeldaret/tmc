@@ -1,5 +1,5 @@
 @ Player at Smith during intro
-SCRIPT_START script_PlayerMoveToSmith
+script_PlayerMoveToSmith::
 	BeginBlock
 	PlayerIdleEast
 	SetEntitySpeed 0x00c0

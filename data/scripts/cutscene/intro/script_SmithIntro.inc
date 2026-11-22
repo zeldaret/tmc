@@ -1,5 +1,5 @@
 @ Intro Smith 1
-SCRIPT_START script_SmithIntro
+script_SmithIntro::
 	BeginBlock
 	Call SetPriorityMessage
 	SetEntitySpeed 0x0040

@@ -1,5 +1,5 @@
 @ Graveyard King Gustav
-SCRIPT_START script_KingGustav
+script_KingGustav::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	Call SetCollisionLayer2

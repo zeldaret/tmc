@@ -1,5 +1,5 @@
 @ Hyrule Town Maid
-SCRIPT_START script_MaidTown
+script_MaidTown::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0004

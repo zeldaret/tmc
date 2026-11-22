@@ -1,5 +1,5 @@
 @ Intro Hyrule Castle NPC4E
-SCRIPT_START script_Npc4EIntroCastle
+script_Npc4EIntroCastle::
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Call DisablePauseMenuAndPutAwayItems

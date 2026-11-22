@@ -1,5 +1,5 @@
 @ CUTSCENE_ORCHESTRATOR in witch hut?
-SCRIPT_START script_CutsceneOrchestratorPotionRed
+script_CutsceneOrchestratorPotionRed::
 	BeginBlock
 	Call AddInteractableCheckableObject
 	EndBlock

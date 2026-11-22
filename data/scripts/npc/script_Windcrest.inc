@@ -1,5 +1,5 @@
 @ All Windcrests
-SCRIPT_START script_Windcrest
+script_Windcrest::
 	BeginBlock
 	Call MakeCheckableObjectInteractable
 	Call Windcrest_ChangeInteractableHitbox

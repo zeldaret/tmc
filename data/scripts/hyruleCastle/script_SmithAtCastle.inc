@@ -1,5 +1,5 @@
 @ Hyrule Castle Smith
-SCRIPT_START script_SmithAtCastle
+script_SmithAtCastle::
 	BeginBlock
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000

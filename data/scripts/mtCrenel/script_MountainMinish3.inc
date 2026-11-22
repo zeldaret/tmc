@@ -1,5 +1,5 @@
 @ Mines Mountain Minish helpers
-SCRIPT_START script_MountainMinish3
+script_MountainMinish3::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

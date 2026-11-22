@@ -1,5 +1,5 @@
 @ DHC Minister Potho in King cell
-SCRIPT_START script_MinisterPothoCell
+script_MinisterPothoCell::
 	BeginBlock
 	SetAnimationState 0x0002
 	DoPostScriptAction 0x000a

@@ -1,5 +1,5 @@
 @ Minish Village Intro Player
-SCRIPT_START script_PlayerAtVillageIntro
+script_PlayerAtVillageIntro::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

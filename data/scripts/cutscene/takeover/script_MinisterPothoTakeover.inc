@@ -1,5 +1,5 @@
 @ Western Wood Cutscene Minister Potho
-SCRIPT_START script_MinisterPothoTakeover
+script_MinisterPothoTakeover::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

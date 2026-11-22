@@ -1,5 +1,5 @@
 @ Sanctuary second time CUTSCENE_MISC_OBJECT Earth Element
-SCRIPT_START script_CutsceneMiscObjectEarthElement
+script_CutsceneMiscObjectEarthElement::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	Call SetCollisionLayer2

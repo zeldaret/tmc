@@ -1,5 +1,5 @@
 @ Graveyard Gina
-SCRIPT_START script_Gina
+script_Gina::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

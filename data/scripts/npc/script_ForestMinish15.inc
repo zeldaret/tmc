@@ -1,5 +1,5 @@
 @ Some Forest Minish?
-SCRIPT_START script_ForestMinish15
+script_ForestMinish15::
 	SetEntitySpeed 0x0100
 script_08016648:
 	WalkWest 0x0030

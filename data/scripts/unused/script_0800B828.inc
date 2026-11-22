@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_0800B828
+script_0800B828::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0000

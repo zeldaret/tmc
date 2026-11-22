@@ -1,5 +1,5 @@
 @ Player at Castle Collapsing
-SCRIPT_START script_PlayerCastleCollapsing
+script_PlayerCastleCollapsing::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

@@ -1,5 +1,5 @@
 @ Castor Wilds CUTSCENE_ORCHESTRATOR darknut fight for kinstone piece
-SCRIPT_START script_CutsceneOrchestratorDarknutFight
+script_CutsceneOrchestratorDarknutFight::
 	BeginBlock
 	Call DisablePauseMenuAndPutAwayItems
 	SetLocalFlag 0x0039

@@ -1,5 +1,5 @@
 @ Hyrule Town Cafe guy
-SCRIPT_START script_CafeGuy
+script_CafeGuy::
 	BeginBlock
 	AddInteractableWhenBigObject
 	CallWithArg sub_08061FB8, 0x00000001

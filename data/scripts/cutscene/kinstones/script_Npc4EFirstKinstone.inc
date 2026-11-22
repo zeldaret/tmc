@@ -1,5 +1,5 @@
 @ Hyrule Town NPC4E Kinstone Cutscene
-SCRIPT_START script_Npc4EFirstKinstone
+script_Npc4EFirstKinstone::
 	BeginBlock
 	SetScrollSpeed 1
 	CameraTargetPlayer

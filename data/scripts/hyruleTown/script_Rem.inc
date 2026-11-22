@@ -1,5 +1,5 @@
 @ Hyrule Town Rem
-SCRIPT_START script_Rem
+script_Rem::
 	BeginBlock
 	CallWithArg Rem_MakeInteractable, 0x12345678
 	SetAnimationState 0x0004

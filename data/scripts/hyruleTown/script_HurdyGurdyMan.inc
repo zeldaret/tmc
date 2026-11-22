@@ -1,5 +1,5 @@
 @ Hyrule Town Cafe HurdyGurdyMan
-SCRIPT_START script_HurdyGurdyMan
+script_HurdyGurdyMan::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004

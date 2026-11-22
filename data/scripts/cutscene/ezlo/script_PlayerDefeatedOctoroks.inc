@@ -1,5 +1,5 @@
 @ Ezlo octoroks defeated Player
-SCRIPT_START script_PlayerDefeatedOctoroks
+script_PlayerDefeatedOctoroks::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

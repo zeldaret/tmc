@@ -1,5 +1,5 @@
 @ Player at Zelda after defeating V2
-SCRIPT_START script_PlayerAfterDefeatingV2
+script_PlayerAfterDefeatingV2::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

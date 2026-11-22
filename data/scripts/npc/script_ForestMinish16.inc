@@ -1,5 +1,5 @@
 @ Some Forest Minish ?
-SCRIPT_START script_ForestMinish16
+script_ForestMinish16::
 	MoveToPosition 0x0055, 0x0039, 0x00b4
 	Wait 0x0008
 	MoveToPosition 0x0075, 0x0076, 0x003c

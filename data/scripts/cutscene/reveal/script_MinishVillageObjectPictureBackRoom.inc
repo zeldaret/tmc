@@ -1,5 +1,5 @@
 @ Sanctuary MINISH_VILLAGE_OBJECT Look at picture in back room
-SCRIPT_START script_MinishVillageObjectPictureBackRoom
+script_MinishVillageObjectPictureBackRoom::
 	CheckPlayerInRegion 0x0098, 0x0038, 0x2060
 	JumpIfNot script_MinishVillageObjectPictureBackRoom
 	SetPlayerIdle

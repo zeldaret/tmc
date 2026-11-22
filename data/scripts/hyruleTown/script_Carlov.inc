@@ -1,5 +1,5 @@
 @ Hyrule Town ~~Carlov~~ Burlov
-SCRIPT_START script_Carlov
+script_Carlov::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0000

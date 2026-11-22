@@ -1,5 +1,5 @@
 @ Player entering Mazaal
-SCRIPT_START script_PlayerAtMazaal
+script_PlayerAtMazaal::
 	BeginBlock
 	SetAnimationState 0x0000
 	SetEntitySpeed 0x0140

@@ -1,5 +1,5 @@
 @ Minish Woods Ezlo talks after finishing earth temple
-SCRIPT_START script_EzloTalkDWS
+script_EzloTalkDWS::
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_EZLO_ELEMENTS_DONE, 0x01

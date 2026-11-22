@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Beedle
-SCRIPT_START script_BeedleIntro
+script_BeedleIntro::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0000

@@ -1,5 +1,5 @@
 @ Player get element
-SCRIPT_START script_PlayerGetElement
+script_PlayerGetElement::
 	BeginBlock
 	SetEntitySpeed 0x0140
 	SetPlayerIdle

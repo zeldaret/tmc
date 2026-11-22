@@ -1,5 +1,5 @@
 @ Player at intro outside castle
-SCRIPT_START script_PlayerAtIntroBusinessScrub4
+script_PlayerAtIntroBusinessScrub4::
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x0001
 	WalkNorth 0x0010

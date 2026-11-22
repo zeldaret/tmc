@@ -1,5 +1,5 @@
 @ Hyrule Town closed door for Inn
-SCRIPT_START script_InnDoor
+script_InnDoor::
 	CheckPlayerInRegion2 0x0808
 	JumpIfNot script_InnDoor
 	SetPlayerIdle

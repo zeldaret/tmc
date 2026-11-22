@@ -1,5 +1,5 @@
 @ Intro ceremony Player protecting Zelda
-SCRIPT_START script_PlayerProtectingZelda
+script_PlayerProtectingZelda::
 	BeginBlock
 	SetEntitySpeed 0x0040
 	EndBlock

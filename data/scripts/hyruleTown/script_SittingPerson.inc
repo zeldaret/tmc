@@ -1,5 +1,5 @@
 @ Hyrule Town SittingPerson
-SCRIPT_START script_SittingPerson
+script_SittingPerson::
 	BeginBlock
 	Call SittingPerson_MakeInteractable
 	DoPostScriptAction 0x000a

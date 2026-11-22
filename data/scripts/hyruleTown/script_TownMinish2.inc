@@ -1,5 +1,5 @@
 @ Town Minish above cafe 
-SCRIPT_START script_TownMinish2
+script_TownMinish2::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

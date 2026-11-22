@@ -1,5 +1,5 @@
 @ Ezlo Cutscene CUTSCENE_ORCHESTRATOR MinishVaati
-SCRIPT_START script_CutsceneOrchestratorMinishVaati
+script_CutsceneOrchestratorMinishVaati::
 	BeginBlock
 	SetScrollSpeed 7
 	SetEntityPositionRelative 0x0078, 0x0068

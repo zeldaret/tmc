@@ -1,5 +1,5 @@
 @ Carlov in Chest room
-SCRIPT_START script_CarlovGame
+script_CarlovGame::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimationState 0x0000

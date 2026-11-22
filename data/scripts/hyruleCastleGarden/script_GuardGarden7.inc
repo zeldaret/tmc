@@ -1,5 +1,5 @@
 @ Hyrule Castle Guard kicking Link out
-SCRIPT_START script_GuardGarden7
+script_GuardGarden7::
 	CheckRoomFlag 0x000f
 	JumpIfNot script_GuardGarden7
 	SetPlayerIdle

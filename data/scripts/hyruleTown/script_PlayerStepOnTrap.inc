@@ -1,5 +1,5 @@
 @ Player at Librari move on trap
-SCRIPT_START script_PlayerStepOnTrap
+script_PlayerStepOnTrap::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetEntitySpeed 0x0100

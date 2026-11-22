@@ -1,5 +1,5 @@
 @ DHC guard stone 2
-SCRIPT_START script_GuardStone2
+script_GuardStone2::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0004

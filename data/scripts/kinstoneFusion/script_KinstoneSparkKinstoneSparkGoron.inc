@@ -1,6 +1,6 @@
 @ KINSTONE_SPARK during Goron cutscene
 @ blue from top
-SCRIPT_START script_KinstoneSparkKinstoneSparkGoron
+script_KinstoneSparkKinstoneSparkGoron::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimation 0x0004

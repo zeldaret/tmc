@@ -1,5 +1,5 @@
 @ Player tries to enter DrLeft
-SCRIPT_START script_PlayerAtDrLeftDoor
+script_PlayerAtDrLeftDoor::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

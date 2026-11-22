@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_0800D84C
+script_0800D84C::
 	BeginBlock
 	EndBlock
 script_0800D850:

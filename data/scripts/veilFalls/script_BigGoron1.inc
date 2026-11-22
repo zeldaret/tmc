@@ -1,5 +1,5 @@
 @ Veil Falls BigGoron 1
-SCRIPT_START script_BigGoron1
+script_BigGoron1::
 	BeginBlock
 	EndBlock
 	EndScript

@@ -1,5 +1,5 @@
 @ Hyrule Town Kinstone cutscene HurdyGurdyMan
-SCRIPT_START script_HurdyGurdyManFirstKinstone
+script_HurdyGurdyManFirstKinstone::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0008

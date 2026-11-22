@@ -1,6 +1,6 @@
 @ Intro Ceremony Chest carrying Guard
 @ and guard bottom left?
-SCRIPT_START script_GuardCarryingChest
+script_GuardCarryingChest::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0100

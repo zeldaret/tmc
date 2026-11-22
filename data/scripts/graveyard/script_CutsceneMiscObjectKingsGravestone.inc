@@ -1,5 +1,5 @@
 @ Graveyard CUTSCENE_MISC_OBJECT Kings gravestone? or King ghost representation?
-SCRIPT_START script_CutsceneMiscObjectKingsGravestone
+script_CutsceneMiscObjectKingsGravestone::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0080

@@ -1,5 +1,5 @@
 @ Sanctuary King Daltus
-SCRIPT_START script_FakeKingDaltus
+script_FakeKingDaltus::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0007

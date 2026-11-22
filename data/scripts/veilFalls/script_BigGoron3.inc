@@ -1,5 +1,5 @@
 @ Veil Falls BigGoron 3
-SCRIPT_START script_BigGoron3
+script_BigGoron3::
 	BeginBlock
 	AddInteractableWhenBigObject
 	EndBlock

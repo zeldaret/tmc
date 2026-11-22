@@ -1,5 +1,5 @@
 @ Town Minish above Mayor left
-SCRIPT_START script_TownMinish4
+script_TownMinish4::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

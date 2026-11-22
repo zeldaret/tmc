@@ -1,5 +1,5 @@
 @ Mines Player get white sword
-SCRIPT_START script_PlayerGetWhiteSword
+script_PlayerGetWhiteSword::
 	SetInventoryValue ITEM_GREEN_SWORD, 0x0001
 	CallWithArg PutItemAnySlot, ITEM_GREEN_SWORD
 	PlaySound SFX_ITEM_GET

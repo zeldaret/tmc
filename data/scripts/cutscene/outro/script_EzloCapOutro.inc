@@ -1,5 +1,5 @@
 @ Outro EzloCap
-SCRIPT_START script_EzloCapOutro
+script_EzloCapOutro::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	SetEntityVelocity 0x00000000

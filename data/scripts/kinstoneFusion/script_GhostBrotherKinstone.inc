@@ -1,5 +1,5 @@
 @ Ghost Brother in Kinstone cutscene
-SCRIPT_START script_GhostBrotherKinstone
+script_GhostBrotherKinstone::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimationState 0x0004

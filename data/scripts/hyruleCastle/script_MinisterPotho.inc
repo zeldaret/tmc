@@ -1,5 +1,5 @@
 @ Hyrule Castle Minister Potho
-SCRIPT_START script_MinisterPotho
+script_MinisterPotho::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

@@ -1,5 +1,5 @@
 @ Rem Town Minish
-SCRIPT_START script_RemTownMinish
+script_RemTownMinish::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

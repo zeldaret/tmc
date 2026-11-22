@@ -1,5 +1,5 @@
 @ Sanctuary second time CUTSCENE_MISC_OBJECT Fire Element
-SCRIPT_START script_CutsceneMiscObjectFireElement
+script_CutsceneMiscObjectFireElement::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	Call SetCollisionLayer2

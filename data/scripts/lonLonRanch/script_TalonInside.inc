@@ -1,5 +1,5 @@
 @ Lon Lon Farm Talon in ranch house?
-SCRIPT_START script_TalonInside
+script_TalonInside::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007

@@ -1,5 +1,5 @@
 @ Hyrule Town door closed DrLeft
-SCRIPT_START script_DrLeftDoor
+script_DrLeftDoor::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	CheckGlobalFlag LEFT_DOOR_OPEN

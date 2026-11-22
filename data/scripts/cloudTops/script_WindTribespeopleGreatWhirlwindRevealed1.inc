@@ -1,5 +1,5 @@
 @ Cloud Tops WindTribespeople great whirlwind revealed 2
-SCRIPT_START script_WindTribespeopleGreatWhirlwindRevealed1
+script_WindTribespeopleGreatWhirlwindRevealed1::
 	BeginBlock
 	Call SetPriorityHighest
 	DoPostScriptAction 0x000b

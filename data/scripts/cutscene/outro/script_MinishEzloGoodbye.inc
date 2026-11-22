@@ -1,5 +1,5 @@
 @ Outro MinishEzlo after fixing everything
-SCRIPT_START script_MinishEzloGoodbye
+script_MinishEzloGoodbye::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007

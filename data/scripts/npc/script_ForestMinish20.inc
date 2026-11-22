@@ -1,5 +1,5 @@
 @ Some Forest Minish ?
-SCRIPT_START script_ForestMinish20
+script_ForestMinish20::
 	SetEntitySpeed 0x0100
 script_08016848:
 	WaitForSyncFlag 0x00000004

@@ -1,5 +1,5 @@
 @ Outro NPC4E DHC Fix Sanctuary entrance
-SCRIPT_START script_Npc4ESanctuaryEntrance
+script_Npc4ESanctuaryEntrance::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems

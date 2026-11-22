@@ -1,5 +1,5 @@
 @ Player Outside Castle when stones appear before Moblin Fight
-SCRIPT_START script_PlayerStoneWallsAppear
+script_PlayerStoneWallsAppear::
 	SetAnimationState 0x0002
 	Wait 0x000a
 	SetAnimationState 0x0006

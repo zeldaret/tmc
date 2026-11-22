@@ -1,5 +1,5 @@
 @ Intro house door
-SCRIPT_START script_HouseDoorIntro
+script_HouseDoorIntro::
 	BeginBlock
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000010

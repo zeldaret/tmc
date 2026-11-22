@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR V2 intro
-SCRIPT_START script_CutsceneOrchestratorV2Intro
+script_CutsceneOrchestratorV2Intro::
 	BeginBlock
 	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle

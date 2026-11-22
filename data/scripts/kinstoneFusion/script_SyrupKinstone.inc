@@ -1,5 +1,5 @@
 @ Syrup during Kinstone cutscene
-SCRIPT_START script_SyrupKinstone
+script_SyrupKinstone::
 	BeginBlock
 	EndBlock
 script_0800BB04:

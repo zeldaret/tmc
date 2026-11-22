@@ -1,5 +1,5 @@
 @ Sanctuary Player move back from Vaati
-SCRIPT_START script_PlayerDistanceFromVaati
+script_PlayerDistanceFromVaati::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x000d

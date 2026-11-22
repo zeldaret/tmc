@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_08015A7C
+script_08015A7C::
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x0001
 	WalkNorth 0x0010

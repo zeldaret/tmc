@@ -1,5 +1,5 @@
 @ Hyrule Town TownMinish at Dr Left
-SCRIPT_START script_TownMinish6
+script_TownMinish6::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	AddInteractableWhenBigObject

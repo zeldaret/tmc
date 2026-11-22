@@ -1,5 +1,5 @@
 @ Intro Assembly NPC4E
-SCRIPT_START script_Npc4EIntroAssembly
+script_Npc4EIntroAssembly::
 	BeginBlock
 	SetEntityPositionRelative 0x0088, 0x0078
 	EndBlock

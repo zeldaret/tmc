@@ -1,5 +1,5 @@
 @ Player in Sanctuary when trying clone ability for the first time
-SCRIPT_START script_PlayerSanctuary
+script_PlayerSanctuary::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

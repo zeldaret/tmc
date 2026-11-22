@@ -1,5 +1,5 @@
 @ DHC NPC4E Castle collapsing
-SCRIPT_START script_Npc4ECastleCollapsing
+script_Npc4ECastleCollapsing::
 	Wait 0x003c
 	PlayBgm BGM_CASTLE_COLLAPSE
 	StartPlayerScript script_PlayerStonesFall

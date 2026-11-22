@@ -1,5 +1,5 @@
 @ After ToD CUTSCENE_ORCHESTRATOR Cutscene
-SCRIPT_START script_CutsceneOrchestratorAfterToD
+script_CutsceneOrchestratorAfterToD::
 	SetPlayerIdle
 script_0800AFB2:
 	EndBlock

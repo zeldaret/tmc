@@ -1,5 +1,5 @@
 @ Kinstone Cutscene for Carlov
-SCRIPT_START script_CarlovKinstone
+script_CarlovKinstone::
 	BeginBlock
 	SetAnimation 0x0000
 	EndBlock

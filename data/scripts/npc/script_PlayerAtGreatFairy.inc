@@ -1,5 +1,5 @@
 @ Player at Great Fairy
-SCRIPT_START script_PlayerAtGreatFairy
+script_PlayerAtGreatFairy::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

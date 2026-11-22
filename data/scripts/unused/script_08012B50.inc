@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_08012B50
+script_08012B50::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0000

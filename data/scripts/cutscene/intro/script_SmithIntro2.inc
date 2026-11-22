@@ -1,5 +1,5 @@
 @ Intro Smith 2
-SCRIPT_START script_SmithIntro2
+script_SmithIntro2::
 	BeginBlock
 	SetAnimationState 0x0006
 	SetEntitySpeed 0x0080

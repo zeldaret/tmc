@@ -1,6 +1,6 @@
 @ Hyrule Town TownMinish above carpenters
 @ also in library, cafe
-SCRIPT_START script_TownMinish1
+script_TownMinish1::
 	BeginBlock
 	Call TownMinish_MakeInteractable
 	DoPostScriptAction 0x000a

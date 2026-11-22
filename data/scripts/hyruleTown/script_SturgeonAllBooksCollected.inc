@@ -1,5 +1,5 @@
 @ Library Sturgeon all books collected
-SCRIPT_START script_SturgeonAllBooksCollected
+script_SturgeonAllBooksCollected::
 	BeginBlock
 	SetEntityPositionRelative 0x0068, 0x0018
 	DoPostScriptAction 0x000f

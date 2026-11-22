@@ -1,5 +1,5 @@
 @ Town Minish on book above Dr Left
-SCRIPT_START script_TownMinish3
+script_TownMinish3::
 	BeginBlock
 	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a

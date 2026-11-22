@@ -1,5 +1,5 @@
 @ 6th Goron in 6th Goron cutscene
-SCRIPT_START script_Goron6Kindstone6
+script_Goron6Kindstone6::
 	BeginBlock
 	SetAnimationState 0x0000
 	SetAnimation 0x0000

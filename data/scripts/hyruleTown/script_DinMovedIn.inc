@@ -1,5 +1,5 @@
 @ Hyrule Town Din moved in
-SCRIPT_START script_DinMovedIn
+script_DinMovedIn::
 	BeginBlock
 	Call Din_MakeInteractable
 	SetAnimationState 0x0004

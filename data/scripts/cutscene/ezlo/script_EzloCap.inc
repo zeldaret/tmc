@@ -1,5 +1,5 @@
 @ First look at Ezlo EzloCap
-SCRIPT_START script_EzloCap
+script_EzloCap::
 	BeginBlock
 	SetEntitySpeed 0x0040
 	DoPostScriptAction 0x0007

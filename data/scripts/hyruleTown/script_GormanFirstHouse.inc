@@ -1,6 +1,6 @@
 @ Hyrule Town Gorman at first house
 @ and at second house when ready to sell
-SCRIPT_START script_GormanFirstHouse
+script_GormanFirstHouse::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Player at Pina
-SCRIPT_START script_PlayerIntro5
+script_PlayerIntro5::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

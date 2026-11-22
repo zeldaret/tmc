@@ -1,5 +1,5 @@
 @ Outro CUTSCENE_MISC_OBJECT The Little Hat (Green)
-SCRIPT_START script_CutsceneMiscObjectTheLittleHat
+script_CutsceneMiscObjectTheLittleHat::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007

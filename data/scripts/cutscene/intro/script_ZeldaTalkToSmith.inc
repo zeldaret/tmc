@@ -1,5 +1,5 @@
 @ Intro Zelda at Smith 2
-SCRIPT_START script_ZeldaTalkToSmith
+script_ZeldaTalkToSmith::
 	BeginBlock
 	SetAnimationState 0x0002
 	SetEntitySpeed 0x0100

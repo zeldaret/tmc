@@ -1,5 +1,5 @@
 @ Intro Hyrule Castle Entrance Guard
-SCRIPT_START script_GuardEntry1
+script_GuardEntry1::
 	BeginBlock
 	SetAnimationState 0x0006
 script_080119F6:

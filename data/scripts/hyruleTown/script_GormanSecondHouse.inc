@@ -1,5 +1,5 @@
 @ Hyrule Town Gorman at second house
-SCRIPT_START script_GormanSecondHouse
+script_GormanSecondHouse::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

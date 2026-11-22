@@ -1,5 +1,5 @@
 @ Lon Lon Ranch Door
-SCRIPT_START script_LonLonRanchDoor
+script_LonLonRanchDoor::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	CheckGlobalFlag INLOCK

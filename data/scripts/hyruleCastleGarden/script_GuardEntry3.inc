@@ -1,5 +1,5 @@
 @ Hyrule Castle Guard guarding entry to garden
-SCRIPT_START script_GuardEntry3
+script_GuardEntry3::
 	BeginBlock
 	SetAnimationState 0x0002
 	AddInteractableWhenBigObject

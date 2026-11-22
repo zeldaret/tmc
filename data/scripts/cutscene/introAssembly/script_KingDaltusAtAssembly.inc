@@ -1,5 +1,5 @@
 @ Intro Assembly King Daltus
-SCRIPT_START script_KingDaltusAtAssembly
+script_KingDaltusAtAssembly::
 	BeginBlock
 	Call SetPriorityMessage
 	SetEntitySpeed 0x0100

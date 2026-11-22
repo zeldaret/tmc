@@ -1,6 +1,6 @@
 @ Cloud Tops NPC4E at first Mysterious Cloud
 @ Reponsible for Kinstone cutscenes
-SCRIPT_START script_Npc4EFirstCloud
+script_Npc4EFirstCloud::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000b

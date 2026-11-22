@@ -1,5 +1,5 @@
 @ Syrup
-SCRIPT_START script_Syrup
+script_Syrup::
 	BeginBlock
 	AddInteractableWhenBigObject
 	SetAnimation 0x0008

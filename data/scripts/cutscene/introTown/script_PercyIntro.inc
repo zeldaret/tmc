@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Percy
-SCRIPT_START script_PercyIntro
+script_PercyIntro::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

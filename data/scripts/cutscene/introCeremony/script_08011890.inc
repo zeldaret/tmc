@@ -1,5 +1,5 @@
 @ Something during Intro Ceremony? Called via script_VaatiIntroCeremony
-SCRIPT_START script_08011890
+script_08011890::
 	BeginBlock
 	SetAnimation 0x0000
 	SetEntitySpeed 0x0200

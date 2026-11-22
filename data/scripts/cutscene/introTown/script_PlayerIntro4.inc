@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Player 4
-SCRIPT_START script_PlayerIntro4
+script_PlayerIntro4::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

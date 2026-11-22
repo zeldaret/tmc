@@ -1,5 +1,5 @@
 @ Hyrule Castle CUTSCENE_ORCHESTRATOR Sanctuary Entrance
-SCRIPT_START script_CutsceneOrchestratorSanctuaryEntrance
+script_CutsceneOrchestratorSanctuaryEntrance::
 	CheckPlayerInRegion 0x0088, 0x0048, 0x3030
 	JumpIfNot script_CutsceneOrchestratorSanctuaryEntrance
 	SetPlayerIdle

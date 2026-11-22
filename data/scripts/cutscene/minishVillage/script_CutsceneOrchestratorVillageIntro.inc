@@ -1,5 +1,5 @@
 @ Minish Village CUTSCENE_ORCHESTRATOR Intro Cutscene?
-SCRIPT_START script_CutsceneOrchestratorVillageIntro
+script_CutsceneOrchestratorVillageIntro::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetEntitySpeed 0x0300

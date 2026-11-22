@@ -1,5 +1,5 @@
 @ Ezlo talk after Wind Ruins
-SCRIPT_START script_EzloTalkFoW
+script_EzloTalkFoW::
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_EZLO_ELEMENTS_DONE, 0x03

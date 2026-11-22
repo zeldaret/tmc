@@ -1,5 +1,5 @@
 @ Hyrule Town Postman
-SCRIPT_START script_Postman
+script_Postman::
 	BeginBlock
 	CheckInventory1 ITEM_KINSTONE_BAG
 	JumpIfNot script_08010B62

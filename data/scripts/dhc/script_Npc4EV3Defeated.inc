@@ -1,5 +1,5 @@
 @ DHC NPC4E V3 defeated
-SCRIPT_START script_Npc4EV3Defeated
+script_Npc4EV3Defeated::
 	EndBlock
 script_0800A0FE:
 	CheckGlobalFlag ENDING

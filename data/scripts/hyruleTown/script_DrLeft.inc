@@ -1,5 +1,5 @@
 @ Dr Left
-SCRIPT_START script_DrLeft
+script_DrLeft::
 	BeginBlock
 	AddInteractableWhenBigObject
 	Call sub_0806C09C

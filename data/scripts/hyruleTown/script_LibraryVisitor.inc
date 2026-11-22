@@ -1,5 +1,5 @@
 @ Library Townsperson
-SCRIPT_START script_LibraryVisitor
+script_LibraryVisitor::
 	BeginBlock
 	Call sub_08061FD8
 	Call Townsperson_MakeInteractable

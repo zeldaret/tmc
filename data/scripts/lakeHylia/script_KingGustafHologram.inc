@@ -1,5 +1,5 @@
 @ After ToD King Gustaf
-SCRIPT_START script_KingGustafHologram
+script_KingGustafHologram::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock

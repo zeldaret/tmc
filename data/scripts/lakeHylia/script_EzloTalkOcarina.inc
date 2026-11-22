@@ -1,5 +1,5 @@
 @ Ezlo talk after first ocarina travel
-SCRIPT_START script_EzloTalkOcarina
+script_EzloTalkOcarina::
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormalOrTalkEzlo

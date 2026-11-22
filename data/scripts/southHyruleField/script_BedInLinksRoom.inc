@@ -1,6 +1,6 @@
 @ Bed in links room
 @ also Bed in Hyrule Castle
-SCRIPT_START script_BedInLinksRoom
+script_BedInLinksRoom::
 	BeginBlock
 	SetIntVariable 0x00000002
 	DoPostScriptAction 0x0001

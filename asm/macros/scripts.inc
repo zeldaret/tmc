@@ -23,12 +23,6 @@
 
 @ script macros
 
-.macro SCRIPT_START name
-	.globl \name
-	.section .text
-\name:
-.endm
-
 .macro EndScript
 	.2byte 0xffff
 .endm

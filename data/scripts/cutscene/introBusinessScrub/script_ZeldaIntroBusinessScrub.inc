@@ -1,5 +1,5 @@
 @ Intro Outside Castle Zelda
-SCRIPT_START script_ZeldaIntroBusinessScrub
+script_ZeldaIntroBusinessScrub::
 	BeginBlock
 	SetEntitySpeed 0x0180
 	DoPostScriptAction 0x0008

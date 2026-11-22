@@ -1,5 +1,5 @@
 @ Mazaal MAZAAL_BOSS_OBJECT
-SCRIPT_START script_MazaalBossObjectMazaal
+script_MazaalBossObjectMazaal::
 	BeginBlock
 	EndBlock
 	DisablePlayerControl

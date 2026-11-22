@@ -1,5 +1,5 @@
 @ Outro CUTSCENE_MISC_OBJECT Octorok 3
-SCRIPT_START script_CutsceneMiscObjectOctorok3
+script_CutsceneMiscObjectOctorok3::
 	BeginBlock
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0007

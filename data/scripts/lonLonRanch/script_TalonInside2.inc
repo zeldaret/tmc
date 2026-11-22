@@ -1,5 +1,5 @@
 @ Lon Lon Ranch Talon inside
-SCRIPT_START script_TalonInside2
+script_TalonInside2::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007

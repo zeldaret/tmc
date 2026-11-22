@@ -1,5 +1,5 @@
 @ Cloud Tops CUTSCENE_ORCHESTRATOR great whirlwind revealed
-SCRIPT_START script_CutsceneOrchestratorGreatWhirlwindRevealed
+script_CutsceneOrchestratorGreatWhirlwindRevealed::
 	BeginBlock
 	Call SetPriorityHighest
 	SetEntitySpeed 0x0700

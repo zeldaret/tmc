@@ -1,5 +1,5 @@
 @ Player after turning Zelda back from stone
-SCRIPT_START script_PlayerRescuedZelda
+script_PlayerRescuedZelda::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

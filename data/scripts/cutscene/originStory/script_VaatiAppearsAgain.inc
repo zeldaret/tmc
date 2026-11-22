@@ -1,5 +1,5 @@
 @ Outside Castle Vaati
-SCRIPT_START script_VaatiAppearsAgain
+script_VaatiAppearsAgain::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetAnimationState 0x0004

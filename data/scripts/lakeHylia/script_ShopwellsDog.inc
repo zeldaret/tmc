@@ -1,5 +1,5 @@
 @ Lake Hylia Dog
-SCRIPT_START script_ShopwellsDog
+script_ShopwellsDog::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0004
