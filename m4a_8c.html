@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/gba/m4a.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_16868fd6e7928a79ae3b5a53d6d6463f.html">gba</a>/</span>m4a.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structCgbChannel.html" class="m-doc">CgbChannel</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structSoundInfo.html" class="m-doc">SoundInfo</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a62531a97968c10b1caaaa4c13f83f36f">
+              using <a href="#a62531a97968c10b1caaaa4c13f83f36f" class="m-doc-self">MPlayFunc</a> = void(*)()
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b96cb5eca1ef6b745cbb454a16b63d4">
+              using <a href="#a5b96cb5eca1ef6b745cbb454a16b63d4" class="m-doc-self">PlyNoteFunc</a> = void(*)(u32, MusicPlayerInfo*, MusicPlayerTrack*)
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5f8a97a19b81ef98c88222157748b2e">
+              using <a href="#ae5f8a97a19b81ef98c88222157748b2e" class="m-doc-self">CgbSoundFunc</a> = void(*)(void)
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0fd6dd9d6615a5322e8d3b4371f52c63">
+              using <a href="#a0fd6dd9d6615a5322e8d3b4371f52c63" class="m-doc-self">CgbOscOffFunc</a> = void(*)(u8)
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ecfc74d1cab97bc30acbf1db7806b33">
+              using <a href="#a1ecfc74d1cab97bc30acbf1db7806b33" class="m-doc-self">MidiKeyToCgbFreqFunc</a> = <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>(*)(u8, u8, u8)
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10acee9effcf52cc798e321222d1bfa6">
+              using <a href="#a10acee9effcf52cc798e321222d1bfa6" class="m-doc-self">ExtVolPitFunc</a> = void(*)(void)
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5d844390b25fbdde322935ebc63407e">
+              using <a href="#aa5d844390b25fbdde322935ebc63407e" class="m-doc-self">XcmdFunc</a> = void(*)(MusicPlayerInfo*, MusicPlayerTrack*)
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="adb8743c5e3382e1b9126cc565b15d33d">
+              <span class="m-doc-wrap-bumper">auto <a href="#adb8743c5e3382e1b9126cc565b15d33d" class="m-doc-self">umul3232H32</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> multiplier,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> multiplicand) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad71c10b997416178e91a0fe8557098d6">
+              <span class="m-doc-wrap-bumper">void <a href="#ad71c10b997416178e91a0fe8557098d6" class="m-doc-self">SoundMain</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a4250d5610adc572a1c186a2d4ebc6b">
+              <span class="m-doc-wrap-bumper">void <a href="#a0a4250d5610adc572a1c186a2d4ebc6b" class="m-doc-self">SoundMainBTM</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aca9208bbed127b764cff3871369a2c04">
+              <span class="m-doc-wrap-bumper">void <a href="#aca9208bbed127b764cff3871369a2c04" class="m-doc-self">TrackStop</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>* track)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38bca40453fe2b08d68eaec09c90c550">
+              <span class="m-doc-wrap-bumper">void <a href="#a38bca40453fe2b08d68eaec09c90c550" class="m-doc-self">MPlayMain</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87871740f9b32bc2c5a3f4ce4cf1a55e">
+              <span class="m-doc-wrap-bumper">void <a href="#a87871740f9b32bc2c5a3f4ce4cf1a55e" class="m-doc-self">RealClearChain</a>(</span><span class="m-doc-wrap">void* x)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae12b9f2c002007a55185a77fd727968b">
+              <span class="m-doc-wrap-bumper">void <a href="#ae12b9f2c002007a55185a77fd727968b" class="m-doc-self">MPlayContinue</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a28cf6ef1604698c46deb3880ed1e7359">
+              <span class="m-doc-wrap-bumper">void <a href="#a28cf6ef1604698c46deb3880ed1e7359" class="m-doc-self">MPlayStart</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a>* songHeader)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e97ee88f0a55ef49a46dd6ba0985a84">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e97ee88f0a55ef49a46dd6ba0985a84" class="m-doc-self">MPlayStop</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a26934205574187b1f8db37b3819d6340">
+              <span class="m-doc-wrap-bumper">void <a href="#a26934205574187b1f8db37b3819d6340" class="m-doc-self">FadeOutBody</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac2b3ffd13edb49c3d9429698edd7ff02">
+              <span class="m-doc-wrap-bumper">void <a href="#ac2b3ffd13edb49c3d9429698edd7ff02" class="m-doc-self">TrkVolPitSet</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>* track)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9fc9af79fbf45abc8cb96f97a5be7e70">
+              <span class="m-doc-wrap-bumper">void <a href="#a9fc9af79fbf45abc8cb96f97a5be7e70" class="m-doc-self">MPlayFadeOut</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> speed)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c7a0cb05786b76343bc99b101957142">
+              <span class="m-doc-wrap-bumper">void <a href="#a4c7a0cb05786b76343bc99b101957142" class="m-doc-self">ClearChain</a>(</span><span class="m-doc-wrap">void* x)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5a2475ce7a6ae90897e175b71ea9279d">
+              <span class="m-doc-wrap-bumper">void <a href="#a5a2475ce7a6ae90897e175b71ea9279d" class="m-doc-self">Clear64byte</a>(</span><span class="m-doc-wrap">void* addr)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6081ce993717b3c6b776738e53b4c732">
+              <span class="m-doc-wrap-bumper">void <a href="#a6081ce993717b3c6b776738e53b4c732" class="m-doc-self">SoundInit</a>(</span><span class="m-doc-wrap"><a href="structSoundInfo.html" class="m-doc">SoundInfo</a>* soundInfo)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf37fe45f9e2ddb32cc7803511af7efa">
+              <span class="m-doc-wrap-bumper">void <a href="#abf37fe45f9e2ddb32cc7803511af7efa" class="m-doc-self">MPlayExtender</a>(</span><span class="m-doc-wrap"><a href="structCgbChannel.html" class="m-doc">CgbChannel</a>* cgbChans)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82b3b05140b85b8a56133763ace11217">
+              <span class="m-doc-wrap-bumper">void <a href="#a82b3b05140b85b8a56133763ace11217" class="m-doc-self">m4aSoundMode</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> mode)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a56b30111f991fb7a992ab842c001d82b">
+              <span class="m-doc-wrap-bumper">void <a href="#a56b30111f991fb7a992ab842c001d82b" class="m-doc-self">MPlayOpen</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>* track,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> trackCount)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67b24ce6f2045a86de8d41214e680d3b">
+              <span class="m-doc-wrap-bumper">void <a href="#a67b24ce6f2045a86de8d41214e680d3b" class="m-doc-self">CgbSound</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ea5cb330ab40c3a8012fae757009110">
+              <span class="m-doc-wrap-bumper">void <a href="#a2ea5cb330ab40c3a8012fae757009110" class="m-doc-self">CgbOscOff</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1dce3e2165e949a6530688adb9fab1c">
+              <span class="m-doc-wrap-bumper">auto <a href="#ad1dce3e2165e949a6530688adb9fab1c" class="m-doc-self">MidiKeyToCgbFreq</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac6a4d6e367964e4b3c628ba2768420e9">
+              <span class="m-doc-wrap-bumper">void <a href="#ac6a4d6e367964e4b3c628ba2768420e9" class="m-doc-self">nullsub_141</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00f985f003ef832bfb06f8a18a702ebe">
+              <span class="m-doc-wrap-bumper">void <a href="#a00f985f003ef832bfb06f8a18a702ebe" class="m-doc-self">MPlayJumpTableCopy</a>(</span><span class="m-doc-wrap">void** mplayJumpTable)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf91be5cc8bd5d4220784e6501c3b8da">
+              <span class="m-doc-wrap-bumper">void <a href="#abf91be5cc8bd5d4220784e6501c3b8da" class="m-doc-self">SampleFreqSet</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> freq)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af9de482365b2b7d32e03133044c3a851">
+              <span class="m-doc-wrap-bumper">void <a href="#af9de482365b2b7d32e03133044c3a851" class="m-doc-self">m4aMPlayVolumeControl</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> trackBits,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> volume)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac225fc95853cd75a51ea7cf7ba81ae1">
+              <span class="m-doc-wrap-bumper">void <a href="#aac225fc95853cd75a51ea7cf7ba81ae1" class="m-doc-self">m4aMPlayPitchControl</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> trackBits,
+              <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a> pitch)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2763017149c2d9f5f5d4057c4d9b539d">
+              <span class="m-doc-wrap-bumper">void <a href="#a2763017149c2d9f5f5d4057c4d9b539d" class="m-doc-self">m4aMPlayPanpotControl</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> trackBits,
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> pan)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85ffa62df9d2679c3fcc44e9bae3c617">
+              <span class="m-doc-wrap-bumper">void <a href="#a85ffa62df9d2679c3fcc44e9bae3c617" class="m-doc-self">ClearModM</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>* track)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adf576fcc9a853ca34cafe202ecf10416">
+              <span class="m-doc-wrap-bumper">void <a href="#adf576fcc9a853ca34cafe202ecf10416" class="m-doc-self">m4aMPlayModDepthSet</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> trackBits,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> modDepth)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad81b2b47f50c28557a3d8a07017a3ab8">
+              <span class="m-doc-wrap-bumper">void <a href="#ad81b2b47f50c28557a3d8a07017a3ab8" class="m-doc-self">m4aMPlayLFOSpeedSet</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> trackBits,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> lfoSpeed)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c82d5dc0471067f74e79f3d1b96cdf4">
+              <span class="m-doc-wrap-bumper">void <a href="#a8c82d5dc0471067f74e79f3d1b96cdf4" class="m-doc-self">ply_fine</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abef4990d910d243ccc827dd7f7fc98cc">
+              <span class="m-doc-wrap-bumper">void <a href="#abef4990d910d243ccc827dd7f7fc98cc" class="m-doc-self">ply_goto</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a399456ce272d222ff3b7e1bc191683d3">
+              <span class="m-doc-wrap-bumper">void <a href="#a399456ce272d222ff3b7e1bc191683d3" class="m-doc-self">ply_patt</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad463b18d03ef8e7a82620b4c7b7c6c9f">
+              <span class="m-doc-wrap-bumper">void <a href="#ad463b18d03ef8e7a82620b4c7b7c6c9f" class="m-doc-self">ply_pend</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a15a536ea266b11ac214854d703bfebdb">
+              <span class="m-doc-wrap-bumper">void <a href="#a15a536ea266b11ac214854d703bfebdb" class="m-doc-self">ply_rept</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a94ac65de7dcad90365b3270a57b61dee">
+              <span class="m-doc-wrap-bumper">void <a href="#a94ac65de7dcad90365b3270a57b61dee" class="m-doc-self">ply_memacc</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ad910ca24fe70d5d101b3dba16115e9">
+              <span class="m-doc-wrap-bumper">void <a href="#a2ad910ca24fe70d5d101b3dba16115e9" class="m-doc-self">ply_prio</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11a420daa1a084d5ef93f4e29c6815dc">
+              <span class="m-doc-wrap-bumper">void <a href="#a11a420daa1a084d5ef93f4e29c6815dc" class="m-doc-self">ply_tempo</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7c9e78bea136a9ac800ffdd87298f297">
+              <span class="m-doc-wrap-bumper">void <a href="#a7c9e78bea136a9ac800ffdd87298f297" class="m-doc-self">ply_keysh</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05ff96087f4f2de971752b5fd6c75e50">
+              <span class="m-doc-wrap-bumper">void <a href="#a05ff96087f4f2de971752b5fd6c75e50" class="m-doc-self">ply_voice</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af7d697120247bd2814430572a767d055">
+              <span class="m-doc-wrap-bumper">void <a href="#af7d697120247bd2814430572a767d055" class="m-doc-self">ply_vol</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abda9c3e8e18ad96727fa1564e340e587">
+              <span class="m-doc-wrap-bumper">void <a href="#abda9c3e8e18ad96727fa1564e340e587" class="m-doc-self">ply_pan</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae103dae35e04602b9b5586e1f4e0251c">
+              <span class="m-doc-wrap-bumper">void <a href="#ae103dae35e04602b9b5586e1f4e0251c" class="m-doc-self">ply_bend</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afda17bbeb32582877e8849392a667d0f">
+              <span class="m-doc-wrap-bumper">void <a href="#afda17bbeb32582877e8849392a667d0f" class="m-doc-self">ply_bendr</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a42af3ce400c15772ae4cf8a6b98a3654">
+              <span class="m-doc-wrap-bumper">void <a href="#a42af3ce400c15772ae4cf8a6b98a3654" class="m-doc-self">ply_lfos</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acfd11865c91e942f13fa479cdaba6b1c">
+              <span class="m-doc-wrap-bumper">void <a href="#acfd11865c91e942f13fa479cdaba6b1c" class="m-doc-self">ply_lfodl</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57448273a6e19e35f7995fa68e88c07c">
+              <span class="m-doc-wrap-bumper">void <a href="#a57448273a6e19e35f7995fa68e88c07c" class="m-doc-self">ply_mod</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a077f0ea3cf451816d06eb1f185a29382">
+              <span class="m-doc-wrap-bumper">void <a href="#a077f0ea3cf451816d06eb1f185a29382" class="m-doc-self">ply_modt</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a930caa41535f9179049ae616eaee4e60">
+              <span class="m-doc-wrap-bumper">void <a href="#a930caa41535f9179049ae616eaee4e60" class="m-doc-self">ply_tune</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad8afb675ebca621ab588ce29ffb8e805">
+              <span class="m-doc-wrap-bumper">void <a href="#ad8afb675ebca621ab588ce29ffb8e805" class="m-doc-self">ply_port</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53e46e1bc450937a8fe5fc440ffd1cc3">
+              <span class="m-doc-wrap-bumper">void <a href="#a53e46e1bc450937a8fe5fc440ffd1cc3" class="m-doc-self">ply_xcmd</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa65fc330ffe76073691936362e1af3e7">
+              <span class="m-doc-wrap-bumper">void <a href="#aa65fc330ffe76073691936362e1af3e7" class="m-doc-self">ply_endtie</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9cf8c5b0a96669d22f2db9d44f06b46">
+              <span class="m-doc-wrap-bumper">void <a href="#ab9cf8c5b0a96669d22f2db9d44f06b46" class="m-doc-self">ply_note</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a90250c511c8d0cff9ea0719c6712f75e">
+              <span class="m-doc-wrap-bumper">void <a href="#a90250c511c8d0cff9ea0719c6712f75e" class="m-doc-self">ply_xxx</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad990d5e77b88b56c91244b5d4b055ade">
+              <span class="m-doc-wrap-bumper">void <a href="#ad990d5e77b88b56c91244b5d4b055ade" class="m-doc-self">ply_xwave</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c8d6e8b64f25973dba61292bb562ced">
+              <span class="m-doc-wrap-bumper">void <a href="#a8c8d6e8b64f25973dba61292bb562ced" class="m-doc-self">ply_xtype</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5865bcfb62dde88100086d682ff3c059">
+              <span class="m-doc-wrap-bumper">void <a href="#a5865bcfb62dde88100086d682ff3c059" class="m-doc-self">ply_xatta</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac46bd8ff220fa5759fc02c4fb5b8a82a">
+              <span class="m-doc-wrap-bumper">void <a href="#ac46bd8ff220fa5759fc02c4fb5b8a82a" class="m-doc-self">ply_xdeca</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa9f2b503d1f3cceb95c7f959245eef36">
+              <span class="m-doc-wrap-bumper">void <a href="#aa9f2b503d1f3cceb95c7f959245eef36" class="m-doc-self">ply_xsust</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa61b1990e62b4038106f2572e17d5c2">
+              <span class="m-doc-wrap-bumper">void <a href="#afa61b1990e62b4038106f2572e17d5c2" class="m-doc-self">ply_xrele</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10f2d54a35f59ca34d76334c0bf10bc7">
+              <span class="m-doc-wrap-bumper">void <a href="#a10f2d54a35f59ca34d76334c0bf10bc7" class="m-doc-self">ply_xiecv</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a855e4870e0cb93addd71727404f3e292">
+              <span class="m-doc-wrap-bumper">void <a href="#a855e4870e0cb93addd71727404f3e292" class="m-doc-self">ply_xiecl</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac648ad5b82a2e6e0f34cd323b3448032">
+              <span class="m-doc-wrap-bumper">void <a href="#ac648ad5b82a2e6e0f34cd323b3448032" class="m-doc-self">ply_xleng</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9974c7afb334e835a9e9349ef199dae6">
+              <span class="m-doc-wrap-bumper">void <a href="#a9974c7afb334e835a9e9349ef199dae6" class="m-doc-self">ply_xswee</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>*,
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8de456b6b0ae28bbaf6f273ccc134698">
+              <span class="m-doc-wrap-bumper">void <a href="#a8de456b6b0ae28bbaf6f273ccc134698" class="m-doc-self">nullsub_544</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3995a60756a68e1bc3e5cd1aef071dd7">
+              <span class="m-doc-wrap-bumper">auto <a href="#a3995a60756a68e1bc3e5cd1aef071dd7" class="m-doc-self">MidiKeyToFreq</a>(</span><span class="m-doc-wrap"><a href="structWaveData.html" class="m-doc">WaveData</a>* wav,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> key,
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> fineAdjust) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5f29eb33b5eea13d7c794d46f0b9e67">
+              <span class="m-doc-wrap-bumper">void <a href="#ae5f29eb33b5eea13d7c794d46f0b9e67" class="m-doc-self">nullsub_543</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a629eb99dc96a7d425d2265e11b4e349b">
+              <span class="m-doc-wrap-bumper">void <a href="#a629eb99dc96a7d425d2265e11b4e349b" class="m-doc-self">m4aSoundInit</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a148f3b9df83aeae3265a7984a851548f">
+              <span class="m-doc-wrap-bumper">void <a href="#a148f3b9df83aeae3265a7984a851548f" class="m-doc-self">m4aSoundMain</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa74c54dc4de923304e0390023e40fa77">
+              <span class="m-doc-wrap-bumper">void <a href="#aa74c54dc4de923304e0390023e40fa77" class="m-doc-self">m4aSongNumStart</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a675b897ccee657975f931a407437251c">
+              <span class="m-doc-wrap-bumper">void <a href="#a675b897ccee657975f931a407437251c" class="m-doc-self">m4aSongNumStartOrChange</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9fdac30986d25c79ba53f1f6094c790f">
+              <span class="m-doc-wrap-bumper">void <a href="#a9fdac30986d25c79ba53f1f6094c790f" class="m-doc-self">m4aSongNumStartOrContinue</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a47ee492e45e369ce1cacc612e8550cc4">
+              <span class="m-doc-wrap-bumper">void <a href="#a47ee492e45e369ce1cacc612e8550cc4" class="m-doc-self">m4aSongNumStop</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e361c3959016879ef16231a9b6c047c">
+              <span class="m-doc-wrap-bumper">void <a href="#a8e361c3959016879ef16231a9b6c047c" class="m-doc-self">m4aSongNumContinue</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61b2e61096e8327b96ae984c2fff9722">
+              <span class="m-doc-wrap-bumper">void <a href="#a61b2e61096e8327b96ae984c2fff9722" class="m-doc-self">m4aMPlayAllStop</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae813f67715b2e9e516427b9ed9ec2ed6">
+              <span class="m-doc-wrap-bumper">void <a href="#ae813f67715b2e9e516427b9ed9ec2ed6" class="m-doc-self">m4aMPlayContinue</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada175b2a62212453362c4da048e2c857">
+              <span class="m-doc-wrap-bumper">void <a href="#ada175b2a62212453362c4da048e2c857" class="m-doc-self">m4aMPlayAllContinue</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a28c8c7bfacc2ad0b6ce9a6232b711812">
+              <span class="m-doc-wrap-bumper">void <a href="#a28c8c7bfacc2ad0b6ce9a6232b711812" class="m-doc-self">m4aMPlayFadeOut</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> speed)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64fe60f63a2ae8a2a189e454c1cf79b1">
+              <span class="m-doc-wrap-bumper">void <a href="#a64fe60f63a2ae8a2a189e454c1cf79b1" class="m-doc-self">m4aMPlayFadeOutTemporarily</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> speed)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab39edda483c2bf4580126ffddc8f5e35">
+              <span class="m-doc-wrap-bumper">void <a href="#ab39edda483c2bf4580126ffddc8f5e35" class="m-doc-self">m4aMPlayFadeIn</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> speed)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46d8f7786b96554320b76bf368c29b66">
+              <span class="m-doc-wrap-bumper">void <a href="#a46d8f7786b96554320b76bf368c29b66" class="m-doc-self">m4aMPlayImmInit</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e6b59827064463ff2ec50a62344bf23">
+              <span class="m-doc-wrap-bumper">void <a href="#a1e6b59827064463ff2ec50a62344bf23" class="m-doc-self">MusicPlayerJumpTableCopy</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32f6c3468cea47aeb77f0d9a565db226">
+              <span class="m-doc-wrap-bumper">void <a href="#a32f6c3468cea47aeb77f0d9a565db226" class="m-doc-self">SoundClear</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acb8eee4fddd5bc60ea47c1a77a9578b6">
+              <span class="m-doc-wrap-bumper">void <a href="#acb8eee4fddd5bc60ea47c1a77a9578b6" class="m-doc-self">m4aSoundVSyncOff</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a99d5532d07d3c1ce508c6ff5454a061c">
+              <span class="m-doc-wrap-bumper">void <a href="#a99d5532d07d3c1ce508c6ff5454a061c" class="m-doc-self">m4aSoundVSyncOn</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4037a0e0fd7e578daec2c5394684f0a5">
+              <span class="m-doc-wrap-bumper">void <a href="#a4037a0e0fd7e578daec2c5394684f0a5" class="m-doc-self">m4aSoundVSync</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86313ce44cba1cb6cf153a07e408a02b">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a86313ce44cba1cb6cf153a07e408a02b" class="m-doc-self">CgbPan</a>(</span><span class="m-doc-wrap"><a href="structCgbChannel.html" class="m-doc">CgbChannel</a>* chan) -&gt; int</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a346a5094ed8b226a770c46be5f8ee3fd">
+              <span class="m-doc-wrap-bumper">void <a href="#a346a5094ed8b226a770c46be5f8ee3fd" class="m-doc-self">CgbModVol</a>(</span><span class="m-doc-wrap"><a href="structCgbChannel.html" class="m-doc">CgbChannel</a>* chan)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4121b0636c376dae846bdfbc0c9d1007">
+              <span class="m-doc-wrap-bumper">void <a href="#a4121b0636c376dae846bdfbc0c9d1007" class="m-doc-self">m4aMPlayTempoControl</a>(</span><span class="m-doc-wrap"><a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a>* mplayInfo,
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> tempo)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a1aa48600634f13eeec948efbaeb0736a">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a1aa48600634f13eeec948efbaeb0736a" class="m-doc-self">gMPlayMemAccArea</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2d4d1bd8a83b01ab5e2d4444e4408e3">
+              char <a href="#ab2d4d1bd8a83b01ab5e2d4444e4408e3" class="m-doc-self">SoundMainRAM</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7fd19ae7ccbc052a2d5aed79b7c7fb5">
+              void* <a href="#ab7fd19ae7ccbc052a2d5aed79b7c7fb5" class="m-doc-self">gMPlayJumpTable</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abbde4a4347f30ae4281c65c9d72ae4ec">
+              <a href="structCgbChannel.html" class="m-doc">CgbChannel</a> <a href="#abbde4a4347f30ae4281c65c9d72ae4ec" class="m-doc-self">gCgbChans</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa356349f477eaecc4e10f55bfc632a33">
+              char <a href="#aa356349f477eaecc4e10f55bfc632a33" class="m-doc-self">gNumMusicPlayers</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acb63ba22699cf0c55f0cc0c12d120149">
+              char <a href="#acb63ba22699cf0c55f0cc0c12d120149" class="m-doc-self">gMaxLines</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a333409e047bbae3f1c8daba632e6e9ae">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a333409e047bbae3f1c8daba632e6e9ae" class="m-doc-self">SoundMainRAM_Buffer</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac119981de3ca727bd49a86ce53922a8a">
+              <a href="structSoundInfo.html" class="m-doc">SoundInfo</a> <a href="#ac119981de3ca727bd49a86ce53922a8a" class="m-doc-self">gSoundInfo</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab14aa63bb64d3994de1f90435cb70b07">
+              void*const <a href="#ab14aa63bb64d3994de1f90435cb70b07" class="m-doc-self">gMPlayJumpTableTemplate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a209dd5699e6e687d73ad98299dd7c76b">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a209dd5699e6e687d73ad98299dd7c76b" class="m-doc-self">gScaleTable</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba908ce3fa939d54c085edae5662dcec">
+              const <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#aba908ce3fa939d54c085edae5662dcec" class="m-doc-self">gFreqTable</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a545bfeb49f0ed28b0f6ba04b8dfc23e1">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a545bfeb49f0ed28b0f6ba04b8dfc23e1" class="m-doc-self">gPcmSamplesPerVBlankTable</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a90a195a953e810172da85259052a025d">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a90a195a953e810172da85259052a025d" class="m-doc-self">gCgbScaleTable</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a915b0f14e1e5c2d405e8609d8db96b24">
+              const <a href="types_8h.html#aa980e2c02ba2305e0f489d5650655425" class="m-doc">s16</a> <a href="#a915b0f14e1e5c2d405e8609d8db96b24" class="m-doc-self">gCgbFreqTable</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a98358efcddb15bde52d4daf0c2c1f9e3">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a98358efcddb15bde52d4daf0c2c1f9e3" class="m-doc-self">gNoiseTable</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad901ff36bd89f214c89d6580ef13833e">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ad901ff36bd89f214c89d6580ef13833e" class="m-doc-self">gCgb3Vol</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61e6d09ca3a1b0322a9b09f9bfeeb10d">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a61e6d09ca3a1b0322a9b09f9bfeeb10d" class="m-doc-self">gClockTable</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac79729ff03f804082da5b5131352398f">
+              const <a href="m4a_8c.html#aa5d844390b25fbdde322935ebc63407e" class="m-doc">XcmdFunc</a> <a href="#ac79729ff03f804082da5b5131352398f" class="m-doc-self">gXcmdTable</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="af4dc9e8762766592a5305465d27fcdf6">
+              <span class="m-doc-wrap-bumper">#define <a href="#af4dc9e8762766592a5305465d27fcdf6" class="m-doc-self">ID_NUMBER</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a21534d7a9fab92ddd76d6e9a0bbbf88c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a21534d7a9fab92ddd76d6e9a0bbbf88c" class="m-doc-self">C_V</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a50b3dcfb7fd4f32c896cb6739860723a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a50b3dcfb7fd4f32c896cb6739860723a" class="m-doc-self">SOUND_MODE_REVERB_VAL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a880a1ea18425704edf6d7a172160e4ca">
+              <span class="m-doc-wrap-bumper">#define <a href="#a880a1ea18425704edf6d7a172160e4ca" class="m-doc-self">SOUND_MODE_REVERB_SET</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4b3219d0df0f10288a2b1f40fa9e3581">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4b3219d0df0f10288a2b1f40fa9e3581" class="m-doc-self">SOUND_MODE_MAXCHN</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a645f0c91d31386c66def2350a6ec0048">
+              <span class="m-doc-wrap-bumper">#define <a href="#a645f0c91d31386c66def2350a6ec0048" class="m-doc-self">SOUND_MODE_MAXCHN_SHIFT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a688128bd5f1cd391a5a1534393c7587c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a688128bd5f1cd391a5a1534393c7587c" class="m-doc-self">SOUND_MODE_MASVOL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adddb2b3f1edc49b4c82b42c3df4cf943">
+              <span class="m-doc-wrap-bumper">#define <a href="#adddb2b3f1edc49b4c82b42c3df4cf943" class="m-doc-self">SOUND_MODE_MASVOL_SHIFT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a839b0fbd5f34355259c397fc5463b281">
+              <span class="m-doc-wrap-bumper">#define <a href="#a839b0fbd5f34355259c397fc5463b281" class="m-doc-self">SOUND_MODE_FREQ_05734</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a400deb3364d7f52ad52de6a7c1958c48">
+              <span class="m-doc-wrap-bumper">#define <a href="#a400deb3364d7f52ad52de6a7c1958c48" class="m-doc-self">SOUND_MODE_FREQ_07884</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b67d8184bcac3d6381c0733905d4e13">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1b67d8184bcac3d6381c0733905d4e13" class="m-doc-self">SOUND_MODE_FREQ_10512</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4df56647eb45dc2d890c2ee6b43da58c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4df56647eb45dc2d890c2ee6b43da58c" class="m-doc-self">SOUND_MODE_FREQ_13379</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a590b3ca37430dce0779ee0ea1cf33cd6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a590b3ca37430dce0779ee0ea1cf33cd6" class="m-doc-self">SOUND_MODE_FREQ_15768</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87b4c0e264cb7f61109b7efdceb7bceb">
+              <span class="m-doc-wrap-bumper">#define <a href="#a87b4c0e264cb7f61109b7efdceb7bceb" class="m-doc-self">SOUND_MODE_FREQ_18157</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae43bc61bec02d4f4e58034cd26d6e19">
+              <span class="m-doc-wrap-bumper">#define <a href="#aae43bc61bec02d4f4e58034cd26d6e19" class="m-doc-self">SOUND_MODE_FREQ_21024</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a992d0a3c5329e5335454f8e9d1a25170">
+              <span class="m-doc-wrap-bumper">#define <a href="#a992d0a3c5329e5335454f8e9d1a25170" class="m-doc-self">SOUND_MODE_FREQ_26758</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c58762f3065e32959efc905711caab2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1c58762f3065e32959efc905711caab2" class="m-doc-self">SOUND_MODE_FREQ_31536</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a88b410e9e3c22c0eb032908d54346874">
+              <span class="m-doc-wrap-bumper">#define <a href="#a88b410e9e3c22c0eb032908d54346874" class="m-doc-self">SOUND_MODE_FREQ_36314</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01176adfb2f296437dfeb2a1817c3132">
+              <span class="m-doc-wrap-bumper">#define <a href="#a01176adfb2f296437dfeb2a1817c3132" class="m-doc-self">SOUND_MODE_FREQ_40137</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a72e50145ab64f711bef478d851d81618">
+              <span class="m-doc-wrap-bumper">#define <a href="#a72e50145ab64f711bef478d851d81618" class="m-doc-self">SOUND_MODE_FREQ_42048</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade4682c95ba863e66ca54091e2057640">
+              <span class="m-doc-wrap-bumper">#define <a href="#ade4682c95ba863e66ca54091e2057640" class="m-doc-self">SOUND_MODE_FREQ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9786779a8eb99f8c57a90497de71e659">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9786779a8eb99f8c57a90497de71e659" class="m-doc-self">SOUND_MODE_FREQ_SHIFT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad002bec4fa33ae4ca41f2564875224a6">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad002bec4fa33ae4ca41f2564875224a6" class="m-doc-self">SOUND_MODE_DA_BIT_9</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="affe940c7654c32051583585fb419fa1d">
+              <span class="m-doc-wrap-bumper">#define <a href="#affe940c7654c32051583585fb419fa1d" class="m-doc-self">SOUND_MODE_DA_BIT_8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1fbca1a3bb899b5e35d24206e31b3a8">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac1fbca1a3bb899b5e35d24206e31b3a8" class="m-doc-self">SOUND_MODE_DA_BIT_7</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a911bdf38379a5da910e32701a7dbfbcb">
+              <span class="m-doc-wrap-bumper">#define <a href="#a911bdf38379a5da910e32701a7dbfbcb" class="m-doc-self">SOUND_MODE_DA_BIT_6</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa5a03972fcfe404684e2068f4f92e48">
+              <span class="m-doc-wrap-bumper">#define <a href="#afa5a03972fcfe404684e2068f4f92e48" class="m-doc-self">SOUND_MODE_DA_BIT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3b3355f2982a7ccfff89363c88edc51">
+              <span class="m-doc-wrap-bumper">#define <a href="#af3b3355f2982a7ccfff89363c88edc51" class="m-doc-self">SOUND_MODE_DA_BIT_SHIFT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a716b9cd684669d154b8f4d01365499fb">
+              <span class="m-doc-wrap-bumper">#define <a href="#a716b9cd684669d154b8f4d01365499fb" class="m-doc-self">MAX_DIRECTSOUND_CHANNELS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac65c6d6fe0202ca93f125aaa8e59c256">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac65c6d6fe0202ca93f125aaa8e59c256" class="m-doc-self">PCM_DMA_BUF_SIZE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb9a64e8b1aa397064e59ccb262084b6">
+              <span class="m-doc-wrap-bumper">#define <a href="#adb9a64e8b1aa397064e59ccb262084b6" class="m-doc-self">MUSICPLAYER_STATUS_TRACK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35c3e59cae293cf8a5e449d57e801766">
+              <span class="m-doc-wrap-bumper">#define <a href="#a35c3e59cae293cf8a5e449d57e801766" class="m-doc-self">MUSICPLAYER_STATUS_PAUSE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e272c3922f957eca98eefb98127947c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9e272c3922f957eca98eefb98127947c" class="m-doc-self">MAX_MUSICPLAYER_TRACKS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53112978cc3447a33c6d77f39c55f0f3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a53112978cc3447a33c6d77f39c55f0f3" class="m-doc-self">TEMPORARY_FADE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a135b69f14519fe3a0a9e3f0d7ea60c25">
+              <span class="m-doc-wrap-bumper">#define <a href="#a135b69f14519fe3a0a9e3f0d7ea60c25" class="m-doc-self">FADE_IN</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e1f12bf84ecdd754439e2c64efe7938">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9e1f12bf84ecdd754439e2c64efe7938" class="m-doc-self">FADE_VOL_MAX</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d7d8271ccdbb3d34c023c73308a1c7f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9d7d8271ccdbb3d34c023c73308a1c7f" class="m-doc-self">FADE_VOL_SHIFT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a48ff119c67660c2190e3c2a701f4b7e0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a48ff119c67660c2190e3c2a701f4b7e0" class="m-doc-self">NUM_MUSIC_PLAYERS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a07e2b531c72985b064c431c05dfbc5fc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a07e2b531c72985b064c431c05dfbc5fc" class="m-doc-self">MAX_LINES</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac47ce1bed84cb9b41596f6764e5fa617">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac47ce1bed84cb9b41596f6764e5fa617" class="m-doc-self">SOUND_CHANNEL_SF_START</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9bc1023e501ab38a9ae6da71e6e21238">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9bc1023e501ab38a9ae6da71e6e21238" class="m-doc-self">SOUND_CHANNEL_SF_STOP</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53979d311f5bd9f470f39062507288fd">
+              <span class="m-doc-wrap-bumper">#define <a href="#a53979d311f5bd9f470f39062507288fd" class="m-doc-self">SOUND_CHANNEL_SF_LOOP</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4fcc1d1401951a36e30e253de7a7ac94">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4fcc1d1401951a36e30e253de7a7ac94" class="m-doc-self">SOUND_CHANNEL_SF_IEC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a814610733c544f925600ea477dc12bc1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a814610733c544f925600ea477dc12bc1" class="m-doc-self">SOUND_CHANNEL_SF_ENV</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abece8a939c9e2c2ff439797ccbe83cbb">
+              <span class="m-doc-wrap-bumper">#define <a href="#abece8a939c9e2c2ff439797ccbe83cbb" class="m-doc-self">SOUND_CHANNEL_SF_ENV_ATTACK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c25caf7438d9eec8854b89854ff9089">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8c25caf7438d9eec8854b89854ff9089" class="m-doc-self">SOUND_CHANNEL_SF_ENV_DECAY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11bd57d82793c402e2b6593f22c13efe">
+              <span class="m-doc-wrap-bumper">#define <a href="#a11bd57d82793c402e2b6593f22c13efe" class="m-doc-self">SOUND_CHANNEL_SF_ENV_SUSTAIN</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a474bb129e4dc6c1fbd9e92f7fb933910">
+              <span class="m-doc-wrap-bumper">#define <a href="#a474bb129e4dc6c1fbd9e92f7fb933910" class="m-doc-self">SOUND_CHANNEL_SF_ENV_RELEASE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e440f8c144fd690a34987953c4d8434">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2e440f8c144fd690a34987953c4d8434" class="m-doc-self">SOUND_CHANNEL_SF_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67fedc5587d9a1f1bd8770c64b764fc2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a67fedc5587d9a1f1bd8770c64b764fc2" class="m-doc-self">CGB_CHANNEL_MO_PIT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c7f13379334634c780a6bacc2c1b4f6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8c7f13379334634c780a6bacc2c1b4f6" class="m-doc-self">CGB_CHANNEL_MO_VOL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0329c460f5794878a4b7786d79ba89da">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0329c460f5794878a4b7786d79ba89da" class="m-doc-self">CGB_NRx2_ENV_DIR_DEC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5eab57d90528473d11457d16dd84ae09">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5eab57d90528473d11457d16dd84ae09" class="m-doc-self">CGB_NRx2_ENV_DIR_INC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abb982f5bf34fa354bbb59a6a442a045d">
+              <span class="m-doc-wrap-bumper">#define <a href="#abb982f5bf34fa354bbb59a6a442a045d" class="m-doc-self">REG_VCOUNT_8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a79e754cb04176f39b737878594f98248">
+              <span class="m-doc-wrap-bumper">#define <a href="#a79e754cb04176f39b737878594f98248" class="m-doc-self">MEMACC_COND_JUMP</a>(</span><span class="m-doc-wrap">cond)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5f1861aa0c7d2afa7060ace755571fe7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5f1861aa0c7d2afa7060ace755571fe7" class="m-doc-self">READ_XCMD_BYTE</a>(</span><span class="m-doc-wrap">var,
+              n)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

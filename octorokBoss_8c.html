@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/octorokBoss.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>octorokBoss.c <span class="m-thin">file</span>
+        </h1>
+        <p>Octorok boss enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="aedd92ab13c5bde0778d793fd265964d6">
+              <span class="m-doc-wrap-bumper">void <a href="#aedd92ab13c5bde0778d793fd265964d6" class="m-doc-self">OctorokBoss_Hit</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13e995d9c4d835226996b61c8bbf13e0">
+              <span class="m-doc-wrap-bumper">void <a href="#a13e995d9c4d835226996b61c8bbf13e0" class="m-doc-self">OctorokBoss_Action1</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12a1def441093df1730c001c82753e7c">
+              <span class="m-doc-wrap-bumper">void <a href="#a12a1def441093df1730c001c82753e7c" class="m-doc-self">OctorokBoss_Burning_SubAction1</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ceefcba5ac73970f930388f01307672">
+              <span class="m-doc-wrap-bumper">void <a href="#a3ceefcba5ac73970f930388f01307672" class="m-doc-self">sub_080368D8</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a37d85dc5e8996ceb5eb3eb60633d3142">
+              <span class="m-doc-wrap-bumper">void <a href="#a37d85dc5e8996ceb5eb3eb60633d3142" class="m-doc-self">sub_08036914</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a81a8b31b4e41cbc82f46ca67552d9c5f">
+              <span class="m-doc-wrap-bumper">void <a href="#a81a8b31b4e41cbc82f46ca67552d9c5f" class="m-doc-self">sub_08036998</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa29e8af1b5a7a7cae466a03a71dfd3e1">
+              <span class="m-doc-wrap-bumper">void <a href="#aa29e8af1b5a7a7cae466a03a71dfd3e1" class="m-doc-self">sub_080369D0</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>)</span>
+            </dt>
+            <dd>Calculate tail angles regular.</dd>
+            <dt id="ae14bf6ad30144ce47499230a73bf0d88">
+              <span class="m-doc-wrap-bumper">void <a href="#ae14bf6ad30144ce47499230a73bf0d88" class="m-doc-self">sub_08036AF0</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>)</span>
+            </dt>
+            <dd>Calculate tail angles frozen sub_08036AF0.</dd>
+            <dt id="aa0e3962a1259a53865804ac86ba34c16">
+              <span class="m-doc-wrap-bumper">void <a href="#aa0e3962a1259a53865804ac86ba34c16" class="m-doc-self">OctorokBoss_SetAttackTimer</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a364365ca8446542db0e0d893f07c6287">
+              <span class="m-doc-wrap-bumper">void <a href="#a364365ca8446542db0e0d893f07c6287" class="m-doc-self">OctorokBoss_ResetToSubAction0</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a305c28bba4df8f6c24515a8bc10362ad">
+              <span class="m-doc-wrap-bumper">void <a href="#a305c28bba4df8f6c24515a8bc10362ad" class="m-doc-self">OctorokBoss_WaitAnotherTurn</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4772860a36ea54115d1dc59f0f9a1d3e">
+              <span class="m-doc-wrap-bumper">void <a href="#a4772860a36ea54115d1dc59f0f9a1d3e" class="m-doc-self">OctorokBoss_SetWaitTurnsForNextAttack</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5ad6ff5a2185689cd6ce28d2fcba8122">
+              <span class="m-doc-wrap-bumper">void <a href="#a5ad6ff5a2185689cd6ce28d2fcba8122" class="m-doc-self">OctorokBoss_StartRegularAttack</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e817d32deac04884035e14daea25e95">
+              <span class="m-doc-wrap-bumper">void <a href="#a4e817d32deac04884035e14daea25e95" class="m-doc-self">OctorokBoss_ChangePalette</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a701e3e1d6d3e980870f337f6abf54747">
+              <span class="m-doc-wrap-bumper">void <a href="#a701e3e1d6d3e980870f337f6abf54747" class="m-doc-self">sub_08036F60</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67ddba42ea5d71f2ed428156163cd15e">
+              <span class="m-doc-wrap-bumper">void <a href="#a67ddba42ea5d71f2ed428156163cd15e" class="m-doc-self">OctorokBoss_StepSound</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad67ae709b3a2ad449b6d0dc6af239b22">
+              <span class="m-doc-wrap-bumper">void <a href="#ad67ae709b3a2ad449b6d0dc6af239b22" class="m-doc-self">sub_08036FE4</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a307233f5e32be3a36cf841d1ab999270">
+              <span class="m-doc-wrap-bumper">void <a href="#a307233f5e32be3a36cf841d1ab999270" class="m-doc-self">OctorokBoss_OnTick</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8efe6d5b8384317e974279767371f25">
+              <span class="m-doc-wrap-bumper">void <a href="#aa8efe6d5b8384317e974279767371f25" class="m-doc-self">OctorokBoss_OnDeath</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53420dcea63b9a0ed30f2076d98e0402">
+              <span class="m-doc-wrap-bumper">void <a href="#a53420dcea63b9a0ed30f2076d98e0402" class="m-doc-self">OctorokBoss_Hit_SubAction0</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace55fcc0df93d7f552d05495144f270d">
+              <span class="m-doc-wrap-bumper">void <a href="#ace55fcc0df93d7f552d05495144f270d" class="m-doc-self">OctorokBoss_Hit_SubAction1</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afabbd887ef26bf74a54456f1d32853ee">
+              <span class="m-doc-wrap-bumper">void <a href="#afabbd887ef26bf74a54456f1d32853ee" class="m-doc-self">OctorokBoss_Hit_SubAction2</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab632bd6ae84aa0e88a4577a11947449a">
+              <span class="m-doc-wrap-bumper">void <a href="#ab632bd6ae84aa0e88a4577a11947449a" class="m-doc-self">OctorokBoss_Hit_SubAction3</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a279ea9ffa97f84fe2f4fc4143d6e7e">
+              <span class="m-doc-wrap-bumper">void <a href="#a0a279ea9ffa97f84fe2f4fc4143d6e7e" class="m-doc-self">OctorokBoss_Hit_SubAction4</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af7094ab67f4db7294cbc596a3972fd67">
+              <span class="m-doc-wrap-bumper">void <a href="#af7094ab67f4db7294cbc596a3972fd67" class="m-doc-self">OctorokBoss_Hit_SubAction5</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5b5f4b4262309f8bfa14009adda4e3d">
+              <span class="m-doc-wrap-bumper">void <a href="#ab5b5f4b4262309f8bfa14009adda4e3d" class="m-doc-self">OctorokBoss_Hit_SubAction6</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5c679757cc94e916b85e4d208a8d8c58">
+              <span class="m-doc-wrap-bumper">void <a href="#a5c679757cc94e916b85e4d208a8d8c58" class="m-doc-self">OctorokBoss_Intro_SubAction0</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e5ca64e507082e15c6c4a89293b84d9">
+              <span class="m-doc-wrap-bumper">void <a href="#a1e5ca64e507082e15c6c4a89293b84d9" class="m-doc-self">OctorokBoss_Intro_SubAction1</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05c18259ddf76ac84bd906c5a4b8f1f9">
+              <span class="m-doc-wrap-bumper">void <a href="#a05c18259ddf76ac84bd906c5a4b8f1f9" class="m-doc-self">OctorokBoss_Intro_SubAction2</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a617bed121e789ebb2379b6d14084a97a">
+              <span class="m-doc-wrap-bumper">void <a href="#a617bed121e789ebb2379b6d14084a97a" class="m-doc-self">OctorokBoss_Intro_SubAction3</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acec7f9dbd22fba6b40a9103809fe6c30">
+              <span class="m-doc-wrap-bumper">void <a href="#acec7f9dbd22fba6b40a9103809fe6c30" class="m-doc-self">OctorokBoss_Intro_SubAction4</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c7c44a9425d92c065ed261e8626bc01">
+              <span class="m-doc-wrap-bumper">void <a href="#a8c7c44a9425d92c065ed261e8626bc01" class="m-doc-self">OctorokBoss_Intro_SubAction5</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0dd35ac5bb279a24430d68c943e032fe">
+              <span class="m-doc-wrap-bumper">void <a href="#a0dd35ac5bb279a24430d68c943e032fe" class="m-doc-self">OctorokBoss_Action1_AimTowardsPlayer</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3039728ecaeebc083e158c2e5d92e600">
+              <span class="m-doc-wrap-bumper">void <a href="#a3039728ecaeebc083e158c2e5d92e600" class="m-doc-self">OctorokBoss_Action1_WaitForTurn</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a101eabb3c37f2c902d23062a42ade9a6">
+              <span class="m-doc-wrap-bumper">void <a href="#a101eabb3c37f2c902d23062a42ade9a6" class="m-doc-self">OctorokBoss_Action1_WaitForAttack</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04caec031d1c891053e234fe7833f7d8">
+              <span class="m-doc-wrap-bumper">void <a href="#a04caec031d1c891053e234fe7833f7d8" class="m-doc-self">OctorokBoss_Action1_ChargeAttack</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac31fc53f82ea6472bf00124a1755f737">
+              <span class="m-doc-wrap-bumper">void <a href="#ac31fc53f82ea6472bf00124a1755f737" class="m-doc-self">OctorokBoss_Action1_Attack</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afe7aa99cf60b253e834f9420d6a093a8">
+              <span class="m-doc-wrap-bumper">void <a href="#afe7aa99cf60b253e834f9420d6a093a8" class="m-doc-self">OctorokBoss_Init</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac659a5abdddcf6ba816a6097948034b9">
+              <span class="m-doc-wrap-bumper">void <a href="#ac659a5abdddcf6ba816a6097948034b9" class="m-doc-self">OctorokBoss_Intro</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a350b08406ee62558716783c463f78e34">
+              <span class="m-doc-wrap-bumper">void <a href="#a350b08406ee62558716783c463f78e34" class="m-doc-self">OctorokBoss_Burning</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7097566cd60897d7052f88fac138baf7">
+              <span class="m-doc-wrap-bumper">void <a href="#a7097566cd60897d7052f88fac138baf7" class="m-doc-self">OctorokBoss_Action1_Attack_Type2_0</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa652c504b3cba47b40e6ab9fae5fdc7c">
+              <span class="m-doc-wrap-bumper">void <a href="#aa652c504b3cba47b40e6ab9fae5fdc7c" class="m-doc-self">OctorokBoss_Action1_Attack_Type2_1</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36fada28058f69da79d035902f26646f">
+              <span class="m-doc-wrap-bumper">void <a href="#a36fada28058f69da79d035902f26646f" class="m-doc-self">OctorokBoss_Action1_Attack_Type2_2</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3630a7e135b99def450d45c014d0897c">
+              <span class="m-doc-wrap-bumper">void <a href="#a3630a7e135b99def450d45c014d0897c" class="m-doc-self">OctorokBoss_Action1_Attack_Type2_3</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18a85c4e2a63b1a71663eb40c417a418">
+              <span class="m-doc-wrap-bumper">void <a href="#a18a85c4e2a63b1a71663eb40c417a418" class="m-doc-self">OctorokBoss_ExecuteAttackSpitRock</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad68d87c1378ddb660c00910dbd8490a6">
+              <span class="m-doc-wrap-bumper">void <a href="#ad68d87c1378ddb660c00910dbd8490a6" class="m-doc-self">OctorokBoss_ExecuteAttackVacuum</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab96df0e97b47b404aaf8bff8fcce0053">
+              <span class="m-doc-wrap-bumper">void <a href="#ab96df0e97b47b404aaf8bff8fcce0053" class="m-doc-self">OctorokBoss_ExecuteAttackSmoke</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adf56127c19238cfbceacb283f7a69d8e">
+              <span class="m-doc-wrap-bumper">void <a href="#adf56127c19238cfbceacb283f7a69d8e" class="m-doc-self">OctorokBoss_ExecuteAttackFreeze</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af917a97989b11e5193cffd746363d522">
+              <span class="m-doc-wrap-bumper">void <a href="#af917a97989b11e5193cffd746363d522" class="m-doc-self">OctorokBoss_Burning_SubAction0</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afd2fa1a1a1d428f5ca1a21a8b753da23">
+              <span class="m-doc-wrap-bumper">void <a href="#afd2fa1a1a1d428f5ca1a21a8b753da23" class="m-doc-self">OctorokBoss_Burning_SubAction2</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e98b85a107d29476b3c32d2ce6a3066">
+              <span class="m-doc-wrap-bumper">void <a href="#a1e98b85a107d29476b3c32d2ce6a3066" class="m-doc-self">OctorokBoss</a>(</span><span class="m-doc-wrap"><a href="structOctorokBossEntity.html" class="m-doc">OctorokBossEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a0950eb6e4a54ffa8ee9089892f4a21fb">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a0950eb6e4a54ffa8ee9089892f4a21fb" class="m-doc-self">gUnk_080CF08C</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a38301478e996cfc9e30920dd383042f9">
+              <span class="m-doc-wrap-bumper">#define <a href="#a38301478e996cfc9e30920dd383042f9" class="m-doc-self">IS_FROZEN</a>(</span><span class="m-doc-wrap">this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9313f758b5d961996e385c056d6aed18">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9313f758b5d961996e385c056d6aed18" class="m-doc-self">GET_TAIL_RADIUS</a>(</span><span class="m-doc-wrap">this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

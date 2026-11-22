@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/mazaalBracelet.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>mazaalBracelet.c <span class="m-thin">file</span>
+        </h1>
+        <p>Mazaal Bracelet enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a4204f66be78789900b4bf7ac8b4aa335">
+              <span class="m-doc-wrap-bumper">void <a href="#a4204f66be78789900b4bf7ac8b4aa335" class="m-doc-self">SoundReqClipped</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac761f71d65cf98515d5df6df68c67ca0">
+              <span class="m-doc-wrap-bumper">void <a href="#ac761f71d65cf98515d5df6df68c67ca0" class="m-doc-self">sub_0803B538</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7272d07bc2efecc985b91489b734022">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac7272d07bc2efecc985b91489b734022" class="m-doc-self">sub_0803B4E4</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30f8f366adae948d4b1a88ea26daac70">
+              <span class="m-doc-wrap-bumper">void <a href="#a30f8f366adae948d4b1a88ea26daac70" class="m-doc-self">sub_0803B55C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9fe8cbd0499400d5fe51c096e15f946a">
+              <span class="m-doc-wrap-bumper">void <a href="#a9fe8cbd0499400d5fe51c096e15f946a" class="m-doc-self">sub_0803B4D4</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d1d9aea6746912e7bf4ab97e5315195">
+              <span class="m-doc-wrap-bumper">void <a href="#a4d1d9aea6746912e7bf4ab97e5315195" class="m-doc-self">sub_0803B59C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a064f00ac4ac993de2ea783b1fc207d69">
+              <span class="m-doc-wrap-bumper">void <a href="#a064f00ac4ac993de2ea783b1fc207d69" class="m-doc-self">sub_0803B5C0</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a51fbb8054e3d6b95d8f218a56b30dcf0">
+              <span class="m-doc-wrap-bumper">auto <a href="#a51fbb8054e3d6b95d8f218a56b30dcf0" class="m-doc-self">sub_0803B610</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a601e710e2da28b818af237a01b046502">
+              <span class="m-doc-wrap-bumper">void <a href="#a601e710e2da28b818af237a01b046502" class="m-doc-self">sub_0803B63C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab863cf666e793eb8de354e85e3fbc43f">
+              <span class="m-doc-wrap-bumper">void <a href="#ab863cf666e793eb8de354e85e3fbc43f" class="m-doc-self">sub_0803B6A4</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17e22da67c8dcc6e57f4a908871870fb">
+              <span class="m-doc-wrap-bumper">auto <a href="#a17e22da67c8dcc6e57f4a908871870fb" class="m-doc-self">sub_0803B6F4</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acb6c9cd293b5ff2002a74baca2204eef">
+              <span class="m-doc-wrap-bumper">void <a href="#acb6c9cd293b5ff2002a74baca2204eef" class="m-doc-self">sub_0803B8E8</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba68ddca41e0672d35688a2c7b9c1e84">
+              <span class="m-doc-wrap-bumper">auto <a href="#aba68ddca41e0672d35688a2c7b9c1e84" class="m-doc-self">sub_0803B870</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5550719fc98c7abfc11f8976fa85f1bd">
+              <span class="m-doc-wrap-bumper">void <a href="#a5550719fc98c7abfc11f8976fa85f1bd" class="m-doc-self">sub_0803B824</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafaf2fbce4959b627b238f84b7d08e7c">
+              <span class="m-doc-wrap-bumper">void <a href="#aafaf2fbce4959b627b238f84b7d08e7c" class="m-doc-self">sub_0803B804</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa7186eb665bfee7a45fbdaee5686982">
+              <span class="m-doc-wrap-bumper">void <a href="#aaa7186eb665bfee7a45fbdaee5686982" class="m-doc-self">sub_0803B798</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f29a2478dc6ea351b50eb94eefa8a79">
+              <span class="m-doc-wrap-bumper">void <a href="#a3f29a2478dc6ea351b50eb94eefa8a79" class="m-doc-self">sub_0803BA8C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3875fdaed59586b20e7815b8c28c9552">
+              <span class="m-doc-wrap-bumper">void <a href="#a3875fdaed59586b20e7815b8c28c9552" class="m-doc-self">sub_0803B724</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4bddbf9a0424eee8a10073ab6ea832e8">
+              <span class="m-doc-wrap-bumper">void <a href="#a4bddbf9a0424eee8a10073ab6ea832e8" class="m-doc-self">MazaalBracelet_OnTick</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5303252ebeaf94393a0657cb642f0ac5">
+              <span class="m-doc-wrap-bumper">void <a href="#a5303252ebeaf94393a0657cb642f0ac5" class="m-doc-self">MazaalBracelet_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a791ac1fbb6fae00eb20ba75d343ca501">
+              <span class="m-doc-wrap-bumper">void <a href="#a791ac1fbb6fae00eb20ba75d343ca501" class="m-doc-self">MazaalBracelet_OnGrabbed</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e76f3aa45965ad55a8fbf5bc389b0d5">
+              <span class="m-doc-wrap-bumper">void <a href="#a1e76f3aa45965ad55a8fbf5bc389b0d5" class="m-doc-self">sub_0803A254</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af80cbae36427143be929bcf09fc645fd">
+              <span class="m-doc-wrap-bumper">void <a href="#af80cbae36427143be929bcf09fc645fd" class="m-doc-self">sub_0803B8F8</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a56c0809fe1416363bd1986a193521d52">
+              <span class="m-doc-wrap-bumper">void <a href="#a56c0809fe1416363bd1986a193521d52" class="m-doc-self">sub_0803A274</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a611f8b44128472c4d690cfabe5d9e08a">
+              <span class="m-doc-wrap-bumper">void <a href="#a611f8b44128472c4d690cfabe5d9e08a" class="m-doc-self">sub_0803A364</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29c54d0675dd0ce74df93d5583eaf547">
+              <span class="m-doc-wrap-bumper">void <a href="#a29c54d0675dd0ce74df93d5583eaf547" class="m-doc-self">sub_0803A548</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a782f902813393bc5119b87cd144e728f">
+              <span class="m-doc-wrap-bumper">void <a href="#a782f902813393bc5119b87cd144e728f" class="m-doc-self">sub_0803A58C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab95361182731d62429a09ad7cb2350aa">
+              <span class="m-doc-wrap-bumper">void <a href="#ab95361182731d62429a09ad7cb2350aa" class="m-doc-self">sub_0803A5D0</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0770dd20bdcfd45399853dd6cdea6628">
+              <span class="m-doc-wrap-bumper">void <a href="#a0770dd20bdcfd45399853dd6cdea6628" class="m-doc-self">sub_0803A60C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62372010689b570e09bcafa9e27170d2">
+              <span class="m-doc-wrap-bumper">void <a href="#a62372010689b570e09bcafa9e27170d2" class="m-doc-self">sub_0803A660</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a1c4c660966489eb63424b8f6d1756c">
+              <span class="m-doc-wrap-bumper">void <a href="#a4a1c4c660966489eb63424b8f6d1756c" class="m-doc-self">sub_0803A6E8</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5072eda70675bdb945d98c965ddd0f30">
+              <span class="m-doc-wrap-bumper">void <a href="#a5072eda70675bdb945d98c965ddd0f30" class="m-doc-self">sub_0803A720</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a306020d2c0f3cbc82f808b8722467d44">
+              <span class="m-doc-wrap-bumper">void <a href="#a306020d2c0f3cbc82f808b8722467d44" class="m-doc-self">sub_0803A740</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a98905904518e5320cdebc9f10137b040">
+              <span class="m-doc-wrap-bumper">void <a href="#a98905904518e5320cdebc9f10137b040" class="m-doc-self">sub_0803A780</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9710591dd1098cf023e970f3a9e04e77">
+              <span class="m-doc-wrap-bumper">void <a href="#a9710591dd1098cf023e970f3a9e04e77" class="m-doc-self">sub_0803A7AC</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="add092aa272b83f9cd46c214bd833ca46">
+              <span class="m-doc-wrap-bumper">void <a href="#add092aa272b83f9cd46c214bd833ca46" class="m-doc-self">sub_0803A7CC</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a019a13f08dc5b6ff949c29c06ffde1d1">
+              <span class="m-doc-wrap-bumper">void <a href="#a019a13f08dc5b6ff949c29c06ffde1d1" class="m-doc-self">sub_0803A814</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a33f26a9e78b2e1eebf87845a4572899d">
+              <span class="m-doc-wrap-bumper">void <a href="#a33f26a9e78b2e1eebf87845a4572899d" class="m-doc-self">sub_0803A86C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d769c59ebc8e2fda4eb68023debd199">
+              <span class="m-doc-wrap-bumper">void <a href="#a7d769c59ebc8e2fda4eb68023debd199" class="m-doc-self">sub_0803A8B8</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af5ed17f0343e46718ce66ed57d96ac3a">
+              <span class="m-doc-wrap-bumper">void <a href="#af5ed17f0343e46718ce66ed57d96ac3a" class="m-doc-self">sub_0803A90C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e9225b3bb4fd7b4130b50ef56a264fc">
+              <span class="m-doc-wrap-bumper">void <a href="#a4e9225b3bb4fd7b4130b50ef56a264fc" class="m-doc-self">sub_0803A978</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a656366fa44a8f7577de27a19d9fe5609">
+              <span class="m-doc-wrap-bumper">void <a href="#a656366fa44a8f7577de27a19d9fe5609" class="m-doc-self">sub_0803AA00</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a941959626cc229a859af398b3cb16e08">
+              <span class="m-doc-wrap-bumper">void <a href="#a941959626cc229a859af398b3cb16e08" class="m-doc-self">sub_0803AA98</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7978662d1c088ef53908a35e47a1d00">
+              <span class="m-doc-wrap-bumper">void <a href="#ae7978662d1c088ef53908a35e47a1d00" class="m-doc-self">sub_0803AB10</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7bd87a4cdc8bf1a8496f52a23a292766">
+              <span class="m-doc-wrap-bumper">void <a href="#a7bd87a4cdc8bf1a8496f52a23a292766" class="m-doc-self">sub_0803AB5C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a691779df4db25008f7da6550f24c0bc8">
+              <span class="m-doc-wrap-bumper">void <a href="#a691779df4db25008f7da6550f24c0bc8" class="m-doc-self">sub_0803ABB4</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a521e72cc84991dcb3f27f8dd07138c1b">
+              <span class="m-doc-wrap-bumper">void <a href="#a521e72cc84991dcb3f27f8dd07138c1b" class="m-doc-self">sub_0803AC1C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a95d7743a90ca5426eb3c1e57e51b5476">
+              <span class="m-doc-wrap-bumper">void <a href="#a95d7743a90ca5426eb3c1e57e51b5476" class="m-doc-self">sub_0803AC60</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a02d16af2085436b5c5af032a1f1ab2f5">
+              <span class="m-doc-wrap-bumper">void <a href="#a02d16af2085436b5c5af032a1f1ab2f5" class="m-doc-self">sub_0803ACC0</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4cd7526eff9cd42fdc6d9e84e12b89d">
+              <span class="m-doc-wrap-bumper">void <a href="#af4cd7526eff9cd42fdc6d9e84e12b89d" class="m-doc-self">sub_0803ADAC</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a03fa2689702cdf4257a7cf56c9aaa545">
+              <span class="m-doc-wrap-bumper">void <a href="#a03fa2689702cdf4257a7cf56c9aaa545" class="m-doc-self">sub_0803ADF4</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62e701b4dc906030779b8d4dcba3402a">
+              <span class="m-doc-wrap-bumper">void <a href="#a62e701b4dc906030779b8d4dcba3402a" class="m-doc-self">sub_0803AE48</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f29b5213070ddd70f39392404813d90">
+              <span class="m-doc-wrap-bumper">void <a href="#a3f29b5213070ddd70f39392404813d90" class="m-doc-self">sub_0803AEC4</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af52c1386ed361e8fdf71555f7e178a96">
+              <span class="m-doc-wrap-bumper">void <a href="#af52c1386ed361e8fdf71555f7e178a96" class="m-doc-self">sub_0803AF18</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a24c86d1ec7c96b348ba523217d352e0e">
+              <span class="m-doc-wrap-bumper">void <a href="#a24c86d1ec7c96b348ba523217d352e0e" class="m-doc-self">sub_0803AF50</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3fc3b74838e7d0f2f94830b56fcb904c">
+              <span class="m-doc-wrap-bumper">void <a href="#a3fc3b74838e7d0f2f94830b56fcb904c" class="m-doc-self">sub_0803AF7C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5159381c7ef335a5429548a236f32015">
+              <span class="m-doc-wrap-bumper">void <a href="#a5159381c7ef335a5429548a236f32015" class="m-doc-self">sub_0803AF9C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a686bfccde9e16919a8f8330791772cd1">
+              <span class="m-doc-wrap-bumper">void <a href="#a686bfccde9e16919a8f8330791772cd1" class="m-doc-self">sub_0803AFC8</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5cd6392692f3698e61df9806564fc198">
+              <span class="m-doc-wrap-bumper">void <a href="#a5cd6392692f3698e61df9806564fc198" class="m-doc-self">sub_0803AFE0</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6186ddcc2da471f94ccd5a49891488b7">
+              <span class="m-doc-wrap-bumper">void <a href="#a6186ddcc2da471f94ccd5a49891488b7" class="m-doc-self">sub_0803B01C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53c00ac6639dec92f37056673eac28e0">
+              <span class="m-doc-wrap-bumper">void <a href="#a53c00ac6639dec92f37056673eac28e0" class="m-doc-self">sub_0803B04C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a736c21a7326cae4a4301ca728c999423">
+              <span class="m-doc-wrap-bumper">void <a href="#a736c21a7326cae4a4301ca728c999423" class="m-doc-self">sub_0803B074</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae04a34d6a5110fa6b716568a5342064">
+              <span class="m-doc-wrap-bumper">void <a href="#aae04a34d6a5110fa6b716568a5342064" class="m-doc-self">sub_0803B0D4</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a19e8938459599ea5dafdf0fb2f91d2b0">
+              <span class="m-doc-wrap-bumper">void <a href="#a19e8938459599ea5dafdf0fb2f91d2b0" class="m-doc-self">sub_0803B100</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9b0e5f0eebc05f1498c92b2a007ca2ec">
+              <span class="m-doc-wrap-bumper">void <a href="#a9b0e5f0eebc05f1498c92b2a007ca2ec" class="m-doc-self">sub_0803B144</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a65098b9e48689c2fa122ee28d767b24d">
+              <span class="m-doc-wrap-bumper">void <a href="#a65098b9e48689c2fa122ee28d767b24d" class="m-doc-self">sub_0803B17C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00f2e22ab631af5d768f787ebd435f71">
+              <span class="m-doc-wrap-bumper">void <a href="#a00f2e22ab631af5d768f787ebd435f71" class="m-doc-self">sub_0803B1B8</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d3379794dd3c6dfbdd63a88f814b35f">
+              <span class="m-doc-wrap-bumper">void <a href="#a4d3379794dd3c6dfbdd63a88f814b35f" class="m-doc-self">sub_0803B2D0</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af652666f0fa8b2821e3e6d8177aba2d5">
+              <span class="m-doc-wrap-bumper">void <a href="#af652666f0fa8b2821e3e6d8177aba2d5" class="m-doc-self">sub_0803B30C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62a48de447ee52055f68ccdbcfea3b88">
+              <span class="m-doc-wrap-bumper">void <a href="#a62a48de447ee52055f68ccdbcfea3b88" class="m-doc-self">sub_0803B338</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa784144df6fea38078a384760b1e1fb2">
+              <span class="m-doc-wrap-bumper">void <a href="#aa784144df6fea38078a384760b1e1fb2" class="m-doc-self">sub_0803B35C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a628e97df8552afb1054a6e6e8649ed9a">
+              <span class="m-doc-wrap-bumper">void <a href="#a628e97df8552afb1054a6e6e8649ed9a" class="m-doc-self">sub_0803B398</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11d9e83d793f9b220f05568449313cce">
+              <span class="m-doc-wrap-bumper">void <a href="#a11d9e83d793f9b220f05568449313cce" class="m-doc-self">sub_0803B3F4</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a92d443c29b044dfa7519d3086822a6db">
+              <span class="m-doc-wrap-bumper">void <a href="#a92d443c29b044dfa7519d3086822a6db" class="m-doc-self">sub_0803B480</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0dc79bd1b6b5b3071180e99e8d4a51c1">
+              <span class="m-doc-wrap-bumper">void <a href="#a0dc79bd1b6b5b3071180e99e8d4a51c1" class="m-doc-self">sub_0803B910</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeec341ec25a027f139bcbcb03768a872">
+              <span class="m-doc-wrap-bumper">void <a href="#aeec341ec25a027f139bcbcb03768a872" class="m-doc-self">sub_0803B978</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a575695ba9e213d353f6411ef5792c8de">
+              <span class="m-doc-wrap-bumper">void <a href="#a575695ba9e213d353f6411ef5792c8de" class="m-doc-self">sub_0803BA6C</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2673e9c5a5136f139ab04b6320a6fa37">
+              <span class="m-doc-wrap-bumper">void <a href="#a2673e9c5a5136f139ab04b6320a6fa37" class="m-doc-self">sub_0803BA80</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04567ddb6992fa6bd3744612e2e27180">
+              <span class="m-doc-wrap-bumper">void <a href="#a04567ddb6992fa6bd3744612e2e27180" class="m-doc-self">MazaalBracelet</a>(</span><span class="m-doc-wrap"><a href="structMazaalBraceletEntity.html" class="m-doc">MazaalBraceletEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="ab76d7259e14ed974a9c896902d62b5dd">
+              void(*const <a href="#ab76d7259e14ed974a9c896902d62b5dd" class="m-doc-self">MazaalBracelet_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d6f3cccee2c1f17ef62780134363c58">
+              void(*const <a href="#a0d6f3cccee2c1f17ef62780134363c58" class="m-doc-self">gUnk_080CFC2C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c0f8b228e6f53d83a69b033706adc7c">
+              void(*const <a href="#a6c0f8b228e6f53d83a69b033706adc7c" class="m-doc-self">gUnk_080CFC3C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a96edb456b039e233eced0be4e19ae2c0">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a96edb456b039e233eced0be4e19ae2c0" class="m-doc-self">gUnk_080CFD08</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ae0a3bea7a10193353825543ad87af0">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a9ae0a3bea7a10193353825543ad87af0" class="m-doc-self">gUnk_080CFD0A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f9ab11201a306ad25762fa34db039b9">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a1f9ab11201a306ad25762fa34db039b9" class="m-doc-self">gUnk_080CFD0C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87eeb67c7fbf8b7d3348a9dbaace6a6a">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a87eeb67c7fbf8b7d3348a9dbaace6a6a" class="m-doc-self">gUnk_080CFD19</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4f1139f7ea2da7e3ba6f273f8b2846cc">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a4f1139f7ea2da7e3ba6f273f8b2846cc" class="m-doc-self">gUnk_080CFD1B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad90dca0f6bc36946db6caf4c8c329e24">
+              const <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#ad90dca0f6bc36946db6caf4c8c329e24" class="m-doc-self">gUnk_080CFD1D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2c26fdb0f4cf52c1b4c68b82f3f74bb">
+              void(*const <a href="#af2c26fdb0f4cf52c1b4c68b82f3f74bb" class="m-doc-self">gUnk_080CFD20</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7012560eb7cea465993439ed12fa12c">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ad7012560eb7cea465993439ed12fa12c" class="m-doc-self">gUnk_080CFD30</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85bb1449f51777cad383cc8dfd01a064">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a85bb1449f51777cad383cc8dfd01a064" class="m-doc-self">gUnk_080CFD44</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c712c4e1a5239db98d25bf9d96186a8">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a4c712c4e1a5239db98d25bf9d96186a8" class="m-doc-self">gUnk_080CFD58</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adfa7cb59e7d9ad8958f301bb0fd91844">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#adfa7cb59e7d9ad8958f301bb0fd91844" class="m-doc-self">gUnk_080CFD5C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a783325bd53d6645e0cadcac6241f154c">
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a783325bd53d6645e0cadcac6241f154c" class="m-doc-self">gUnk_080CED6C</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

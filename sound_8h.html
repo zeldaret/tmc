@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/sound.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span>sound.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structSoundPlayingInfo.html" class="m-doc">SoundPlayingInfo</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a78d488655886fd6a1355b1162fba927f">
+              <span class="m-doc-wrap-bumper">enum <a href="#a78d488655886fd6a1355b1162fba927f" class="m-doc-self">Sound</a> { </span><span class="m-doc-wrap"><a href="#a78d488655886fd6a1355b1162fba927fa937e44f7105500ec5ac607775d7a8bcc" class="m-doc">SFX_NONE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf61f9a353ac9c578874b30103d9954a6" class="m-doc">BGM_CASTLE_TOURNAMENT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9f94bf99cd8cdafcf1f6a4dacbb70766" class="m-doc">BGM_VAATI_MOTIF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faae651c3818e1aa345b69a70dd6157297" class="m-doc">BGM_TITLE_SCREEN</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabcb434095ca693114bc2f35616cc166c" class="m-doc">BGM_CASTLE_MOTIF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4143cccaa1e9731dd745f211486a6479" class="m-doc">BGM_ELEMENT_GET</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad8fe333f637197ee3f27d46f0ecb53d9" class="m-doc">BGM_FAIRY_FOUNTAIN</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1814140e0c3c9d85a66fbb857b6ff63a" class="m-doc">BGM_FILE_SELECT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa63755a88fb727dc0f6db8f78ba3c838c" class="m-doc">BGM_INTRO_CUTSCENE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa2bba684de4e6caa7685656508228454" class="m-doc">BGM_CREDITS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa01a760d4a41dcf603adc023f55a31a9" class="m-doc">BGM_GAMEOVER</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4c3fa0869f928e3a95455ed52ffb237b" class="m-doc">BGM_SAVING_ZELDA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa89b1f4b4b98dae499a25f83c154c1cf0" class="m-doc">BGM_LTTP_TITLE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faee4b6ab3ddcde172eca7ce894fcc4c6b" class="m-doc">BGM_VAATI_THEME</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2fb31d1e7249648a402b5b4473568510" class="m-doc">BGM_EZLO_THEME</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9e5b424233c6943183808fd436bd4b32" class="m-doc">BGM_STORY</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2acdb7cb1c53babd4a76ef8169eafb90" class="m-doc">BGM_FESTIVAL_APPROACH</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1c10490fbb86359c99aa2e6a3db6bddd" class="m-doc">BGM_BEAT_VAATI</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3b946610ac184f642855544410fe0f7a" class="m-doc">BGM_UNUSED_12</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1f982a0a70d4f5e78d7663f5bddec59a" class="m-doc">BGM_BEANSTALK</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8aabdc0e94457a7d8ec8f642663627f8" class="m-doc">BGM_HOUSE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facb46696b7c763d1da97d6289362bdb56" class="m-doc">BGM_CUCCO_MINIGAME</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fada668b0b36aa21cf7c7f2ecfd60d72ac" class="m-doc">BGM_SYRUP_THEME</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa96959329e1b1d9fb2b2b59056bf21be8" class="m-doc">BGM_DUNGEON</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab7e07fb51b74bb30857d5fbc75c2e9dc" class="m-doc">BGM_ELEMENT_THEME</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa8dc03df4dcfd29990feb3f40f7bd4c6" class="m-doc">BGM_HYRULE_FIELD</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa620f4ffd5c5b0283dbe125ce22c32952" class="m-doc">BGM_HYRULE_CASTLE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad8f3fa71e38dc835129755a78082cedf" class="m-doc">BGM_HYRULE_CASTLE_NOINTRO</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa45010b7c1686258b09f7f233d0e86679" class="m-doc">BGM_MINISH_VILLAGE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa76da55ae2ca3ced5b1fb0eed596fd468" class="m-doc">BGM_MINISH_WOODS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab6bcbbe01c7240003cd519e1b3f41678" class="m-doc">BGM_CRENEL_STORM</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabbf76f5f6d81f6b56395df732e3b9d1e" class="m-doc">BGM_CASTOR_WILDS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5b250dfb307cc8c9d6314d2adca27c4f" class="m-doc">BGM_HYRULE_TOWN</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3bd41aabfa9a64b4f3606625e2d3ed92" class="m-doc">BGM_ROYAL_VALLEY</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faed1b98a532bd28f6a2cc11145055be72" class="m-doc">BGM_CLOUD_TOPS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa832453aebc4997d0f42ed74d331fdbad" class="m-doc">BGM_DARK_HYRULE_CASTLE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadb80cf2326b995f29f121c3cdce7c817" class="m-doc">BGM_SECRET_CASTLE_ENTRANCE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faee0da8298bfb6388a379ebb110729c77" class="m-doc">BGM_DEEPWOOD_SHRINE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0c4807e8209e76e9d7da7da850680ee0" class="m-doc">BGM_CAVE_OF_FLAMES</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9a565d418191b20d01f35bb8ba719dc6" class="m-doc">BGM_FORTRESS_OF_WINDS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6f6ddace7e8aa6f7453ffb8972e848af" class="m-doc">BGM_TEMPLE_OF_DROPLETS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa948f6d6676afa0dc74fa3c1b494010d9" class="m-doc">BGM_PALACE_OF_WINDS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0c1cf0d0a20890d71421f295f8b440a2" class="m-doc">BGM_EZLO_STORY</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa17c19c0a1b258da09da56e5f2d1c0be0" class="m-doc">BGM_ROYAL_CRYPT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7845d456fec168856540e642dca0034e" class="m-doc">BGM_ELEMENTAL_SANCTUARY</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9657cc61f10b2ce53324812a72ce9b36" class="m-doc">BGM_FIGHT_THEME</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa27f7d0e2cedfa7cc05a6059c3f59824a" class="m-doc">BGM_BOSS_THEME</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facce677df30c3d84bffcf230ae3ba8c08" class="m-doc">BGM_VAATI_REBORN</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa07aa9c0a5abe5770b3c22b1fea4a180c" class="m-doc">BGM_VAATI_TRANSFIGURED</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac155aa42eb2cd561e5d6917eb29139d6" class="m-doc">BGM_CASTLE_COLLAPSE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4b2c828cd094c3e11391205da3d8b875" class="m-doc">BGM_VAATI_WRATH</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad1c7fdbad0d64ab473bb8576e3e1f2ec" class="m-doc">BGM_FIGHT_THEME2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa52cf964abb4f8632ac07697ff4051761" class="m-doc">BGM_DIGGING_CAVE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa13d23dfb9f8154f63fbd7344f69243c" class="m-doc">BGM_SWIFTBLADE_DOJO</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad673c093e03c94917c82185beb12977d" class="m-doc">BGM_MINISH_CAP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa93545943a32109e36811500481814576" class="m-doc">BGM_MT_CRENEL</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa44056f4ab1ff61f3d156a9e66e7c996f" class="m-doc">BGM_PICORI_FESTIVAL</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faab8dcb5d76e1ba5f5ad46c9df47a6911" class="m-doc">BGM_LOST_WOODS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad77c30552686cc08c0a8198a81c39e81" class="m-doc">BGM_FAIRY_FOUNTAIN2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0b2ecb356691dca5d41ee064f3130522" class="m-doc">BGM_WIND_RUINS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6c5a1aedce7ba54e211b19ca656daeec" class="m-doc">BGM_UNUSED_3C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5c4f6bf95f4a7fc61578f345ed71a601" class="m-doc">BGM_UNUSED_3D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad2970739a6810cbfd00d93ae8767d8d2" class="m-doc">BGM_UNUSED_3E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabe3dfd25ed10ed2da58295187d3de2c5" class="m-doc">BGM_UNUSED_3F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf023effbf2a3754dd0c77ba970db8276" class="m-doc">BGM_UNUSED_40</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab5fa2af29a8dde77d72fb78f7bd9d5c7" class="m-doc">BGM_UNUSED_41</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae83c3002a4efce58f4fb46133a458a18" class="m-doc">BGM_UNUSED_42</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6aad57d1906b9b880e0898e7ce667cda" class="m-doc">BGM_UNUSED_43</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1876d8c406511a03fdb069a17cbd8c71" class="m-doc">BGM_UNUSED_44</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa17fbdeb19018a371ae4d5f80c858e8cb" class="m-doc">BGM_UNUSED_45</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab17df74dece8e093fb317fb0194b3a2e" class="m-doc">BGM_UNUSED_46</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabc0ddaa9ce8efc0b1c32c289d4ede5e6" class="m-doc">BGM_UNUSED_47</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faadb30b032bc9b6a2b4e8ab03115a912b" class="m-doc">BGM_UNUSED_48</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa498765b88519cc40b559100ef3603c43" class="m-doc">BGM_UNUSED_49</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa53d899bf7d0208911f3961b40bccdc5c" class="m-doc">BGM_UNUSED_4A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa50fdefed07ecb43e0e4d8f68c3fd8022" class="m-doc">BGM_UNUSED_4B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae28d7d7a4da813d0ff0fd2cb3918f263" class="m-doc">BGM_UNUSED_4C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad711b8c9c53b67691331b90ced8cbb9d" class="m-doc">BGM_UNUSED_4D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab758a88643d07667f04769219d9708d9" class="m-doc">BGM_UNUSED_4E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafe18e904f52e087744a8a361472435f1" class="m-doc">BGM_UNUSED_4F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa60ab2b6861f3572444f59f865d85dbed" class="m-doc">BGM_UNUSED_50</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad53f1ca1483635cd01cb7626a457f49c" class="m-doc">BGM_UNUSED_51</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8ed562d6a8ab8ecf75a8950afcdf8d69" class="m-doc">BGM_UNUSED_52</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabf8b08eba4b805014b2b8f9b0ee31546" class="m-doc">BGM_UNUSED_53</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa732013498be87f55e7b8379bb3c4d57f" class="m-doc">BGM_UNUSED_54</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafb8cd57e72cad79284c6d9c8407e9e9b" class="m-doc">BGM_UNUSED_55</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1c999790737ee26d08231830835cd2ca" class="m-doc">BGM_UNUSED_56</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa682a794764e76ea9110661cd6e74ccb8" class="m-doc">BGM_UNUSED_57</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa2869c2da20dd6d392cc77ed1924e056" class="m-doc">BGM_UNUSED_58</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa43c30983ac52237fb84b30c3d244e12d" class="m-doc">BGM_UNUSED_59</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa093fc421b7ae875d3bf94060915e73c1" class="m-doc">BGM_UNUSED_5A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7f45f3fcdb5c1a41404a456335c147d6" class="m-doc">BGM_UNUSED_5B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa529f16386eca2fc90e72394094a9abad" class="m-doc">BGM_UNUSED_5C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6e003c7c0e9fee35e9ce210817caacc8" class="m-doc">BGM_UNUSED_5D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0a9ff943fb46b0539b650c543c104dda" class="m-doc">BGM_LEARN_SCROLL</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa897b0bf061f1d22927d28f2ca15f2feb" class="m-doc">BGM_EZLO_GET</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabb4bad2522403d9481cfbabd99a8cf4f" class="m-doc">BGM_UNUSED_60</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4a6bc0b991677db45616cd7aef971b58" class="m-doc">BGM_UNUSED_61</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa98c364289f3f02c318ffd76fa44312ca" class="m-doc">BGM_UNUSED_62</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa42cdd2132349d2b4f8b76b4f55fced03" class="m-doc">BGM_UNUSED_63</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4f9456c465a2d5257969124272950f6f" class="m-doc">SFX_BEEP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa73d5c0bff831a97c8eedaaf222f59497" class="m-doc">SFX_TEXTBOX_OPEN</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faedd2f18e5d97ee64fba12b403f53eb69" class="m-doc">SFX_TEXTBOX_CLOSE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4fe602d0e6f34b49bf7663396e74a409" class="m-doc">SFX_TEXTBOX_NEXT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa140720c9bb4f1838ca39274a3083ba7e" class="m-doc">SFX_TEXTBOX_SWAP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa42f8ea8d244ecbe37bc27f8534013b03" class="m-doc">SFX_TEXTBOX_CHOICE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa181485a7c7658c7691b3114b1a330094" class="m-doc">SFX_TEXTBOX_SELECT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabca046e80ad74abd3fedb1518820ee96" class="m-doc">SFX_6B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadd18c2356d42e102b7ab6e65690cf6a3" class="m-doc">SFX_MENU_CANCEL</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafe35ed1a65f0c54924ea88a712b4ff42" class="m-doc">SFX_MENU_ERROR</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa62693b659055e3b0597e095200ee43f" class="m-doc">SFX_RUPEE_BOUNCE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa68f42378c68ef477ff6afaa194260b4a" class="m-doc">SFX_RUPEE_GET</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa51df1df3c73064baecb5722668d6f2c1" class="m-doc">SFX_HEART_BOUNCE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facfe955afc73729d1032dec74b7e9e079" class="m-doc">SFX_HEART_GET</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa96ca2e20d990608fbe2e9fa5fb58ea2f" class="m-doc">SFX_SECRET</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadaf15f18d94b52bf2369138cb8326d31" class="m-doc">SFX_SECRET_BIG</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6d237ad1982cd00ad075fe66f93183d1" class="m-doc">SFX_METAL_CLINK</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faaadc704da50601f444ac47770edfe772" class="m-doc">SFX_PLY_VO1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabd10dde894260b2e494545d5f83cc73b" class="m-doc">SFX_PLY_VO2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa558ed56a79a783dcd4891398037492f8" class="m-doc">SFX_PLY_VO3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa698255c235fc287a3c5c1fb8ca1ecc30" class="m-doc">SFX_PLY_VO4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa96ededf444abdf9c09fc64e442af29ee" class="m-doc">SFX_PLY_VO5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9932b848317b479ca57b009bd2cb4d0f" class="m-doc">SFX_PLY_VO6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa08a7c342f4860ead09528b86e2ba5624" class="m-doc">SFX_PLY_VO7</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1b4c06bb5f8bed82f2abbad57e5c8fe6" class="m-doc">SFX_PLY_JUMP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad8e04ec21772a91b47ddbba946f0e636" class="m-doc">SFX_PLY_LAND</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3f1f5bb4db9215416e411602880b0f58" class="m-doc">SFX_7E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf13d206b1fcd4181791486ff4705080f" class="m-doc">SFX_PLY_LIFT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facd22c6003ce3f0386190617379d3b460" class="m-doc">SFX_80</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadb5bb46731e206eca03d41bb4984a753" class="m-doc">SFX_81</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5cde364008ebfcee2ebc37a084db0c6e" class="m-doc">SFX_82</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9b29d29d14c3330a8e1005eff11e4495" class="m-doc">SFX_WATER_WALK</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa701cc080a9bb98e472c30fabf79ebdab" class="m-doc">SFX_WATER_SPLASH</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac2733a68e56232d8738c69bc4ae3fa7e" class="m-doc">SFX_FALL_HOLE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab9292ccb4d33c35b49690e93061b0773" class="m-doc">SFX_86</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faef53dec99a5a5046034ce9728e2c8c4d" class="m-doc">SFX_PLY_DIE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa68e99d06a7fb7fc3af7fb753f580f30" class="m-doc">SFX_GRAB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae339535b454a32ae4bb43aff4fe078d4" class="m-doc">SFX_BARREL_RELEASE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae4dabc848fbec85674956b24906221c3" class="m-doc">SFX_BARREL_ENTER</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadca56426d03d87952429f107d0d680b4" class="m-doc">SFX_BARREL_ROLL</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1b45edbfd4319a30bd108719ae25b32c" class="m-doc">SFX_BARREL_ROLL_STOP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6fb4d29c63607466bb7bdb6b96be5fe0" class="m-doc">SFX_VO_EZLO1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4aca584b813ba555e1e8810131db7ff2" class="m-doc">SFX_VO_EZLO2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa240230a563de3980f189a2fe6123ed2" class="m-doc">SFX_VO_EZLO3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1c3307d9f21fa9b2f7f24c544257935f" class="m-doc">SFX_VO_EZLO4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faadf96f8cb5f2ec94cc2a5102c65cf7d8" class="m-doc">SFX_VO_EZLO5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa59ec92c233e377201236ea52bf2a304b" class="m-doc">SFX_VO_EZLO6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6e1c45969384ec7103f8eab5374d5d20" class="m-doc">SFX_VO_EZLO7</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7564a11dd9c0f4be5eafdb57870825e4" class="m-doc">SFX_VO_ZELDA1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9085940b7d0bb8fbd22b3dfd75cd1d19" class="m-doc">SFX_VO_ZELDA2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa7094f0b6df574b014c9405d319b219b" class="m-doc">SFX_VO_ZELDA3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4c4afd7ed8634cf8b911f226759345ba" class="m-doc">SFX_VO_ZELDA4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabfb70ee543092c4159c03e7788a18e17" class="m-doc">SFX_VO_ZELDA5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa63e658a07dc80979195b84f7f8e53c4e" class="m-doc">SFX_VO_ZELDA6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0e6aca0d15768a2f223c4e8c6839f039" class="m-doc">SFX_VO_ZELDA7</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faacfbd5497e9f907647d4527ca161b1f6" class="m-doc">SFX_9B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1d576092f8a7d9ef742e62f47737a5cb" class="m-doc">SFX_9C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa67973297950fc9ea4d239f568b78dfa4" class="m-doc">SFX_9D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5b9df84196eafbfb6331c342e23f52dc" class="m-doc">SFX_9E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa90df32ee220dedd5d09d4d84d548170" class="m-doc">SFX_9F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa259fc4b83bbcb4611c18889195fc8dcb" class="m-doc">SFX_A0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa29b3597ddcae20498b7f25d99f7d2207" class="m-doc">SFX_VO_TINGLE1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadfdb72e7a7a3d2bfa68cc063d70196db" class="m-doc">SFX_VO_TINGLE2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3be8e1a334fd937421cf46b0747c0855" class="m-doc">SFX_VO_KING1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3e00a37f5bf65b82ccfbd6c8b987fa67" class="m-doc">SFX_VO_KING2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf2b69e712b4fce7a042d72ca31429fcf" class="m-doc">SFX_VO_KING3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa11fe4137e9308d28ad656cdc785f48f0" class="m-doc">SFX_VO_KING4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafa7263bcea5c00d86449725343d3da48" class="m-doc">SFX_VO_KING5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9ec02e070852097bf4e4df3ddb6f80aa" class="m-doc">SFX_A8</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1aa9408375184de6538b4d64ef32dd31" class="m-doc">SFX_A9</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1c076eeb7ad27d319b3a873f4017d1b2" class="m-doc">SFX_AA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6bdcb4aa89619f4d1962febd03bf0861" class="m-doc">SFX_SPIRITS_RELEASE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2032d225a81cd7c98fbc04eeeeae776b" class="m-doc">SFX_AC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae23a78f6e7b393152f30538db51fffb2" class="m-doc">SFX_VO_BEEDLE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa46ab7f2eb5e61fa93d24780934de4b03" class="m-doc">SFX_AE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa79117745d8f645ba697fda32eb93d1e6" class="m-doc">SFX_AF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa01852f8ac3f951dc6d15142cf6f6eae7" class="m-doc">SFX_B0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa689d39c66b25d717e22a17f80d92bcbb" class="m-doc">SFX_VO_MINISH1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7cabfbd6d04c112fabd8ce7ce01503ce" class="m-doc">SFX_VO_MINISH2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3bd432fd951e123d36cd4731f9d4adcd" class="m-doc">SFX_VO_MINISH3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa916c7de85dfbd01433adff133f01585b" class="m-doc">SFX_VO_MINISH4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3f09fff3d131482b487220d9b65b42e9" class="m-doc">SFX_B5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac2efb18a40fc6c2a329006b5994cb828" class="m-doc">SFX_B6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7ed12437878b0f7b85b6b50587e36a9a" class="m-doc">SFX_B7</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafc02df7cc4aa7244eba93b8e267e212e" class="m-doc">SFX_B8</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad174adec9f9f36f3051ddb0a5ae4bd5e" class="m-doc">SFX_B9</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0b52df077370af1231458e5106017a87" class="m-doc">SFX_BA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa624f9a383800d63109602bfb2d7a3293" class="m-doc">SFX_BB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab955cdf587e4505e4e4cb730d6de5096" class="m-doc">SFX_BC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5bfd7a5a0946e299af3681c720bbf62d" class="m-doc">SFX_BD</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa959320f2ab81defe71d369adfe480809" class="m-doc">SFX_BE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabf3ae83c35d3d1253d91488a8528479a" class="m-doc">SFX_BF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7543924e8d4cf03a6556ebb9dc246bd0" class="m-doc">SFX_C0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac46af9a4ab86b1da91eeeb46c95ea933" class="m-doc">SFX_C1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8aac61548f07df4d752372634d1c4b07" class="m-doc">SFX_C2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabc7e7a5bfd0f846c83563f020b26985e" class="m-doc">SFX_C3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0fed870ad86f4e89e17b9b8c4a015652" class="m-doc">SFX_C4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa779ec731dba16da4dbea57949fc34813" class="m-doc">SFX_C5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad5217be5cdc83202c430ad5168b19028" class="m-doc">SFX_C6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1424040cddae71ac5df757d300235516" class="m-doc">SFX_C7</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa35061538f7bb926a0dfd3bed6befc686" class="m-doc">SFX_C8</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa74202db9a452b2f58656f7377ca6304b" class="m-doc">SFX_C9</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa874960015bd8b858f3f72f5ea2d085ad" class="m-doc">SFX_CA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4e6c10e86c1f726bb74d9802aeb9c25d" class="m-doc">SFX_CB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa14ac0c3d646a8a0bd418d658639bfbe0" class="m-doc">SFX_REM_SLEEP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabcecca168a2f9944812f13413bdb921a" class="m-doc">SFX_TASK_COMPLETE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa96e13ad7ac670366392ea0d458655407" class="m-doc">SFX_KEY_APPEAR</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facb53dd3c3ec41cfb046cc99da1c16cff" class="m-doc">SFX_CF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1d3caed2ecfe81b8ccbe9b277ad75f8a" class="m-doc">SFX_D0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa43bece37d3f9eded29b9c913574994fa" class="m-doc">SFX_VO_DOG</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa940ab5f20f69fde6f428366af0ff99f4" class="m-doc">SFX_VO_CAT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa569d50cdaa7a6db2a5dfdbf3ce07ee9c" class="m-doc">SFX_VO_EPONA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6c3446a26eeeb0e235da9db9c757b5fa" class="m-doc">SFX_VO_COW</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab101ba9eba38068b0ed707d4071357e4" class="m-doc">SFX_VO_CUCCO_CALL</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa37411381b1dfbd6db9aef30d73ff5018" class="m-doc">SFX_VO_CHEEP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa63b5fd90ace2c6a35b62fbbeca93e937" class="m-doc">SFX_ITEM_SWORD_CHARGE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa514622e8c7af32121a2748ae33b2cce5" class="m-doc">SFX_ITEM_SWORD_CHARGE_FINISH</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa748b92ae76c865d9b19826fc0f24c070" class="m-doc">SFX_D9</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8d62d24865c190052b3a35f99c102e8a" class="m-doc">SFX_DA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa926f6831e0fa855240a9271c74fc3fd5" class="m-doc">SFX_VO_STURGEON</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faefbd7efec5021ff3ffbaf0803a08bc2f" class="m-doc">SFX_HAMMER1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad58fc64f5683f0b4c362d41c1bb8c766" class="m-doc">SFX_HAMMER2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac326482fa8376f8d533147b74c9ec882" class="m-doc">SFX_HAMMER3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae5233a182963bbf8ca7b9c2a4e390ee9" class="m-doc">SFX_HAMMER4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9e14921b2ac5cca96484621f1b470960" class="m-doc">SFX_HAMMER5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae1f5c609dc9341bfee9b9823e6a94a50" class="m-doc">SFX_HAMMER6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadc81f7a048c06b8467c39a7f08bd6d99" class="m-doc">SFX_CUCCO_MINIGAME_BELL</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9b0b97a12dbbcd54e2a3d9acd49ab806" class="m-doc">SFX_E3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa03bb6742334d3c2844f66f23403047e0" class="m-doc">SFX_E4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa802650c964d6d7f84b1f8effc77cb413" class="m-doc">SFX_BUTTON_DEPRESS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0065fd0c1d18d409e775641542a24846" class="m-doc">SFX_THUD_HEAVY</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5a280ff96592272888a36a7757135529" class="m-doc">SFX_WIND1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa189eec0bb6414366f902811088c7ecad" class="m-doc">SFX_WIND2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa706a5bbc1ed05f24842fbb03e3017cd1" class="m-doc">SFX_WIND3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa753a6485919358750aff600fd4b496c5" class="m-doc">SFX_EA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2ce60b9ad701050cffb62bdbc83f03fb" class="m-doc">SFX_EB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa08cf968f67c62f50fbd37e36642392b6" class="m-doc">SFX_EC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf3a8a40b32436a24919d716bc013dcd9" class="m-doc">SFX_ED</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa540994edd44bbfbac6f9aefe76b35bfc" class="m-doc">SFX_EE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa83a2421a2306411d32700f77b677f635" class="m-doc">SFX_EF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafb4384310279e4fdc75aa2ede1d643b2" class="m-doc">SFX_F0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6e4f2137acaafd74ac6542a45af7e569" class="m-doc">SFX_F1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9bdfe1715eabe8ee856ffaeee4dde5af" class="m-doc">SFX_F2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8b92bfeb935d028878b7f6356be5074b" class="m-doc">SFX_F3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf3048c8af852fd9cd74564d780c35938" class="m-doc">SFX_SUMMON</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faac3c59aa10c1d3aad375c5519532a7d9" class="m-doc">SFX_F5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0a8d45fb2141c40cfc7fc35156fdbf3e" class="m-doc">SFX_EVAPORATE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7fc6ab732ddf105c331a3a459dbe7266" class="m-doc">SFX_APPARATE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac9307760c8ca108d7182ca90c229edaa" class="m-doc">SFX_F8</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadceb7e68e2c1a88c04e18b3d66ceb7c0" class="m-doc">SFX_TELEPORTER</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae694326a28e907a68210f300b2e76f9f" class="m-doc">SFX_FA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac7677747fcceff010fd37728f71bfe99" class="m-doc">SFX_FB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa17d8ead64d6250a52041edd92961a660" class="m-doc">SFX_FC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7d5a8d0dea336cef9cf2212bce0d06e9" class="m-doc">SFX_ITEM_BOMB_EXPLODE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa968df7e372c14ae96b11fbffd2c3ecc1" class="m-doc">SFX_HIT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa994b2eb4008d8ea3ce989126b349e2da" class="m-doc">SFX_FF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac174a15d93c79872a89ca815dbe45c89" class="m-doc">SFX_100</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa562e93a81d92ca3a8d2056ad4d6d0556" class="m-doc">SFX_101</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2f8b8e31a7d43ac797d4da994dbea382" class="m-doc">SFX_102</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7cb1f63cf917e35d5eb148291e44507d" class="m-doc">SFX_103</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4f39859e2974d5719f48b5ffc2cea1d3" class="m-doc">SFX_PLACE_OBJ</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1b51f535616cf6e9ff9160be14c40c3d" class="m-doc">SFX_105</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa64dcf6803109a6a10f75f275d967f25b" class="m-doc">SFX_106</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafb993fa2e0fd781de0972f6f0c62c141" class="m-doc">SFX_ITEM_GLOVES_AIR</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad0e5e0fefa0d999c9bb8b21e426f7c53" class="m-doc">SFX_108</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab43fb0cd83584f6986a7379b15f6ed06" class="m-doc">SFX_ITEM_GET</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6c0f96c7600b254f1fe3f8e952a70b02" class="m-doc">SFX_10A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad5492299427fed10631642bf08eb8bf0" class="m-doc">SFX_10B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1a8314d21f693dc356772ca6e68bf85b" class="m-doc">SFX_BUTTON_PRESS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa259ef48f28592c8f9ff757a6923754c7" class="m-doc">SFX_10D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4c3c5dece96a317405ec34b7a4ae5219" class="m-doc">SFX_10E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4d8346710113ed4c0b03efdd09d557d6" class="m-doc">SFX_10F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa72f888cb764464316bfa4b3346d30f07" class="m-doc">SFX_110</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac5f645e53062199d034fe3c1cff427fe" class="m-doc">SFX_111</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0478d69f238b2be918adb67bbb9fda5b" class="m-doc">SFX_112</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4be6f11fb471f93278566ec557202792" class="m-doc">SFX_113</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae58ddf60fd21ace432e20191700b5c94" class="m-doc">SFX_114</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa15ec8c0fe45d7104ba7ce7a0d550d40f" class="m-doc">SFX_115</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faca50325060293d0fcdd6c85281171ca7" class="m-doc">SFX_116</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa407fcbfbf4f4731a34b6fe8fc19b4c97" class="m-doc">SFX_117</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa73565a5f47a30ece85d19ed0213ecd27" class="m-doc">SFX_ITEM_SHIELD_BOUNCE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa635bf39e58ed412914f286ab9d6e1589" class="m-doc">SFX_ITEM_GLOVES_KNOCKBACK</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9eb5bd9ee70a55d9f364da0175109271" class="m-doc">SFX_EM_ARMOS_ON</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faffb37be7f38c48e6f84a3276b15c465a" class="m-doc">SFX_CHEST_OPEN</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa25035e20026fee9e3dc82662070ca88e" class="m-doc">SFX_11C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa85c8277789e03b440cfff2af0dcc05e3" class="m-doc">SFX_11D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facb302456b81ee0e816a42de9f0cef205" class="m-doc">SFX_EM_MOBLIN_SPEAR</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4c3c786357fab0a7180eed61336137f0" class="m-doc">SFX_LOW_HEALTH</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faace39e93e0f18acb0b587a0c277a97e9" class="m-doc">SFX_CHARGING_UP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9f3575999a03c4b36d024ba453369f33" class="m-doc">SFX_STAIRS</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8ededed0f766cbf9da4179d4a58197de" class="m-doc">SFX_122</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9bbccb8b09c53de3c6a955db9a0a29d3" class="m-doc">SFX_123</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7d82b84a3c7553de0150708a5ce43e41" class="m-doc">SFX_124</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9b56819b3e484a91c3b6964e29ca3961" class="m-doc">SFX_125</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf7171966448f4ebb4b34237dfe1d16c1" class="m-doc">SFX_126</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa923110f4916092d47d1f7024997d7055" class="m-doc">SFX_BOSS_HIT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa81bd306301ea71761fab3b190a6af29c" class="m-doc">SFX_BOSS_DIE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa7b3b1612da45a6613acade7ea75ef07" class="m-doc">SFX_BOSS_EXPLODE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa233bc213128d85f867e558f395267705" class="m-doc">SFX_12A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7185dfb05415639c8496061b4dd66941" class="m-doc">SFX_12B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faee7690bdd69f994b96ed809f3e7c1778" class="m-doc">SFX_12C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2498a2159c7b807dfceab11b1a93849f" class="m-doc">SFX_12D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa83dd6e499b96c5304751cacba20fcb3" class="m-doc">SFX_12E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae5e3bf59c9769bf34fe5f9a1dce75489" class="m-doc">SFX_12F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8d4ef36debadacb0ba0c6d523f1c98d2" class="m-doc">SFX_130</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5b411abffd9099fd1c06f6d4226c7e0a" class="m-doc">SFX_131</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa915855c5d3460bc264bcc102119ab2dd" class="m-doc">SFX_132</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0654273339988140c3435322aa2a3150" class="m-doc">SFX_133</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8d6454e5bcb87e8f72576a1fb5945d0f" class="m-doc">SFX_134</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa3a8a839120b79ad0c694d04d20f8842" class="m-doc">SFX_135</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafcc5ae3e9e75e1583ce3416bf039e113" class="m-doc">SFX_136</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa28074a3e5b27ebbdea5f96b946b613b1" class="m-doc">SFX_137</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa715808e0609ce90956328addcf1a6e80" class="m-doc">SFX_138</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8f2973eb0682464ce8326d0e82ad410c" class="m-doc">SFX_139</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa9ad73d3dcbbdd1c46c9ff76f6fe9453" class="m-doc">SFX_13A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad52b8031c47b0df6fbc0df736b232af6" class="m-doc">SFX_13B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa131dc0de3202379d87f21392a5f0e97" class="m-doc">SFX_13C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4e5a5225193b24ed3e310493593339ca" class="m-doc">SFX_ITEM_LANTERN_ON</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae5e3ca9bdc62e382eaff47e69756605f" class="m-doc">SFX_ITEM_LANTERN_OFF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3075da81839c94ff38877ae48bca8b33" class="m-doc">SFX_ITEM_SWORD_BEAM</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa685c33d71ad608e14e6963769cfc0fdc" class="m-doc">SFX_140</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab943c0b59fa39d3ef2a613de591cbc46" class="m-doc">SFX_HEART_CONTAINER_SPAWN</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab89326abb3f4d41aba164296fe7caceb" class="m-doc">SFX_SPARKLES</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa74c260b705c13c8b6f990ec89e8fc52f" class="m-doc">SFX_143</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faedd7e4c7a0ee3616c16208c1b1db4e91" class="m-doc">SFX_144</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0ee9c377bf5fab1fec1c0364e4bdef34" class="m-doc">SFX_145</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa370be319279bae1b30b07fdd67a11c17" class="m-doc">SFX_146</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab5c0b3f3155a1b9d9f4c0d48f7c28ca2" class="m-doc">SFX_147</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5594d2db539aee0a04297e4e6f6da861" class="m-doc">SFX_148</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf72eb0d54fcdd368831f95f66311a64a" class="m-doc">SFX_149</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa448766b16e03875c05903435dee3ca5a" class="m-doc">SFX_14A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa5d44928052c281b76f5d5e21f384823" class="m-doc">SFX_14B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faca1871c84e89f76c0e13a33364210491" class="m-doc">SFX_14C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad25a291ce6316daa04d605fb10b4d7f4" class="m-doc">SFX_14D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0fb726219a99c4a248f722c82462030d" class="m-doc">SFX_14E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac65b5035a89afc0fe06943471dc94651" class="m-doc">SFX_14F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa792fe5dbc3d29bf505ea623c41ea9b33" class="m-doc">SFX_150</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faec1d77b6bee87b272c46c70a29bce441" class="m-doc">SFX_151</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae13f8c710b88cdd31b5ddf19cbb11beb" class="m-doc">SFX_NEAR_PORTAL</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf0db930492a4aceaf37fa2df73219084" class="m-doc">SFX_153</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2bc45e83b81cad8c4645529e2f512803" class="m-doc">SFX_154</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5ac5b2ea14cf6074a817416af821d6a4" class="m-doc">SFX_155</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7118a240cac61cd8f6b5430b8ff149d2" class="m-doc">SFX_156</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa57713915dd1164f77e6e5f616c0b1b25" class="m-doc">SFX_157</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac0ed799678e34c1587e057645dec594f" class="m-doc">SFX_158</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0651a6dd2259521e767ce97004bde14c" class="m-doc">SFX_159</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa33608309fb2be0a2e6f70dc52304b818" class="m-doc">SFX_15A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9c573719523aa0856774a9db1ad14995" class="m-doc">SFX_15B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa72fd1371866ae94afcb3ca305b40463a" class="m-doc">SFX_15C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafe004261cd4252fbad42030189a5d4a4" class="m-doc">SFX_15D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa90438a25bdf7a9ddb4504e7657d54d5a" class="m-doc">SFX_15E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa04f0e15faf613fdbd2bd4cfcfefd5460" class="m-doc">SFX_15F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa32637246336ecd933c158d6fa26e4fca" class="m-doc">SFX_160</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa352312850c9b723163113220d7330b5b" class="m-doc">SFX_161</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa01ccdb6c822a0e578cd538ea8834abac" class="m-doc">SFX_162</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3c40ac2d4a647a55ed5d551322838673" class="m-doc">SFX_TOGGLE_DIVING</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf59f22e0c3aa1e3091dd405ed4f7f710" class="m-doc">SFX_164</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadccf1e8f131a1720d8bae57c8c679009" class="m-doc">SFX_165</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa079d53da4b89936cad274665ebd30d48" class="m-doc">SFX_166</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac45918f363e14843b1781b761bc35db4" class="m-doc">SFX_167</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facdbf99e3416a3b7cd0c028271557c96c" class="m-doc">SFX_168</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8aa0a90a908075d2a2eac647c1ce2d54" class="m-doc">SFX_169</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6369025a67535c0c7814943d8d522476" class="m-doc">SFX_16A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa89f2672781eeeb508bfa4f7948a63973" class="m-doc">SFX_PRESSURE_PLATE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faccfb59938415271e16c54a331399798f" class="m-doc">SFX_16C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6a83ea788a7c8a1505eb0d16fd57bcc1" class="m-doc">SFX_16D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa204df61f46b05302ddc0fb17c716e7d2" class="m-doc">SFX_16E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa232f466d365989eaa669b4717ed84d15" class="m-doc">SFX_PLY_SHRINKING</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad8d8a7278c99ac3969dc3879a5a8a070" class="m-doc">SFX_PLY_GROW</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faaf88f69ddc2d58da7acb731dbebd7f11" class="m-doc">SFX_171</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa80517501e17c63e3213806ac014e58d" class="m-doc">SFX_172</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4178c77aa678736a0e178809564b4fc7" class="m-doc">SFX_EZLO_UI</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa53c32f64d557f6e881d57b345373a0e5" class="m-doc">SFX_174</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf1b73ffc02581b94fa6a407e3bacbc2e" class="m-doc">SFX_175</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac25181ac59f6da77ca60685e49c5796e" class="m-doc">SFX_176</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac028459e0e8ea234d5804881cd4c401e" class="m-doc">SFX_177</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad78a9d9e83bf78f001b83db506d51a2c" class="m-doc">SFX_178</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4885d16a030989698a8b1592e35cf68d" class="m-doc">SFX_179</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4b8db356f92159b42a4480e90e31f69c" class="m-doc">SFX_17A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafefc66018b3ebb5c964a28e0da8cb200" class="m-doc">SFX_LAVA_TILE_STEP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faaa72931c116cbc2addc26a1e4dc655f4" class="m-doc">SFX_LAVA_TILE_WOBBLE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa042fd9788a81f0421db31b1fbb1e02d5" class="m-doc">SFX_LAVA_TILE_SINK</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faadb43c62880ed169aa26b62b3f7afdbf" class="m-doc">SFX_LAVA_TILE_FLIP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa27ee8ea8f77437ee579cf145aea4c229" class="m-doc">SFX_LAVA_TILE_LAND</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa13b60e4d309e38ca8806b6b568bee2ae" class="m-doc">SFX_180</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa915ec7695b1a17f7374eeff664a575ec" class="m-doc">SFX_181</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1dd9da4b564292af79d26bfcd3f2c690" class="m-doc">SFX_182</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa731283ad3e4b3766bc13fde61f488e1d" class="m-doc">SFX_183</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafc0ffa3d8a1e62052ec773bdb0282f76" class="m-doc">SFX_184</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3d94a78da678ba88f7554d9a97951163" class="m-doc">SFX_185</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa47b7ee1cef9d296a756a865a6dcd9d56" class="m-doc">SFX_186</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4ddd6b9c8df33b5abea200f4d7778b6b" class="m-doc">SFX_STAIRS_ASCEND</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa24a27dd2c60e8e348f81b92dd08261b0" class="m-doc">SFX_STAIRS_DESCEND</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2eb79e5b5879a52ee0788b181255d978" class="m-doc">SFX_189</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadf509394143cdde83c754fda004b35bb" class="m-doc">SFX_18A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa471271ac352518a6800105f6ccf1dfc5" class="m-doc">SFX_18B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa21c72be6738c8fe8889451b5b2301554" class="m-doc">SFX_18C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa43f489ff75d63190991258df865f97f6" class="m-doc">SFX_18D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1ccaa7e33f18cac27bb3509a2dfba170" class="m-doc">SFX_18E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf8baa8262a58d587c1f5dfba5a7ee7b2" class="m-doc">SFX_18F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf4985abb70cae9e401de7341176916af" class="m-doc">SFX_190</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa90220b018625e6e74f68baf39194397c" class="m-doc">SFX_191</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa21a4dc8b0367011f29fac09b386ad56a" class="m-doc">SFX_192</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faeea136534db9682ab77172521d1e69d8" class="m-doc">SFX_193</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa98be85c81654be6ca6e52bf03f72035d" class="m-doc">SFX_194</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa74fedfc9cd58a60088e49797966c49d0" class="m-doc">SFX_195</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf2dedda8030eda387e4d6c03f0ecf946" class="m-doc">SFX_196</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabb42b095be7ae306342ddb5c6a2ac4e8" class="m-doc">SFX_197</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa20c993e3cd9c9edcb9d46d64abfad92b" class="m-doc">SFX_198</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa12eee72cf14f7d1871a728c2bc106062" class="m-doc">SFX_199</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5eddded8ccd68bb4347c514935fc7973" class="m-doc">SFX_19A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae7583608ecdd3e2d838a2696e871dd10" class="m-doc">SFX_19B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0f076d1c97f940631e9bb4b90d8afd64" class="m-doc">SFX_19C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7406f3c487bf767dbe2e1a27c3731236" class="m-doc">SFX_19D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab117f15df497d10083f77369e83a50e5" class="m-doc">SFX_19E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafbb273e36246d0e57bfe874a033fbfb7" class="m-doc">SFX_19F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf6a0ea8685ecb3491e14ab9a0a3f34a0" class="m-doc">SFX_1A0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa145eb1a37d4ddc638b677acab2f64651" class="m-doc">SFX_1A1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab9ab0e2ebf27c2769cc2a31a58e34839" class="m-doc">SFX_1A2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac3936472546a2cfa4fc08dbf5f13759d" class="m-doc">SFX_1A3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa73a72264b4517e45946c1dc2fd37ebd0" class="m-doc">SFX_1A4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2405ecae202c12031c9dcb7fea9c5a1f" class="m-doc">SFX_1A5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa64ea95d8114711470dbd82da4d191679" class="m-doc">SFX_1A6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5525338f2670c8f94d5673921f848061" class="m-doc">SFX_1A7</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3b0c7b1b60f3059a83b3bfd18eb0094e" class="m-doc">SFX_1A8</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa158a91a6484b60c99602d3d6e213535c" class="m-doc">SFX_1A9</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5ac4ff63f65051b68da657b0ebb7c493" class="m-doc">SFX_1AA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad9b84362d37c3f9a09fee2319082cf60" class="m-doc">SFX_1AB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae9fa60a6e066ef68460cc8a507ca1c7c" class="m-doc">SFX_1AC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa25cbc4a3742966bcb0bbddf12f7d45ea" class="m-doc">SFX_1AD</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabdaf3596b8fc03be2a1fa66ce96ae870" class="m-doc">SFX_1AE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab0525da18ac6854441a7ac4f1babafbc" class="m-doc">SFX_1AF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4403a5bca98071f5f5b4f2f24bfcbf98" class="m-doc">SFX_1B0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabb8f33780494428741d09db0642471aa" class="m-doc">SFX_ICE_BLOCK_SLIDE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad0564d812e9fdbb4f3b5c7ffb7f1dfd0" class="m-doc">SFX_ICE_BLOCK_STOP</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa78265c8861e3dca32fafb6ebac4edd8e" class="m-doc">SFX_ICE_BLOCK_MELT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa95c8a4ff7b6ab17709a05479afbb5707" class="m-doc">SFX_1B4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2401a35ef04130335b7f11d7126a91b7" class="m-doc">SFX_1B5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad62aea3272dd5333268fe9d8377adb3f" class="m-doc">SFX_1B6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac6ddc98d51d0635dd98d53a64693cbc8" class="m-doc">SFX_VO_GORON1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa24f90ad50e81a2889ccc95ea64a149ef" class="m-doc">SFX_VO_GORON2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa34cb66fa3d81b599fb133fcf958c230" class="m-doc">SFX_VO_GORON3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa15a098bdff2a68a7b9b20f61992c8921" class="m-doc">SFX_VO_GORON4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad6662a428384793c3b9dddebcd0def86" class="m-doc">SFX_EM_DEKUSCRUB_HIT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5bc1dc2b83c2d9f8b7c4fd546cb82fff" class="m-doc">SFX_1BC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5ae72eb82bb619c67f6662fd96ed072e" class="m-doc">SFX_1BD</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf3c24642d69e189991d724115b25bcc6" class="m-doc">SFX_1BE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4dcfc70219a4c1ed7b31c17eefe12d27" class="m-doc">SFX_1BF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa065ff2af3f93326eb8b7b04ceacbe5ad" class="m-doc">SFX_1C0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafa142831b4a5ebf1cbb1966fa6b34574" class="m-doc">SFX_1C1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadd32c27c60511dc604fdfa230c22aa4d" class="m-doc">SFX_1C2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7dc428428f7c4693b02efc1117d7786b" class="m-doc">SFX_1C3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facb17d6483f8f26da70088f0aeaad1ffb" class="m-doc">SFX_1C4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4181c343ce54cb415c158864bd2db9aa" class="m-doc">SFX_1C5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa27f1322a86696c0aca5c59a0eb33cd10" class="m-doc">SFX_1C6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1a52797c055066986f0b253b78a66833" class="m-doc">SFX_1C7</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa4121f20aa1320cf5af07dd10acb40a75" class="m-doc">SFX_1C8</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa803bbd11529b7054d270d3ec33b6bb2c" class="m-doc">SFX_1C9</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2c455da1f4b69e24b222ae33ff8e5679" class="m-doc">SFX_1CA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa530e8f1704c18ae5d80b6c4efa3dfcea" class="m-doc">SFX_1CB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3fbc9dd05f13f6994e1eb4dd09e9fd21" class="m-doc">SFX_1CC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab91720a23deff4007047cd1458b98131" class="m-doc">SFX_ELEMENT_PLACE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa17bcfce512454b06994d732793a2a853" class="m-doc">SFX_ELEMENT_FLOAT</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faecc27f2a9b30f2b4071628cfd0a57460" class="m-doc">SFX_ELEMENT_CHARGE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faca2dde9e157db6c7cce8d7310a595116" class="m-doc">SFX_1D0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa808ea0f8404d2ca81fc195939e1e9c94" class="m-doc">SFX_ELEMENT_INFUSE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa79436523a064fe0c081249051e17768d" class="m-doc">SFX_1D2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabe6e649eee8da3f3366d31d767a74503" class="m-doc">SFX_1D3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7575fa4806d42304584d6c2f1a1485ce" class="m-doc">SFX_1D4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadb33eb04994dc031bfaf620cb0ab2c6d" class="m-doc">SFX_1D5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf735206b4e113e7ebeb2f5eabf87be5a" class="m-doc">SFX_VO_CUCCO1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabc71fd42d91c4e681892e9a3e6f0889b" class="m-doc">SFX_VO_CUCCO2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6e167e526bd1f52513b3fe1739f17054" class="m-doc">SFX_VO_CUCCO3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab2f36137d0bdc8a261e6ed154c3631c2" class="m-doc">SFX_VO_CUCCO4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa093a1cd707449ab3cf1b6d54b1ed463a" class="m-doc">SFX_VO_CUCCO5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3ba1397788a82debc4b10150b2b910ce" class="m-doc">SFX_1DB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faee7498ebcde497bd476c3323a9b1b72d" class="m-doc">SFX_1DC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa89b9445839e454976db025fc787c89e" class="m-doc">SFX_1DD</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa22d69ef9d89f5ffa625eff2e9a7c6207" class="m-doc">SFX_1DE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab960d5bd8e773d2a607f4e76c059bee9" class="m-doc">SFX_1DF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9d15b6f0692cd352d5b505b7de2efc08" class="m-doc">SFX_1E0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa639e4fff96f549e5f2b81ab6c301c19b" class="m-doc">SFX_1E1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad4c4e1a2bed511f8df807ffe4d51d94e" class="m-doc">SFX_1E2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9e5a9342a4639c7da564ceef4da36542" class="m-doc">SFX_1E3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faafabf209affd680a9130ebd370d8e1a0" class="m-doc">SFX_1E4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa991c01b3c7511b48393fefecb690af8e" class="m-doc">SFX_1E5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad737ae614d610e0191e82a78d86bdc37" class="m-doc">SFX_1E6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa90a8d562e3632d372a4cd9a7c9964763" class="m-doc">SFX_1E7</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6b71156c10fabc2352c53dc1dc69d3b7" class="m-doc">SFX_1E8</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae598b09184c79af09fde92b0a8154607" class="m-doc">SFX_1E9</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab62cb839dcd66673181dcae01f7161fe" class="m-doc">SFX_1EA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa12b0e9a99cd487b4c3e055b8297f525d" class="m-doc">SFX_1EB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa28b748c423f1106e5161ee19bcd7721e" class="m-doc">SFX_1EC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1ff7280aafbc04437f49f586f1c0cecc" class="m-doc">SFX_1ED</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6f7dd255338da7e3bed4799a575977b3" class="m-doc">SFX_1EE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faed426c1d0e852d31893b82a413a9ed28" class="m-doc">SFX_1EF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae3d9a1c6251f6ad25e1e93831249f232" class="m-doc">SFX_1F0</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf7852185bd05142079f94efc7473db5a" class="m-doc">SFX_1F1</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa763e396ffffb50c445fbcbf4d5a29790" class="m-doc">SFX_1F2</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facacc363e43de8d82edfe99c7fe314ba4" class="m-doc">SFX_1F3</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa2c0e347941ad65dfbf52c5776761ff80" class="m-doc">SFX_1F4</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa69440b096688111f5dbc642cec26ec3f" class="m-doc">SFX_1F5</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae81bf663dbce28584aa5ff72df820ad9" class="m-doc">SFX_1F6</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6b8b49d4bd611713504bfd771e8cdacb" class="m-doc">SFX_1F7</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fafc04fcac8cdfd50496347b6878c0db65" class="m-doc">SFX_1F8</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa0956797664d4b52bc3ddbdfcb55e58f1" class="m-doc">SFX_1F9</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf2c13f597316eb47ba0c83be2fabef3f" class="m-doc">SFX_1FA</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa696175ee72f3a515afaa86519f4a77a9" class="m-doc">SFX_1FB</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fac6c429a665a2477b9c421488a6c18b5c" class="m-doc">SFX_1FC</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5db9b1f02548b1e2c061dbf3db9d6dc2" class="m-doc">SFX_1FD</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa10eee4938fe5816cc9d39119725469db" class="m-doc">SFX_1FE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabc3524da8312ab11a875168fcfdc444c" class="m-doc">SFX_1FF</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6e41d6f43309b14c87985fbbbf88ef86" class="m-doc">SFX_200</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf6520dbbfb92f456b1b651ea5319067c" class="m-doc">SFX_201</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3394b3b30c3cdbbd935260ff1e4aaeb8" class="m-doc">SFX_202</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fae37d491d00777eca886c0c326ccecb3c" class="m-doc">SFX_203</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fabd5e2a416b2695faceaf0422489c72cd" class="m-doc">SFX_204</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf01bb059e3f165d0ac5fd1b22b4c95c4" class="m-doc">SFX_205</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf79feec681b3427a2baee1a8d4dc5caf" class="m-doc">SFX_206</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fad84a711a65d6faf84d924e5cea2969e8" class="m-doc">SFX_207</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa316f26af0fbd311369dbfb8fac04b6ff" class="m-doc">SFX_208</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7fdb4599d39d9f2bc7a2be430a6f5298" class="m-doc">SFX_209</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa03405d5d366fa52827e96acbf6b19d1f" class="m-doc">SFX_20A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927facc527eb65837462a804d166fe5e13305" class="m-doc">SFX_20B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fadd6bbf87be938002ab19fb8d43bafb05" class="m-doc">SFX_20C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf5a556072a104deb195f2a84e93d7778" class="m-doc">SFX_20D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa565d0976774d242dc8a3afbf5dfeb98e" class="m-doc">SFX_20E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6fe820dab7a6480de44364c880a5ce21" class="m-doc">SFX_20F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa80c136b737b2b87222e6b63322666056" class="m-doc">SFX_210</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6cdc4676da786aac217def3b175f90ee" class="m-doc">SFX_211</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa1ec27ef3c63a3867ee7e46822a9246d9" class="m-doc">SFX_212</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa31e1ddafd4a8f941e52735573a7a199c" class="m-doc">SFX_213</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fab62aad5d039255a251d18ecae131f91b" class="m-doc">SFX_214</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faafad4913205ea76ae29872e6d9d7b48f" class="m-doc">SFX_215</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa41773746d9df0bffc46136d536c9ef0b" class="m-doc">SFX_216</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faeddcb14e6dfc9e5bdb5b71211dd3aed4" class="m-doc">SFX_217</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa7c0d32750fd0cc633ada99fe693a8f89" class="m-doc">SFX_218</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa995d7fbb61404704d3596502009a03f2" class="m-doc">SFX_219</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa357a47b4e4fccfb26747d719f13fd5e1" class="m-doc">SFX_21A</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf173ac706945c9d2af37f83c80a49544" class="m-doc">SFX_21B</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faf03460b4c2ce12e194182502f61259e8" class="m-doc">SFX_21C</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5972ee6b12660a9faafa3296a28b0571" class="m-doc">SFX_21D</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5ece1b5201fe0a168eac8f8ce3d81ae0" class="m-doc">SFX_21E</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa86be96ca871d75eb89e82c396c05b7c2" class="m-doc">SFX_21F</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa89a1caaea010fb44c9192fc705798ed4" class="m-doc">SFX_PICOLYTE</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927faa737542f8f6f4d4c260f0a02dae0bf58" class="m-doc">SFX_221</a>,
+              <a href="#a78d488655886fd6a1355b1162fba927fa998834a7a1eac3a3ccb1e567cdac60e3" class="m-doc">SONG_STOP_ALL</a> = 0x80010000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9b52259981b3011383b7a0bd127515fd" class="m-doc">SONG_MUTE</a> = 0x80020000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa3326a3fa00b5ff59eb5ea7e60c29ad30" class="m-doc">SONG_PLAY_VOL_RESET_ALL</a> = 0x80030000,
+              <a href="#a78d488655886fd6a1355b1162fba927fac21505cc8673ce2ed01a4611dac91c0a" class="m-doc">SONG_VSYNC_OFF</a> = 0x80040000,
+              <a href="#a78d488655886fd6a1355b1162fba927fab4ca90b9d8345cd1e05a2fa9cac3852a" class="m-doc">SONG_STOP</a> = 0x80050000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5951c19ba6751a955054f0009fbe07c5" class="m-doc">SONG_VSYNC_ON</a> = 0x80060000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa882c41c4012a17f0c52a9b11f6d59669" class="m-doc">SONG_CONTINUE</a> = 0x80070000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa6d3481aab90844165ac5741b5f1f272c" class="m-doc">SONG_VOL_FADE_OUT</a> = 0x80080000,
+              <a href="#a78d488655886fd6a1355b1162fba927fafab6b39f325528f6357efdaa083aa29b" class="m-doc">SONG_FADE_IN</a> = 0x80090000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa5b6a9cac5abe7a78d39b07fee9ad0389" class="m-doc">SONG_FADE_IN_CONTINUE</a> = 0x800A0000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa9c33c91153ef0c675a58f3785b563311" class="m-doc">SONG_PLAY_VOL_RESET</a> = 0x800B0000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa8241f2e5c43c4edb37d26578a7ee4269" class="m-doc">SONG_PLAY_TEMPO_CONTROL</a> = 0x800C0000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa75a18b7d256a7981257af6da35e6207b" class="m-doc">SONG_FADE_OUT_BGM</a> = 0x800D0000,
+              <a href="#a78d488655886fd6a1355b1162fba927faeaa650aae7ba1d78f45203db7df0eace" class="m-doc">SONG_FADE_IN_BGM</a> = 0x800E0000,
+              <a href="#a78d488655886fd6a1355b1162fba927faf1ebac1d3a4bb01b1778cd5319f2d6f1" class="m-doc">SONG_INIT</a> = 0x800F0000,
+              <a href="#a78d488655886fd6a1355b1162fba927faf432cf761a3a8cdb50f254ea13f2d289" class="m-doc">SONG_STOP_BGM</a> = 0x80100000,
+              <a href="#a78d488655886fd6a1355b1162fba927fa50333e43186de02cea117ea19dbd4699" class="m-doc">SONG_BGM_0</a> = 0x80110000 }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a1fb1f4b1f677205acb1e421e021cff2a">
+              <span class="m-doc-wrap-bumper">void <a href="#a1fb1f4b1f677205acb1e421e021cff2a" class="m-doc-self">SoundReq</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> sound)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab53854001bea13671092aece52b9612c">
+              <span class="m-doc-wrap-bumper">void <a href="#ab53854001bea13671092aece52b9612c" class="m-doc-self">SetBgmVolume</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> volume)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7ccc6545184d5dc179a7b3e9f58825f">
+              <span class="m-doc-wrap-bumper">void <a href="#ac7ccc6545184d5dc179a7b3e9f58825f" class="m-doc-self">EnqueueSFX</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7653c9d91bc20ef678286370a50c0114">
+              <span class="m-doc-wrap-bumper">void <a href="#a7653c9d91bc20ef678286370a50c0114" class="m-doc-self">InitSound</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aabe24d2d946ff8e5ef30f6fd84a69626">
+              <span class="m-doc-wrap-bumper">void <a href="#aabe24d2d946ff8e5ef30f6fd84a69626" class="m-doc-self">InitSoundPlayingInfo</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3ce4f05d5769b76a236bbf9fb8358c8">
+              <span class="m-doc-wrap-bumper">void <a href="#ac3ce4f05d5769b76a236bbf9fb8358c8" class="m-doc-self">AudioMain</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="ac01bc89cdc1da0c02a56ccb578407d6a">
+              <a href="structSoundPlayingInfo.html" class="m-doc">SoundPlayingInfo</a> <a href="#ac01bc89cdc1da0c02a56ccb578407d6a" class="m-doc-self">gSoundPlayingInfo</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a87bda36ede7aabd5486b5c021b07e934">
+              <span class="m-doc-wrap-bumper">#define <a href="#a87bda36ede7aabd5486b5c021b07e934" class="m-doc-self">NUM_BGM</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

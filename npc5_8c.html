@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/npc/npc5.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_273b505eba68143ad73c3ab62a0a86cb.html">npc</a>/</span>npc5.c <span class="m-thin">file</span>
+        </h1>
+        <p>Unused Zelda follower NPC.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structZeldaData.html" class="m-doc">ZeldaData</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a3523f17e3156d3e709cdc2fdbce179ce">
+              <span class="m-doc-wrap-bumper">enum <a href="#a3523f17e3156d3e709cdc2fdbce179ce" class="m-doc-self">ZeldaState</a> { </span><span class="m-doc-wrap"><a href="#a3523f17e3156d3e709cdc2fdbce179cea0d860e137d1c29b6d3252d25a1266f69" class="m-doc">ZELDA_STATE_INIT</a>,
+              <a href="#a3523f17e3156d3e709cdc2fdbce179cea5321f1312d558bdd35d724f8e7991371" class="m-doc">ZELDA_STATE_IDLE</a>,
+              <a href="#a3523f17e3156d3e709cdc2fdbce179cea2dd59a28bb8d386279e3e29e7a86b7f7" class="m-doc">ZELDA_STATE_FOLLOW</a>,
+              <a href="#a3523f17e3156d3e709cdc2fdbce179cea9ed498928a72c2f2a73bc76820d4d39b" class="m-doc">ZELDA_STATE_LOST</a>,
+              <a href="#a3523f17e3156d3e709cdc2fdbce179cea85175b0ac675eff33f944ced6fba513c" class="m-doc">ZELDA_STATE_ANIM_SCRIPTED</a>,
+              <a href="#a3523f17e3156d3e709cdc2fdbce179cea7169ed2493a96e699609a1c0da18be7a" class="m-doc">ZELDA_STATE_WALK_PRE_JUMP</a>,
+              <a href="#a3523f17e3156d3e709cdc2fdbce179ceaee54a4dd6d242ec206c606ede400fa03" class="m-doc">ZELDA_STATE_JUMP</a>,
+              <a href="#a3523f17e3156d3e709cdc2fdbce179ceaae7d09180e3c45b48818d4a7bab68090" class="m-doc">ZELDA_STATE_LAND</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="ae3cd739f283fdf01b6e63e04ff8c0a31">
+              <span class="m-doc-wrap-bumper">void <a href="#ae3cd739f283fdf01b6e63e04ff8c0a31" class="m-doc-self">ZeldaSetAnim</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acab3b62024d14282db1fc2cc1a084e9f">
+              <span class="m-doc-wrap-bumper">auto <a href="#acab3b62024d14282db1fc2cc1a084e9f" class="m-doc-self">CheckIsFlinching</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a208ecbcbe574b5011738922c338749be">
+              <span class="m-doc-wrap-bumper">auto <a href="#a208ecbcbe574b5011738922c338749be" class="m-doc-self">ZeldaAtDestination</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5193440502099bdb3affb3e13a78fc0f">
+              <span class="m-doc-wrap-bumper">void <a href="#a5193440502099bdb3affb3e13a78fc0f" class="m-doc-self">ZeldaUpdateIdleAnim</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2832dee93557186cf9886c7cf2408e6">
+              <span class="m-doc-wrap-bumper">void <a href="#ae2832dee93557186cf9886c7cf2408e6" class="m-doc-self">ZeldaCalcWalkSpeed</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a308df0bcf04ff32bce872909ff6dd2f3">
+              <span class="m-doc-wrap-bumper">auto <a href="#a308df0bcf04ff32bce872909ff6dd2f3" class="m-doc-self">CheckDirectPathUnblocked</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac056ddf4568caab22b1e94ed9cf0dfd9">
+              <span class="m-doc-wrap-bumper">void <a href="#ac056ddf4568caab22b1e94ed9cf0dfd9" class="m-doc-self">ZeldaInitNavigate</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34f258801ef9f9efcf2014c5a81866d9">
+              <span class="m-doc-wrap-bumper">void <a href="#a34f258801ef9f9efcf2014c5a81866d9" class="m-doc-self">ZeldaCalcWalkAnim</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e5062afd8b68ba585ecbbdd63e5fa30">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8e5062afd8b68ba585ecbbdd63e5fa30" class="m-doc-self">ZeldaProcessMovement</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a81d42e91b30f13a84cd4fa17c6010168" class="m-doc">ZeldaDoLostAnim</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6f7101242388cd22c7128f6f459a179">
+              <span class="m-doc-wrap-bumper">void <a href="#ab6f7101242388cd22c7128f6f459a179" class="m-doc-self">ZeldaUpdateAnim</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d5d19342f7eacf6e9ae47d6cd09b687">
+              <span class="m-doc-wrap-bumper">void <a href="#a3d5d19342f7eacf6e9ae47d6cd09b687" class="m-doc-self">ZeldaType0Init</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1fc12df7ec7cbab0d6d2b5f058ff5e3f">
+              <span class="m-doc-wrap-bumper">void <a href="#a1fc12df7ec7cbab0d6d2b5f058ff5e3f" class="m-doc-self">ZeldaType1Init</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7466421152d86561f534dfc8cf88aa8">
+              <span class="m-doc-wrap-bumper">void <a href="#ac7466421152d86561f534dfc8cf88aa8" class="m-doc-self">ZeldaType2Init</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="addacf21ef5650df3de92a2cbca57dd61">
+              <span class="m-doc-wrap-bumper">void <a href="#addacf21ef5650df3de92a2cbca57dd61" class="m-doc-self">ZeldaType3Init</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a327ff843d9def7762ade8bb5ccff208c">
+              <span class="m-doc-wrap-bumper">void <a href="#a327ff843d9def7762ade8bb5ccff208c" class="m-doc-self">ZeldaInitAction</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb7ec003a9e6bb01e5ccf762bf36fcd3">
+              <span class="m-doc-wrap-bumper">void <a href="#aeb7ec003a9e6bb01e5ccf762bf36fcd3" class="m-doc-self">ZeldaIdleAction</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a919f0aa015554481a195dd34fb96536b" class="m-doc">ZeldaFollowAction</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7fdabfa26b9a68403060bada20fb9e7">
+              <span class="m-doc-wrap-bumper">void <a href="#ab7fdabfa26b9a68403060bada20fb9e7" class="m-doc-self">ZeldaLostAction</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2512bfd67bb0cbdad181da4e44c56aa2">
+              <span class="m-doc-wrap-bumper">void <a href="#a2512bfd67bb0cbdad181da4e44c56aa2" class="m-doc-self">ZeldaAnimScripted</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b76b53e083f0f09f2de6e9ec3cf82bb">
+              <span class="m-doc-wrap-bumper">void <a href="#a5b76b53e083f0f09f2de6e9ec3cf82bb" class="m-doc-self">ZeldaWalkPreJump</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6f88fd4110ebebd9985504439fad0638">
+              <span class="m-doc-wrap-bumper">void <a href="#a6f88fd4110ebebd9985504439fad0638" class="m-doc-self">ZeldaJumpAction</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d83ad362f711c928eaa2452f0a9f66f">
+              <span class="m-doc-wrap-bumper">void <a href="#a8d83ad362f711c928eaa2452f0a9f66f" class="m-doc-self">ZeldaLandAction</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac8364a08ffb9e97fe7bd8ca89c3416a4">
+              <span class="m-doc-wrap-bumper">void <a href="#ac8364a08ffb9e97fe7bd8ca89c3416a4" class="m-doc-self">sub_08061ACC</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae4fcb2d44447128f49772c98a71f5605">
+              <span class="m-doc-wrap-bumper">void <a href="#ae4fcb2d44447128f49772c98a71f5605" class="m-doc-self">sub_08061B18</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9b0e12fe3c5754ea021d5ab28256add1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9b0e12fe3c5754ea021d5ab28256add1" class="m-doc-self">PointInsideRadius</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> x,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> y,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> distance) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36c9f93e7457dd16ff3a05591c04a0b6">
+              <span class="m-doc-wrap-bumper">auto <a href="#a36c9f93e7457dd16ff3a05591c04a0b6" class="m-doc-self">CalcJumpDirection</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6a91bab12998c8482b440282b56145b">
+              <span class="m-doc-wrap-bumper">auto <a href="#ab6a91bab12998c8482b440282b56145b" class="m-doc-self">sub_08079FD4</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> param_2) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85e7172bcc54c8c70370b23197ff4064">
+              <span class="m-doc-wrap-bumper">void <a href="#a85e7172bcc54c8c70370b23197ff4064" class="m-doc-self">UpdateCollisionLayer</a>(</span><span class="m-doc-wrap"><a href="structEntity.html" class="m-doc">Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac9a1681f472eb6a7e8f3edc26008e940">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac9a1681f472eb6a7e8f3edc26008e940" class="m-doc-self">TryNavRightFromAbove</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e70cef6236b2eac472c83f28139f9a1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9e70cef6236b2eac472c83f28139f9a1" class="m-doc-self">TryNavUpFromRight</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61f49cb1a472731331ae209dd8e787b1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a61f49cb1a472731331ae209dd8e787b1" class="m-doc-self">TryNavLeftFromAbove</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf3941f4dfa1bc7b267bf0ff2fee7280">
+              <span class="m-doc-wrap-bumper">auto <a href="#abf3941f4dfa1bc7b267bf0ff2fee7280" class="m-doc-self">TryNavBelowFromRight</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64f3a2d3f66a5adc91415ff08a5ac3ef">
+              <span class="m-doc-wrap-bumper">auto <a href="#a64f3a2d3f66a5adc91415ff08a5ac3ef" class="m-doc-self">TryNavLeftFromBelow</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a81a2f84f148ce61dd4015336a30e372d">
+              <span class="m-doc-wrap-bumper">auto <a href="#a81a2f84f148ce61dd4015336a30e372d" class="m-doc-self">TryNavBelowFromLeft</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d60f30238e89fea571d792a831c7b42">
+              <span class="m-doc-wrap-bumper">auto <a href="#a7d60f30238e89fea571d792a831c7b42" class="m-doc-self">TryNavRightFromBelow</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38f4cd23bb414bafc7d9b33500ec797e">
+              <span class="m-doc-wrap-bumper">auto <a href="#a38f4cd23bb414bafc7d9b33500ec797e" class="m-doc-self">TryNavUpFromLeft</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad909b9339924966a2b4767ca5706badc">
+              <span class="m-doc-wrap-bumper">auto <a href="#ad909b9339924966a2b4767ca5706badc" class="m-doc-self">CheckPathRight</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd568a7a5157c00c54caa0624cc2c6db">
+              <span class="m-doc-wrap-bumper">auto <a href="#acd568a7a5157c00c54caa0624cc2c6db" class="m-doc-self">CheckPathLeft</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64166207f1bccb6c6b096b1a043bd589">
+              <span class="m-doc-wrap-bumper">auto <a href="#a64166207f1bccb6c6b096b1a043bd589" class="m-doc-self">CheckPathUp</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d71ce253a66b30dfe393c72eec78642">
+              <span class="m-doc-wrap-bumper">auto <a href="#a4d71ce253a66b30dfe393c72eec78642" class="m-doc-self">CheckPathBelow</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a>*,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a>) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeecfd9fc9373310e6bceaf10432ef662">
+              <span class="m-doc-wrap-bumper">void <a href="#aeecfd9fc9373310e6bceaf10432ef662" class="m-doc-self">sub_08061AFC</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf440233dc8c411c7390eeea171131d3">
+              <span class="m-doc-wrap-bumper">void <a href="#aaf440233dc8c411c7390eeea171131d3" class="m-doc-self">CreateZeldaFollower</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9148c141e6a8d2dec82ec7533d50fa7e">
+              <span class="m-doc-wrap-bumper">void <a href="#a9148c141e6a8d2dec82ec7533d50fa7e" class="m-doc-self">NPC5</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="ac71f9cf265dcb0d1e6ba9e20deff3ca8">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a>* <a href="#ac71f9cf265dcb0d1e6ba9e20deff3ca8" class="m-doc-self">gZeldaFollowerText</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a20618f483f1774f7d09984c60e7a007e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a20618f483f1774f7d09984c60e7a007e" class="m-doc-self">kFollowDistance</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af02d1140df70ef22f0c730e94a7445f4">
+              <span class="m-doc-wrap-bumper">#define <a href="#af02d1140df70ef22f0c730e94a7445f4" class="m-doc-self">kPoiDistance</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7aada5cc8d0610578e97378fcc1d277a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7aada5cc8d0610578e97378fcc1d277a" class="m-doc-self">kGravity</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a940570ecf911a95aee9b3650e95e3970">
+              <span class="m-doc-wrap-bumper">#define <a href="#a940570ecf911a95aee9b3650e95e3970" class="m-doc-self">kCloseDistance</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2aa1d2cd03dc6e3add522acfe2a1a4be">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2aa1d2cd03dc6e3add522acfe2a1a4be" class="m-doc-self">kFarDistance</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac370325f9b4c5aaec5e7c5a6cb4515c5">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac370325f9b4c5aaec5e7c5a6cb4515c5" class="m-doc-self">kCloseSpeed</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2c249811833da750324832821df50386">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2c249811833da750324832821df50386" class="m-doc-self">kMidSpeed</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="addead51d8ea245bc0d81a870b902a531">
+              <span class="m-doc-wrap-bumper">#define <a href="#addead51d8ea245bc0d81a870b902a531" class="m-doc-self">kFarSpeed</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6bf37104aaa26705b58a39c564796d47">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6bf37104aaa26705b58a39c564796d47" class="m-doc-self">kNavigateSpeed</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7c517e062a3c52e4861289314de1371d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7c517e062a3c52e4861289314de1371d" class="m-doc-self">FLAG_FLINCHING</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff598331a62e1ec27522465df010142e">
+              <span class="m-doc-wrap-bumper">#define <a href="#aff598331a62e1ec27522465df010142e" class="m-doc-self">FLAG_GOTO_PLAYER</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3b3f50c145c4060ef36f174bd22e23d5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3b3f50c145c4060ef36f174bd22e23d5" class="m-doc-self">FLAG_GOTO_JUMPED</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac83b145bf3d137715f1b6ba8e0f10767">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac83b145bf3d137715f1b6ba8e0f10767" class="m-doc-self">FLAG_NAVIGATE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e8c3dc786eeec70c7c26763ea3d2ef7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4e8c3dc786eeec70c7c26763ea3d2ef7" class="m-doc-self">HEAP</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a81d42e91b30f13a84cd4fa17c6010168"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a81d42e91b30f13a84cd4fa17c6010168" class="m-doc-self">ZeldaDoLostAnim</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span></span>
+            </h3>
+            <p><span></span></p>
+<aside class="m-note m-danger"><h4><a href="bug.html#_bug000008" class="m-doc">Bug</a></h4><p>bVar4 (r6) is uninitialized.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a919f0aa015554481a195dd34fb96536b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a919f0aa015554481a195dd34fb96536b" class="m-doc-self">ZeldaFollowAction</a>(</span><span class="m-doc-wrap"><a href="structNPC5Entity.html" class="m-doc">NPC5Entity</a>*)</span></span>
+            </h3>
+            <p><span></span></p>
+<aside class="m-note m-danger"><h4><a href="bug.html#_bug000007" class="m-doc">Bug</a></h4><p>: r5 is uninitialized</p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

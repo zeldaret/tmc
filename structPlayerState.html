@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PlayerState struct | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          PlayerState <span class="m-thin">struct</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="player_8h.html">&lt;include/player.h&gt;</a></div>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-attribs">Public variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a09f03de8e61db7d88e6569d1201e893d">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a09f03de8e61db7d88e6569d1201e893d" class="m-doc-self">prevAnim</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae0047c0a5f6c5b5b643ce83d7ba8fcad">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ae0047c0a5f6c5b5b643ce83d7ba8fcad" class="m-doc-self">grab_status</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87ed860fc4d794c9b62a7d7e4d45f175">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a87ed860fc4d794c9b62a7d7e4d45f175" class="m-doc-self">jump_status</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa96f88afee56d6cc87b5547595ccf97b">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aa96f88afee56d6cc87b5547595ccf97b" class="m-doc-self">shield_status</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d8d94955de2bed35ef3a27621f64c16">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a2d8d94955de2bed35ef3a27621f64c16" class="m-doc-self">attack_status</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a207f7d105ad00dc2e7947baff65162c8">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a207f7d105ad00dc2e7947baff65162c8" class="m-doc-self">heldObject</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a50a25e6bd773f9fe6b718aa3b3f4a6db">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a50a25e6bd773f9fe6b718aa3b3f4a6db" class="m-doc-self">pushedObject</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae46a68c70eaa1871e5fb8d76f6508a9c">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ae46a68c70eaa1871e5fb8d76f6508a9c" class="m-doc-self">field_0x7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9005cf97afa6707f07574d4f6d8e770e">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a9005cf97afa6707f07574d4f6d8e770e" class="m-doc-self">animation</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6eca71588fa2f21815ea31cfa25a98fd">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a6eca71588fa2f21815ea31cfa25a98fd" class="m-doc-self">field_0xa</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a33b53a58360a770d9a0ab6f2e832a532">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a33b53a58360a770d9a0ab6f2e832a532" class="m-doc-self">keepFacing</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a68ec3e21068090e3765f4bdd4a978652">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a68ec3e21068090e3765f4bdd4a978652" class="m-doc-self">queued_action</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab823f7e075ac756bdf243e18173acaa6">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ab823f7e075ac756bdf243e18173acaa6" class="m-doc-self">direction</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59d7805dc8adfaa155dcb8d35529c25e">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a59d7805dc8adfaa155dcb8d35529c25e" class="m-doc-self">itemAnimPriority</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a100a050c2838d8464fb510f1adaacfc9">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a100a050c2838d8464fb510f1adaacfc9" class="m-doc-self">hurtBlinkSpeed</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59018b564c5cb741b58d6add29511cd9">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a59018b564c5cb741b58d6add29511cd9" class="m-doc-self">field_0x10</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4937a9a0503d6ae6bdfe918994c30af">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ac4937a9a0503d6ae6bdfe918994c30af" class="m-doc-self">surfacePositionSameTimer</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a19f7e42c7414e67677450999ac5dd077" class="m-doc">floor_type</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a0f2e4d1ecc0954e74691318a00f3d66d" class="m-doc">floor_type_last</a>
+            </dt>
+            <dd></dd>
+            <dt id="a1007ba5542e14a9d5390929edc0351d5">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a1007ba5542e14a9d5390929edc0351d5" class="m-doc-self">field_0x14</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa4c93997b12b60b8990ed7a5e01c57ff">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aa4c93997b12b60b8990ed7a5e01c57ff" class="m-doc-self">field_0x15</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2334ffaf926bff6475302ce775d394a1">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a2334ffaf926bff6475302ce775d394a1" class="m-doc-self">startPosX</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7a00c8e0567987f0804ea42721d5a14">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ae7a00c8e0567987f0804ea42721d5a14" class="m-doc-self">startPosY</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af914d28fcfb94bedf9823e2fd1daf87b">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#af914d28fcfb94bedf9823e2fd1daf87b" class="m-doc-self">mobility</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab07409950ec332e131af386fd9bf1199">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ab07409950ec332e131af386fd9bf1199" class="m-doc-self">sword_state</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9a936897829afe9aa8618406bf8fcc7e">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a9a936897829afe9aa8618406bf8fcc7e" class="m-doc-self">gustJarState</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1f089d4704936761aa96f6dd16255b2">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ad1f089d4704936761aa96f6dd16255b2" class="m-doc-self">gustJarCharge</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adaafb5f52ad17aac87ee16ef4a159dc8">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#adaafb5f52ad17aac87ee16ef4a159dc8" class="m-doc-self">dash_state</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0533f05b544fad8f9f9466b5e5d25f52">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a0533f05b544fad8f9f9466b5e5d25f52" class="m-doc-self">field_0x1f</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0fd971c32bcb859a3abb8a5d74b51b58">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a0fd971c32bcb859a3abb8a5d74b51b58" class="m-doc-self">bow_state</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3950316c9d307537b942eb0c8d40f95">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#ac3950316c9d307537b942eb0c8d40f95" class="m-doc-self">tilePos</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d09160d8c2e9105de41aef43b5ed0e1">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a5d09160d8c2e9105de41aef43b5ed0e1" class="m-doc-self">tileType</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3babdad651e88444af4c0a41f9d3eabf">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a3babdad651e88444af4c0a41f9d3eabf" class="m-doc-self">swim_state</a>
+            </dt>
+            <dd>Is the player swimming? 0x80 for diving.</dd>
+            <dt id="a20c68c2ee60d591fe2ee4ebe3ad778c1">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a20c68c2ee60d591fe2ee4ebe3ad778c1" class="m-doc-self">field_0x27</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa1941b49dfb9e2cc839fe8260169e49">
+              <a href="structEntity.html" class="m-doc">Entity</a>* <a href="#aaa1941b49dfb9e2cc839fe8260169e49" class="m-doc-self">item</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a31ebe750177593ff8cb5fcbeb54235ed">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a31ebe750177593ff8cb5fcbeb54235ed" class="m-doc-self">flags</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8aff6dd57ecc46c3e20fd9cdb7f6e871">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a8aff6dd57ecc46c3e20fd9cdb7f6e871" class="m-doc-self">field_0x34</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a92edadb036c83f21eeca15291104c9b9">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a92edadb036c83f21eeca15291104c9b9" class="m-doc-self">field_0x35</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4b1dff98fb98aed4eb84f2975b021ecb">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a4b1dff98fb98aed4eb84f2975b021ecb" class="m-doc-self">field_0x36</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1de86edfaf3d21cfe183c2d2e0a55a4d">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a1de86edfaf3d21cfe183c2d2e0a55a4d" class="m-doc-self">surfaceTimer</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a88e9058dc009702a32b17bda1a5c8cc1">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a88e9058dc009702a32b17bda1a5c8cc1" class="m-doc-self">field_0x38</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3ae1c74fd6087f8b5bfa2ea1694fe76">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ad3ae1c74fd6087f8b5bfa2ea1694fe76" class="m-doc-self">field_0x39</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f08fed00b3c7e412f77450008c55dec">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a3f08fed00b3c7e412f77450008c55dec" class="m-doc-self">field_0x3a</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3013e374158df3c57be1a4c3db471f2b">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a3013e374158df3c57be1a4c3db471f2b" class="m-doc-self">field_0x3b</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13a5ff0f4a623ab20c30c9ccd30a4d45">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a13a5ff0f4a623ab20c30c9ccd30a4d45" class="m-doc-self">killed</a>
+            </dt>
+            <dd>Non-zero if player is dead.</dd>
+            <dt id="a3004886205d752f57e222018a1c8fe52">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a3004886205d752f57e222018a1c8fe52" class="m-doc-self">moleMittsState</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc01df057718701a2ff0be139bd1ba70">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> : 2 <a href="#adc01df057718701a2ff0be139bd1ba70" class="m-doc-self">swordDamage</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf21a560d03afe46f8372f6ae57d26be">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> : 6 <a href="#aaf21a560d03afe46f8372f6ae57d26be" class="m-doc-self">filler14</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2480920c7eaace5b7759225134ef8e4a">
+              <a href="types_8h.html#a9e382f207c65ca13ab4ae98363aeda80" class="m-doc">s8</a> <a href="#a2480920c7eaace5b7759225134ef8e4a" class="m-doc-self">spriteOffsetY</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a040f257f8d65ffaaee40f882ba13e8b5">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a040f257f8d65ffaaee40f882ba13e8b5" class="m-doc-self">path_memory</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4f6af1bb918b2fde99041c9aab5ea08">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#af4f6af1bb918b2fde99041c9aab5ea08" class="m-doc-self">speed_modifier</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace75f70764bd5174b67f11704ad08051">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ace75f70764bd5174b67f11704ad08051" class="m-doc-self">field_0x82</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10a223fe5cc520e5f37d65600701d9b7">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a10a223fe5cc520e5f37d65600701d9b7" class="m-doc-self">playerPalette</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a674d29dc6717ee77d0ae254e6ca80414">
+              <a href="structEntity.html" class="m-doc">Entity</a>* <a href="#a674d29dc6717ee77d0ae254e6ca80414" class="m-doc-self">lilypad</a>
+            </dt>
+            <dd>Last lilypad the player was standing on?</dd>
+            <dt id="ace5232eecb06d545607c3daff5b41a6b">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ace5232eecb06d545607c3daff5b41a6b" class="m-doc-self">field_0x88</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea6180a4b9be2f9287ee3097d2e7342d">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#aea6180a4b9be2f9287ee3097d2e7342d" class="m-doc-self">remainingDiveTime</a>
+            </dt>
+            <dd>Frames that the player can continue to dive.</dd>
+            <dt id="afd46e84730f1ac33c82d83c73488fadf">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#afd46e84730f1ac33c82d83c73488fadf" class="m-doc-self">field_0x8a</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7b66a5d0f7bf7832d57c858bf19378b9">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a7b66a5d0f7bf7832d57c858bf19378b9" class="m-doc-self">controlMode</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a088d5e9036a1a3cd1d8da910cab97435">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a088d5e9036a1a3cd1d8da910cab97435" class="m-doc-self">vel_x</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d9d7c58b6a453a3dc4a3473308152f4">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a3d9d7c58b6a453a3dc4a3473308152f4" class="m-doc-self">vel_y</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3a62a65808ef34fbaa90aa68846a6b5">
+              <a href="structPlayerInput.html" class="m-doc">PlayerInput</a> <a href="#af3a62a65808ef34fbaa90aa68846a6b5" class="m-doc-self">playerInput</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adccdcb728ff313b2f4ace4ef569a3b32">
+              <a href="structChargeState.html" class="m-doc">ChargeState</a> <a href="#adccdcb728ff313b2f4ace4ef569a3b32" class="m-doc-self">chargeState</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a243c83027a8eac071881559eae0bf11b">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a243c83027a8eac071881559eae0bf11b" class="m-doc-self">framestate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9770f6fe1b2420a1b6c4b9374ff3373b">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a9770f6fe1b2420a1b6c4b9374ff3373b" class="m-doc-self">framestate_last</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab46034f26c587c5a8d7dc97930345cd9">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ab46034f26c587c5a8d7dc97930345cd9" class="m-doc-self">attachedBeetleCount</a>
+            </dt>
+            <dd>Count of the Beetles attached to the player.</dd>
+            <dt>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#abdb94e708b052e9e821113e169c3f5ed" class="m-doc">lastSwordMove</a>
+            </dt>
+            <dd>The last move that has been performed with the sword.</dd>
+            <dt>
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a38330ca42838afbda61d7848cbbf5064" class="m-doc">skills</a>
+            </dt>
+            <dd>Bitfield of skills.</dd>
+            <dt id="a3fd3f78a811f831a8f38338f4cf39ac5">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a3fd3f78a811f831a8f38338f4cf39ac5" class="m-doc-self">pad</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="a19f7e42c7414e67677450999ac5dd077"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> PlayerState::<wbr /><a href="#a19f7e42c7414e67677450999ac5dd077" class="m-doc-self">floor_type</a>
+            </h3>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="player_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169f" class="m-doc">SurfaceType</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a0f2e4d1ecc0954e74691318a00f3d66d"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> PlayerState::<wbr /><a href="#a0f2e4d1ecc0954e74691318a00f3d66d" class="m-doc-self">floor_type_last</a>
+            </h3>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="player_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169f" class="m-doc">SurfaceType</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="abdb94e708b052e9e821113e169c3f5ed"><div>
+            <h3>
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> PlayerState::<wbr /><a href="#abdb94e708b052e9e821113e169c3f5ed" class="m-doc-self">lastSwordMove</a>
+            </h3>
+            <p>The last move that has been performed with the sword.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="player_8h.html#a7987933819c94e64977954410ee60a36" class="m-doc">SwordMove</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a38330ca42838afbda61d7848cbbf5064"><div>
+            <h3>
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> PlayerState::<wbr /><a href="#a38330ca42838afbda61d7848cbbf5064" class="m-doc-self">skills</a>
+            </h3>
+            <p>Bitfield of skills.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="player_8h.html#acdd367725f2f66f6f0574bb9fa47023b" class="m-doc">PlayerSkill</a></p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

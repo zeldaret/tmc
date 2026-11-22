@@ -1,0 +1,2909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>include/gba/io_reg.h file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a>/</span><span class="m-breadcrumb"><a href="dir_5bf7dd0a8a52a280c5880004a0f430cd.html">gba</a>/</span>io_reg.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="af668d1af32807bb8ffb17c0ed32a1697">
+              <span class="m-doc-wrap-bumper">#define <a href="#af668d1af32807bb8ffb17c0ed32a1697" class="m-doc-self">REG_BASE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a067538262539416ddb9c67b924f5a637">
+              <span class="m-doc-wrap-bumper">#define <a href="#a067538262539416ddb9c67b924f5a637" class="m-doc-self">REG_OFFSET_DISPCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ec009747b03b666d9f5f47b48dfde1f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8ec009747b03b666d9f5f47b48dfde1f" class="m-doc-self">REG_OFFSET_DISPSTAT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a54854e5fc6ca3db4b97fbbefa722722b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a54854e5fc6ca3db4b97fbbefa722722b" class="m-doc-self">REG_OFFSET_VCOUNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4e09c2a8df70a23a132dd7093e7516b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab4e09c2a8df70a23a132dd7093e7516b" class="m-doc-self">REG_OFFSET_BG0CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af268ddb5e37ed1d636399cbdc5cd764a">
+              <span class="m-doc-wrap-bumper">#define <a href="#af268ddb5e37ed1d636399cbdc5cd764a" class="m-doc-self">REG_OFFSET_BG1CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35507a0d300eec24856f29270b1b6b5d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a35507a0d300eec24856f29270b1b6b5d" class="m-doc-self">REG_OFFSET_BG2CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af6c079b969d144b465ec8be342e452f1">
+              <span class="m-doc-wrap-bumper">#define <a href="#af6c079b969d144b465ec8be342e452f1" class="m-doc-self">REG_OFFSET_BG3CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea3a59766050e01ebb7a0eaebfd2cfa2">
+              <span class="m-doc-wrap-bumper">#define <a href="#aea3a59766050e01ebb7a0eaebfd2cfa2" class="m-doc-self">REG_OFFSET_BG0HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab0d4739cfddb1fbbf905df3ea7717647">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab0d4739cfddb1fbbf905df3ea7717647" class="m-doc-self">REG_OFFSET_BG0VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af0c20ff4b49dd553c10a8a1c41398c20">
+              <span class="m-doc-wrap-bumper">#define <a href="#af0c20ff4b49dd553c10a8a1c41398c20" class="m-doc-self">REG_OFFSET_BG1HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5258a8a46e11e8516fd0b5819abbf318">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5258a8a46e11e8516fd0b5819abbf318" class="m-doc-self">REG_OFFSET_BG1VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a455c7f73a0324700c78f6c563526671f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a455c7f73a0324700c78f6c563526671f" class="m-doc-self">REG_OFFSET_BG2HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30589751735e3421ea7e0871a6006c5c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a30589751735e3421ea7e0871a6006c5c" class="m-doc-self">REG_OFFSET_BG2VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3896effa707b83cd056712b51374f758">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3896effa707b83cd056712b51374f758" class="m-doc-self">REG_OFFSET_BG3HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a69184a2fdff1906432282d18ecea18cf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a69184a2fdff1906432282d18ecea18cf" class="m-doc-self">REG_OFFSET_BG3VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a304478a4c84c984bb84a3b2e868fceb7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a304478a4c84c984bb84a3b2e868fceb7" class="m-doc-self">REG_OFFSET_BG2PA</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3dc09e92acd513d040e27e44f4ea7f4">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad3dc09e92acd513d040e27e44f4ea7f4" class="m-doc-self">REG_OFFSET_BG2PB</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace8ef294da64bc1e481da2578f2d15d5">
+              <span class="m-doc-wrap-bumper">#define <a href="#ace8ef294da64bc1e481da2578f2d15d5" class="m-doc-self">REG_OFFSET_BG2PC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe9a5f401450226fdd734acbad857687">
+              <span class="m-doc-wrap-bumper">#define <a href="#abe9a5f401450226fdd734acbad857687" class="m-doc-self">REG_OFFSET_BG2PD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a02cd7e15005e67d93d4ea464a606cb10">
+              <span class="m-doc-wrap-bumper">#define <a href="#a02cd7e15005e67d93d4ea464a606cb10" class="m-doc-self">REG_OFFSET_BG2X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d55e690b15cf7b628aecb43353645a3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8d55e690b15cf7b628aecb43353645a3" class="m-doc-self">REG_OFFSET_BG2X_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af358476f76e0a35bd3ef84b3968c2ae4">
+              <span class="m-doc-wrap-bumper">#define <a href="#af358476f76e0a35bd3ef84b3968c2ae4" class="m-doc-self">REG_OFFSET_BG2X_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a50f2eb013dca1711edceab887497a152">
+              <span class="m-doc-wrap-bumper">#define <a href="#a50f2eb013dca1711edceab887497a152" class="m-doc-self">REG_OFFSET_BG2Y</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d351512ffab28c4ca0fc67b8ecd2788">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7d351512ffab28c4ca0fc67b8ecd2788" class="m-doc-self">REG_OFFSET_BG2Y_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a76be0753ffbce0e28e4bd7d1f2759eff">
+              <span class="m-doc-wrap-bumper">#define <a href="#a76be0753ffbce0e28e4bd7d1f2759eff" class="m-doc-self">REG_OFFSET_BG2Y_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a336a3f30dc9f93f488d8d9fe4a160334">
+              <span class="m-doc-wrap-bumper">#define <a href="#a336a3f30dc9f93f488d8d9fe4a160334" class="m-doc-self">REG_OFFSET_BG3PA</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aebe2d78156c7963a4dc6ead6c3f5b6b7">
+              <span class="m-doc-wrap-bumper">#define <a href="#aebe2d78156c7963a4dc6ead6c3f5b6b7" class="m-doc-self">REG_OFFSET_BG3PB</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9bc687cc1d7d1338131958f0ae9270c6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9bc687cc1d7d1338131958f0ae9270c6" class="m-doc-self">REG_OFFSET_BG3PC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0e470c02155175777729cf0ddd29aa4a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0e470c02155175777729cf0ddd29aa4a" class="m-doc-self">REG_OFFSET_BG3PD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a88ff3cf1358ab56448a28d0d5f2cbe6a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a88ff3cf1358ab56448a28d0d5f2cbe6a" class="m-doc-self">REG_OFFSET_BG3X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a78d59bbef1e0c030721abff8d0e488a5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a78d59bbef1e0c030721abff8d0e488a5" class="m-doc-self">REG_OFFSET_BG3X_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee777633948806856ded7d41247b4097">
+              <span class="m-doc-wrap-bumper">#define <a href="#aee777633948806856ded7d41247b4097" class="m-doc-self">REG_OFFSET_BG3X_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29edb7f9467772da9a0231ee28194f78">
+              <span class="m-doc-wrap-bumper">#define <a href="#a29edb7f9467772da9a0231ee28194f78" class="m-doc-self">REG_OFFSET_BG3Y</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29f2804c20169e43fad917bfbab4c0a7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a29f2804c20169e43fad917bfbab4c0a7" class="m-doc-self">REG_OFFSET_BG3Y_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abc31fd4337b601b78d401076735d637a">
+              <span class="m-doc-wrap-bumper">#define <a href="#abc31fd4337b601b78d401076735d637a" class="m-doc-self">REG_OFFSET_BG3Y_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5ff4d682fb8d4a5eb8c94a3dfec8f377">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5ff4d682fb8d4a5eb8c94a3dfec8f377" class="m-doc-self">REG_OFFSET_WIN0H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa0aa79ce0cf6f01831db92be58e19138">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa0aa79ce0cf6f01831db92be58e19138" class="m-doc-self">REG_OFFSET_WIN1H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b78e49e93bff55a0bae3ca8d8300297">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6b78e49e93bff55a0bae3ca8d8300297" class="m-doc-self">REG_OFFSET_WIN0V</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a97c45d69235c7a9214695e81b526bc3d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a97c45d69235c7a9214695e81b526bc3d" class="m-doc-self">REG_OFFSET_WIN1V</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adde1c263b0acdac2be5b7108615e170c">
+              <span class="m-doc-wrap-bumper">#define <a href="#adde1c263b0acdac2be5b7108615e170c" class="m-doc-self">REG_OFFSET_WININ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a457365909b6cf906a2c865ff2c92825d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a457365909b6cf906a2c865ff2c92825d" class="m-doc-self">REG_OFFSET_WINOUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a944911284093d91a7cf5562798302d50">
+              <span class="m-doc-wrap-bumper">#define <a href="#a944911284093d91a7cf5562798302d50" class="m-doc-self">REG_OFFSET_MOSAIC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46b5339b3cec6a23e98ddb676ebe6ad9">
+              <span class="m-doc-wrap-bumper">#define <a href="#a46b5339b3cec6a23e98ddb676ebe6ad9" class="m-doc-self">REG_OFFSET_BLDCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b34e5418b44f78b78448e55cbfa142c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2b34e5418b44f78b78448e55cbfa142c" class="m-doc-self">REG_OFFSET_BLDALPHA</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4040087a308b6ee84fa5e51f1916fcf1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4040087a308b6ee84fa5e51f1916fcf1" class="m-doc-self">REG_OFFSET_BLDY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a60e0d757b0f0b063f8693f5f8a8601a0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a60e0d757b0f0b063f8693f5f8a8601a0" class="m-doc-self">REG_OFFSET_SOUND1CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e1f615a901a0160175ddff33d342f80">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2e1f615a901a0160175ddff33d342f80" class="m-doc-self">REG_OFFSET_NR10</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57f7148f35aed7630bc6b1e68b1d4a6e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a57f7148f35aed7630bc6b1e68b1d4a6e" class="m-doc-self">REG_OFFSET_SOUND1CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d6a017220a8a8067f04529863817dd4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5d6a017220a8a8067f04529863817dd4" class="m-doc-self">REG_OFFSET_NR11</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7fe46feef6907347fc8f47ed5d849f4">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac7fe46feef6907347fc8f47ed5d849f4" class="m-doc-self">REG_OFFSET_NR12</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5965b266e8ce4c408f76c3b05faf44e3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5965b266e8ce4c408f76c3b05faf44e3" class="m-doc-self">REG_OFFSET_SOUND1CNT_X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade6c24929f8281175045259d4529676f">
+              <span class="m-doc-wrap-bumper">#define <a href="#ade6c24929f8281175045259d4529676f" class="m-doc-self">REG_OFFSET_NR13</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2d6900ddf163f460d30709ff451fa75">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab2d6900ddf163f460d30709ff451fa75" class="m-doc-self">REG_OFFSET_NR14</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3db88560e6887b13fb1abd267e9a5089">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3db88560e6887b13fb1abd267e9a5089" class="m-doc-self">REG_OFFSET_SOUND2CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf2badf451a6d258adb54d47dcb938c0">
+              <span class="m-doc-wrap-bumper">#define <a href="#aaf2badf451a6d258adb54d47dcb938c0" class="m-doc-self">REG_OFFSET_NR21</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae34cb18b175e7aaee7d9b6f3945c28e3">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae34cb18b175e7aaee7d9b6f3945c28e3" class="m-doc-self">REG_OFFSET_NR22</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9036b7ab61e847e381066daa3d325928">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9036b7ab61e847e381066daa3d325928" class="m-doc-self">REG_OFFSET_SOUND2CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a02ead94d9f38b6a29be1fb50f09c64bc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a02ead94d9f38b6a29be1fb50f09c64bc" class="m-doc-self">REG_OFFSET_NR23</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a010f0d1214085a875cdf1ff545420cff">
+              <span class="m-doc-wrap-bumper">#define <a href="#a010f0d1214085a875cdf1ff545420cff" class="m-doc-self">REG_OFFSET_NR24</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a95c67a13b0fef54935172e5951e2be5e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a95c67a13b0fef54935172e5951e2be5e" class="m-doc-self">REG_OFFSET_SOUND3CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8de787ae15414c2bd256c739e911e675">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8de787ae15414c2bd256c739e911e675" class="m-doc-self">REG_OFFSET_NR30</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad9d076a2aed81cc63ed3886e593fadb6">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad9d076a2aed81cc63ed3886e593fadb6" class="m-doc-self">REG_OFFSET_SOUND3CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a19077b3f9dda3e2c512e55a2df0c7a7a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a19077b3f9dda3e2c512e55a2df0c7a7a" class="m-doc-self">REG_OFFSET_NR31</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a3c419dbaa3be19a8bf7760b9e9e644">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3a3c419dbaa3be19a8bf7760b9e9e644" class="m-doc-self">REG_OFFSET_NR32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1dd1af9b1176df4189dafc9e071e3e12">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1dd1af9b1176df4189dafc9e071e3e12" class="m-doc-self">REG_OFFSET_SOUND3CNT_X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5e699eca473d99bc28b2235e50331c0">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab5e699eca473d99bc28b2235e50331c0" class="m-doc-self">REG_OFFSET_NR33</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d92fea4357ae5ea264eca156b702ab1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2d92fea4357ae5ea264eca156b702ab1" class="m-doc-self">REG_OFFSET_NR34</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a8b88528d567e21b18f1d41822b8690">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4a8b88528d567e21b18f1d41822b8690" class="m-doc-self">REG_OFFSET_SOUND4CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3445d1bc06c3cca8a569f3ec0236f32">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab3445d1bc06c3cca8a569f3ec0236f32" class="m-doc-self">REG_OFFSET_NR41</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9764074c69cd19920de0a97d9bf5eb6c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9764074c69cd19920de0a97d9bf5eb6c" class="m-doc-self">REG_OFFSET_NR42</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5bfed744f1d0e60b4a5a06440e7423b5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5bfed744f1d0e60b4a5a06440e7423b5" class="m-doc-self">REG_OFFSET_SOUND4CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a909fff8324a7c472111283ce568e0b3d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a909fff8324a7c472111283ce568e0b3d" class="m-doc-self">REG_OFFSET_NR43</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d1cf66dc4641faf2d2677858820dcd4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5d1cf66dc4641faf2d2677858820dcd4" class="m-doc-self">REG_OFFSET_NR44</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3294f54bf879f35b373e040054a479d3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3294f54bf879f35b373e040054a479d3" class="m-doc-self">REG_OFFSET_SOUNDCNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a25da1ae7d17235b4483f4bc1ebad9f49">
+              <span class="m-doc-wrap-bumper">#define <a href="#a25da1ae7d17235b4483f4bc1ebad9f49" class="m-doc-self">REG_OFFSET_NR50</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acdef11fc250fff4f7e1c9847d9c243b2">
+              <span class="m-doc-wrap-bumper">#define <a href="#acdef11fc250fff4f7e1c9847d9c243b2" class="m-doc-self">REG_OFFSET_NR51</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aca518e45aa97095697f1b2558ff69c03">
+              <span class="m-doc-wrap-bumper">#define <a href="#aca518e45aa97095697f1b2558ff69c03" class="m-doc-self">REG_OFFSET_SOUNDCNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4f7fa26e7f6973c7210974df07fda56b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4f7fa26e7f6973c7210974df07fda56b" class="m-doc-self">REG_OFFSET_SOUNDCNT_X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a67f3bccb2099e112668befd82c1a3cda">
+              <span class="m-doc-wrap-bumper">#define <a href="#a67f3bccb2099e112668befd82c1a3cda" class="m-doc-self">REG_OFFSET_NR52</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2a2b064af99bf14840221011dc08ed3d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2a2b064af99bf14840221011dc08ed3d" class="m-doc-self">REG_OFFSET_SOUNDBIAS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af8bf16b559476f56e3c97c1ba1e0ce78">
+              <span class="m-doc-wrap-bumper">#define <a href="#af8bf16b559476f56e3c97c1ba1e0ce78" class="m-doc-self">REG_OFFSET_SOUNDBIAS_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d15be3bea5c7d4c9be0eb24001eaf78">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2d15be3bea5c7d4c9be0eb24001eaf78" class="m-doc-self">REG_OFFSET_SOUNDBIAS_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aed5deef6e5492934c93c6674110927e5">
+              <span class="m-doc-wrap-bumper">#define <a href="#aed5deef6e5492934c93c6674110927e5" class="m-doc-self">REG_OFFSET_WAVE_RAM0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93df3d47b2c2cd1d719d827dc5af894f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a93df3d47b2c2cd1d719d827dc5af894f" class="m-doc-self">REG_OFFSET_WAVE_RAM1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af5829dec3ebe9daa89f30da33abc358f">
+              <span class="m-doc-wrap-bumper">#define <a href="#af5829dec3ebe9daa89f30da33abc358f" class="m-doc-self">REG_OFFSET_WAVE_RAM2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6bb3b77e0172d3d296e3e4d277ffd6d4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6bb3b77e0172d3d296e3e4d277ffd6d4" class="m-doc-self">REG_OFFSET_WAVE_RAM3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee34ac6f464ab078d9679aa5b30c6c86">
+              <span class="m-doc-wrap-bumper">#define <a href="#aee34ac6f464ab078d9679aa5b30c6c86" class="m-doc-self">REG_OFFSET_FIFO_A</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a280b177e7f4c56eaebf0e1b77df2d453">
+              <span class="m-doc-wrap-bumper">#define <a href="#a280b177e7f4c56eaebf0e1b77df2d453" class="m-doc-self">REG_OFFSET_FIFO_B</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac97fd30d36ad05bc5aae39f1726d4abb">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac97fd30d36ad05bc5aae39f1726d4abb" class="m-doc-self">REG_OFFSET_DMA0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3a5a2b3e1339b4c1ed59bb78cd2495c">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad3a5a2b3e1339b4c1ed59bb78cd2495c" class="m-doc-self">REG_OFFSET_DMA0SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e404597f664536f428377622b30a082">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9e404597f664536f428377622b30a082" class="m-doc-self">REG_OFFSET_DMA0SAD_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa02a9a2fcea522b8455bbe46d7273c5b">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa02a9a2fcea522b8455bbe46d7273c5b" class="m-doc-self">REG_OFFSET_DMA0SAD_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac14d2e09eb738966f04f6643fb4ad296">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac14d2e09eb738966f04f6643fb4ad296" class="m-doc-self">REG_OFFSET_DMA0DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af99b957eaec655d1dc5643f80af64fa5">
+              <span class="m-doc-wrap-bumper">#define <a href="#af99b957eaec655d1dc5643f80af64fa5" class="m-doc-self">REG_OFFSET_DMA0DAD_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a60a7b7898ca0f50736a7dd6168ab8af9">
+              <span class="m-doc-wrap-bumper">#define <a href="#a60a7b7898ca0f50736a7dd6168ab8af9" class="m-doc-self">REG_OFFSET_DMA0DAD_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f431dfbb81ec709fcebb938a774853e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2f431dfbb81ec709fcebb938a774853e" class="m-doc-self">REG_OFFSET_DMA0CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a061489c62b8454d6ae0814755ace3454">
+              <span class="m-doc-wrap-bumper">#define <a href="#a061489c62b8454d6ae0814755ace3454" class="m-doc-self">REG_OFFSET_DMA0CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0f7f2f283ef94a832bd8b018749a7595">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0f7f2f283ef94a832bd8b018749a7595" class="m-doc-self">REG_OFFSET_DMA0CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa123c07150d77963e85748091c38f0db">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa123c07150d77963e85748091c38f0db" class="m-doc-self">REG_OFFSET_DMA1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afc0633e9f8e1d812f5828d122fd46a32">
+              <span class="m-doc-wrap-bumper">#define <a href="#afc0633e9f8e1d812f5828d122fd46a32" class="m-doc-self">REG_OFFSET_DMA1SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a80279c1329dd98d2fa185a48ee9f2ed2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a80279c1329dd98d2fa185a48ee9f2ed2" class="m-doc-self">REG_OFFSET_DMA1SAD_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13212cfd0cbc9c77991f4bd1e03c97c8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a13212cfd0cbc9c77991f4bd1e03c97c8" class="m-doc-self">REG_OFFSET_DMA1SAD_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafcb91d17cbda5bbc93bd638772045a6">
+              <span class="m-doc-wrap-bumper">#define <a href="#aafcb91d17cbda5bbc93bd638772045a6" class="m-doc-self">REG_OFFSET_DMA1DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aacfbf58a608b0ec2860c44bff3bbcb5c">
+              <span class="m-doc-wrap-bumper">#define <a href="#aacfbf58a608b0ec2860c44bff3bbcb5c" class="m-doc-self">REG_OFFSET_DMA1DAD_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2cdbd2eb2dc3c91c7ad1a9647afbabb">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae2cdbd2eb2dc3c91c7ad1a9647afbabb" class="m-doc-self">REG_OFFSET_DMA1DAD_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad749388558878e2ed1f3790c01c43158">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad749388558878e2ed1f3790c01c43158" class="m-doc-self">REG_OFFSET_DMA1CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0170284ac9e5d3922936db47a9aa081a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0170284ac9e5d3922936db47a9aa081a" class="m-doc-self">REG_OFFSET_DMA1CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6cc493cccdd7aa60aa69b5cc3578b98f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6cc493cccdd7aa60aa69b5cc3578b98f" class="m-doc-self">REG_OFFSET_DMA1CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ca3f332159a2241f3b68ae39a823228">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8ca3f332159a2241f3b68ae39a823228" class="m-doc-self">REG_OFFSET_DMA2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae91a648fad16ceedc3d94fb19a3677d">
+              <span class="m-doc-wrap-bumper">#define <a href="#aae91a648fad16ceedc3d94fb19a3677d" class="m-doc-self">REG_OFFSET_DMA2SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8064a29e96404e78e000a0ea80a580c8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8064a29e96404e78e000a0ea80a580c8" class="m-doc-self">REG_OFFSET_DMA2SAD_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae33b7f59975dd0b5d90cc3a260e1b820">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae33b7f59975dd0b5d90cc3a260e1b820" class="m-doc-self">REG_OFFSET_DMA2SAD_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2054d8b87e69fab9148a5b0ee13681d4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2054d8b87e69fab9148a5b0ee13681d4" class="m-doc-self">REG_OFFSET_DMA2DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a91e18e09b997f91efca3ffdced639df5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a91e18e09b997f91efca3ffdced639df5" class="m-doc-self">REG_OFFSET_DMA2DAD_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c64c50af26f70f97671441ac0ad536c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6c64c50af26f70f97671441ac0ad536c" class="m-doc-self">REG_OFFSET_DMA2DAD_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ce164d4ab502af38b61104225fd92aa">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9ce164d4ab502af38b61104225fd92aa" class="m-doc-self">REG_OFFSET_DMA2CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af57a99699db176677650561e25125332">
+              <span class="m-doc-wrap-bumper">#define <a href="#af57a99699db176677650561e25125332" class="m-doc-self">REG_OFFSET_DMA2CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6fcf8ff3d3e5e73d5dd0a6b0e89b20db">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6fcf8ff3d3e5e73d5dd0a6b0e89b20db" class="m-doc-self">REG_OFFSET_DMA2CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f6463b565e5325927b83e4d6753ad26">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9f6463b565e5325927b83e4d6753ad26" class="m-doc-self">REG_OFFSET_DMA3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafd11f18bd533e6b034eccf385a42bfb">
+              <span class="m-doc-wrap-bumper">#define <a href="#aafd11f18bd533e6b034eccf385a42bfb" class="m-doc-self">REG_OFFSET_DMA3SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0fef9d41c07ea94d2d15fccff45be755">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0fef9d41c07ea94d2d15fccff45be755" class="m-doc-self">REG_OFFSET_DMA3SAD_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a386be14c620e92be12513226a56ddbb2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a386be14c620e92be12513226a56ddbb2" class="m-doc-self">REG_OFFSET_DMA3SAD_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4412cc6de320b61d0bdf355f7c62a74d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4412cc6de320b61d0bdf355f7c62a74d" class="m-doc-self">REG_OFFSET_DMA3DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7cfdaed76f97bf6f82de95f50a4310b0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7cfdaed76f97bf6f82de95f50a4310b0" class="m-doc-self">REG_OFFSET_DMA3DAD_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abb40c0b5941cfa21c9e832ddeff29a10">
+              <span class="m-doc-wrap-bumper">#define <a href="#abb40c0b5941cfa21c9e832ddeff29a10" class="m-doc-self">REG_OFFSET_DMA3DAD_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57268c87641159f2fa4f5b4c300ba6d0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a57268c87641159f2fa4f5b4c300ba6d0" class="m-doc-self">REG_OFFSET_DMA3CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0c19a95e572e374d24677e4899449d0d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0c19a95e572e374d24677e4899449d0d" class="m-doc-self">REG_OFFSET_DMA3CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61c8c2d922e2829fae8d0aeb6746477b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a61c8c2d922e2829fae8d0aeb6746477b" class="m-doc-self">REG_OFFSET_DMA3CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1592b8db5a1afe52e981470e7c9235af">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1592b8db5a1afe52e981470e7c9235af" class="m-doc-self">REG_OFFSET_TMCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e31789c60b4fc6a2df7310d0927dba5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9e31789c60b4fc6a2df7310d0927dba5" class="m-doc-self">REG_OFFSET_TMCNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a931b2bc8277075855c78afd44d9c7165">
+              <span class="m-doc-wrap-bumper">#define <a href="#a931b2bc8277075855c78afd44d9c7165" class="m-doc-self">REG_OFFSET_TMCNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5582d0d47a7039481e159af8e39d81f4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5582d0d47a7039481e159af8e39d81f4" class="m-doc-self">REG_OFFSET_TM0CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5e66f7133487d62e86147a4587102176">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5e66f7133487d62e86147a4587102176" class="m-doc-self">REG_OFFSET_TM0CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8324257387ecf946503094867af55c08">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8324257387ecf946503094867af55c08" class="m-doc-self">REG_OFFSET_TM0CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac53f0de5c32f91900331a452ae175a28">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac53f0de5c32f91900331a452ae175a28" class="m-doc-self">REG_OFFSET_TM1CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abdd38345db5d07e44be75ac6edc130df">
+              <span class="m-doc-wrap-bumper">#define <a href="#abdd38345db5d07e44be75ac6edc130df" class="m-doc-self">REG_OFFSET_TM1CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ac0a5ca6c472537f274867187b5ef76">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8ac0a5ca6c472537f274867187b5ef76" class="m-doc-self">REG_OFFSET_TM1CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6647120f7518d6acb1b7ccfea1f7649d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6647120f7518d6acb1b7ccfea1f7649d" class="m-doc-self">REG_OFFSET_TM2CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a76d776c72f1c93fd6ba4f69b1f1a761a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a76d776c72f1c93fd6ba4f69b1f1a761a" class="m-doc-self">REG_OFFSET_TM2CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30d029075bd5bb234e0f5f73750b3be3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a30d029075bd5bb234e0f5f73750b3be3" class="m-doc-self">REG_OFFSET_TM2CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abaf84d28734ce7bf9e9e0904796f325e">
+              <span class="m-doc-wrap-bumper">#define <a href="#abaf84d28734ce7bf9e9e0904796f325e" class="m-doc-self">REG_OFFSET_TM3CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4d4e68b30fca358cc71e8940cf18232">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac4d4e68b30fca358cc71e8940cf18232" class="m-doc-self">REG_OFFSET_TM3CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9fe6b6af7c9b2cd24289503797ece020">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9fe6b6af7c9b2cd24289503797ece020" class="m-doc-self">REG_OFFSET_TM3CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0cbcceab8b19af4e10a7cdbde452c890">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0cbcceab8b19af4e10a7cdbde452c890" class="m-doc-self">REG_OFFSET_SIOCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ca8236470c0b95db0521cbcf4a1b93f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2ca8236470c0b95db0521cbcf4a1b93f" class="m-doc-self">REG_OFFSET_SIODATA8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a408e3a2eeafae09d499bd75e57469266">
+              <span class="m-doc-wrap-bumper">#define <a href="#a408e3a2eeafae09d499bd75e57469266" class="m-doc-self">REG_OFFSET_SIODATA32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f6304855ab8fbcaba57be2962f127f5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3f6304855ab8fbcaba57be2962f127f5" class="m-doc-self">REG_OFFSET_SIOMLT_SEND</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1595d92e5404d4a5f8f42e1828c29468">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1595d92e5404d4a5f8f42e1828c29468" class="m-doc-self">REG_OFFSET_SIOMLT_RECV</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6d53feb16b1c8acf286461d906f43593">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6d53feb16b1c8acf286461d906f43593" class="m-doc-self">REG_OFFSET_SIOMULTI0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a860db69641f302bc4358c5c359e0c6c7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a860db69641f302bc4358c5c359e0c6c7" class="m-doc-self">REG_OFFSET_SIOMULTI1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5997903320289fc64dd47ab5ef9e2ca6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5997903320289fc64dd47ab5ef9e2ca6" class="m-doc-self">REG_OFFSET_SIOMULTI2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e4e5a723f95e800fbf4873bb4dc76b8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4e4e5a723f95e800fbf4873bb4dc76b8" class="m-doc-self">REG_OFFSET_SIOMULTI3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a01f7794203c539d49408251eb3efbc9c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a01f7794203c539d49408251eb3efbc9c" class="m-doc-self">REG_OFFSET_KEYINPUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4dea08b476b4aa0ca0e71ea1a9b44101">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4dea08b476b4aa0ca0e71ea1a9b44101" class="m-doc-self">REG_OFFSET_KEYCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae1658cd889d390445f3083f1c024fd8b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae1658cd889d390445f3083f1c024fd8b" class="m-doc-self">REG_OFFSET_RCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0477c132a1cf26f0de55a93540fc2791">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0477c132a1cf26f0de55a93540fc2791" class="m-doc-self">REG_OFFSET_JOYCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1d2b96197a9447cf5cb00a6727531e9">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad1d2b96197a9447cf5cb00a6727531e9" class="m-doc-self">REG_OFFSET_JOYSTAT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0b0644a163bb52eb4cf9529fa611e2a">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac0b0644a163bb52eb4cf9529fa611e2a" class="m-doc-self">REG_OFFSET_JOY_RECV</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93796e8e3dd89071b4ef8f95f099adbf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a93796e8e3dd89071b4ef8f95f099adbf" class="m-doc-self">REG_OFFSET_JOY_RECV_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a19e1905b4b2e26831cf7bfb16cc5d2ab">
+              <span class="m-doc-wrap-bumper">#define <a href="#a19e1905b4b2e26831cf7bfb16cc5d2ab" class="m-doc-self">REG_OFFSET_JOY_RECV_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aab00993710fe779c29947256020b026c">
+              <span class="m-doc-wrap-bumper">#define <a href="#aab00993710fe779c29947256020b026c" class="m-doc-self">REG_OFFSET_JOY_TRANS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad328c95a27185c3741319eae496694b8">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad328c95a27185c3741319eae496694b8" class="m-doc-self">REG_OFFSET_JOY_TRANS_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18189042ce9aea78f23e6fee53c87ae4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a18189042ce9aea78f23e6fee53c87ae4" class="m-doc-self">REG_OFFSET_JOY_TRANS_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a69d391730880f7fc87917dc44b1bfc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4a69d391730880f7fc87917dc44b1bfc" class="m-doc-self">REG_OFFSET_IME</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d6d28c8d4d762e0c3957f79be0b9071">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4d6d28c8d4d762e0c3957f79be0b9071" class="m-doc-self">REG_OFFSET_IE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa9dd3d96ab72f3a49b92d33a9f9968ea">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa9dd3d96ab72f3a49b92d33a9f9968ea" class="m-doc-self">REG_OFFSET_IF</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c07968ef16ba3887ffdc714a5420ea0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4c07968ef16ba3887ffdc714a5420ea0" class="m-doc-self">REG_OFFSET_WAITCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a852e729530ff264eab33d19ff84153e3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a852e729530ff264eab33d19ff84153e3" class="m-doc-self">REG_ADDR_DISPCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af7f373edac3586c83a22ccd2656d082a">
+              <span class="m-doc-wrap-bumper">#define <a href="#af7f373edac3586c83a22ccd2656d082a" class="m-doc-self">REG_ADDR_DISPSTAT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aad3acc4afbe287b3b237ef4bd212f12a">
+              <span class="m-doc-wrap-bumper">#define <a href="#aad3acc4afbe287b3b237ef4bd212f12a" class="m-doc-self">REG_ADDR_VCOUNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac6b0f4751783535bc4408db7cf12813">
+              <span class="m-doc-wrap-bumper">#define <a href="#aac6b0f4751783535bc4408db7cf12813" class="m-doc-self">REG_ADDR_BG0CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7a1b7ad7d8f6e7e863dd99d6e3f18a26">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7a1b7ad7d8f6e7e863dd99d6e3f18a26" class="m-doc-self">REG_ADDR_BG1CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd5a39325a733dfae80f73aa621fc114">
+              <span class="m-doc-wrap-bumper">#define <a href="#acd5a39325a733dfae80f73aa621fc114" class="m-doc-self">REG_ADDR_BG2CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac421af09b5685d2e3964a9f725b51fef">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac421af09b5685d2e3964a9f725b51fef" class="m-doc-self">REG_ADDR_BG3CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9afe710456adbf29711c57359cbde862">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9afe710456adbf29711c57359cbde862" class="m-doc-self">REG_ADDR_BG0HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a987e28c43639f188bd8da96f09968bae">
+              <span class="m-doc-wrap-bumper">#define <a href="#a987e28c43639f188bd8da96f09968bae" class="m-doc-self">REG_ADDR_BG0VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af56ba1665b47445666eb0adbeaead2cc">
+              <span class="m-doc-wrap-bumper">#define <a href="#af56ba1665b47445666eb0adbeaead2cc" class="m-doc-self">REG_ADDR_BG1HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a24d98ca712805f8c341c5be40396f76a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a24d98ca712805f8c341c5be40396f76a" class="m-doc-self">REG_ADDR_BG1VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad37fc7098e6d4e2504a8bbe7a015a633">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad37fc7098e6d4e2504a8bbe7a015a633" class="m-doc-self">REG_ADDR_BG2HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3021492fc3044a7f9edfe4b8dde9a32">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad3021492fc3044a7f9edfe4b8dde9a32" class="m-doc-self">REG_ADDR_BG2VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f14ec325082f67f4c97270bbabe03fa">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8f14ec325082f67f4c97270bbabe03fa" class="m-doc-self">REG_ADDR_BG3HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a39d6a9bfb3c14ff5d989a9e93df018b1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a39d6a9bfb3c14ff5d989a9e93df018b1" class="m-doc-self">REG_ADDR_BG3VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7588abc2bbf0106060021f3fc9863af">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad7588abc2bbf0106060021f3fc9863af" class="m-doc-self">REG_ADDR_BG2PA</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3dd361083b0b5747b8b2ed1811d0c7ed">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3dd361083b0b5747b8b2ed1811d0c7ed" class="m-doc-self">REG_ADDR_BG2PB</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac23a56192a13cec9582b2d8400c59db4">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac23a56192a13cec9582b2d8400c59db4" class="m-doc-self">REG_ADDR_BG2PC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae1bc2c0c49f9e1bf9ef95df19318845c">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae1bc2c0c49f9e1bf9ef95df19318845c" class="m-doc-self">REG_ADDR_BG2PD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae214f8c8a19b2035a21fb50a323de745">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae214f8c8a19b2035a21fb50a323de745" class="m-doc-self">REG_ADDR_BG2X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a510b46d98b96a57fe9771ffa660308ab">
+              <span class="m-doc-wrap-bumper">#define <a href="#a510b46d98b96a57fe9771ffa660308ab" class="m-doc-self">REG_ADDR_BG2X_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53415b3894f8bb99d7d89fffb5707c9a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a53415b3894f8bb99d7d89fffb5707c9a" class="m-doc-self">REG_ADDR_BG2X_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7616389b80c64bb7f10819f9a0285fa6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7616389b80c64bb7f10819f9a0285fa6" class="m-doc-self">REG_ADDR_BG2Y</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a969894996fa4aa8f94110dffaa14e92e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a969894996fa4aa8f94110dffaa14e92e" class="m-doc-self">REG_ADDR_BG2Y_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac306ba92f5d815f3bfc6c9e6243c2bf3">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac306ba92f5d815f3bfc6c9e6243c2bf3" class="m-doc-self">REG_ADDR_BG2Y_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab496fa5c02f48dfc1573df1bfcbebdf0">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab496fa5c02f48dfc1573df1bfcbebdf0" class="m-doc-self">REG_ADDR_BG3PA</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aed32372c0cfb2d24ba4770d72ad7da16">
+              <span class="m-doc-wrap-bumper">#define <a href="#aed32372c0cfb2d24ba4770d72ad7da16" class="m-doc-self">REG_ADDR_BG3PB</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afad059e8ae093037a2f293c68b42cd22">
+              <span class="m-doc-wrap-bumper">#define <a href="#afad059e8ae093037a2f293c68b42cd22" class="m-doc-self">REG_ADDR_BG3PC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aece6c33ea8f24f05ccc4a7acc501f7cb">
+              <span class="m-doc-wrap-bumper">#define <a href="#aece6c33ea8f24f05ccc4a7acc501f7cb" class="m-doc-self">REG_ADDR_BG3PD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2309616ec230bf142077abf8f8f890a8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2309616ec230bf142077abf8f8f890a8" class="m-doc-self">REG_ADDR_BG3X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac2e8e57acbcbbfbd522f0ad115ce554b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac2e8e57acbcbbfbd522f0ad115ce554b" class="m-doc-self">REG_ADDR_BG3X_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0cf4c41c1284658f10cd835847214a2a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0cf4c41c1284658f10cd835847214a2a" class="m-doc-self">REG_ADDR_BG3X_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4ecaf8390f2c958f0b4a8168df89b2d1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4ecaf8390f2c958f0b4a8168df89b2d1" class="m-doc-self">REG_ADDR_BG3Y</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf3b3a4b894e4c27bc44a41279359908">
+              <span class="m-doc-wrap-bumper">#define <a href="#aaf3b3a4b894e4c27bc44a41279359908" class="m-doc-self">REG_ADDR_BG3Y_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a94430cfe9344f28535514298dda6454a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a94430cfe9344f28535514298dda6454a" class="m-doc-self">REG_ADDR_BG3Y_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ae99cdb8752fe7cc1401ece652764d8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6ae99cdb8752fe7cc1401ece652764d8" class="m-doc-self">REG_ADDR_WIN0H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36e5ade8e6ea20a573abe0da98c7b825">
+              <span class="m-doc-wrap-bumper">#define <a href="#a36e5ade8e6ea20a573abe0da98c7b825" class="m-doc-self">REG_ADDR_WIN1H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba7c054056f27036320c424c74cfed4f">
+              <span class="m-doc-wrap-bumper">#define <a href="#aba7c054056f27036320c424c74cfed4f" class="m-doc-self">REG_ADDR_WIN0V</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ec50d45b7c1aff6e69fa079e9adbc46">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2ec50d45b7c1aff6e69fa079e9adbc46" class="m-doc-self">REG_ADDR_WIN1V</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59c7def1b826865ac8216a5041a53a33">
+              <span class="m-doc-wrap-bumper">#define <a href="#a59c7def1b826865ac8216a5041a53a33" class="m-doc-self">REG_ADDR_WININ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32e8962f231261a760f994108a9ddc9c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a32e8962f231261a760f994108a9ddc9c" class="m-doc-self">REG_ADDR_WINOUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af930dc3417e5c95d8f64390ac96af46d">
+              <span class="m-doc-wrap-bumper">#define <a href="#af930dc3417e5c95d8f64390ac96af46d" class="m-doc-self">REG_ADDR_MOSAIC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a003bd21a084bc46e7ae3c4aa06c07d3f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a003bd21a084bc46e7ae3c4aa06c07d3f" class="m-doc-self">REG_ADDR_BLDCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4891f33fd58563204c216290121d2d77">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4891f33fd58563204c216290121d2d77" class="m-doc-self">REG_ADDR_BLDALPHA</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5822d8a9e57684bffa15ab9ecc679b56">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5822d8a9e57684bffa15ab9ecc679b56" class="m-doc-self">REG_ADDR_BLDY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87eaebd8ec13f36b65305f358222e1be">
+              <span class="m-doc-wrap-bumper">#define <a href="#a87eaebd8ec13f36b65305f358222e1be" class="m-doc-self">REG_ADDR_SOUND1CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5dad76406bc781501a308cf673dca4c">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab5dad76406bc781501a308cf673dca4c" class="m-doc-self">REG_ADDR_NR10</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a049d3c0f9ea278f3b73d7c7d30dcfbbf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a049d3c0f9ea278f3b73d7c7d30dcfbbf" class="m-doc-self">REG_ADDR_SOUND1CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aec4116d7ad82dfbd841cb2455e423acf">
+              <span class="m-doc-wrap-bumper">#define <a href="#aec4116d7ad82dfbd841cb2455e423acf" class="m-doc-self">REG_ADDR_NR11</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8b9ef4576b030f819aca7ba06ac2338a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8b9ef4576b030f819aca7ba06ac2338a" class="m-doc-self">REG_ADDR_NR12</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af018fbd20b7963a2bf7a80b10c5dbc9c">
+              <span class="m-doc-wrap-bumper">#define <a href="#af018fbd20b7963a2bf7a80b10c5dbc9c" class="m-doc-self">REG_ADDR_SOUND1CNT_X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0ba3f635df9e6533e387e1bcb7c1344b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0ba3f635df9e6533e387e1bcb7c1344b" class="m-doc-self">REG_ADDR_NR13</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4aae2748ee1febec14cf15958e3b47d5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4aae2748ee1febec14cf15958e3b47d5" class="m-doc-self">REG_ADDR_NR14</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1a366347a2ab94845da23af3a22c5ed0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1a366347a2ab94845da23af3a22c5ed0" class="m-doc-self">REG_ADDR_SOUND2CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d9738efb3a0cf93122cdf6a55862844">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1d9738efb3a0cf93122cdf6a55862844" class="m-doc-self">REG_ADDR_NR21</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a403974ebfe12bebebadf36efa72b8f58">
+              <span class="m-doc-wrap-bumper">#define <a href="#a403974ebfe12bebebadf36efa72b8f58" class="m-doc-self">REG_ADDR_NR22</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa0481a9893c4fa226636a58bd3aa5566">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa0481a9893c4fa226636a58bd3aa5566" class="m-doc-self">REG_ADDR_SOUND2CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20c67175993d741ce9b6f1cb3366f1ca">
+              <span class="m-doc-wrap-bumper">#define <a href="#a20c67175993d741ce9b6f1cb3366f1ca" class="m-doc-self">REG_ADDR_NR23</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="accbec56b9dbec41e761fd0b250794d63">
+              <span class="m-doc-wrap-bumper">#define <a href="#accbec56b9dbec41e761fd0b250794d63" class="m-doc-self">REG_ADDR_NR24</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a120c35b75c60c3fd3b38667d14cbba97">
+              <span class="m-doc-wrap-bumper">#define <a href="#a120c35b75c60c3fd3b38667d14cbba97" class="m-doc-self">REG_ADDR_SOUND3CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a448fc96820f2727c709a2a4425428aa8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a448fc96820f2727c709a2a4425428aa8" class="m-doc-self">REG_ADDR_NR30</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1944947f6243267fbe7cf9d2b27cc5b2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1944947f6243267fbe7cf9d2b27cc5b2" class="m-doc-self">REG_ADDR_SOUND3CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad573874c35c54126d3263d772908f0a3">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad573874c35c54126d3263d772908f0a3" class="m-doc-self">REG_ADDR_NR31</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe64c233173b11f9ee9ed63b88984af6">
+              <span class="m-doc-wrap-bumper">#define <a href="#abe64c233173b11f9ee9ed63b88984af6" class="m-doc-self">REG_ADDR_NR32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af62012ace2f803e1d63e1201ca6959b3">
+              <span class="m-doc-wrap-bumper">#define <a href="#af62012ace2f803e1d63e1201ca6959b3" class="m-doc-self">REG_ADDR_SOUND3CNT_X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0c8c477920fb84432b867cc947c853d4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0c8c477920fb84432b867cc947c853d4" class="m-doc-self">REG_ADDR_NR33</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a586076a3bbe70433aa9741bcb1f49af1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a586076a3bbe70433aa9741bcb1f49af1" class="m-doc-self">REG_ADDR_NR34</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1e059ee1cf3aaad121114e3142e4e23">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad1e059ee1cf3aaad121114e3142e4e23" class="m-doc-self">REG_ADDR_SOUND4CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afcad45147babea882cddbd78ce2833af">
+              <span class="m-doc-wrap-bumper">#define <a href="#afcad45147babea882cddbd78ce2833af" class="m-doc-self">REG_ADDR_NR41</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a91fff719bf23f4d4e055b4c10d391d5d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a91fff719bf23f4d4e055b4c10d391d5d" class="m-doc-self">REG_ADDR_NR42</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4cdaf0d0c9521ace187c75bf08a5684d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4cdaf0d0c9521ace187c75bf08a5684d" class="m-doc-self">REG_ADDR_SOUND4CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a99a000b39f5d5275584acbf188ffb576">
+              <span class="m-doc-wrap-bumper">#define <a href="#a99a000b39f5d5275584acbf188ffb576" class="m-doc-self">REG_ADDR_NR43</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a830236641d66a33ba322368112b400ba">
+              <span class="m-doc-wrap-bumper">#define <a href="#a830236641d66a33ba322368112b400ba" class="m-doc-self">REG_ADDR_NR44</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9767d33b68cae601f79843c675af92aa">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9767d33b68cae601f79843c675af92aa" class="m-doc-self">REG_ADDR_SOUNDCNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a09d34a5afe88e01a53084f88dc3722e6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a09d34a5afe88e01a53084f88dc3722e6" class="m-doc-self">REG_ADDR_NR50</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8eb5a77169216867db8835e72fb37f1">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa8eb5a77169216867db8835e72fb37f1" class="m-doc-self">REG_ADDR_NR51</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a283c1692dad9c98af83bea8ed0dbcb9e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a283c1692dad9c98af83bea8ed0dbcb9e" class="m-doc-self">REG_ADDR_SOUNDCNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8491593630e5a932ee5f7d629ced49c9">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8491593630e5a932ee5f7d629ced49c9" class="m-doc-self">REG_ADDR_SOUNDCNT_X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3db17c66cf85b5def4938df3cb90a05f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3db17c66cf85b5def4938df3cb90a05f" class="m-doc-self">REG_ADDR_NR52</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a676d882d723c19b65c24fc37f14748c2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a676d882d723c19b65c24fc37f14748c2" class="m-doc-self">REG_ADDR_SOUNDBIAS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ff24aac2d1d5c253b7d39ce1fda28e8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1ff24aac2d1d5c253b7d39ce1fda28e8" class="m-doc-self">REG_ADDR_SOUNDBIAS_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa674db7e3643ca09b2132f73045fed22">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa674db7e3643ca09b2132f73045fed22" class="m-doc-self">REG_ADDR_SOUNDBIAS_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af8f72e29e8e5230362ea52761e5cc7ae">
+              <span class="m-doc-wrap-bumper">#define <a href="#af8f72e29e8e5230362ea52761e5cc7ae" class="m-doc-self">REG_ADDR_WAVE_RAM0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9cae795ed4e729dd6c803fcead349f95">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9cae795ed4e729dd6c803fcead349f95" class="m-doc-self">REG_ADDR_WAVE_RAM1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a373bb06359a02308d34bd0590fe5248a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a373bb06359a02308d34bd0590fe5248a" class="m-doc-self">REG_ADDR_WAVE_RAM2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0176d3ed179fa8dfa2fc8d6323cafc14">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0176d3ed179fa8dfa2fc8d6323cafc14" class="m-doc-self">REG_ADDR_WAVE_RAM3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a222e420ffd72e402f12444fb37a219a4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a222e420ffd72e402f12444fb37a219a4" class="m-doc-self">REG_ADDR_FIFO_A</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e95943d8d0c293c1f2306848ca5f9f5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8e95943d8d0c293c1f2306848ca5f9f5" class="m-doc-self">REG_ADDR_FIFO_B</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59c164d1b2b5d5091cef7862939c855b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a59c164d1b2b5d5091cef7862939c855b" class="m-doc-self">REG_ADDR_DMA0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a37e70194552b1be3205bdf91d7b7aaa8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a37e70194552b1be3205bdf91d7b7aaa8" class="m-doc-self">REG_ADDR_DMA0SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e15244d486eec04d338d52877522ec5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7e15244d486eec04d338d52877522ec5" class="m-doc-self">REG_ADDR_DMA0DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abb0d86088398fd62f0fd6ae33c31a154">
+              <span class="m-doc-wrap-bumper">#define <a href="#abb0d86088398fd62f0fd6ae33c31a154" class="m-doc-self">REG_ADDR_DMA0CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7aa9dceed7cba65131e9dbcb64f62cdf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7aa9dceed7cba65131e9dbcb64f62cdf" class="m-doc-self">REG_ADDR_DMA0CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c2ca34521275575148d32575bacf749">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3c2ca34521275575148d32575bacf749" class="m-doc-self">REG_ADDR_DMA0CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6290f07ee5e38ea9d8af7e12a13e1b9d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6290f07ee5e38ea9d8af7e12a13e1b9d" class="m-doc-self">REG_ADDR_DMA1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac550d6d89c74f9b8b31bbb3dd35bac5a">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac550d6d89c74f9b8b31bbb3dd35bac5a" class="m-doc-self">REG_ADDR_DMA1SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae1e65b9778c02379356ccd15cf7fa32">
+              <span class="m-doc-wrap-bumper">#define <a href="#aae1e65b9778c02379356ccd15cf7fa32" class="m-doc-self">REG_ADDR_DMA1DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2213eb7ccab9098b8cf9c09757cd958">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae2213eb7ccab9098b8cf9c09757cd958" class="m-doc-self">REG_ADDR_DMA1CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a30f98c87fd758c5b2b984b21caceb7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3a30f98c87fd758c5b2b984b21caceb7" class="m-doc-self">REG_ADDR_DMA1CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acc5236d4ce3952414bda37d7714e20d5">
+              <span class="m-doc-wrap-bumper">#define <a href="#acc5236d4ce3952414bda37d7714e20d5" class="m-doc-self">REG_ADDR_DMA1CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a47d696ff5a2a4dae7c019b9dcf35ee2a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a47d696ff5a2a4dae7c019b9dcf35ee2a" class="m-doc-self">REG_ADDR_DMA2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a191e7c6ebb241a5807a3f92456f8748f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a191e7c6ebb241a5807a3f92456f8748f" class="m-doc-self">REG_ADDR_DMA2SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aecf21f1768572ed20e3534e039fd9da9">
+              <span class="m-doc-wrap-bumper">#define <a href="#aecf21f1768572ed20e3534e039fd9da9" class="m-doc-self">REG_ADDR_DMA2DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a676bb7371d838717df50a244b9166865">
+              <span class="m-doc-wrap-bumper">#define <a href="#a676bb7371d838717df50a244b9166865" class="m-doc-self">REG_ADDR_DMA2CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e6feaa2ad686686b4db6dae88d67158">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7e6feaa2ad686686b4db6dae88d67158" class="m-doc-self">REG_ADDR_DMA2CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5428e2c6d6959500afc70b92fc2a91d4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5428e2c6d6959500afc70b92fc2a91d4" class="m-doc-self">REG_ADDR_DMA2CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac51e555b6206ef77cb6315240dc4dab4">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac51e555b6206ef77cb6315240dc4dab4" class="m-doc-self">REG_ADDR_DMA3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af59c06b037f4380ab3261f0fb58a3022">
+              <span class="m-doc-wrap-bumper">#define <a href="#af59c06b037f4380ab3261f0fb58a3022" class="m-doc-self">REG_ADDR_DMA3SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a58cc282b2db7f894871dd70aafd70423">
+              <span class="m-doc-wrap-bumper">#define <a href="#a58cc282b2db7f894871dd70aafd70423" class="m-doc-self">REG_ADDR_DMA3DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac76a47220eb2f9154137d26ef5d1ed57">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac76a47220eb2f9154137d26ef5d1ed57" class="m-doc-self">REG_ADDR_DMA3CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89262d5af654bbde1e6c1fc043f3c740">
+              <span class="m-doc-wrap-bumper">#define <a href="#a89262d5af654bbde1e6c1fc043f3c740" class="m-doc-self">REG_ADDR_DMA3CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a76bb213effeeed52d4496fa1fdadc834">
+              <span class="m-doc-wrap-bumper">#define <a href="#a76bb213effeeed52d4496fa1fdadc834" class="m-doc-self">REG_ADDR_DMA3CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa3eb8ad6804949407ffee99a9a194e7e">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa3eb8ad6804949407ffee99a9a194e7e" class="m-doc-self">REG_ADDR_TMCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1bc7ec5eb056f968823a89fe5af26a6e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1bc7ec5eb056f968823a89fe5af26a6e" class="m-doc-self">REG_ADDR_TMCNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa3799933d744ecb9dabfa25ec372e64a">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa3799933d744ecb9dabfa25ec372e64a" class="m-doc-self">REG_ADDR_TMCNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a606d9af06297e6141b508ecd19c0ea8a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a606d9af06297e6141b508ecd19c0ea8a" class="m-doc-self">REG_ADDR_TM0CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9bca728c89c5536768ee1d63a10c24fd">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9bca728c89c5536768ee1d63a10c24fd" class="m-doc-self">REG_ADDR_TM0CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad70d225ae54d8a428dfeda1845cd5321">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad70d225ae54d8a428dfeda1845cd5321" class="m-doc-self">REG_ADDR_TM0CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade7469dc072ff2eed47cb5ff1a822209">
+              <span class="m-doc-wrap-bumper">#define <a href="#ade7469dc072ff2eed47cb5ff1a822209" class="m-doc-self">REG_ADDR_TM1CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5dc179d5054087c166c3bb58deb885c2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5dc179d5054087c166c3bb58deb885c2" class="m-doc-self">REG_ADDR_TM1CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acbeb182d37d05b78efdd7b34e8d6cb7e">
+              <span class="m-doc-wrap-bumper">#define <a href="#acbeb182d37d05b78efdd7b34e8d6cb7e" class="m-doc-self">REG_ADDR_TM1CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a315cf73894c15d41d59fec21c2a3644e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a315cf73894c15d41d59fec21c2a3644e" class="m-doc-self">REG_ADDR_TM2CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59e30bd9239c21085e449733a64cf6a3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a59e30bd9239c21085e449733a64cf6a3" class="m-doc-self">REG_ADDR_TM2CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d032b662379fa000ae540f9be66e0a7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3d032b662379fa000ae540f9be66e0a7" class="m-doc-self">REG_ADDR_TM2CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5cf1d17f50f8d8c69ae2f8dc93cc574a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5cf1d17f50f8d8c69ae2f8dc93cc574a" class="m-doc-self">REG_ADDR_TM3CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3e8e0b96650bdacfa3aae22f2edc487">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac3e8e0b96650bdacfa3aae22f2edc487" class="m-doc-self">REG_ADDR_TM3CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a09cba1c0a346a2809da4b316c2c1aacf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a09cba1c0a346a2809da4b316c2c1aacf" class="m-doc-self">REG_ADDR_TM3CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a60ae45d8677fb0e57a7c4f86e6b0f067">
+              <span class="m-doc-wrap-bumper">#define <a href="#a60ae45d8677fb0e57a7c4f86e6b0f067" class="m-doc-self">REG_ADDR_SIOCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a02cdbefd9791da21b2a41e9624f4d3db">
+              <span class="m-doc-wrap-bumper">#define <a href="#a02cdbefd9791da21b2a41e9624f4d3db" class="m-doc-self">REG_ADDR_SIODATA8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a873c55b3c00f01d0754cd706ca08e3be">
+              <span class="m-doc-wrap-bumper">#define <a href="#a873c55b3c00f01d0754cd706ca08e3be" class="m-doc-self">REG_ADDR_SIODATA32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab8ee6ba66a32500e5b03d81a57ad1eb9">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab8ee6ba66a32500e5b03d81a57ad1eb9" class="m-doc-self">REG_ADDR_SIOMLT_SEND</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa136abe511f46f16af08a7e75864406a">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa136abe511f46f16af08a7e75864406a" class="m-doc-self">REG_ADDR_SIOMLT_RECV</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0becb5b0295cbcb2ed1de2354ee46f52">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0becb5b0295cbcb2ed1de2354ee46f52" class="m-doc-self">REG_ADDR_SIOMULTI0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a60d9deaa184aefc2d9d1113d2efe0f9b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a60d9deaa184aefc2d9d1113d2efe0f9b" class="m-doc-self">REG_ADDR_SIOMULTI1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a826dd83c570faf8b4e6a651e2b1cee3b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a826dd83c570faf8b4e6a651e2b1cee3b" class="m-doc-self">REG_ADDR_SIOMULTI2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d07c7cd2dceb58926fd79294687d3c7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9d07c7cd2dceb58926fd79294687d3c7" class="m-doc-self">REG_ADDR_SIOMULTI3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05e2074a9195ae8e2a5521286a26846a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a05e2074a9195ae8e2a5521286a26846a" class="m-doc-self">REG_ADDR_KEYINPUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3032d19cc71a94764fd5d0a14b38875">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad3032d19cc71a94764fd5d0a14b38875" class="m-doc-self">REG_ADDR_KEYCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa219580905d290637a2765d12d6e6692">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa219580905d290637a2765d12d6e6692" class="m-doc-self">REG_ADDR_RCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5263eb23899b21965f05f9adcd940c94">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5263eb23899b21965f05f9adcd940c94" class="m-doc-self">REG_ADDR_JOYCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a228a9eb09a08b577e29a59fe011fbbce">
+              <span class="m-doc-wrap-bumper">#define <a href="#a228a9eb09a08b577e29a59fe011fbbce" class="m-doc-self">REG_ADDR_JOYSTAT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7af67705fc338a4aa3908de49bfbdeb">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad7af67705fc338a4aa3908de49bfbdeb" class="m-doc-self">REG_ADDR_JOY_RECV</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acec28df180344bd3166a708447d07ac9">
+              <span class="m-doc-wrap-bumper">#define <a href="#acec28df180344bd3166a708447d07ac9" class="m-doc-self">REG_ADDR_JOY_RECV_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb99560f1e0586b20eab1a832d0199dc">
+              <span class="m-doc-wrap-bumper">#define <a href="#adb99560f1e0586b20eab1a832d0199dc" class="m-doc-self">REG_ADDR_JOY_RECV_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86b8ef69ce03fa250b39c22506018e6d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a86b8ef69ce03fa250b39c22506018e6d" class="m-doc-self">REG_ADDR_JOY_TRANS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9c9c8074baa690c6fa688a7efb11c735">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9c9c8074baa690c6fa688a7efb11c735" class="m-doc-self">REG_ADDR_JOY_TRANS_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adff8a91099652321bad0927c42cf4cc4">
+              <span class="m-doc-wrap-bumper">#define <a href="#adff8a91099652321bad0927c42cf4cc4" class="m-doc-self">REG_ADDR_JOY_TRANS_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a510e342ddb3c51b0cb9d28fbe1298abf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a510e342ddb3c51b0cb9d28fbe1298abf" class="m-doc-self">REG_ADDR_IME</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab45ade5c784c4bb4c89e4b6f075679b6">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab45ade5c784c4bb4c89e4b6f075679b6" class="m-doc-self">REG_ADDR_IE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0af04235c51ef9dc0b12489d37a6ffa4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0af04235c51ef9dc0b12489d37a6ffa4" class="m-doc-self">REG_ADDR_IF</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3bb97689b20f47067fa4cfe384141ce0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3bb97689b20f47067fa4cfe384141ce0" class="m-doc-self">REG_ADDR_WAITCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9a5b1a8377f77fcfde2069c040bcdfdf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9a5b1a8377f77fcfde2069c040bcdfdf" class="m-doc-self">REG_DISPCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4612aee17022710119221dd79841781">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab4612aee17022710119221dd79841781" class="m-doc-self">REG_DISPSTAT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ca8fe6da31795ce045366a65b042d02">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8ca8fe6da31795ce045366a65b042d02" class="m-doc-self">REG_VCOUNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afb709dda516489a471e09cd25af97893">
+              <span class="m-doc-wrap-bumper">#define <a href="#afb709dda516489a471e09cd25af97893" class="m-doc-self">REG_BG0CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af09917e63b9616050f68512a06c94ce1">
+              <span class="m-doc-wrap-bumper">#define <a href="#af09917e63b9616050f68512a06c94ce1" class="m-doc-self">REG_BG1CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf4473d6530b62cb7aa1a12480c84bf5">
+              <span class="m-doc-wrap-bumper">#define <a href="#acf4473d6530b62cb7aa1a12480c84bf5" class="m-doc-self">REG_BG2CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d99d5b1b8afdd6f9f1794eeae2be5ac">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2d99d5b1b8afdd6f9f1794eeae2be5ac" class="m-doc-self">REG_BG3CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f4ae1b5b9752ff1111e5a692e90fdcb">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3f4ae1b5b9752ff1111e5a692e90fdcb" class="m-doc-self">REG_BG0HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a963be0941288966259db487c881c4bd7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a963be0941288966259db487c881c4bd7" class="m-doc-self">REG_BG0VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab769d805a40fdce758d964d274bb8195">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab769d805a40fdce758d964d274bb8195" class="m-doc-self">REG_BG1HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a466a20c79b0739bae02668b1b764d8f1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a466a20c79b0739bae02668b1b764d8f1" class="m-doc-self">REG_BG1VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a79723f49e7557337b091835634430844">
+              <span class="m-doc-wrap-bumper">#define <a href="#a79723f49e7557337b091835634430844" class="m-doc-self">REG_BG2HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae64c4fa64e07ea9a1c33873bc2dc269e">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae64c4fa64e07ea9a1c33873bc2dc269e" class="m-doc-self">REG_BG2VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac107692b4c51d08af380a28407632d5">
+              <span class="m-doc-wrap-bumper">#define <a href="#aac107692b4c51d08af380a28407632d5" class="m-doc-self">REG_BG3HOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a182c4c0a976be88919146755c53ab44a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a182c4c0a976be88919146755c53ab44a" class="m-doc-self">REG_BG3VOFS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7b636dba8663d076792dc22cb244a2b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae7b636dba8663d076792dc22cb244a2b" class="m-doc-self">REG_BG2PA</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada120c921f2be33d421ea03fbe96b3fc">
+              <span class="m-doc-wrap-bumper">#define <a href="#ada120c921f2be33d421ea03fbe96b3fc" class="m-doc-self">REG_BG2PB</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8fd79071e8dd6cb7f908a2ad24919689">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8fd79071e8dd6cb7f908a2ad24919689" class="m-doc-self">REG_BG2PC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5129508aed6ffc5ed3ae21c6b2154782">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5129508aed6ffc5ed3ae21c6b2154782" class="m-doc-self">REG_BG2PD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a90f089e479409319a3ff254dd365b0e9">
+              <span class="m-doc-wrap-bumper">#define <a href="#a90f089e479409319a3ff254dd365b0e9" class="m-doc-self">REG_BG2X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9df09ebeac97546717518a95c0913edd">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9df09ebeac97546717518a95c0913edd" class="m-doc-self">REG_BG2X_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3097724eec4acad9464bf88980a4891e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3097724eec4acad9464bf88980a4891e" class="m-doc-self">REG_BG2X_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe18082514ea3265d3c00b7232ba98a0">
+              <span class="m-doc-wrap-bumper">#define <a href="#abe18082514ea3265d3c00b7232ba98a0" class="m-doc-self">REG_BG2Y</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d1fce16632f22d08a46a00163f4a242">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9d1fce16632f22d08a46a00163f4a242" class="m-doc-self">REG_BG2Y_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d18111a4df2d77527843e39d478ce13">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5d18111a4df2d77527843e39d478ce13" class="m-doc-self">REG_BG2Y_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a777b46aca650fdfa23cf972da38c7979">
+              <span class="m-doc-wrap-bumper">#define <a href="#a777b46aca650fdfa23cf972da38c7979" class="m-doc-self">REG_BG3PA</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f59ee2e9c09ec04397552a62c692db0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2f59ee2e9c09ec04397552a62c692db0" class="m-doc-self">REG_BG3PB</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00a6241d44dc621ef7be7725d0ee97f0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a00a6241d44dc621ef7be7725d0ee97f0" class="m-doc-self">REG_BG3PC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18b713217fc61c37d716d24df07ea276">
+              <span class="m-doc-wrap-bumper">#define <a href="#a18b713217fc61c37d716d24df07ea276" class="m-doc-self">REG_BG3PD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b1de440a5d0fdb780145b200fdc1b82">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5b1de440a5d0fdb780145b200fdc1b82" class="m-doc-self">REG_BG3X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9048bfc383735cbc727b20737b9cdd0a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9048bfc383735cbc727b20737b9cdd0a" class="m-doc-self">REG_BG3X_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af5ca4a4390e232eeb9f5ddb38722e99b">
+              <span class="m-doc-wrap-bumper">#define <a href="#af5ca4a4390e232eeb9f5ddb38722e99b" class="m-doc-self">REG_BG3X_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae415e8cda55a4e388e80ab2e6383ee67">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae415e8cda55a4e388e80ab2e6383ee67" class="m-doc-self">REG_BG3Y</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e539d0afc10a8b536e9bba0fa15ef68">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3e539d0afc10a8b536e9bba0fa15ef68" class="m-doc-self">REG_BG3Y_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a942177219455e010205edfbaa1f63c6f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a942177219455e010205edfbaa1f63c6f" class="m-doc-self">REG_BG3Y_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a66c489b09abc40a35c1e3ffe4fae2958">
+              <span class="m-doc-wrap-bumper">#define <a href="#a66c489b09abc40a35c1e3ffe4fae2958" class="m-doc-self">REG_WIN0H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a213da6f7ba18cbf4048c1ebae2c88b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0a213da6f7ba18cbf4048c1ebae2c88b" class="m-doc-self">REG_WIN1H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff1ab9e975067e50df0c37314972907b">
+              <span class="m-doc-wrap-bumper">#define <a href="#aff1ab9e975067e50df0c37314972907b" class="m-doc-self">REG_WIN0V</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af82b5e99e05bf28ac4de24c265523162">
+              <span class="m-doc-wrap-bumper">#define <a href="#af82b5e99e05bf28ac4de24c265523162" class="m-doc-self">REG_WIN1V</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1715742d4b17f42a415a40253b1831bc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1715742d4b17f42a415a40253b1831bc" class="m-doc-self">REG_WININ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad5f7d199f9e9c5b5a37ad87a396a6304">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad5f7d199f9e9c5b5a37ad87a396a6304" class="m-doc-self">REG_WINOUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af189b16c0e666f2b9a07a538944a5684">
+              <span class="m-doc-wrap-bumper">#define <a href="#af189b16c0e666f2b9a07a538944a5684" class="m-doc-self">REG_MOSAIC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aef7204a77ae4ec4dd95d956528552ad9">
+              <span class="m-doc-wrap-bumper">#define <a href="#aef7204a77ae4ec4dd95d956528552ad9" class="m-doc-self">REG_BLDCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad4031270f6e7221cc862da2519dad97e">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad4031270f6e7221cc862da2519dad97e" class="m-doc-self">REG_BLDALPHA</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b8311be3192eaaa279e96bd2bea1b25">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6b8311be3192eaaa279e96bd2bea1b25" class="m-doc-self">REG_BLDY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7befcb9c0c47425ab484b61c2f6e18b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad7befcb9c0c47425ab484b61c2f6e18b" class="m-doc-self">REG_SOUND1CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afbf832e7e523cbfdac7efa1d747e8e59">
+              <span class="m-doc-wrap-bumper">#define <a href="#afbf832e7e523cbfdac7efa1d747e8e59" class="m-doc-self">REG_NR10</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a134c65fe394493ea74885a1dd3a02a82">
+              <span class="m-doc-wrap-bumper">#define <a href="#a134c65fe394493ea74885a1dd3a02a82" class="m-doc-self">REG_SOUND1CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acc78ba7173706c525fc0bddc4736ec26">
+              <span class="m-doc-wrap-bumper">#define <a href="#acc78ba7173706c525fc0bddc4736ec26" class="m-doc-self">REG_NR11</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04d8456457280b3fe616048774fe9508">
+              <span class="m-doc-wrap-bumper">#define <a href="#a04d8456457280b3fe616048774fe9508" class="m-doc-self">REG_NR12</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad42362836ba7747cab3a6b7ed276c163">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad42362836ba7747cab3a6b7ed276c163" class="m-doc-self">REG_SOUND1CNT_X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd060feb66b9c2387e08a4497e6480fb">
+              <span class="m-doc-wrap-bumper">#define <a href="#acd060feb66b9c2387e08a4497e6480fb" class="m-doc-self">REG_NR13</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae08d8a9b16c3f8685722adbb92ff7605">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae08d8a9b16c3f8685722adbb92ff7605" class="m-doc-self">REG_NR14</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27c9b8488e4d8f37c8dde9a4bacfd9dc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a27c9b8488e4d8f37c8dde9a4bacfd9dc" class="m-doc-self">REG_SOUND2CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3f12d2e5e8830cf7439657909ad88d62">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3f12d2e5e8830cf7439657909ad88d62" class="m-doc-self">REG_NR21</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34ea2a6b7705c5058ee07b339ecec57e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a34ea2a6b7705c5058ee07b339ecec57e" class="m-doc-self">REG_NR22</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a90d7cca3084e31ee176161bccd68b3d2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a90d7cca3084e31ee176161bccd68b3d2" class="m-doc-self">REG_SOUND2CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a97175d2b3211c7f6fdf9daedb01d7ba3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a97175d2b3211c7f6fdf9daedb01d7ba3" class="m-doc-self">REG_NR23</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc838ed1f3861dd532d9d62d42775fbb">
+              <span class="m-doc-wrap-bumper">#define <a href="#adc838ed1f3861dd532d9d62d42775fbb" class="m-doc-self">REG_NR24</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff159c97cb75854277a29327634a755f">
+              <span class="m-doc-wrap-bumper">#define <a href="#aff159c97cb75854277a29327634a755f" class="m-doc-self">REG_SOUND3CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af5edfe9e6bda0c6667548aadb01b98a5">
+              <span class="m-doc-wrap-bumper">#define <a href="#af5edfe9e6bda0c6667548aadb01b98a5" class="m-doc-self">REG_NR30</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3a36f8283c5b474339ccf3883323605">
+              <span class="m-doc-wrap-bumper">#define <a href="#af3a36f8283c5b474339ccf3883323605" class="m-doc-self">REG_SOUND3CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27f95a7cf5318605842c7e914af32350">
+              <span class="m-doc-wrap-bumper">#define <a href="#a27f95a7cf5318605842c7e914af32350" class="m-doc-self">REG_NR31</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27eede15189b0025777801356ac9c78d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a27eede15189b0025777801356ac9c78d" class="m-doc-self">REG_NR32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aca6f88ea849cab35a35759553a611687">
+              <span class="m-doc-wrap-bumper">#define <a href="#aca6f88ea849cab35a35759553a611687" class="m-doc-self">REG_SOUND3CNT_X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a808b6d76963ee54e5a5ff14ff4bae183">
+              <span class="m-doc-wrap-bumper">#define <a href="#a808b6d76963ee54e5a5ff14ff4bae183" class="m-doc-self">REG_NR33</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93671a64dc44b1a618eb065baae3634f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a93671a64dc44b1a618eb065baae3634f" class="m-doc-self">REG_NR34</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ef6812d9abe31a06771366ff8898f23">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8ef6812d9abe31a06771366ff8898f23" class="m-doc-self">REG_SOUND4CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a08e2f56b7d6433f357cd11a92ae0b15d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a08e2f56b7d6433f357cd11a92ae0b15d" class="m-doc-self">REG_NR41</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5c06fb029b260c39ba7336c65d968e49">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5c06fb029b260c39ba7336c65d968e49" class="m-doc-self">REG_NR42</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0acdeb648a552d2991d67a5d9c950954">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0acdeb648a552d2991d67a5d9c950954" class="m-doc-self">REG_SOUND4CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a179062739a1284ffb200f4e0148bb1e7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a179062739a1284ffb200f4e0148bb1e7" class="m-doc-self">REG_NR43</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5943426a9cd9434c908ecee184d429ff">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5943426a9cd9434c908ecee184d429ff" class="m-doc-self">REG_NR44</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a446f761db6250798e671e893b084916e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a446f761db6250798e671e893b084916e" class="m-doc-self">REG_SOUNDCNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a58a46209ea0b1f746a0ded1369e530fb">
+              <span class="m-doc-wrap-bumper">#define <a href="#a58a46209ea0b1f746a0ded1369e530fb" class="m-doc-self">REG_NR50</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af6b91bcee64cfd26644783e2270000c9">
+              <span class="m-doc-wrap-bumper">#define <a href="#af6b91bcee64cfd26644783e2270000c9" class="m-doc-self">REG_NR51</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad527b5102122fd008452f79706e6482b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad527b5102122fd008452f79706e6482b" class="m-doc-self">REG_SOUNDCNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e513b6dfb04b5855f9cf4d1db3a0fcc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1e513b6dfb04b5855f9cf4d1db3a0fcc" class="m-doc-self">REG_SOUNDCNT_X</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae947fad5d9203cd5e4569c46f1ea8f2f">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae947fad5d9203cd5e4569c46f1ea8f2f" class="m-doc-self">REG_NR52</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abda3c50e83ea5df1f2374ffb3bc6a4e4">
+              <span class="m-doc-wrap-bumper">#define <a href="#abda3c50e83ea5df1f2374ffb3bc6a4e4" class="m-doc-self">REG_SOUNDBIAS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae60fcff57d9ea6cb0c953d186342456">
+              <span class="m-doc-wrap-bumper">#define <a href="#aae60fcff57d9ea6cb0c953d186342456" class="m-doc-self">REG_SOUNDBIAS_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f9236f32953096865aa701245e13567">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8f9236f32953096865aa701245e13567" class="m-doc-self">REG_SOUNDBIAS_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3bef5ecb067fe0581ef7414531d0509">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab3bef5ecb067fe0581ef7414531d0509" class="m-doc-self">REG_WAVE_RAM0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a109157128be2540a273447051cac1afd">
+              <span class="m-doc-wrap-bumper">#define <a href="#a109157128be2540a273447051cac1afd" class="m-doc-self">REG_WAVE_RAM1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a23c8e2ea170c1c7253c0e06b2f534b7e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a23c8e2ea170c1c7253c0e06b2f534b7e" class="m-doc-self">REG_WAVE_RAM2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af4afff003642dabff3a1e78b2eaf7e4f">
+              <span class="m-doc-wrap-bumper">#define <a href="#af4afff003642dabff3a1e78b2eaf7e4f" class="m-doc-self">REG_WAVE_RAM3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0795ffa195a5c7b791563f35c95a9490">
+              <span class="m-doc-wrap-bumper">#define <a href="#a0795ffa195a5c7b791563f35c95a9490" class="m-doc-self">REG_FIFO_A</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f06b40be97536e461c931f91c9f25aa">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2f06b40be97536e461c931f91c9f25aa" class="m-doc-self">REG_FIFO_B</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53611d052fd709c28740048aa65dec21">
+              <span class="m-doc-wrap-bumper">#define <a href="#a53611d052fd709c28740048aa65dec21" class="m-doc-self">REG_DMA0SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa3f41690485406f090f9c2caee6f6aa1">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa3f41690485406f090f9c2caee6f6aa1" class="m-doc-self">REG_DMA0DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4f03e1e50d0b66376483c0f72632c51">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab4f03e1e50d0b66376483c0f72632c51" class="m-doc-self">REG_DMA0CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5799f8053887cff71e9830f28fefcf2">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa5799f8053887cff71e9830f28fefcf2" class="m-doc-self">REG_DMA0CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1ef9b58b208da4aeadc52e19734085b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac1ef9b58b208da4aeadc52e19734085b" class="m-doc-self">REG_DMA0CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3456d97947bcd5992a6ca68484bbde7d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3456d97947bcd5992a6ca68484bbde7d" class="m-doc-self">REG_DMA1SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa6f240c48fb10e56336a10ea6c86f6c0">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa6f240c48fb10e56336a10ea6c86f6c0" class="m-doc-self">REG_DMA1DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeafdfbb085ec46ad5c5a2d6878227baf">
+              <span class="m-doc-wrap-bumper">#define <a href="#aeafdfbb085ec46ad5c5a2d6878227baf" class="m-doc-self">REG_DMA1CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab487ff6b04ab23386fd5fbedb02d84d1">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab487ff6b04ab23386fd5fbedb02d84d1" class="m-doc-self">REG_DMA1CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a36adbd000cd2df77d85ae3b38cadb328">
+              <span class="m-doc-wrap-bumper">#define <a href="#a36adbd000cd2df77d85ae3b38cadb328" class="m-doc-self">REG_DMA1CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad89b64eb76884d78a94c6a93d4393d9e">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad89b64eb76884d78a94c6a93d4393d9e" class="m-doc-self">REG_DMA2SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a591ac143fcf47571122c98a0137193ac">
+              <span class="m-doc-wrap-bumper">#define <a href="#a591ac143fcf47571122c98a0137193ac" class="m-doc-self">REG_DMA2DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9b2e35a46cb9155e13841056be28b3dc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9b2e35a46cb9155e13841056be28b3dc" class="m-doc-self">REG_DMA2CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1161a79656aea95345fbde1a12fbde7">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac1161a79656aea95345fbde1a12fbde7" class="m-doc-self">REG_DMA2CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a78048fedc2930ff81c5212731fb0e636">
+              <span class="m-doc-wrap-bumper">#define <a href="#a78048fedc2930ff81c5212731fb0e636" class="m-doc-self">REG_DMA2CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9bed89d09e421b4f9593068056b376f">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab9bed89d09e421b4f9593068056b376f" class="m-doc-self">REG_DMA3SAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a69252e92caed680b03828e17343c5dda">
+              <span class="m-doc-wrap-bumper">#define <a href="#a69252e92caed680b03828e17343c5dda" class="m-doc-self">REG_DMA3DAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5f2479a755cedd6ad69770a5f3735ce5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5f2479a755cedd6ad69770a5f3735ce5" class="m-doc-self">REG_DMA3CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32f8cd34ca2b26a8a05dfc991652de41">
+              <span class="m-doc-wrap-bumper">#define <a href="#a32f8cd34ca2b26a8a05dfc991652de41" class="m-doc-self">REG_DMA3CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5d2cdf7831dd87671c4d94aedbaf756a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5d2cdf7831dd87671c4d94aedbaf756a" class="m-doc-self">REG_DMA3CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd742a38302dcb5619e61621ac51177b">
+              <span class="m-doc-wrap-bumper">#define <a href="#abd742a38302dcb5619e61621ac51177b" class="m-doc-self">REG_TMCNT</a>(</span><span class="m-doc-wrap">n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a133c657250b912618bec5cc3107ac012">
+              <span class="m-doc-wrap-bumper">#define <a href="#a133c657250b912618bec5cc3107ac012" class="m-doc-self">REG_TMCNT_L</a>(</span><span class="m-doc-wrap">n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8eb021f3ca0db50b37178c0ac63bdb24">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8eb021f3ca0db50b37178c0ac63bdb24" class="m-doc-self">REG_TMCNT_H</a>(</span><span class="m-doc-wrap">n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a901c085c2847c18e6fc821ed3fd4b584">
+              <span class="m-doc-wrap-bumper">#define <a href="#a901c085c2847c18e6fc821ed3fd4b584" class="m-doc-self">REG_TM0CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2a8365c5fb0f2a69727e18a79f37d656">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2a8365c5fb0f2a69727e18a79f37d656" class="m-doc-self">REG_TM0CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a69260a01331f8c2e9eb8f8b0989f6b35">
+              <span class="m-doc-wrap-bumper">#define <a href="#a69260a01331f8c2e9eb8f8b0989f6b35" class="m-doc-self">REG_TM0CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf4e0fdd8c93399995d7e811e31dc35d">
+              <span class="m-doc-wrap-bumper">#define <a href="#aaf4e0fdd8c93399995d7e811e31dc35d" class="m-doc-self">REG_TM1CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a89c4eccba1f768344366a12a526e26dc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a89c4eccba1f768344366a12a526e26dc" class="m-doc-self">REG_TM1CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab99e764b0545b870d0029dcc7649ca49">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab99e764b0545b870d0029dcc7649ca49" class="m-doc-self">REG_TM1CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82097351000ce29b5b7d56175c0032bf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a82097351000ce29b5b7d56175c0032bf" class="m-doc-self">REG_TM2CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a763afce6df93940e20c954bac80e93b8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a763afce6df93940e20c954bac80e93b8" class="m-doc-self">REG_TM2CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae345bfdb7d70acfa0de1680c1fa1afbd">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae345bfdb7d70acfa0de1680c1fa1afbd" class="m-doc-self">REG_TM2CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a232988998c9f87cea01dc100bd4d30cd">
+              <span class="m-doc-wrap-bumper">#define <a href="#a232988998c9f87cea01dc100bd4d30cd" class="m-doc-self">REG_TM3CNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa25cb1d2bdee1d7d62324baa1cff3ce2">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa25cb1d2bdee1d7d62324baa1cff3ce2" class="m-doc-self">REG_TM3CNT_L</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38db88ba9d67f85635b44fc930431666">
+              <span class="m-doc-wrap-bumper">#define <a href="#a38db88ba9d67f85635b44fc930431666" class="m-doc-self">REG_TM3CNT_H</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aecf4523b5469502dd0678a13a1e14514">
+              <span class="m-doc-wrap-bumper">#define <a href="#aecf4523b5469502dd0678a13a1e14514" class="m-doc-self">REG_SIOCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aad9551a7f3fb5b7633636eb72430700f">
+              <span class="m-doc-wrap-bumper">#define <a href="#aad9551a7f3fb5b7633636eb72430700f" class="m-doc-self">REG_SIODATA8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af7835700b27d0c282bc5e8a6adde8684">
+              <span class="m-doc-wrap-bumper">#define <a href="#af7835700b27d0c282bc5e8a6adde8684" class="m-doc-self">REG_SIODATA32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aecc40be379badc70122910349ef75972">
+              <span class="m-doc-wrap-bumper">#define <a href="#aecc40be379badc70122910349ef75972" class="m-doc-self">REG_SIOMLT_SEND</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a24e7130f3009244b6609c37c8abbd675">
+              <span class="m-doc-wrap-bumper">#define <a href="#a24e7130f3009244b6609c37c8abbd675" class="m-doc-self">REG_SIOMLT_RECV</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a21cb4d839805ef7c30700ac0a03f5439">
+              <span class="m-doc-wrap-bumper">#define <a href="#a21cb4d839805ef7c30700ac0a03f5439" class="m-doc-self">REG_SIOMULTI0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae4dca1e773998af940ac6223a60fbfc6">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae4dca1e773998af940ac6223a60fbfc6" class="m-doc-self">REG_SIOMULTI1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46ada4abc5ba1a67f3efebfe33dd3feb">
+              <span class="m-doc-wrap-bumper">#define <a href="#a46ada4abc5ba1a67f3efebfe33dd3feb" class="m-doc-self">REG_SIOMULTI2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a100669b0cd384999b684625ebddbf1b4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a100669b0cd384999b684625ebddbf1b4" class="m-doc-self">REG_SIOMULTI3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8990e2b671d00a382debe1b99833f22d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8990e2b671d00a382debe1b99833f22d" class="m-doc-self">REG_KEYINPUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a09a007016d9a04c05f29db7a7eead272">
+              <span class="m-doc-wrap-bumper">#define <a href="#a09a007016d9a04c05f29db7a7eead272" class="m-doc-self">REG_KEYCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1dcb19e3cc6cb382b5f06e60f52bd2e4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1dcb19e3cc6cb382b5f06e60f52bd2e4" class="m-doc-self">REG_RCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2e332bfbbf45f69c10d8cb4113140fd">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab2e332bfbbf45f69c10d8cb4113140fd" class="m-doc-self">REG_IME</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5a450d6e80fa90a8cb2ee169283a5602">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5a450d6e80fa90a8cb2ee169283a5602" class="m-doc-self">REG_IE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12fbc5cceda01e15f1aea1af8ea0b4d8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a12fbc5cceda01e15f1aea1af8ea0b4d8" class="m-doc-self">REG_IF</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e1037e690db5363aaf708aa8c5995eb">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2e1037e690db5363aaf708aa8c5995eb" class="m-doc-self">REG_WAITCNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8e2ea50afc9477da269e8262997cd2a9">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8e2ea50afc9477da269e8262997cd2a9" class="m-doc-self">DISPCNT_MODE_0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac26296464b1234d9ae7d28a26157866d">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac26296464b1234d9ae7d28a26157866d" class="m-doc-self">DISPCNT_MODE_1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34693bc05157764fb2a7d6c6cb190748">
+              <span class="m-doc-wrap-bumper">#define <a href="#a34693bc05157764fb2a7d6c6cb190748" class="m-doc-self">DISPCNT_MODE_2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a747446a06e13b6ee53c0649e84e4f673">
+              <span class="m-doc-wrap-bumper">#define <a href="#a747446a06e13b6ee53c0649e84e4f673" class="m-doc-self">DISPCNT_MODE_3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a16d2846cabdea937ae3392aeb5e75fb3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a16d2846cabdea937ae3392aeb5e75fb3" class="m-doc-self">DISPCNT_MODE_4</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7fcb3a85c67207562707ce5586651bdf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7fcb3a85c67207562707ce5586651bdf" class="m-doc-self">DISPCNT_MODE_5</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a511a12cbe824574fdb4cc322b958d353">
+              <span class="m-doc-wrap-bumper">#define <a href="#a511a12cbe824574fdb4cc322b958d353" class="m-doc-self">DISPCNT_OBJ_1D_MAP</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adcb1fe26922ebe27165e70a68d9eebf8">
+              <span class="m-doc-wrap-bumper">#define <a href="#adcb1fe26922ebe27165e70a68d9eebf8" class="m-doc-self">DISPCNT_FORCED_BLANK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb692aa5472982ff7a20b77aa803ebe2">
+              <span class="m-doc-wrap-bumper">#define <a href="#aeb692aa5472982ff7a20b77aa803ebe2" class="m-doc-self">DISPCNT_BG0_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a433c19c6e427bc0b619cdf583591acc0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a433c19c6e427bc0b619cdf583591acc0" class="m-doc-self">DISPCNT_BG1_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa5a840ca40494d6b7c98803f7f8ae8a">
+              <span class="m-doc-wrap-bumper">#define <a href="#aaa5a840ca40494d6b7c98803f7f8ae8a" class="m-doc-self">DISPCNT_BG2_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a724f69cb8868bd107e267d2a76b31949">
+              <span class="m-doc-wrap-bumper">#define <a href="#a724f69cb8868bd107e267d2a76b31949" class="m-doc-self">DISPCNT_BG3_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2f44fa8d8c68d1c6e5ba0f5d0bfac34">
+              <span class="m-doc-wrap-bumper">#define <a href="#af2f44fa8d8c68d1c6e5ba0f5d0bfac34" class="m-doc-self">DISPCNT_BG_ALL_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7eab1bb6d16e68c76080569f5e71ac0b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7eab1bb6d16e68c76080569f5e71ac0b" class="m-doc-self">DISPCNT_OBJ_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83f784d96daa709d685d9d38575e6283">
+              <span class="m-doc-wrap-bumper">#define <a href="#a83f784d96daa709d685d9d38575e6283" class="m-doc-self">DISPCNT_WIN0_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af9a9c0a969d0c98bdb627127112aa8e3">
+              <span class="m-doc-wrap-bumper">#define <a href="#af9a9c0a969d0c98bdb627127112aa8e3" class="m-doc-self">DISPCNT_WIN1_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5906f4f61b241bdbf391ed4b29ea505">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab5906f4f61b241bdbf391ed4b29ea505" class="m-doc-self">DISPCNT_OBJWIN_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ce6da7944f13ab7ff9a7d590c891f79">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1ce6da7944f13ab7ff9a7d590c891f79" class="m-doc-self">DISPSTAT_VBLANK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba48b72e57fa18ac8f69efb756241a93">
+              <span class="m-doc-wrap-bumper">#define <a href="#aba48b72e57fa18ac8f69efb756241a93" class="m-doc-self">DISPSTAT_HBLANK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2103d5a12812d4c0a8b633ae6c33bd0f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2103d5a12812d4c0a8b633ae6c33bd0f" class="m-doc-self">DISPSTAT_VCOUNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa03dd0e2cf0c7f283230b1663511ed6d">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa03dd0e2cf0c7f283230b1663511ed6d" class="m-doc-self">DISPSTAT_VBLANK_INTR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4357003a95404fd1abe4c3c90393182e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4357003a95404fd1abe4c3c90393182e" class="m-doc-self">DISPSTAT_HBLANK_INTR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9356a13b245c3c4b51f573fa0ab01c0d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9356a13b245c3c4b51f573fa0ab01c0d" class="m-doc-self">DISPSTAT_VCOUNT_INTR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27b3c917f352be6280de77bf3fc0ddec">
+              <span class="m-doc-wrap-bumper">#define <a href="#a27b3c917f352be6280de77bf3fc0ddec" class="m-doc-self">BGCNT_PRIORITY</a>(</span><span class="m-doc-wrap">n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa7204f3f6c38f2f01298391ef0f41489">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa7204f3f6c38f2f01298391ef0f41489" class="m-doc-self">BGCNT_CHARBASE</a>(</span><span class="m-doc-wrap">n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc4f2fb99cb23918143556403028e133">
+              <span class="m-doc-wrap-bumper">#define <a href="#adc4f2fb99cb23918143556403028e133" class="m-doc-self">BGCNT_MOSAIC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba5c93e6ca1bca79053a04d615e2462a">
+              <span class="m-doc-wrap-bumper">#define <a href="#aba5c93e6ca1bca79053a04d615e2462a" class="m-doc-self">BGCNT_16COLOR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4b2fab4def9bea82c2848eaa921f01d5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4b2fab4def9bea82c2848eaa921f01d5" class="m-doc-self">BGCNT_256COLOR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6bf2f1db7babe84d3f70ed3b58a80c1d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6bf2f1db7babe84d3f70ed3b58a80c1d" class="m-doc-self">BGCNT_SCREENBASE</a>(</span><span class="m-doc-wrap">n)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af9aef154a10907fb5eaf5ed6a77f03d6">
+              <span class="m-doc-wrap-bumper">#define <a href="#af9aef154a10907fb5eaf5ed6a77f03d6" class="m-doc-self">BGCNT_WRAP</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aefa53610d4ed482426fe9cf41f84c663">
+              <span class="m-doc-wrap-bumper">#define <a href="#aefa53610d4ed482426fe9cf41f84c663" class="m-doc-self">BGCNT_TXT256x256</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe1fdfd8a964183d424484b6b5bf29fd">
+              <span class="m-doc-wrap-bumper">#define <a href="#abe1fdfd8a964183d424484b6b5bf29fd" class="m-doc-self">BGCNT_TXT512x256</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2769c86df3e50c08b30f8f0d88f761b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad2769c86df3e50c08b30f8f0d88f761b" class="m-doc-self">BGCNT_TXT256x512</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a72faea3ee1fc29db53fe86d72a7d5a36">
+              <span class="m-doc-wrap-bumper">#define <a href="#a72faea3ee1fc29db53fe86d72a7d5a36" class="m-doc-self">BGCNT_TXT512x512</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ec62ecac175d0c42417334c655ed32c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3ec62ecac175d0c42417334c655ed32c" class="m-doc-self">BGCNT_AFF128x128</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa6b7e36fb77d6f34b7223e925461b66e">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa6b7e36fb77d6f34b7223e925461b66e" class="m-doc-self">BGCNT_AFF256x256</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a054dfa1b8be638a4737cff917b17eedd">
+              <span class="m-doc-wrap-bumper">#define <a href="#a054dfa1b8be638a4737cff917b17eedd" class="m-doc-self">BGCNT_AFF512x512</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad156bd7d2d41c2bb145cce6001e4ffeb">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad156bd7d2d41c2bb145cce6001e4ffeb" class="m-doc-self">BGCNT_AFF1024x1024</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e71ab2e7a4393f8767681784a4837c0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7e71ab2e7a4393f8767681784a4837c0" class="m-doc-self">WININ_WIN0_BG0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ab7879e757648377eed4f057b4a60d3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2ab7879e757648377eed4f057b4a60d3" class="m-doc-self">WININ_WIN0_BG1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afc4b08a351d8caafb67a1608a18eeb73">
+              <span class="m-doc-wrap-bumper">#define <a href="#afc4b08a351d8caafb67a1608a18eeb73" class="m-doc-self">WININ_WIN0_BG2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b32d7d9f3b50239148991cd4a8ff73d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1b32d7d9f3b50239148991cd4a8ff73d" class="m-doc-self">WININ_WIN0_BG3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59ca65a92cadbb7d949920ab06507592">
+              <span class="m-doc-wrap-bumper">#define <a href="#a59ca65a92cadbb7d949920ab06507592" class="m-doc-self">WININ_WIN0_BG_ALL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac25f52a4e882bf5044fc54c8fa336a50">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac25f52a4e882bf5044fc54c8fa336a50" class="m-doc-self">WININ_WIN0_OBJ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3216bf7c26f5ec36164ad08a2d4927a2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3216bf7c26f5ec36164ad08a2d4927a2" class="m-doc-self">WININ_WIN0_CLR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6cf0468a18e9cf1dc4d7b42eeeb329e8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6cf0468a18e9cf1dc4d7b42eeeb329e8" class="m-doc-self">WININ_WIN1_BG0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad79a1350a0102d880f404050fbbe582a">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad79a1350a0102d880f404050fbbe582a" class="m-doc-self">WININ_WIN1_BG1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af8ee17adf26c617c87e00dd1e6c2f328">
+              <span class="m-doc-wrap-bumper">#define <a href="#af8ee17adf26c617c87e00dd1e6c2f328" class="m-doc-self">WININ_WIN1_BG2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad81f213983e5618aef228238b263e449">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad81f213983e5618aef228238b263e449" class="m-doc-self">WININ_WIN1_BG3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af39cd8bb067c00e9bfcf78a5046fe2aa">
+              <span class="m-doc-wrap-bumper">#define <a href="#af39cd8bb067c00e9bfcf78a5046fe2aa" class="m-doc-self">WININ_WIN1_BG_ALL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae69453c4c0c1e7d9a0ae679a54e3362b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae69453c4c0c1e7d9a0ae679a54e3362b" class="m-doc-self">WININ_WIN1_OBJ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a793206ba3f170a8c40ed62d1ea0ef44e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a793206ba3f170a8c40ed62d1ea0ef44e" class="m-doc-self">WININ_WIN1_CLR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2d87884f3b861fb8a20abe595adf2cd">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae2d87884f3b861fb8a20abe595adf2cd" class="m-doc-self">WINOUT_WIN01_BG0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a39e03357789f8110328c8b3e7bd2b7e7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a39e03357789f8110328c8b3e7bd2b7e7" class="m-doc-self">WINOUT_WIN01_BG1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abfb3931a5bfea507d3846277dbcea83e">
+              <span class="m-doc-wrap-bumper">#define <a href="#abfb3931a5bfea507d3846277dbcea83e" class="m-doc-self">WINOUT_WIN01_BG2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab095fac673596dd67423f20a6f9d56c3">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab095fac673596dd67423f20a6f9d56c3" class="m-doc-self">WINOUT_WIN01_BG3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad8a6aa52423a49ee2bf2175c72dcb97b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad8a6aa52423a49ee2bf2175c72dcb97b" class="m-doc-self">WINOUT_WIN01_BG_ALL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a07293c813ad947d1106b9b4b5b60adb3">
+              <span class="m-doc-wrap-bumper">#define <a href="#a07293c813ad947d1106b9b4b5b60adb3" class="m-doc-self">WINOUT_WIN01_OBJ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae92b932f454425a5ac6fe26f699e0b74">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae92b932f454425a5ac6fe26f699e0b74" class="m-doc-self">WINOUT_WIN01_CLR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aec56919ac9ca96a903a6f56a18d57200">
+              <span class="m-doc-wrap-bumper">#define <a href="#aec56919ac9ca96a903a6f56a18d57200" class="m-doc-self">WINOUT_WINOBJ_BG0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9e645b948e2b3ff146bdc11d3911a4d">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab9e645b948e2b3ff146bdc11d3911a4d" class="m-doc-self">WINOUT_WINOBJ_BG1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a129a1e10df7d33fe0d1dbe53ae839468">
+              <span class="m-doc-wrap-bumper">#define <a href="#a129a1e10df7d33fe0d1dbe53ae839468" class="m-doc-self">WINOUT_WINOBJ_BG2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a39d10d8c1b4ae52e1f21540ab3385bd8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a39d10d8c1b4ae52e1f21540ab3385bd8" class="m-doc-self">WINOUT_WINOBJ_BG3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1954d740fd9c679f29d8abcd8357f7f2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1954d740fd9c679f29d8abcd8357f7f2" class="m-doc-self">WINOUT_WINOBJ_BG_ALL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6022c5df1fb9efeedbc5f928c3dd23f1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6022c5df1fb9efeedbc5f928c3dd23f1" class="m-doc-self">WINOUT_WINOBJ_OBJ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf18be9d0499c4b755605330c8e36bd3">
+              <span class="m-doc-wrap-bumper">#define <a href="#acf18be9d0499c4b755605330c8e36bd3" class="m-doc-self">WINOUT_WINOBJ_CLR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee4363500e4ccbafd1aee7ab21f2a699">
+              <span class="m-doc-wrap-bumper">#define <a href="#aee4363500e4ccbafd1aee7ab21f2a699" class="m-doc-self">WIN_RANGE</a>(</span><span class="m-doc-wrap">a,
+              b)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a695cca1249a46013aa3c470365ea82fd">
+              <span class="m-doc-wrap-bumper">#define <a href="#a695cca1249a46013aa3c470365ea82fd" class="m-doc-self">WIN_RANGE2</a>(</span><span class="m-doc-wrap">a,
+              b)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae02b79a806e99c62adeb8ada102ed966">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae02b79a806e99c62adeb8ada102ed966" class="m-doc-self">BLDCNT_TGT1_BG0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="accb3c40d8797bc127071770772a1dfac">
+              <span class="m-doc-wrap-bumper">#define <a href="#accb3c40d8797bc127071770772a1dfac" class="m-doc-self">BLDCNT_TGT1_BG1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4f1a6fdabd4f41e6ba671d69e0bd77bd">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4f1a6fdabd4f41e6ba671d69e0bd77bd" class="m-doc-self">BLDCNT_TGT1_BG2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a21208d52dfda1d3e3259e9e814c03e2e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a21208d52dfda1d3e3259e9e814c03e2e" class="m-doc-self">BLDCNT_TGT1_BG3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2af3f9b95ea370ea76d27e65c6b83782">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2af3f9b95ea370ea76d27e65c6b83782" class="m-doc-self">BLDCNT_TGT1_OBJ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a006b18df8871c25c75ccd345ee0a2d81">
+              <span class="m-doc-wrap-bumper">#define <a href="#a006b18df8871c25c75ccd345ee0a2d81" class="m-doc-self">BLDCNT_TGT1_BD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5c9613838f1f45a204a06f5c62dfc54">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae5c9613838f1f45a204a06f5c62dfc54" class="m-doc-self">BLDCNT_EFFECT_NONE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aad3291565048e6497954821429974cc5">
+              <span class="m-doc-wrap-bumper">#define <a href="#aad3291565048e6497954821429974cc5" class="m-doc-self">BLDCNT_EFFECT_BLEND</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83edf4ca2371a49f8db3cb9c656b3bb6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a83edf4ca2371a49f8db3cb9c656b3bb6" class="m-doc-self">BLDCNT_EFFECT_LIGHTEN</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5847243bb03cbc77bdce76d591bf88e6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5847243bb03cbc77bdce76d591bf88e6" class="m-doc-self">BLDCNT_EFFECT_DARKEN</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaad414f3b49e7c6ac03f40fc8a5eac20">
+              <span class="m-doc-wrap-bumper">#define <a href="#aaad414f3b49e7c6ac03f40fc8a5eac20" class="m-doc-self">BLDCNT_TGT2_BG0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab38ae8df5db5804d2076e43db3cb9cca">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab38ae8df5db5804d2076e43db3cb9cca" class="m-doc-self">BLDCNT_TGT2_BG1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f8f88762a9359177aeff15281fec953">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1f8f88762a9359177aeff15281fec953" class="m-doc-self">BLDCNT_TGT2_BG2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe6f8fa403b4658b77d855864d7364da">
+              <span class="m-doc-wrap-bumper">#define <a href="#abe6f8fa403b4658b77d855864d7364da" class="m-doc-self">BLDCNT_TGT2_BG3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a14919f0630564032b2e65f68f2ec11b7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a14919f0630564032b2e65f68f2ec11b7" class="m-doc-self">BLDCNT_TGT2_OBJ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af872bd7fe6f30b4fb7ca4df6e1d166e2">
+              <span class="m-doc-wrap-bumper">#define <a href="#af872bd7fe6f30b4fb7ca4df6e1d166e2" class="m-doc-self">BLDCNT_TGT2_BD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab366df0b87c169467904db40686cef29">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab366df0b87c169467904db40686cef29" class="m-doc-self">BLDCNT_TGT2_ALL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a84c1f426b5164372c8766e86b4ffe320">
+              <span class="m-doc-wrap-bumper">#define <a href="#a84c1f426b5164372c8766e86b4ffe320" class="m-doc-self">BLDALPHA_BLEND</a>(</span><span class="m-doc-wrap">target1,
+              target2)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a12795c6c4e6772a983ef65e1f8ceb35c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a12795c6c4e6772a983ef65e1f8ceb35c" class="m-doc-self">BLDALPHA_BLEND2</a>(</span><span class="m-doc-wrap">target1,
+              target2)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a665d284ad2bd60203ed1eadbcf47b304">
+              <span class="m-doc-wrap-bumper">#define <a href="#a665d284ad2bd60203ed1eadbcf47b304" class="m-doc-self">SOUND_CGB_MIX_QUARTER</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa65b6c99b30192765bd74391c86318a3">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa65b6c99b30192765bd74391c86318a3" class="m-doc-self">SOUND_CGB_MIX_HALF</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a910d4e6655fd49d91f59b4eb71f978f5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a910d4e6655fd49d91f59b4eb71f978f5" class="m-doc-self">SOUND_CGB_MIX_FULL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a996571d594c94772f482d9549d5a6dd7">
+              <span class="m-doc-wrap-bumper">#define <a href="#a996571d594c94772f482d9549d5a6dd7" class="m-doc-self">SOUND_A_MIX_HALF</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a92d203825f90237548705c913fa00622">
+              <span class="m-doc-wrap-bumper">#define <a href="#a92d203825f90237548705c913fa00622" class="m-doc-self">SOUND_A_MIX_FULL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a97979008c355c1001f9a053e8e0f1b39">
+              <span class="m-doc-wrap-bumper">#define <a href="#a97979008c355c1001f9a053e8e0f1b39" class="m-doc-self">SOUND_B_MIX_HALF</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a37ad7daf4eae21002a36554c3b0c2e54">
+              <span class="m-doc-wrap-bumper">#define <a href="#a37ad7daf4eae21002a36554c3b0c2e54" class="m-doc-self">SOUND_B_MIX_FULL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9852b4543f977f143244a99f57ae3a42">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9852b4543f977f143244a99f57ae3a42" class="m-doc-self">SOUND_ALL_MIX_FULL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a072ffa9a53c7669d823beec4c657bcd1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a072ffa9a53c7669d823beec4c657bcd1" class="m-doc-self">SOUND_A_RIGHT_OUTPUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9ae55aac8a22ccd6807c833ef21adaf5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9ae55aac8a22ccd6807c833ef21adaf5" class="m-doc-self">SOUND_A_LEFT_OUTPUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac08b0b20bd15b72277c42fa7920b396f">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac08b0b20bd15b72277c42fa7920b396f" class="m-doc-self">SOUND_A_TIMER_0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2168215ae958e6848a4dac16c306f060">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2168215ae958e6848a4dac16c306f060" class="m-doc-self">SOUND_A_TIMER_1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee23e40485de1fd239c2941d4ff563da">
+              <span class="m-doc-wrap-bumper">#define <a href="#aee23e40485de1fd239c2941d4ff563da" class="m-doc-self">SOUND_A_FIFO_RESET</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a032210be53c89d8b01dd854e27dd7b71">
+              <span class="m-doc-wrap-bumper">#define <a href="#a032210be53c89d8b01dd854e27dd7b71" class="m-doc-self">SOUND_B_RIGHT_OUTPUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af01df9caee7c9d70d69d7749616a4b00">
+              <span class="m-doc-wrap-bumper">#define <a href="#af01df9caee7c9d70d69d7749616a4b00" class="m-doc-self">SOUND_B_LEFT_OUTPUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b188288afa0ddf5c47afb4dadab31a9">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6b188288afa0ddf5c47afb4dadab31a9" class="m-doc-self">SOUND_B_TIMER_0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aee5998a2bdccd558c214499d21645dfd">
+              <span class="m-doc-wrap-bumper">#define <a href="#aee5998a2bdccd558c214499d21645dfd" class="m-doc-self">SOUND_B_TIMER_1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae48549a6ba262a49c4fbf7a33b1315cd">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae48549a6ba262a49c4fbf7a33b1315cd" class="m-doc-self">SOUND_B_FIFO_RESET</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac719892c1d28c8a7076e29b923edbdcd">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac719892c1d28c8a7076e29b923edbdcd" class="m-doc-self">SOUND_1_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f4ebbeb6c17edfb671a517c4e777cc6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1f4ebbeb6c17edfb671a517c4e777cc6" class="m-doc-self">SOUND_2_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27fdc45386df61db472916f441e9cb5a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a27fdc45386df61db472916f441e9cb5a" class="m-doc-self">SOUND_3_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a809cc260673d75793b5bc16d002ba806">
+              <span class="m-doc-wrap-bumper">#define <a href="#a809cc260673d75793b5bc16d002ba806" class="m-doc-self">SOUND_4_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1fe2120ed6e2cae926192cd3b5eb6104">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1fe2120ed6e2cae926192cd3b5eb6104" class="m-doc-self">SOUND_MASTER_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27648654cc95b8e3acd12cfa597be5c6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a27648654cc95b8e3acd12cfa597be5c6" class="m-doc-self">DMA_DEST_INC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d7b25a10c376be3b8699e9ba3317f88">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4d7b25a10c376be3b8699e9ba3317f88" class="m-doc-self">DMA_DEST_DEC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a844d2c9660ab925b39f90ee69eec50f0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a844d2c9660ab925b39f90ee69eec50f0" class="m-doc-self">DMA_DEST_FIXED</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaab00c16f1ea61efaf44eceda5c81519">
+              <span class="m-doc-wrap-bumper">#define <a href="#aaab00c16f1ea61efaf44eceda5c81519" class="m-doc-self">DMA_DEST_RELOAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac846c23b62475b6fe2f5ea2edb17b620">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac846c23b62475b6fe2f5ea2edb17b620" class="m-doc-self">DMA_SRC_INC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e8abb0daf4b0e83a57436a75fb00e4b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7e8abb0daf4b0e83a57436a75fb00e4b" class="m-doc-self">DMA_SRC_DEC</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1facc1398c20d461e3dfdbe49471670">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab1facc1398c20d461e3dfdbe49471670" class="m-doc-self">DMA_SRC_FIXED</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac873984d2e102e87ca91f5a0165d8fcb">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac873984d2e102e87ca91f5a0165d8fcb" class="m-doc-self">DMA_REPEAT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adba0581447de1e16b9e64389bd8de0c4">
+              <span class="m-doc-wrap-bumper">#define <a href="#adba0581447de1e16b9e64389bd8de0c4" class="m-doc-self">DMA_16BIT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9557d08db3a3c33caa77020d951c4749">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9557d08db3a3c33caa77020d951c4749" class="m-doc-self">DMA_32BIT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4f2ecef9030af6fc8886c03637dbf816">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4f2ecef9030af6fc8886c03637dbf816" class="m-doc-self">DMA_DREQ_ON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa400c5d9c2a981ef3cc35a1b60c30641">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa400c5d9c2a981ef3cc35a1b60c30641" class="m-doc-self">DMA_START_NOW</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a79fa35cfbca13e25592cb0a740d1ee8b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a79fa35cfbca13e25592cb0a740d1ee8b" class="m-doc-self">DMA_START_VBLANK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae25f89b962c7e82ca8f3d8967306130">
+              <span class="m-doc-wrap-bumper">#define <a href="#aae25f89b962c7e82ca8f3d8967306130" class="m-doc-self">DMA_START_HBLANK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2547a08bf6fd8bf0e16a9d37973c0f8f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2547a08bf6fd8bf0e16a9d37973c0f8f" class="m-doc-self">DMA_START_SPECIAL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c1a432d312272568c9293f9647de7f1">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6c1a432d312272568c9293f9647de7f1" class="m-doc-self">DMA_START_MASK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17b8cfade9c4c34caf282a1cc3618859">
+              <span class="m-doc-wrap-bumper">#define <a href="#a17b8cfade9c4c34caf282a1cc3618859" class="m-doc-self">DMA_INTR_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af57b905f605a7fe58fc009025fb3d30b">
+              <span class="m-doc-wrap-bumper">#define <a href="#af57b905f605a7fe58fc009025fb3d30b" class="m-doc-self">DMA_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff371b7ba16cddc9a3c4fdba1a4f8bb3">
+              <span class="m-doc-wrap-bumper">#define <a href="#aff371b7ba16cddc9a3c4fdba1a4f8bb3" class="m-doc-self">TIMER_1CLK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae48c17688b048b56271fa269dfecd553">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae48c17688b048b56271fa269dfecd553" class="m-doc-self">TIMER_64CLK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa68efb45c2b9b214abfb0bd1c423d082">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa68efb45c2b9b214abfb0bd1c423d082" class="m-doc-self">TIMER_256CLK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad18ecd28e09f93fb36757fb9e7acdeb1">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad18ecd28e09f93fb36757fb9e7acdeb1" class="m-doc-self">TIMER_1024CLK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a45960ec93fc87ef6c87690d95164a51d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a45960ec93fc87ef6c87690d95164a51d" class="m-doc-self">TIMER_INTR_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace9bc6168bdb15fd3c88da899ad3f154">
+              <span class="m-doc-wrap-bumper">#define <a href="#ace9bc6168bdb15fd3c88da899ad3f154" class="m-doc-self">TIMER_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa893e0d6c6b0b317a8a1634217601316">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa893e0d6c6b0b317a8a1634217601316" class="m-doc-self">SIO_ID</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7913c128aeef76eddc1730dd43f01705">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7913c128aeef76eddc1730dd43f01705" class="m-doc-self">SIO_8BIT_MODE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae971a81607d04be0aed3dbb2c418f4b8">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae971a81607d04be0aed3dbb2c418f4b8" class="m-doc-self">SIO_32BIT_MODE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57fc84bbc90a61efe02bab79b1c5ab8b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a57fc84bbc90a61efe02bab79b1c5ab8b" class="m-doc-self">SIO_MULTI_MODE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a08d617ece215080384993b664be77153">
+              <span class="m-doc-wrap-bumper">#define <a href="#a08d617ece215080384993b664be77153" class="m-doc-self">SIO_UART_MODE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2597f8b3c65f3b0a6c15c0d087a2e6d">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab2597f8b3c65f3b0a6c15c0d087a2e6d" class="m-doc-self">SIO_SCK_OUT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a848cf02be834c5c0deb2a1506fd672ce">
+              <span class="m-doc-wrap-bumper">#define <a href="#a848cf02be834c5c0deb2a1506fd672ce" class="m-doc-self">SIO_SCK_IN</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a62688645dc4c4d6b5b10f034322935e6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a62688645dc4c4d6b5b10f034322935e6" class="m-doc-self">SIO_IN_SCK_256K</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46a27e53b8fc54d5c655246d967fe5c0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a46a27e53b8fc54d5c655246d967fe5c0" class="m-doc-self">SIO_IN_SCK_2M</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac51cc63a7d97af2221750b47c30a5f0d">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac51cc63a7d97af2221750b47c30a5f0d" class="m-doc-self">SIO_ACK_RECV</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9fb1f8b953e48edb6aa582ceed6a2936">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9fb1f8b953e48edb6aa582ceed6a2936" class="m-doc-self">SIO_ACK_SEND</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac1c10c84fc07f844565997632399af29">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac1c10c84fc07f844565997632399af29" class="m-doc-self">SIO_9600_BPS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad623162be5c0082ed00bccfe8965b55c">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad623162be5c0082ed00bccfe8965b55c" class="m-doc-self">SIO_38400_BPS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8a078ecab8eaa28f76c0900d7887a583">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8a078ecab8eaa28f76c0900d7887a583" class="m-doc-self">SIO_57600_BPS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe269b4c7172922149089ee56ee7fe9d">
+              <span class="m-doc-wrap-bumper">#define <a href="#abe269b4c7172922149089ee56ee7fe9d" class="m-doc-self">SIO_115200_BPS</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a64f18f11fed0d09fd73207504c9e7a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4a64f18f11fed0d09fd73207504c9e7a" class="m-doc-self">SIO_MULTI_CONNECT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22a884febf090bfd68b2cf7151f0f125">
+              <span class="m-doc-wrap-bumper">#define <a href="#a22a884febf090bfd68b2cf7151f0f125" class="m-doc-self">SIO_MULTI_DISCONNECT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2aeddd7a15bfd72c1669a9c28fa04cd4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2aeddd7a15bfd72c1669a9c28fa04cd4" class="m-doc-self">SIO_MULTI_PARENT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab343372dd3437739af5290cecf92fb1e">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab343372dd3437739af5290cecf92fb1e" class="m-doc-self">SIO_MULTI_CHILD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a70e639559cb200e80bff5b6c3c36057c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a70e639559cb200e80bff5b6c3c36057c" class="m-doc-self">SIO_MULTI_SI</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2275592d8b06b3337934ad07d71dbe3">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab2275592d8b06b3337934ad07d71dbe3" class="m-doc-self">SIO_MULTI_SD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9cb489e4906a3ee374fed5f25aa39076">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9cb489e4906a3ee374fed5f25aa39076" class="m-doc-self">SIO_MULTI_BUSY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa80568efc4f0afa3e9c85a1c831d4427">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa80568efc4f0afa3e9c85a1c831d4427" class="m-doc-self">SIO_CTS_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad9e0b135429f54ffaf7a903d4586ff23">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad9e0b135429f54ffaf7a903d4586ff23" class="m-doc-self">SIO_UART_7BIT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ebf25a2273c88b063a094cfa360fbad">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3ebf25a2273c88b063a094cfa360fbad" class="m-doc-self">SIO_UART_8BIT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab330c4068306a994f3011fd423cd8838">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab330c4068306a994f3011fd423cd8838" class="m-doc-self">SIO_ERROR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6fbef55f21ef7e9a7f0887116141b70c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6fbef55f21ef7e9a7f0887116141b70c" class="m-doc-self">SIO_START</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae07777afba878844d8884b620f0b799e">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae07777afba878844d8884b620f0b799e" class="m-doc-self">SIO_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a206b29d0b98d804e4b452461f6df7263">
+              <span class="m-doc-wrap-bumper">#define <a href="#a206b29d0b98d804e4b452461f6df7263" class="m-doc-self">SIO_PARITY_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a792c798161e13b7d5172ea54a9a72c90">
+              <span class="m-doc-wrap-bumper">#define <a href="#a792c798161e13b7d5172ea54a9a72c90" class="m-doc-self">SIO_PARITY_EVEN</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a06786305725f6ccdf452d6a761809444">
+              <span class="m-doc-wrap-bumper">#define <a href="#a06786305725f6ccdf452d6a761809444" class="m-doc-self">SIO_PARITY_ODD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a516c5bfc576048ca5dd80e811d9164fa">
+              <span class="m-doc-wrap-bumper">#define <a href="#a516c5bfc576048ca5dd80e811d9164fa" class="m-doc-self">SIO_TRANS_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4dd7c9f8300c517ea35cd83d1be2e30">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab4dd7c9f8300c517ea35cd83d1be2e30" class="m-doc-self">SIO_TRANS_DATA_FULL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a96610bd908848d95a9a9b01c46bdfc23">
+              <span class="m-doc-wrap-bumper">#define <a href="#a96610bd908848d95a9a9b01c46bdfc23" class="m-doc-self">SIO_RECV_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab32e5de1ea5119d17495c909d025bb85">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab32e5de1ea5119d17495c909d025bb85" class="m-doc-self">SIO_RECV_DATA_EMPTY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5760892afbe6cf3b46e3853c4b928cd">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae5760892afbe6cf3b46e3853c4b928cd" class="m-doc-self">SIO_INTR_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaadaa4586df1c4530ed0e6ff1b07e5d9">
+              <span class="m-doc-wrap-bumper">#define <a href="#aaadaa4586df1c4530ed0e6ff1b07e5d9" class="m-doc-self">SIO_MULTI_SI_SHIFT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a957d15a66ed1e642df4df434a87410cc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a957d15a66ed1e642df4df434a87410cc" class="m-doc-self">SIO_MULTI_SI_MASK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad94f8ea7ed8b87c384835afb6409e5e2">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad94f8ea7ed8b87c384835afb6409e5e2" class="m-doc-self">SIO_MULTI_DI_SHIFT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc52ea83583d9aa3adf9a0d2db44b28c">
+              <span class="m-doc-wrap-bumper">#define <a href="#adc52ea83583d9aa3adf9a0d2db44b28c" class="m-doc-self">SIO_MULTI_DI_MASK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5ec59d5e4f6bfacfdf3aa6e7ed5c0373">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5ec59d5e4f6bfacfdf3aa6e7ed5c0373" class="m-doc-self">A_BUTTON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2454c318caf152737fd63bebddd58ea2">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2454c318caf152737fd63bebddd58ea2" class="m-doc-self">B_BUTTON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="addb92861d7c344086af68ef1f56c04a1">
+              <span class="m-doc-wrap-bumper">#define <a href="#addb92861d7c344086af68ef1f56c04a1" class="m-doc-self">SELECT_BUTTON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab341b8680b89a9888189982451117fbf">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab341b8680b89a9888189982451117fbf" class="m-doc-self">START_BUTTON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1142011f319ee33d8b04f20d7c04cd6b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a1142011f319ee33d8b04f20d7c04cd6b" class="m-doc-self">DPAD_RIGHT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4109c674950f167a866759eaf39dc4c4">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4109c674950f167a866759eaf39dc4c4" class="m-doc-self">DPAD_LEFT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a58dae06ac7f1bd7d308cef31d0d444df">
+              <span class="m-doc-wrap-bumper">#define <a href="#a58dae06ac7f1bd7d308cef31d0d444df" class="m-doc-self">DPAD_UP</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa227bbb719bc75bd5e7cda3536a7da5c">
+              <span class="m-doc-wrap-bumper">#define <a href="#aa227bbb719bc75bd5e7cda3536a7da5c" class="m-doc-self">DPAD_DOWN</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af5126684e56138da22bf60b3bc202bd4">
+              <span class="m-doc-wrap-bumper">#define <a href="#af5126684e56138da22bf60b3bc202bd4" class="m-doc-self">R_BUTTON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a78883cb33621a5e24f4e56bcf8732020">
+              <span class="m-doc-wrap-bumper">#define <a href="#a78883cb33621a5e24f4e56bcf8732020" class="m-doc-self">L_BUTTON</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abef0d307df2b5c486a33bdfe5c08cd3b">
+              <span class="m-doc-wrap-bumper">#define <a href="#abef0d307df2b5c486a33bdfe5c08cd3b" class="m-doc-self">KEYS_MASK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a918843ac4847f9e3f68bac25f2b46216">
+              <span class="m-doc-wrap-bumper">#define <a href="#a918843ac4847f9e3f68bac25f2b46216" class="m-doc-self">KEY_INTR_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aed24ae230e350c88d04bcb2530259c2d">
+              <span class="m-doc-wrap-bumper">#define <a href="#aed24ae230e350c88d04bcb2530259c2d" class="m-doc-self">KEY_OR_INTR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8cedd301e6514b83ae39d01c439b4ea5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8cedd301e6514b83ae39d01c439b4ea5" class="m-doc-self">KEY_AND_INTR</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d18250593b81eb2b8ecbfd867da4d41">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8d18250593b81eb2b8ecbfd867da4d41" class="m-doc-self">DPAD_ANY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abc24815a60cb7eb32d9fcb7805127206">
+              <span class="m-doc-wrap-bumper">#define <a href="#abc24815a60cb7eb32d9fcb7805127206" class="m-doc-self">JOY_EXCL_DPAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a72c1505a704a6ba49cb166a66744f6">
+              <span class="m-doc-wrap-bumper">#define <a href="#a4a72c1505a704a6ba49cb166a66744f6" class="m-doc-self">INTR_FLAG_VBLANK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9508eff01cb330660255c4c540fe9849">
+              <span class="m-doc-wrap-bumper">#define <a href="#a9508eff01cb330660255c4c540fe9849" class="m-doc-self">INTR_FLAG_HBLANK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34897661e50bd5d994798120a121e6fc">
+              <span class="m-doc-wrap-bumper">#define <a href="#a34897661e50bd5d994798120a121e6fc" class="m-doc-self">INTR_FLAG_VCOUNT</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a946db5ff251a6d876a3eaf4c7a6e8332">
+              <span class="m-doc-wrap-bumper">#define <a href="#a946db5ff251a6d876a3eaf4c7a6e8332" class="m-doc-self">INTR_FLAG_TIMER0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab8807ad133f7f7645e09334778f61744">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab8807ad133f7f7645e09334778f61744" class="m-doc-self">INTR_FLAG_TIMER1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a81630ad4cf3997d567ede20d21b09682">
+              <span class="m-doc-wrap-bumper">#define <a href="#a81630ad4cf3997d567ede20d21b09682" class="m-doc-self">INTR_FLAG_TIMER2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18a7151c6f4d9c79f89ad26464efc867">
+              <span class="m-doc-wrap-bumper">#define <a href="#a18a7151c6f4d9c79f89ad26464efc867" class="m-doc-self">INTR_FLAG_TIMER3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a97ec9ea0ed6999f37dea870964b3ae85">
+              <span class="m-doc-wrap-bumper">#define <a href="#a97ec9ea0ed6999f37dea870964b3ae85" class="m-doc-self">INTR_FLAG_SERIAL</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a66681c842affc115d2e4eddf6561f2bf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a66681c842affc115d2e4eddf6561f2bf" class="m-doc-self">INTR_FLAG_DMA0</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ecd3264755bb48d255a7836a0757b89">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6ecd3264755bb48d255a7836a0757b89" class="m-doc-self">INTR_FLAG_DMA1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaf1cd0d9b3c4c94e1457fd68f7e5b0b5">
+              <span class="m-doc-wrap-bumper">#define <a href="#aaf1cd0d9b3c4c94e1457fd68f7e5b0b5" class="m-doc-self">INTR_FLAG_DMA2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3b8d42c799e88038ecd7437a28648315">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3b8d42c799e88038ecd7437a28648315" class="m-doc-self">INTR_FLAG_DMA3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac82239f404f9d4b8e917025a9840a84">
+              <span class="m-doc-wrap-bumper">#define <a href="#aac82239f404f9d4b8e917025a9840a84" class="m-doc-self">INTR_FLAG_KEYPAD</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2386ae7ee31decf3b681c10a7910a627">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2386ae7ee31decf3b681c10a7910a627" class="m-doc-self">INTR_FLAG_GAMEPAK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a44fd0626909b424327e3c625c9fcdf33">
+              <span class="m-doc-wrap-bumper">#define <a href="#a44fd0626909b424327e3c625c9fcdf33" class="m-doc-self">WAITCNT_SRAM_4</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ff2e1ef8bfbace4ad396e1c9077ca68">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6ff2e1ef8bfbace4ad396e1c9077ca68" class="m-doc-self">WAITCNT_SRAM_3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3fe9189952d7af70e1cccef32c442a38">
+              <span class="m-doc-wrap-bumper">#define <a href="#a3fe9189952d7af70e1cccef32c442a38" class="m-doc-self">WAITCNT_SRAM_2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6df0cfd933de4a0278b5b70cc57f076f">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6df0cfd933de4a0278b5b70cc57f076f" class="m-doc-self">WAITCNT_SRAM_8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a98cd0451370edda59c7a48787550edb8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a98cd0451370edda59c7a48787550edb8" class="m-doc-self">WAITCNT_SRAM_MASK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acdcce37b89e6bfeb6b6b0c3758f0b4f4">
+              <span class="m-doc-wrap-bumper">#define <a href="#acdcce37b89e6bfeb6b6b0c3758f0b4f4" class="m-doc-self">WAITCNT_WS0_N_4</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5cf0bce0322e0c569518172b3925c008">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5cf0bce0322e0c569518172b3925c008" class="m-doc-self">WAITCNT_WS0_N_3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a152e4d84630337195193145bf447f6f5">
+              <span class="m-doc-wrap-bumper">#define <a href="#a152e4d84630337195193145bf447f6f5" class="m-doc-self">WAITCNT_WS0_N_2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a11835cc1343177b1fc4fd9d6ad5f3258">
+              <span class="m-doc-wrap-bumper">#define <a href="#a11835cc1343177b1fc4fd9d6ad5f3258" class="m-doc-self">WAITCNT_WS0_N_8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a209fed4145ef51e8134c6d46fce6672e">
+              <span class="m-doc-wrap-bumper">#define <a href="#a209fed4145ef51e8134c6d46fce6672e" class="m-doc-self">WAITCNT_WS0_N_MASK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a452af3419a617f789b31c820be75cf8d">
+              <span class="m-doc-wrap-bumper">#define <a href="#a452af3419a617f789b31c820be75cf8d" class="m-doc-self">WAITCNT_WS0_S_2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac319fc67e33f2e4f63e3ee845a965197">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac319fc67e33f2e4f63e3ee845a965197" class="m-doc-self">WAITCNT_WS0_S_1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d4ffe00c171a78bff48e1c4a47db775">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7d4ffe00c171a78bff48e1c4a47db775" class="m-doc-self">WAITCNT_WS1_N_4</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae61a7380c40cc214a89b2e4392b4ac15">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae61a7380c40cc214a89b2e4392b4ac15" class="m-doc-self">WAITCNT_WS1_N_3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5ae1b8dd02511d38d0d27d32d17366ba">
+              <span class="m-doc-wrap-bumper">#define <a href="#a5ae1b8dd02511d38d0d27d32d17366ba" class="m-doc-self">WAITCNT_WS1_N_2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abd77c3ce43932e3119c8fb859a08f1f1">
+              <span class="m-doc-wrap-bumper">#define <a href="#abd77c3ce43932e3119c8fb859a08f1f1" class="m-doc-self">WAITCNT_WS1_N_8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab69ebd23a09d8c5c3ea7ebc40bb637e0">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab69ebd23a09d8c5c3ea7ebc40bb637e0" class="m-doc-self">WAITCNT_WS1_N_MASK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a770352f36092cfe41e0bb58f344d0cad">
+              <span class="m-doc-wrap-bumper">#define <a href="#a770352f36092cfe41e0bb58f344d0cad" class="m-doc-self">WAITCNT_WS1_S_4</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3e9fab879eb8ddcf39e1385ce85f02f">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac3e9fab879eb8ddcf39e1385ce85f02f" class="m-doc-self">WAITCNT_WS1_S_1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8bdfce6c4e42be53bdc755e252cd565b">
+              <span class="m-doc-wrap-bumper">#define <a href="#a8bdfce6c4e42be53bdc755e252cd565b" class="m-doc-self">WAITCNT_WS2_N_4</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63a46f15bb453689da950e51141b8b93">
+              <span class="m-doc-wrap-bumper">#define <a href="#a63a46f15bb453689da950e51141b8b93" class="m-doc-self">WAITCNT_WS2_N_3</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3b23dc7d9323c9088e910ca4ff83db6">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab3b23dc7d9323c9088e910ca4ff83db6" class="m-doc-self">WAITCNT_WS2_N_2</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2d87a96b65058811262885f076a48ec8">
+              <span class="m-doc-wrap-bumper">#define <a href="#a2d87a96b65058811262885f076a48ec8" class="m-doc-self">WAITCNT_WS2_N_8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad385d2637e2ebbb8b9cdc2588722bd4b">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad385d2637e2ebbb8b9cdc2588722bd4b" class="m-doc-self">WAITCNT_WS2_N_MASK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adeb2e69baf89d19033f262eeeef62947">
+              <span class="m-doc-wrap-bumper">#define <a href="#adeb2e69baf89d19033f262eeeef62947" class="m-doc-self">WAITCNT_WS2_S_8</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab96fc2ddbe4fec1e137ec8d4fbf5f621">
+              <span class="m-doc-wrap-bumper">#define <a href="#ab96fc2ddbe4fec1e137ec8d4fbf5f621" class="m-doc-self">WAITCNT_WS2_S_1</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac891fa031d7be416f58e1847056502d8">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac891fa031d7be416f58e1847056502d8" class="m-doc-self">WAITCNT_PHI_OUT_NONE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aedbf345f6aa10608458b98dfd6dfcdff">
+              <span class="m-doc-wrap-bumper">#define <a href="#aedbf345f6aa10608458b98dfd6dfcdff" class="m-doc-self">WAITCNT_PHI_OUT_4MHZ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a13bd2226ba6c1abcf7079da3fbff6b40">
+              <span class="m-doc-wrap-bumper">#define <a href="#a13bd2226ba6c1abcf7079da3fbff6b40" class="m-doc-self">WAITCNT_PHI_OUT_8MHZ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace4ea9f1df05ad0fd409aa1753392ece">
+              <span class="m-doc-wrap-bumper">#define <a href="#ace4ea9f1df05ad0fd409aa1753392ece" class="m-doc-self">WAITCNT_PHI_OUT_16MHZ</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa59ba1a0719d121da3ddf5102803ff2">
+              <span class="m-doc-wrap-bumper">#define <a href="#afa59ba1a0719d121da3ddf5102803ff2" class="m-doc-self">WAITCNT_PHI_OUT_MASK</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad29a3c0dc2f6dc5eb77ba5d507c0433f">
+              <span class="m-doc-wrap-bumper">#define <a href="#ad29a3c0dc2f6dc5eb77ba5d507c0433f" class="m-doc-self">WAITCNT_PREFETCH_ENABLE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59cfa3782eeb10c403dd5b941516160c">
+              <span class="m-doc-wrap-bumper">#define <a href="#a59cfa3782eeb10c403dd5b941516160c" class="m-doc-self">WAITCNT_AGB</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac5eaf61417d0ede41f9c64010965475a">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac5eaf61417d0ede41f9c64010965475a" class="m-doc-self">WAITCNT_CGB</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

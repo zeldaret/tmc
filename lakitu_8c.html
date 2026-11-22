@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/enemy/lakitu.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_7f3c543466604c3c9c610247f30bd681.html">enemy</a>/</span>lakitu.c <span class="m-thin">file</span>
+        </h1>
+        <p>Lakitu enemy.</p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structLakituEntity.html" class="m-doc">LakituEntity</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              struct <a href="structPACKED.html" class="m-doc">PACKED</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="abc6126af1d45847bc59afa0aa3216b04">
+              <span class="m-doc-wrap-bumper">enum <a href="#abc6126af1d45847bc59afa0aa3216b04" class="m-doc-self">(anonymous)</a> { </span><span class="m-doc-wrap"><a href="#abc6126af1d45847bc59afa0aa3216b04a0cb1b2c6a7db1f1084886c98909a3f36" class="m-doc">INIT</a>,
+              <a href="#abc6126af1d45847bc59afa0aa3216b04a41ae0a505430bf564b119bc82db7592d" class="m-doc">HIDDEN</a>,
+              <a href="#abc6126af1d45847bc59afa0aa3216b04a5a122d557db644ebbf6b11ea8e9f075d" class="m-doc">END_HIDE</a>,
+              <a href="#abc6126af1d45847bc59afa0aa3216b04afd6a0e4343048b10646dd2976cc5ad18" class="m-doc">IDLE</a>,
+              <a href="#abc6126af1d45847bc59afa0aa3216b04a8c4494ed95c55728cb6e4a8a9597520b" class="m-doc">BEGIN_HIDE</a>,
+              <a href="#abc6126af1d45847bc59afa0aa3216b04a00ba38899d0ad729990acdf59e5a5241" class="m-doc">LIGHTNING_THROW</a>,
+              <a href="#abc6126af1d45847bc59afa0aa3216b04a39a3cee2725c1769b3428afb501ba948" class="m-doc">LIGHTNING_DELAY</a>,
+              <a href="#abc6126af1d45847bc59afa0aa3216b04a41ea8cd31160852486263ab0603917c5" class="m-doc">CLOUDLESS</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="ad3a063267bc994fca2f066ff3c95eaba">
+              <span class="m-doc-wrap-bumper">void <a href="#ad3a063267bc994fca2f066ff3c95eaba" class="m-doc-self">sub_0803CAD0</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1fdacb351f93d1bcc04bc8012f03f50f">
+              <span class="m-doc-wrap-bumper">void <a href="#a1fdacb351f93d1bcc04bc8012f03f50f" class="m-doc-self">sub_0803CBAC</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a14e0f6cae35ad2bba10fbeafdf089216">
+              <span class="m-doc-wrap-bumper">void <a href="#a14e0f6cae35ad2bba10fbeafdf089216" class="m-doc-self">sub_0803CA84</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa564b5b198b4a93be4b988eaa575ddc8">
+              <span class="m-doc-wrap-bumper">auto <a href="#aa564b5b198b4a93be4b988eaa575ddc8" class="m-doc-self">sub_0803CA4C</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a742386cd2f97f33b9b7c20014ce63d04">
+              <span class="m-doc-wrap-bumper">auto <a href="#a742386cd2f97f33b9b7c20014ce63d04" class="m-doc-self">sub_0803CB04</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this) -&gt; <a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5c9dc6c48818a3cba7db0ef09064fb5c">
+              <span class="m-doc-wrap-bumper">void <a href="#a5c9dc6c48818a3cba7db0ef09064fb5c" class="m-doc-self">Lakitu_SpawnLightning</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3a8b976e7a29d88912b7c1b60494784">
+              <span class="m-doc-wrap-bumper">void <a href="#ac3a8b976e7a29d88912b7c1b60494784" class="m-doc-self">sub_0803CB34</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6d6986746c6144958dbb1e0ad4717e1d">
+              <span class="m-doc-wrap-bumper">void <a href="#a6d6986746c6144958dbb1e0ad4717e1d" class="m-doc-self">sub_0803CC08</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4ee5d91c4e4f77cc28f866430aac6447">
+              <span class="m-doc-wrap-bumper">void <a href="#a4ee5d91c4e4f77cc28f866430aac6447" class="m-doc-self">Lakitu</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61aedfda429a04cd6134f9592eadf5dd">
+              <span class="m-doc-wrap-bumper">void <a href="#a61aedfda429a04cd6134f9592eadf5dd" class="m-doc-self">Lakitu_OnTick</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a94a476be3fe36eefdfc207a611b46adb">
+              <span class="m-doc-wrap-bumper">void <a href="#a94a476be3fe36eefdfc207a611b46adb" class="m-doc-self">Lakitu_OnCollision</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63f3d638941a37f6d797d233d699f0b1">
+              <span class="m-doc-wrap-bumper">void <a href="#a63f3d638941a37f6d797d233d699f0b1" class="m-doc-self">Lakitu_OnGrabbed</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac70f7d2e59f72a921636f92e75c32567">
+              <span class="m-doc-wrap-bumper">void <a href="#ac70f7d2e59f72a921636f92e75c32567" class="m-doc-self">sub_0803C844</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a21eabc4beb8bf9840276440fc2f8da8b">
+              <span class="m-doc-wrap-bumper">void <a href="#a21eabc4beb8bf9840276440fc2f8da8b" class="m-doc-self">sub_0803C850</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e45f07d6eb86855395642ab427a326f">
+              <span class="m-doc-wrap-bumper">void <a href="#a9e45f07d6eb86855395642ab427a326f" class="m-doc-self">sub_0803C86C</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a77d37d2298fd0f9d972a18ce29de9e2a">
+              <span class="m-doc-wrap-bumper">void <a href="#a77d37d2298fd0f9d972a18ce29de9e2a" class="m-doc-self">Lakitu_Initialize</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abae85ba112baa35acc59f46426251e05">
+              <span class="m-doc-wrap-bumper">void <a href="#abae85ba112baa35acc59f46426251e05" class="m-doc-self">Lakitu_Hide</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abeecb407e1a4d4557a46556fc6215067">
+              <span class="m-doc-wrap-bumper">void <a href="#abeecb407e1a4d4557a46556fc6215067" class="m-doc-self">Lakitu_EndHide</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10314904a4efee2c88e71194ccbe1b8a">
+              <span class="m-doc-wrap-bumper">void <a href="#a10314904a4efee2c88e71194ccbe1b8a" class="m-doc-self">Lakitu_Idle</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acc4a4e10481923991e778bdc5f4590c5">
+              <span class="m-doc-wrap-bumper">void <a href="#acc4a4e10481923991e778bdc5f4590c5" class="m-doc-self">Lakitu_BeginHide</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2902b56a94091db8f6cbb19a57bda175">
+              <span class="m-doc-wrap-bumper">void <a href="#a2902b56a94091db8f6cbb19a57bda175" class="m-doc-self">Lakitu_Lightning</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a847366317764edd0f0600d98e39dc7c2">
+              <span class="m-doc-wrap-bumper">void <a href="#a847366317764edd0f0600d98e39dc7c2" class="m-doc-self">Lakitu_LightningDelay</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a56ba821724e38526c4eb92aac209a6e0">
+              <span class="m-doc-wrap-bumper">void <a href="#a56ba821724e38526c4eb92aac209a6e0" class="m-doc-self">Lakitu_Cloudless</a>(</span><span class="m-doc-wrap"><a href="structLakituEntity.html" class="m-doc">LakituEntity</a>* this)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a638db800f5ee9c97eee892cdff804f37">
+              void(*const <a href="#a638db800f5ee9c97eee892cdff804f37" class="m-doc-self">LakituActionFuncs</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae61773fd5cfe9caf96891aa1c8a0f977">
+              void(*const <a href="#ae61773fd5cfe9caf96891aa1c8a0f977" class="m-doc-self">Lakitu_Functions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6933a1d6141326c54833fe34fd236032">
+              void(*const <a href="#a6933a1d6141326c54833fe34fd236032" class="m-doc-self">gUnk_080D0128</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad25cda8a1602fb539a99a614fbba0ab4">
+              void(*const <a href="#ad25cda8a1602fb539a99a614fbba0ab4" class="m-doc-self">gUnk_080D0148</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2baaf6e074bd92ba8f797927bae8bac">
+              const OffsetCoords <a href="#ad2baaf6e074bd92ba8f797927bae8bac" class="m-doc-self">gUnk_080D0154</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

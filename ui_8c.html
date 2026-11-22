@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/ui.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>ui.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structUIElementDefinition.html" class="m-doc">UIElementDefinition</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a5bed499113295e024adc6f3b4974007c">
+              <span class="m-doc-wrap-bumper">void <a href="#a5bed499113295e024adc6f3b4974007c" class="m-doc-self">sub_0805ECEC</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afb2c4544d71d8664009fb186681ce9c7">
+              <span class="m-doc-wrap-bumper">auto <a href="#afb2c4544d71d8664009fb186681ce9c7" class="m-doc-self">sub_08000E44</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abcf6a600191c194d2d0261d03dc15b96">
+              <span class="m-doc-wrap-bumper">void <a href="#abcf6a600191c194d2d0261d03dc15b96" class="m-doc-self">sub_0801C2F0</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aacc14f16f95339f540ab08a6a05ce56b">
+              <span class="m-doc-wrap-bumper">void <a href="#aacc14f16f95339f540ab08a6a05ce56b" class="m-doc-self">DrawHearts</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5877f453ebb3987f73179e793e47d12a">
+              <span class="m-doc-wrap-bumper">void <a href="#a5877f453ebb3987f73179e793e47d12a" class="m-doc-self">DrawChargeBar</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46acb906a9726c0d77582e593a04bcb2">
+              <span class="m-doc-wrap-bumper">void <a href="#a46acb906a9726c0d77582e593a04bcb2" class="m-doc-self">DrawRupees</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3f3b9f79b56cd9e8e740e2ffd7522ab">
+              <span class="m-doc-wrap-bumper">void <a href="#af3f3b9f79b56cd9e8e740e2ffd7522ab" class="m-doc-self">DrawKeys</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeece8ffaa4739b5b610dfce87d64b9f4">
+              <span class="m-doc-wrap-bumper">void <a href="#aeece8ffaa4739b5b610dfce87d64b9f4" class="m-doc-self">CreateUIElement</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adbbed87da488be3f01f3d43a94d74dd6">
+              <span class="m-doc-wrap-bumper">void <a href="#adbbed87da488be3f01f3d43a94d74dd6" class="m-doc-self">RenderDigits</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd>Draw icon with text for rupees or keys.</dd>
+            <dt id="aef17cce7ffb42b9ed8b20d796bee1e5f">
+              <span class="m-doc-wrap-bumper">void <a href="#aef17cce7ffb42b9ed8b20d796bee1e5f" class="m-doc-self">sub_0801CAFC</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>*,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af675e0bc943dadf66707bc852afae98b">
+              <span class="m-doc-wrap-bumper">void <a href="#af675e0bc943dadf66707bc852afae98b" class="m-doc-self">sub_0801CB20</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>*,
+              <a href="structUIElementDefinition.html" class="m-doc">UIElementDefinition</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae03bd1562511f0f2e11426461b1e29d1">
+              <span class="m-doc-wrap-bumper">auto <a href="#ae03bd1562511f0f2e11426461b1e29d1" class="m-doc-self">FindUIElement</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a>) -&gt; <a href="structUIElement.html" class="m-doc">UIElement</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abfea9ba55ebb372f9fedbbb8d60a19af">
+              <span class="m-doc-wrap-bumper">void <a href="#abfea9ba55ebb372f9fedbbb8d60a19af" class="m-doc-self">sub_0801CAD0</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae5f619d90a61cd8ec3ebd2b69e9e2558">
+              <span class="m-doc-wrap-bumper">void <a href="#ae5f619d90a61cd8ec3ebd2b69e9e2558" class="m-doc-self">sub_0801CAB8</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>*,
+              Frame*)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae2bab5a9da4d49c451b300bad1d35b9d">
+              <span class="m-doc-wrap-bumper">void <a href="#ae2bab5a9da4d49c451b300bad1d35b9d" class="m-doc-self">EraseChargeBar</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9e20512f6cb63417edfe70f23788b173">
+              <span class="m-doc-wrap-bumper">void <a href="#a9e20512f6cb63417edfe70f23788b173" class="m-doc-self">UpdateUIElements</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afc8a21a1b92881e3b7279cb50443b4cd">
+              <span class="m-doc-wrap-bumper">void <a href="#afc8a21a1b92881e3b7279cb50443b4cd" class="m-doc-self">DrawUIElements</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f8895b8d02388bb12126ebe7ffc8fa6">
+              <span class="m-doc-wrap-bumper">void <a href="#a1f8895b8d02388bb12126ebe7ffc8fa6" class="m-doc-self">sub_0801C25C</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5527761e802dc002b8d5cd4bc719f8cf">
+              <span class="m-doc-wrap-bumper">void <a href="#a5527761e802dc002b8d5cd4bc719f8cf" class="m-doc-self">DrawUI</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb16833191eb3a0301e33aef3f372b39">
+              <span class="m-doc-wrap-bumper">void <a href="#aeb16833191eb3a0301e33aef3f372b39" class="m-doc-self">InitUI</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#aa638bcc74cb6bf3765b8cbd0167fceae" class="m-doc">bool32</a> keepHealthAndRupees)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a971c1ac7281a209b52f56b3e814cd13b">
+              <span class="m-doc-wrap-bumper">void <a href="#a971c1ac7281a209b52f56b3e814cd13b" class="m-doc-self">RefreshUI</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af0a8d5f7e036d0d65cc22aac623ec9cb">
+              <span class="m-doc-wrap-bumper">void <a href="#af0a8d5f7e036d0d65cc22aac623ec9cb" class="m-doc-self">RecoverUI</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> bottomPt,
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> topPt)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2e0deff82031500fba5f4ce6f5e159bb">
+              <span class="m-doc-wrap-bumper">void <a href="#a2e0deff82031500fba5f4ce6f5e159bb" class="m-doc-self">EraseHearts</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a369692f5f0c0b0c3a8d3ff81c59c935f">
+              <span class="m-doc-wrap-bumper">void <a href="#a369692f5f0c0b0c3a8d3ff81c59c935f" class="m-doc-self">ButtonUIElement</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a28c344dbfc776e38c7fcbd87fa0b0cf4">
+              <span class="m-doc-wrap-bumper">void <a href="#a28c344dbfc776e38c7fcbd87fa0b0cf4" class="m-doc-self">ButtonUIElement_Action0</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a85bb715705847e66095badcf0e2f46c5">
+              <span class="m-doc-wrap-bumper">void <a href="#a85bb715705847e66095badcf0e2f46c5" class="m-doc-self">ButtonUIElement_Action1</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a109f19f14ef4d91db6963c2d59349835">
+              <span class="m-doc-wrap-bumper">auto <a href="#a109f19f14ef4d91db6963c2d59349835" class="m-doc-self">sub_0801CC80</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element) -&gt; <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a74a179696f6bc16cf10dc5ef3375dccb">
+              <span class="m-doc-wrap-bumper">void <a href="#a74a179696f6bc16cf10dc5ef3375dccb" class="m-doc-self">ItemUIElement</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4593f0a21617c4a95d04f34189d549ff">
+              <span class="m-doc-wrap-bumper">void <a href="#a4593f0a21617c4a95d04f34189d549ff" class="m-doc-self">TextUIElement</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0905bcbc996120648147f768992cd8c8">
+              <span class="m-doc-wrap-bumper">void <a href="#a0905bcbc996120648147f768992cd8c8" class="m-doc-self">HeartUIElement</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e8728389e692ae2c846413f2e66708d">
+              <span class="m-doc-wrap-bumper">void <a href="#a3e8728389e692ae2c846413f2e66708d" class="m-doc-self">EzloNagUIElement</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e05e478b0f98f12646c1412224a8732">
+              <span class="m-doc-wrap-bumper">void <a href="#a7e05e478b0f98f12646c1412224a8732" class="m-doc-self">EzloNagUIElement_Action0</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83d5c6c86b077e13f679939420e8dea3">
+              <span class="m-doc-wrap-bumper">void <a href="#a83d5c6c86b077e13f679939420e8dea3" class="m-doc-self">EzloNagUIElement_Action1</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2a1d7dd540acf5cc8731a1cff87cb800">
+              <span class="m-doc-wrap-bumper">void <a href="#a2a1d7dd540acf5cc8731a1cff87cb800" class="m-doc-self">EzloNagUIElement_Action2</a>(</span><span class="m-doc-wrap"><a href="structUIElement.html" class="m-doc">UIElement</a>* element)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a886582dc477693f643cfac2a6ff09838">
+              const <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a886582dc477693f643cfac2a6ff09838" class="m-doc-self">gUnk_080C8F2C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a611625552a489215e59a5c4d8d46ca">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#a0a611625552a489215e59a5c4d8d46ca" class="m-doc-self">gUnk_085C4620</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac54e24bd8fd730eaea2f99575047c74">
+              Frame* <a href="#aac54e24bd8fd730eaea2f99575047c74" class="m-doc-self">gSpriteAnimations_322</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7006f2ae11f8480de458f0245ccfdf67">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a7006f2ae11f8480de458f0245ccfdf67" class="m-doc-self">gUnk_080C8F54</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad2b4701fcaa5645c83715e8d99d934a3">
+              <a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> <a href="#ad2b4701fcaa5645c83715e8d99d934a3" class="m-doc-self">gUnk_080C8F7C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5dd9620dc2cc4cc1132aa7144edb9b0c">
+              <a href="structUIElementDefinition.html" class="m-doc">UIElementDefinition</a> <a href="#a5dd9620dc2cc4cc1132aa7144edb9b0c" class="m-doc-self">gUIElementDefinitions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa60a2d6e7e79d9b96ca13530bb93a900">
+              void(*const <a href="#aa60a2d6e7e79d9b96ca13530bb93a900" class="m-doc-self">ButtonUIElement_Actions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a99e902a9c2019106c5c5eba10d73cf1e">
+              const <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a99e902a9c2019106c5c5eba10d73cf1e" class="m-doc-self">gUnk_080C9044</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aca4cc650a73cbbd57662464412fffb45">
+              void(*const <a href="#aca4cc650a73cbbd57662464412fffb45" class="m-doc-self">EzloNagUIElement_Actions</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a377f58ebf1b6103fbc9cb5750b0ffb8d">
+              <a href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa" class="m-doc">u16</a> <a href="#a377f58ebf1b6103fbc9cb5750b0ffb8d" class="m-doc-self">gUnk_080C9058</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ade030dc7d55f95011d459ff4e6c0f804">
+              Frame <a href="#ade030dc7d55f95011d459ff4e6c0f804" class="m-doc-self">gUnk_080C9094</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a407ee9790c2948a31fde1a5f817a16e9">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#a407ee9790c2948a31fde1a5f817a16e9" class="m-doc-self">RupeeKeyDigits</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

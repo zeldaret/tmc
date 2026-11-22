@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/sound.c file | The Minish Cap Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://zelda64.dev/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://github.com/zeldaret/tmc">The Minish Cap</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">Docs</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="pages.html">Pages</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>sound.c <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt id="a7c498c7d3d49c4bfd6a4b03b38c82030">
+              <span class="m-doc-wrap-bumper">enum <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030" class="m-doc-self">MusicPlayerE</a> { </span><span class="m-doc-wrap"><a href="#a7c498c7d3d49c4bfd6a4b03b38c82030aa4c9c8a1fb4955d2d70285ed4cae11db" class="m-doc">MUSIC_PLAYER_00</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030af0230bcf5278509dc4452cb9a0045280" class="m-doc">MUSIC_PLAYER_PLY_VO</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030ac19cde76f5f02b4fbaa929a754d3dd48" class="m-doc">MUSIC_PLAYER_02</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a47f6857c26431056670760b3d7889dcf" class="m-doc">MUSIC_PLAYER_03</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a61b926287a170d5397b3f9aac866af14" class="m-doc">MUSIC_PLAYER_04</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a702ec537b6d1ecdc471f80d59bce33b6" class="m-doc">MUSIC_PLAYER_05</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030ae874344515b6b15f0f97325ed867945c" class="m-doc">MUSIC_PLAYER_06</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030acef29815689dd6edfbfada0de9375d9c" class="m-doc">MUSIC_PLAYER_07</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a647524426298a9b740c958a19e3ef4db" class="m-doc">MUSIC_PLAYER_08</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a3570b98c18fbf90858d597061bbad73d" class="m-doc">MUSIC_PLAYER_09</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030ac0136cc5893e83c25199a618965f5777" class="m-doc">MUSIC_PLAYER_0A</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030aff1fcf1c1efa25e69cf6845f18ae568d" class="m-doc">MUSIC_PLAYER_0B</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a62588abfdb481b4130c5640e5cc86020" class="m-doc">MUSIC_PLAYER_0C</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030ac45e31d543a77c432d3c6eab626e32d3" class="m-doc">MUSIC_PLAYER_0D</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a777735092b80ab13867856ec72f983bc" class="m-doc">MUSIC_PLAYER_0E</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a07e6cb5fe3fc41bd565d9ef394d180f8" class="m-doc">MUSIC_PLAYER_0F</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a8c3e54e35651ceb05ce94e3d59f1e9de" class="m-doc">MUSIC_PLAYER_10</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030aea62e97dee8d90512eab32fb14f631c7" class="m-doc">MUSIC_PLAYER_11</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a9805cac600c9bfdd556c7c74c5639d94" class="m-doc">MUSIC_PLAYER_12</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a744df922989562bb191e5ededbb8b80e" class="m-doc">MUSIC_PLAYER_13</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030ac152b204be04914f1f9e983427f5c310" class="m-doc">MUSIC_PLAYER_14</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030aa0918c4b10545a09c3af6d1b6a359ec5" class="m-doc">MUSIC_PLAYER_15</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a67ad827ec491e5af3390dc4ca8be1e6e" class="m-doc">MUSIC_PLAYER_16</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a2d778fd316fada6aff4b72eedfd39ac2" class="m-doc">MUSIC_PLAYER_17</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a84457d4ec58a87848a05a96c5f178083" class="m-doc">MUSIC_PLAYER_18</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a9af0874bdf03bfdca00a735b4e6137b8" class="m-doc">MUSIC_PLAYER_19</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a601651ddb3828413a80991e164cb5333" class="m-doc">MUSIC_PLAYER_1A</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030ade83c27855f3554e97b834ffc6a4d1d3" class="m-doc">MUSIC_PLAYER_1B</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a64ee83621fe28209c3b7daf0ad0f5737" class="m-doc">MUSIC_PLAYER_1C</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030a4d46554dc0e03b827b5e5de66b280eb1" class="m-doc">MUSIC_PLAYER_1D</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030ad2baa295e722c1f781e09f01e8850fc1" class="m-doc">MUSIC_PLAYER_1E</a>,
+              <a href="#a7c498c7d3d49c4bfd6a4b03b38c82030add44a4e400feb56755ceaf1be5ce1c59" class="m-doc">MUSIC_PLAYER_BGM</a> }</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a46917b3d84dc42abb8c08f2d2b4cb12f">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a46917b3d84dc42abb8c08f2d2b4cb12f" class="m-doc-self">fade</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> target,
+              <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a> current) -&gt; <a href="types_8h.html#ae9b1af5c037e57a98884758875d3a7c4" class="m-doc">s32</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae6e5df15a70093e4a5fc30f40de29a73">
+              <span class="m-doc-wrap-bumper">static void <a href="#ae6e5df15a70093e4a5fc30f40de29a73" class="m-doc-self">doPlaySound</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> sound)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04100b8402bf774fcecf11769f9c70e7">
+              <span class="m-doc-wrap-bumper">static void <a href="#a04100b8402bf774fcecf11769f9c70e7" class="m-doc-self">PlayFadeIn</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> sound)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9864e429002641caffce2f2d1bda8f44">
+              <span class="m-doc-wrap-bumper">static void <a href="#a9864e429002641caffce2f2d1bda8f44" class="m-doc-self">PlayFadeOut</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> sound)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afc96eb740d705c582e614a64c88aacf8">
+              <span class="m-doc-wrap-bumper">static void <a href="#afc96eb740d705c582e614a64c88aacf8" class="m-doc-self">InitVolume</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7653c9d91bc20ef678286370a50c0114">
+              <span class="m-doc-wrap-bumper">void <a href="#a7653c9d91bc20ef678286370a50c0114" class="m-doc-self">InitSound</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aabe24d2d946ff8e5ef30f6fd84a69626">
+              <span class="m-doc-wrap-bumper">void <a href="#aabe24d2d946ff8e5ef30f6fd84a69626" class="m-doc-self">InitSoundPlayingInfo</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8cab1746d8d112a34499cd46ef7072c">
+              <span class="m-doc-wrap-bumper">void <a href="#aa8cab1746d8d112a34499cd46ef7072c" class="m-doc-self">SetMasterVolume</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> volume)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab53854001bea13671092aece52b9612c">
+              <span class="m-doc-wrap-bumper">void <a href="#ab53854001bea13671092aece52b9612c" class="m-doc-self">SetBgmVolume</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> volume)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3da7507ec23d888c84aa1c97d4362e83">
+              <span class="m-doc-wrap-bumper">void <a href="#a3da7507ec23d888c84aa1c97d4362e83" class="m-doc-self">SetSfxVolume</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> volume)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1fb1f4b1f677205acb1e421e021cff2a">
+              <span class="m-doc-wrap-bumper">void <a href="#a1fb1f4b1f677205acb1e421e021cff2a" class="m-doc-self">SoundReq</a>(</span><span class="m-doc-wrap"><a href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba" class="m-doc">u32</a> sound)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3ce4f05d5769b76a236bbf9fb8358c8">
+              <span class="m-doc-wrap-bumper">void <a href="#ac3ce4f05d5769b76a236bbf9fb8358c8" class="m-doc-self">AudioMain</a>(</span><span class="m-doc-wrap">void)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a8f2875cff5bf424e342acb15ba55f790">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8f2875cff5bf424e342acb15ba55f790" class="m-doc-self">sfxNone</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad46fb7959e12b7ec9cceb7ae3baf621c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad46fb7959e12b7ec9cceb7ae3baf621c" class="m-doc-self">bgmCastleTournament</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00301856b3428bbe40954aa3215f19c1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a00301856b3428bbe40954aa3215f19c1" class="m-doc-self">bgmVaatiMotif</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae9cda5dcbe1e1e62f05de501e5892df7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae9cda5dcbe1e1e62f05de501e5892df7" class="m-doc-self">bgmTitleScreen</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2113eda891364fe412adf7e581fbc31f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2113eda891364fe412adf7e581fbc31f" class="m-doc-self">bgmCastleMotif</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5de59cb247a421633f246e364ab2a5b5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5de59cb247a421633f246e364ab2a5b5" class="m-doc-self">bgmElementGet</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeb75cff731bbe30cff596408be71ccc2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aeb75cff731bbe30cff596408be71ccc2" class="m-doc-self">bgmFairyFountain</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93ffa0d9cf1f0b60a21c59bd6cdee24a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a93ffa0d9cf1f0b60a21c59bd6cdee24a" class="m-doc-self">bgmFileSelect</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30c5cd630b8f905b2a8f5dd2e33b4980">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a30c5cd630b8f905b2a8f5dd2e33b4980" class="m-doc-self">bgmIntroCutscene</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5ccc8dfeeb5dd13340f106ccf1f3bfdc">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5ccc8dfeeb5dd13340f106ccf1f3bfdc" class="m-doc-self">bgmCredits</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a27667be03fc06ebc7fef7d13eb4b1c37">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a27667be03fc06ebc7fef7d13eb4b1c37" class="m-doc-self">bgmGameover</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abcc69ed5f8c382a543aa995dee748ce9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#abcc69ed5f8c382a543aa995dee748ce9" class="m-doc-self">bgmSavingZelda</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f076d2a58777740dcfd83b2383648bb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9f076d2a58777740dcfd83b2383648bb" class="m-doc-self">bgmLttpTitle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a757f0ff9552a65c28542beaeca4b2505">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a757f0ff9552a65c28542beaeca4b2505" class="m-doc-self">bgmVaatiTheme</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3192e31fd626b558453ed6b568d8d38e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3192e31fd626b558453ed6b568d8d38e" class="m-doc-self">bgmEzloTheme</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abefcf7be59a203a6ab9de4975e07eea7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#abefcf7be59a203a6ab9de4975e07eea7" class="m-doc-self">bgmStory</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1faa2b732a35c4c95bb5adf3c7c2443b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1faa2b732a35c4c95bb5adf3c7c2443b" class="m-doc-self">bgmFestivalApproach</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3a236d179699f54be4f5e17ab106e57">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac3a236d179699f54be4f5e17ab106e57" class="m-doc-self">bgmBeatVaati</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab0a2b4972846d18a7d0bbea3af1d99bb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab0a2b4972846d18a7d0bbea3af1d99bb" class="m-doc-self">bgmUnused</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac43e2efe1a0f7bd47a93c7810d898785">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac43e2efe1a0f7bd47a93c7810d898785" class="m-doc-self">bgmBeanstalk</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3538ece293c0891204a9b373b39db6b3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3538ece293c0891204a9b373b39db6b3" class="m-doc-self">bgmHouse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2feeb8352ebec969c7af78cb115e7361">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2feeb8352ebec969c7af78cb115e7361" class="m-doc-self">bgmCuccoMinigame</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa37e47dd27bfcc26eb9e90a0006aee65">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa37e47dd27bfcc26eb9e90a0006aee65" class="m-doc-self">bgmSyrupTheme</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d4526908700380183ae2db6cceb3e66">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0d4526908700380183ae2db6cceb3e66" class="m-doc-self">bgmDungeon</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a44417c57cd62182e051e7a074c32e7ed">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a44417c57cd62182e051e7a074c32e7ed" class="m-doc-self">bgmElementTheme</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a65f58f42ebd476539d71e3f0ba9fe42c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a65f58f42ebd476539d71e3f0ba9fe42c" class="m-doc-self">bgmHyruleField</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a23e6206ab9763f9a93c78712453b6d92">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a23e6206ab9763f9a93c78712453b6d92" class="m-doc-self">bgmHyruleCastle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab85c7b878f30ef9c8b134463b31b65fb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab85c7b878f30ef9c8b134463b31b65fb" class="m-doc-self">bgmHyruleCastleNointro</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d3187bc059c5c0de842338f6fbfb817">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1d3187bc059c5c0de842338f6fbfb817" class="m-doc-self">bgmMinishVillage</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3b18154d08e50457a789020516ed781d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3b18154d08e50457a789020516ed781d" class="m-doc-self">bgmMinishWoods</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab630bb003808306667e739acdd8b36b0">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab630bb003808306667e739acdd8b36b0" class="m-doc-self">bgmCrenelStorm</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64d9d44b2657ba5f09df3a0365d4de2d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a64d9d44b2657ba5f09df3a0365d4de2d" class="m-doc-self">bgmCastorWilds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abeac43be97271664b25a2e3e80747dbd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#abeac43be97271664b25a2e3e80747dbd" class="m-doc-self">bgmHyruleTown</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5420e960f85fc5bdba98d88b4c9385ad">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5420e960f85fc5bdba98d88b4c9385ad" class="m-doc-self">bgmRoyalValley</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86a1274c99a01d78cb6afc0155974124">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a86a1274c99a01d78cb6afc0155974124" class="m-doc-self">bgmCloudTops</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5dca25ff3dc963de16b74e7228286a59">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5dca25ff3dc963de16b74e7228286a59" class="m-doc-self">bgmDarkHyruleCastle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a14a741de68fcec62569bb3be7668ab56">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a14a741de68fcec62569bb3be7668ab56" class="m-doc-self">bgmSecretCastleEntrance</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a23b78d8c7be54a7387fa7c1db36c9c66">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a23b78d8c7be54a7387fa7c1db36c9c66" class="m-doc-self">bgmDeepwoodShrine</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af560d3e6f9d2b6ebbdb7fbf8b89ee7a9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af560d3e6f9d2b6ebbdb7fbf8b89ee7a9" class="m-doc-self">bgmCaveOfFlames</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adbab735fef74fabf01a3de0e06c63608">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#adbab735fef74fabf01a3de0e06c63608" class="m-doc-self">bgmFortressOfWinds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93d14c667c399d732522746b7d0fe3d3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a93d14c667c399d732522746b7d0fe3d3" class="m-doc-self">bgmTempleOfDroplets</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a389c3d29ce44b0feb15b32c8cbdad332">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a389c3d29ce44b0feb15b32c8cbdad332" class="m-doc-self">bgmPalaceOfWinds</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c4e2e18657854bc5e994dd1de4264ce">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3c4e2e18657854bc5e994dd1de4264ce" class="m-doc-self">bgmEzloStory</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18eed9d75056a886c0d340a3709ac9f2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a18eed9d75056a886c0d340a3709ac9f2" class="m-doc-self">bgmRoyalCrypt</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9eebf538ac8c381d64b5ea385beebb3e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9eebf538ac8c381d64b5ea385beebb3e" class="m-doc-self">bgmElementalSanctuary</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a873422a2464d309293761c9d648ed2d6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a873422a2464d309293761c9d648ed2d6" class="m-doc-self">bgmFightTheme</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7d4775ec7cc1b73b9dfd178f05147fe">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab7d4775ec7cc1b73b9dfd178f05147fe" class="m-doc-self">bgmBossTheme</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a59068ce45701b1dcc8e4b429218e7e65">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a59068ce45701b1dcc8e4b429218e7e65" class="m-doc-self">bgmVaatiReborn</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38b9bbf4671564cfab5e0c6174640400">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a38b9bbf4671564cfab5e0c6174640400" class="m-doc-self">bgmVaatiTransfigured</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a726bfe613a69958169924cfa0e4efb97">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a726bfe613a69958169924cfa0e4efb97" class="m-doc-self">bgmCastleCollapse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af5031de3f09c56d6649529a4dedbf400">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af5031de3f09c56d6649529a4dedbf400" class="m-doc-self">bgmVaatiWrath</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a684a53700a783e4ddd43d4ad95b492b8">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a684a53700a783e4ddd43d4ad95b492b8" class="m-doc-self">bgmFightTheme2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a582fc38bfd7059057ee20885334a5570">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a582fc38bfd7059057ee20885334a5570" class="m-doc-self">bgmDiggingCave</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a433b11f069719e357d310e4acf6ac51c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a433b11f069719e357d310e4acf6ac51c" class="m-doc-self">bgmSwiftbladeDojo</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac405d9a53d9e39cc29dac243faf74868">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac405d9a53d9e39cc29dac243faf74868" class="m-doc-self">bgmMinishCap</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a548e746feb69121f7fe26b14c04e9124">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a548e746feb69121f7fe26b14c04e9124" class="m-doc-self">bgmMtCrenel</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c7b2c482cd4e9494dcb7dbc36c728e8">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1c7b2c482cd4e9494dcb7dbc36c728e8" class="m-doc-self">bgmPicoriFestival</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab99dae777d29ad3809a6d4f068175ffa">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab99dae777d29ad3809a6d4f068175ffa" class="m-doc-self">bgmLostWoods</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a268154abb3646dd77daa7c4a9e01a5e7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a268154abb3646dd77daa7c4a9e01a5e7" class="m-doc-self">bgmFairyFountain2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab767afeddf383d0be9e94ea9a49221ce">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab767afeddf383d0be9e94ea9a49221ce" class="m-doc-self">bgmWindRuins</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abcb66fe1ad5ba6618c6bc03f292475b3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#abcb66fe1ad5ba6618c6bc03f292475b3" class="m-doc-self">bgmLearnScroll</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4797921c1863e7125e80c7b7d84ef79e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4797921c1863e7125e80c7b7d84ef79e" class="m-doc-self">bgmEzloGet</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a676b3c6fe3a9a1cb14caf9fdb857f9d4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a676b3c6fe3a9a1cb14caf9fdb857f9d4" class="m-doc-self">sfxBeep</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a26b05eeb2cabe7d210d112bfa7e9f877">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a26b05eeb2cabe7d210d112bfa7e9f877" class="m-doc-self">sfxTextboxOpen</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a913999e700ecf68ff3781cf3a0edef9e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a913999e700ecf68ff3781cf3a0edef9e" class="m-doc-self">sfxTextboxClose</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1190544b92a1c591c61267f570bc2ea8">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1190544b92a1c591c61267f570bc2ea8" class="m-doc-self">sfxTextboxNext</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a93de8c8f69a4a6ca02e62a934957518d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a93de8c8f69a4a6ca02e62a934957518d" class="m-doc-self">sfxTextboxSwap</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aae11af7b09a325e178c21ce27213e1f2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aae11af7b09a325e178c21ce27213e1f2" class="m-doc-self">sfxTextboxChoice</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46439e1d1a6caed7685eeb771be1d9f5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a46439e1d1a6caed7685eeb771be1d9f5" class="m-doc-self">sfxTextboxSelect</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a57477049bd6adec64392d2beff5d954b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a57477049bd6adec64392d2beff5d954b" class="m-doc-self">sfx6B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a981e1f340c6c7269a0d7cda234259a36">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a981e1f340c6c7269a0d7cda234259a36" class="m-doc-self">sfxMenuCancel</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="add2b1dd7789829018d6ae34dfdf3752e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#add2b1dd7789829018d6ae34dfdf3752e" class="m-doc-self">sfxMenuError</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7789282bcc7b05feb877f8a8ebd09fa7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7789282bcc7b05feb877f8a8ebd09fa7" class="m-doc-self">sfxRupeeBounce</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b086368920f9a52025e1f13b26892dd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5b086368920f9a52025e1f13b26892dd" class="m-doc-self">sfxRupeeGet</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a33dbc6e290f7bb820dc2aa2f2e096a76">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a33dbc6e290f7bb820dc2aa2f2e096a76" class="m-doc-self">sfxHeartBounce</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32fa74faaee8cf5777693305dc069600">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a32fa74faaee8cf5777693305dc069600" class="m-doc-self">sfxHeartGet</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac614c01c8081a6227abba19a14ac4075">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac614c01c8081a6227abba19a14ac4075" class="m-doc-self">sfxSecret</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c2dd14153d252abd0df6f4c597f0540">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8c2dd14153d252abd0df6f4c597f0540" class="m-doc-self">sfxSecretBig</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae140db2ff9aa7d6652d5a2fa8f388503">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae140db2ff9aa7d6652d5a2fa8f388503" class="m-doc-self">sfxMetalClink</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9437af763b82388693f212c84b76012a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9437af763b82388693f212c84b76012a" class="m-doc-self">sfxPlyVo1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac061700ca68da089fa31c25f2862c3f3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac061700ca68da089fa31c25f2862c3f3" class="m-doc-self">sfxPlyVo2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b62fe08c465a86bd4e80f308f100d0a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6b62fe08c465a86bd4e80f308f100d0a" class="m-doc-self">sfxPlyVo3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aef98772b677f3a01bf8b98fd744702b8">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aef98772b677f3a01bf8b98fd744702b8" class="m-doc-self">sfxPlyVo4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac19749b1b18757e24c051f0d9cbd9762">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac19749b1b18757e24c051f0d9cbd9762" class="m-doc-self">sfxPlyVo5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6f9baf7b2fb0ae6ec639f17d100634eb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6f9baf7b2fb0ae6ec639f17d100634eb" class="m-doc-self">sfxPlyVo6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a23eee2ba9c9d4268afebd033f1f2639e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a23eee2ba9c9d4268afebd033f1f2639e" class="m-doc-self">sfxPlyVo7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8f9d7100f81b0e302a69d466b7d82137">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8f9d7100f81b0e302a69d466b7d82137" class="m-doc-self">sfxPlyJump</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6832d3dd33b324ba8361e720bd8f103e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6832d3dd33b324ba8361e720bd8f103e" class="m-doc-self">sfxPlyLand</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2005336f95fcac0d0908df3ef71671ea">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2005336f95fcac0d0908df3ef71671ea" class="m-doc-self">sfx7E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a08239cac77fe0663f2ca93ee56df060f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a08239cac77fe0663f2ca93ee56df060f" class="m-doc-self">sfxPlyLift</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b20fe9b4da4a202a6f4ffa7394b746e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2b20fe9b4da4a202a6f4ffa7394b746e" class="m-doc-self">sfx80</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac75ddfaea5306c37e369f24fa15c2619">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac75ddfaea5306c37e369f24fa15c2619" class="m-doc-self">sfx81</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa6bf273fd18c0e3d3ae5e6e66742d7d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aaa6bf273fd18c0e3d3ae5e6e66742d7d" class="m-doc-self">sfx82</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a916c13aad888c30d1a19b7c166d9ba05">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a916c13aad888c30d1a19b7c166d9ba05" class="m-doc-self">sfxWaterWalk</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa79b4a7ecf752796274b960532faee7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#afa79b4a7ecf752796274b960532faee7" class="m-doc-self">sfxWaterSplash</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f44100998185395709c9450258647ae">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2f44100998185395709c9450258647ae" class="m-doc-self">sfxFallHole</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0a46486a3435031b5c2fff0dfd2b486a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0a46486a3435031b5c2fff0dfd2b486a" class="m-doc-self">sfx86</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a04bf6ed5e4369e6d43fee91715077e8a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a04bf6ed5e4369e6d43fee91715077e8a" class="m-doc-self">sfxPlyDie</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7cea2313dcc5bc01c3fd0c3b42006b7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac7cea2313dcc5bc01c3fd0c3b42006b7" class="m-doc-self">sfx88</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a574906b3894860cd8f5849ab99e7e9fe">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a574906b3894860cd8f5849ab99e7e9fe" class="m-doc-self">sfxBarrelRelease</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a155e96a4d142427a0107915da8ccd860">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a155e96a4d142427a0107915da8ccd860" class="m-doc-self">sfxBarrelEnter</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a723dfa4959a282dda0c9237780db3f84">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a723dfa4959a282dda0c9237780db3f84" class="m-doc-self">sfxBarrelRoll</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad7448b67f9f6b62eb9baa30732a148b9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad7448b67f9f6b62eb9baa30732a148b9" class="m-doc-self">sfxBarrelRollStop</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8051e2aa248d73ee2c5ab87f29db002f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8051e2aa248d73ee2c5ab87f29db002f" class="m-doc-self">sfxVoEzlo1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a22f5c303f3b1f20afd3a0729d18ce82c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a22f5c303f3b1f20afd3a0729d18ce82c" class="m-doc-self">sfxVoEzlo2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a137df9da20efddb75b3893799ea04ab7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a137df9da20efddb75b3893799ea04ab7" class="m-doc-self">sfxVoEzlo3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a78f3d14ab63e68181423adf02ad26da1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a78f3d14ab63e68181423adf02ad26da1" class="m-doc-self">sfxVoEzlo4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a076bd44f3b8248d641c097e2973b05e9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a076bd44f3b8248d641c097e2973b05e9" class="m-doc-self">sfxVoEzlo5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7263eaa3f75125c1e28f42750da2d56d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7263eaa3f75125c1e28f42750da2d56d" class="m-doc-self">sfxVoEzlo6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5aa1c461aa45d4ddada07b457edeb5ba">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5aa1c461aa45d4ddada07b457edeb5ba" class="m-doc-self">sfxVoEzlo7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7e1f684d9dc05b19985ae33be86fb8b3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7e1f684d9dc05b19985ae33be86fb8b3" class="m-doc-self">sfxVoZelda1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c9dd94d552dc44928363f565cf39a55">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1c9dd94d552dc44928363f565cf39a55" class="m-doc-self">sfxVoZelda2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a159aacff7e5f7d689ac2a14ef7d0938f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a159aacff7e5f7d689ac2a14ef7d0938f" class="m-doc-self">sfxVoZelda3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30a22dd0330bd94ff3d1031734f5e7f2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a30a22dd0330bd94ff3d1031734f5e7f2" class="m-doc-self">sfxVoZelda4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a34ed114e5f7ef724038a37f4e222f74c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a34ed114e5f7ef724038a37f4e222f74c" class="m-doc-self">sfxVoZelda5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1699ec20db1c9b1533efcfa1215c8815">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1699ec20db1c9b1533efcfa1215c8815" class="m-doc-self">sfxVoZelda6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a141556ef29ca853d5974bf874efe5615">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a141556ef29ca853d5974bf874efe5615" class="m-doc-self">sfxVoZelda7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a84082f08386bb6e6d53399c7df0654b3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a84082f08386bb6e6d53399c7df0654b3" class="m-doc-self">sfx9B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acc7181e45afc4ab4f052684f96bf98dd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#acc7181e45afc4ab4f052684f96bf98dd" class="m-doc-self">sfx9C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2cdb7ddc732cbbbb98c65dd8abbaf7f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af2cdb7ddc732cbbbb98c65dd8abbaf7f" class="m-doc-self">sfx9D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acd46e47585e2bed4e4e21f2f17105ea7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#acd46e47585e2bed4e4e21f2f17105ea7" class="m-doc-self">sfx9E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac676eb52a918bd234517d2dba3cf3bfd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac676eb52a918bd234517d2dba3cf3bfd" class="m-doc-self">sfx9F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a33e4e2b77bf8b052290887fdb38fdf55">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a33e4e2b77bf8b052290887fdb38fdf55" class="m-doc-self">sfxA0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7ad02e04651018bb2fcdb095c980c415">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7ad02e04651018bb2fcdb095c980c415" class="m-doc-self">sfxVoTingle1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af137a63fda2546dfd39081a5a54e673e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af137a63fda2546dfd39081a5a54e673e" class="m-doc-self">sfxVoTingle2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a60701baaf1839892f82dce73e28ad53d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a60701baaf1839892f82dce73e28ad53d" class="m-doc-self">sfxVoKing1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a908f794454dafd53921561bb5923e072">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a908f794454dafd53921561bb5923e072" class="m-doc-self">sfxVoKing2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa1b7673ef56c41ccb6ef9e6dfd38d584">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa1b7673ef56c41ccb6ef9e6dfd38d584" class="m-doc-self">sfxVoKing3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af2d6ab1279e6ee521f7566d34f52621f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af2d6ab1279e6ee521f7566d34f52621f" class="m-doc-self">sfxVoKing4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5aa5775b0d935b76a441240253f4a8e3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5aa5775b0d935b76a441240253f4a8e3" class="m-doc-self">sfxVoKing5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a46a7adcbed7c2ff0c50100cbc523ddad">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a46a7adcbed7c2ff0c50100cbc523ddad" class="m-doc-self">sfxA8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf8dff34d46a38860788a9d7b8c65ce1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#acf8dff34d46a38860788a9d7b8c65ce1" class="m-doc-self">sfxA9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a98d36c767535a57e7f220917cedf5146">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a98d36c767535a57e7f220917cedf5146" class="m-doc-self">sfxAA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0697ef9c0ef4163a581d34302f82c2be">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0697ef9c0ef4163a581d34302f82c2be" class="m-doc-self">sfxSpiritsRelease</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2c00c1681dc7239684f8dafea6faa039">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2c00c1681dc7239684f8dafea6faa039" class="m-doc-self">sfxAC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a638ff45db4600ef23f0ada164bd8cce5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a638ff45db4600ef23f0ada164bd8cce5" class="m-doc-self">sfxVoBeedle</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af41725c0fe31e2b46a17a3d1eb5cf5bb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af41725c0fe31e2b46a17a3d1eb5cf5bb" class="m-doc-self">sfxAE</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa814c49e0c4e5cb18d6bd3d6ba62606c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa814c49e0c4e5cb18d6bd3d6ba62606c" class="m-doc-self">sfxAF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a138b7232a18ab3f951f4137aab0767e7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a138b7232a18ab3f951f4137aab0767e7" class="m-doc-self">sfxB0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3254d55f13a8d480908d5a7a0e72481a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3254d55f13a8d480908d5a7a0e72481a" class="m-doc-self">sfxMinish1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa55efa7ae346d3a94c1c0c7c9ecea41f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa55efa7ae346d3a94c1c0c7c9ecea41f" class="m-doc-self">sfxMinish2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83c6858bf96e2dc3de46c6281ebfc5ce">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a83c6858bf96e2dc3de46c6281ebfc5ce" class="m-doc-self">sfxMinish3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a586b7a959624aa32a2b37a4044ed7414">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a586b7a959624aa32a2b37a4044ed7414" class="m-doc-self">sfxMinish4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ace5ed4a923575851f3f3b4c367efdb83">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ace5ed4a923575851f3f3b4c367efdb83" class="m-doc-self">sfxB5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af48984463217d0d3c046ff2dbfb9ccea">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af48984463217d0d3c046ff2dbfb9ccea" class="m-doc-self">sfxB6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab3ca5cf595695e6abe3f9b0630132299">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab3ca5cf595695e6abe3f9b0630132299" class="m-doc-self">sfxB7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8de919540612a9551a4f9b69fab23bb1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8de919540612a9551a4f9b69fab23bb1" class="m-doc-self">sfxB8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3047bc90624b68d30c5dca6e5ad08cd4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3047bc90624b68d30c5dca6e5ad08cd4" class="m-doc-self">sfxB9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab7a00b6b2312590a8b39b83b664f591a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab7a00b6b2312590a8b39b83b664f591a" class="m-doc-self">sfxBA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a294fd3b24d7e01ee353c1079e7873cd5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a294fd3b24d7e01ee353c1079e7873cd5" class="m-doc-self">sfxBB</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5999b0c975535ad6da46bb9800763d4c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5999b0c975535ad6da46bb9800763d4c" class="m-doc-self">sfxBC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d2a47d2c99eb3670f443993f6c512fb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0d2a47d2c99eb3670f443993f6c512fb" class="m-doc-self">sfxBD</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a735cae95ba37577d2d873cdf90975176">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a735cae95ba37577d2d873cdf90975176" class="m-doc-self">sfxBE</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a185b96c2492535a7528282ba8ee13d5a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a185b96c2492535a7528282ba8ee13d5a" class="m-doc-self">sfxBF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7aa14f724bf92b3a829a141a1fb8606c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7aa14f724bf92b3a829a141a1fb8606c" class="m-doc-self">sfxC0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a145159959d6e6ed0b07f401c4a943eb3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a145159959d6e6ed0b07f401c4a943eb3" class="m-doc-self">sfxC1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9064de39c3db779d544caef73927cd51">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9064de39c3db779d544caef73927cd51" class="m-doc-self">sfxC2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac66a8d35bbe9ff11cda483165686847">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aac66a8d35bbe9ff11cda483165686847" class="m-doc-self">sfxC3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d0b5286b3be1cff1122b6e671599052">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0d0b5286b3be1cff1122b6e671599052" class="m-doc-self">sfxC4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5a923eec236d4f3e2f8b8c3209b587f3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5a923eec236d4f3e2f8b8c3209b587f3" class="m-doc-self">sfxC5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a09e2ece86211bf3875e11094d19c5e30">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a09e2ece86211bf3875e11094d19c5e30" class="m-doc-self">sfxC6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a771a37b980de803d2fd2013d89f7bf56">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a771a37b980de803d2fd2013d89f7bf56" class="m-doc-self">sfxC7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8524c4364e193f3b2d3fa0ea45cac7ef">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8524c4364e193f3b2d3fa0ea45cac7ef" class="m-doc-self">sfxC8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0bba2d72511cebe1a79aebc982212bee">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0bba2d72511cebe1a79aebc982212bee" class="m-doc-self">sfxC9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a84e9bfd026f04205cebd8c6c983929b1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a84e9bfd026f04205cebd8c6c983929b1" class="m-doc-self">sfxCA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a474cd0134ec04816cbfc88415f2953a4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a474cd0134ec04816cbfc88415f2953a4" class="m-doc-self">sfxCB</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a16795aea0c1b5f984c7dfadc7d25a999">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a16795aea0c1b5f984c7dfadc7d25a999" class="m-doc-self">sfxRemSleep</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5444cd1347d33774caf1a77793e7f70">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa5444cd1347d33774caf1a77793e7f70" class="m-doc-self">sfxTaskComplete</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acf4514080a2332041b80ca6faa44c99c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#acf4514080a2332041b80ca6faa44c99c" class="m-doc-self">sfxKeyAppear</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a593e1b66cbcfb884bbb00d82826f924e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a593e1b66cbcfb884bbb00d82826f924e" class="m-doc-self">sfxCF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a417ec1b2a0c2f8aae7715304596e257f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a417ec1b2a0c2f8aae7715304596e257f" class="m-doc-self">sfxD0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a127453e96f6aab6282ab51208d76bfcf">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a127453e96f6aab6282ab51208d76bfcf" class="m-doc-self">sfxVoDog</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18e2dc99fb5f0f8c3d62fa41f174693a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a18e2dc99fb5f0f8c3d62fa41f174693a" class="m-doc-self">sfxVoCat</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1c59bfa5b4cf65a2bbe9e51960af4ed9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1c59bfa5b4cf65a2bbe9e51960af4ed9" class="m-doc-self">sfxVoEpona</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b64c36b25c0b2d7b7561303227d0be5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6b64c36b25c0b2d7b7561303227d0be5" class="m-doc-self">sfxVoCow</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ea7788c40c6f2b2efcb0414eed513c4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6ea7788c40c6f2b2efcb0414eed513c4" class="m-doc-self">sfxVoCuccoCall</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2967128b1ca78316b2d95ec21e943d0">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab2967128b1ca78316b2d95ec21e943d0" class="m-doc-self">sfxVoCheep</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0fe0cc8bdd01e9372c1478b650ec4962">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0fe0cc8bdd01e9372c1478b650ec4962" class="m-doc-self">sfxItemSwordCharge</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afbef4d8f7236def11360a93f7fb4a6ac">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#afbef4d8f7236def11360a93f7fb4a6ac" class="m-doc-self">sfxItemSwordChargeFinish</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af8e8db414ce6c4a77ee8a2624528c5bc">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af8e8db414ce6c4a77ee8a2624528c5bc" class="m-doc-self">sfxD9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b1c97d9d9c322df4703a581c6e2005e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6b1c97d9d9c322df4703a581c6e2005e" class="m-doc-self">sfxDA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7de61e80a6b7954f4e0d9bf0c22f0dee">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7de61e80a6b7954f4e0d9bf0c22f0dee" class="m-doc-self">sfxVoSturgeon</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1f7763ab453539dcca26f597627a4c39">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1f7763ab453539dcca26f597627a4c39" class="m-doc-self">sfxHammer1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d99ee13e2de4dd2bb63674f15620738">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1d99ee13e2de4dd2bb63674f15620738" class="m-doc-self">sfxHammer2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a014b828ddcbf42f42a7dd29a7093a36b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a014b828ddcbf42f42a7dd29a7093a36b" class="m-doc-self">sfxHammer3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae842b4e892f7baab2f35247d23913cf6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae842b4e892f7baab2f35247d23913cf6" class="m-doc-self">sfxHammer4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d19a011e99b83de514982ee2df28dcf">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1d19a011e99b83de514982ee2df28dcf" class="m-doc-self">sfxHammer5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a69274770ba522782aca1031932fd17d4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a69274770ba522782aca1031932fd17d4" class="m-doc-self">sfxHammer6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab87eadad33bc6ea1d94f8fb8ca9d5b9d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab87eadad33bc6ea1d94f8fb8ca9d5b9d" class="m-doc-self">sfxCuccoMinigameBell</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a39be7fc8ced7054d041d4fe4fed7a6cd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a39be7fc8ced7054d041d4fe4fed7a6cd" class="m-doc-self">sfxE3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a79db4bc6a9deaba0b1dfb449086736dd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a79db4bc6a9deaba0b1dfb449086736dd" class="m-doc-self">sfxE4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a297cf9a7ebe14c7b40b65979f6fa0db7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a297cf9a7ebe14c7b40b65979f6fa0db7" class="m-doc-self">sfxButtonDepress</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa1f92f822ae1d7c503ace3515ecba8fc">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa1f92f822ae1d7c503ace3515ecba8fc" class="m-doc-self">sfxThudHeavy</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae3f27b348c2f80a72cb3963fcb6186ed">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae3f27b348c2f80a72cb3963fcb6186ed" class="m-doc-self">sfxWind1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a447f8b09c81ae9f32b8ecfaf3d3bb6fc">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a447f8b09c81ae9f32b8ecfaf3d3bb6fc" class="m-doc-self">sfxWind2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3101586ab3c2f82c484ef464f3d3bfb7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3101586ab3c2f82c484ef464f3d3bfb7" class="m-doc-self">sfxWind3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aff789fee7fe9226fe037b8e938ef7d46">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aff789fee7fe9226fe037b8e938ef7d46" class="m-doc-self">sfxEA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af7787bb7e43a06138ed2c5af7cf6ead6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af7787bb7e43a06138ed2c5af7cf6ead6" class="m-doc-self">sfxEB</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab31fe213ec2c493df3c5b0d9f8a10b4b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab31fe213ec2c493df3c5b0d9f8a10b4b" class="m-doc-self">sfxEC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6102e680634b375dc91c42ab78182a20">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6102e680634b375dc91c42ab78182a20" class="m-doc-self">sfxED</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a330d43e4f1ff81cf6394bedb336fb562">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a330d43e4f1ff81cf6394bedb336fb562" class="m-doc-self">sfxEE</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e5fa5a68cb475fed8e609024adac101">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4e5fa5a68cb475fed8e609024adac101" class="m-doc-self">sfxEF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a214c1889b3a3fda64df1442516e953b3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a214c1889b3a3fda64df1442516e953b3" class="m-doc-self">sfxF0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0ad207c1b36648c70518cd1cb6ddfb17">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0ad207c1b36648c70518cd1cb6ddfb17" class="m-doc-self">sfxF1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4059838141ab4f30cc0daae27207037e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4059838141ab4f30cc0daae27207037e" class="m-doc-self">sfxF2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0585e1554063378546712a4adc80c1f5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0585e1554063378546712a4adc80c1f5" class="m-doc-self">sfxF3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5f2a3869e79d74603cf71e642833b66">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa5f2a3869e79d74603cf71e642833b66" class="m-doc-self">sfxSummon</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a23cc159d3a7f563730d8d4024b14306d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a23cc159d3a7f563730d8d4024b14306d" class="m-doc-self">sfxF5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2106b7fa365addfacbf6566f6e10949f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2106b7fa365addfacbf6566f6e10949f" class="m-doc-self">sfxEvaporate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63c2305ed3a6c380bd91bb9713a52ba7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a63c2305ed3a6c380bd91bb9713a52ba7" class="m-doc-self">sfxApparate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac47edc8d22ac5d357913ea00a9828c02">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac47edc8d22ac5d357913ea00a9828c02" class="m-doc-self">sfxF8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0cbbe78d220ef1c605de8baf2d26cd11">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0cbbe78d220ef1c605de8baf2d26cd11" class="m-doc-self">sfxTeleporter</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a44dd955044f5d2631c6fa6f4f6d65afb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a44dd955044f5d2631c6fa6f4f6d65afb" class="m-doc-self">sfxFA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a48e7f18f3d4f8671e19ce0e173c538ad">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a48e7f18f3d4f8671e19ce0e173c538ad" class="m-doc-self">sfxFB</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab88e3647a68f5953acc5b9aca3823ce5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab88e3647a68f5953acc5b9aca3823ce5" class="m-doc-self">sfxFC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a850893429ddb45f0df07ced88baae58f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a850893429ddb45f0df07ced88baae58f" class="m-doc-self">sfxItemBombExplode</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c735900dd9a6cf515e6615e17f722c6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8c735900dd9a6cf515e6615e17f722c6" class="m-doc-self">sfxHit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7ac5bc2870bddb2fb8b4924313477381">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7ac5bc2870bddb2fb8b4924313477381" class="m-doc-self">sfxFF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6ae569c819314448c7e1c4fa31931434">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6ae569c819314448c7e1c4fa31931434" class="m-doc-self">sfx100</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7d8cfa69413668eca9115e9ef360799c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7d8cfa69413668eca9115e9ef360799c" class="m-doc-self">sfx101</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63aad3acbf7559d54e3ab240e3ec2791">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a63aad3acbf7559d54e3ab240e3ec2791" class="m-doc-self">sfx102</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a54e35d9b5a3fe12cf945713b29ebb848">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a54e35d9b5a3fe12cf945713b29ebb848" class="m-doc-self">sfx103</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a741d5703da9a72eadc5c54de36e7c094">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a741d5703da9a72eadc5c54de36e7c094" class="m-doc-self">sfx104</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af48fe335c3902d2f1c18383b1a72a1ae">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af48fe335c3902d2f1c18383b1a72a1ae" class="m-doc-self">sfx105</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6306bb48b2a4982692dae93d8ba7b9ef">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6306bb48b2a4982692dae93d8ba7b9ef" class="m-doc-self">sfx106</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="add0ce04a2f162fc5df0675164eeb1356">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#add0ce04a2f162fc5df0675164eeb1356" class="m-doc-self">sfx107</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afca2830ca6e1200b40cc554b0d37e1fb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#afca2830ca6e1200b40cc554b0d37e1fb" class="m-doc-self">sfx108</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7c4d7c14a686b4bd0e77d7351461b720">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7c4d7c14a686b4bd0e77d7351461b720" class="m-doc-self">sfx109</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad71e92715451b31b6d33c3b65b49e88a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad71e92715451b31b6d33c3b65b49e88a" class="m-doc-self">sfx10A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41054f9ff8cdef28085fab4c96e4de78">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a41054f9ff8cdef28085fab4c96e4de78" class="m-doc-self">sfx10B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4987fa4e5fd26c8008c978983a31e91a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4987fa4e5fd26c8008c978983a31e91a" class="m-doc-self">sfxButtonPress</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4cd3c680f407e8fc239f8bbdde93f0d8">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4cd3c680f407e8fc239f8bbdde93f0d8" class="m-doc-self">sfx10D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af3af31730e76cd839abc0578d6b9cac6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af3af31730e76cd839abc0578d6b9cac6" class="m-doc-self">sfx10E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a068c91143017a5fdc139efd3b70e80ac">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a068c91143017a5fdc139efd3b70e80ac" class="m-doc-self">sfx10F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d4d5b9a76ce544b0ed494ecb10e9dfd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1d4d5b9a76ce544b0ed494ecb10e9dfd" class="m-doc-self">sfx110</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a75ec63f9a64e23680179256168dba927">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a75ec63f9a64e23680179256168dba927" class="m-doc-self">sfx111</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a83447d48cb13b24fda2b29943d9b4daa">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a83447d48cb13b24fda2b29943d9b4daa" class="m-doc-self">sfx112</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a41588acf6b66744b0c9afbaa49f59ebb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a41588acf6b66744b0c9afbaa49f59ebb" class="m-doc-self">sfx113</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab08efdc6e84765a465f08f49dd9e2dbe">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab08efdc6e84765a465f08f49dd9e2dbe" class="m-doc-self">sfx114</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a942da37222d4788af7a180d5b8d072cd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a942da37222d4788af7a180d5b8d072cd" class="m-doc-self">sfx115</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a271cbfab30d6fc19a9557916c24fa1f8">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a271cbfab30d6fc19a9557916c24fa1f8" class="m-doc-self">sfx116</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9737dcb5f2e31d8d6ac6992f1cb1871e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9737dcb5f2e31d8d6ac6992f1cb1871e" class="m-doc-self">sfx117</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a834f5abc3bd5dfd0d3a275e6ebfa50dd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a834f5abc3bd5dfd0d3a275e6ebfa50dd" class="m-doc-self">sfxItemShieldBounce</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa69db1b4367286163765a927b3f543a3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa69db1b4367286163765a927b3f543a3" class="m-doc-self">sfxItemGlovesKnockback</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad0ba78e82038e63cebc9436edf349cac">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad0ba78e82038e63cebc9436edf349cac" class="m-doc-self">sfxEmArmosOn</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeebba5049d24ababcf61bb60c6b8648b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aeebba5049d24ababcf61bb60c6b8648b" class="m-doc-self">sfxChestOpen</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeeec14c865d67b241eed13660933ec7c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aeeec14c865d67b241eed13660933ec7c" class="m-doc-self">sfx11C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3edb25177e6e1b9eea5188b09af10c74">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3edb25177e6e1b9eea5188b09af10c74" class="m-doc-self">sfx11D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8fd4a14960a967e7d6588bc5244aeddb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8fd4a14960a967e7d6588bc5244aeddb" class="m-doc-self">sfxEmMoblinSpear</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4ba2fddf3387a7ec58d59daa13abfb65">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4ba2fddf3387a7ec58d59daa13abfb65" class="m-doc-self">sfxLowHealth</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a86dcdbd34d0a0c808c6e32bb46a034d1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a86dcdbd34d0a0c808c6e32bb46a034d1" class="m-doc-self">sfxChargingUp</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2ac363ea2c6671abe354ad3f02792cc5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2ac363ea2c6671abe354ad3f02792cc5" class="m-doc-self">sfxStairs</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a407dce9767d686a83dc78eb084b0d64c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a407dce9767d686a83dc78eb084b0d64c" class="m-doc-self">sfx122</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5eeb44ca611ba015110e5aa9db4c0838">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5eeb44ca611ba015110e5aa9db4c0838" class="m-doc-self">sfx123</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3cca58d6151799bb6d6dd5c6f54e5e5f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3cca58d6151799bb6d6dd5c6f54e5e5f" class="m-doc-self">sfx124</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a307d706d8559ca383727b833403bfe3e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a307d706d8559ca383727b833403bfe3e" class="m-doc-self">sfx125</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad35c1924613eddf7616f04dcf2736b44">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad35c1924613eddf7616f04dcf2736b44" class="m-doc-self">sfx126</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afa22bc4732255cb5b1f5444fc9224242">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#afa22bc4732255cb5b1f5444fc9224242" class="m-doc-self">sfxBossHit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a238ac2427f5eaf685b8691def9082035">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a238ac2427f5eaf685b8691def9082035" class="m-doc-self">sfxBossDie</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c79de0fe48840799e48e1cbd75c62c4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3c79de0fe48840799e48e1cbd75c62c4" class="m-doc-self">sfxBossExplode</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe4b7e1c742f1fb1a7b4dcf7df849e63">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#abe4b7e1c742f1fb1a7b4dcf7df849e63" class="m-doc-self">sfx12A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa712557120b6f82e743c96b4a9517812">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa712557120b6f82e743c96b4a9517812" class="m-doc-self">sfx12B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a08a0459c376db582872dbfafa2d95664">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a08a0459c376db582872dbfafa2d95664" class="m-doc-self">sfx12C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4a6ea98cbf8e252f2c3a0c39395c5643">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4a6ea98cbf8e252f2c3a0c39395c5643" class="m-doc-self">sfx12D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac2422f35cdadb36278839a9e4aa2915c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac2422f35cdadb36278839a9e4aa2915c" class="m-doc-self">sfx12E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a601f67d30b3976a848c8c6a1b8d08c07">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a601f67d30b3976a848c8c6a1b8d08c07" class="m-doc-self">sfx12F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9a7b3e40a099f0f97c0b55b830f5126f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9a7b3e40a099f0f97c0b55b830f5126f" class="m-doc-self">sfx130</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53c593662889b94b7d88b9f516432d4b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a53c593662889b94b7d88b9f516432d4b" class="m-doc-self">sfx131</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adc0c51d33e28de8ad8be90e60820fd0c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#adc0c51d33e28de8ad8be90e60820fd0c" class="m-doc-self">sfx132</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0371622ce7c4cba38e8cfba57124a97a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0371622ce7c4cba38e8cfba57124a97a" class="m-doc-self">sfx133</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acdabf6c240f7a50ed1827782fd4fd3a9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#acdabf6c240f7a50ed1827782fd4fd3a9" class="m-doc-self">sfx134</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae9c899d66d17a174bf3c213e363ea1c2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae9c899d66d17a174bf3c213e363ea1c2" class="m-doc-self">sfx135</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0abcf2af977158d5d34bd5c56dcac05f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0abcf2af977158d5d34bd5c56dcac05f" class="m-doc-self">sfx136</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2315ca7f4a27e73c5fcd94f729be634f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2315ca7f4a27e73c5fcd94f729be634f" class="m-doc-self">sfx137</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a678ef1a7d5909e804e153cc4f8e8776f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a678ef1a7d5909e804e153cc4f8e8776f" class="m-doc-self">sfx138</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adedabc83b42566d9003605a56499da91">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#adedabc83b42566d9003605a56499da91" class="m-doc-self">sfx139</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a821a03c00e059b7a8e3b7a4cae5b95a3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a821a03c00e059b7a8e3b7a4cae5b95a3" class="m-doc-self">sfx13A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab16966bd14b4cd9a1b23081a9ac5b0cd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab16966bd14b4cd9a1b23081a9ac5b0cd" class="m-doc-self">sfx13B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8756ef98645280aac2050286eac06f92">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8756ef98645280aac2050286eac06f92" class="m-doc-self">sfx13C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a191deba9c5c6c8be25c4fa3280fa9577">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a191deba9c5c6c8be25c4fa3280fa9577" class="m-doc-self">sfxItemLanternOn</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1b340e00f94cc3b2ead90d4bacc36f34">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1b340e00f94cc3b2ead90d4bacc36f34" class="m-doc-self">sfxItemLanternOff</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aad5411d8d1e7272693d3f30697cecd01">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aad5411d8d1e7272693d3f30697cecd01" class="m-doc-self">sfxItemSwordBeam</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7f2cb8dda0fdd309af23bcd355011b7c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7f2cb8dda0fdd309af23bcd355011b7c" class="m-doc-self">sfx140</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab57eb89ac827ec564e1a2874fb36e2c6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab57eb89ac827ec564e1a2874fb36e2c6" class="m-doc-self">sfxHeartContainerSpawn</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afcd81e97351f9a772d6ba95786e64e3c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#afcd81e97351f9a772d6ba95786e64e3c" class="m-doc-self">sfxSparkles</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac5c752e29cc2e3184d990ad330b3309f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac5c752e29cc2e3184d990ad330b3309f" class="m-doc-self">sfx143</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a32231b902990c1af5774d6aa934084a2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a32231b902990c1af5774d6aa934084a2" class="m-doc-self">sfx144</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a484c5752a6147faac7f87dccb5bd7f77">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a484c5752a6147faac7f87dccb5bd7f77" class="m-doc-self">sfx145</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6d8eba7b69b68cc0fd26ad2b6059bdb8">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6d8eba7b69b68cc0fd26ad2b6059bdb8" class="m-doc-self">sfx146</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a64b78c50b574580324f8850859e245cf">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a64b78c50b574580324f8850859e245cf" class="m-doc-self">sfx147</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a26116c161f5f863995a21580638cb189">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a26116c161f5f863995a21580638cb189" class="m-doc-self">sfx148</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab81c725797cb3efdba52ca26eea6b7ec">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab81c725797cb3efdba52ca26eea6b7ec" class="m-doc-self">sfx149</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a66391c41af7564b1252fa818922e7631">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a66391c41af7564b1252fa818922e7631" class="m-doc-self">sfx14A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae35e4ce8a30858db2c5d6e8be4562345">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae35e4ce8a30858db2c5d6e8be4562345" class="m-doc-self">sfx14B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a61788fa942fa047970e0e3ed3e8f158e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a61788fa942fa047970e0e3ed3e8f158e" class="m-doc-self">sfx14C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad52b5c4b3a8beb158f689859a89f7097">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad52b5c4b3a8beb158f689859a89f7097" class="m-doc-self">sfx14D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0491bfd12a42d68b54f213012f67fe94">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0491bfd12a42d68b54f213012f67fe94" class="m-doc-self">sfx14E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5ec5521024f003409561f3bc3b2564a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab5ec5521024f003409561f3bc3b2564a" class="m-doc-self">sfx14F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a08312eff0d6b112e00e0963fd0f544e9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a08312eff0d6b112e00e0963fd0f544e9" class="m-doc-self">sfx150</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53a7c029afb59437c6d5871b48c494b3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a53a7c029afb59437c6d5871b48c494b3" class="m-doc-self">sfx151</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10f09462f46e5e16d796e254b62990c2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a10f09462f46e5e16d796e254b62990c2" class="m-doc-self">sfxNearPortal</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa7a1ecbfbcd99c11d71835c801965a22">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa7a1ecbfbcd99c11d71835c801965a22" class="m-doc-self">sfx153</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad013c5cedab9df8af06fd895547f81cb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad013c5cedab9df8af06fd895547f81cb" class="m-doc-self">sfx154</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe869bf9eb7f174f4d72fc0757024d12">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#abe869bf9eb7f174f4d72fc0757024d12" class="m-doc-self">sfx155</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2c21df0c70047e40fdff328317a8c02a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2c21df0c70047e40fdff328317a8c02a" class="m-doc-self">sfx156</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a867ecaec16c8ca978497fae905bfd40f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a867ecaec16c8ca978497fae905bfd40f" class="m-doc-self">sfx157</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a24ec5df7f56395cfaf1b36fea1372212">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a24ec5df7f56395cfaf1b36fea1372212" class="m-doc-self">sfx158</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4369eb8128b707b4187b5b320b75f43e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4369eb8128b707b4187b5b320b75f43e" class="m-doc-self">sfx159</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab22a90cb2f2c1e9e7df914e3f1a4fd82">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab22a90cb2f2c1e9e7df914e3f1a4fd82" class="m-doc-self">sfx15A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0d75d1f3c2ad67adfb9135a9ed6b83c3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0d75d1f3c2ad67adfb9135a9ed6b83c3" class="m-doc-self">sfx15B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17e21e0ee9cbdc29f3a3c3e083399076">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a17e21e0ee9cbdc29f3a3c3e083399076" class="m-doc-self">sfx15C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1a6fbf504ba90ecfb3348b65624f366">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad1a6fbf504ba90ecfb3348b65624f366" class="m-doc-self">sfx15D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a54ac72445ad68ec16fd9d96fb38f0315">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a54ac72445ad68ec16fd9d96fb38f0315" class="m-doc-self">sfx15E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7319db87b00584cc72c671fb17a3f620">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7319db87b00584cc72c671fb17a3f620" class="m-doc-self">sfx15F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a954674d9c2f45d2de7f49e2e059bd247">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a954674d9c2f45d2de7f49e2e059bd247" class="m-doc-self">sfx160</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4102ada428efbc4ea431ee85aeb22273">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4102ada428efbc4ea431ee85aeb22273" class="m-doc-self">sfx161</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a56706aee1d7fdb43625dc38e207cf455">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a56706aee1d7fdb43625dc38e207cf455" class="m-doc-self">sfx162</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a09ebe917d77eab6dafd9f743541f15a3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a09ebe917d77eab6dafd9f743541f15a3" class="m-doc-self">sfxToggleDiving</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2afa57c260667fdcb1743379293c5cd9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2afa57c260667fdcb1743379293c5cd9" class="m-doc-self">sfx164</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac0b0843f870e71b3f7b7ab3a93b17af7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac0b0843f870e71b3f7b7ab3a93b17af7" class="m-doc-self">sfx165</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9a0f655a35463b08b9843528b2c6c3ba">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9a0f655a35463b08b9843528b2c6c3ba" class="m-doc-self">sfx166</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a579c3eda51d5bec0b6666796c797ada7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a579c3eda51d5bec0b6666796c797ada7" class="m-doc-self">sfx167</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9f82d49774448c1598231a7403a78f29">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9f82d49774448c1598231a7403a78f29" class="m-doc-self">sfx168</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a802717ca78be89a6d8a65c0c4d0daa55">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a802717ca78be89a6d8a65c0c4d0daa55" class="m-doc-self">sfx169</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d31f5503bbd9f93f69de7518537dd43">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3d31f5503bbd9f93f69de7518537dd43" class="m-doc-self">sfx16A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3bde6fd382f5e08d707cc93617fb09cc">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3bde6fd382f5e08d707cc93617fb09cc" class="m-doc-self">sfxPressurePlate</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac941350f8479c0b1ded4fb0f9e4600da">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac941350f8479c0b1ded4fb0f9e4600da" class="m-doc-self">sfx16C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9dc24a1244623c774d1161eb39f9f2e7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9dc24a1244623c774d1161eb39f9f2e7" class="m-doc-self">sfx16D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa434e8f0d134cc1d27bfedcc128cfd1d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa434e8f0d134cc1d27bfedcc128cfd1d" class="m-doc-self">sfx16E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a570dff0dfa8e4fbbb3c1e8ee37f9ec70">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a570dff0dfa8e4fbbb3c1e8ee37f9ec70" class="m-doc-self">sfxPlyShrinking</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a18700894c527653d886895633b5a9a31">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a18700894c527653d886895633b5a9a31" class="m-doc-self">sfxPlyGrow</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5080eb6e8685b4abc25a7f2ef6b525f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa5080eb6e8685b4abc25a7f2ef6b525f" class="m-doc-self">sfx171</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="addbec8dc95c8813839192fcbcfc0191a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#addbec8dc95c8813839192fcbcfc0191a" class="m-doc-self">sfx172</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1810b7a6fc3374c9e768025151e7d32">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab1810b7a6fc3374c9e768025151e7d32" class="m-doc-self">sfxEzloUi</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ada50fea44bd72ae68801837d51b7edbb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ada50fea44bd72ae68801837d51b7edbb" class="m-doc-self">sfx174</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab4c1852341ac78552b6f3b4e7f369fa7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab4c1852341ac78552b6f3b4e7f369fa7" class="m-doc-self">sfx175</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a82df0e0e5f320d140197910372e2ed">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3a82df0e0e5f320d140197910372e2ed" class="m-doc-self">sfx176</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae22ee64d9ca4d0406707fe6a6c6873c6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae22ee64d9ca4d0406707fe6a6c6873c6" class="m-doc-self">sfx177</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a66d2fd31003156c2c2cd7beadbc93325">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a66d2fd31003156c2c2cd7beadbc93325" class="m-doc-self">sfx178</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1e7d4211f37ec0b41a0ac17d4b033d9d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1e7d4211f37ec0b41a0ac17d4b033d9d" class="m-doc-self">sfx179</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac640e9b2ad43413fce30ec9def2a45bb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac640e9b2ad43413fce30ec9def2a45bb" class="m-doc-self">sfx17A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0aca08d2cb8ac6fca8b61ef605960d00">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0aca08d2cb8ac6fca8b61ef605960d00" class="m-doc-self">sfxLavaTitleStep</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4c1db35adb0571921f9b4fb6480ed547">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4c1db35adb0571921f9b4fb6480ed547" class="m-doc-self">sfxLavaTitleWobble</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b2b4a4b7329c28a2e9f4f424cbeb453">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2b2b4a4b7329c28a2e9f4f424cbeb453" class="m-doc-self">sfxLavaTitleSink</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53dfac230d7b8096f7fe76fccbbbbf0e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a53dfac230d7b8096f7fe76fccbbbbf0e" class="m-doc-self">sfxLavaTitleFlip</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8425ef03ac992f538492b9d6df8fdf8">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa8425ef03ac992f538492b9d6df8fdf8" class="m-doc-self">sfxLavaTitleLand</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a937881e078229c3ae027135f08dc0594">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a937881e078229c3ae027135f08dc0594" class="m-doc-self">sfx180</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afae9567ed8c299ef142da5040e3ecf38">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#afae9567ed8c299ef142da5040e3ecf38" class="m-doc-self">sfx181</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6a03a54f757c837d59014afd53901934">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6a03a54f757c837d59014afd53901934" class="m-doc-self">sfx182</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac829c8b11c993aee0ea93c3c952fca3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aac829c8b11c993aee0ea93c3c952fca3" class="m-doc-self">sfx183</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa5d4de30af1263592c92b3a1e877116b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa5d4de30af1263592c92b3a1e877116b" class="m-doc-self">sfx184</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a310e7ee94ac514fff9a2d4630544493f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a310e7ee94ac514fff9a2d4630544493f" class="m-doc-self">sfx185</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3c91089b254a634e2ad14050527a86ee">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3c91089b254a634e2ad14050527a86ee" class="m-doc-self">sfx186</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e2f5b1b0c2d970e9e8731e5f39f4fee">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4e2f5b1b0c2d970e9e8731e5f39f4fee" class="m-doc-self">sfxStairsAscend</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad59d7711c8a35e2fd970d0a94f52e422">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad59d7711c8a35e2fd970d0a94f52e422" class="m-doc-self">sfxStairsDescend</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e264512e6a486f93eba195a833dcfe1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6e264512e6a486f93eba195a833dcfe1" class="m-doc-self">sfx189</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aea3fafbc907dab3652a060481ff96596">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aea3fafbc907dab3652a060481ff96596" class="m-doc-self">sfx18A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa9f7efbee50ef63b414eb2ed3d5ce760">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa9f7efbee50ef63b414eb2ed3d5ce760" class="m-doc-self">sfx18B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af717ee8ecedff273924e9327b6c28425">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af717ee8ecedff273924e9327b6c28425" class="m-doc-self">sfx18C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa68f9b2cf238ab8d69e9c5901242ec8a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa68f9b2cf238ab8d69e9c5901242ec8a" class="m-doc-self">sfx18D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9796bf19851bb0993b160e7fe6319af3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9796bf19851bb0993b160e7fe6319af3" class="m-doc-self">sfx18E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="afd1b06aad087475d69e281da633652b4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#afd1b06aad087475d69e281da633652b4" class="m-doc-self">sfx18F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a675cb68f1a0a9ac4722b587f2b339a06">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a675cb68f1a0a9ac4722b587f2b339a06" class="m-doc-self">sfx190</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a072410c24a243f3d94d0af0417e029dc">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a072410c24a243f3d94d0af0417e029dc" class="m-doc-self">sfx191</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a10d821323d9b21dce189df6c688117b9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a10d821323d9b21dce189df6c688117b9" class="m-doc-self">sfx192</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae24f60987013a10bab0cdf168aa22419">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae24f60987013a10bab0cdf168aa22419" class="m-doc-self">sfx193</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a429a4474b5979d61ee23b5b61afc5c96">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a429a4474b5979d61ee23b5b61afc5c96" class="m-doc-self">sfx194</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5763cdfa5b69437b7c5c3ebe49542bec">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5763cdfa5b69437b7c5c3ebe49542bec" class="m-doc-self">sfx195</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17f5102b74c538408c601eaf635d8a1f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a17f5102b74c538408c601eaf635d8a1f" class="m-doc-self">sfx196</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2adda74acfeb040b8223026fe15884cd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2adda74acfeb040b8223026fe15884cd" class="m-doc-self">sfx197</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0bb590f6a45d90b79a29681ffcfe9cc6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0bb590f6a45d90b79a29681ffcfe9cc6" class="m-doc-self">sfx198</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3679f9a0686069c5405bc68d5fa26689">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3679f9a0686069c5405bc68d5fa26689" class="m-doc-self">sfx199</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7142c9407f53ffccb612c39b1eea5b6a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7142c9407f53ffccb612c39b1eea5b6a" class="m-doc-self">sfx19A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad3e1ebab977acf65d23870db1d30f67b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad3e1ebab977acf65d23870db1d30f67b" class="m-doc-self">sfx19B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0f993ecca58a543516aa146359dc2d01">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0f993ecca58a543516aa146359dc2d01" class="m-doc-self">sfx19C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaffdbebad6959038773485d84943acfc">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aaffdbebad6959038773485d84943acfc" class="m-doc-self">sfx19D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a783d6d36c7feec2bd96a2568d98e779a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a783d6d36c7feec2bd96a2568d98e779a" class="m-doc-self">sfx19E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a29ad4ec88369f7b615210ce6b6e40faf">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a29ad4ec88369f7b615210ce6b6e40faf" class="m-doc-self">sfx19F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abf05a40502e93254bde36d077458ec31">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#abf05a40502e93254bde36d077458ec31" class="m-doc-self">sfx1A0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3e5f03a3a62c7370d91ae31bf01d9e42">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3e5f03a3a62c7370d91ae31bf01d9e42" class="m-doc-self">sfx1A1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a78c656df9bc491bf8fff756055fd0c0b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a78c656df9bc491bf8fff756055fd0c0b" class="m-doc-self">sfx1A2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8c86c74aad5d3fae3da5ad8f528c4a7e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8c86c74aad5d3fae3da5ad8f528c4a7e" class="m-doc-self">sfx1A3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a65008cf01b54cf55aaf43d0ff9aa538f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a65008cf01b54cf55aaf43d0ff9aa538f" class="m-doc-self">sfx1A4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a38655060cd3b00677bc9f697bb3d1eed">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a38655060cd3b00677bc9f697bb3d1eed" class="m-doc-self">sfx1A5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8795eff7343401eab4eb463983dd7038">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8795eff7343401eab4eb463983dd7038" class="m-doc-self">sfx1A6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa78bf238537e4466497e3aae39d7f370">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa78bf238537e4466497e3aae39d7f370" class="m-doc-self">sfx1A7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2f436b3dbd212abed9f64feb7ab1b9d6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2f436b3dbd212abed9f64feb7ab1b9d6" class="m-doc-self">sfx1A8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad771ad8100c86df18d434b33fe5ef7f1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad771ad8100c86df18d434b33fe5ef7f1" class="m-doc-self">sfx1A9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2a4e0797ed8d6018d6c375f0d7c183d1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2a4e0797ed8d6018d6c375f0d7c183d1" class="m-doc-self">sfx1AA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a53e698174f11be4e508dbe7063ebaee1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a53e698174f11be4e508dbe7063ebaee1" class="m-doc-self">sfx1AB</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab85111018a3c0a204b809862aa7ca36c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab85111018a3c0a204b809862aa7ca36c" class="m-doc-self">sfx1AC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4e90dba6b368fcea33ca45dfb5e288aa">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4e90dba6b368fcea33ca45dfb5e288aa" class="m-doc-self">sfx1AD</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeca3fd10377c46a2c87c2da8deb44e6b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aeca3fd10377c46a2c87c2da8deb44e6b" class="m-doc-self">sfx1AE</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a734e6c651add98f54dc7d62872bdd227">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a734e6c651add98f54dc7d62872bdd227" class="m-doc-self">sfx1AF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e9216de0f7499d5315f06f58540353f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6e9216de0f7499d5315f06f58540353f" class="m-doc-self">sfx1B0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a851c9c07be1ba9d82f4de2a58acc27b0">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a851c9c07be1ba9d82f4de2a58acc27b0" class="m-doc-self">sfxIceBlockSlide</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a628a45483a10244e9bfee8f58fc2515b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a628a45483a10244e9bfee8f58fc2515b" class="m-doc-self">sfxIceBlockStop</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5c8a78ce361915198d636489f262c946">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5c8a78ce361915198d636489f262c946" class="m-doc-self">sfxIceBlockMelt</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="abe3fde088c043ec50b4eec6ab3aa1163">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#abe3fde088c043ec50b4eec6ab3aa1163" class="m-doc-self">sfx1B4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af71dbd2342bfa2c23a2a8bde8b27d90b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af71dbd2342bfa2c23a2a8bde8b27d90b" class="m-doc-self">sfx1B5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae34d48e05f70af1d81921c8245660264">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae34d48e05f70af1d81921c8245660264" class="m-doc-self">sfx1B6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a31ac40fb99d0b0d163a778e7cf1bbad7">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a31ac40fb99d0b0d163a778e7cf1bbad7" class="m-doc-self">sfxVoGoron1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aba5e8f7aaa0e90059faa5a983f9068fe">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aba5e8f7aaa0e90059faa5a983f9068fe" class="m-doc-self">sfxVoGoron2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0b8aaa2b301c48629ead440e4096e1b2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0b8aaa2b301c48629ead440e4096e1b2" class="m-doc-self">sfxVoGoron3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aed8e09f817b441a0941a28d71caec1cf">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aed8e09f817b441a0941a28d71caec1cf" class="m-doc-self">sfxVoGoron4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a841086df92e48985d072de1d28f6183a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a841086df92e48985d072de1d28f6183a" class="m-doc-self">sfxEmDekuscrubHit</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b7859f4202b41a8cfdb69c87bfe8978">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2b7859f4202b41a8cfdb69c87bfe8978" class="m-doc-self">sfx1BC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4964cde650345f4e5e8f36b4b7912da6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4964cde650345f4e5e8f36b4b7912da6" class="m-doc-self">sfx1BD</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acabd7f7f4f21354d3272a65d8fb34cd2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#acabd7f7f4f21354d3272a65d8fb34cd2" class="m-doc-self">sfx1BE</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa6b5a595769612ef7503dba82fa42da">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aaa6b5a595769612ef7503dba82fa42da" class="m-doc-self">sfx1BF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8ae67733ba7d1c6f6e2d2d72ffc8c736">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8ae67733ba7d1c6f6e2d2d72ffc8c736" class="m-doc-self">sfx1C0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4d62503a2e6ff3574ad74a0ec3d03d67">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4d62503a2e6ff3574ad74a0ec3d03d67" class="m-doc-self">sfx1C1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a028ebaa217b032aa0f373b87a2eec8f8">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a028ebaa217b032aa0f373b87a2eec8f8" class="m-doc-self">sfx1C2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9b6a692534a5afea8ccf3ac6ad1bd870">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9b6a692534a5afea8ccf3ac6ad1bd870" class="m-doc-self">sfx1C3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a599dfbf8dba6f881543ea5d6324f29dc">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a599dfbf8dba6f881543ea5d6324f29dc" class="m-doc-self">sfx1C4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae353afe95f11b3f98628bb6b744cebdb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae353afe95f11b3f98628bb6b744cebdb" class="m-doc-self">sfx1C5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad99f05b39cd8ad3a336595049f3c9a70">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad99f05b39cd8ad3a336595049f3c9a70" class="m-doc-self">sfx1C6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a54063573e97eaf3e6bda271a4c88d31b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a54063573e97eaf3e6bda271a4c88d31b" class="m-doc-self">sfx1C7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac5336374c4a95a11822708d2e2f872ab">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac5336374c4a95a11822708d2e2f872ab" class="m-doc-self">sfx1C8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2558c53f46435e2c4ce9c21283469a63">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2558c53f46435e2c4ce9c21283469a63" class="m-doc-self">sfx1C9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a03eaa46b8eac5b4a745c05f74fcd4cd2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a03eaa46b8eac5b4a745c05f74fcd4cd2" class="m-doc-self">sfx1CA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20797bd36d7bdcbc980c230577ecebf6">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a20797bd36d7bdcbc980c230577ecebf6" class="m-doc-self">sfx1CB</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4c4407258a0aadccc023201436e3f0a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac4c4407258a0aadccc023201436e3f0a" class="m-doc-self">sfx1CC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a80a42d9a97f109987002e98aba81dea3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a80a42d9a97f109987002e98aba81dea3" class="m-doc-self">sfxElementPlace</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa877c2966d032eb4552b51ec6de9f882">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa877c2966d032eb4552b51ec6de9f882" class="m-doc-self">sfxElementFloat</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa8acc8ba645b908dd4a47148a3a3db11">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa8acc8ba645b908dd4a47148a3a3db11" class="m-doc-self">sfxElementCharge</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4549a5e059e44d6cc9ee8b439c69eef">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac4549a5e059e44d6cc9ee8b439c69eef" class="m-doc-self">sfx1D0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3d3c956688690b87e86c456e37d71cb9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3d3c956688690b87e86c456e37d71cb9" class="m-doc-self">sfxElementInfuse</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a530c430e0e5117954206fd0a6c2e9fd9">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a530c430e0e5117954206fd0a6c2e9fd9" class="m-doc-self">sfx1D2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adb2c753c0abd814cf1962ad955d49809">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#adb2c753c0abd814cf1962ad955d49809" class="m-doc-self">sfx1D3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30105110e42dd03ff6770a5201a51e6c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a30105110e42dd03ff6770a5201a51e6c" class="m-doc-self">sfx1D4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adef877b54e2e054ef2fb42d39c74da99">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#adef877b54e2e054ef2fb42d39c74da99" class="m-doc-self">sfx1D5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7e56b39b1465c5b6dfc11d4373f1121">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac7e56b39b1465c5b6dfc11d4373f1121" class="m-doc-self">sfxVoCucco1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac37dc0f1a5cecff7c3143b9dfb6cd5c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aac37dc0f1a5cecff7c3143b9dfb6cd5c" class="m-doc-self">sfxVoCucco2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a49cadd051697bd09ed621b54f1416ffb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a49cadd051697bd09ed621b54f1416ffb" class="m-doc-self">sfxVoCucco3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a68334ff0cd183f80f11885be59f602b3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a68334ff0cd183f80f11885be59f602b3" class="m-doc-self">sfxVoCucco4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a798e8bef6ed6c0dd9bd08d793495e8f4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a798e8bef6ed6c0dd9bd08d793495e8f4" class="m-doc-self">sfxVoCucco5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab688ecc220b7c4a42110eaa922f7ca65">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab688ecc220b7c4a42110eaa922f7ca65" class="m-doc-self">sfx1DB</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a35a6422d8401cca4c94fc099dbaa0d7a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a35a6422d8401cca4c94fc099dbaa0d7a" class="m-doc-self">sfx1DC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9fdc982c43f28af67c2ecb627539f0bd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9fdc982c43f28af67c2ecb627539f0bd" class="m-doc-self">sfx1DD</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a63918038405744992be762555f6dfc1c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a63918038405744992be762555f6dfc1c" class="m-doc-self">sfx1DE</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af411769e7ed8ac7b4e74efe3005c9a13">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#af411769e7ed8ac7b4e74efe3005c9a13" class="m-doc-self">sfx1DF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6e9872bf301e94ce3811c5de3e6923e2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6e9872bf301e94ce3811c5de3e6923e2" class="m-doc-self">sfx1E0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac69719f377a7d1ef7e804a5e8dc4ab79">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac69719f377a7d1ef7e804a5e8dc4ab79" class="m-doc-self">sfx1E1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a82b26a46015d9f44d7d05465619a700a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a82b26a46015d9f44d7d05465619a700a" class="m-doc-self">sfx1E2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a076d3d1c9dec5ad192624388d67a5e56">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a076d3d1c9dec5ad192624388d67a5e56" class="m-doc-self">sfx1E3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8faebecf5d0561fcec9389a477393bb4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8faebecf5d0561fcec9389a477393bb4" class="m-doc-self">sfx1E4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a683648fd7f01179544900a03c079f89a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a683648fd7f01179544900a03c079f89a" class="m-doc-self">sfx1E5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87f2e0e69783045e07b8bac56d905337">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a87f2e0e69783045e07b8bac56d905337" class="m-doc-self">sfx1E6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae52d27883953764791dc0fc76f8e23cd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae52d27883953764791dc0fc76f8e23cd" class="m-doc-self">sfx1E7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8399146b603be7f193a8391eacd3c0f4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8399146b603be7f193a8391eacd3c0f4" class="m-doc-self">sfx1E8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad539ec3eb6cb90c263f3362f7efa561a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad539ec3eb6cb90c263f3362f7efa561a" class="m-doc-self">sfx1E9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="affe9c0a39ab43b890cd81529b1a72d78">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#affe9c0a39ab43b890cd81529b1a72d78" class="m-doc-self">sfx1EA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ceb09b97bdcfdf475c85467783afa37">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3ceb09b97bdcfdf475c85467783afa37" class="m-doc-self">sfx1EB</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a702c5199cf9042b2402809b00f5c0620">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a702c5199cf9042b2402809b00f5c0620" class="m-doc-self">sfx1EC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aacaa1a0cb2fb1e1aeb3c0faaee06f936">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aacaa1a0cb2fb1e1aeb3c0faaee06f936" class="m-doc-self">sfx1ED</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a910dfbb30ad539f4f8b749ca20a855a5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a910dfbb30ad539f4f8b749ca20a855a5" class="m-doc-self">sfx1EE</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1ffe91326e06aa8002743b9a972ef65d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1ffe91326e06aa8002743b9a972ef65d" class="m-doc-self">sfx1EF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a699bee82d76e0586cd36daac08ddd865">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a699bee82d76e0586cd36daac08ddd865" class="m-doc-self">sfx1F0</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a203cb06dee55fd879c87f762d75bde4b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a203cb06dee55fd879c87f762d75bde4b" class="m-doc-self">sfx1F1</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a642bdd7a29161e4db77b70d2ebb5a666">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a642bdd7a29161e4db77b70d2ebb5a666" class="m-doc-self">sfx1F2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa43973640fae859cdf6b713fed77469c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa43973640fae859cdf6b713fed77469c" class="m-doc-self">sfx1F3</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a090c7c5352a22e4cf22f75ae452dcf1f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a090c7c5352a22e4cf22f75ae452dcf1f" class="m-doc-self">sfx1F4</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aca3d1cd2f5df736f5566154f94fc9f7d">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aca3d1cd2f5df736f5566154f94fc9f7d" class="m-doc-self">sfx1F5</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0b28378aca5aaec66cb40bbb23d5f77b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a0b28378aca5aaec66cb40bbb23d5f77b" class="m-doc-self">sfx1F6</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac8009d558bda57fdefb74f5343d0dfca">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac8009d558bda57fdefb74f5343d0dfca" class="m-doc-self">sfx1F7</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1d38206488ffa3551142503d79f509ba">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a1d38206488ffa3551142503d79f509ba" class="m-doc-self">sfx1F8</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7b0d3202084ce19196620114136042f1">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a7b0d3202084ce19196620114136042f1" class="m-doc-self">sfx1F9</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a281c2add94b0a8410170a6817d96d770">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a281c2add94b0a8410170a6817d96d770" class="m-doc-self">sfx1FA</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa57675793262f06d76bb23ac767c43b3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa57675793262f06d76bb23ac767c43b3" class="m-doc-self">sfx1FB</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2959d872f4268c52818faf4872c96d6f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2959d872f4268c52818faf4872c96d6f" class="m-doc-self">sfx1FC</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a941758028590423056ce1cb70b5286bd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a941758028590423056ce1cb70b5286bd" class="m-doc-self">sfx1FD</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a502080fabf38b400f34fef4205dd9434">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a502080fabf38b400f34fef4205dd9434" class="m-doc-self">sfx1FE</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a87875225b8ef85e8b2676b02d3148455">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a87875225b8ef85e8b2676b02d3148455" class="m-doc-self">sfx1FF</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a90773e4b4f0cb1d25eecb9853d806672">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a90773e4b4f0cb1d25eecb9853d806672" class="m-doc-self">sfx200</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa027d629c7d895653cc9554e64018420">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aa027d629c7d895653cc9554e64018420" class="m-doc-self">sfx201</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2440105902bec6568bdf787c0bf393e2">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2440105902bec6568bdf787c0bf393e2" class="m-doc-self">sfx202</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac556a39f62656647a334339add4e2f1e">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac556a39f62656647a334339add4e2f1e" class="m-doc-self">sfx203</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a408764e1f878b7e1b4c73c222d9aed15">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a408764e1f878b7e1b4c73c222d9aed15" class="m-doc-self">sfx204</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9681cdf891476ca7912cdd8a7ae9e45b">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9681cdf891476ca7912cdd8a7ae9e45b" class="m-doc-self">sfx205</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2041b039d6a2184d4aa72c073bfc9fc5">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a2041b039d6a2184d4aa72c073bfc9fc5" class="m-doc-self">sfx206</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5b783f50a2b9e2707cc96dd94e40eeb4">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5b783f50a2b9e2707cc96dd94e40eeb4" class="m-doc-self">sfx207</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab6c5349a0abb705c682359dd132699d3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab6c5349a0abb705c682359dd132699d3" class="m-doc-self">sfx208</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3ff11c1dd6598fde690d6487fa88db21">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a3ff11c1dd6598fde690d6487fa88db21" class="m-doc-self">sfx209</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a15860e52e348e8feba84c1b5d92717dc">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a15860e52e348e8feba84c1b5d92717dc" class="m-doc-self">sfx20A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aeae5827e0a9e5ef1621b5a1329f4142a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#aeae5827e0a9e5ef1621b5a1329f4142a" class="m-doc-self">sfx20B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a043a56b0c2edb4157bda979fc1089030">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a043a56b0c2edb4157bda979fc1089030" class="m-doc-self">sfx20C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad1e18888a6040fe383bd90a80d62d21f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad1e18888a6040fe383bd90a80d62d21f" class="m-doc-self">sfx20D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a03b76e2d8e306896881c3ea030887167">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a03b76e2d8e306896881c3ea030887167" class="m-doc-self">sfx20E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a52bd30dd9016848b6c5f1ce99999eecf">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a52bd30dd9016848b6c5f1ce99999eecf" class="m-doc-self">sfx20F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a00d6c062e4840d9b322c03604d14fa47">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a00d6c062e4840d9b322c03604d14fa47" class="m-doc-self">sfx210</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5886810df2ee6b720d7f5b8f97961f6a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5886810df2ee6b720d7f5b8f97961f6a" class="m-doc-self">sfx211</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6cfe0c9d2bd74288ec8f1291066c4e10">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a6cfe0c9d2bd74288ec8f1291066c4e10" class="m-doc-self">sfx212</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5348734296a9d1839c6937215a8b2afd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a5348734296a9d1839c6937215a8b2afd" class="m-doc-self">sfx213</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae72f11da2938fc31936a1835a069287a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ae72f11da2938fc31936a1835a069287a" class="m-doc-self">sfx214</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a9d81054df3a934220e82a295efe48381">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a9d81054df3a934220e82a295efe48381" class="m-doc-self">sfx215</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a121fe8545805d860ad29b6633627e825">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a121fe8545805d860ad29b6633627e825" class="m-doc-self">sfx216</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab03e3ffc266781b3921793e70de401e3">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ab03e3ffc266781b3921793e70de401e3" class="m-doc-self">sfx217</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d04c3ef4e7529fc83113cba0a36ec8c">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8d04c3ef4e7529fc83113cba0a36ec8c" class="m-doc-self">sfx218</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a638430e3cebeaa69443c2c74be03b7b0">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a638430e3cebeaa69443c2c74be03b7b0" class="m-doc-self">sfx219</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a779abd5db34dd3f6dfb6fe6acf6257cb">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a779abd5db34dd3f6dfb6fe6acf6257cb" class="m-doc-self">sfx21A</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4aa93e2ae0fef92963fd1608b41bebd">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac4aa93e2ae0fef92963fd1608b41bebd" class="m-doc-self">sfx21B</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad176eeb7033f4a4e540e65d784497f75">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ad176eeb7033f4a4e540e65d784497f75" class="m-doc-self">sfx21C</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a30569fea1abcb892f2f7fd8724310e93">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a30569fea1abcb892f2f7fd8724310e93" class="m-doc-self">sfx21D</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a820959c0ff7bb68df6de82e9e3fef261">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a820959c0ff7bb68df6de82e9e3fef261" class="m-doc-self">sfx21E</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8a52be7be58a936b231d633b3238576a">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a8a52be7be58a936b231d633b3238576a" class="m-doc-self">sfx21F</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a4031194d1d27777ed100355e18afd24f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#a4031194d1d27777ed100355e18afd24f" class="m-doc-self">sfx220</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac7f343d2ccae2df1c5f5c43fe57ae56f">
+              const <a href="structSongHeader.html" class="m-doc">SongHeader</a> <a href="#ac7f343d2ccae2df1c5f5c43fe57ae56f" class="m-doc-self">sfx221</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a762fb952eeb20c0b5b65448502de2060">
+              <a href="structMusicPlayerTrack.html" class="m-doc">MusicPlayerTrack</a> <a href="#a762fb952eeb20c0b5b65448502de2060" class="m-doc-self">gMPlayTracks</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2cb32a233be3f9fef6b48c1a25c1f798">
+              <a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a> <a href="#a2cb32a233be3f9fef6b48c1a25c1f798" class="m-doc-self">gMPlayInfos</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2f71b63d26f11ba41e72d3c23efb3be">
+              <a href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca" class="m-doc">u8</a> <a href="#ab2f71b63d26f11ba41e72d3c23efb3be" class="m-doc-self">gMPlayMemAccArea</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="addf56ac8f16ad07d334053d327cd404f">
+              <a href="structMusicPlayerInfo.html" class="m-doc">MusicPlayerInfo</a> <a href="#addf56ac8f16ad07d334053d327cd404f" class="m-doc-self">gMPlayInfos2</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac5f75e9b364e9b080361fe232739b27e">
+              const <a href="structMusicPlayer.html" class="m-doc">MusicPlayer</a> <a href="#ac5f75e9b364e9b080361fe232739b27e" class="m-doc-self">gMusicPlayers</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6fddd10c2f3e49eb8e07387e1da02d4b">
+              const <a href="structSong.html" class="m-doc">Song</a> <a href="#a6fddd10c2f3e49eb8e07387e1da02d4b" class="m-doc-self">gSongTable</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="ac401275dd5aed3361ba12013d4ce4d89">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac401275dd5aed3361ba12013d4ce4d89" class="m-doc-self">IS_BGM</a>(</span><span class="m-doc-wrap">song)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae473b155c296002d8553709a3db11b28">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae473b155c296002d8553709a3db11b28" class="m-doc-self">IS_SFX</a>(</span><span class="m-doc-wrap">song)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script>
+  Search.download(window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/') + 1) + 'searchdata-v2.bin');
+</script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>The Minish Cap Docs. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
