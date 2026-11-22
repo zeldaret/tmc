@@ -1,5 +1,5 @@
 @ Syrup during Kinstone cutscene
-SCRIPT_START script_SyrupKinstone
+script_SyrupKinstone::
 	BeginBlock
 	EndBlock
 script_0800BB04:
@@ -13,5 +13,5 @@ script_0800BB04:
 	DoPostScriptAction 0x000f
 	Wait 0x00b4
 	Call sub_08054968
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -1,5 +1,5 @@
 @ DHC Zelda trying to escape the collapsing castle
-SCRIPT_START script_ZeldaCastleEscape
+script_ZeldaCastleEscape::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
@@ -18,5 +18,5 @@ SCRIPT_START script_ZeldaCastleEscape
 	SetSyncFlag 0x00000002
 	Call sub_08066D4C
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

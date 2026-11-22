@@ -1,11 +1,11 @@
 @ Hyrule Town Goron Merchant
-SCRIPT_START script_GoronMerchant
+script_GoronMerchant::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
-	_0807E9D4
+	AddInteractableWhenBigObject
 	Call SetPriorityMessage
 	Call sub_08069684
 	EndBlock

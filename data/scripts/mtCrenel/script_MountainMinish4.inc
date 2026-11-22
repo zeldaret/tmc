@@ -1,5 +1,5 @@
 @ Mines Mountain Minish at exit
-SCRIPT_START script_MountainMinish4
+script_MountainMinish4::
 	BeginBlock
 	Call MountainMinish_MakeInteractable
 	DoPostScriptAction 0x000a

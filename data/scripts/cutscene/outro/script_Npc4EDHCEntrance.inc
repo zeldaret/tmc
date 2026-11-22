@@ -1,5 +1,5 @@
 @ Outro NPC4E Fix DHC Entrance
-SCRIPT_START script_Npc4EDHCEntrance
+script_Npc4EDHCEntrance::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
@@ -10,4 +10,4 @@ SCRIPT_START script_Npc4EDHCEntrance
 	PlaySound SFX_EVAPORATE
 	CallWithArg NPC4E_DoScreenTransition, 10
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

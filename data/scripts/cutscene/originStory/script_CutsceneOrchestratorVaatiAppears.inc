@@ -1,5 +1,5 @@
 @ Outside Castle CUTSCENE_ORCHESTRATOR Vaati appearance
-SCRIPT_START script_CutsceneOrchestratorVaatiAppears
+script_CutsceneOrchestratorVaatiAppears::
 	BeginBlock
 	SetEntityPositionRelative 0x01f8, 0x00e0
 	Call DisableRandomDrops
@@ -113,7 +113,7 @@ script_08015104:
 	@ Ezlo cutscene starts
 	CameraTargetPlayer
 	SetFadeTime 0x0004
-	_0807E80C 0x00000000
+	SetFadeIrisInOut
 	WaitForFadeFinish
 	Call sub_08053B3C
 	BeginBlock
@@ -124,18 +124,18 @@ script_08015104:
 	CameraTargetEntity
 	SetFadeTime 0x0100
 	SetFade4
-	_0807E80C 0x00000000
+	SetFadeIrisInOut
 	EndBlock
 	StartPlayerScript script_PlayerSeenOriginStory
 	WaitForSyncFlagAndClear 0x00000001
 	LoadRoomEntityList gUnk_080F7CB0
 	SetFadeTime 0x0004
-	_0807E800 0x00000000
+	SetFadeIris
 	WaitForFadeFinish
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000010
 	BeginBlock
-	_0807E8E4_2
+	PlayerIdleSouth
 	EzloMessage TEXT_VAATI, 0x15
 	EndBlock
 	WaitUntilTextboxCloses
@@ -146,4 +146,4 @@ script_08015104:
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

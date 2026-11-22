@@ -1,5 +1,5 @@
 @ Hyrule Town Kid in school
-SCRIPT_START script_Kid5
+script_Kid5::
 	BeginBlock
 	SetAnimation 0x0008
 script_08010622:

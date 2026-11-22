@@ -1,5 +1,5 @@
 @ Minish Village Intro Player
-SCRIPT_START script_PlayerAtVillageIntro
+script_PlayerAtVillageIntro::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock
@@ -10,5 +10,5 @@ SCRIPT_START script_PlayerAtVillageIntro
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

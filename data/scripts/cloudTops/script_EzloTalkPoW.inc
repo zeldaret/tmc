@@ -1,5 +1,5 @@
 @ Ezlo talk after getting wind element
-SCRIPT_START script_EzloTalkPoW
+script_EzloTalkPoW::
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_EZLO_ELEMENTS_DONE, 0x05
@@ -8,5 +8,5 @@ SCRIPT_START script_EzloTalkPoW
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

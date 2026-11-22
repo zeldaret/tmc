@@ -1,5 +1,5 @@
 @ Cloud Tops Gregal sick
-SCRIPT_START script_GregalSick
+script_GregalSick::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	SetAnimation 0x0000

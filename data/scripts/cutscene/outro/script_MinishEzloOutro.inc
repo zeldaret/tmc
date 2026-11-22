@@ -1,5 +1,5 @@
 @ Outro Minish Ezlo
-SCRIPT_START script_MinishEzloOutro
+script_MinishEzloOutro::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0080
@@ -28,5 +28,5 @@ SCRIPT_START script_MinishEzloOutro
 	WaitForSyncFlagAndClear 0x00000002
 	CallWithArg sub_080960C4, script_EzloZeldaMagic
 	SetSyncFlag 0x00000040
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -1,5 +1,5 @@
 @ Player get element
-SCRIPT_START script_PlayerGetElement
+script_PlayerGetElement::
 	BeginBlock
 	SetEntitySpeed 0x0140
 	SetPlayerIdle
@@ -11,7 +11,7 @@ SCRIPT_START script_PlayerGetElement
 script_0800A0D2:
 	MoveTowardsTarget
 	JumpIfNot script_0800A0D2
-	_0807E8E4_0
+	PlayerIdleNorth
 	Wait 0x0008
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
@@ -19,4 +19,4 @@ script_0800A0D2:
 	Wait 0x003c
 	SetEntitySpeed 0x0080
 	WalkNorth 0x0030
-SCRIPT_END
+	EndScript

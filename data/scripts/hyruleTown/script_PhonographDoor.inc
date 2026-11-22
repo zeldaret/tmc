@@ -1,5 +1,5 @@
 @ Hyrule Town locked door NPC4E for music room
-SCRIPT_START script_PhonographDoor
+script_PhonographDoor::
 	BeginBlock
 	EndBlock
 	CheckLocalFlag SHOP05_OPEN
@@ -22,4 +22,4 @@ script_080109DE:
 	Jump script_PhonographDoor
 script_080109EA:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

@@ -1,5 +1,5 @@
 @ Hyrule Town Dog person talking to Cat person
-SCRIPT_START script_DogPersonInCatHouse
+script_DogPersonInCatHouse::
 	BeginBlock
 	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a

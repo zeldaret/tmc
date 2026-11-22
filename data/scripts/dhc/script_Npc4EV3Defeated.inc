@@ -1,5 +1,5 @@
 @ DHC NPC4E V3 defeated
-SCRIPT_START script_Npc4EV3Defeated
+script_Npc4EV3Defeated::
 	EndBlock
 script_0800A0FE:
 	CheckGlobalFlag ENDING
@@ -13,7 +13,7 @@ script_0800A0FE:
 .endif
 	SetEntityPositionRelative 0x00b0, 0x0058
 	Call sub_0807F844
-	_0807E8E4_3
+	PlayerIdleWest
 	CallWithArg SetPlayerPos, 0x00d00060
 	CallWithArg sub_08094AE8, script_CutsceneMiscObjectV3DefeatedMinishCap
 	PlaySound SFX_APPARATE
@@ -24,7 +24,7 @@ script_0800A0FE:
 	WaitForSyncFlagAndClear 0x00000004
 	CallWithArg NPC4E_DoScreenTransition, 6
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 .ifndef EU
 	.2byte 0x0000
 .endif

@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Zelda
-SCRIPT_START script_ZeldaIntroTown
+script_ZeldaIntroTown::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x000b
@@ -24,7 +24,7 @@ script_0800FB6C:
 	DoPostScriptAction 0x0001
 	SetSyncFlag 0x00000004
 	DoPostScriptAction 0x000a
-	_0807E9D4
+	AddInteractableWhenBigObject
 script_0800FBAE:
 	FacePlayerAndCheckDist
 	JumpIfNot script_0800FBAE
@@ -104,4 +104,4 @@ script_0800FC9E:
 	WaitForSyncFlagAndClear 0x00000002
 	Call sub_08066D4C
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

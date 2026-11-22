@@ -1,5 +1,5 @@
 @ Castor Wilds CUTSCENE_ORCHESTRATOR darknut fight for kinstone piece
-SCRIPT_START script_CutsceneOrchestratorDarknutFight
+script_CutsceneOrchestratorDarknutFight::
 	BeginBlock
 	Call DisablePauseMenuAndPutAwayItems
 	SetLocalFlag 0x0039
@@ -16,5 +16,5 @@ SCRIPT_START script_CutsceneOrchestratorDarknutFight
 	EzloMessage TEXT_TREASURE_GUARDIAN, 0x01
 	EnablePlayerControl
 	Call EnablePauseMenu
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

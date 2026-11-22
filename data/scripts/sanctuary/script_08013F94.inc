@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E 1?
-SCRIPT_START script_08013F94
+script_08013F94::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock
@@ -24,5 +24,5 @@ script_08013FA4:
 	EnablePlayerControl
 script_08013FE0:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

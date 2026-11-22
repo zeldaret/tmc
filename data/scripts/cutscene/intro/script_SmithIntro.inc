@@ -1,5 +1,5 @@
 @ Intro Smith 1
-SCRIPT_START script_SmithIntro
+script_SmithIntro::
 	BeginBlock
 	Call SetPriorityMessage
 	SetEntitySpeed 0x0040
@@ -10,7 +10,7 @@ SCRIPT_START script_SmithIntro
 	Wait 0x001e
 	CameraTargetEntity
 	SetFadeTime 0x0004
-	_0807E800 0x00000000
+	SetFadeIris
 	WaitForFadeFinish
 	WaitForSyncFlagAndClear 0x00000008
 	DoPostScriptAction 0x0004
@@ -35,4 +35,4 @@ SCRIPT_START script_SmithIntro
 	SetFade5
 	WaitForFadeFinish
 	Call sub_08053634
-SCRIPT_END
+	EndScript

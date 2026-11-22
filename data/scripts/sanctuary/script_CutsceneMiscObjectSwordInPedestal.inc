@@ -1,5 +1,5 @@
 @ Sanctuary CUTSCENE_MISC_OBJECT Sword in pedestal
-SCRIPT_START script_CutsceneMiscObjectSwordInPedestal
+script_CutsceneMiscObjectSwordInPedestal::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimation 0x0008
@@ -10,5 +10,5 @@ SCRIPT_START script_CutsceneMiscObjectSwordInPedestal
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000080
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

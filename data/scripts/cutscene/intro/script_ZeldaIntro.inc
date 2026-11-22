@@ -1,5 +1,5 @@
 @ Intro Zelda at Smith
-SCRIPT_START script_ZeldaIntro
+script_ZeldaIntro::
 	BeginBlock
 	Call SetPriorityMessage
 	SetEntitySpeed 0x00c0
@@ -20,5 +20,5 @@ SCRIPT_START script_ZeldaIntro
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000008
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

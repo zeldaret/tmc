@@ -1,5 +1,5 @@
 @ All Windcrests
-SCRIPT_START script_Windcrest
+script_Windcrest::
 	BeginBlock
 	Call MakeCheckableObjectInteractable
 	Call Windcrest_ChangeInteractableHitbox
@@ -45,5 +45,5 @@ script_0800B09C:
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

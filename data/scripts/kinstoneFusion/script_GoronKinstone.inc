@@ -1,5 +1,5 @@
 @ Goron in fusing kinstone cutscene
-SCRIPT_START script_GoronKinstone
+script_GoronKinstone::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0008
@@ -35,5 +35,5 @@ script_0800BC62:
 	DoPostScriptAction 0x0008
 	Wait 0x0078
 	Call sub_08054968
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

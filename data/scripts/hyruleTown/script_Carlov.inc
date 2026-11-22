@@ -1,7 +1,7 @@
 @ Hyrule Town ~~Carlov~~ Burlov
-SCRIPT_START script_Carlov
+script_Carlov::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0000
 	SetEntitySpeed 0x01c0
 	DoPostScriptAction 0x000a
@@ -29,7 +29,7 @@ script_080144A2:
 	Call sub_0806E250
 	JumpIfNot script_080144B8
 	MessageFromTarget TEXT_BURLOV, 0x0b
-	_0807EB38
+	GetSelectedChoice
 	JumpTable script_080144B8, script_080144C0
 script_080144B8:
 	ClearLocalFlag 0x0093
@@ -62,16 +62,16 @@ script_080144FC:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_08014462
 .ifdef USA
-	_0807E9DC
+	RemoveInteractableObject
 .else
 .ifdef DEMO_USA
-	_0807E9DC
+	RemoveInteractableObject
 .else
 .ifdef DEMO_JP
-	_0807E9DC
+	RemoveInteractableObject
 .endif
 .endif
 .endif
-SCRIPT_END
+	EndScript
 	.align 2, 0
 

@@ -1,5 +1,5 @@
 @ Outro EzloCap
-SCRIPT_START script_EzloCapOutro
+script_EzloCapOutro::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	SetEntityVelocity 0x00000000
@@ -21,7 +21,7 @@ SCRIPT_START script_EzloCapOutro
 	Wait 0x0078
 	SetSyncFlag 0x00000800
 	PlaySound SFX_143
-	_0807EF3C 0x0000, 0x0020
+	Fall 0x0000, 0x0020
 	SetAnimation 0x001f
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000010
@@ -33,4 +33,4 @@ SCRIPT_START script_EzloCapOutro
 	DoPostScriptAction 0x0008
 	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

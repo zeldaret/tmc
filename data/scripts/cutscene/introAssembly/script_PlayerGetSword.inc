@@ -1,5 +1,5 @@
 @ Intro Assembly Player gets Sword
-SCRIPT_START script_PlayerGetSword
+script_PlayerGetSword::
 	SetInventoryValue ITEM_SMITH_SWORD, 0x0001
 	CallWithArg PutItemAnySlot, ITEM_SMITH_SWORD
 	PlaySound SFX_ITEM_GET
@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerGetSword
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000020
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

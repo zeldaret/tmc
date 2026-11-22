@@ -1,5 +1,5 @@
 @ Sanctuary third time CUTSCENE_MISC_OBJECT ?
-SCRIPT_START script_CutsceneMiscObjectSwordCharge11
+script_CutsceneMiscObjectSwordCharge11::
 	CheckSyncFlagAndClear 0x00020000
 	JumpIf script_08014264
 	Wait 0x0008

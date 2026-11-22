@@ -1,5 +1,5 @@
 @ Hyrule Town Nayru when one of them has moved in
-SCRIPT_START script_Nayru2
+script_Nayru2::
 	BeginBlock
 	Call Nayru_MakeInteractable
 	SetAnimationState 0x0004

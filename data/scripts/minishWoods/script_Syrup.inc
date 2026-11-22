@@ -1,7 +1,7 @@
 @ Syrup
-SCRIPT_START script_Syrup
+script_Syrup::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimation 0x0008
 script_080160B0:
 	EndBlock

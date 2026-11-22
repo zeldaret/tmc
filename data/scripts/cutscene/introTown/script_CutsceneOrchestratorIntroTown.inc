@@ -1,5 +1,5 @@
 @ Intro Hyrule Town CUTSCENE_ORCHESTRATOR ?
-SCRIPT_START script_CutsceneOrchestratorIntroTown
+script_CutsceneOrchestratorIntroTown::
 	CheckLocalFlag MACHI_01_DEMO
 	JumpIf script_0800FD50
 	WaitForSyncFlagAndClear 0x00000010

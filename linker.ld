@@ -14,7 +14,7 @@ SECTIONS {
         . = 0x00000010; gUnk_02000010 = .;
         . = 0x00000020; gUnk_02000020 = .;
         . = 0x00000030; gUnk_02000030 = .;
-        . = 0x00000040; gUnk_02000040 = .;
+        . = 0x00000040; gMessageChoiceSelection = .;
         . = 0x00000050; gMessage = .;
         . = 0x00000070; gUpdateVisibleTiles = .;
         . = 0x00000080; gMenu = .;

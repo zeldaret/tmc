@@ -1,5 +1,5 @@
 @ Minish Woods Bomb Minish
-SCRIPT_START script_BombMinish
+script_BombMinish::
 	BeginBlock
 	SetAnimationState 0x0004
 	Call ForestMinish_MakeInteractable

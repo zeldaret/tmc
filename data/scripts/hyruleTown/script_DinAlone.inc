@@ -1,5 +1,5 @@
 @ Din completely alone
-SCRIPT_START script_DinAlone
+script_DinAlone::
 	BeginBlock
 	Call Din_MakeInteractable
 	SetAnimationState 0x0004

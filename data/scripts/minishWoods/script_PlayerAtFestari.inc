@@ -1,5 +1,5 @@
 @ Player at Festari
-SCRIPT_START script_PlayerAtFestari
+script_PlayerAtFestari::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock
@@ -9,4 +9,4 @@ SCRIPT_START script_PlayerAtFestari
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

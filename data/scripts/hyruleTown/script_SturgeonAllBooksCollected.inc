@@ -1,5 +1,5 @@
 @ Library Sturgeon all books collected
-SCRIPT_START script_SturgeonAllBooksCollected
+script_SturgeonAllBooksCollected::
 	BeginBlock
 	SetEntityPositionRelative 0x0068, 0x0018
 	DoPostScriptAction 0x000f
@@ -51,5 +51,5 @@ SCRIPT_START script_SturgeonAllBooksCollected
 	PlaySound SFX_STAIRS
 	SetSyncFlag 0x00000001
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

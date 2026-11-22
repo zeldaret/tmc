@@ -1,5 +1,5 @@
 @ Ezlo Cutscene Vaati
-SCRIPT_START script_Vaati
+script_Vaati::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b
@@ -44,4 +44,4 @@ SCRIPT_START script_Vaati
 	Wait 0x0078
 	SetSyncFlag 0x00001000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

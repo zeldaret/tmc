@@ -26,9 +26,9 @@ extern const Transition gUnk_0813ACC0;
 extern const Transition gUnk_0813ACD4;
 extern const Transition gUnk_0813ACE8;
 extern const Transition gUnk_0813ACFC;
-extern const Transition gUnk_0813AD10; // w
-extern const Transition gUnk_0813AD24; // m
-extern const Transition gUnk_0813AD38; // l
+extern const Transition gTransitionInnWestRoom;
+extern const Transition gTransitionInnMiddleRoom;
+extern const Transition gTransitionInnEastRoom;
 extern const Transition gUnk_0813AD4C;
 extern const Transition gUnk_0813AD60;
 extern const Transition gUnk_0813AD74;

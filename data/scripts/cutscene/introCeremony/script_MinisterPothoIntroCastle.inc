@@ -1,16 +1,16 @@
 @ Intro Hyrule Castle Minister Potho
-SCRIPT_START script_MinisterPothoIntroCastle
+script_MinisterPothoIntroCastle::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 .ifdef JP
 .ifndef DEMO_JP
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 .endif
 .else
 .ifdef EU
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 .endif
 .endif
@@ -46,7 +46,7 @@ script_08011134:
 	WalkForward 0x003c
 	SetSyncFlag 0x00000008
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 .ifdef JP
 .ifndef DEMO_JP
 	.2byte 0x0000

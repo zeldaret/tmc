@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_080165D8
+script_080165D8::
 	Wait 0x001e
 	CheckPlayerInRegion2 0x2020
 	JumpAbsoluteIfNot script_080165D8

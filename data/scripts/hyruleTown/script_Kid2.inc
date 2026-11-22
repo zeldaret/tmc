@@ -1,5 +1,5 @@
 @ Hyrule Town Kid
-SCRIPT_START script_Kid2
+script_Kid2::
 	BeginBlock
 	DoPostScriptAction 0x0000
 	Call Kid_MakeInteractable

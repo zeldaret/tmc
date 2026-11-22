@@ -1,5 +1,5 @@
 @ Hyrule Castle King Daltus
-SCRIPT_START script_KingDaltus
+script_KingDaltus::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

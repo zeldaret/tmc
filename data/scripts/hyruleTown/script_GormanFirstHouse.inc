@@ -1,11 +1,11 @@
 @ Hyrule Town Gorman at first house
 @ and at second house when ready to sell
-SCRIPT_START script_GormanFirstHouse
+script_GormanFirstHouse::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EndBlock
 script_0800FDB2:
 	CheckEntityInteractType

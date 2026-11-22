@@ -1,5 +1,5 @@
 @ Intro Ceremony Player fainting
-SCRIPT_START script_PlayerFainting
+script_PlayerFainting::
 	PlaySound SFX_PLY_VO6
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000d
@@ -14,4 +14,4 @@ SCRIPT_START script_PlayerFainting
 	Call WaitForAnimDone
 	WaitForSyncFlag 0x80000000
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

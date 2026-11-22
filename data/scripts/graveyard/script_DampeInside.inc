@@ -1,5 +1,5 @@
 @ Graveyard Dampe in house
-SCRIPT_START script_DampeInside
+script_DampeInside::
 	CheckEntityInteractType
 	JumpIfNot script_080095DE
 	SetPlayerIdle

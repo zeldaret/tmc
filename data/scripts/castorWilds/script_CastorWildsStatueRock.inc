@@ -1,5 +1,5 @@
 @ Castor Wilds Statue rock
-SCRIPT_START script_CastorWildsStatueRock
+script_CastorWildsStatueRock::
 	BeginBlock
 	CheckLocalFlag HIKYOU_00_SEKIZOU
 	JumpIf script_0800B39C
@@ -41,5 +41,5 @@ script_0800B350:
 	PlaySound SFX_SECRET
 script_0800B39C:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

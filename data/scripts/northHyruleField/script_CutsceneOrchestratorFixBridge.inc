@@ -1,5 +1,5 @@
 @ Outside Caste CUTSCENE_ORCHESTRATOR Fix bridge
-SCRIPT_START script_CutsceneOrchestratorFixBridge
+script_CutsceneOrchestratorFixBridge::
 	BeginBlock
 	SetLocalFlag SOUGEN_06_SLIDE
 	SetPlayerIdle
@@ -8,7 +8,7 @@ SCRIPT_START script_CutsceneOrchestratorFixBridge
 	SetEntitySpeed 0x0200
 	EndBlock
 	Wait 0x000f
-	_0807E8E4_2
+	PlayerIdleSouth
 	Call CreatePlayerExclamationMark
 	Wait 0x001e
 	MoveTo 0x00b8, 0x0258
@@ -19,4 +19,4 @@ SCRIPT_START script_CutsceneOrchestratorFixBridge
 	CameraTargetPlayer
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

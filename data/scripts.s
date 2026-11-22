@@ -10,6 +10,7 @@
 	.include "sound.inc"
 	.include "kinstone.inc"
 	.include "script.inc"
+	.include "entity.inc"
 
 	.syntax unified
 	.text
@@ -269,9 +270,6 @@
 	.include "data/scripts/hyruleTown/script_TownMinish3.inc"
 	.include "data/scripts/hyruleTown/script_Teachers.inc"
 	.include "data/scripts/hyruleTown/script_Emma.inc"
-	.include "data/scripts/hyruleTown/script_RentRegularRoom.inc"
-	.include "data/scripts/hyruleTown/script_RentSmallRoom.inc"
-	.include "data/scripts/hyruleTown/script_EmmaNotEnoughRupees.inc"
 	.include "data/scripts/hyruleTown/script_Mama.inc"
 	.include "data/scripts/hyruleTown/script_Librari.inc"
 	.include "data/scripts/hyruleTown/script_PlayerStepOnTrap.inc"

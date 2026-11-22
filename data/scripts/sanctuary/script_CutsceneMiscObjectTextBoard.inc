@@ -1,5 +1,5 @@
 @ Sanctuary CUTSCENE_MISC_OBJECT text board
-SCRIPT_START script_CutsceneMiscObjectTextBoard
+script_CutsceneMiscObjectTextBoard::
 	BeginBlock
 	CheckLocalFlag 0x007a
 	JumpIf script_08013C2A
@@ -57,5 +57,5 @@ script_08013C92:
 script_08013C98:
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.align 2, 0

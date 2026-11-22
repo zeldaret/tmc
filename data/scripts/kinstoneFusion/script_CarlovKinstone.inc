@@ -1,5 +1,5 @@
 @ Kinstone Cutscene for Carlov
-SCRIPT_START script_CarlovKinstone
+script_CarlovKinstone::
 	BeginBlock
 	SetAnimation 0x0000
 	EndBlock
@@ -12,5 +12,5 @@ script_0800BBE4:
 	WaitUntilTextboxCloses
 	Wait 0x0078
 	Call sub_08054968
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

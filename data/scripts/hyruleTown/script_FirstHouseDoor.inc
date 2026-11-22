@@ -1,5 +1,5 @@
 @ Hyrule Town closed door for first empty house
-SCRIPT_START script_FirstHouseDoor
+script_FirstHouseDoor::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	CheckKinstoneFused KINSTONE_1B
@@ -22,5 +22,5 @@ script_08010942:
 	EnablePlayerControl
 	Jump script_0801091C
 	Call sub_0808692C
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -1,5 +1,5 @@
 @ Trilby Highlands Percy in front of house
-SCRIPT_START script_PercyOutside
+script_PercyOutside::
 	BeginBlock
 	SetAnimationState 0x0004
 	CallWithArg sub_0807F3D8, 0x00000008

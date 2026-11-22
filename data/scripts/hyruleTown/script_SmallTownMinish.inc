@@ -1,5 +1,5 @@
 @ Hyrule Town SmallTownMinish
-SCRIPT_START script_SmallTownMinish
+script_SmallTownMinish::
 	BeginBlock
 	CheckPlayerMinish
 	JumpIfNot script_08010BAC
@@ -25,5 +25,5 @@ script_08010B88:
 	Jump script_08010B88
 script_08010BAC:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

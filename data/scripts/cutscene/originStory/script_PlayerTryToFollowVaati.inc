@@ -1,5 +1,5 @@
 @ Player trying to follow Vaati outside castle
-SCRIPT_START script_PlayerTryToFollowVaati
+script_PlayerTryToFollowVaati::
 	BeginBlock
 	SetEntitySpeed 0x0200
 	EndBlock
@@ -9,4 +9,4 @@ SCRIPT_START script_PlayerTryToFollowVaati
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

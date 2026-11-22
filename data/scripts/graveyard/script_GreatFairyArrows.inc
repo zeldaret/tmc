@@ -1,5 +1,5 @@
 @ Graveyard Great Fairy CUTSCENE_ORCHESTRATOR
-SCRIPT_START script_GreatFairyArrows
+script_GreatFairyArrows::
 	BeginBlock
 	EndBlock
 script_0800B618:
@@ -50,4 +50,4 @@ script_0800B6A6:
 	Wait 0x001e
 	Call EnablePauseMenu
 	EnablePlayerControl
-SCRIPT_END
+	EndScript

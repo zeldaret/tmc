@@ -1,5 +1,5 @@
 @ Tilby Highlands Percy in Tree or in his house
-SCRIPT_START script_PercyInside
+script_PercyInside::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

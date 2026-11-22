@@ -1,5 +1,5 @@
 @ Lon Lon Farm Malon in ranch house?
-SCRIPT_START scriptMalonInside
+scriptMalonInside::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007

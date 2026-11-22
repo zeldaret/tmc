@@ -1,7 +1,7 @@
 @ Hyrule Town Cafe guy
-SCRIPT_START script_CafeGuy
+script_CafeGuy::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	CallWithArg sub_08061FB8, 0x00000001
 	SetEntitySpeed 0x0040
 	DoPostScriptAction 0x000a

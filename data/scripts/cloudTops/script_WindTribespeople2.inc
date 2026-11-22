@@ -1,5 +1,5 @@
 @ Cloud Top Windtribespeople woman on first floor
-SCRIPT_START script_WindTribespeople2
+script_WindTribespeople2::
 	BeginBlock
 	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a
@@ -18,4 +18,4 @@ script_080149AA:
 	Jump script_080149AA
 script_080149C6:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

@@ -1,10 +1,10 @@
 @ Intro Ceremony CUTSCENE_MISC_OBJECT Sword in Chest
-SCRIPT_START script_CutsceneMiscObjectSwordInChest
+script_CutsceneMiscObjectSwordInChest::
 	BeginBlock
 	Call sub_08095330
 	EndBlock
 	WaitForSyncFlagAndClear 0x00800000
-	_0807EF3C 0x0000, 0x0020
+	Fall 0x0000, 0x0020
 	SetSyncFlag 0x01000000
 	WaitForSyncFlagAndClear 0x00800000
 	Call sub_08095364
@@ -16,5 +16,5 @@ SCRIPT_START script_CutsceneMiscObjectSwordInChest
 	SetSyncFlag 0x01000000
 	WaitForSyncFlagAndClear 0x00800000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

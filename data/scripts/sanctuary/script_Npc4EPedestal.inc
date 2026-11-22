@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E Pedestal for sword
-SCRIPT_START script_Npc4EPedestal
+script_Npc4EPedestal::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock
@@ -71,4 +71,4 @@ script_080134F8:
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00040000
 	CallWithArg CreateRepeatedSoundManager, 0x00000001
-	_0807F0C8 0xffff, 0x0000
+	InitScreenShake 0xffff, 0x0000

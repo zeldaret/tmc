@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_08013D04
+script_08013D04::
 	BeginBlock
 	Call MakePedestalInteractable
 	DoPostScriptAction 0x0008
@@ -13,5 +13,5 @@ script_08013D1C:
 	SetSyncFlag 0x08000000
 	Call SetPlayerActionNormal
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

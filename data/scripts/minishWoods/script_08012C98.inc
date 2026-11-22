@@ -1,6 +1,6 @@
 @ Minish Woods CUTSCENE_ORCHESTRATOR ?
 @ Ezlo Trigger to explain how portals work
-SCRIPT_START script_08012C98
+script_08012C98::
 	CheckGlobalFlag EZERO_1ST
 	JumpIfNot script_08012C98
 script_08012CA0:
@@ -20,4 +20,4 @@ script_08012CA0:
 	EnablePlayerControl
 script_08012CD2:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

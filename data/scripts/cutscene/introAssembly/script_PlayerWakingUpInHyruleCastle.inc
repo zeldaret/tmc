@@ -1,5 +1,5 @@
 @ Intro Hyrule Castle Player Sleeping
-SCRIPT_START script_PlayerWakingUpInHyruleCastle
+script_PlayerWakingUpInHyruleCastle::
 	BeginBlock
 	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle
@@ -18,4 +18,4 @@ script_08009EA4:
 	EnablePlayerControl
 	Call EnablePauseMenu
 	Call ResetPlayerAnimationAndAction
-SCRIPT_END
+	EndScript

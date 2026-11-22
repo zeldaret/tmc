@@ -1,5 +1,5 @@
 @ After Mazaal NPC4E text board
-SCRIPT_START script_Npc4EWindRuinsTextBoard
+script_Npc4EWindRuinsTextBoard::
 	BeginBlock
 	Call MakeCheckableObjectInteractable
 	DoPostScriptAction 0x0008
@@ -16,7 +16,7 @@ script_0800D88E:
 	StartPlayerScript script_PlayerAtTextboard
 	WaitForSyncFlagAndClear 0x00000001
 script_0800D8B0:
-	_0807E8E4_0
+	PlayerIdleNorth
 	MessageNoOverlap TEXT_VAATI, 0x24
 	WaitUntilTextboxCloses
 	CheckInventory1 ITEM_OCARINA

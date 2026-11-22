@@ -1,5 +1,5 @@
 @ Sanctuary third time NPC4E controlling cutscene
-SCRIPT_START script_Npc4EThirdSanctuary
+script_Npc4EThirdSanctuary::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock
@@ -95,4 +95,4 @@ script_08013A8E:
 	JumpIfNot script_08013A8E
 .endif
 	CallWithArg CreateRepeatedSoundManager, 0x00000001
-	_0807F0C8 0xffff, 0x0000
+	InitScreenShake 0xffff, 0x0000

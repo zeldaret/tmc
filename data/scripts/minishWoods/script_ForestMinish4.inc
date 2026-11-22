@@ -1,5 +1,5 @@
 @ Minish Village Forest Minish
-SCRIPT_START script_ForestMinish4
+script_ForestMinish4::
 	BeginBlock
 script_0800C5FE:
 	Call ForestMinish_MakeInteractable

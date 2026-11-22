@@ -1,8 +1,8 @@
 @ Hyrule Town TownMinish at Dr Left
-SCRIPT_START script_TownMinish6
+script_TownMinish6::
 	BeginBlock
 	SetEntitySpeed 0x0080
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x007b
 	JumpIf script_0800F082

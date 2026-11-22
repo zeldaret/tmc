@@ -1,11 +1,11 @@
 @ Outro NPC4E
-SCRIPT_START script_Npc4EOutro
+script_Npc4EOutro::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
 	SetEntityPositionRelative 0x0088, 0x0080
 	Call sub_0807F844
-	_0807E8E4_3
+	PlayerIdleWest
 	CallWithArg SetPlayerPos, 0x00a80088
 	EndBlock
 	Wait 0x003c
@@ -19,7 +19,7 @@ SCRIPT_START script_Npc4EOutro
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000200
 	SetSyncFlag 0x00000004
-	_0807E8E4_0
+	PlayerIdleNorth
 	WaitForSyncFlagAndClear 0x00000080
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000200
@@ -38,7 +38,7 @@ SCRIPT_START script_Npc4EOutro
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000100
 	Wait 0x003c
-	_0807E8E4_3
+	PlayerIdleWest
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000080
 	Wait 0x003c
@@ -61,4 +61,4 @@ SCRIPT_START script_Npc4EOutro
 	PlaySound SFX_APPARATE
 	CallWithArg NPC4E_DoScreenTransition, 7
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

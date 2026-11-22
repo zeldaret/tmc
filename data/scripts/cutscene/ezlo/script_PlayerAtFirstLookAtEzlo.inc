@@ -1,5 +1,5 @@
 @ First look at Ezlo Player
-SCRIPT_START script_PlayerAtFirstLookAtEzlo
+script_PlayerAtFirstLookAtEzlo::
 	EndBlock
 script_08012AB2:
 	SetAnimationState 0x0002

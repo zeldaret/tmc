@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E Link has to try his new ability before leaving
-SCRIPT_START script_NPC4EPreventPlayerLeave
+script_NPC4EPreventPlayerLeave::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	EndBlock
@@ -29,5 +29,5 @@ script_08013FF0:
 	Jump script_08013FF0
 script_0801404C:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -1,5 +1,5 @@
 @ Waterfalls MINISH_VILLAGE_OBJECT during kinstone cutscene?
-SCRIPT_START script_MinishVillageObjectRightStoneOpening
+script_MinishVillageObjectRightStoneOpening::
 	BeginBlock
 	CheckKinstoneFused KINSTONE_SOURCE_FLOW
 	JumpIf script_MinishVillageObjectRightStone
@@ -12,4 +12,4 @@ SCRIPT_START script_MinishVillageObjectRightStoneOpening
 	Wait 0x001e
 	DoPostScriptAction 0x0010
 	SetSyncFlag 0x00000004
-SCRIPT_END
+	EndScript

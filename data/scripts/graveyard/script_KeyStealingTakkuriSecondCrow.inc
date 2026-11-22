@@ -1,5 +1,5 @@
 @ Graveyard CAMERA_TARGET7 Crow stealing the key? Second crow that picks up the key
-SCRIPT_START script_CameraTarget7SecondCrow
+script_CameraTarget7SecondCrow::
 	BeginBlock
 	SetAnimation 0x0003
 	DoPostScriptAction 0x0007
@@ -14,5 +14,5 @@ SCRIPT_START script_CameraTarget7SecondCrow
 	PlaySound SFX_1F3
 	SetSyncFlag 0x00000010
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

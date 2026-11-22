@@ -1,5 +1,5 @@
 @ Cloud Tops Windtribespeople
-SCRIPT_START script_WindTribespeople7
+script_WindTribespeople7::
 	BeginBlock
 	CheckGlobalFlag KUMOTATSUMAKI
 	JumpIf script_08014CD4
@@ -23,5 +23,5 @@ script_08014CAE:
 	Jump script_08014CAE
 script_08014CD4:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

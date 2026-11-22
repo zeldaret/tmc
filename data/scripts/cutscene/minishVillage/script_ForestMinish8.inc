@@ -1,5 +1,5 @@
 @ Minish Village Intro Forest Minish 4
-SCRIPT_START script_ForestMinish8
+script_ForestMinish8::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x0000
@@ -21,9 +21,9 @@ SCRIPT_START script_ForestMinish8
 	SetSyncFlag 0x00010000
 	WaitForSyncFlagAndClear 0x00008000
 	PlaySound SFX_PLY_JUMP
-	_0807EF3C 0x0180, 0x0030
+	Fall 0x0180, 0x0030
 	PlaySound SFX_PLY_JUMP
-	_0807EF3C 0x0180, 0x0030
+	Fall 0x0180, 0x0030
 	SetSyncFlag 0x00010000
 	WaitForSyncFlagAndClear 0x00008000
 	SetEntitySpeed 0x0300
@@ -31,5 +31,5 @@ SCRIPT_START script_ForestMinish8
 	MoveTo 0x0188, 0x02d8
 	SetSyncFlag 0x00010000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -1,5 +1,5 @@
 @ Player sleeping at Inn
-SCRIPT_START script_PlayerSleepingInn
+script_PlayerSleepingInn::
 	BeginBlock
 	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle
@@ -16,5 +16,5 @@ script_08010A78:
 	EnablePlayerControl
 	Call EnablePauseMenu
 	Call ResetPlayerAnimationAndAction
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

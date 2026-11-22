@@ -1,5 +1,5 @@
 @ Outro NPC4E Fix DHC Throne
-SCRIPT_START script_Npc4EDHCThrone
+script_Npc4EDHCThrone::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
@@ -10,4 +10,4 @@ SCRIPT_START script_Npc4EDHCThrone
 	PlaySound SFX_EVAPORATE
 	CallWithArg NPC4E_DoScreenTransition, 8
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

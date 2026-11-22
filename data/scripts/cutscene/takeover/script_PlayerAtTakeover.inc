@@ -1,5 +1,5 @@
 @ Player at Western Wood Cutscene
-SCRIPT_START script_PlayerAtTakeover
+script_PlayerAtTakeover::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock
@@ -17,4 +17,4 @@ SCRIPT_START script_PlayerAtTakeover
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000100
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

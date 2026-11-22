@@ -1,5 +1,5 @@
 @ Cloud Tops Windtribespeople Leader Siroc
-SCRIPT_START script_Siroc
+script_Siroc::
 	BeginBlock
 	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a

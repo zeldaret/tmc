@@ -1,16 +1,16 @@
 @ Outro NPC4E Minish Portal is closing
-SCRIPT_START script_Npc4EMinishPortalClosing
+script_Npc4EMinishPortalClosing::
 	Call sub_0808D2CC
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	_0807E8E4_0
+	PlayerIdleNorth
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000080
 	OffsetEntityPosition 0x0000, 0xffe0
 	Call WaitForCameraTouchRoomBorder
 	Wait 0x003c
 	CallWithArg DeleteRepeatedSoundManager, 0x00000001
-	_0807F0C8 0x0000, 0x0000
+	InitScreenShake 0x0000, 0x0000
 	Wait 0x003c
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
@@ -67,4 +67,4 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

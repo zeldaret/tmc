@@ -1,5 +1,5 @@
 @ Player at Gentari
-SCRIPT_START script_PlayerAtGentari
+script_PlayerAtGentari::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock
@@ -10,4 +10,4 @@ SCRIPT_START script_PlayerAtGentari
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

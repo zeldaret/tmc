@@ -1,5 +1,5 @@
 @ Hyrule Town Pina
-SCRIPT_START script_Pina
+script_Pina::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0000

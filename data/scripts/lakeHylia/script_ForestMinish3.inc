@@ -1,5 +1,5 @@
 @ Lake Hylia Forest Minish telling us to go to the library
-SCRIPT_START script_ForestMinish3
+script_ForestMinish3::
 	BeginBlock
 	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a

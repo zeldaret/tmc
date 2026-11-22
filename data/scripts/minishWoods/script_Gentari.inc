@@ -1,5 +1,5 @@
 @ Gentari at beginning
-SCRIPT_START script_Gentari
+script_Gentari::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004

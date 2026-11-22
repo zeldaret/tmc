@@ -1,5 +1,5 @@
 @ Intro Ceremony Vaati
-SCRIPT_START script_VaatiIntroCeremony
+script_VaatiIntroCeremony::
 	BeginBlock
 	SetAnimationState 0x0000
 	SetEntitySpeed 0x0100
@@ -82,5 +82,5 @@ SCRIPT_START script_VaatiIntroCeremony
 	Wait 0x0078
 	SetSyncFlag 0x00000200
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

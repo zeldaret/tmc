@@ -1,5 +1,5 @@
 @ Hyrule Town Townsperson
-SCRIPT_START script_Townsperson2
+script_Townsperson2::
 	BeginBlock
 	Call sub_08061FE4
 	Call Townsperson_MakeInteractable

@@ -1,9 +1,9 @@
 @ Western Wood Moblin disguised as Townsperson in Percys house
-SCRIPT_START script_MoblinLadyDisguised
+script_MoblinLadyDisguised::
 	BeginBlock
 	SetAnimationState 0x0004
 	Call sub_08061FD8
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	EndBlock
 script_08012284:
@@ -59,5 +59,5 @@ script_080122EC:
 	Wait 0x001e
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.align 2, 0

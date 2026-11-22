@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E Intro Cutscene
-SCRIPT_START script_Npc4ESanctuaryIntro
+script_Npc4ESanctuaryIntro::
 	EndBlock
 script_08013CA6:
 	CheckPlayerInRegion 0x00e8, 0x01e8, 0x4080
@@ -23,4 +23,4 @@ script_08013CA6:
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

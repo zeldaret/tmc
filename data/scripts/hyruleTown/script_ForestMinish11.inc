@@ -1,5 +1,5 @@
 @ Forest Minish above cafe
-SCRIPT_START script_ForestMinish11
+script_ForestMinish11::
 	BeginBlock
 	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a

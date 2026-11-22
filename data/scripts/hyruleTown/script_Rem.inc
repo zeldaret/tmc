@@ -1,5 +1,5 @@
 @ Hyrule Town Rem
-SCRIPT_START script_Rem
+script_Rem::
 	BeginBlock
 	CallWithArg Rem_MakeInteractable, 0x12345678
 	SetAnimationState 0x0004
@@ -33,4 +33,4 @@ script_08012F6C:
 	WaitUntilTextboxCloses
 	SetAction 0x0001
 	Jump script_08012F6C
-SCRIPT_END
+	EndScript

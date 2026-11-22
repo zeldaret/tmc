@@ -1,5 +1,5 @@
 @ Intro Assembly NPC4E
-SCRIPT_START script_Npc4EIntroAssembly
+script_Npc4EIntroAssembly::
 	BeginBlock
 	SetEntityPositionRelative 0x0088, 0x0078
 	EndBlock
@@ -49,21 +49,21 @@ script_08008E12:
 	WaitPlayerGetItem
 	StartPlayerScript script_PlayerGetSword
 	WaitForSyncFlagAndClear 0x00000020
-	_0807E8E4_0
+	PlayerIdleNorth
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000100
 	SetSyncFlag 0x00000010
 	Wait 0x0078
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000100
-	_0807E8E4_1
+	PlayerIdleEast
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
 	GivePlayerItem ITEM_MAP
 	WaitPlayerGetItem
 	SetIntVariable 0x00000003
 	Call LoadMenu
-	_0807E8E4_0
+	PlayerIdleNorth
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000100
 	SetScrollSpeed 4
@@ -73,5 +73,5 @@ script_08008E12:
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

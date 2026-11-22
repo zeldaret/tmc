@@ -1,5 +1,5 @@
 @ Sanctuary MINISH_VILLAGE_OBJECT Look at picture in back room
-SCRIPT_START script_MinishVillageObjectPictureBackRoom
+script_MinishVillageObjectPictureBackRoom::
 	CheckPlayerInRegion 0x0098, 0x0038, 0x2060
 	JumpIfNot script_MinishVillageObjectPictureBackRoom
 	SetPlayerIdle
@@ -48,7 +48,7 @@ SCRIPT_START script_MinishVillageObjectPictureBackRoom
 	SetFade5
 	WaitForFadeFinish
 	StopBgm
-	_0807E858 0x0000
+	SetFadeProgress 0x0000
 	Wait 0x003c
 	CameraTargetPlayer
 	Call WaitForCameraTouchRoomBorder
@@ -68,5 +68,5 @@ SCRIPT_START script_MinishVillageObjectPictureBackRoom
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

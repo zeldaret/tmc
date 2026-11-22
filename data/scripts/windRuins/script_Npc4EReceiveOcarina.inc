@@ -1,5 +1,5 @@
 @ After Mazaal NPC4E receive ocarina
-SCRIPT_START script_Npc4EReceiveOcarina
+script_Npc4EReceiveOcarina::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	CheckInventory1 ITEM_OCARINA
@@ -20,5 +20,5 @@ script_0800D8F4:
 	Call EnablePauseMenu
 script_0800D924:
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

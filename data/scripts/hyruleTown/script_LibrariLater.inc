@@ -1,5 +1,5 @@
 @ Librari at the lake
-SCRIPT_START script_LibrariLater
+script_LibrariLater::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004

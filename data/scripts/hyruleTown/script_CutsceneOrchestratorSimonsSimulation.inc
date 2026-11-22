@@ -1,5 +1,5 @@
 @ Simons Simulation CUTSCENE_ORCHESTRATOR
-SCRIPT_START script_CutsceneOrchestratorSimonsSimulation
+script_CutsceneOrchestratorSimonsSimulation::
 	BeginBlock
 	DisablePlayerControl
 	EndBlock
@@ -31,4 +31,4 @@ script_08011C28:
 	WaitForFadeFinish
 	Wait 0x003c
 	Call sub_0806C280
-SCRIPT_END
+	EndScript

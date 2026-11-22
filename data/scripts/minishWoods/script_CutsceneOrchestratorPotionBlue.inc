@@ -1,5 +1,5 @@
 @ Syrup CUTSCENE_ORCHESTRATOR Potion
-SCRIPT_START script_CutsceneOrchestratorPotionBlue
+script_CutsceneOrchestratorPotionBlue::
 	BeginBlock
 	Call AddInteractableCheckableObject
 	EndBlock

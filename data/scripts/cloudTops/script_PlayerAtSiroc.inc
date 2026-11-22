@@ -1,5 +1,5 @@
 @ Player at Windtribespeople leader Siroc
-SCRIPT_START script_PlayerAtSiroc
+script_PlayerAtSiroc::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock
@@ -8,4 +8,4 @@ SCRIPT_START script_PlayerAtSiroc
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

@@ -1,5 +1,5 @@
 @ Sanctuary NPC4E Prevent link from leaving after fusing final sword
-SCRIPT_START script_Npc4EPreventPlayerLeaving
+script_Npc4EPreventPlayerLeaving::
 	BeginBlock
 	DoPostScriptAction 0x0008
 script_08013B1E:

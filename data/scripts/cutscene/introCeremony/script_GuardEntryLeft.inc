@@ -1,5 +1,5 @@
 @ Intro Ceremony Entrance Guard left
-SCRIPT_START script_GuardEntryLeft
+script_GuardEntryLeft::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0002
@@ -13,4 +13,4 @@ SCRIPT_START script_GuardEntryLeft
 	SetSyncFlag 0x00100000
 	WaitForSyncFlagAndClear 0x00080000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

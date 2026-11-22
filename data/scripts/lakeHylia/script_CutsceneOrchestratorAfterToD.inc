@@ -1,5 +1,5 @@
 @ After ToD CUTSCENE_ORCHESTRATOR Cutscene
-SCRIPT_START script_CutsceneOrchestratorAfterToD
+script_CutsceneOrchestratorAfterToD::
 	SetPlayerIdle
 script_0800AFB2:
 	EndBlock
@@ -15,5 +15,5 @@ script_0800AFB2:
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

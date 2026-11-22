@@ -1,5 +1,5 @@
 @ Intro Ceremony NPC4E Vaati attacking
-SCRIPT_START script_Npc4EVaatiAttacking
+script_Npc4EVaatiAttacking::
 	Wait 0x003c
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000200
@@ -24,7 +24,7 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
 	CallWithArg DeleteRepeatedSoundManager, 0x00000002
-	_0807F0C8 0x0000, 0x0000
+	InitScreenShake 0x0000, 0x0000
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000020
 	StopBgm
@@ -41,5 +41,5 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	WaitForSyncFlagAndClear 0x00000200
 	Call sub_0804BCDC
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -1,12 +1,12 @@
 @ DHC guard stone 2
-SCRIPT_START script_GuardStone2
+script_GuardStone2::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x0073
 	JumpIfNot script_0800E232
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetEntityPositionRelative 0x0070, 0x0168
 	SetAnimationState 0x0002
 	CallWithArg sub_0807F3D8, 0x00000000
@@ -42,7 +42,7 @@ script_0800E24A:
 script_0800E29A:
 	DoPostScriptAction 0x0000
 	CallWithArg sub_0807F3D8, 0x00000000
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EnablePlayerControl
 	EndBlock
 script_0800E2AE:
@@ -56,7 +56,7 @@ script_0800E2AE:
 	JumpIfNot script_0800E2AE
 	CheckLocalFlag 0x0095
 	JumpIfNot script_0800E2AE
-	_0807E9DC
+	RemoveInteractableObject
 	SetLocalFlag 0x0073
 	EndBlock
 	SetAnimationState 0x0000
@@ -67,7 +67,7 @@ script_0800E2AE:
 	MoveTo 0x0070, 0x0168
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
-	_0807E9D4
+	AddInteractableWhenBigObject
 	Jump script_0800E32E
 script_0800E312:
 	SetPlayerIdle

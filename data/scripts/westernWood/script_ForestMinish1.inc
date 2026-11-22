@@ -1,5 +1,5 @@
 @ Western Wood Forest Minish
-SCRIPT_START script_ForestMinish1
+script_ForestMinish1::
 	BeginBlock
 	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a

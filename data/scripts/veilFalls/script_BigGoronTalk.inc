@@ -1,5 +1,5 @@
 @ Veil Falls Talk to BigGoron
-SCRIPT_START script_BigGoronTalk
+script_BigGoronTalk::
 	CheckLocalFlag DAIGORON_EXCHG
 	JumpIf script_0800943E
 	CheckInventory1 ITEM_SHIELD
@@ -54,4 +54,4 @@ script_08009452:
 	MessageNoOverlap TEXT_GORONS, 0x0b
 	WaitUntilTextboxCloses
 	Call sub_0806D74C
-	_0807F0C8 0xffff, 0x0000
+	InitScreenShake 0xffff, 0x0000

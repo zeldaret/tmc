@@ -1,8 +1,8 @@
 @ Intro Hyrule Town Kid listening to Townsperson
-SCRIPT_START script_KidIntro1
+script_KidIntro1::
 	BeginBlock
 	DoPostScriptAction 0x0001
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800F592:

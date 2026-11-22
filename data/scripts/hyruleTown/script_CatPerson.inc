@@ -1,5 +1,5 @@
 @ Hyrule Townsperson house with cat
-SCRIPT_START script_CatPerson
+script_CatPerson::
 	BeginBlock
 	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a

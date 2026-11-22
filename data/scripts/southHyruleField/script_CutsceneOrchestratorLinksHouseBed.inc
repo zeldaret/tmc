@@ -1,5 +1,5 @@
 @ Links house CUTSCENE_ORCHESTRATOR bed
-SCRIPT_START script_CutsceneOrchestratorLinksHouseBed
+script_CutsceneOrchestratorLinksHouseBed::
 	BeginBlock
 	EndBlock
 script_08009DF0:
@@ -25,9 +25,9 @@ script_08009DF0:
 	EnablePlayerControl
 	Call EnablePauseMenu
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 script_08009E4E:
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

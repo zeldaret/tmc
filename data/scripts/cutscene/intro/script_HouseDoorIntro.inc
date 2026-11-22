@@ -1,5 +1,5 @@
 @ Intro house door
-SCRIPT_START script_HouseDoorIntro
+script_HouseDoorIntro::
 	BeginBlock
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000010
@@ -13,8 +13,8 @@ SCRIPT_START script_HouseDoorIntro
 	Wait 0x005a
 	SetFadeTime 0x0004
 	@ Circle transition
-	_0807E80C 0x00000000
+	SetFadeIrisInOut
 	WaitForFadeFinish @ Wait for end of transition
 	Call sub_0805367C
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

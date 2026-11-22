@@ -1,5 +1,5 @@
 @ Mines Mountain Minish before beds
-SCRIPT_START script_MountainMinish1
+script_MountainMinish1::
 	BeginBlock
 	Call MountainMinish_MakeInteractable
 	DoPostScriptAction 0x000a

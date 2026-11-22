@@ -1,5 +1,5 @@
 @ Outro NPC4E Mt. Crenel
-SCRIPT_START script_Npc4EMtCrenel
+script_Npc4EMtCrenel::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
@@ -17,4 +17,4 @@ SCRIPT_START script_Npc4EMtCrenel
 	Wait 0x003c
 	CallWithArg NPC4E_DoScreenTransition, 14
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

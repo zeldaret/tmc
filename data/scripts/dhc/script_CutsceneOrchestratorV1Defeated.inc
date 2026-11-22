@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR V1 defeated
-SCRIPT_START script_CutsceneOrchestratorV1Defeated
+script_CutsceneOrchestratorV1Defeated::
 	EndBlock
 script_0800DFB6:
 	CheckRoomFlag 0x0001
@@ -12,4 +12,4 @@ script_0800DFB6:
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

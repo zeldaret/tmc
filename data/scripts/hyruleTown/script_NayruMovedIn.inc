@@ -1,5 +1,5 @@
 @ Nayru moved in
-SCRIPT_START script_NayruMovedIn
+script_NayruMovedIn::
 	BeginBlock
 	Call Nayru_MakeInteractable
 	SetAnimationState 0x0004

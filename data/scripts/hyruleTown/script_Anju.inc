@@ -1,5 +1,5 @@
 @ Hyrule Town Anju
-SCRIPT_START script_Anju
+script_Anju::
 	BeginBlock
 	DoPostScriptAction 0x0001
 	Call Anju_MakeInteractable
@@ -47,7 +47,7 @@ script_080101AC:
 	CallWithArg SetPlayerPos, 0x03400378
 	Call SetPlayerActionNormal
 	Call DisablePlayerSwimState
-	_0807E8E4_1
+	PlayerIdleEast
 	Call SetPlayerCollisionLayer1
 	Call CuccoMinigame_Cleanup
 	Call sub_0806EC38
@@ -75,5 +75,5 @@ script_08010240:
 	ClearRoomFlag 0x0001
 	Call sub_080A169C
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

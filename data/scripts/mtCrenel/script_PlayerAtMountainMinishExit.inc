@@ -1,5 +1,5 @@
 @ Player at Mountain Minish at exit
-SCRIPT_START script_PlayerAtMountainMinishExit
+script_PlayerAtMountainMinishExit::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock
@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerAtMountainMinishExit
 	WalkSouth 0x0020
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

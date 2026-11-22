@@ -1,5 +1,5 @@
 @ Intro Hyrule Castle Zelda
-SCRIPT_START script_ZeldaIntroCastle
+script_ZeldaIntroCastle::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0100
@@ -53,4 +53,4 @@ script_08011206:
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

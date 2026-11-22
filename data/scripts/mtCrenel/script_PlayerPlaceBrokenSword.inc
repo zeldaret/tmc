@@ -1,5 +1,5 @@
 @ Player at Melari place broken Sword
-SCRIPT_START script_PlayerPlaceBrokenSword
+script_PlayerPlaceBrokenSword::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock
@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerPlaceBrokenSword
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000008
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

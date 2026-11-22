@@ -1,5 +1,5 @@
 @ Player at Graveyard King Gustaf
-SCRIPT_START script_PlayerAtKingGustav
+script_PlayerAtKingGustav::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock
@@ -9,4 +9,4 @@ SCRIPT_START script_PlayerAtKingGustav
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

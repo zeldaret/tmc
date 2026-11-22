@@ -1,5 +1,5 @@
 @ KINSTONE_SPARK spark in all fusing kinstone cutscenes
-SCRIPT_START script_KinstoneSparkKinstoneSpark
+script_KinstoneSparkKinstoneSpark::
 	BeginBlock
 	SetEntitySpeed 0x0180
 	SetAnimation 0x0004
@@ -15,5 +15,5 @@ script_0800C47A:
 	SetRoomFlag 0x00ff
 	SetAnimation 0x0005
 	Wait 0x000f
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

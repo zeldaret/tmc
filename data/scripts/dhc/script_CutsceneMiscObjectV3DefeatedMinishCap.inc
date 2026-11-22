@@ -1,5 +1,5 @@
 @ DHC Vaati defeated CUTSCENE_MISC_OBJECT Minish Cap?
-SCRIPT_START script_CutsceneMiscObjectV3DefeatedMinishCap
+script_CutsceneMiscObjectV3DefeatedMinishCap::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007
@@ -10,11 +10,11 @@ SCRIPT_START script_CutsceneMiscObjectV3DefeatedMinishCap
 	CallWithArg sub_080960C4, script_CutsceneMiscObjectV3DefeatedMinishCap2
 	EndBlock
 	PlaySound SFX_SPARKLES
-	_0807EF3C -128, 0x0000
+	Fall -128, 0x0000
 	PlaySound SFX_143
 	SetAnimation 0x0004
 	SetSyncFlag 0x00000002
 	Wait 0x003c
 	SetSyncFlag 0x00000004
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

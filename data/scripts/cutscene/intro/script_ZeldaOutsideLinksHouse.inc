@@ -1,5 +1,5 @@
 @ Zelda intro in front of links house
-SCRIPT_START script_ZeldaOutsideLinksHouse
+script_ZeldaOutsideLinksHouse::
 	BeginBlock
 	SetEntitySpeed 0x0180
 	DoPostScriptAction 0x000a
@@ -61,4 +61,4 @@ script_08014D96:
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

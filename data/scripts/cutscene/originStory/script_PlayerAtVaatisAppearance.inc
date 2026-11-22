@@ -1,5 +1,5 @@
 @ Player outside castle for Vaati appearance
-SCRIPT_START script_PlayerAtVaatisAppearance
+script_PlayerAtVaatisAppearance::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock
@@ -9,4 +9,4 @@ SCRIPT_START script_PlayerAtVaatisAppearance
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

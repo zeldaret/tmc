@@ -1,5 +1,5 @@
 @ Hyrule Town locked door NPC4E for Simons Simulations
-SCRIPT_START script_SimonsDoor
+script_SimonsDoor::
 	CheckPlayerInRegion2 0x0808
 	JumpIfNot script_SimonsDoor
 	SetPlayerIdle

@@ -1,5 +1,5 @@
 @ Intro Assembly Guard
-SCRIPT_START script_GuardAtAssembly
+script_GuardAtAssembly::
 	BeginBlock
 	SetAnimationState 0x0000
 	SetAnimation 0x0000
@@ -16,4 +16,4 @@ SCRIPT_START script_GuardAtAssembly
 	SetEntitySpeed 0x0200
 	WalkSouth 0x1c20
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

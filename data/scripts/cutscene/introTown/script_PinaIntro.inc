@@ -1,9 +1,9 @@
 @ Intro Hyrule Town Pina
-SCRIPT_START script_PinaIntro
+script_PinaIntro::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0000
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	Call SetPriorityMessage
 	EndBlock

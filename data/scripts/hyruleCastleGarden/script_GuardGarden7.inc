@@ -1,5 +1,5 @@
 @ Hyrule Castle Guard kicking Link out
-SCRIPT_START script_GuardGarden7
+script_GuardGarden7::
 	CheckRoomFlag 0x000f
 	JumpIfNot script_GuardGarden7
 	SetPlayerIdle
@@ -13,5 +13,5 @@ script_08011AFA:
 	EnablePlayerControl
 	Call EnablePauseMenu
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

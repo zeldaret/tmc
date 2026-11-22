@@ -1,5 +1,5 @@
 @ Hyrule Town Stamp in Kinstone Cutscene
-SCRIPT_START script_StampKinstone
+script_StampKinstone::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimationState 0x0004
@@ -15,4 +15,4 @@ script_0800BBBA:
 	WaitUntilTextboxCloses
 	Wait 0x0078
 	Call sub_08054968
-SCRIPT_END
+	EndScript

@@ -1,5 +1,5 @@
 @ Intro Outside Castle Business Scrub
-SCRIPT_START script_BusinessScrubIntro
+script_BusinessScrubIntro::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000a
@@ -18,5 +18,5 @@ SCRIPT_START script_BusinessScrubIntro
 	PlaySound SFX_SECRET
 	Call sub_08046078
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

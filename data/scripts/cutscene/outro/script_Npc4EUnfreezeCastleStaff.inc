@@ -1,5 +1,5 @@
 @ Outro NPC4E Unfreeze castle staff
-SCRIPT_START script_Npc4EUnfreezeCastleStaff
+script_Npc4EUnfreezeCastleStaff::
 	BeginBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
@@ -29,4 +29,4 @@ SCRIPT_START script_Npc4EUnfreezeCastleStaff
 	Wait 0x0078
 	CallWithArg NPC4E_DoScreenTransition, 12
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

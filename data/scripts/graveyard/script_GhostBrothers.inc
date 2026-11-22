@@ -1,5 +1,5 @@
 @ Graveyard GhostBrothers
-SCRIPT_START script_GhostBrothers
+script_GhostBrothers::
 	BeginBlock
 	Call GhostBrothers_MakeInteractable
 	SetAnimationState 0x0004

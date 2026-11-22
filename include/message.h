@@ -31,7 +31,7 @@ extern WStruct* sub_0805F2C8(void);
 extern u32 sub_0805F7DC(u32, WStruct*);
 extern void sub_0805F300(WStruct*);
 extern void sub_0805F8E4(u32 r0, WStruct* r1);
-extern s32 sub_08056338(void);
+extern s32 MessageGetSelectedChoice(void);
 
 typedef struct {
     u16* dest;
@@ -127,13 +127,19 @@ typedef struct {
 extern TextRender gTextRender;
 static_assert(sizeof(TextRender) == 0xa8);
 
-typedef struct {
-    u8 unk_00;
-    u8 unk_01;
-    u8 unk_02[0xE];
-} struct_02000040;
+typedef enum {
+    MESSAGE_CHOICE_STATUS_0,
+    MESSAGE_CHOICE_STATUS_1,
+    MESSAGE_CHOICE_STATUS_2,
+    MESSAGE_CHOICE_STATUS_SELECTED,
+} MessageChoiceStatus;
 
-extern struct_02000040 gUnk_02000040;
+typedef struct {
+    MessageChoiceStatus status : 8;
+    u8 choice;
+} MessageChoiceSelection;
+
+extern MessageChoiceSelection gMessageChoiceSelection;
 
 /**
  * @brief Initialize the message system.

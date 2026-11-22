@@ -1,5 +1,5 @@
 @ Western Wood Cutscene King Daltus
-SCRIPT_START script_KingDaltusTakeover
+script_KingDaltusTakeover::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
@@ -24,4 +24,4 @@ SCRIPT_START script_KingDaltusTakeover
 	SetSyncFlag 0x00000008
 	WaitForSyncFlag 0x00000400
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

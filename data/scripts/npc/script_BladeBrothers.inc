@@ -1,5 +1,5 @@
 @ Blade Brothers
-SCRIPT_START script_BladeBrothers
+script_BladeBrothers::
 	BeginBlock
 	Call SetPriorityMessage
 	DoPostScriptAction 0x000a

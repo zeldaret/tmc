@@ -1,5 +1,5 @@
 @ Player entering Mazaal
-SCRIPT_START script_PlayerAtMazaal
+script_PlayerAtMazaal::
 	BeginBlock
 	SetAnimationState 0x0000
 	SetEntitySpeed 0x0140
@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerAtMazaal
 	DoPostScriptAction 0x0000
 	Wait 0x0008
 	SetSyncFlag 0x00000001
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

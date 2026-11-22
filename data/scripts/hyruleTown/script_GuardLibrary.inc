@@ -1,7 +1,7 @@
 @ Hyrule Town Guard closing Library
-SCRIPT_START script_GuardLibrary
+script_GuardLibrary::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000

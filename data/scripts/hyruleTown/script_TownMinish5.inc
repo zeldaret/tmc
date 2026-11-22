@@ -1,7 +1,7 @@
 @ Town Minish above Mayor right
-SCRIPT_START script_TownMinish5
+script_TownMinish5::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 script_0800EE58:
 	EndBlock
@@ -61,4 +61,4 @@ script_0800EEFE:
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000048
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

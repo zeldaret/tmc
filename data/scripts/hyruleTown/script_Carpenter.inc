@@ -1,5 +1,5 @@
 @ Hyrule Town carpeter next to post
-SCRIPT_START script_Carpenter
+script_Carpenter::
 	BeginBlock
 	SetAnimationState 0x0004
 	CallWithArg sub_080672B0, 0x00000000

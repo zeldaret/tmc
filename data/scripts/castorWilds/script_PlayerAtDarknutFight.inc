@@ -1,5 +1,5 @@
 @ Player at darknut in Castor Wilds
-SCRIPT_START script_PlayerAtDarknutFight
+script_PlayerAtDarknutFight::
 	BeginBlock
 	DoPostScriptAction 0x0000
 	EndBlock
@@ -14,4 +14,4 @@ SCRIPT_START script_PlayerAtDarknutFight
 	Wait 0x001e
 	SetSyncFlag 0x00000001
 	Call PlayerSetNormalAndCollide
-SCRIPT_END
+	EndScript

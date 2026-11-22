@@ -1,5 +1,5 @@
 @ Outside Castle Mutoh
-SCRIPT_START script_MutohOutsideTown
+script_MutohOutsideTown::
 	BeginBlock
 	Call Mutoh_MakeInteractable
 	DoPostScriptAction 0x000a

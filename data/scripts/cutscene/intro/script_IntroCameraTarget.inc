@@ -1,5 +1,5 @@
 @ Intro camera target
-SCRIPT_START script_IntroCameraTarget
+script_IntroCameraTarget::
 	SetEntityPositionRelative 0x0240, 0x0178
 	CameraTargetEntity
 	SetEntitySpeed 0x0080
@@ -14,4 +14,4 @@ SCRIPT_START script_IntroCameraTarget
 	Call sub_08053648
 	@ Move camera target down
 	MoveTo 0x0240, 0x0228
-SCRIPT_END
+	EndScript

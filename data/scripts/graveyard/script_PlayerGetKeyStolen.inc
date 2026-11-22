@@ -1,5 +1,5 @@
 @ Player when crow steals key
-SCRIPT_START script_PlayerGetKeyStolen
+script_PlayerGetKeyStolen::
 	PlaySound SFX_PLY_VO6
 	SetAnimationState 0x0004
 	PlaySound SFX_86
@@ -13,9 +13,9 @@ SCRIPT_START script_PlayerGetKeyStolen
 	PlaySound SFX_PLY_JUMP
 	SetAnimationState 0x0004
 	Call sub_0807F210
-	_0807EF3C 0x0200, 0x0020
+	Fall 0x0200, 0x0020
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000040
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

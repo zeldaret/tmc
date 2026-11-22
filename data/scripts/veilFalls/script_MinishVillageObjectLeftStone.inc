@@ -1,5 +1,5 @@
 @ Veil Falls MINISH_VILLAGE_OBJECT left stone
-SCRIPT_START script_MinishVillageObjectLeftStone
+script_MinishVillageObjectLeftStone::
 	OffsetEntityPosition -16, 0
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

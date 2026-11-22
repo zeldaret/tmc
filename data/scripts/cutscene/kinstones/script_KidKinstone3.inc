@@ -1,7 +1,7 @@
 @ Hyrule Town Kinstone cutscene Kid 3
-SCRIPT_START script_KidKinstone3
+script_KidKinstone3::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0002
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x0008
@@ -39,5 +39,5 @@ script_0800F524:
 	MoveTo 0x0288, 0x0328
 	SetSyncFlag 0x00000200
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

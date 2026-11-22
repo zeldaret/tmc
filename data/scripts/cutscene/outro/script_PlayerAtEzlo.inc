@@ -1,5 +1,5 @@
 @ Outro Player move to Ezlo
-SCRIPT_START script_PlayerAtEzlo
+script_PlayerAtEzlo::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock

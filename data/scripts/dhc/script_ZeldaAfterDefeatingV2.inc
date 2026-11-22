@@ -1,5 +1,5 @@
 @ DHC Zelda after defeating V2
-SCRIPT_START script_ZeldaAfterDefeatingV2
+script_ZeldaAfterDefeatingV2::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	Call sub_08066E38
@@ -65,5 +65,5 @@ script_0800DCD0:
 	WaitForSyncFlagAndClear 0x00000001
 	SetEntitySpeed 0x0100
 	MoveToOffset 0x0000, 0x0080
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

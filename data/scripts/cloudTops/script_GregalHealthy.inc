@@ -1,5 +1,5 @@
 @ Cloud Tops Gregal healthy
-SCRIPT_START script_GregalHealthy
+script_GregalHealthy::
 	BeginBlock
 	Call Gregal_MakeInteractable
 	DoPostScriptAction 0x000a

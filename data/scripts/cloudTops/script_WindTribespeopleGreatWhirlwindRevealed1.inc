@@ -1,5 +1,5 @@
 @ Cloud Tops WindTribespeople great whirlwind revealed 2
-SCRIPT_START script_WindTribespeopleGreatWhirlwindRevealed1
+script_WindTribespeopleGreatWhirlwindRevealed1::
 	BeginBlock
 	Call SetPriorityHighest
 	DoPostScriptAction 0x000b
@@ -17,9 +17,9 @@ SCRIPT_START script_WindTribespeopleGreatWhirlwindRevealed1
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000010
 	PlaySound SFX_PLY_JUMP
-	_0807EF3C 0x0180, 0x0030
+	Fall 0x0180, 0x0030
 	PlaySound SFX_PLY_JUMP
-	_0807EF3C 0x0180, 0x0030
+	Fall 0x0180, 0x0030
 	SetAnimationState 0x0002
 	DoPostScriptAction 0x0001
 	WaitForSyncFlagAndClear 0x00000008

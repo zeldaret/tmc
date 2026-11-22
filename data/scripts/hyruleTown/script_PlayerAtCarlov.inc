@@ -1,5 +1,5 @@
 @ Player at Carlov
-SCRIPT_START script_PlayerAtCarlov
+script_PlayerAtCarlov::
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x00e0
@@ -8,4 +8,4 @@ SCRIPT_START script_PlayerAtCarlov
 	Wait 0x0010
 	SetSyncFlag 0x00000001
 	Call PlayerSetNormalAndCollide
-SCRIPT_END
+	EndScript

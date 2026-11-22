@@ -1,5 +1,5 @@
 @ Hyrule Town Stockwell
-SCRIPT_START script_Stockwell
+script_Stockwell::
 	BeginBlock
 	CheckLocalFlag 0x0054
 	JumpIf script_08014382
@@ -61,4 +61,4 @@ script_08014330:
 	SetAction 0x0001
 	EnablePlayerControl
 script_08014382:
-SCRIPT_END
+	EndScript

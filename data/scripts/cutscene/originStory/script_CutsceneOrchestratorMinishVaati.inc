@@ -1,5 +1,5 @@
 @ Ezlo Cutscene CUTSCENE_ORCHESTRATOR MinishVaati
-SCRIPT_START script_CutsceneOrchestratorMinishVaati
+script_CutsceneOrchestratorMinishVaati::
 	BeginBlock
 	SetScrollSpeed 7
 	SetEntityPositionRelative 0x0078, 0x0068
@@ -34,4 +34,4 @@ SCRIPT_START script_CutsceneOrchestratorMinishVaati
 	MessageFromTargetPos TEXT_VAATI, 0x10, 0x000c
 	WaitUntilTextboxCloses
 	CallWithArg CreateRepeatedSoundManager, 0x00000001
-	_0807F0C8 0xffff, 0x0000
+	InitScreenShake 0xffff, 0x0000

@@ -1,5 +1,5 @@
 @ Outro Player got the green cap
-SCRIPT_START script_PlayerGetGreenCap
+script_PlayerGetGreenCap::
 	BeginBlock
 	Call sub_08094BE0
 	CallWithArg SetPlayerAnimation2, ANIM_GET_ITEM_BIG_NOCAP

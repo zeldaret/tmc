@@ -1,5 +1,5 @@
 @ Intro Outside Castle CUTSCENE_ORCHESTRATOR 1?
-SCRIPT_START script_080157AC
+script_080157AC::
 	CheckPlayerInRegion 0x01f8, 0x0310, 0x2020
 	JumpIfNot script_080157AC
 	SetPlayerIdle
@@ -59,7 +59,7 @@ script_08015888:
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	Wait 0x0078
-	_0807E8E4_2
+	PlayerIdleSouth
 	MessageFromTargetPos TEXT_PROLOGUE, 0x68, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000001
@@ -71,4 +71,4 @@ script_08015888:
 	SetScrollSpeed 4
 	CameraTargetPlayer
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

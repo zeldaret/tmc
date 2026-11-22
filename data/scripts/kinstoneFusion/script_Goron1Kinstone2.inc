@@ -1,5 +1,5 @@
 @ 1st Goron during Kinstone cutscene for 2nd Goron
-SCRIPT_START script_Goron1Kinstone2
+script_Goron1Kinstone2::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0008
@@ -35,4 +35,4 @@ script_0800BD1C:
 	WaitForSyncFlagAndClear 0x00000004
 	SetEntitySpeed 0x0080
 	MoveToOffset 0x0000, -32
-SCRIPT_END
+	EndScript

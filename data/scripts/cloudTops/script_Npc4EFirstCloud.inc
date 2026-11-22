@@ -1,6 +1,6 @@
 @ Cloud Tops NPC4E at first Mysterious Cloud
 @ Reponsible for Kinstone cutscenes
-SCRIPT_START script_Npc4EFirstCloud
+script_Npc4EFirstCloud::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000b
@@ -11,7 +11,7 @@ SCRIPT_START script_Npc4EFirstCloud
 	CallWithArg NPC4E_ChangeInteractableHitbox, 0x00000002
 	EndBlock
 script_0800D636:
-	_0807EA4C
+	WaitForFusion
 	UpdateFusion
 	Call NPC4E_IsKinstoneFused
 	JumpIf script_0800D650
@@ -34,4 +34,4 @@ script_0800D650:
 	JumpIfNot script_Npc4EKinstoneFused
 	LoadRoomEntityList gUnk_080DD730
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

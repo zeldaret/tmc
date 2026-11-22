@@ -1,5 +1,5 @@
 @ Maybe also DHC Zelda stone? -> gUnk_080FCEBC
-SCRIPT_START script_ZeldaStoneDHC
+script_ZeldaStoneDHC::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimationState 0x0000
@@ -14,5 +14,5 @@ SCRIPT_START script_ZeldaStoneDHC
 	WaitUntilTextboxCloses
 	Wait 0x003c
 	Call sub_08053C84
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

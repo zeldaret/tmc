@@ -1,5 +1,5 @@
 @ Intro Ceremony Vaati Dark magic?
-SCRIPT_START script_VaatiDarkMagic
+script_VaatiDarkMagic::
 	BeginBlock
 	SetAnimation 0x0000
 	SetEntitySpeed 0x0200
@@ -18,5 +18,5 @@ SCRIPT_START script_VaatiDarkMagic
 	WaitForSyncFlagAndClear 0x08000000
 	PlaySound SFX_11D
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

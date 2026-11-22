@@ -1,5 +1,5 @@
 @ DHC Vaati V1 intro
-SCRIPT_START script_Vaati1Intro
+script_Vaati1Intro::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetAnimationState 0x0004
@@ -9,11 +9,11 @@ SCRIPT_START script_Vaati1Intro
 	Call WaitForPlayerNormal
 	Call DisablePauseMenuAndPutAwayItems
 	StopBgm
-	_0807E8E4_2
+	PlayerIdleSouth
 	Wait 0x005a
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
-	_0807E8E4_0
+	PlayerIdleNorth
 	SetScrollSpeed 1
 	CameraTargetEntity
 	Call WaitForCameraTouchRoomBorder
@@ -36,4 +36,4 @@ SCRIPT_START script_Vaati1Intro
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

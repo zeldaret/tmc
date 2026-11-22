@@ -1,9 +1,9 @@
 @ Intro Hyrule Castle Entrance Guard
-SCRIPT_START script_GuardEntry1
+script_GuardEntry1::
 	BeginBlock
 	SetAnimationState 0x0006
 script_080119F6:
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock

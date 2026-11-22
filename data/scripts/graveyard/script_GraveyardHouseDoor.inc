@@ -1,5 +1,5 @@
 @ Graveyard house door
-SCRIPT_START script_GraveyardHouseDoor
+script_GraveyardHouseDoor::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	Jump script_080096FC
@@ -27,4 +27,4 @@ script_080096EC:
 	EnablePlayerControl
 script_080096FC:
 	Call sub_0808692C
-SCRIPT_END
+	EndScript

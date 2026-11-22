@@ -1,5 +1,5 @@
 @ Hyrule Town Farore
-SCRIPT_START script_Farore
+script_Farore::
 	BeginBlock
 	Call Farore_MakeInteractable
 	SetAnimationState 0x0004

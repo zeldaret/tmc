@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR Kill first Dark Nut
-SCRIPT_START script_CutsceneOrchestratorKillDarkNut
+script_CutsceneOrchestratorKillDarkNut::
 	EndBlock
 script_0800E5D8:
 	CheckLocalFlag 0x0086
@@ -11,5 +11,5 @@ script_0800E5D8:
 	SetRoomFlag 0x0001
 	Wait 0x001e
 	EnablePlayerControl
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -1,5 +1,5 @@
 @ Hyrule Town Nayru
-SCRIPT_START script_Nayru
+script_Nayru::
 	BeginBlock
 	Call Nayru_MakeInteractable
 	SetAnimationState 0x0004

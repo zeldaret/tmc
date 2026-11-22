@@ -1,5 +1,5 @@
 @ Player at Sanctuary draw final sword
-SCRIPT_START script_PlayerPickUpFinalSword
+script_PlayerPickUpFinalSword::
 	CallWithArg sub_08095E7C, script_CutsceneMiscObjectSwordCharge11
 	PlaySound SFX_1D3
 	CallWithArg SetPlayerAnimation2, ANIM_GET_LAST_SWORD
@@ -10,4 +10,4 @@ SCRIPT_START script_PlayerPickUpFinalSword
 	Wait 0x0078
 	WaitForSyncFlagAndClear 0x00040000
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

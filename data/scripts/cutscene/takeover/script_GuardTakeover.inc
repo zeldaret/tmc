@@ -1,5 +1,5 @@
 @ Western Wood Cutscene Guard
-SCRIPT_START script_GuardTakeover
+script_GuardTakeover::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	SetAnimationState 0x0000
@@ -15,5 +15,5 @@ SCRIPT_START script_GuardTakeover
 	DoPostScriptAction 0x0005
 	WaitForSyncFlag 0x00000400
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

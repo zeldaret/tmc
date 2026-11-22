@@ -1,5 +1,5 @@
 @ Intro Hyrule Town Player at Pina
-SCRIPT_START script_PlayerIntro5
+script_PlayerIntro5::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock
@@ -15,4 +15,4 @@ script_0800FB10:
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

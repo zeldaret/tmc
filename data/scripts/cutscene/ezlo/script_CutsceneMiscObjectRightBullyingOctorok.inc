@@ -1,5 +1,5 @@
 @ First look at Ezlo CUTSCENE_MISC_OBJECT right octorok
-SCRIPT_START script_CutsceneMiscObjectRightBullyingOctorok
+script_CutsceneMiscObjectRightBullyingOctorok::
 	BeginBlock
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0007
@@ -18,4 +18,4 @@ SCRIPT_START script_CutsceneMiscObjectRightBullyingOctorok
 	WaitForSyncFlagAndClear 0x00000010
 	Wait 0x0001
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

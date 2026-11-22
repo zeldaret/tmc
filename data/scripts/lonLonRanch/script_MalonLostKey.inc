@@ -1,10 +1,10 @@
 @ Lon Lon Ranch Malon lost key
-SCRIPT_START script_MalonLostKey
+script_MalonLostKey::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0001
 	SetEntitySpeed 0x00c0
-	_0807E9D4
+	AddInteractableWhenBigObject
 script_0800B4BC:
 	EndBlock
 	BeginBlock
@@ -44,4 +44,4 @@ script_0800B4F0:
 	EnablePlayerControl
 	Call sub_0807FBCC
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

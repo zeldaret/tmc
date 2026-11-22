@@ -1,5 +1,5 @@
 @ Mines Mountain Minish running
-SCRIPT_START script_MountainMinish5
+script_MountainMinish5::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	Call MountainMinish_MakeInteractable

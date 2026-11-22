@@ -1,5 +1,5 @@
 @ Player at Outro
-SCRIPT_START script_PlayerAtOutro
+script_PlayerAtOutro::
 	EndBlock
 	SetAnimationState 0x0002
 	Wait 0x000a

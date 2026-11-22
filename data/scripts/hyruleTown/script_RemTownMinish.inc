@@ -1,7 +1,7 @@
 @ Rem Town Minish
-SCRIPT_START script_RemTownMinish
+script_RemTownMinish::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0012
 	Call SetPriorityMessage

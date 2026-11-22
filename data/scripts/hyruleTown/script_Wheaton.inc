@@ -1,7 +1,7 @@
 @ Hyrule Town Wheaton
-SCRIPT_START script_Wheaton
+script_Wheaton::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

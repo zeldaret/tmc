@@ -1,5 +1,5 @@
 @ Intro Zelda leaving
-SCRIPT_START script_ZeldaLeaveLinksHouse
+script_ZeldaLeaveLinksHouse::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0006
@@ -16,4 +16,4 @@ SCRIPT_START script_ZeldaLeaveLinksHouse
 	WaitForFadeFinish
 	Call sub_08053634
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

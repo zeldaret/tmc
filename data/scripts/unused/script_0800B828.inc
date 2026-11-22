@@ -1,7 +1,7 @@
 @ TODO UNUSED?
-SCRIPT_START script_0800B828
+script_0800B828::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x000a
 	EndBlock
@@ -15,7 +15,7 @@ script_0800B836:
 	Jump script_0800B836
 	.2byte 0x0000
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
@@ -25,7 +25,7 @@ script_0800B85E:
 	Call sub_080646A4
 	Jump script_0800B85E
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0004
 	SetAnimation 0x0000
 	DoPostScriptAction 0x000a
@@ -35,7 +35,7 @@ script_0800B87E:
 	Call sub_0806407C
 	Jump script_0800B87E
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a

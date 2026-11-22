@@ -1,5 +1,5 @@
 @ Farmer
-SCRIPT_START script_Farmer
+script_Farmer::
 	BeginBlock
 	Call Farmers_MakeInteractable
 	DoPostScriptAction 0x000a

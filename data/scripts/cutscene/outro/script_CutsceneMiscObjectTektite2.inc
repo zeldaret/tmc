@@ -1,5 +1,5 @@
 @ Outro CUTSCENE_MISC_OBJECT Tektite 2
-SCRIPT_START script_CutsceneMiscObjectTektite2
+script_CutsceneMiscObjectTektite2::
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0007
@@ -8,5 +8,5 @@ SCRIPT_START script_CutsceneMiscObjectTektite2
 	WaitForSyncFlagAndClear 0x00000002
 	Call CreateDeathFx
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

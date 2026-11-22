@@ -1,7 +1,7 @@
 @ Some Forest Minish ?
-SCRIPT_START script_ForestMinish12
+script_ForestMinish12::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	EndBlock
 script_080165FE:
 	FacePlayerAndCheckDist

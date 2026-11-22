@@ -1,5 +1,5 @@
 @ Hyrule Town Malon
-SCRIPT_START script_MalonHyruleTown
+script_MalonHyruleTown::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007

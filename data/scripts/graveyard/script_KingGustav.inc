@@ -1,5 +1,5 @@
 @ Graveyard King Gustav
-SCRIPT_START script_KingGustav
+script_KingGustav::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	Call SetCollisionLayer2
@@ -39,5 +39,5 @@ script_0800D962:
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

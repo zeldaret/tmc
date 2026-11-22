@@ -1,5 +1,5 @@
 @ Hyrule Town Kid in school 3?
-SCRIPT_START script_Kid7
+script_Kid7::
 	BeginBlock
 	SetAnimation 0x000b
 	Jump script_08010622

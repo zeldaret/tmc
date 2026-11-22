@@ -1,5 +1,5 @@
 @ Intro Ceremony Guard bottom right
-SCRIPT_START script_GuardBottomRight
+script_GuardBottomRight::
 	ClearSyncFlag 0x00002000
 	SetSyncFlag 0x00004000
 	WaitForSyncFlagAndClear 0x00002000
@@ -32,4 +32,4 @@ SCRIPT_START script_GuardBottomRight
 	WalkForward 0x003c
 	SetSyncFlag 0x00004000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

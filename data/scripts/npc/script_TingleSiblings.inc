@@ -1,5 +1,5 @@
 @ Tingle Siblings
-SCRIPT_START script_TingleSiblings
+script_TingleSiblings::
 	BeginBlock
 	Call TingleSiblings_MakeInteractable
 	SetAnimationState 0x0004
@@ -21,7 +21,7 @@ script_08016926:
 	SetGlobalFlag TINGLE_TALK1ST
 	Jump script_0801690A
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x000a
 	EndBlock
@@ -36,7 +36,7 @@ script_0801693E:
 	Jump script_0801693E
 	.2byte 0x0000
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x000a
 	SetAnimation 0x0000

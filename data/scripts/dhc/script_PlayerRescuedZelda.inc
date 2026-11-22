@@ -1,5 +1,5 @@
 @ Player after turning Zelda back from stone
-SCRIPT_START script_PlayerRescuedZelda
+script_PlayerRescuedZelda::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock
@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerRescuedZelda
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

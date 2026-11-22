@@ -1,5 +1,5 @@
 @ (Intro) Hyrule Town Brocco
-SCRIPT_START script_Brocco
+script_Brocco::
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0000

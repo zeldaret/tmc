@@ -1,5 +1,5 @@
 @ Minish Woods Ezlo Cutscene NPC4E
-SCRIPT_START script_Npc4EEzloCutscene
+script_Npc4EEzloCutscene::
 	BeginBlock
 	Call DisableRandomDrops
 	EndBlock
@@ -15,16 +15,16 @@ script_0801248A:
 	WaitUntilTextboxCloses
 	CameraTargetPlayer
 	SetFadeTime 0x0004
-	_0807E80C 0x00000000
+	SetFadeIrisInOut
 	WaitForFadeFinish
-	_0807E858 0x0000
+	SetFadeProgress 0x0000
 	Call SetPlayerActionNormal
 	LoadRoomEntityList gUnk_080F4D70
 	Call DeleteAllEnemies
 	SetEntityPositionRelative 0x0388, 0x0168
 	Call sub_0807F844
 	SetFadeTime 0x0004
-	_0807E800 0x00000000
+	SetFadeIris
 	WaitForFadeFinish
 	PlayBgm BGM_EZLO_THEME
 	SetSyncFlag 0x00000010
@@ -39,14 +39,14 @@ script_0801248A:
 	WaitForSyncFlagAndClear 0x00000008
 	StopBgm
 	SetFadeTime 0x0004
-	_0807E80C 0x00000000
+	SetFadeIrisInOut
 	WaitForFadeFinish
 	MoveEntityToPlayer
 	Call sub_0807F844
 	CameraTargetPlayer
 	SetFadeMask 0xffffffff
 	SetFadeTime 0x0004
-	_0807E800 0x00000000
+	SetFadeIris
 	WaitForFadeFinish
 	Call EnablePauseMenu
 	EnablePlayerControl
@@ -96,7 +96,7 @@ script_08012566:
 	WaitForSyncFlagAndClear 0x00000008
 	StartPlayerScript script_PlayerDefeatedOctoroks
 	WaitForSyncFlagAndClear 0x00000001
-	_0807E8E4_0
+	PlayerIdleNorth
 	PlayBgm BGM_EZLO_THEME
 	Wait 0x001e
 	SetSyncFlag 0x00000004
@@ -132,4 +132,4 @@ script_08012566:
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

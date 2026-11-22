@@ -1,5 +1,5 @@
 @ Hyrule Town Kid in the Inn on the 2nd floor
-SCRIPT_START script_KidInn
+script_KidInn::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	Call Kid_MakeInteractable

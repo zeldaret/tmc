@@ -1,5 +1,5 @@
 @ Hyrule Town Kid standing outside school garden
-SCRIPT_START script_Kid1
+script_Kid1::
 	BeginBlock
 	DoPostScriptAction 0x0000
 	Call Kid_MakeInteractable

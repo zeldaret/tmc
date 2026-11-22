@@ -1,5 +1,5 @@
 @ Librari
-SCRIPT_START script_Librari
+script_Librari::
 	BeginBlock
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004

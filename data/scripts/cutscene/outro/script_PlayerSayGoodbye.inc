@@ -1,5 +1,5 @@
 @ Outro Player goes to say goodbye to Minish Ezlo
-SCRIPT_START script_PlayerSayGoodbye
+script_PlayerSayGoodbye::
 	BeginBlock
 	SetEntitySpeed 0x0080
 	EndBlock

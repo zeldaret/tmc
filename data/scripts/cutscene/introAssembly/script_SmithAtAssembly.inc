@@ -1,5 +1,5 @@
 @ Intro Assembly Smith
-SCRIPT_START script_SmithAtAssembly
+script_SmithAtAssembly::
 	BeginBlock
 	Call SetPriorityMessage
 	SetAnimationState 0x0006
@@ -49,7 +49,7 @@ SCRIPT_START script_SmithAtAssembly
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	Jump script_080092B2
 	.2byte 0x0000

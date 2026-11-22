@@ -1,7 +1,7 @@
 @ Veil Falls BigGoron spit out Shield
-SCRIPT_START script_BigGoronMirrorShield
+script_BigGoronMirrorShield::
 	Wait 0x003c
-	_0807F0C8 0x0000, 0x0000
+	InitScreenShake 0x0000, 0x0000
 	LoadRoomEntityList gUnk_080F9C58
 	Wait 0x003c
 	Call sub_0806D70C

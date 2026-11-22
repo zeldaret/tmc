@@ -1,5 +1,5 @@
 @ Hyrule Town CUTSCENE_ORCHESTRATOR at Carlov. Prevent from leaving if already paid.
-SCRIPT_START script_CutsceneMiscObjectPreventPlayerLeaveCarlov
+script_CutsceneMiscObjectPreventPlayerLeaveCarlov::
 	BeginBlock
 	EndBlock
 script_0801454C:
@@ -16,5 +16,5 @@ script_0801454C:
 	WaitForSyncFlagAndClear 0x00000002
 	EnablePlayerControl
 	Jump script_0801454C
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

@@ -403,7 +403,7 @@ void sub_StateChange_HouseInteriors1_Inn1F(void) {
     }
 }
 
-extern u32* gUnk_080D6A74[];
+extern u32* TileEntities_HouseInteriors1_InnWestRoom_Dynamic[];
 
 u32 sub_unk3_HouseInteriors1_InnWestRoom(void) {
     u32 index;
@@ -415,7 +415,7 @@ u32 sub_unk3_HouseInteriors1_InnWestRoom(void) {
         index = 0;
         SetLocalFlag(BILL05_YADO1F_MATSU_T0);
     }
-    gRoomVars.properties[3] = gUnk_080D6A74[index];
+    gRoomVars.properties[3] = TileEntities_HouseInteriors1_InnWestRoom_Dynamic[index];
     return 1;
 }
 
@@ -431,7 +431,7 @@ void sub_StateChange_HouseInteriors1_InnWestRoom(void) {
     }
 }
 
-extern u32* gUnk_080D6B18[];
+extern u32* TileEntities_HouseInteriors1_InnMiddleRoom_Dynamic[];
 
 u32 sub_unk3_HouseInteriors1_InnMiddleRoom(void) {
     u32 index;
@@ -443,7 +443,7 @@ u32 sub_unk3_HouseInteriors1_InnMiddleRoom(void) {
         index = 0;
         SetLocalFlag(BILL06_YADO1F_TAKE_T0);
     }
-    gRoomVars.properties[3] = gUnk_080D6B18[index];
+    gRoomVars.properties[3] = TileEntities_HouseInteriors1_InnMiddleRoom_Dynamic[index];
     return 1;
 }
 
@@ -457,7 +457,7 @@ void sub_StateChange_HouseInteriors1_InnMiddleRoom(void) {
     }
 }
 
-extern u32* gUnk_080D6BB8[];
+extern u32* TileEntities_HouseInteriors1_InnEastRoom_Dynamic[];
 
 u32 sub_unk3_HouseInteriors1_InnEastRoom(void) {
     s32 index;
@@ -469,7 +469,7 @@ u32 sub_unk3_HouseInteriors1_InnEastRoom(void) {
         index = 0;
         SetLocalFlag(BILL07_YADO1F_UME_T0);
     }
-    gRoomVars.properties[3] = gUnk_080D6BB8[index];
+    gRoomVars.properties[3] = TileEntities_HouseInteriors1_InnEastRoom_Dynamic[index];
     return 1;
 }
 

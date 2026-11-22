@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_08015A7C
+script_08015A7C::
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x0001
 	WalkNorth 0x0010
@@ -7,5 +7,5 @@ SCRIPT_START script_08015A7C
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

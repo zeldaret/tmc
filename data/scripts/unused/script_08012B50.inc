@@ -1,5 +1,5 @@
 @ TODO UNUSED?
-SCRIPT_START script_08012B50
+script_08012B50::
 	BeginBlock
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0000
@@ -9,4 +9,4 @@ SCRIPT_START script_08012B50
 	SetSyncFlag 0x00000002
 	CallWithArg SetPlayerIFrames, -30
 	Call SetPlayerActionNormal
-SCRIPT_END
+	EndScript

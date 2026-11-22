@@ -1,7 +1,7 @@
 @ Mines Mountain Minish helpers
-SCRIPT_START script_MountainMinish3
+script_MountainMinish3::
 	BeginBlock
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800D282:

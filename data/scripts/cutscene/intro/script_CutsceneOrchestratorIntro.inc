@@ -1,5 +1,5 @@
 @ Intro smith CUTSCENE_ORCHESTRATOR ?
-SCRIPT_START script_CutsceneOrchestratorIntro
+script_CutsceneOrchestratorIntro::
 	BeginBlock
 	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle
@@ -13,4 +13,4 @@ SCRIPT_START script_CutsceneOrchestratorIntro
 	Call EnablePauseMenu
 	EnablePlayerControl
 	Call PlayerSetNormalAndCollide
-SCRIPT_END
+	EndScript

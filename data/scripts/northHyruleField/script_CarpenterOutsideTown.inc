@@ -1,6 +1,6 @@
 @ Outside Castle Carpenter
 @ Hyrule Town Carpenter
-SCRIPT_START script_CarpenterOutsideTown
+script_CarpenterOutsideTown::
 	BeginBlock
 	Call Carpenter_MakeInteractable
 	DoPostScriptAction 0x000a

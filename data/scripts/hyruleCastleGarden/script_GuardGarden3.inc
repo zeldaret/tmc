@@ -1,9 +1,9 @@
 @ Intro Hyrule Castle Garden Guard
-SCRIPT_START script_GuardGarden3
+script_GuardGarden3::
 	BeginBlock
 	SetAnimationState 0x0004
 script_0801196A:
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock

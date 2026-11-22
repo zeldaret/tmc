@@ -1,5 +1,5 @@
 @ Hyrule Town CUTSCENE_ORCHESTRATOR at Carlov
-SCRIPT_START script_CutsceneMiscObjectCarlov2
+script_CutsceneMiscObjectCarlov2::
 	BeginBlock
 	DoPostScriptAction 0x0008
 	SetAnimationState 0x0004
@@ -15,7 +15,7 @@ script_080145F8:
 	JumpIf script_08014632
 	SetPlayerIdle
 	Wait 0x0018
-	_0807E8E4_3
+	PlayerIdleWest
 	SetAnimationState 0x0002
 	MessageFromTargetPos TEXT_CARLOV, 0x2b, 0x000c
 	WaitUntilTextboxCloses

@@ -1,5 +1,5 @@
 @ Intro Outside Castle Zelda
-SCRIPT_START script_ZeldaIntroBusinessScrub
+script_ZeldaIntroBusinessScrub::
 	BeginBlock
 	SetEntitySpeed 0x0180
 	DoPostScriptAction 0x0008
@@ -47,7 +47,7 @@ SCRIPT_START script_ZeldaIntroBusinessScrub
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
-	_0807E9D4
+	AddInteractableWhenBigObject
 	SetSyncFlag 0x00000002
 script_08015A32:
 	EndBlock
@@ -70,5 +70,5 @@ script_08015A54:
 	Call sub_08066D4C
 	SetSyncFlag 0x00000002
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

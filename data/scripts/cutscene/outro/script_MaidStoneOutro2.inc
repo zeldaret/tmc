@@ -1,5 +1,5 @@
 @ Outro Maid stone 2
-SCRIPT_START script_MaidStoneOutro2
+script_MaidStoneOutro2::
 	BeginBlock
 	DoPostScriptAction 0x0007
 	SetAnimationState 0x0004

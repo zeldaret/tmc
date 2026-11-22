@@ -1,11 +1,11 @@
 @ Intro Assembly King Daltus
-SCRIPT_START script_KingDaltusAtAssembly
+script_KingDaltusAtAssembly::
 	BeginBlock
 	Call SetPriorityMessage
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
-	_0807E9D4
+	AddInteractableWhenBigObject
 	DoPostScriptAction 0x000a
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000080

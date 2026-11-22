@@ -1,5 +1,5 @@
 @ Western Wood Cutscene CUTSCENE_ORCHESTRATOR in Castle
-SCRIPT_START script_CutsceneOrchestratorTakeoverCutscene
+script_CutsceneOrchestratorTakeoverCutscene::
 	BeginBlock
 	SetScrollSpeed 7
 	SetEntityPositionRelative 0x0088, 0x0068
@@ -65,4 +65,4 @@ SCRIPT_START script_CutsceneOrchestratorTakeoverCutscene
 	StopBgm
 	SetRoomFlag 0x0000
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

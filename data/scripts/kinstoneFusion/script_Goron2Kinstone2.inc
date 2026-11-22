@@ -1,5 +1,5 @@
 @ 2nd Goron during Kinstone cutscene for 2nd Goron
-SCRIPT_START script_Goron2Kinstone2
+script_Goron2Kinstone2::
 	BeginBlock
 	SetAnimationState 0x0000
 	SetAnimation 0x0000
@@ -33,4 +33,4 @@ SCRIPT_START script_Goron2Kinstone2
 	SetEntitySpeed 0x0080
 	MoveToOffset 0x0000, -32
 	Call sub_08054968
-SCRIPT_END
+	EndScript

@@ -1,5 +1,5 @@
 @ Intro Zelda moves to links house
-SCRIPT_START script_ZeldaMoveToLinksHouse
+script_ZeldaMoveToLinksHouse::
 	BeginBlock
 	SetEntityPositionRelative 0x01e8, 0x0110
 	SetEntitySpeed 0x00c0
@@ -25,5 +25,5 @@ SCRIPT_START script_ZeldaMoveToLinksHouse
 	MoveTo 0x0290, 0x0190
 	DoPostScriptAction 0x0008
 	MoveTo 0x0290, 0x0188
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

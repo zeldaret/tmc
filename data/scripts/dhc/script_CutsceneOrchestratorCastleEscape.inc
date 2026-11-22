@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR trying to escape the collapsing castle
-SCRIPT_START script_CutsceneOrchestratorCastleEscape
+script_CutsceneOrchestratorCastleEscape::
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Call DisablePauseMenuAndPutAwayItems
@@ -12,4 +12,4 @@ SCRIPT_START script_CutsceneOrchestratorCastleEscape
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript

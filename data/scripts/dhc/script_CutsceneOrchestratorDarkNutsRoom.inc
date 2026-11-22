@@ -1,5 +1,5 @@
 @ DHC CUTSCENE_ORCHESTRATOR Towards Vaati room with Dark Nuts
-SCRIPT_START script_CutsceneOrchestratorDarkNutsRoom
+script_CutsceneOrchestratorDarkNutsRoom::
 	BeginBlock
 	EndBlock
 	CheckLocalFlag 0x007e
@@ -19,5 +19,5 @@ script_0800E550:
 script_0800E582:
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
 	.2byte 0x0000

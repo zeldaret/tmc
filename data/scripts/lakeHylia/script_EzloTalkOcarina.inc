@@ -1,5 +1,5 @@
 @ Ezlo talk after first ocarina travel
-SCRIPT_START script_EzloTalkOcarina
+script_EzloTalkOcarina::
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormalOrTalkEzlo
@@ -9,4 +9,4 @@ SCRIPT_START script_EzloTalkOcarina
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
-SCRIPT_END
+	EndScript
